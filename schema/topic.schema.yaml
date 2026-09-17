@@ -1,0 +1,17 @@
+schema: "library-topic-schema/v1"
+version: "0.1.0"
+description: >
+  A topic is the unit of parallel work (PROC-0001 §4). It owns a bounded
+  question, a set of records, and one note. Topics rarely touch the same
+  files, which is what makes concurrent work safe.
+
+required: [id, question, owner, status]
+
+fields:
+  id:       {type: string, pattern: "^[a-z0-9][a-z0-9-]*$"}
+  question: {type: string, note: "the ONE question this topic exists to answer"}
+  owner:    {type: string, note: "human or agent id"}
+  status:   {type: enum, values: [open, active, answered, parked]}
+  bears_on: {type: list, note: "DEC-*/R-*/WP* this topic unblocks"}
+  records:  {type: list, note: "record ids owned by this topic"}
+  answer:   {type: string, required: false, note: "one paragraph, written when status=answered"}

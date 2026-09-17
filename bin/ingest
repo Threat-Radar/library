@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+"""ingest — create a library record from a source of any supported type.
+
+    bin/ingest <type> <source> [--id ID] [--title T] [--fetch]
+
+Types are DATA, not code: each is a template in bin/adapters/<type>.yaml.
+To add a type, add a template. Only add code here if a type needs real
+metadata extraction.
+
+Offline by default. --fetch retrieves bytes, hashes them, and caches to
+.cache/ (gitignored). We never commit third-party documents.
+"""
+import argparse, datetime, hashlib, os, pathlib, re, subprocess, sys, urllib.request
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+ADAPTERS = ROOT / "bin" / "adapters"
+RECORDS = ROOT / "records"
+CACHE = ROOT / ".cache"
+TODAY = datetime.date.today().isoformat()
+
+
+def slug(s, maxlen=60):
+    s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    return s[:maxlen].strip("-") or "untitled"
+
+
+def die(msg):
+    sys.exit(f"ingest: {msg}")
+
+
+def known_types():
+    return sorted(p.stem for p in ADAPTERS.glob("*.yaml"))
+
+
+# ---------------------------------------------------------------- enrichers
+def enrich_ietf(src, meta, _type=None):
+    """RFC number (bare or prefixed), or a draft name. Builds canonical locators."""
+    m = re.search(r"(?:rfc[- ]?)(\d{3,5})", src, re.I)
+    if not m and _type in ("rfc", None) and re.fullmatch(r"\d{3,5}", src.strip()):
+        m = re.match(r"(\d{3,5})", src.strip())
+    if m:
+        n = m.group(1)
+        meta.update(
+            id=meta.get("id") or f"rfc-{n}",
+            identifiers={"rfc": int(n), "doi": f"10.17487/RFC{n}",
+                         "url": f"https://www.rfc-editor.org/rfc/rfc{n}.html"},
+            url=f"https://www.rfc-editor.org/rfc/rfc{n}.html",
+            type="rfc")
+        return meta
+    d = re.sub(r"\.(txt|html|xml)$", "", src.strip().split("/")[-1])
+    meta.update(
+        id=meta.get("id") or slug(d),
+        identifiers={"draft": d,
+                     "url": f"https://datatracker.ietf.org/doc/{d}/"},
+        url=f"https://datatracker.ietf.org/doc/{d}/",
+        type="draft")
+    return meta
+
+
+def enrich_repo(src, meta):
+    name = re.sub(r"\.git$", "", src.rstrip("/").split("/")[-1])
+    owner = src.rstrip("/").split("/")[-2] if "/" in src.rstrip("/") else ""
+    meta.update(id=meta.get("id") or slug(f"{owner}-{name}"),
+                identifiers={"git": src}, url=src, type="repo")
+    try:
+        out = subprocess.run(["git", "ls-remote", src, "HEAD"],
+                             capture_output=True, text=True, timeout=20)
+        if out.returncode == 0 and out.stdout.split():
+            meta["commit"] = out.stdout.split()[0]
+    except Exception:
+        pass
+    return meta
+
+
+def enrich_pdf(src, meta):
+    p = pathlib.Path(src)
+    meta.update(id=meta.get("id") or slug(p.stem), url=src, type="paper")
+    if p.exists():
+        meta["sha256"] = hashlib.sha256(p.read_bytes()).hexdigest()
+        meta["media_type"] = "application/pdf"
+        try:
+            out = subprocess.run(["pdfinfo", str(p)], capture_output=True,
+                                 text=True, timeout=20).stdout
+            for line in out.splitlines():
+                k, _, v = line.partition(":")
+                v = v.strip()
+                if k == "Title" and v:
+                    meta.setdefault("title", v)
+                if k == "Pages" and v:
+                    meta["pages"] = int(v)
+        except Exception:
+            pass
+    return meta
+
+
+def enrich_url(src, meta):
+    meta.update(id=meta.get("id") or slug(re.sub(r"^https?://(www\.)?", "", src)),
+                identifiers={"url": src}, url=src, type="web")
+    return meta
+
+
+ENRICH = {"ietf": enrich_ietf, "rfc": enrich_ietf, "draft": enrich_ietf,
+          "repo": enrich_repo, "pdf": enrich_pdf, "url": enrich_url,
+          "web": enrich_url, "consortium": enrich_url}
+
+
+def fetch(url, dest):
+    CACHE.mkdir(exist_ok=True)
+    req = urllib.request.Request(url, headers={"User-Agent": "mofn-library/0.1"})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        data = r.read()
+    dest.write_bytes(data)
+    return hashlib.sha256(data).hexdigest(), len(data)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("type", nargs="?", help=f"one of: {', '.join(known_types())}")
+    ap.add_argument("source", nargs="?", help="URL, path, RFC number, or identifier")
+    ap.add_argument("--id"); ap.add_argument("--title")
+    ap.add_argument("--topic", help="topic id that owns this record")
+    ap.add_argument("--bears-on", default="", help="comma-separated DEC-*/R-* ids")
+    ap.add_argument("--fetch", action="store_true", help="retrieve + hash (network)")
+    ap.add_argument("--list", action="store_true")
+    a = ap.parse_args()
+
+    if a.list or not a.type:
+        print("types:", ", ".join(known_types())); return
+    tmpl_path = ADAPTERS / f"{a.type}.yaml"
+    if not tmpl_path.exists():
+        die(f"unknown type '{a.type}'. known: {', '.join(known_types())}")
+    if not a.source:
+        die("source required")
+
+    meta = {"id": a.id, "title": a.title}
+    fn = ENRICH.get(a.type)
+    if fn is enrich_ietf:
+        meta = fn(a.source, meta, a.type)
+    elif fn:
+        meta = fn(a.source, meta)
+    else:
+        meta = {**meta, "url": a.source, "id": meta.get("id") or slug(a.source)}
+    rid = meta["id"]
+    d = RECORDS / rid
+    if d.exists():
+        die(f"record already exists: records/{rid}/  (ids are stable; never reused)")
+
+    if a.fetch and meta.get("url", "").startswith("http"):
+        try:
+            h, n = fetch(meta["url"], CACHE / f"{rid}.bin")
+            meta["sha256"] = h
+            print(f"  fetched {n} bytes  sha256:{h[:16]}…")
+        except Exception as e:
+            print(f"  ! fetch failed ({e}); record created without digest")
+
+    tmpl = tmpl_path.read_text()
+    ident = meta.get("identifiers") or {"url": meta.get("url", a.source)}
+    ident_yaml = "\n".join(f"  {k}: {v}" for k, v in ident.items())
+    bears = [x.strip() for x in a.bears_on.split(",") if x.strip()]
+
+    body = (tmpl
+            .replace("{{id}}", rid)
+            .replace("{{type}}", meta.get("type", a.type))
+            .replace("{{title}}", meta.get("title") or f"TODO — title for {rid}")
+            .replace("{{identifiers}}", ident_yaml)
+            .replace("{{url}}", meta.get("url", a.source))
+            .replace("{{sha256}}", meta.get("sha256", ""))
+            .replace("{{retrieved}}", TODAY if meta.get("sha256") else "")
+            .replace("{{media_type}}", meta.get("media_type", ""))
+            .replace("{{pages}}", str(meta.get("pages", "")))
+            .replace("{{commit}}", meta.get("commit", ""))
+            .replace("{{topic}}", a.topic or "")
+            .replace("{{bears_on}}", "\n".join(f"  - {b}" for b in bears) or "  []")
+            .replace("{{status}}", "fetched" if meta.get("sha256") else "queued"))
+
+    d.mkdir(parents=True)
+    (d / "record.yaml").write_text(body)
+    (d / "distilled.md").write_text(
+        f"# {meta.get('title') or rid}\n\n"
+        f"> Status: **stub**. Required before `status: distilled`.\n\n"
+        f"## What it says\n\n_TODO — the argument, not a table of contents._\n\n"
+        f"## Why it matters here\n\n_TODO — name the DEC-* or R-* it bears on._\n\n"
+        f"## What it does not settle\n\n_TODO — the honest limits._\n")
+    print(f"created records/{rid}/  (type={meta.get('type', a.type)})")
+    print("  next: fill distilled.md, then bin/validate")
+
+
+if __name__ == "__main__":
+    main()

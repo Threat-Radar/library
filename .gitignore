@@ -1,0 +1,6 @@
+.cache/
+*.pdf
+*.xlsx
+*.epub
+*.docx
+__pycache__/

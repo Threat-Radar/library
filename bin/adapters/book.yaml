@@ -1,0 +1,29 @@
+# Book: identifiers.isbn. A work, not a file — see R-M-11 'locator'.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: {{id}}
+type: {{type}}
+title: "{{title}}"
+authors: []
+date: ""
+identifiers:
+{{identifiers}}
+content:
+  url: {{url}}
+  sha256: "{{sha256}}"
+  retrieved: "{{retrieved}}"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+{{bears_on}}
+topic: {{topic}}
+edition: ""
+tags: []
+status: {{status}}
+confidence: low

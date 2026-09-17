@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""validate — check every record and topic against the library schema.
+
+Deliberately dependency-free: a tiny YAML subset parser, so CI needs no pip
+install and a student can run it on a fresh machine. If records ever need
+real YAML, swap in ruamel and delete miniyaml().
+"""
+import pathlib, re, sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+REQUIRED = ["schema", "id", "type", "title", "content", "tags", "status"]
+STATUS = {"queued", "fetched", "reading", "read", "distilled"}
+TYPES = {"rfc", "draft", "spec", "paper", "book", "article", "repo", "dataset",
+         "consortium", "hierarchy", "spreadsheet", "web", "note", "ietf", "url", "md"}
+REL = {"supersedes", "superseded_by", "updates", "updated_by", "cited_by",
+       "see_also", "implements_concept", "contradicts", "part_of"}
+
+
+def miniyaml(text):
+    """Top-level keys + one nested level. Enough for these records."""
+    out, cur = {}, None
+    for raw in text.splitlines():
+        if not raw.strip() or raw.lstrip().startswith("#"):
+            continue
+        indent = len(raw) - len(raw.lstrip())
+        line = raw.strip()
+        if indent == 0 and ":" in line:
+            k, _, v = line.partition(":")
+            v = v.strip().strip('"')
+            cur = k.strip()
+            out[cur] = v if v else {}
+        elif indent > 0 and cur:
+            if isinstance(out.get(cur), str):
+                out[cur] = {}
+            if line.startswith("- "):
+                out.setdefault(cur, {})
+                if not isinstance(out[cur], list):
+                    out[cur] = []
+                out[cur].append(line[2:].strip())
+            elif ":" in line and isinstance(out.get(cur), dict):
+                k2, _, v2 = line.partition(":")
+                out[cur][k2.strip()] = v2.strip().strip('"')
+    return out
+
+
+def main():
+    errs, warns, n = [], [], 0
+    for rec in sorted((ROOT / "records").glob("*/record.yaml")):
+        n += 1
+        rid = rec.parent.name
+        d = miniyaml(rec.read_text())
+        where = f"records/{rid}"
+        for k in REQUIRED:
+            if k not in d:
+                errs.append(f"{where}: missing required field '{k}'")
+        if d.get("id") and d["id"] != rid:
+            errs.append(f"{where}: id '{d['id']}' != directory name '{rid}'")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", rid):
+            errs.append(f"{where}: id must be kebab-case")
+        if d.get("type") and d["type"] not in TYPES:
+            errs.append(f"{where}: unknown type '{d['type']}'")
+        st = d.get("status")
+        if st and st not in STATUS:
+            errs.append(f"{where}: unknown status '{st}'")
+        c = d.get("content", {})
+        if isinstance(c, dict):
+            if str(c.get("local", "false")).lower() == "true":
+                errs.append(f"{where}: content.local must be false — we do not commit third-party files")
+            if st in {"read", "distilled"} and not c.get("sha256"):
+                warns.append(f"{where}: status={st} but no content digest")
+        rel = d.get("relations", {})
+        if isinstance(rel, dict):
+            for k in rel:
+                if k not in REL:
+                    errs.append(f"{where}: relation '{k}' is not a typed relation {sorted(REL)}")
+        dist = rec.parent / "distilled.md"
+        if st == "distilled":
+            if not dist.exists():
+                errs.append(f"{where}: status=distilled but no distilled.md")
+            elif "TODO" in dist.read_text():
+                errs.append(f"{where}: status=distilled but distilled.md still has TODOs")
+        for f in rec.parent.iterdir():
+            if f.suffix.lower() in {".pdf", ".xlsx", ".epub", ".docx", ".zip"}:
+                errs.append(f"{where}: third-party file committed ({f.name}) — record the digest, not the bytes")
+
+    t = 0
+    for top in sorted((ROOT / "topics").glob("*.yaml")):
+        t += 1
+        d = miniyaml(top.read_text())
+        for k in ("id", "question", "owner", "status"):
+            if k not in d:
+                errs.append(f"topics/{top.name}: missing '{k}'")
+
+    for w in warns:
+        print(f"warn  {w}")
+    for e in errs:
+        print(f"ERROR {e}")
+    print(f"\n{n} records, {t} topics — {len(errs)} errors, {len(warns)} warnings")
+    return 1 if errs else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,33 @@
+# RFC: relations.updates / updated_by matter — check the RFC Editor page.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: rfc-2693
+type: rfc
+title: "SPKI Certificate Theory"
+authors: []
+date: ""
+identifiers:
+  rfc: 2693
+  doi: 10.17487/RFC2693
+  url: https://www.rfc-editor.org/rfc/rfc2693.html
+content:
+  url: https://www.rfc-editor.org/rfc/rfc2693.html
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-M-05
+  - R-M-06
+  - DEC-004
+topic: authorization-reduction
+publisher: IETF
+tags: []
+status: queued
+confidence: low

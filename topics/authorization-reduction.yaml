@@ -1,0 +1,8 @@
+schema: "library-topic/v1"
+id: authorization-reduction
+question: "How do 5-tuple reduction and tag intersection compose?"
+owner: S1
+status: open
+bears_on: []
+records: []
+answer: ""

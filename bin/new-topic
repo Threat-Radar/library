@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""new-topic — a topic is the unit of parallel work (PROC-0001 §4)."""
+import pathlib, sys
+if len(sys.argv) < 3:
+    sys.exit("usage: bin/new-topic <id> <question> [owner]")
+tid, q = sys.argv[1], sys.argv[2]
+owner = sys.argv[3] if len(sys.argv) > 3 else "unassigned"
+p = pathlib.Path(__file__).resolve().parent.parent / "topics" / f"{tid}.yaml"
+if p.exists():
+    sys.exit(f"exists: {p}")
+p.write_text(f'''schema: "library-topic/v1"
+id: {tid}
+question: "{q}"
+owner: {owner}
+status: open
+bears_on: []
+records: []
+answer: ""
+''')
+print(f"created topics/{tid}.yaml")

@@ -1,0 +1,57 @@
+schema: "library-record-schema/v1"
+version: "0.1.0"
+description: Normative shape of library/records/<id>/record.yaml
+
+required: [id, type, title, content, tags, status]
+
+fields:
+  id:          {type: string, pattern: "^[a-z0-9][a-z0-9-]*$", note: "stable; never reused"}
+  type:        {type: enum, values: [rfc, draft, spec, paper, book, article, repo, dataset, consortium, hierarchy, spreadsheet, web, note]}
+  title:       {type: string}
+  short_title: {type: string, required: false}
+  authors:     {type: list, of: string, required: false}
+  date:        {type: string, note: "YYYY or YYYY-MM or YYYY-MM-DD"}
+  publisher:   {type: string, required: false}
+
+  identifiers:
+    type: map
+    note: "any of: rfc, draft, doi, isbn, url, urn, arxiv, w3c, iso, git"
+
+  content:
+    type: map
+    required_keys: [url, retrieved]
+    keys:
+      url:       {type: string}
+      sha256:    {type: string, required: false, note: "digest of retrieved bytes; blank if not fetched"}
+      retrieved: {type: string, note: "YYYY-MM-DD"}
+      local:     {type: bool, default: false, note: "MUST stay false — we do not commit third-party files"}
+      media_type: {type: string, required: false}
+      pages:     {type: int, required: false}
+
+  relations:
+    type: map
+    note: "TYPED cross-references. Values are record ids, optionally <library-id>:<record-id>."
+    keys:
+      supersedes:         {type: list}
+      superseded_by:      {type: list}
+      updates:            {type: list}
+      updated_by:         {type: list}
+      cited_by:           {type: list, note: "our own documents that cite this"}
+      see_also:           {type: list}
+      implements_concept: {type: list, note: "topic ids"}
+      contradicts:        {type: list}
+      part_of:            {type: list, note: "parent hierarchy or consortium record"}
+
+  bears_on:
+    type: list
+    note: "ARCH-0001 decision or requirement ids this record informs, e.g. DEC-002, R-M-12"
+
+  tags:       {type: list, of: string}
+  status:     {type: enum, values: [queued, fetched, reading, read, distilled]}
+  confidence: {type: enum, values: [low, medium, high], required: false}
+  owner:      {type: string, required: false}
+
+companions:
+  distilled.md: {required_at_status: distilled, note: "our summary: what it says, why it matters here"}
+  quotes.md:    {required: false, note: "verbatim excerpts WITH locators, for citation"}
+  artifacts/:   {required: false, note: "derived: extracted grammars, generated code, diagrams, vectors"}

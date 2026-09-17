@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+"""export — generate exports/references.json (CSL-JSON) and references.bib.
+
+record.yaml is AUTHORED. exports/ is GENERATED. Never edit exports/ by hand;
+never treat BibTeX as the source of truth. CSL-JSON round-trips through Zotero,
+Citation.js and pandoc, so nobody is locked in.
+"""
+import json, pathlib, sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from importlib.machinery import SourceFileLoader
+miniyaml = SourceFileLoader("v", str(pathlib.Path(__file__).resolve().parent / "validate")).load_module().miniyaml
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+CSL_TYPE = {"rfc": "report", "draft": "report", "spec": "report", "paper": "article-journal",
+            "book": "book", "article": "article-magazine", "repo": "software",
+            "dataset": "dataset", "consortium": "report", "hierarchy": "report",
+            "spreadsheet": "dataset", "web": "webpage", "note": "manuscript"}
+
+items, bib = [], []
+for rec in sorted((ROOT / "records").glob("*/record.yaml")):
+    d = miniyaml(rec.read_text())
+    rid = rec.parent.name
+    ident = d.get("identifiers", {}) if isinstance(d.get("identifiers"), dict) else {}
+    content = d.get("content", {}) if isinstance(d.get("content"), dict) else {}
+    date = str(d.get("date", "") or "")
+    parts = [int(x) for x in date.split("-") if x.isdigit()] if date else []
+    it = {"id": rid, "type": CSL_TYPE.get(d.get("type"), "document"),
+          "title": d.get("title", rid),
+          "URL": ident.get("url") or content.get("url", "")}
+    if parts:
+        it["issued"] = {"date-parts": [parts]}
+    if ident.get("doi"):
+        it["DOI"] = ident["doi"]
+    if ident.get("isbn"):
+        it["ISBN"] = ident["isbn"]
+    if d.get("publisher"):
+        it["publisher"] = d["publisher"]
+    if ident.get("rfc"):
+        it["number"] = f"RFC {ident['rfc']}"
+    items.append(it)
+    bib.append("@misc{%s,\n  title = {{%s}},\n  howpublished = {\\url{%s}},\n  year = {%s}\n}" %
+               (rid, d.get("title", rid), it["URL"], parts[0] if parts else ""))
+
+(ROOT / "exports").mkdir(exist_ok=True)
+(ROOT / "exports" / "references.json").write_text(json.dumps(items, indent=2) + "\n")
+(ROOT / "exports" / "references.bib").write_text("\n\n".join(bib) + "\n")
+print(f"exported {len(items)} records → exports/references.json, exports/references.bib")

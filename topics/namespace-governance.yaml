@@ -1,0 +1,8 @@
+schema: "library-topic/v1"
+id: namespace-governance
+question: "Who allocates identifiers, and what does key-relative allocation cost?"
+owner: paul
+status: open
+bears_on: []
+records: []
+answer: ""

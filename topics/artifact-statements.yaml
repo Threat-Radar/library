@@ -1,0 +1,8 @@
+schema: "library-topic/v1"
+id: artifact-statements
+question: "How do in-toto, SLSA and PICS structure claims about objects?"
+owner: S2
+status: open
+bears_on: []
+records: []
+answer: ""

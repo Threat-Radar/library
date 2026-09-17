@@ -1,0 +1,72 @@
+[
+  {
+    "id": "draft-mih-scitt-agent-action-capsule-02",
+    "type": "report",
+    "title": "An Agent Action Capsule Profile for SCITT",
+    "URL": "https://datatracker.ietf.org/doc/draft-mih-scitt-agent-action-capsule-02/",
+    "publisher": "IETF"
+  },
+  {
+    "id": "in-toto-attestation-v1",
+    "type": "report",
+    "title": "in-toto Attestation Framework v1",
+    "URL": "https://in-toto.io/"
+  },
+  {
+    "id": "rfc-2693",
+    "type": "report",
+    "title": "SPKI Certificate Theory",
+    "URL": "https://www.rfc-editor.org/rfc/rfc2693.html",
+    "DOI": "10.17487/RFC2693",
+    "publisher": "IETF",
+    "number": "RFC 2693"
+  },
+  {
+    "id": "rfc-8949",
+    "type": "report",
+    "title": "Concise Binary Object Representation (CBOR)",
+    "URL": "https://www.rfc-editor.org/rfc/rfc8949.html",
+    "DOI": "10.17487/RFC8949",
+    "publisher": "IETF",
+    "number": "RFC 8949"
+  },
+  {
+    "id": "rfc-9052",
+    "type": "report",
+    "title": "CBOR Object Signing and Encryption (COSE): Structures and Process",
+    "URL": "https://www.rfc-editor.org/rfc/rfc9052.html",
+    "DOI": "10.17487/RFC9052",
+    "publisher": "IETF",
+    "number": "RFC 9052"
+  },
+  {
+    "id": "rfc-9804",
+    "type": "report",
+    "title": "Simple Public Key Infrastructure (SPKI) S-Expressions",
+    "URL": "https://www.rfc-editor.org/rfc/rfc9804.html",
+    "DOI": "10.17487/RFC9804",
+    "publisher": "IETF",
+    "number": "RFC 9804"
+  },
+  {
+    "id": "rfc-9943",
+    "type": "report",
+    "title": "An Architecture for Trustworthy and Transparent Digital Supply Chains",
+    "URL": "https://www.rfc-editor.org/rfc/rfc9943.html",
+    "DOI": "10.17487/RFC9943",
+    "publisher": "IETF",
+    "number": "RFC 9943"
+  },
+  {
+    "id": "secure-systems-lab-dsse",
+    "type": "software",
+    "title": "Dead Simple Signing Envelope (DSSE)",
+    "URL": "https://github.com/secure-systems-lab/dsse"
+  },
+  {
+    "id": "w3-org-pics",
+    "type": "webpage",
+    "title": "W3C Platform for Internet Content Selection (PICS)",
+    "URL": "https://www.w3.org/PICS/"
+  }
+]
