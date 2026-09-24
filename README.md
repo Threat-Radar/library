@@ -1,6 +1,6 @@
 # m-of-n technical reference library
 
-The bibliographic library for the [m-of-n](../) project. Standalone by design:
+The bibliographic library with generated artifacts. Standalone by design:
 independently cloneable, forkable, and citable by projects that are not this one.
 Vendored into `mofn/` as a submodule pinned to a commit, so a report's
 bibliography is reproducible as `library@<commit>`.
