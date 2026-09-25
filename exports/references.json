@@ -1,5 +1,11 @@
 [
   {
+    "id": "pasta-risk-centric-threat-modeling",
+    "type": "book",
+    "title": "Risk Centric Threat Modeling: PASTA (UcedaV\u00e9lez & Morana)",
+    "URL": "https://www.wiley.com/"
+  },
+  {
     "id": "draft-mcnally-deterministic-cbor",
     "type": "report",
     "title": "dCBOR: Deterministic CBOR",
@@ -14,6 +20,12 @@
       ]
     },
     "publisher": "IETF"
+  },
+  {
+    "id": "first-cvss",
+    "type": "report",
+    "title": "FIRST, Common Vulnerability Scoring System (CVSS)",
+    "URL": "https://www.first.org/cvss/"
   },
   {
     "id": "in-toto-attestation-v1",
@@ -1001,6 +1013,39 @@
     "URL": "https://www.iana.org/assignments/cose/cose.xhtml"
   },
   {
+    "id": "iso-26262-3-2018",
+    "type": "report",
+    "title": "ISO 26262-3:2018, Road vehicles \u2014 Functional safety \u2014 Part 3: Concept phase",
+    "URL": "https://www.iso.org/"
+  },
+  {
+    "id": "iso-iec-15408",
+    "type": "report",
+    "title": "ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common Criteria)",
+    "URL": "https://www.iso.org/"
+  },
+  {
+    "id": "iso-iec-18045",
+    "type": "report",
+    "title": "ISO/IEC 18045, Methodology for IT security evaluation (attack potential)",
+    "URL": "https://www.iso.org/"
+  },
+  {
+    "id": "iso-sae-21434-2021",
+    "type": "report",
+    "title": "Road vehicles \u2014 Cybersecurity engineering",
+    "URL": "https://www.iso.org/standard/70918.html",
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          8
+        ]
+      ]
+    },
+    "publisher": "ISO/SAE International"
+  },
+  {
     "id": "fips-186-4",
     "type": "report",
     "title": "Digital Signature Standard (DSS), FIPS 186-4",
@@ -1025,11 +1070,29 @@
     "publisher": "NIST"
   },
   {
+    "id": "nist-sp-800-160",
+    "type": "report",
+    "title": "NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)",
+    "URL": "https://csrc.nist.gov/pubs/sp/800/160/"
+  },
+  {
     "id": "sp-800-186",
     "type": "report",
     "title": "Recommendations for Discrete Logarithm-based Cryptography: Elliptic Curve Domain Parameters",
     "URL": "https://csrc.nist.gov/pubs/sp/800/186/final",
     "publisher": "NIST"
+  },
+  {
+    "id": "etsi-ts-102-165-1",
+    "type": "report",
+    "title": "ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and proforma for Threat, Vulnerability, Risk Analysis (TVRA)",
+    "URL": "https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/"
+  },
+  {
+    "id": "sae-j3061",
+    "type": "report",
+    "title": "SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)",
+    "URL": "https://www.sae.org/standards/content/j3061/"
   },
   {
     "id": "w3-org-pics",
