@@ -1001,6 +1001,21 @@
     "URL": "https://www.iana.org/assignments/cose/cose.xhtml"
   },
   {
+    "id": "iso-sae-21434-2021",
+    "type": "report",
+    "title": "Road vehicles \u2014 Cybersecurity engineering",
+    "URL": "https://www.iso.org/standard/70918.html",
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          8
+        ]
+      ]
+    },
+    "publisher": "ISO/SAE International"
+  },
+  {
     "id": "fips-186-4",
     "type": "report",
     "title": "Digital Signature Standard (DSS), FIPS 186-4",

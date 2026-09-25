@@ -3,7 +3,7 @@
 
 # Bibliography
 
-77 records.
+78 records.
 
 
 ## community
@@ -210,6 +210,9 @@
   _The central extension point of CBOR, and the single strongest piece of evidence for R-M-12: a native model built on it is registry-dependent._
 - **IANA COSE Algorithms registry**  
   `iana-cose-algorithms` · dataset · [source](https://www.iana.org/assignments/cose/cose.xhtml)
+- **Road vehicles — Cybersecurity engineering** — 2021-08  
+  `iso-sae-21434-2021` · spec · standard · **distilled** · [source](https://www.iso.org/standard/70918.html)  
+  _The reference method for automotive threat modeling and risk: a structured TARA pipeline (asset -> threat scenario -> impact rating S/F/O/P -> attack path -> attack feasibility -> risk value -> treatment), a normative object model (Fig 3), and a requirement/work-product structure that is itself the template for automating conformance audits (tmodel #15)._
 
 ## nist
 

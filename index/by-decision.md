@@ -75,6 +75,10 @@ This is the query the library exists to answer.
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
 
+### DEC-003               # risk-metric scheme (impact rating, attack feasibility, risk value)
+
+- [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
 ### DEC-004
 
 - [`rfc-2693`](../records/ietf/rfc-2693/) — SPKI Certificate Theory
@@ -96,11 +100,31 @@ This is the query the library exists to answer.
 - [`rfc-9942`](../records/ietf/rfc-9942/) — CBOR Object Signing and Encryption (COSE) Receipts
 - [`rfc-9995`](../records/ietf/rfc-9995/) — CBOR Object Signing and Encryption (COSE) Hash Envelope
 
+### DEC-005               # MVP scope (TARA is a candidate expansion dimension)
+
+- [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
 ### DEC-007
 
 - [`draft-mih-scitt-agent-action-capsule-02`](../records/ietf/draft-mih-scitt-agent-action-capsule-02/) — An Agent Action Capsule Profile for SCITT
 - [`rfc-9943`](../records/ietf/rfc-9943/) — An Architecture for Trustworthy and Transparent Digital Supply Chains
 - [`w3-org-pics`](../records/w3c/w3-org-pics/) — W3C Platform for Internet Content Selection (PICS)
+
+### DEC-009               # generic->product mapping & mitigation lifecycle
+
+- [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
+### R-011                 # risk metric "how bad"
+
+- [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
+### R-012                 # optional ISO/SAE 21434 risk analysis
+
+- [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
+### R-021                 # mitigation tracking over the design lifecycle
+
+- [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
 
 ### R-M-02
 

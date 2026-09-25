@@ -3,7 +3,7 @@
 
 # Records
 
-77 records across 5 bodies.
+78 records across 5 bodies.
 
 
 ## community
@@ -92,6 +92,7 @@
 | [`iana-cbor-simple-values`](../records/iso/iana-cbor-simple-values/) | IANA Concise Binary Object Representation (CBOR) Simple Va | dataset | — | fetched | useful | — |
 | [`iana-cbor-tags`](../records/iso/iana-cbor-tags/) | IANA Concise Binary Object Representation (CBOR) Tags Regi | dataset | — | fetched | useful | — |
 | [`iana-cose-algorithms`](../records/iso/iana-cose-algorithms/) | IANA COSE Algorithms registry | dataset | — | stub | — | — |
+| [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) | Road vehicles — Cybersecurity engineering | spec | standard | distilled | useful | — |
 
 ## nist
 

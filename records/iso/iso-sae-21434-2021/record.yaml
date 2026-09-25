@@ -1,0 +1,70 @@
+schema: "library-record/v1"
+id: iso-sae-21434-2021
+body: iso
+type: spec
+maturity: standard
+title: "Road vehicles — Cybersecurity engineering"
+short_title: "ISO/SAE 21434"
+authors: ["ISO/TC 22/SC 32", "SAE"]
+date: "2021-08"
+publisher: "ISO/SAE International"
+version: "2021"
+identifiers:
+  iso: "ISO/SAE 21434:2021"
+  url: https://www.iso.org/standard/70918.html
+content:
+  # The bytes are a purchased copy held locally (gitignored .cache); never committed.
+  # url is the catalog/purchase page; sha256 is the digest of the copy we hold.
+  url: https://www.iso.org/standard/70918.html
+  sha256: "73f990078d3a5b47dec91dd0d2b4e6c24cecd9e4160ae5b143c3b3fa80b7cdf4"
+  retrieved: "2026-09-25"
+  local: false
+  media_type: application/pdf
+  pages: 87
+relations:
+  supersedes: []          # cancels/supersedes SAE J3061:2016 (not held as a record)
+  superseded_by: []
+  cited_by: []
+  see_also: []
+  implements_concept: []
+bears_on:
+  - DEC-003               # risk-metric scheme (impact rating, attack feasibility, risk value)
+  - DEC-005               # MVP scope (TARA is a candidate expansion dimension)
+  - DEC-009               # generic->product mapping & mitigation lifecycle
+  - R-011                 # risk metric "how bad"
+  - R-012                 # optional ISO/SAE 21434 risk analysis
+  - R-021                 # mitigation tracking over the design lifecycle
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "The reference method for automotive threat modeling and risk: a structured TARA pipeline (asset -> threat scenario -> impact rating S/F/O/P -> attack path -> attack feasibility -> risk value -> treatment), a normative object model (Fig 3), and a requirement/work-product structure that is itself the template for automating conformance audits (tmodel #15)."
+  assessed: "2026-09-25"
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-09-25"
+topic: ""
+tags:
+  - iso
+  - standard
+  - threat-modeling
+  - tara
+  - risk-assessment
+  - automotive
+  - compliance
+status: distilled
+confidence: medium
+distillation:
+  artifacts:
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "All 118 marked normative statements (101 RQ, 13 RC, 4 PM) + 42 work products, externally referenceable as <record>#RQ-CC-NN. NOT yet reviewed line-by-line against the source; verbatim prefixes only."
+      generated_from: "pdftotext -layout of the purchased PDF + marker extraction"
+      reviewed_by: ""
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "Clause 15 TARA pipeline, the Fig 3 object model, Table 1 attack-feasibility, key Clause 3 terminology, and the audit-automation mapping. Overview level; Annexes (impact tables F, feasibility methods G/H) NOT distilled."
+      reviewed_by: ""
