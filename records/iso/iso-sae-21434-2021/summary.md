@@ -41,6 +41,28 @@ Two things make this the core doc to iterate on:
    audits** — a work product is the unit of evidence, so an audit becomes a coverage +
    traceability query over the knowledge graph, with a human judging adequacy (tmodel #15).
 
+## Requirements
+
+**118 requirements** (101 shall / 13 should / 4 may) and **42 work products**, extracted with full text, clause locators, cross-references, and produced work products.
+
+- Full structured catalog: [`distilled/requirements.yaml`](distilled/requirements.yaml) (cite as `iso-sae-21434-2021#RQ-CC-NN`)
+- Viewable list (designator + short title, per clause): [`distilled/requirements.md`](distilled/requirements.md)
+
+| clause | area | requirements | work products |
+|---|---|---|---|
+| 5 | Organizational mgmt | 17 | 5 |
+| 6 | Project-dependent mgmt | 34 | 4 |
+| 7 | Distributed activities | 8 | 1 |
+| 8 | Continual activities | 8 | 6 |
+| 9 | Concept | 11 | 7 |
+| 10 | Product development | 13 | 7 |
+| 11 | Validation | 2 | 1 |
+| 12 | Production | 3 | 1 |
+| 13 | Operations & maintenance | 3 | 1 |
+| 14 | End of support | 2 | 1 |
+| 15 | TARA methods | 17 | 8 |
+| **all** | | **118** | **42** |
+
 ## Applicability
 
 | Axis | Rating | Why |
@@ -65,7 +87,8 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
 | File | What it is |
 |---|---|
 | `record.yaml` | metadata |
-| `distilled/requirements.yaml` | 118 requirements (RQ/RC/PM) + 42 work products, `#RQ-CC-NN` referenceable |
+| `distilled/requirements.yaml` | 118 requirements + 42 work products, full text/refs, `#RQ-CC-NN` referenceable |
+| `distilled/requirements.md` | viewable per-clause table: designator + short title |
 | `distilled/normative.md` | TARA pipeline, object model (Fig 3), Table 1 feasibility, terminology, audit mapping |
 | `distilled/README.md` | index of distilled artifacts + coverage |
 

@@ -3,14 +3,21 @@
 
 # Records
 
-78 records across 5 bodies.
+86 records across 7 bodies.
 
+
+## academic
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana) | book | — | queued | — | — |
 
 ## community
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
+| [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 
@@ -92,6 +99,9 @@
 | [`iana-cbor-simple-values`](../records/iso/iana-cbor-simple-values/) | IANA Concise Binary Object Representation (CBOR) Simple Va | dataset | — | fetched | useful | — |
 | [`iana-cbor-tags`](../records/iso/iana-cbor-tags/) | IANA Concise Binary Object Representation (CBOR) Tags Regi | dataset | — | fetched | useful | — |
 | [`iana-cose-algorithms`](../records/iso/iana-cose-algorithms/) | IANA COSE Algorithms registry | dataset | — | stub | — | — |
+| [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) | ISO 26262-3:2018, Road vehicles — Functional safety — Part | spec | — | queued | — | — |
+| [`iso-iec-15408`](../records/iso/iso-iec-15408/) | ISO/IEC 15408 (all parts), Evaluation criteria for IT secu | spec | — | queued | — | — |
+| [`iso-iec-18045`](../records/iso/iso-iec-18045/) | ISO/IEC 18045, Methodology for IT security evaluation (att | spec | — | queued | — | — |
 | [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) | Road vehicles — Cybersecurity engineering | spec | standard | distilled | useful | — |
 
 ## nist
@@ -100,7 +110,15 @@
 |---|---|---|---|---|---|---|
 | [`fips-186-4`](../records/nist/fips-186-4/) | Digital Signature Standard (DSS), FIPS 186-4 | spec | historic | stub | — | — |
 | [`fips-186-5`](../records/nist/fips-186-5/) | Digital Signature Standard (DSS) | spec | standard | summarized | useful | — |
+| [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) | NIST SP 800-160, Systems Security Engineering (Ross et al. | spec | — | queued | — | — |
 | [`sp-800-186`](../records/nist/sp-800-186/) | Recommendations for Discrete Logarithm-based Cryptography: | spec | recommendation | stub | — | — |
+
+## other
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) | ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: M | spec | — | queued | — | — |
+| [`sae-j3061`](../records/other/sae-j3061/) | SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehi | spec | — | queued | — | — |
 
 ## w3c
 

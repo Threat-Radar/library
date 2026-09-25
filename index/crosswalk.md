@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-59 of 78 records have at least one edge.
+61 of 86 records have at least one edge.
 
 
 ### `draft-ietf-cbor-cddl-modules`
@@ -56,6 +56,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
 ### `ietf-vcon-wg`
 - **has_part** → `draft-ietf-vcon-vcon-core-04`
+
+### `iso-sae-21434-2021`
+- **supersedes** → `sae-j3061`
 
 ### `rfc-7049`
 - **part_of** → `ietf-cbor-wg`
@@ -207,6 +210,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `rfc-9997`
 - **part_of** → `ietf-cbor-wg`
 
+### `sae-j3061`
+- **superseded_by** → `iso-sae-21434-2021`
+
 ### `sp-800-186`
 - **see_also** → `fips-186-5`
 
@@ -216,10 +222,16 @@ No edges in or out. Not wrong — but a record connected to nothing
 is a record nothing will surface.
 
 - `draft-mih-scitt-agent-action-capsule-02`
+- `etsi-ts-102-165-1`
+- `first-cvss`
 - `iana-cbor-simple-values`
 - `iana-cbor-tags`
 - `in-toto-attestation-v1`
-- `iso-sae-21434-2021`
+- `iso-26262-3-2018`
+- `iso-iec-15408`
+- `iso-iec-18045`
+- `nist-sp-800-160`
+- `pasta-risk-centric-threat-modeling`
 - `rfc-1952`
 - `rfc-2693`
 - `rfc-3339`

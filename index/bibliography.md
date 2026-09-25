@@ -3,14 +3,21 @@
 
 # Bibliography
 
-78 records.
+86 records.
 
+
+## academic
+
+- **Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)**  
+  `pasta-risk-centric-threat-modeling` · book · [source](https://www.wiley.com/)
 
 ## community
 
 - **dCBOR: Deterministic CBOR** — 2026-08-10  
   `draft-mcnally-deterministic-cbor` · draft · [source](https://www.ietf.org/archive/id/draft-mcnally-deterministic-cbor-18.txt)  
   _An INDIVIDUAL draft with no IETF stream and no WG standing, widely miscited as 'the' deterministic CBOR profile. At -18 it narrows RFC 8949 Sec.4.2 directly and does not mention CDE, contrary to common secondary accounts._
+- **FIRST, Common Vulnerability Scoring System (CVSS)**  
+  `first-cvss` · spec · [source](https://www.first.org/cvss/)
 - **in-toto Attestation Framework v1**  
   `in-toto-attestation-v1` · spec · [source](https://in-toto.io/)
 - **Dead Simple Signing Envelope (DSSE)**  
@@ -210,6 +217,12 @@
   _The central extension point of CBOR, and the single strongest piece of evidence for R-M-12: a native model built on it is registry-dependent._
 - **IANA COSE Algorithms registry**  
   `iana-cose-algorithms` · dataset · [source](https://www.iana.org/assignments/cose/cose.xhtml)
+- **ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept phase**  
+  `iso-26262-3-2018` · spec · [source](https://www.iso.org/)
+- **ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common Criteria)**  
+  `iso-iec-15408` · spec · [source](https://www.iso.org/)
+- **ISO/IEC 18045, Methodology for IT security evaluation (attack potential)**  
+  `iso-iec-18045` · spec · [source](https://www.iso.org/)
 - **Road vehicles — Cybersecurity engineering** — 2021-08  
   `iso-sae-21434-2021` · spec · standard · **distilled** · [source](https://www.iso.org/standard/70918.html)  
   _The reference method for automotive threat modeling and risk: a structured TARA pipeline (asset -> threat scenario -> impact rating S/F/O/P -> attack path -> attack feasibility -> risk value -> treatment), a normative object model (Fig 3), and a requirement/work-product structure that is itself the template for automating conformance audits (tmodel #15)._
@@ -221,8 +234,17 @@
 - **Digital Signature Standard (DSS)** — 2023-02-03. 10.6028/NIST.FIPS.186-5  
   `fips-186-5` · spec · standard · **summarized** · [source](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf)  
   _Defines the signature schemes a key-centric model will actually use; supplies publisher test vectors for PROC-0002 stage 8._
+- **NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)**  
+  `nist-sp-800-160` · spec · [source](https://csrc.nist.gov/pubs/sp/800/160/)
 - **Recommendations for Discrete Logarithm-based Cryptography: Elliptic Curve Domain Parameters**  
   `sp-800-186` · spec · recommendation · [source](https://csrc.nist.gov/pubs/sp/800/186/final)
+
+## other
+
+- **ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and proforma for Threat, Vulnerability, Risk Analysis (TVRA)**  
+  `etsi-ts-102-165-1` · spec · [source](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/)
+- **SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)**  
+  `sae-j3061` · spec · [source](https://www.sae.org/standards/content/j3061/)
 
 ## w3c
 

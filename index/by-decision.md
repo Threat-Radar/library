@@ -71,6 +71,11 @@ This is the query the library exists to answer.
 
 ### DEC-003
 
+- [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
+- [`first-cvss`](../records/community/first-cvss/) — FIRST, Common Vulnerability Scoring System (CVSS)
+- [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) — ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept 
+- [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
+- [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
@@ -86,7 +91,10 @@ This is the query the library exists to answer.
 ### DEC-005
 
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
+- [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
 - [`ietf-cose-wg`](../records/ietf/ietf-cose-wg/) — IETF CBOR Object Signing and Encryption (COSE) Working Group
+- [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) — NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)
 - [`rfc-8152`](../records/ietf/rfc-8152/) — CBOR Object Signing and Encryption (COSE)
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9052`](../records/ietf/rfc-9052/) — CBOR Object Signing and Encryption (COSE): Structures and Process
@@ -99,6 +107,7 @@ This is the query the library exists to answer.
 - [`rfc-9864`](../records/ietf/rfc-9864/) — Fully-Specified Algorithms for JSON Object Signing and Encryption (JOS
 - [`rfc-9942`](../records/ietf/rfc-9942/) — CBOR Object Signing and Encryption (COSE) Receipts
 - [`rfc-9995`](../records/ietf/rfc-9995/) — CBOR Object Signing and Encryption (COSE) Hash Envelope
+- [`sae-j3061`](../records/other/sae-j3061/) — SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems 
 
 ### DEC-005               # MVP scope (TARA is a candidate expansion dimension)
 
@@ -113,6 +122,12 @@ This is the query the library exists to answer.
 ### DEC-009               # generic->product mapping & mitigation lifecycle
 
 - [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
+### R-011
+
+- [`first-cvss`](../records/community/first-cvss/) — FIRST, Common Vulnerability Scoring System (CVSS)
+- [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
+- [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
 
 ### R-011                 # risk metric "how bad"
 

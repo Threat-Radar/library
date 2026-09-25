@@ -14,7 +14,8 @@ as authoritative.
 
 | artifact | what it is | coverage |
 |---|---|---|
-| `requirements.yaml` | 118 requirements (101 RQ / 13 RC / 4 PM) + 42 work products, `#RQ-CC-NN` referenceable, with clause locators and `resulting_from` links | all marked normative statements; **verbatim prefixes (≤320 chars), not reviewed** |
+| `requirements.yaml` | 118 requirements + 42 work products, `#RQ-CC-NN`, with clause + locator + short_title + full text + produces(WP) + refs + external_refs | all marked normative statements, **full text**; not reviewed line-by-line |
+| `requirements.md` | viewable per-clause table: designator + short title (HTML version will be expandable) | all 118 + 42 |
 | `normative.md` | TARA pipeline (Clause 15), Fig 3 object model, Table 1 feasibility, key Clause 3 terms, audit-automation mapping | overview; **Annexes not distilled** (impact tables F, feasibility methods) |
 
 ## Not yet done (next passes)
