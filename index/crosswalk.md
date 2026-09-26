@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-61 of 86 records have at least one edge.
+63 of 90 records have at least one edge.
 
 
 ### `draft-ietf-cbor-cddl-modules`
@@ -37,6 +37,12 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `draft-mcnally-deterministic-cbor`
 - **cites** → `iana-cbor-simple-values`, `iana-cbor-tags`
 - **see_also** → `draft-ietf-cbor-serialization`, `rfc-8949`
+
+### `fips-140-2`
+- **superseded_by** → `fips-140-3`
+
+### `fips-140-3`
+- **supersedes** → `fips-140-2`
 
 ### `fips-186-4`
 - **superseded_by** → `fips-186-5`
@@ -230,6 +236,8 @@ is a record nothing will surface.
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
+- `iso-iec-19790`
+- `iso-iec-24759`
 - `nist-sp-800-160`
 - `pasta-risk-centric-threat-modeling`
 - `rfc-1952`

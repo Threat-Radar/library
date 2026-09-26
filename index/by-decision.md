@@ -119,6 +119,16 @@ This is the query the library exists to answer.
 - [`rfc-9943`](../records/ietf/rfc-9943/) — An Architecture for Trustworthy and Transparent Digital Supply Chains
 - [`w3-org-pics`](../records/w3c/w3-org-pics/) — W3C Platform for Internet Content Selection (PICS)
 
+### DEC-009
+
+- [`fips-140-2`](../records/nist/fips-140-2/) — FIPS 140-2, Security Requirements for Cryptographic Modules (supersede
+- [`iso-iec-19790`](../records/iso/iso-iec-19790/) — ISO/IEC 19790:2012, Security requirements for cryptographic modules
+- [`iso-iec-24759`](../records/iso/iso-iec-24759/) — ISO/IEC 24759:2017, Test requirements for cryptographic modules
+
+### DEC-009                  # compliance / product conformance
+
+- [`fips-140-3`](../records/nist/fips-140-3/) — FIPS 140-3, Security Requirements for Cryptographic Modules
+
 ### DEC-009               # generic->product mapping & mitigation lifecycle
 
 - [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
