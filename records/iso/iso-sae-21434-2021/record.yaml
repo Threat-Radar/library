@@ -105,7 +105,7 @@ distillation:
   artifacts:
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "All 118 marked normative statements (101 RQ, 13 RC, 4 PM) + 42 work products, externally referenceable as <record>#RQ-CC-NN. NOT yet reviewed line-by-line against the source; verbatim prefixes only."
+      coverage: "All 118 normative statements (101 RQ, 13 RC, 4 PM) + 42 required deliverables, `#RQ-CC-NN`. Audit-typed (library-requirements/v2): normativity, actor, nature (process vs deliverable-producing: 26 D / 92 P), expects_deliverables, verification, tailorable. Full verbatim text. Derived fields (actor/nature/verification/short_title) NOT yet human-reviewed."
       generated_from: "pdftotext -layout of the purchased PDF + marker extraction"
       reviewed_by: ""
     - kind: requirements
