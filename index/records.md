@@ -3,7 +3,7 @@
 
 # Records
 
-90 records across 7 bodies.
+97 records across 7 bodies.
 
 
 ## academic
@@ -114,6 +114,13 @@
 | [`fips-140-3`](../records/nist/fips-140-3/) | FIPS 140-3, Security Requirements for Cryptographic Module | spec | standard | distilled | useful | — |
 | [`fips-186-4`](../records/nist/fips-186-4/) | Digital Signature Standard (DSS), FIPS 186-4 | spec | historic | stub | — | — |
 | [`fips-186-5`](../records/nist/fips-186-5/) | Digital Signature Standard (DSS) | spec | standard | summarized | useful | — |
+| [`nist-sp-800-140`](../records/nist/nist-sp-800-140/) | NIST SP 800-140, FIPS 140-3 Derived Test Requirements (DTR | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140a`](../records/nist/nist-sp-800-140a/) | NIST SP 800-140A, CMVP Documentation Requirements | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140b`](../records/nist/nist-sp-800-140b/) | NIST SP 800-140B, CMVP Security Policy Requirements | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140c`](../records/nist/nist-sp-800-140c/) | NIST SP 800-140C, CMVP Approved Security Functions | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140d`](../records/nist/nist-sp-800-140d/) | NIST SP 800-140D, CMVP Approved Sensitive Security Paramet | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140e`](../records/nist/nist-sp-800-140e/) | NIST SP 800-140E, CMVP Approved Authentication Mechanisms | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140f`](../records/nist/nist-sp-800-140f/) | NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitiga | spec | best-practice | distilled | useful | — |
 | [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) | NIST SP 800-160, Systems Security Engineering (Ross et al. | spec | — | queued | — | — |
 | [`sp-800-186`](../records/nist/sp-800-186/) | Recommendations for Discrete Logarithm-based Cryptography: | spec | recommendation | stub | — | — |
 

@@ -11,6 +11,13 @@ This is the snowballing queue (Wohlin backward pass).
 | `draft-mcnally-deterministic-cbor` | IANA Concise Data Definition Language (CDDL) registry <https://www.iana.org/assignments/cddl> |
 | `fips-140-3` | iso-iec-19790            # adopted security requirements (paywalled) |
 | `fips-140-3` | iso-iec-24759            # adopted test requirements (paywalled) |
+| `fips-140-3` | nist-sp-800-140     # DTR (test requirements) |
+| `fips-140-3` | nist-sp-800-140a    # documentation |
+| `fips-140-3` | nist-sp-800-140b    # security policy (the deliverable spec) |
+| `fips-140-3` | nist-sp-800-140c    # approved security functions |
+| `fips-140-3` | nist-sp-800-140d    # approved SSP methods |
+| `fips-140-3` | nist-sp-800-140e    # approved authentication mechanisms |
+| `fips-140-3` | nist-sp-800-140f    # approved non-invasive attack mitigation metrics |
 | `iso-sae-21434-2021` | etsi-ts-102-165-1          # [21] |
 | `iso-sae-21434-2021` | first-cvss                 # [24] |
 | `iso-sae-21434-2021` | iso-26262-3-2018            # normative reference (Clause 2) |

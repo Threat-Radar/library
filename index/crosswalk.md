@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-63 of 90 records have at least one edge.
+72 of 97 records have at least one edge.
 
 
 ### `draft-ietf-cbor-cddl-modules`
@@ -42,6 +42,7 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **superseded_by** → `fips-140-3`
 
 ### `fips-140-3`
+- **see_also** → `nist-sp-800-140`, `nist-sp-800-140a`, `nist-sp-800-140b`, `nist-sp-800-140c`, `nist-sp-800-140d`, `nist-sp-800-140e`, `nist-sp-800-140f`
 - **supersedes** → `fips-140-2`
 
 ### `fips-186-4`
@@ -63,8 +64,42 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `ietf-vcon-wg`
 - **has_part** → `draft-ietf-vcon-vcon-core-04`
 
+### `iso-iec-19790`
+- **see_also** → `nist-sp-800-140`, `nist-sp-800-140a`, `nist-sp-800-140b`, `nist-sp-800-140c`, `nist-sp-800-140d`, `nist-sp-800-140e`, `nist-sp-800-140f`
+
+### `iso-iec-24759`
+- **see_also** → `nist-sp-800-140`, `nist-sp-800-140a`, `nist-sp-800-140b`, `nist-sp-800-140c`, `nist-sp-800-140d`, `nist-sp-800-140e`, `nist-sp-800-140f`
+
 ### `iso-sae-21434-2021`
 - **supersedes** → `sae-j3061`
+
+### `nist-sp-800-140`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `nist-sp-800-140a`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `nist-sp-800-140b`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `nist-sp-800-140c`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `nist-sp-800-140d`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `nist-sp-800-140e`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `nist-sp-800-140f`
+- **cited_by** → `fips-140-3`
+- **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
 
 ### `rfc-7049`
 - **part_of** → `ietf-cbor-wg`
@@ -236,8 +271,6 @@ is a record nothing will surface.
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
-- `iso-iec-19790`
-- `iso-iec-24759`
 - `nist-sp-800-160`
 - `pasta-risk-centric-threat-modeling`
 - `rfc-1952`

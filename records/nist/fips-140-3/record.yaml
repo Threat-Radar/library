@@ -32,14 +32,14 @@ relations:
 cites:
   - iso-iec-19790            # adopted security requirements (paywalled)
   - iso-iec-24759            # adopted test requirements (paywalled)
-  # NIST modification documents (free) — gaps worth ingesting next:
-  - {ref: "SP 800-140",  title: "CMVP validation authorities / general modifications to ISO 19790 & 24759"}
-  - {ref: "SP 800-140A", title: "CMVP documentation requirements (modifies ISO/IEC 24759)"}
-  - {ref: "SP 800-140B", title: "CMVP security policy requirements (modifies ISO/IEC 19790 Annex B / 24759)"}
-  - {ref: "SP 800-140C", title: "CMVP approved security functions"}
-  - {ref: "SP 800-140D", title: "CMVP approved sensitive security parameter generation/establishment methods"}
-  - {ref: "SP 800-140E", title: "CMVP approved authentication mechanisms"}
-  - {ref: "SP 800-140F", title: "CMVP approved non-invasive attack mitigation test metrics"}
+  # NIST modification documents (SP 800-140x) — now held as records:
+  - nist-sp-800-140     # DTR (test requirements)
+  - nist-sp-800-140a    # documentation
+  - nist-sp-800-140b    # security policy (the deliverable spec)
+  - nist-sp-800-140c    # approved security functions
+  - nist-sp-800-140d    # approved SSP methods
+  - nist-sp-800-140e    # approved authentication mechanisms
+  - nist-sp-800-140f    # approved non-invasive attack mitigation metrics
 bears_on:
   - DEC-005                  # candidate scope: a compliance/validation regime to model
   - DEC-009                  # compliance / product conformance

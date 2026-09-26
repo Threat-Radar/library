@@ -3,7 +3,7 @@
 
 # Bibliography
 
-90 records.
+97 records.
 
 
 ## academic
@@ -243,6 +243,27 @@
 - **Digital Signature Standard (DSS)** — 2023-02-03. 10.6028/NIST.FIPS.186-5  
   `fips-186-5` · spec · standard · **summarized** · [source](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf)  
   _Defines the signature schemes a key-centric model will actually use; supplies publisher test vectors for PROC-0002 stage 8._
+- **NIST SP 800-140, FIPS 140-3 Derived Test Requirements (DTR): CMVP updates to ISO/IEC 24759**  
+  `nist-sp-800-140` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140); The Derived Test Requirements (DTR): the Test Evidence (TE) / Vendor Evidence (VE) items a CMVP lab uses to test a modul_
+- **NIST SP 800-140A, CMVP Documentation Requirements**  
+  `nist-sp-800-140a` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140A.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140A); Additional vendor documentation requirements (VE additions) a module submission must provide._
+- **NIST SP 800-140B, CMVP Security Policy Requirements**  
+  `nist-sp-800-140b` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140B.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140B); Defines the content and tabular format of the cryptographic module security policy — the primary PUBLIC, auditable deliv_
+- **NIST SP 800-140C, CMVP Approved Security Functions**  
+  `nist-sp-800-140c` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140C.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140C); The maintained LIST of CMVP-approved security functions (cryptographic algorithms), by reference to the NIST FIPS/SP cry_
+- **NIST SP 800-140D, CMVP Approved Sensitive Security Parameter Generation and Establishment Methods**  
+  `nist-sp-800-140d` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140D.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140D); The maintained LIST of approved SSP (key) generation and establishment methods._
+- **NIST SP 800-140E, CMVP Approved Authentication Mechanisms**  
+  `nist-sp-800-140e` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140E.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140E); Approved authentication mechanisms and their strength requirements for module roles._
+- **NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitigation Test Metrics**  
+  `nist-sp-800-140f` · spec · best-practice · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140F.pdf)  
+  _Part of the FIPS 140-3 modification stack (SP 800-140F); Approved test metrics for non-invasive attack (e.g. side-channel) mitigation._
 - **NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)**  
   `nist-sp-800-160` · spec · [source](https://csrc.nist.gov/pubs/sp/800/160/)
 - **Recommendations for Discrete Logarithm-based Cryptography: Elliptic Curve Domain Parameters**  
