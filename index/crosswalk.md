@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-61 of 86 records have at least one edge.
+61 of 113 records have at least one edge.
 
 
 ### `draft-ietf-cbor-cddl-modules`
@@ -221,17 +221,37 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 No edges in or out. Not wrong — but a record connected to nothing
 is a record nothing will surface.
 
+- `bron`
+- `capec`
+- `cve-json-5`
+- `cwe`
+- `d3fend`
 - `draft-mih-scitt-agent-action-capsule-02`
 - `etsi-ts-102-165-1`
 - `first-cvss`
+- `frink-fabric`
+- `graphrag-ms`
+- `guac`
+- `hogan-kg-survey`
 - `iana-cbor-simple-values`
 - `iana-cbor-tags`
 - `in-toto-attestation-v1`
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
+- `linkml`
+- `mcp-okn`
+- `mitre-attack`
+- `mulval`
 - `nist-sp-800-160`
+- `nsf-23-571`
+- `nsf-okn-launch`
+- `okn-roadmap-2022`
+- `osv-schema`
+- `owl-2-primer`
 - `pasta-risk-centric-threat-modeling`
+- `prov-o`
+- `rdf-1-1-concepts`
 - `rfc-1952`
 - `rfc-2693`
 - `rfc-3339`
@@ -244,6 +264,13 @@ is a record nothing will surface.
 - `rfc-9110`
 - `rfc-9804`
 - `secure-systems-lab-dsse`
+- `securechain-okn`
+- `shacl`
+- `sparql-1-1`
+- `spdx-3-rdf`
+- `stix-2-1`
+- `sudokn-okn`
+- `unifying-llm-kg`
 - `w3-org-pics`
 - `w3c-did-core`
 

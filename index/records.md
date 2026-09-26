@@ -3,14 +3,20 @@
 
 # Records
 
-86 records across 7 bodies.
+113 records across 9 bodies.
 
 
 ## academic
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`bron`](../records/academic/bron/) | BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al | paper | white-paper | summarized | useful | — |
+| [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) | Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4 | paper | white-paper | summarized | useful | — |
+| [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
 | [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana) | book | — | queued | — | — |
+| [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |
+| [`sudokn-okn`](../records/academic/sudokn-okn/) | SUDOKN — Supply and Demand Open Knowledge Network (Arizona | web | implementation | summarized | useful | — |
+| [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) | Unifying Large Language Models and Knowledge Graphs: A Roa | paper | white-paper | summarized | useful | — |
 
 ## community
 
@@ -19,6 +25,8 @@
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
+| [`linkml`](../records/community/linkml/) | LinkML — Linked Data Modeling Language | repo | implementation | summarized | useful | — |
+| [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 
 ## ietf
@@ -113,16 +121,45 @@
 | [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) | NIST SP 800-160, Systems Security Engineering (Ross et al. | spec | — | queued | — | — |
 | [`sp-800-186`](../records/nist/sp-800-186/) | Recommendations for Discrete Logarithm-based Cryptography: | spec | recommendation | stub | — | — |
 
+## oasis
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`stix-2-1`](../records/oasis/stix-2-1/) | STIX Version 2.1 (OASIS Standard) | spec | standard | summarized | useful | — |
+
+## openssf
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`guac`](../records/openssf/guac/) | GUAC — Graph for Understanding Artifact Composition (OpenS | repo | implementation | summarized | useful | — |
+| [`osv-schema`](../records/openssf/osv-schema/) | OSV Schema (OpenSSF) | spec | best-practice | summarized | useful | — |
+
 ## other
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`capec`](../records/other/capec/) | MITRE CAPEC — Common Attack Pattern Enumeration and Classi | dataset | best-practice | summarized | useful | — |
+| [`cve-json-5`](../records/other/cve-json-5/) | CVE JSON Record Format v5 | spec | standard | summarized | useful | — |
+| [`cwe`](../records/other/cwe/) | MITRE CWE — Common Weakness Enumeration | dataset | best-practice | summarized | useful | — |
+| [`d3fend`](../records/other/d3fend/) | MITRE D3FEND — defensive countermeasures knowledge graph ( | spec | recommendation | summarized | useful | — |
 | [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) | ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: M | spec | — | queued | — | — |
+| [`frink-fabric`](../records/other/frink-fabric/) | FRINK — FabRic Integrating Networked Knowledge (RENCI, Pro | repo | implementation | summarized | useful | — |
+| [`graphrag-ms`](../records/other/graphrag-ms/) | GraphRAG (Microsoft Research, 2024) | repo | implementation | summarized | useful | — |
+| [`mitre-attack`](../records/other/mitre-attack/) | MITRE ATT&CK (knowledge base + STIX 2.1 data) | dataset | best-practice | summarized | useful | — |
+| [`nsf-23-571`](../records/other/nsf-23-571/) | NSF 23-571: Building the Prototype Open Knowledge Network  | web | informational | summarized | useful | — |
+| [`nsf-okn-launch`](../records/other/nsf-okn-launch/) | NSF Open Knowledge Network (NSF OKN) — public launch | web | informational | summarized | useful | — |
+| [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) | Open Knowledge Network Roadmap: Powering the Next Data Rev | web | informational | summarized | useful | — |
 | [`sae-j3061`](../records/other/sae-j3061/) | SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehi | spec | — | queued | — | — |
+| [`spdx-3-rdf`](../records/other/spdx-3-rdf/) | SPDX 3.0 RDF Model (ISO/IEC 5962) | spec | standard | summarized | useful | — |
 
 ## w3c
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`owl-2-primer`](../records/w3c/owl-2-primer/) | OWL 2 Web Ontology Language Primer | spec | recommendation | summarized | useful | — |
+| [`prov-o`](../records/w3c/prov-o/) | PROV-O: The PROV Ontology | spec | recommendation | summarized | useful | — |
+| [`rdf-1-1-concepts`](../records/w3c/rdf-1-1-concepts/) | RDF 1.1 Concepts and Abstract Syntax | spec | recommendation | summarized | useful | — |
+| [`shacl`](../records/w3c/shacl/) | Shapes Constraint Language (SHACL) | spec | recommendation | summarized | useful | — |
+| [`sparql-1-1`](../records/w3c/sparql-1-1/) | SPARQL 1.1 Query Language | spec | recommendation | summarized | useful | — |
 | [`w3-org-pics`](../records/w3c/w3-org-pics/) | W3C Platform for Internet Content Selection (PICS) | web | — | queued | — | — |
 | [`w3c-did-core`](../records/w3c/w3c-did-core/) | Decentralized Identifiers (DIDs) v1.0 | spec | — | stub | — | — |

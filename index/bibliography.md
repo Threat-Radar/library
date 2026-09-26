@@ -3,13 +3,31 @@
 
 # Bibliography
 
-86 records.
+113 records.
 
 
 ## academic
 
+- **BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)**  
+  `bron` · paper · white-paper · **summarized** · [source](https://arxiv.org/abs/2010.00533)  
+  _The most directly relevant prior art: a reusable reference implementation of tmodel's CVE→CWE→CAPEC→ATT&CK backbone._
+- **Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)**  
+  `hogan-kg-survey` · paper · white-paper · **summarized** · [source](https://aidanhogan.com/docs/knowledge-graphs-computing-surveys.pdf)  
+  _Best single orientation document; frames tmodel's RDF-vs-LPG model choice._
+- **MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)**  
+  `mulval` · paper · white-paper · **summarized** · [source](https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf)  
+  _Reference model for rule-based attack-path derivation; facts=nodes, rules=logic, derivation graph = the reviewable attack-path artifact._
 - **Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)**  
   `pasta-risk-centric-threat-modeling` · book · [source](https://www.wiley.com/)
+- **SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Software Supply Chains (Purdue, Proto-OKN)**  
+  `securechain-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
+  _Direct domain analog: connecting components, artifacts and vulnerabilities as a graph — the pattern tmodel needs for the composition→weakness layer._
+- **SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)**  
+  `sudokn-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
+  _Demonstrates cross-domain linking (products↔companies↔risk) at scale — the supply-chain-security use case tmodel aligns with._
+- **Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et al., IEEE TKDE 2024)**  
+  `unifying-llm-kg` · paper · white-paper · **summarized** · [source](https://arxiv.org/abs/2306.08302)  
+  _The 'synergized' pattern (LLM proposes, KG constrains/verifies) is essentially tmodel's AI-proposes/human-reviews design._
 
 ## community
 
@@ -20,6 +38,12 @@
   `first-cvss` · spec · [source](https://www.first.org/cvss/)
 - **in-toto Attestation Framework v1**  
   `in-toto-attestation-v1` · spec · [source](https://in-toto.io/)
+- **LinkML — Linked Data Modeling Language**  
+  `linkml` · repo · implementation · **summarized** · [source](https://linkml.io/)  
+  _Author tmodel's threat/asset/CWE/CVE schema once → generate SHACL (validation) + OWL/RDF (graph); aligns with OKN peers for federation._
+- **mcp-okn — Model Context Protocol access to NSF OKN graphs**  
+  `mcp-okn` · repo · implementation · **summarized** · [source](https://github.com/sbl-sdsc/mcp-okn)  
+  _Prior art for an LLM→governed-KG bridge — the pattern for grounding a threat-modeling assistant against tmodel's graph._
 - **Dead Simple Signing Envelope (DSSE)**  
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
 
@@ -239,15 +263,78 @@
 - **Recommendations for Discrete Logarithm-based Cryptography: Elliptic Curve Domain Parameters**  
   `sp-800-186` · spec · recommendation · [source](https://csrc.nist.gov/pubs/sp/800/186/final)
 
+## oasis
+
+- **STIX Version 2.1 (OASIS Standard)**  
+  `stix-2-1` · spec · standard · **summarized** · [source](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html)  
+  _Proven graph schema to align tmodel to (Vulnerability↔CVE, Attack Pattern↔threat, Course of Action↔mitigation); Opinion/Note map onto the human-review layer._
+
+## openssf
+
+- **GUAC — Graph for Understanding Artifact Composition (OpenSSF)**  
+  `guac` · repo · implementation · **summarized** · [source](https://github.com/guacsec/guac)  
+  _Closest working analog to tmodel's supply-chain portion; its 3-tree split maps to assets/components vs threats/mitigations vs review provenance._
+- **OSV Schema (OpenSSF)**  
+  `osv-schema` · spec · best-practice · **summarized** · [source](https://ossf.github.io/osv-schema/)  
+  _Best template for linking tmodel vuln nodes to specific component/version nodes._
+
 ## other
 
+- **MITRE CAPEC — Common Attack Pattern Enumeration and Classification**  
+  `capec` · dataset · best-practice · **summarized** · [source](https://capec.mitre.org/)  
+  _Supplies tmodel's weakness→attack-pattern→technique edges._
+- **CVE JSON Record Format v5**  
+  `cve-json-5` · spec · standard · **summarized** · [source](https://cveproject.github.io/cve-schema/schema/docs/)  
+  _Canonical ingestion schema for tmodel's Vulnerability nodes; defines CVE→CWE edge + severity._
+- **MITRE CWE — Common Weakness Enumeration**  
+  `cwe` · dataset · best-practice · **summarized** · [source](https://cwe.mitre.org/)  
+  _Source for tmodel's Weakness nodes and their hierarchy; XSD validates ingestion. Ties to ARCH-0001 §3._
+- **MITRE D3FEND — defensive countermeasures knowledge graph (OWL)**  
+  `d3fend` · spec · recommendation · **summarized** · [source](https://d3fend.mitre.org/)  
+  _Authoritative mitigations layer with defense→offense edges; directly importable if tmodel is RDF; DAO seeds asset/component modeling._
 - **ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and proforma for Threat, Vulnerability, Risk Analysis (TVRA)**  
   `etsi-ts-102-165-1` · spec · [source](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/)
+- **FRINK — FabRic Integrating Networked Knowledge (RENCI, Proto-OKN Theme 2)**  
+  `frink-fabric` · repo · implementation · **summarized** · [source](https://frink.renci.org/)  
+  _Concrete blueprint for federating multiple KGs under one endpoint with per-graph provenance and stable identifiers — the mechanism tmodel needs for attribution/governance and any OKN federation._
+- **GraphRAG (Microsoft Research, 2024)**  
+  `graphrag-ms` · repo · implementation · **summarized** · [source](https://github.com/microsoft/graphrag)  
+  _Models the build-graph-then-reason pipeline over a security corpus for grounding AI-proposed threats._
+- **MITRE ATT&CK (knowledge base + STIX 2.1 data)**  
+  `mitre-attack` · dataset · best-practice · **summarized** · [source](https://attack.mitre.org/)  
+  _Canonical vocabulary/IDs for tmodel's threat + attack-path layer; ready-made graph-ingestion source._
+- **NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)** — 2023  
+  `nsf-23-571` · web · informational · **summarized** · [source](https://www.nsf.gov/pubs/2023/nsf23571/nsf23571.htm)  
+  _Defines / demonstrates a national federated knowledge-graph infrastructure with a verifiable, attributed, governed knowledge layer for grounding AI — the properties tmodel wants for human-reviewed threat models — and treats supply-chain cybersecurity as a use case tmodel could align or federate with._
+- **NSF Open Knowledge Network (NSF OKN) — public launch** — 2026  
+  `nsf-okn-launch` · web · informational · **summarized** · [source](https://okn.us/)  
+  _Defines / demonstrates a national federated knowledge-graph infrastructure with a verifiable, attributed, governed knowledge layer for grounding AI — the properties tmodel wants for human-reviewed threat models — and treats supply-chain cybersecurity as a use case tmodel could align or federate with._
+- **Open Knowledge Network Roadmap: Powering the Next Data Revolution (NSF/OSTP, 2022)**  
+  `okn-roadmap-2022` · web · informational · **summarized** · [source](https://nsf-gov-resources.nsf.gov/2022-09/OKN%20Roadmap%20-%20Report_v03.pdf)  
+  _Method for eliciting use cases + end-user requirements — reusable for scoping tmodel's KG; sets the OKN vision tmodel could federate with._
 - **SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)**  
   `sae-j3061` · spec · [source](https://www.sae.org/standards/content/j3061/)
+- **SPDX 3.0 RDF Model (ISO/IEC 5962)**  
+  `spdx-3-rdf` · spec · standard · **summarized** · [source](https://spdx.github.io/spdx-spec/v3.0.1/annexes/rdf-model/)  
+  _Most graph-native SBOM standard — first-class fit if tmodel uses a triple store._
 
 ## w3c
 
+- **OWL 2 Web Ontology Language Primer**  
+  `owl-2-primer` · spec · recommendation · **summarized** · [source](https://www.w3.org/TR/owl2-primer/)  
+  _Type the asset/weakness/threat hierarchy; use RL profile (PROV-O targets it) where inference matters, scoped for scale._
+- **PROV-O: The PROV Ontology**  
+  `prov-o` · spec · recommendation · **summarized** · [source](https://www.w3.org/TR/prov-o/)  
+  _The backbone for tmodel's provenance + human-review annotations: model each assertion's source, the analysis activity, and the human reviewer as an agent — full audit trail._
+- **RDF 1.1 Concepts and Abstract Syntax**  
+  `rdf-1-1-concepts` · spec · recommendation · **summarized** · [source](https://www.w3.org/TR/rdf11-concepts/)  
+  _Named graphs are the natural container for per-source / per-review-batch provenance partitioning in tmodel._
+- **Shapes Constraint Language (SHACL)**  
+  `shacl` · spec · recommendation · **summarized** · [source](https://www.w3.org/TR/shacl/)  
+  _The human-in-the-loop gate: enforce every risk node carries provenance + a review status before acceptance; report violations to reviewers._
+- **SPARQL 1.1 Query Language**  
+  `sparql-1-1` · spec · recommendation · **summarized** · [source](https://www.w3.org/TR/sparql11-query/)  
+  _Powers attack-path queries and federated queries against OKN/external graphs._
 - **W3C Platform for Internet Content Selection (PICS)**  
   `w3-org-pics` · web · [source](https://www.w3.org/PICS/)
 - **Decentralized Identifiers (DIDs) v1.0**  
