@@ -1031,6 +1031,18 @@
     "URL": "https://www.iso.org/"
   },
   {
+    "id": "iso-iec-19790",
+    "type": "report",
+    "title": "ISO/IEC 19790:2012, Security requirements for cryptographic modules",
+    "URL": "https://www.iso.org/standard/52906.html"
+  },
+  {
+    "id": "iso-iec-24759",
+    "type": "report",
+    "title": "ISO/IEC 24759:2017, Test requirements for cryptographic modules",
+    "URL": "https://www.iso.org/standard/72515.html"
+  },
+  {
     "id": "iso-sae-21434-2021",
     "type": "report",
     "title": "Road vehicles \u2014 Cybersecurity engineering",
@@ -1044,6 +1056,28 @@
       ]
     },
     "publisher": "ISO/SAE International"
+  },
+  {
+    "id": "fips-140-2",
+    "type": "report",
+    "title": "FIPS 140-2, Security Requirements for Cryptographic Modules (superseded by FIPS 140-3)",
+    "URL": "https://csrc.nist.gov/pubs/fips/140-2/upd2/final"
+  },
+  {
+    "id": "fips-140-3",
+    "type": "report",
+    "title": "FIPS 140-3, Security Requirements for Cryptographic Modules",
+    "URL": "https://csrc.nist.gov/pubs/fips/140-3/final",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          3
+        ]
+      ]
+    },
+    "DOI": "10.6028/NIST.FIPS.140-3",
+    "publisher": "NIST"
   },
   {
     "id": "fips-186-4",
@@ -1067,6 +1101,55 @@
       ]
     },
     "DOI": "10.6028/NIST.FIPS.186-5",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140",
+    "type": "report",
+    "title": "NIST SP 800-140, FIPS 140-3 Derived Test Requirements (DTR): CMVP updates to ISO/IEC 24759",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140.pdf",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140a",
+    "type": "report",
+    "title": "NIST SP 800-140A, CMVP Documentation Requirements",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140A.pdf",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140b",
+    "type": "report",
+    "title": "NIST SP 800-140B, CMVP Security Policy Requirements",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140B.pdf",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140c",
+    "type": "report",
+    "title": "NIST SP 800-140C, CMVP Approved Security Functions",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140C.pdf",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140d",
+    "type": "report",
+    "title": "NIST SP 800-140D, CMVP Approved Sensitive Security Parameter Generation and Establishment Methods",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140D.pdf",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140e",
+    "type": "report",
+    "title": "NIST SP 800-140E, CMVP Approved Authentication Mechanisms",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140E.pdf",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-140f",
+    "type": "report",
+    "title": "NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitigation Test Metrics",
+    "URL": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-140F.pdf",
     "publisher": "NIST"
   },
   {
