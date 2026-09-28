@@ -41,6 +41,24 @@ This is the query the library exists to answer.
 - [`sp-800-186`](../records/nist/sp-800-186/) — Recommendations for Discrete Logarithm-based Cryptography: Elliptic Cu
 - [`w3c-did-core`](../records/w3c/w3c-did-core/) — Decentralized Identifiers (DIDs) v1.0
 
+### DEC-001
+
+- [`bron`](../records/academic/bron/) — BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)
+- [`capec`](../records/other/capec/) — MITRE CAPEC — Common Attack Pattern Enumeration and Classification
+- [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
+- [`cwe`](../records/other/cwe/) — MITRE CWE — Common Weakness Enumeration
+- [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
+- [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
+- [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
+- [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`mitre-attack`](../records/other/mitre-attack/) — MITRE ATT&CK (knowledge base + STIX 2.1 data)
+- [`nsf-23-571`](../records/other/nsf-23-571/) — NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)
+- [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
+- [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
+- [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
+- [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
+- [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
+
 ### DEC-002
 
 - [`draft-ietf-cbor-cddl-modules`](../records/ietf/draft-ietf-cbor-cddl-modules/) — CDDL Module Structure
@@ -48,9 +66,13 @@ This is the query the library exists to answer.
 - [`draft-ietf-cbor-edn-literals`](../records/ietf/draft-ietf-cbor-edn-literals/) — Concise Diagnostic Notation (CDN)
 - [`draft-ietf-cbor-serialization`](../records/ietf/draft-ietf-cbor-serialization/) — CBOR Serialization and Determinism
 - [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) — dCBOR: Deterministic CBOR
+- [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
 - [`iana-cbor-simple-values`](../records/iso/iana-cbor-simple-values/) — IANA Concise Binary Object Representation (CBOR) Simple Values Registr
 - [`iana-cbor-tags`](../records/iso/iana-cbor-tags/) — IANA Concise Binary Object Representation (CBOR) Tags Registry
 - [`ietf-cbor-wg`](../records/ietf/ietf-cbor-wg/) — IETF Concise Binary Object Representation Maintenance and Extensions (
+- [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
+- [`rdf-1-1-concepts`](../records/w3c/rdf-1-1-concepts/) — RDF 1.1 Concepts and Abstract Syntax
 - [`rfc-7049`](../records/ietf/rfc-7049/) — Concise Binary Object Representation (CBOR)
 - [`rfc-8610`](../records/ietf/rfc-8610/) — Concise Data Definition Language (CDDL): A Notational Convention to Ex
 - [`rfc-8742`](../records/ietf/rfc-8742/) — Concise Binary Object Representation (CBOR) Sequences
@@ -68,6 +90,8 @@ This is the query the library exists to answer.
 - [`rfc-9804`](../records/ietf/rfc-9804/) — Simple Public Key Infrastructure (SPKI) S-Expressions
 - [`rfc-9943`](../records/ietf/rfc-9943/) — An Architecture for Trustworthy and Transparent Digital Supply Chains
 - [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) — Dead Simple Signing Envelope (DSSE)
+- [`spdx-3-rdf`](../records/other/spdx-3-rdf/) — SPDX 3.0 RDF Model (ISO/IEC 5962)
+- [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
 
 ### DEC-003
 
@@ -86,13 +110,27 @@ This is the query the library exists to answer.
 
 ### DEC-004
 
+- [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
+- [`frink-fabric`](../records/other/frink-fabric/) — FRINK — FabRic Integrating Networked Knowledge (RENCI, Proto-OKN Theme
+- [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
+- [`mcp-okn`](../records/community/mcp-okn/) — mcp-okn — Model Context Protocol access to NSF OKN graphs
+- [`nsf-23-571`](../records/other/nsf-23-571/) — NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)
+- [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
+- [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) — Open Knowledge Network Roadmap: Powering the Next Data Revolution (NSF
+- [`prov-o`](../records/w3c/prov-o/) — PROV-O: The PROV Ontology
+- [`rdf-1-1-concepts`](../records/w3c/rdf-1-1-concepts/) — RDF 1.1 Concepts and Abstract Syntax
 - [`rfc-2693`](../records/ietf/rfc-2693/) — SPKI Certificate Theory
+- [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
+- [`shacl`](../records/w3c/shacl/) — Shapes Constraint Language (SHACL)
+- [`sparql-1-1`](../records/w3c/sparql-1-1/) — SPARQL 1.1 Query Language
+- [`sudokn-okn`](../records/academic/sudokn-okn/) — SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., P
 
 ### DEC-005
 
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
 - [`ietf-cose-wg`](../records/ietf/ietf-cose-wg/) — IETF CBOR Object Signing and Encryption (COSE) Working Group
+- [`mulval`](../records/academic/mulval/) — MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Sec
 - [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) — NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)
 - [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)
 - [`rfc-8152`](../records/ietf/rfc-8152/) — CBOR Object Signing and Encryption (COSE)
@@ -113,6 +151,11 @@ This is the query the library exists to answer.
 
 - [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
 
+### DEC-006
+
+- [`graphrag-ms`](../records/other/graphrag-ms/) — GraphRAG (Microsoft Research, 2024)
+- [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) — Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et
+
 ### DEC-007
 
 - [`draft-mih-scitt-agent-action-capsule-02`](../records/ietf/draft-mih-scitt-agent-action-capsule-02/) — An Agent Action Capsule Profile for SCITT
@@ -131,6 +174,7 @@ This is the query the library exists to answer.
 - [`nist-sp-800-140d`](../records/nist/nist-sp-800-140d/) — NIST SP 800-140D, CMVP Approved Sensitive Security Parameter Generatio
 - [`nist-sp-800-140e`](../records/nist/nist-sp-800-140e/) — NIST SP 800-140E, CMVP Approved Authentication Mechanisms
 - [`nist-sp-800-140f`](../records/nist/nist-sp-800-140f/) — NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitigation Test Me
+- [`sudokn-okn`](../records/academic/sudokn-okn/) — SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., P
 
 ### DEC-009                  # compliance / product conformance
 
@@ -153,6 +197,10 @@ This is the query the library exists to answer.
 ### R-012                 # optional ISO/SAE 21434 risk analysis
 
 - [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
+### R-018
+
+- [`prov-o`](../records/w3c/prov-o/) — PROV-O: The PROV Ontology
 
 ### R-021                 # mitigation tracking over the design lifecycle
 

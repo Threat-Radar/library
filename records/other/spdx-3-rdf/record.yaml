@@ -1,0 +1,38 @@
+schema: "library-record/v1"
+id: spdx-3-rdf
+body: other
+type: spec
+maturity: standard
+title: "SPDX 3.0 RDF Model (ISO/IEC 5962)"
+identifiers:
+  url: https://spdx.github.io/spdx-spec/v3.0.1/annexes/rdf-model/
+content:
+  url: https://spdx.github.io/spdx-spec/v3.0.1/annexes/rdf-model/
+  sha256: ""
+  retrieved: "2026-09-26"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  cited_by: []
+  see_also: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "Most graph-native SBOM standard — first-class fit if tmodel uses a triple store."
+  assessed: "2026-09-26"
+topic: ""
+tags:
+  - spdx
+  - sbom
+  - rdf
+  - owl
+  - shacl
+status: summarized
+confidence: medium
