@@ -3,7 +3,7 @@
 
 # Bibliography
 
-124 records.
+129 records.
 
 
 ## academic
@@ -31,6 +31,8 @@
 
 ## community
 
+- **CycloneDX Bill of Materials Specification** — Jan Kowalleck, Steve Springett. 2025-12  
+  `cyclonedx-1-7` · spec · standard · [source](https://ecma-international.org/wp-content/uploads/ECMA-424_2nd_edition_december_2025.pdf)
 - **dCBOR: Deterministic CBOR** — 2026-08-10  
   `draft-mcnally-deterministic-cbor` · draft · [source](https://www.ietf.org/archive/id/draft-mcnally-deterministic-cbor-18.txt)  
   _An INDIVIDUAL draft with no IETF stream and no WG standing, widely miscited as 'the' deterministic CBOR profile. At -18 it narrows RFC 8949 Sec.4.2 directly and does not mention CDE, contrary to common secondary accounts._
@@ -46,6 +48,8 @@
   _Prior art for an LLM→governed-KG bridge — the pattern for grounding a threat-modeling assistant against tmodel's graph._
 - **Dead Simple Signing Envelope (DSSE)**  
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
+- **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
+  `spdx-3-0-1` · spec · [source](https://spdx.github.io/spdx-spec/v3.0.1/)
 
 ## ietf
 
@@ -251,6 +255,9 @@
   `iso-iec-19790` · spec · [source](https://www.iso.org/standard/52906.html)
 - **ISO/IEC 24759:2017, Test requirements for cryptographic modules**  
   `iso-iec-24759` · spec · [source](https://www.iso.org/standard/72515.html)
+- **Information technology — SPDX Specification V2.2.1** — ISO/IEC JTC 1/SC 7. 2021-08  
+  `iso-iec-5962-2021` · spec · standard · [source](https://www.iso.org/standard/81870.html)  
+  _Held for the standing it establishes, not for its text: it is the one SBOM format with ISO ratification, and it carries SPDX 2.2.1, which SPDX 3.0.1 has moved past. Paywalled, so we work from the 3.0.1 record._
 - **Road vehicles — Cybersecurity engineering** — 2021-08  
   `iso-sae-21434-2021` · spec · standard · **distilled** · [source](https://www.iso.org/standard/70918.html)  
   _The reference method for automotive threat modeling and risk: a structured TARA pipeline (asset -> threat scenario -> impact rating S/F/O/P -> attack path -> attack feasibility -> risk value -> treatment), a normative object model (Fig 3), and a requirement/work-product structure that is itself the template for automating conformance audits (tmodel #15)._
@@ -290,6 +297,9 @@
   _Part of the FIPS 140-3 modification stack (SP 800-140F); Approved test metrics for non-invasive attack (e.g. side-channel) mitigation._
 - **NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)**  
   `nist-sp-800-160` · spec · [source](https://csrc.nist.gov/pubs/sp/800/160/)
+- **Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations** — Jon Boyens, Angela Smith, Nadya Bartol, Kris Winkler, Alex Holbrook, Matthew Fallon. 2022-05. 10.6028/NIST.SP.800-161r1-upd1  
+  `sp-800-161r1` · spec · best-practice · [source](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final)  
+  _Enterprise process guidance, not a mechanism specification. Supplies the vocabulary and the institutional frame that an attestation is consumed by, but we conform to no clause in it._
 - **Recommendations for Discrete Logarithm-based Cryptography: Elliptic Curve Domain Parameters**  
   `sp-800-186` · spec · recommendation · [source](https://csrc.nist.gov/pubs/sp/800/186/final)
 
@@ -344,9 +354,15 @@
   _Method for eliciting use cases + end-user requirements — reusable for scoping tmodel's KG; sets the OKN vision tmodel could federate with._
 - **SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)**  
   `sae-j3061` · spec · [source](https://www.sae.org/standards/content/j3061/)
-- **SPDX 3.0 RDF Model (ISO/IEC 5962)**  
-  `spdx-3-rdf` · spec · standard · **summarized** · [source](https://spdx.github.io/spdx-spec/v3.0.1/annexes/rdf-model/)  
-  _Most graph-native SBOM standard — first-class fit if tmodel uses a triple store._
+
+## regulator
+
+- **Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM)** — CISA SBOM Tooling and Implementation Working Group. 2024-09-03  
+  `cisa-framing-software-component-transparency` · spec · best-practice · **summarized** · [source](https://www.cisa.gov/sites/default/files/2024-10/SBOM%20Framing%20Software%20Component%20Transparency%202024.pdf)  
+  _Promotes the cryptographic hash from NTIA's recommended tier to Minimum Expected, and defines relationship completeness with an explicit open-world default. Both are directly load-bearing for R-M-07 and R-M-11._
+- **The Minimum Elements For a Software Bill of Materials (SBOM)** — National Telecommunications and Information Administration. 2021-07-12  
+  `ntia-sbom-minimum-elements` · spec · best-practice · **summarized** · [source](https://www.ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf)  
+  _Establishes the floor for what an SBOM must contain, and — decisively for us — puts the component hash OUTSIDE that floor. That omission is the evidence R-M-07 needs._
 
 ## w3c
 

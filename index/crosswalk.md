@@ -9,8 +9,15 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-72 of 124 records have at least one edge.
+81 of 129 records have at least one edge.
 
+
+### `cisa-framing-software-component-transparency`
+- **cites** → `cyclonedx-1-7`, `iso-iec-5962-2021`, `spdx-3-0-1`
+- **updates** → `ntia-sbom-minimum-elements`
+
+### `cyclonedx-1-7`
+- **see_also** → `in-toto-attestation-v1`, `secure-systems-lab-dsse`, `spdx-3-0-1`
 
 ### `draft-ietf-cbor-cddl-modules`
 - **part_of** → `ietf-cbor-wg`
@@ -52,6 +59,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **see_also** → `sp-800-186`
 - **supersedes** → `fips-186-4`
 
+### `guac`
+- **see_also** → `spdx-3-0-1`
+
 ### `iana-cose-algorithms`
 - **see_also** → `draft-ietf-vcon-vcon-core-04`
 
@@ -64,11 +74,17 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `ietf-vcon-wg`
 - **has_part** → `draft-ietf-vcon-vcon-core-04`
 
+### `in-toto-attestation-v1`
+- **see_also** → `cyclonedx-1-7`, `sp-800-161r1`, `spdx-3-0-1`
+
 ### `iso-iec-19790`
 - **see_also** → `nist-sp-800-140`, `nist-sp-800-140a`, `nist-sp-800-140b`, `nist-sp-800-140c`, `nist-sp-800-140d`, `nist-sp-800-140e`, `nist-sp-800-140f`
 
 ### `iso-iec-24759`
 - **see_also** → `nist-sp-800-140`, `nist-sp-800-140a`, `nist-sp-800-140b`, `nist-sp-800-140c`, `nist-sp-800-140d`, `nist-sp-800-140e`, `nist-sp-800-140f`
+
+### `iso-iec-5962-2021`
+- **superseded_by** → `spdx-3-0-1`
 
 ### `iso-sae-21434-2021`
 - **supersedes** → `sae-j3061`
@@ -100,6 +116,10 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `nist-sp-800-140f`
 - **cited_by** → `fips-140-3`
 - **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
+
+### `ntia-sbom-minimum-elements`
+- **see_also** → `sp-800-161r1`
+- **updated_by** → `cisa-framing-software-component-transparency`
 
 ### `rfc-7049`
 - **part_of** → `ietf-cbor-wg`
@@ -240,7 +260,7 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **see_also** → `rfc-9943`
 
 ### `rfc-9943`
-- **see_also** → `rfc-9942`
+- **see_also** → `rfc-9942`, `sp-800-161r1`
 
 ### `rfc-9964`
 - **part_of** → `ietf-cose-wg`
@@ -254,8 +274,18 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `sae-j3061`
 - **superseded_by** → `iso-sae-21434-2021`
 
+### `secure-systems-lab-dsse`
+- **see_also** → `cyclonedx-1-7`, `spdx-3-0-1`
+
+### `sp-800-161r1`
+- **see_also** → `in-toto-attestation-v1`, `ntia-sbom-minimum-elements`, `rfc-9943`
+
 ### `sp-800-186`
 - **see_also** → `fips-186-5`
+
+### `spdx-3-0-1`
+- **see_also** → `cyclonedx-1-7`, `guac`, `in-toto-attestation-v1`, `secure-systems-lab-dsse`
+- **supersedes** → `iso-iec-5962-2021`
 
 ## Orphans
 
@@ -272,11 +302,9 @@ is a record nothing will surface.
 - `first-cvss`
 - `frink-fabric`
 - `graphrag-ms`
-- `guac`
 - `hogan-kg-survey`
 - `iana-cbor-simple-values`
 - `iana-cbor-tags`
-- `in-toto-attestation-v1`
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
@@ -304,11 +332,9 @@ is a record nothing will surface.
 - `rfc-8620`
 - `rfc-9110`
 - `rfc-9804`
-- `secure-systems-lab-dsse`
 - `securechain-okn`
 - `shacl`
 - `sparql-1-1`
-- `spdx-3-rdf`
 - `stix-2-1`
 - `sudokn-okn`
 - `unifying-llm-kg`
