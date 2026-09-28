@@ -3,7 +3,7 @@
 
 # Records
 
-124 records across 9 bodies.
+129 records across 10 bodies.
 
 
 ## academic
@@ -22,12 +22,14 @@
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) | CycloneDX Bill of Materials Specification | spec | standard | queued | unassessed | — |
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
 | [`linkml`](../records/community/linkml/) | LinkML — Linked Data Modeling Language | repo | implementation | summarized | useful | — |
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
+| [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
 
 ## ietf
 
@@ -112,6 +114,7 @@
 | [`iso-iec-18045`](../records/iso/iso-iec-18045/) | ISO/IEC 18045, Methodology for IT security evaluation (att | spec | — | queued | — | — |
 | [`iso-iec-19790`](../records/iso/iso-iec-19790/) | ISO/IEC 19790:2012, Security requirements for cryptographi | spec | — | queued | — | — |
 | [`iso-iec-24759`](../records/iso/iso-iec-24759/) | ISO/IEC 24759:2017, Test requirements for cryptographic mo | spec | — | queued | — | — |
+| [`iso-iec-5962-2021`](../records/iso/iso-iec-5962-2021/) | Information technology — SPDX Specification V2.2.1 | spec | standard | queued | marginal | — |
 | [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) | Road vehicles — Cybersecurity engineering | spec | standard | distilled | useful | — |
 
 ## nist
@@ -130,6 +133,7 @@
 | [`nist-sp-800-140e`](../records/nist/nist-sp-800-140e/) | NIST SP 800-140E, CMVP Approved Authentication Mechanisms | spec | best-practice | distilled | useful | — |
 | [`nist-sp-800-140f`](../records/nist/nist-sp-800-140f/) | NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitiga | spec | best-practice | distilled | useful | — |
 | [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) | NIST SP 800-160, Systems Security Engineering (Ross et al. | spec | — | queued | — | — |
+| [`sp-800-161r1`](../records/nist/sp-800-161r1/) | Cybersecurity Supply Chain Risk Management Practices for S | spec | best-practice | stub | marginal | — |
 | [`sp-800-186`](../records/nist/sp-800-186/) | Recommendations for Discrete Logarithm-based Cryptography: | spec | recommendation | stub | — | — |
 
 ## oasis
@@ -161,7 +165,13 @@
 | [`nsf-okn-launch`](../records/other/nsf-okn-launch/) | NSF Open Knowledge Network (NSF OKN) — public launch | web | informational | summarized | useful | — |
 | [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) | Open Knowledge Network Roadmap: Powering the Next Data Rev | web | informational | summarized | useful | — |
 | [`sae-j3061`](../records/other/sae-j3061/) | SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehi | spec | — | queued | — | — |
-| [`spdx-3-rdf`](../records/other/spdx-3-rdf/) | SPDX 3.0 RDF Model (ISO/IEC 5962) | spec | standard | summarized | useful | — |
+
+## regulator
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) | Framing Software Component Transparency: Establishing a Co | spec | best-practice | summarized | useful | — |
+| [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) | The Minimum Elements For a Software Bill of Materials (SBO | spec | best-practice | summarized | useful | — |
 
 ## w3c
 

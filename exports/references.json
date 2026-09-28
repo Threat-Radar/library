@@ -42,6 +42,21 @@
     "URL": "https://arxiv.org/abs/2306.08302"
   },
   {
+    "id": "cyclonedx-1-7",
+    "type": "report",
+    "title": "CycloneDX Bill of Materials Specification",
+    "URL": "https://tc54.org/ecma424/",
+    "issued": {
+      "date-parts": [
+        [
+          2025,
+          12
+        ]
+      ]
+    },
+    "publisher": "Ecma International"
+  },
+  {
     "id": "draft-mcnally-deterministic-cbor",
     "type": "report",
     "title": "dCBOR: Deterministic CBOR",
@@ -86,6 +101,22 @@
     "type": "software",
     "title": "Dead Simple Signing Envelope (DSSE)",
     "URL": "https://github.com/secure-systems-lab/dsse"
+  },
+  {
+    "id": "spdx-3-0-1",
+    "type": "report",
+    "title": "System Package Data Exchange (SPDX) Specification Version 3.0.1",
+    "URL": "https://spdx.github.io/spdx-spec/v3.0.1/",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          12,
+          17
+        ]
+      ]
+    },
+    "publisher": "The Linux Foundation"
   },
   {
     "id": "draft-ietf-cbor-cddl-modules",
@@ -1091,6 +1122,21 @@
     "URL": "https://www.iso.org/standard/72515.html"
   },
   {
+    "id": "iso-iec-5962-2021",
+    "type": "report",
+    "title": "Information technology \u2014 SPDX Specification V2.2.1",
+    "URL": "https://www.iso.org/standard/81870.html",
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          8
+        ]
+      ]
+    },
+    "publisher": "International Organization for Standardization"
+  },
+  {
     "id": "iso-sae-21434-2021",
     "type": "report",
     "title": "Road vehicles \u2014 Cybersecurity engineering",
@@ -1207,6 +1253,22 @@
     "URL": "https://csrc.nist.gov/pubs/sp/800/160/"
   },
   {
+    "id": "sp-800-161r1",
+    "type": "report",
+    "title": "Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations",
+    "URL": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+    "issued": {
+      "date-parts": [
+        [
+          2022,
+          5
+        ]
+      ]
+    },
+    "DOI": "10.6028/NIST.SP.800-161r1-upd1",
+    "publisher": "NIST"
+  },
+  {
     "id": "sp-800-186",
     "type": "report",
     "title": "Recommendations for Discrete Logarithm-based Cryptography: Elliptic Curve Domain Parameters",
@@ -1320,10 +1382,36 @@
     "URL": "https://www.sae.org/standards/content/j3061/"
   },
   {
-    "id": "spdx-3-rdf",
+    "id": "cisa-framing-software-component-transparency",
     "type": "report",
-    "title": "SPDX 3.0 RDF Model (ISO/IEC 5962)",
-    "URL": "https://spdx.github.io/spdx-spec/v3.0.1/annexes/rdf-model/"
+    "title": "Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM)",
+    "URL": "https://www.cisa.gov/resources-tools/resources/framing-software-component-transparency-2024",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          9,
+          3
+        ]
+      ]
+    },
+    "publisher": "Cybersecurity and Infrastructure Security Agency"
+  },
+  {
+    "id": "ntia-sbom-minimum-elements",
+    "type": "report",
+    "title": "The Minimum Elements For a Software Bill of Materials (SBOM)",
+    "URL": "https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom",
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          7,
+          12
+        ]
+      ]
+    },
+    "publisher": "United States Department of Commerce"
   },
   {
     "id": "owl-2-primer",

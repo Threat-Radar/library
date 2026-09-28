@@ -38,6 +38,7 @@ This is the query the library exists to answer.
 - [`rfc-9921`](../records/ietf/rfc-9921/) — CBOR Object Signing and Encryption (COSE) Header Parameter for Timesta
 - [`rfc-9964`](../records/ietf/rfc-9964/) — ML-DSA for JSON Object Signing and Encryption (JOSE) and CBOR Object S
 - [`rfc-9997`](../records/ietf/rfc-9997/) — YANG-CBOR: Allocating SID Ranges for Private Enterprise Number (PEN) H
+- [`sp-800-161r1`](../records/nist/sp-800-161r1/) — Cybersecurity Supply Chain Risk Management Practices for Systems and O
 - [`sp-800-186`](../records/nist/sp-800-186/) — Recommendations for Discrete Logarithm-based Cryptography: Elliptic Cu
 - [`w3c-did-core`](../records/w3c/w3c-did-core/) — Decentralized Identifiers (DIDs) v1.0
 
@@ -90,7 +91,6 @@ This is the query the library exists to answer.
 - [`rfc-9804`](../records/ietf/rfc-9804/) — Simple Public Key Infrastructure (SPKI) S-Expressions
 - [`rfc-9943`](../records/ietf/rfc-9943/) — An Architecture for Trustworthy and Transparent Digital Supply Chains
 - [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) — Dead Simple Signing Envelope (DSSE)
-- [`spdx-3-rdf`](../records/other/spdx-3-rdf/) — SPDX 3.0 RDF Model (ISO/IEC 5962)
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
 
 ### DEC-003
@@ -220,13 +220,23 @@ This is the query the library exists to answer.
 
 ### R-M-07
 
+- [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) — Framing Software Component Transparency: Establishing a Common Softwar
+- [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) — CycloneDX Bill of Materials Specification
+- [`iso-iec-5962-2021`](../records/iso/iso-iec-5962-2021/) — Information technology — SPDX Specification V2.2.1
+- [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) — The Minimum Elements For a Software Bill of Materials (SBOM)
 - [`rfc-9054`](../records/ietf/rfc-9054/) — CBOR Object Signing and Encryption (COSE): Hash Algorithms
 - [`rfc-9995`](../records/ietf/rfc-9995/) — CBOR Object Signing and Encryption (COSE) Hash Envelope
+- [`spdx-3-0-1`](../records/community/spdx-3-0-1/) — System Package Data Exchange (SPDX) Specification Version 3.0.1
 
 ### R-M-11
 
+- [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) — Framing Software Component Transparency: Establishing a Common Softwar
+- [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) — CycloneDX Bill of Materials Specification
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
 - [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) — in-toto Attestation Framework v1
+- [`iso-iec-5962-2021`](../records/iso/iso-iec-5962-2021/) — Information technology — SPDX Specification V2.2.1
+- [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) — The Minimum Elements For a Software Bill of Materials (SBOM)
+- [`spdx-3-0-1`](../records/community/spdx-3-0-1/) — System Package Data Exchange (SPDX) Specification Version 3.0.1
 
 ### R-M-12
 
