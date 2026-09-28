@@ -164,7 +164,21 @@ This is the query the library exists to answer.
 
 ### DEC-009
 
+- [`fips-140-2`](../records/nist/fips-140-2/) — FIPS 140-2, Security Requirements for Cryptographic Modules (supersede
+- [`iso-iec-19790`](../records/iso/iso-iec-19790/) — ISO/IEC 19790:2012, Security requirements for cryptographic modules
+- [`iso-iec-24759`](../records/iso/iso-iec-24759/) — ISO/IEC 24759:2017, Test requirements for cryptographic modules
+- [`nist-sp-800-140`](../records/nist/nist-sp-800-140/) — NIST SP 800-140, FIPS 140-3 Derived Test Requirements (DTR): CMVP upda
+- [`nist-sp-800-140a`](../records/nist/nist-sp-800-140a/) — NIST SP 800-140A, CMVP Documentation Requirements
+- [`nist-sp-800-140b`](../records/nist/nist-sp-800-140b/) — NIST SP 800-140B, CMVP Security Policy Requirements
+- [`nist-sp-800-140c`](../records/nist/nist-sp-800-140c/) — NIST SP 800-140C, CMVP Approved Security Functions
+- [`nist-sp-800-140d`](../records/nist/nist-sp-800-140d/) — NIST SP 800-140D, CMVP Approved Sensitive Security Parameter Generatio
+- [`nist-sp-800-140e`](../records/nist/nist-sp-800-140e/) — NIST SP 800-140E, CMVP Approved Authentication Mechanisms
+- [`nist-sp-800-140f`](../records/nist/nist-sp-800-140f/) — NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitigation Test Me
 - [`sudokn-okn`](../records/academic/sudokn-okn/) — SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., P
+
+### DEC-009                  # compliance / product conformance
+
+- [`fips-140-3`](../records/nist/fips-140-3/) — FIPS 140-3, Security Requirements for Cryptographic Modules
 
 ### DEC-009               # generic->product mapping & mitigation lifecycle
 

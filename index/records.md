@@ -3,7 +3,7 @@
 
 # Records
 
-113 records across 9 bodies.
+124 records across 9 bodies.
 
 
 ## academic
@@ -110,14 +110,25 @@
 | [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) | ISO 26262-3:2018, Road vehicles — Functional safety — Part | spec | — | queued | — | — |
 | [`iso-iec-15408`](../records/iso/iso-iec-15408/) | ISO/IEC 15408 (all parts), Evaluation criteria for IT secu | spec | — | queued | — | — |
 | [`iso-iec-18045`](../records/iso/iso-iec-18045/) | ISO/IEC 18045, Methodology for IT security evaluation (att | spec | — | queued | — | — |
+| [`iso-iec-19790`](../records/iso/iso-iec-19790/) | ISO/IEC 19790:2012, Security requirements for cryptographi | spec | — | queued | — | — |
+| [`iso-iec-24759`](../records/iso/iso-iec-24759/) | ISO/IEC 24759:2017, Test requirements for cryptographic mo | spec | — | queued | — | — |
 | [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) | Road vehicles — Cybersecurity engineering | spec | standard | distilled | useful | — |
 
 ## nist
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`fips-140-2`](../records/nist/fips-140-2/) | FIPS 140-2, Security Requirements for Cryptographic Module | spec | — | queued | — | — |
+| [`fips-140-3`](../records/nist/fips-140-3/) | FIPS 140-3, Security Requirements for Cryptographic Module | spec | standard | distilled | useful | — |
 | [`fips-186-4`](../records/nist/fips-186-4/) | Digital Signature Standard (DSS), FIPS 186-4 | spec | historic | stub | — | — |
 | [`fips-186-5`](../records/nist/fips-186-5/) | Digital Signature Standard (DSS) | spec | standard | summarized | useful | — |
+| [`nist-sp-800-140`](../records/nist/nist-sp-800-140/) | NIST SP 800-140, FIPS 140-3 Derived Test Requirements (DTR | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140a`](../records/nist/nist-sp-800-140a/) | NIST SP 800-140A, CMVP Documentation Requirements | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140b`](../records/nist/nist-sp-800-140b/) | NIST SP 800-140B, CMVP Security Policy Requirements | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140c`](../records/nist/nist-sp-800-140c/) | NIST SP 800-140C, CMVP Approved Security Functions | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140d`](../records/nist/nist-sp-800-140d/) | NIST SP 800-140D, CMVP Approved Sensitive Security Paramet | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140e`](../records/nist/nist-sp-800-140e/) | NIST SP 800-140E, CMVP Approved Authentication Mechanisms | spec | best-practice | distilled | useful | — |
+| [`nist-sp-800-140f`](../records/nist/nist-sp-800-140f/) | NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitiga | spec | best-practice | distilled | useful | — |
 | [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) | NIST SP 800-160, Systems Security Engineering (Ross et al. | spec | — | queued | — | — |
 | [`sp-800-186`](../records/nist/sp-800-186/) | Recommendations for Discrete Logarithm-based Cryptography: | spec | recommendation | stub | — | — |
 
