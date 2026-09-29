@@ -57,7 +57,9 @@ This is the query the library exists to answer.
 - [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
 - [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
 - [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
+- [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
 - [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
+- [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
 
 ### DEC-002
@@ -146,6 +148,8 @@ This is the query the library exists to answer.
 - [`rfc-9942`](../records/ietf/rfc-9942/) — CBOR Object Signing and Encryption (COSE) Receipts
 - [`rfc-9995`](../records/ietf/rfc-9995/) — CBOR Object Signing and Encryption (COSE) Hash Envelope
 - [`sae-j3061`](../records/other/sae-j3061/) — SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems 
+- [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
+- [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
 
 ### DEC-005               # MVP scope (TARA is a candidate expansion dimension)
 

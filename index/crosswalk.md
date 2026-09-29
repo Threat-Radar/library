@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-81 of 129 records have at least one edge.
+84 of 131 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -88,6 +88,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
 ### `iso-sae-21434-2021`
 - **supersedes** → `sae-j3061`
+
+### `mulval`
+- **see_also** → `schneier-attack-trees-1999`
 
 ### `nist-sp-800-140`
 - **cited_by** → `fips-140-3`
@@ -274,8 +277,14 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `sae-j3061`
 - **superseded_by** → `iso-sae-21434-2021`
 
+### `schneier-attack-trees-1999`
+- **see_also** → `mulval`
+
 ### `secure-systems-lab-dsse`
 - **see_also** → `cyclonedx-1-7`, `spdx-3-0-1`
+
+### `sei-threat-modeling-methods-2018`
+- **cites** → `schneier-attack-trees-1999`
 
 ### `sp-800-161r1`
 - **see_also** → `in-toto-attestation-v1`, `ntia-sbom-minimum-elements`, `rfc-9943`
@@ -311,7 +320,6 @@ is a record nothing will surface.
 - `linkml`
 - `mcp-okn`
 - `mitre-attack`
-- `mulval`
 - `nist-sp-800-160`
 - `nsf-23-571`
 - `nsf-okn-launch`

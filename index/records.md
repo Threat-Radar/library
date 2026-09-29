@@ -3,7 +3,7 @@
 
 # Records
 
-129 records across 10 bodies.
+131 records across 10 bodies.
 
 
 ## academic
@@ -15,6 +15,7 @@
 | [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
 | [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana) | book | — | queued | — | — |
 | [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |
+| [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) | Threat Modeling: A Summary of Available Methods | paper | — | summarized | — | — |
 | [`sudokn-okn`](../records/academic/sudokn-okn/) | SUDOKN — Supply and Demand Open Knowledge Network (Arizona | web | implementation | summarized | useful | — |
 | [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) | Unifying Large Language Models and Knowledge Graphs: A Roa | paper | white-paper | summarized | useful | — |
 
@@ -165,6 +166,7 @@
 | [`nsf-okn-launch`](../records/other/nsf-okn-launch/) | NSF Open Knowledge Network (NSF OKN) — public launch | web | informational | summarized | useful | — |
 | [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) | Open Knowledge Network Roadmap: Powering the Next Data Rev | web | informational | summarized | useful | — |
 | [`sae-j3061`](../records/other/sae-j3061/) | SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehi | spec | — | queued | — | — |
+| [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) | Attack Trees | article | — | queued | — | — |
 
 ## regulator
 

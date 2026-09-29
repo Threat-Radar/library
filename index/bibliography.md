@@ -3,7 +3,7 @@
 
 # Bibliography
 
-129 records.
+131 records.
 
 
 ## academic
@@ -22,6 +22,8 @@
 - **SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Software Supply Chains (Purdue, Proto-OKN)**  
   `securechain-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Direct domain analog: connecting components, artifacts and vulnerabilities as a graph — the pattern tmodel needs for the composition→weakness layer._
+- **Threat Modeling: A Summary of Available Methods** — Nataliya Shevchenko, Timothy A. Chick, Paige O'Riordan, Thomas Patrick Scanlon, Carol Woody. 2018-07  
+  `sei-threat-modeling-methods-2018` · paper · **summarized** · [source](https://www.sei.cmu.edu/documents/569/2018_019_001_524597.pdf)
 - **SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)**  
   `sudokn-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Demonstrates cross-domain linking (products↔companies↔risk) at scale — the supply-chain-security use case tmodel aligns with._
@@ -354,6 +356,8 @@
   _Method for eliciting use cases + end-user requirements — reusable for scoping tmodel's KG; sets the OKN vision tmodel could federate with._
 - **SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)**  
   `sae-j3061` · spec · [source](https://www.sae.org/standards/content/j3061/)
+- **Attack Trees** — Bruce Schneier. 1999-12  
+  `schneier-attack-trees-1999` · article · [source](https://www.schneier.com/academic/archives/1999/12/attack_trees.html)
 
 ## regulator
 

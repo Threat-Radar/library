@@ -30,6 +30,21 @@
     "URL": "https://www.proto-okn.net/theme-1-projects/"
   },
   {
+    "id": "sei-threat-modeling-methods-2018",
+    "type": "article-journal",
+    "title": "Threat Modeling: A Summary of Available Methods",
+    "URL": "https://www.sei.cmu.edu/library/threat-modeling-a-summary-of-available-methods/",
+    "issued": {
+      "date-parts": [
+        [
+          2018,
+          7
+        ]
+      ]
+    },
+    "publisher": "Software Engineering Institute, Carnegie Mellon University"
+  },
+  {
     "id": "sudokn-okn",
     "type": "webpage",
     "title": "SUDOKN \u2014 Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)",
@@ -1380,6 +1395,21 @@
     "type": "report",
     "title": "SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)",
     "URL": "https://www.sae.org/standards/content/j3061/"
+  },
+  {
+    "id": "schneier-attack-trees-1999",
+    "type": "article-magazine",
+    "title": "Attack Trees",
+    "URL": "https://www.schneier.com/academic/archives/1999/12/attack_trees.html",
+    "issued": {
+      "date-parts": [
+        [
+          1999,
+          12
+        ]
+      ]
+    },
+    "publisher": "Dr. Dobb's Journal"
   },
   {
     "id": "cisa-framing-software-component-transparency",
