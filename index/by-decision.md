@@ -11,6 +11,7 @@ This is the query the library exists to answer.
 
 - [`draft-ietf-cbor-packed`](../records/ietf/draft-ietf-cbor-packed/) — Packed CBOR
 - [`fips-186-4`](../records/nist/fips-186-4/) — Digital Signature Standard (DSS), FIPS 186-4
+- [`fips-203`](../records/nist/fips-203/) — Module-Lattice-Based Key-Encapsulation Mechanism Standard
 - [`ietf-vcon-wg`](../records/ietf/ietf-vcon-wg/) — IETF vCon Working Group
 - [`rfc-1952`](../records/ietf/rfc-1952/) — GZIP
 - [`rfc-3339`](../records/ietf/rfc-3339/) — Timestamps
@@ -105,7 +106,10 @@ This is the query the library exists to answer.
 
 ### R-M-02
 
+- [`fips-180-4`](../records/nist/fips-180-4/) — Secure Hash Standard (SHS)
 - [`fips-186-5`](../records/nist/fips-186-5/) — Digital Signature Standard (DSS)
+- [`fips-202`](../records/nist/fips-202/) — SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions
+- [`sp-800-57pt1r5`](../records/nist/sp-800-57pt1r5/) — Recommendation for Key Management: Part 1 - General
 
 ### R-M-05
 
@@ -154,3 +158,4 @@ This is the query the library exists to answer.
 
 - [`fips-186-5`](../records/nist/fips-186-5/) — Digital Signature Standard (DSS)
 - [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) — Dead Simple Signing Envelope (DSSE)
+- [`sp-800-208`](../records/nist/sp-800-208/) — Recommendation for Stateful Hash-Based Signature Schemes

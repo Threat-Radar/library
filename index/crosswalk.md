@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-67 of 83 records have at least one edge.
+72 of 88 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -45,12 +45,21 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **cites** → `iana-cbor-simple-values`, `iana-cbor-tags`
 - **see_also** → `draft-ietf-cbor-serialization`, `rfc-8949`
 
+### `fips-180-4`
+- **see_also** → `fips-186-5`, `fips-202`, `sp-800-208`, `sp-800-57pt1r5`
+
 ### `fips-186-4`
 - **superseded_by** → `fips-186-5`
 
 ### `fips-186-5`
-- **see_also** → `sp-800-186`
+- **see_also** → `fips-180-4`, `fips-202`, `fips-203`, `sp-800-186`, `sp-800-208`, `sp-800-57pt1r5`
 - **supersedes** → `fips-186-4`
+
+### `fips-202`
+- **see_also** → `fips-180-4`, `fips-186-5`, `fips-203`, `sp-800-208`
+
+### `fips-203`
+- **see_also** → `fips-186-5`, `fips-202`
 
 ### `iana-cose-algorithms`
 - **see_also** → `draft-ietf-vcon-vcon-core-04`
@@ -232,6 +241,12 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
 ### `sp-800-186`
 - **see_also** → `fips-186-5`
+
+### `sp-800-208`
+- **see_also** → `fips-180-4`, `fips-186-5`, `fips-202`
+
+### `sp-800-57pt1r5`
+- **see_also** → `fips-180-4`, `fips-186-5`
 
 ### `spdx-3-0-1`
 - **see_also** → `cyclonedx-1-7`, `in-toto-attestation-v1`, `secure-systems-lab-dsse`
