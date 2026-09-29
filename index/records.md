@@ -166,7 +166,7 @@
 | [`nsf-okn-launch`](../records/other/nsf-okn-launch/) | NSF Open Knowledge Network (NSF OKN) — public launch | web | informational | summarized | useful | — |
 | [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) | Open Knowledge Network Roadmap: Powering the Next Data Rev | web | informational | summarized | useful | — |
 | [`sae-j3061`](../records/other/sae-j3061/) | SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehi | spec | — | queued | — | — |
-| [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) | Attack Trees | article | — | queued | — | — |
+| [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) | Attack Trees | article | — | summarized | — | — |
 
 ## regulator
 

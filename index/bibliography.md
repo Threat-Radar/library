@@ -357,7 +357,7 @@
 - **SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)**  
   `sae-j3061` · spec · [source](https://www.sae.org/standards/content/j3061/)
 - **Attack Trees** — Bruce Schneier. 1999-12  
-  `schneier-attack-trees-1999` · article · [source](https://www.schneier.com/academic/archives/1999/12/attack_trees.html)
+  `schneier-attack-trees-1999` · article · **summarized** · [source](https://www.schneier.com/academic/archives/1999/12/attack_trees.html)
 
 ## regulator
 
