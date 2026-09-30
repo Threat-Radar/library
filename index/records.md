@@ -3,7 +3,7 @@
 
 # Records
 
-137 records across 11 bodies.
+138 records across 11 bodies.
 
 
 ## academic
@@ -34,6 +34,7 @@
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 | [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
+| [`trike-v1-2005`](../records/community/trike-v1-2005/) | Trike v.1 Methodology Document [Draft] | paper | — | queued | — | — |
 | [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) | Real World Threat Modeling Using the PASTA Methodology | web | — | queued | — | — |
 
 ## ietf

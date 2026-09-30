@@ -3,7 +3,7 @@
 
 # Bibliography
 
-137 records.
+138 records.
 
 
 ## academic
@@ -58,6 +58,8 @@
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
 - **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
   `spdx-3-0-1` · spec · [source](https://spdx.github.io/spdx-spec/v3.0.1/)
+- **Trike v.1 Methodology Document [Draft]** — Paul Saitta, Brenda Larcom, Michael Eddington. 2005-07-13  
+  `trike-v1-2005` · paper · [source](http://web.archive.org/web/20240117174652/https://www.octotrike.org/papers/Trike_v1_Methodology_Document-draft.pdf)
 - **Real World Threat Modeling Using the PASTA Methodology** — Tony UcedaVélez. 2012  
   `ucedavelez-pasta-owasp-2012` · web · [source](https://wiki.owasp.org/images/a/aa/AppSecEU2012_PASTA.pdf)
 

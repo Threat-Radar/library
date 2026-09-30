@@ -182,6 +182,22 @@
     "publisher": "The Linux Foundation"
   },
   {
+    "id": "trike-v1-2005",
+    "type": "article-journal",
+    "title": "Trike v.1 Methodology Document [Draft]",
+    "URL": "https://www.octotrike.org/papers/Trike_v1_Methodology_Document-draft.pdf",
+    "issued": {
+      "date-parts": [
+        [
+          2005,
+          7,
+          13
+        ]
+      ]
+    },
+    "publisher": "OctoTrike"
+  },
+  {
     "id": "ucedavelez-pasta-owasp-2012",
     "type": "webpage",
     "title": "Real World Threat Modeling Using the PASTA Methodology",
