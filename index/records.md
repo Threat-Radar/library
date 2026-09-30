@@ -3,7 +3,7 @@
 
 # Records
 
-136 records across 11 bodies.
+137 records across 11 bodies.
 
 
 ## academic
@@ -17,6 +17,7 @@
 | [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
 | [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: Process for Attack Simulatio | book | — | queued | — | — |
 | [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |
+| [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) | Introducing OCTAVE Allegro: Improving the Information Secu | paper | — | queued | — | — |
 | [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) | Threat Modeling: A Summary of Available Methods | paper | — | summarized | — | — |
 | [`sudokn-okn`](../records/academic/sudokn-okn/) | SUDOKN — Supply and Demand Open Knowledge Network (Arizona | web | implementation | summarized | useful | — |
 | [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) | Unifying Large Language Models and Knowledge Graphs: A Roa | paper | white-paper | summarized | useful | — |

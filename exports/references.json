@@ -63,6 +63,21 @@
     "URL": "https://www.proto-okn.net/theme-1-projects/"
   },
   {
+    "id": "sei-octave-allegro-2007",
+    "type": "article-journal",
+    "title": "Introducing OCTAVE Allegro: Improving the Information Security Risk Assessment Process",
+    "URL": "https://www.sei.cmu.edu/documents/786/2007_005_001_14885.pdf",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          5
+        ]
+      ]
+    },
+    "publisher": "Software Engineering Institute, Carnegie Mellon University"
+  },
+  {
     "id": "sei-threat-modeling-methods-2018",
     "type": "article-journal",
     "title": "Threat Modeling: A Summary of Available Methods",

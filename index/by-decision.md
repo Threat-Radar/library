@@ -64,6 +64,7 @@ This is the query the library exists to answer.
 - [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
 - [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
 - [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
+- [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
 - [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
 - [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
@@ -112,6 +113,7 @@ This is the query the library exists to answer.
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
+- [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
 - [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-003               # risk-metric scheme (impact rating, attack feasibility, risk value)
@@ -161,6 +163,7 @@ This is the query the library exists to answer.
 - [`rfc-9995`](../records/ietf/rfc-9995/) — CBOR Object Signing and Encryption (COSE) Hash Envelope
 - [`sae-j3061`](../records/other/sae-j3061/) — SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems 
 - [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
+- [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
 - [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
 - [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 

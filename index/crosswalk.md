@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-90 of 136 records have at least one edge.
+91 of 137 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -298,8 +298,12 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `secure-systems-lab-dsse`
 - **see_also** → `cyclonedx-1-7`, `spdx-3-0-1`
 
+### `sei-octave-allegro-2007`
+- **contradicts** → `sei-threat-modeling-methods-2018`
+
 ### `sei-threat-modeling-methods-2018`
 - **cites** → `schneier-attack-trees-1999`
+- **contradicts** → `sei-octave-allegro-2007`
 
 ### `sp-800-161r1`
 - **see_also** → `in-toto-attestation-v1`, `ntia-sbom-minimum-elements`, `rfc-9943`

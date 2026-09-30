@@ -3,7 +3,7 @@
 
 # Bibliography
 
-136 records.
+137 records.
 
 
 ## academic
@@ -26,6 +26,8 @@
 - **SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Software Supply Chains (Purdue, Proto-OKN)**  
   `securechain-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Direct domain analog: connecting components, artifacts and vulnerabilities as a graph — the pattern tmodel needs for the composition→weakness layer._
+- **Introducing OCTAVE Allegro: Improving the Information Security Risk Assessment Process** — Richard A. Caralli, James F. Stevens, Lisa R. Young, William R. Wilson. 2007-05  
+  `sei-octave-allegro-2007` · paper · [source](https://www.sei.cmu.edu/documents/786/2007_005_001_14885.pdf)
 - **Threat Modeling: A Summary of Available Methods** — Nataliya Shevchenko, Timothy A. Chick, Paige O'Riordan, Thomas Patrick Scanlon, Carol Woody. 2018-07  
   `sei-threat-modeling-methods-2018` · paper · **summarized** · [source](https://www.sei.cmu.edu/documents/569/2018_019_001_524597.pdf)
 - **SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)**  
