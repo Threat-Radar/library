@@ -3,7 +3,7 @@
 
 # Records
 
-134 records across 11 bodies.
+136 records across 11 bodies.
 
 
 ## academic
@@ -11,7 +11,9 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`bron`](../records/academic/bron/) | BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al | paper | white-paper | summarized | useful | — |
+| [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) | A privacy threat analysis framework: supporting the elicit | paper | — | queued | — | — |
 | [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) | Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4 | paper | white-paper | summarized | useful | — |
+| [`linddun-org`](../records/academic/linddun-org/) | LINDDUN privacy threat modeling framework (linddun.org) | web | — | queued | — | — |
 | [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
 | [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: Process for Attack Simulatio | book | — | queued | — | — |
 | [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |

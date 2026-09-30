@@ -6,10 +6,32 @@
     "URL": "https://arxiv.org/abs/2010.00533"
   },
   {
+    "id": "deng-linddun-2011",
+    "type": "article-journal",
+    "title": "A privacy threat analysis framework: supporting the elicitation and fulfillment of privacy requirements",
+    "URL": "https://link.springer.com/article/10.1007/s00766-010-0115-7",
+    "issued": {
+      "date-parts": [
+        [
+          2011
+        ]
+      ]
+    },
+    "DOI": "10.1007/s00766-010-0115-7",
+    "publisher": "Springer"
+  },
+  {
     "id": "hogan-kg-survey",
     "type": "article-journal",
     "title": "Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)",
     "URL": "https://aidanhogan.com/docs/knowledge-graphs-computing-surveys.pdf"
+  },
+  {
+    "id": "linddun-org",
+    "type": "webpage",
+    "title": "LINDDUN privacy threat modeling framework (linddun.org)",
+    "URL": "https://linddun.org/",
+    "publisher": "KU Leuven"
   },
   {
     "id": "mulval",

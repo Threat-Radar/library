@@ -49,8 +49,10 @@ This is the query the library exists to answer.
 - [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
 - [`cwe`](../records/other/cwe/) — MITRE CWE — Common Weakness Enumeration
 - [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
+- [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) — A privacy threat analysis framework: supporting the elicitation and fu
 - [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
 - [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
+- [`linddun-org`](../records/academic/linddun-org/) — LINDDUN privacy threat modeling framework (linddun.org)
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
 - [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) — Intelligence-Driven Computer Network Defense Informed by Analysis of A
 - [`mitre-attack`](../records/other/mitre-attack/) — MITRE ATT&CK (knowledge base + STIX 2.1 data)
@@ -135,9 +137,11 @@ This is the query the library exists to answer.
 
 ### DEC-005
 
+- [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) — A privacy threat analysis framework: supporting the elicitation and fu
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
 - [`ietf-cose-wg`](../records/ietf/ietf-cose-wg/) — IETF CBOR Object Signing and Encryption (COSE) Working Group
+- [`linddun-org`](../records/academic/linddun-org/) — LINDDUN privacy threat modeling framework (linddun.org)
 - [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) — Intelligence-Driven Computer Network Defense Informed by Analysis of A
 - [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) — MITRE ATT&CK: Design and Philosophy
 - [`mulval`](../records/academic/mulval/) — MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Sec

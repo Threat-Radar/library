@@ -3,7 +3,7 @@
 
 # Bibliography
 
-134 records.
+136 records.
 
 
 ## academic
@@ -11,9 +11,13 @@
 - **BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)**  
   `bron` · paper · white-paper · **summarized** · [source](https://arxiv.org/abs/2010.00533)  
   _The most directly relevant prior art: a reusable reference implementation of tmodel's CVE→CWE→CAPEC→ATT&CK backbone._
+- **A privacy threat analysis framework: supporting the elicitation and fulfillment of privacy requirements** — Mina Deng, Kim Wuyts, Riccardo Scandariato, Bart Preneel, Wouter Joosen. 2011. 10.1007/s00766-010-0115-7  
+  `deng-linddun-2011` · paper · [source](https://cosicdatabase.esat.kuleuven.be/backend/publications/files/journal/1412)
 - **Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)**  
   `hogan-kg-survey` · paper · white-paper · **summarized** · [source](https://aidanhogan.com/docs/knowledge-graphs-computing-surveys.pdf)  
   _Best single orientation document; frames tmodel's RDF-vs-LPG model choice._
+- **LINDDUN privacy threat modeling framework (linddun.org)** — DistriNet Research Unit, KU Leuven  
+  `linddun-org` · web · [source](https://linddun.org/)
 - **MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)**  
   `mulval` · paper · white-paper · **summarized** · [source](https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf)  
   _Reference model for rule-based attack-path derivation; facts=nodes, rules=logic, derivation graph = the reviewable attack-path artifact._
