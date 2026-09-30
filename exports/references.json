@@ -1357,6 +1357,21 @@
     "URL": "https://attack.mitre.org/"
   },
   {
+    "id": "mitre-attack-design-philosophy",
+    "type": "article-journal",
+    "title": "MITRE ATT&CK: Design and Philosophy",
+    "URL": "https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf",
+    "issued": {
+      "date-parts": [
+        [
+          2020,
+          3
+        ]
+      ]
+    },
+    "publisher": "The MITRE Corporation"
+  },
+  {
     "id": "nsf-23-571",
     "type": "webpage",
     "title": "NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)",
@@ -1442,6 +1457,20 @@
       ]
     },
     "publisher": "United States Department of Commerce"
+  },
+  {
+    "id": "lockheed-kill-chain-2011",
+    "type": "article-journal",
+    "title": "Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains",
+    "URL": "https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf",
+    "issued": {
+      "date-parts": [
+        [
+          2011
+        ]
+      ]
+    },
+    "publisher": "Lockheed Martin Corporation"
   },
   {
     "id": "owl-2-primer",

@@ -3,7 +3,7 @@
 
 # Bibliography
 
-131 records.
+133 records.
 
 
 ## academic
@@ -345,6 +345,8 @@
 - **MITRE ATT&CK (knowledge base + STIX 2.1 data)**  
   `mitre-attack` · dataset · best-practice · **summarized** · [source](https://attack.mitre.org/)  
   _Canonical vocabulary/IDs for tmodel's threat + attack-path layer; ready-made graph-ingestion source._
+- **MITRE ATT&CK: Design and Philosophy** — Blake E. Strom, Andy Applebaum, Doug P. Miller, Kathryn C. Nickels, Adam G. Pennington, Cody B. Thomas. 2020-03  
+  `mitre-attack-design-philosophy` · paper · **summarized** · [source](https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf)
 - **NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)** — 2023  
   `nsf-23-571` · web · informational · **summarized** · [source](https://www.nsf.gov/pubs/2023/nsf23571/nsf23571.htm)  
   _Defines / demonstrates a national federated knowledge-graph infrastructure with a verifiable, attributed, governed knowledge layer for grounding AI — the properties tmodel wants for human-reviewed threat models — and treats supply-chain cybersecurity as a use case tmodel could align or federate with._
@@ -367,6 +369,11 @@
 - **The Minimum Elements For a Software Bill of Materials (SBOM)** — National Telecommunications and Information Administration. 2021-07-12  
   `ntia-sbom-minimum-elements` · spec · best-practice · **summarized** · [source](https://www.ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf)  
   _Establishes the floor for what an SBOM must contain, and — decisively for us — puts the component hash OUTSIDE that floor. That omission is the evidence R-M-07 needs._
+
+## vendor
+
+- **Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains** — Eric M. Hutchins, Michael J. Cloppert, Rohan M. Amin. 2011  
+  `lockheed-kill-chain-2011` · paper · **summarized** · [source](https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf)
 
 ## w3c
 

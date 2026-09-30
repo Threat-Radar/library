@@ -3,7 +3,7 @@
 
 # Records
 
-131 records across 10 bodies.
+133 records across 11 bodies.
 
 
 ## academic
@@ -162,6 +162,7 @@
 | [`frink-fabric`](../records/other/frink-fabric/) | FRINK — FabRic Integrating Networked Knowledge (RENCI, Pro | repo | implementation | summarized | useful | — |
 | [`graphrag-ms`](../records/other/graphrag-ms/) | GraphRAG (Microsoft Research, 2024) | repo | implementation | summarized | useful | — |
 | [`mitre-attack`](../records/other/mitre-attack/) | MITRE ATT&CK (knowledge base + STIX 2.1 data) | dataset | best-practice | summarized | useful | — |
+| [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) | MITRE ATT&CK: Design and Philosophy | paper | — | summarized | — | — |
 | [`nsf-23-571`](../records/other/nsf-23-571/) | NSF 23-571: Building the Prototype Open Knowledge Network  | web | informational | summarized | useful | — |
 | [`nsf-okn-launch`](../records/other/nsf-okn-launch/) | NSF Open Knowledge Network (NSF OKN) — public launch | web | informational | summarized | useful | — |
 | [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) | Open Knowledge Network Roadmap: Powering the Next Data Rev | web | informational | summarized | useful | — |
@@ -174,6 +175,12 @@
 |---|---|---|---|---|---|---|
 | [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) | Framing Software Component Transparency: Establishing a Co | spec | best-practice | summarized | useful | — |
 | [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) | The Minimum Elements For a Software Bill of Materials (SBO | spec | best-practice | summarized | useful | — |
+
+## vendor
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) | Intelligence-Driven Computer Network Defense Informed by A | paper | — | summarized | — | — |
 
 ## w3c
 

@@ -52,7 +52,9 @@ This is the query the library exists to answer.
 - [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
 - [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) — Intelligence-Driven Computer Network Defense Informed by Analysis of A
 - [`mitre-attack`](../records/other/mitre-attack/) — MITRE ATT&CK (knowledge base + STIX 2.1 data)
+- [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) — MITRE ATT&CK: Design and Philosophy
 - [`nsf-23-571`](../records/other/nsf-23-571/) — NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)
 - [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
 - [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
@@ -132,6 +134,8 @@ This is the query the library exists to answer.
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
 - [`ietf-cose-wg`](../records/ietf/ietf-cose-wg/) — IETF CBOR Object Signing and Encryption (COSE) Working Group
+- [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) — Intelligence-Driven Computer Network Defense Informed by Analysis of A
+- [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) — MITRE ATT&CK: Design and Philosophy
 - [`mulval`](../records/academic/mulval/) — MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Sec
 - [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) — NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)
 - [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)
