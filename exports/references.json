@@ -20,8 +20,19 @@
   {
     "id": "pasta-risk-centric-threat-modeling",
     "type": "book",
-    "title": "Risk Centric Threat Modeling: PASTA (UcedaV\u00e9lez & Morana)",
-    "URL": "https://www.wiley.com/"
+    "title": "Risk Centric Threat Modeling: Process for Attack Simulation and Threat Analysis",
+    "URL": "https://www.wiley.com/en-us/Risk+Centric+Threat+Modeling:+Process+for+Attack+Simulation+and+Threat+Analysis-p-9780470500965",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          5
+        ]
+      ]
+    },
+    "DOI": "10.1002/9781118988374",
+    "ISBN": "978-0-470-50096-5",
+    "publisher": "John Wiley & Sons"
   },
   {
     "id": "securechain-okn",
@@ -132,6 +143,20 @@
       ]
     },
     "publisher": "The Linux Foundation"
+  },
+  {
+    "id": "ucedavelez-pasta-owasp-2012",
+    "type": "webpage",
+    "title": "Real World Threat Modeling Using the PASTA Methodology",
+    "URL": "https://wiki.owasp.org/images/a/aa/AppSecEU2012_PASTA.pdf",
+    "issued": {
+      "date-parts": [
+        [
+          2012
+        ]
+      ]
+    },
+    "publisher": "OWASP (AppSec EU 2012 presentation)"
   },
   {
     "id": "draft-ietf-cbor-cddl-modules",

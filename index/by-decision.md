@@ -59,10 +59,12 @@ This is the query the library exists to answer.
 - [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
 - [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
 - [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
 - [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
 - [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
 - [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
+- [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-002
 
@@ -104,9 +106,11 @@ This is the query the library exists to answer.
 - [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) — ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept 
 - [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
 - [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
+- [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-003               # risk-metric scheme (impact rating, attack feasibility, risk value)
 
@@ -138,7 +142,7 @@ This is the query the library exists to answer.
 - [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) — MITRE ATT&CK: Design and Philosophy
 - [`mulval`](../records/academic/mulval/) — MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Sec
 - [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) — NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)
-- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
 - [`rfc-8152`](../records/ietf/rfc-8152/) — CBOR Object Signing and Encryption (COSE)
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9052`](../records/ietf/rfc-9052/) — CBOR Object Signing and Encryption (COSE): Structures and Process
@@ -154,6 +158,7 @@ This is the query the library exists to answer.
 - [`sae-j3061`](../records/other/sae-j3061/) — SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems 
 - [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
 - [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
+- [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-005               # MVP scope (TARA is a candidate expansion dimension)
 

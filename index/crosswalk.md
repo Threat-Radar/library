@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-86 of 133 records have at least one edge.
+88 of 134 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -129,6 +129,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `ntia-sbom-minimum-elements`
 - **see_also** → `sp-800-161r1`
 - **updated_by** → `cisa-framing-software-component-transparency`
+
+### `pasta-risk-centric-threat-modeling`
+- **see_also** → `ucedavelez-pasta-owasp-2012`
 
 ### `rfc-7049`
 - **part_of** → `ietf-cbor-wg`
@@ -302,6 +305,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **see_also** → `cyclonedx-1-7`, `guac`, `in-toto-attestation-v1`, `secure-systems-lab-dsse`
 - **supersedes** → `iso-iec-5962-2021`
 
+### `ucedavelez-pasta-owasp-2012`
+- **see_also** → `pasta-risk-centric-threat-modeling`
+
 ## Orphans
 
 No edges in or out. Not wrong — but a record connected to nothing
@@ -332,7 +338,6 @@ is a record nothing will surface.
 - `okn-roadmap-2022`
 - `osv-schema`
 - `owl-2-primer`
-- `pasta-risk-centric-threat-modeling`
 - `prov-o`
 - `rdf-1-1-concepts`
 - `rfc-1952`

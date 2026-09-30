@@ -46,12 +46,14 @@ Bears on **DEC-001** (object model — how attack paths are represented) and
 
 ## Implementations
 
-The article describes a method, not software. Attack-tree tools (ADTool,
-SecurITree, SeaMonster) are listed in RPT-0002 §4, pending verification.
-Searched 2026-09-29.
+The article describes a method, not software. Dedicated attack-tree tools found
+(details in RPT-0002 §4); searched 2026-09-29.
 
 | Name | Kind | License | URL |
 |---|---|---|---|
+| SecurITree (Amenaza) | commercial tool | commercial | https://www.amenaza.com/securitree-main.php |
+| ADTool | academic tool (attack–defence trees) | none stated in repo; unmaintained since 2017 | https://satoss.uni.lu/members/piotr/adtool/ |
+| SeaMonster (SINTEF) | academic tool | open source; unmaintained since 2016 | https://sourceforge.net/projects/seamonster/ |
 
 ## Artifacts in this record
 

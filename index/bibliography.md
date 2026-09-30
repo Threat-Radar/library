@@ -3,7 +3,7 @@
 
 # Bibliography
 
-133 records.
+134 records.
 
 
 ## academic
@@ -17,8 +17,8 @@
 - **MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)**  
   `mulval` · paper · white-paper · **summarized** · [source](https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf)  
   _Reference model for rule-based attack-path derivation; facts=nodes, rules=logic, derivation graph = the reviewable attack-path artifact._
-- **Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)**  
-  `pasta-risk-centric-threat-modeling` · book · [source](https://www.wiley.com/)
+- **Risk Centric Threat Modeling: Process for Attack Simulation and Threat Analysis** — Tony UcedaVélez, Marco M. Morana. 2015-05. 10.1002/9781118988374  
+  `pasta-risk-centric-threat-modeling` · book · [source](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118988374)
 - **SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Software Supply Chains (Purdue, Proto-OKN)**  
   `securechain-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Direct domain analog: connecting components, artifacts and vulnerabilities as a graph — the pattern tmodel needs for the composition→weakness layer._
@@ -52,6 +52,8 @@
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
 - **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
   `spdx-3-0-1` · spec · [source](https://spdx.github.io/spdx-spec/v3.0.1/)
+- **Real World Threat Modeling Using the PASTA Methodology** — Tony UcedaVélez. 2012  
+  `ucedavelez-pasta-owasp-2012` · web · [source](https://wiki.owasp.org/images/a/aa/AppSecEU2012_PASTA.pdf)
 
 ## ietf
 
