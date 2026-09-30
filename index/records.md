@@ -3,7 +3,7 @@
 
 # Records
 
-138 records across 11 bodies.
+139 records across 11 bodies.
 
 
 ## academic
@@ -186,6 +186,7 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) | Intelligence-Driven Computer Network Defense Informed by A | paper | — | summarized | — | — |
+| [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) | VAST (Visual, Agile, and Simple Threat) modeling — ThreatM | web | — | queued | — | — |
 
 ## w3c
 

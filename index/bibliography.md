@@ -3,7 +3,7 @@
 
 # Bibliography
 
-138 records.
+139 records.
 
 
 ## academic
@@ -384,6 +384,8 @@
 
 - **Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains** — Eric M. Hutchins, Michael J. Cloppert, Rohan M. Amin. 2011  
   `lockheed-kill-chain-2011` · paper · **summarized** · [source](https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf)
+- **VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler** — ThreatModeler Software  
+  `threatmodeler-vast` · web · [source](https://www.threatmodeler.ai/innovation-lab/vast)
 
 ## w3c
 

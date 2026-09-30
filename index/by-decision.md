@@ -167,6 +167,7 @@ This is the query the library exists to answer.
 - [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
 - [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
 - [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
+- [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) — VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler
 - [`trike-v1-2005`](../records/community/trike-v1-2005/) — Trike v.1 Methodology Document [Draft]
 - [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
@@ -177,6 +178,7 @@ This is the query the library exists to answer.
 ### DEC-006
 
 - [`graphrag-ms`](../records/other/graphrag-ms/) — GraphRAG (Microsoft Research, 2024)
+- [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) — VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler
 - [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) — Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et
 
 ### DEC-007

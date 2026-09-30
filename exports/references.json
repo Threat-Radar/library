@@ -1551,6 +1551,13 @@
     "publisher": "Lockheed Martin Corporation"
   },
   {
+    "id": "threatmodeler-vast",
+    "type": "webpage",
+    "title": "VAST (Visual, Agile, and Simple Threat) modeling \u2014 ThreatModeler",
+    "URL": "https://www.threatmodeler.ai/innovation-lab/vast",
+    "publisher": "ThreatModeler Software, Inc."
+  },
+  {
     "id": "owl-2-primer",
     "type": "report",
     "title": "OWL 2 Web Ontology Language Primer",
