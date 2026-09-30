@@ -11,13 +11,13 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`bron`](../records/academic/bron/) | BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al | paper | white-paper | summarized | useful | — |
-| [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) | A privacy threat analysis framework: supporting the elicit | paper | — | queued | — | — |
+| [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) | A privacy threat analysis framework: supporting the elicit | paper | — | summarized | — | — |
 | [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) | Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4 | paper | white-paper | summarized | useful | — |
-| [`linddun-org`](../records/academic/linddun-org/) | LINDDUN privacy threat modeling framework (linddun.org) | web | — | queued | — | — |
+| [`linddun-org`](../records/academic/linddun-org/) | LINDDUN privacy threat modeling framework (linddun.org) | web | — | summarized | — | — |
 | [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
 | [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: Process for Attack Simulatio | book | — | queued | — | — |
 | [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |
-| [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) | Introducing OCTAVE Allegro: Improving the Information Secu | paper | — | queued | — | — |
+| [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) | Introducing OCTAVE Allegro: Improving the Information Secu | paper | — | summarized | — | — |
 | [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) | Threat Modeling: A Summary of Available Methods | paper | — | summarized | — | — |
 | [`sudokn-okn`](../records/academic/sudokn-okn/) | SUDOKN — Supply and Demand Open Knowledge Network (Arizona | web | implementation | summarized | useful | — |
 | [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) | Unifying Large Language Models and Knowledge Graphs: A Roa | paper | white-paper | summarized | useful | — |
@@ -26,7 +26,7 @@
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
-| [`csa-maestro-2025`](../records/community/csa-maestro-2025/) | Agentic AI Threat Modeling Framework: MAESTRO | web | — | queued | — | — |
+| [`csa-maestro-2025`](../records/community/csa-maestro-2025/) | Agentic AI Threat Modeling Framework: MAESTRO | web | — | summarized | — | — |
 | [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) | CycloneDX Bill of Materials Specification | spec | standard | queued | unassessed | — |
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
@@ -35,8 +35,8 @@
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 | [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
-| [`trike-v1-2005`](../records/community/trike-v1-2005/) | Trike v.1 Methodology Document [Draft] | paper | — | queued | — | — |
-| [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) | Real World Threat Modeling Using the PASTA Methodology | web | — | queued | — | — |
+| [`trike-v1-2005`](../records/community/trike-v1-2005/) | Trike v.1 Methodology Document [Draft] | paper | — | summarized | — | — |
+| [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) | Real World Threat Modeling Using the PASTA Methodology | web | — | summarized | — | — |
 
 ## ietf
 
@@ -187,7 +187,7 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) | Intelligence-Driven Computer Network Defense Informed by A | paper | — | summarized | — | — |
-| [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) | VAST (Visual, Agile, and Simple Threat) modeling — ThreatM | web | — | queued | — | — |
+| [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) | VAST (Visual, Agile, and Simple Threat) modeling — ThreatM | web | — | summarized | — | — |
 
 ## w3c
 

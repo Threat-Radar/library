@@ -12,12 +12,12 @@
   `bron` · paper · white-paper · **summarized** · [source](https://arxiv.org/abs/2010.00533)  
   _The most directly relevant prior art: a reusable reference implementation of tmodel's CVE→CWE→CAPEC→ATT&CK backbone._
 - **A privacy threat analysis framework: supporting the elicitation and fulfillment of privacy requirements** — Mina Deng, Kim Wuyts, Riccardo Scandariato, Bart Preneel, Wouter Joosen. 2011. 10.1007/s00766-010-0115-7  
-  `deng-linddun-2011` · paper · [source](https://cosicdatabase.esat.kuleuven.be/backend/publications/files/journal/1412)
+  `deng-linddun-2011` · paper · **summarized** · [source](https://cosicdatabase.esat.kuleuven.be/backend/publications/files/journal/1412)
 - **Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)**  
   `hogan-kg-survey` · paper · white-paper · **summarized** · [source](https://aidanhogan.com/docs/knowledge-graphs-computing-surveys.pdf)  
   _Best single orientation document; frames tmodel's RDF-vs-LPG model choice._
 - **LINDDUN privacy threat modeling framework (linddun.org)** — DistriNet Research Unit, KU Leuven  
-  `linddun-org` · web · [source](https://linddun.org/)
+  `linddun-org` · web · **summarized** · [source](https://linddun.org/)
 - **MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)**  
   `mulval` · paper · white-paper · **summarized** · [source](https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf)  
   _Reference model for rule-based attack-path derivation; facts=nodes, rules=logic, derivation graph = the reviewable attack-path artifact._
@@ -27,7 +27,7 @@
   `securechain-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Direct domain analog: connecting components, artifacts and vulnerabilities as a graph — the pattern tmodel needs for the composition→weakness layer._
 - **Introducing OCTAVE Allegro: Improving the Information Security Risk Assessment Process** — Richard A. Caralli, James F. Stevens, Lisa R. Young, William R. Wilson. 2007-05  
-  `sei-octave-allegro-2007` · paper · [source](https://www.sei.cmu.edu/documents/786/2007_005_001_14885.pdf)
+  `sei-octave-allegro-2007` · paper · **summarized** · [source](https://www.sei.cmu.edu/documents/786/2007_005_001_14885.pdf)
 - **Threat Modeling: A Summary of Available Methods** — Nataliya Shevchenko, Timothy A. Chick, Paige O'Riordan, Thomas Patrick Scanlon, Carol Woody. 2018-07  
   `sei-threat-modeling-methods-2018` · paper · **summarized** · [source](https://www.sei.cmu.edu/documents/569/2018_019_001_524597.pdf)
 - **SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)**  
@@ -40,7 +40,7 @@
 ## community
 
 - **Agentic AI Threat Modeling Framework: MAESTRO** — Ken Huang. 2025-02-06  
-  `csa-maestro-2025` · web · [source](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
+  `csa-maestro-2025` · web · **summarized** · [source](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
 - **CycloneDX Bill of Materials Specification** — Jan Kowalleck, Steve Springett. 2025-12  
   `cyclonedx-1-7` · spec · standard · [source](https://ecma-international.org/wp-content/uploads/ECMA-424_2nd_edition_december_2025.pdf)
 - **dCBOR: Deterministic CBOR** — 2026-08-10  
@@ -61,9 +61,9 @@
 - **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
   `spdx-3-0-1` · spec · [source](https://spdx.github.io/spdx-spec/v3.0.1/)
 - **Trike v.1 Methodology Document [Draft]** — Paul Saitta, Brenda Larcom, Michael Eddington. 2005-07-13  
-  `trike-v1-2005` · paper · [source](http://web.archive.org/web/20240117174652/https://www.octotrike.org/papers/Trike_v1_Methodology_Document-draft.pdf)
+  `trike-v1-2005` · paper · **summarized** · [source](http://web.archive.org/web/20240117174652/https://www.octotrike.org/papers/Trike_v1_Methodology_Document-draft.pdf)
 - **Real World Threat Modeling Using the PASTA Methodology** — Tony UcedaVélez. 2012  
-  `ucedavelez-pasta-owasp-2012` · web · [source](https://wiki.owasp.org/images/a/aa/AppSecEU2012_PASTA.pdf)
+  `ucedavelez-pasta-owasp-2012` · web · **summarized** · [source](https://wiki.owasp.org/images/a/aa/AppSecEU2012_PASTA.pdf)
 
 ## ietf
 
@@ -387,7 +387,7 @@
 - **Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains** — Eric M. Hutchins, Michael J. Cloppert, Rohan M. Amin. 2011  
   `lockheed-kill-chain-2011` · paper · **summarized** · [source](https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf)
 - **VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler** — ThreatModeler Software  
-  `threatmodeler-vast` · web · [source](https://www.threatmodeler.ai/innovation-lab/vast)
+  `threatmodeler-vast` · web · **summarized** · [source](https://www.threatmodeler.ai/innovation-lab/vast)
 
 ## w3c
 
