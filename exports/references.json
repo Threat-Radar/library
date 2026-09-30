@@ -105,6 +105,22 @@
     "URL": "https://arxiv.org/abs/2306.08302"
   },
   {
+    "id": "csa-maestro-2025",
+    "type": "webpage",
+    "title": "Agentic AI Threat Modeling Framework: MAESTRO",
+    "URL": "https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro",
+    "issued": {
+      "date-parts": [
+        [
+          2025,
+          2,
+          6
+        ]
+      ]
+    },
+    "publisher": "Cloud Security Alliance"
+  },
+  {
     "id": "cyclonedx-1-7",
     "type": "report",
     "title": "CycloneDX Bill of Materials Specification",

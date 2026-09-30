@@ -46,6 +46,7 @@ This is the query the library exists to answer.
 
 - [`bron`](../records/academic/bron/) — BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)
 - [`capec`](../records/other/capec/) — MITRE CAPEC — Common Attack Pattern Enumeration and Classification
+- [`csa-maestro-2025`](../records/community/csa-maestro-2025/) — Agentic AI Threat Modeling Framework: MAESTRO
 - [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
 - [`cwe`](../records/other/cwe/) — MITRE CWE — Common Weakness Enumeration
 - [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
@@ -141,6 +142,7 @@ This is the query the library exists to answer.
 
 ### DEC-005
 
+- [`csa-maestro-2025`](../records/community/csa-maestro-2025/) — Agentic AI Threat Modeling Framework: MAESTRO
 - [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) — A privacy threat analysis framework: supporting the elicitation and fu
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr

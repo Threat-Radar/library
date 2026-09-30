@@ -3,7 +3,7 @@
 
 # Records
 
-139 records across 11 bodies.
+140 records across 11 bodies.
 
 
 ## academic
@@ -26,6 +26,7 @@
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`csa-maestro-2025`](../records/community/csa-maestro-2025/) | Agentic AI Threat Modeling Framework: MAESTRO | web | — | queued | — | — |
 | [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) | CycloneDX Bill of Materials Specification | spec | standard | queued | unassessed | — |
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |

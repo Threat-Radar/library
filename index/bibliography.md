@@ -3,7 +3,7 @@
 
 # Bibliography
 
-139 records.
+140 records.
 
 
 ## academic
@@ -39,6 +39,8 @@
 
 ## community
 
+- **Agentic AI Threat Modeling Framework: MAESTRO** — Ken Huang. 2025-02-06  
+  `csa-maestro-2025` · web · [source](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
 - **CycloneDX Bill of Materials Specification** — Jan Kowalleck, Steve Springett. 2025-12  
   `cyclonedx-1-7` · spec · standard · [source](https://ecma-international.org/wp-content/uploads/ECMA-424_2nd_edition_december_2025.pdf)
 - **dCBOR: Deterministic CBOR** — 2026-08-10  
