@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-81 of 129 records have at least one edge.
+91 of 140 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -18,6 +18,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
 ### `cyclonedx-1-7`
 - **see_also** → `in-toto-attestation-v1`, `secure-systems-lab-dsse`, `spdx-3-0-1`
+
+### `deng-linddun-2011`
+- **see_also** → `linddun-org`
 
 ### `draft-ietf-cbor-cddl-modules`
 - **part_of** → `ietf-cbor-wg`
@@ -89,6 +92,18 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `iso-sae-21434-2021`
 - **supersedes** → `sae-j3061`
 
+### `linddun-org`
+- **see_also** → `deng-linddun-2011`
+
+### `mitre-attack`
+- **see_also** → `mitre-attack-design-philosophy`
+
+### `mitre-attack-design-philosophy`
+- **see_also** → `mitre-attack`
+
+### `mulval`
+- **see_also** → `schneier-attack-trees-1999`
+
 ### `nist-sp-800-140`
 - **cited_by** → `fips-140-3`
 - **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
@@ -120,6 +135,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `ntia-sbom-minimum-elements`
 - **see_also** → `sp-800-161r1`
 - **updated_by** → `cisa-framing-software-component-transparency`
+
+### `pasta-risk-centric-threat-modeling`
+- **see_also** → `ucedavelez-pasta-owasp-2012`
 
 ### `rfc-7049`
 - **part_of** → `ietf-cbor-wg`
@@ -274,8 +292,18 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `sae-j3061`
 - **superseded_by** → `iso-sae-21434-2021`
 
+### `schneier-attack-trees-1999`
+- **see_also** → `mulval`
+
 ### `secure-systems-lab-dsse`
 - **see_also** → `cyclonedx-1-7`, `spdx-3-0-1`
+
+### `sei-octave-allegro-2007`
+- **contradicts** → `sei-threat-modeling-methods-2018`
+
+### `sei-threat-modeling-methods-2018`
+- **cites** → `schneier-attack-trees-1999`
+- **contradicts** → `sei-octave-allegro-2007`
 
 ### `sp-800-161r1`
 - **see_also** → `in-toto-attestation-v1`, `ntia-sbom-minimum-elements`, `rfc-9943`
@@ -287,6 +315,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **see_also** → `cyclonedx-1-7`, `guac`, `in-toto-attestation-v1`, `secure-systems-lab-dsse`
 - **supersedes** → `iso-iec-5962-2021`
 
+### `ucedavelez-pasta-owasp-2012`
+- **see_also** → `pasta-risk-centric-threat-modeling`
+
 ## Orphans
 
 No edges in or out. Not wrong — but a record connected to nothing
@@ -294,6 +325,7 @@ is a record nothing will surface.
 
 - `bron`
 - `capec`
+- `csa-maestro-2025`
 - `cve-json-5`
 - `cwe`
 - `d3fend`
@@ -309,16 +341,14 @@ is a record nothing will surface.
 - `iso-iec-15408`
 - `iso-iec-18045`
 - `linkml`
+- `lockheed-kill-chain-2011`
 - `mcp-okn`
-- `mitre-attack`
-- `mulval`
 - `nist-sp-800-160`
 - `nsf-23-571`
 - `nsf-okn-launch`
 - `okn-roadmap-2022`
 - `osv-schema`
 - `owl-2-primer`
-- `pasta-risk-centric-threat-modeling`
 - `prov-o`
 - `rdf-1-1-concepts`
 - `rfc-1952`
@@ -337,6 +367,8 @@ is a record nothing will surface.
 - `sparql-1-1`
 - `stix-2-1`
 - `sudokn-okn`
+- `threatmodeler-vast`
+- `trike-v1-2005`
 - `unifying-llm-kg`
 - `w3-org-pics`
 - `w3c-did-core`
