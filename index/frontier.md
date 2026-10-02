@@ -14,6 +14,31 @@ This is the snowballing queue (Wohlin backward pass).
 | `cisa-framing-software-component-transparency` | SoftWare Heritage Persistent Identifiers (SWHIDs) <https://www.softwareheritage.org/swhid/> |
 | `cisa-framing-software-component-transparency` | Software Identification Challenges and Guidance <https://www.ntia.gov/files/ntia/publications/ntia_sbom_software_identity-2021mar30.pdf> |
 | `draft-mcnally-deterministic-cbor` | IANA Concise Data Definition Language (CDDL) registry <https://www.iana.org/assignments/cddl> |
+| `etsi-en-304-223` | Amazon, AWS Cloud Adoption Framework for Artificial Intelligence, Machine Learning, and Generative AI, 2024 |
+| `etsi-en-304-223` | Australian Signals Directorate, An introduction to Artificial Intelligence, 2023 |
+| `etsi-en-304-223` | BSI, AI Security Concerns in a Nutshell, 2023 |
+| `etsi-en-304-223` | CISA, Software Bill of Materials (SBOM) |
+| `etsi-en-304-223` | Cisco, The Cisco Responsible AI Framework, 2024 |
+| `etsi-en-304-223` | ELSA — European Lighthouse on Secure and Safe AI, 2023 |
+| `etsi-en-304-223` | ENISA, Multilayer Framework for Good Cybersecurity Practices for AI, 2023 |
+| `etsi-en-304-223` | ETSI TR 104 128, Securing Artificial Intelligence (SAI); Guide to Cyber Security for AI Models and Systems <https://www.etsi.org/deliver/etsi_tr/104100_104199/104128/01.01.01_60/tr_104128v010101p.pdf> |
+| `etsi-en-304-223` | ETSI TS 104 216, Securing Artificial Intelligence TC (SAI); Conformance assessment for AI (EN 304 223) — draft work item DTS/SAI-00025 <https://portal.etsi.org/webapp/WorkProgram/Report_WorkItem.asp?WKI_ID=74988> |
+| `etsi-en-304-223` | G7 Hiroshima Process International Code of Conduct for Organizations Developing Advanced AI Systems, 2023 |
+| `etsi-en-304-223` | Google, Secure AI Framework (SAIF): a quick guide, 2023 <https://safety.google/cybersecurity-advancements/saif/> |
+| `etsi-en-304-223` | ICO, Guidance on the AI Auditing Framework, 2020 |
+| `etsi-en-304-223` | ISO/IEC 22989:2022, Artificial intelligence concepts and terminology |
+| `etsi-en-304-223` | ISO/IEC 27001:2022, Information security management systems — Requirements |
+| `etsi-en-304-223` | MITRE ATLAS, Mitigations <https://atlas.mitre.org/> |
+| `etsi-en-304-223` | NCSC, Guidelines for secure AI system development, 2023 <https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development> |
+| `etsi-en-304-223` | NIST AI 100-1, AI Risk Management Framework (AI RMF 1.0), 2023 <https://doi.org/10.6028/NIST.AI.100-1> |
+| `etsi-en-304-223` | NIST AI 100-2 E2023, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations <https://csrc.nist.gov/pubs/ai/100/2/e2023/final> |
+| `etsi-en-304-223` | NIST, AI Risk Management Framework: Second Draft, 2022 |
+| `etsi-en-304-223` | NVIDIA, NeMo-Guardrails, 2023 <https://github.com/NVIDIA/NeMo-Guardrails> |
+| `etsi-en-304-223` | OWASP AI Exchange <https://owaspai.org/> |
+| `etsi-en-304-223` | OpenAI, Preparedness Framework (Beta), 2023 |
+| `etsi-en-304-223` | Regulation (EU) 2024/1689 (Artificial Intelligence Act) <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> |
+| `etsi-en-304-223` | US HHS, Trustworthy AI (TAI) Playbook: Executive Summary, 2021 |
+| `etsi-en-304-223` | World Economic Forum, IBM, Presidio AI Framework: Towards Safe Generative AI Models, 2024 |
 | `fips-140-3` | iso-iec-19790            # adopted security requirements (paywalled) |
 | `fips-140-3` | iso-iec-24759            # adopted test requirements (paywalled) |
 | `fips-140-3` | nist-sp-800-140     # DTR (test requirements) |

@@ -3,7 +3,7 @@
 
 # Bibliography
 
-129 records.
+130 records.
 
 
 ## academic
@@ -332,6 +332,9 @@
 - **MITRE D3FEND — defensive countermeasures knowledge graph (OWL)**  
   `d3fend` · spec · recommendation · **summarized** · [source](https://d3fend.mitre.org/)  
   _Authoritative mitigations layer with defense→offense edges; directly importable if tmodel is RDF; DAO seeds asset/component modeling._
+- **Securing Artificial Intelligence (SAI); Baseline Cyber Security Requirements for AI Models and Systems** — ETSI Technical Committee Securing Artificial Intelligence (SAI). 2025-12  
+  `etsi-en-304-223` · spec · standard · **distilled** · [source](https://www.etsi.org/deliver/etsi_en/304200_304299/304223/02.01.01_60/en_304223v020101p.pdf)  
+  _The only ratified, testable requirement set in the #13 source family: 72 provisions across the AI lifecycle, including AI-specific threat modelling (5.1.3-1) and human oversight (5.1.4)._
 - **ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and proforma for Threat, Vulnerability, Risk Analysis (TVRA)**  
   `etsi-ts-102-165-1` · spec · [source](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/)
 - **FRINK — FabRic Integrating Networked Knowledge (RENCI, Proto-OKN Theme 2)**  
