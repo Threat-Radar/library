@@ -49,6 +49,7 @@ This is the query the library exists to answer.
 - [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
 - [`cwe`](../records/other/cwe/) — MITRE CWE — Common Weakness Enumeration
 - [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
+- [`etsi-en-304-223`](../records/other/etsi-en-304-223/) — Securing Artificial Intelligence (SAI); Baseline Cyber Security Requir
 - [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
 - [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
@@ -200,6 +201,7 @@ This is the query the library exists to answer.
 
 ### R-018
 
+- [`etsi-en-304-223`](../records/other/etsi-en-304-223/) — Securing Artificial Intelligence (SAI); Baseline Cyber Security Requir
 - [`prov-o`](../records/w3c/prov-o/) — PROV-O: The PROV Ontology
 
 ### R-021                 # mitigation tracking over the design lifecycle

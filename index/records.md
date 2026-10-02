@@ -3,7 +3,7 @@
 
 # Records
 
-129 records across 10 bodies.
+130 records across 10 bodies.
 
 
 ## academic
@@ -157,6 +157,7 @@
 | [`cve-json-5`](../records/other/cve-json-5/) | CVE JSON Record Format v5 | spec | standard | summarized | useful | — |
 | [`cwe`](../records/other/cwe/) | MITRE CWE — Common Weakness Enumeration | dataset | best-practice | summarized | useful | — |
 | [`d3fend`](../records/other/d3fend/) | MITRE D3FEND — defensive countermeasures knowledge graph ( | spec | recommendation | summarized | useful | — |
+| [`etsi-en-304-223`](../records/other/etsi-en-304-223/) | Securing Artificial Intelligence (SAI); Baseline Cyber Sec | spec | standard | distilled | useful | — |
 | [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) | ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: M | spec | — | queued | — | — |
 | [`frink-fabric`](../records/other/frink-fabric/) | FRINK — FabRic Integrating Networked Knowledge (RENCI, Pro | repo | implementation | summarized | useful | — |
 | [`graphrag-ms`](../records/other/graphrag-ms/) | GraphRAG (Microsoft Research, 2024) | repo | implementation | summarized | useful | — |

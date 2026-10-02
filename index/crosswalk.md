@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-81 of 129 records have at least one edge.
+81 of 130 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -298,6 +298,7 @@ is a record nothing will surface.
 - `cwe`
 - `d3fend`
 - `draft-mih-scitt-agent-action-capsule-02`
+- `etsi-en-304-223`
 - `etsi-ts-102-165-1`
 - `first-cvss`
 - `frink-fabric`
