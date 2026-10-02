@@ -3,7 +3,7 @@ schema: "library-normative/v1"
 id: iso-sae-21434-2021-normative
 record: iso-sae-21434-2021
 type: normative
-updated: "2026-09-25"
+updated: "2026-10-02"
 coverage: "Clause 15 TARA, the Fig 3 object model, Table 1 feasibility, key Clause 3 terms, audit mapping. Annexes NOT distilled."
 reviewed_by: ""
 ---
@@ -18,14 +18,16 @@ reviewed_by: ""
 
 ## 1. Object model (Figure 3 — item, function, component and related terms)
 
-Typed edges (a ready candidate object model for ARCH-0001 / #17):
+Typed edges (a ready candidate object model for ARCH-0001 / #17), read from Figure 3 tail to head
+(checked on a page image on 2026-10-02; an earlier
+version had the item and function edge reversed and the wrong source for `contains` and
+`allocated to`):
 
-- `function` **implements** `item`; `function` **contains** `asset`
-- `item` **consists of** `component`; `item` **associated with** `cybersecurity goal`
-- `cybersecurity goal` **protects** `asset`; **realized by** `cybersecurity requirement`;
-  **allocated to** item/component; **associated with** `threat scenario`
-- `cybersecurity requirement` **allocated to** `component`
-- `asset` **has attribute** `cybersecurity property`
+- `item` **implements** `function(s)`; `item` **contains** `asset`; `item` **consists of** `component`
+- `cybersecurity property` **attribute of** `asset`
+- `cybersecurity goal` **protects** `asset`; **associated with** `item`; **associated with**
+  `threat scenario`; **realized by** `cybersecurity requirement`
+- `cybersecurity requirement` **allocated to** `item`; **allocated to** `component`
 - `threat scenario` **compromises** `cybersecurity property`; **realizes** `damage scenario`
 - `damage scenario` **affects** `road user`
 

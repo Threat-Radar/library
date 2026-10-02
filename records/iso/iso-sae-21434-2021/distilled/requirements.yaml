@@ -115,15 +115,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "organization"
-    nature: process
+    nature: deliverable-producing
     clause: "05"
     clause_name: "Organizational cybersecurity management"
     phase: organizational
     locator: "§5.4.2"
     short_title: "Ensure that persons to which cybersecurity roles and responsibilities are"
     text: "The organization shall ensure that persons to which cybersecurity roles and responsibilities are assigned have the competences and awareness to fulfil these."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-05-02]
+    verification: "inspect required deliverable(s): WP-05-02"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-08
@@ -131,15 +131,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "organization"
-    nature: process
+    nature: deliverable-producing
     clause: "05"
     clause_name: "Organizational cybersecurity management"
     phase: organizational
     locator: "§5.4.2"
     short_title: "Institute and maintain a continuous improvement process"
     text: "The organization shall institute and maintain a continuous improvement process."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-05-02]
+    verification: "inspect required deliverable(s): WP-05-02"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-09
@@ -896,7 +896,7 @@ requirements:
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
     phase: distributed
-    locator: "§7"
+    locator: "§7.4.3"
     short_title: "RQ-07-04"
     text: ". This template gives guidance on how to define roles and responsibilities for distributed cybersecurity activities between customer and supplier (Figure C.1). Other information can also be added to the template, such as point of contact, target milestones, methods or tools for collaborations. C.2 Example template The column entries in this example template are: a) Phase: phase of this document; b) Work product: work products of this document that are related to the interface of the distributed activities; c) Doc ref: relevant clauses of this document; d) Supplier: supplier responsibilities by RASIC; e) Customer: customer responsibilities by RASIC;"
     expects_deliverables: []
@@ -989,15 +989,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
     phase: continual
     locator: "§8.3.2"
     short_title: "Triggers shall be defined and maintained for the triage of"
     text: "Triggers shall be defined and maintained for the triage of cybersecurity information."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-08-02]
+    verification: "inspect required deliverable(s): WP-08-02"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-03
@@ -1005,15 +1005,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
     phase: continual
     locator: "§8.3.2"
     short_title: "Cybersecurity information shall be collected and triaged to determine if"
     text: "Cybersecurity information shall be collected and triaged to determine if the cybersecurity information becomes one or more cybersecurity events."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-08-03]
+    verification: "inspect required deliverable(s): WP-08-03"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-04
@@ -1137,7 +1137,7 @@ requirements:
     clause: "09"
     clause_name: "Concept"
     phase: concept
-    locator: "§9"
+    locator: "§9.4.2"
     short_title: "Also calls risk determination for each threat scenario in accordance"
     text: "also calls risk determination for each threat scenario in accordance with 15.8. Risk values can be determined utilizing risk matrices defined by the organization for mapping combinations of ratings of impact (see 15.5) and attack feasibility (see 15.7) to risk values. Table H.8 shows an example risk matrix and Table H.9 shows example results of risk determination using Table H.8. Table H.8 — Risk matrix example Attack feasibility rating Very Low Low Medium High Severe 2 3 4 5 Major 1 2 3 4 Impact rating Moderate 1 2 2 3 Negligible 1 1 1 1 Table H.9 — Examples of determined risk values Threat scenario Aggregated Impact rating Risk value attack feasibility rating Spoofing of a signal leads to loss High Severe S: 5 of integrity of the data communi- cation of “Lamp Request” signal for power switch actuator ECU Denial of service of oncoming Low Moderate O: 2 car information Risk values may also be determined by a risk formula defined by the organization. An example is shown in the below formula and Table H.10. R =1+ I ×F Table H.10 — Example translation of impact and attack feasibility to numerical values Impact Numerical value I Attack feasibility Numerical value F for rating for impact rating attack feasibility Negligible 0 Very low 0 Moderate 1 Low 1 Major 1,5 Medium 1,5 Severe 2 High 2 For the specific threat scenarios displayed in Table H.9 the calculation using the example given in Table H.8 and the above formula would lead to the same risk values. H.2.8 Risk treatment decision"
     expects_deliverables: [WP-09-02]
@@ -1153,7 +1153,7 @@ requirements:
     clause: "09"
     clause_name: "Concept"
     phase: concept
-    locator: "§9"
+    locator: "§9.4.2"
     short_title: "Requires selecting treatment options in accordance with 15"
     text: "requires selecting treatment options in accordance with 15.9. Table H.11 shows example results of risk treatment decision. Table H.11 — Example results of risk treatment decision Threat scenario Risk value Risk treatment option Spoofing of a signal leads to loss of integrity of the data S: 5 Reducing the risk communication of “Lamp Request” signal for power switch actuator ECU Denial of service of oncoming car information O: 2 Reducing the risk BIBLIOGRAPHY [1] ISO 26262-1:2018, Road vehicles — Functional safety — Part 1: Vocabulary [2] ISO 9000:2015, Quality management systems — Fundamentals and vocabulary [3] ISO 31000:2018, Risk management — Guidelines [4] ISO/IEC/IEEE 15288:2015, Systems and software engineering — System life cycle processes [5] ISO/IEC 27000:2018, Information technology — Security techniques — Information security management systems — Overview and vocabulary [6] ISO/TR 4804, Road vehicles — Safety and cybersecurity for automated driving systems — Design, verification and validation [7] IATF 16949, Quality management system requirements for automotive production and relevant service parts organizations [8] ISO 9001, Quality management systems — Requirements [9] ISO 10007, Quality management — Guidelines for configuration management [10] ISO/IEC 33001, Information technology — Process assessment — Concepts and terminology [11] ISO/IEC/IEEE 15288, Systems and software engineering — System life cycle processes [12] ISO/IEC/IEEE 12207, Systems and software engineering — Software life cycle processes [13] VDA QMC WORKING GROUP 13 / AUTOMOTIVE SIG. Automotive SPICE Process Assessment / Reference Model, Version 3.1 [online]. Berlin: VDA QMC, November 2017. Available at: http://​w ww​ .automotivespice​.com/​f ileadmin/​software​-download/​AutomotiveSPICE​_PAM​_ 31​.pdf [14] ISO 29147, Information technology — Security techniques — Vulnerability disclosure [15] IEC 62443-2-1, Industrial communication networks — Network and system security — Part 2-1: Establishing an industrial automation and control system security program [16] ISO 26262 (all parts), Road vehicles — Functional safety [17] MISRA C 2012, Guidelines for the use of the C language in critical systems, 3rd Edition, 1st Revision. Nuneaton, England: HORIBA MIRA, February 2019. ISBN (print/electronic): 978-1-906400-21-7 / 978-1-906400-22-4. [18] SEI CERT C Coding Standard – Rules for developing safe, reliable and secure systems [online]. Pittsburgh, Pennsylvania: Software Engineering Institue, Carnegie Mellon University, 2016 [viewed 2021-02-12]. Available at: https://​resources​.sei​.cmu​.edu/​library/​asset​-view​.cfm​?assetid​ =​454220 [19] ROSS Ron, et al. (2018), Systems Security Engineering: Considerations for a Multidisciplinary Approach in the Engineering of Trustworthy Secure Systems [online]. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) 800-160, Vol. 1. Updated March 2018 [viewed 2021-02-16]. Available at: https://​doi​.org/​10​.6028/​NIST​. SP​.800​ -160v1 [20] E-SAFETY VEHICLE INTRUSION PROTECTED APPLICATIONS (EVITA) Deliverable D2.3: Security requirements for automotive on-board networks based on dark-side scenarios [online]. Edited by A. Ruddle et al. December 2009 [viewed 2021-01-17]. Available at: https://​doi​.org/​10​.5281/​zenodo​ .1188418 [21] ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pro forma for Threat, Vulnerability, Risk Analysis (TVRA), Version 5.2.3 [online]. October 2017 [viewed 2021-01-19]. Available at: https://​w ww​.etsi​.org/​deliver/​etsi​_ts/​102100​_102199/​10216501/​05​.02​.03​_60/​t s​ _10216501v050203p​.pdf [22] UcedaVélez, Tony and Morana, Marco M. Risk Centric Threat Modeling: Process for Attack Simulation and Threat Analysis. Hoboken, New Jersey: Wiley, May 2015. ISBN: 978-1-118-98835- 0. [23] ISO/IEC 18045, Information technology — Security techniques — Methodology for IT security evaluation [24] FORUM OF INCIDENT RESPONSE AND SECURITY TEAMS (FIRST). Common Vulnerability Scoring System (CVSS), Common Vulnerability Scoring System v3.1: Specification Document, [online]. Available at: https://​w ww​.first​.org/​c vss/​v3​.1/​specification​-document [25] ISO/IEC 29100, Information technology — Security techniques — Privacy framework [26] Automotive ISAC, Automotive Cybersecurity Best Practices [online]. Available at: https://​w ww​ .automotiveisac​.com/​best​-practices/​ [27] FORUM OF INCIDENT RESPONSE AND SECURITY TEAMS (FIRST). Traffic Light Protocol (TLP), FIRST Standards Definitions and Usage Guidance - Version 1.0, [online]. Available at: https://​w ww​ .first​.org/​t lp/​ [28] ISO/IEC 23822), Information technology — Vocabulary [29] ISO/IEC 15408 (all parts), Information technology — Security techniques — Evaluation criteria for IT security [30] ISO/IEC 27001, Information technology — Security techniques — Information security management systems — Requirements [31] ISO/IEC 27010, Information technology — Security techniques — Information security management for inter-sector and inter-organizational communications [32] ISO/IEC/IEEE 26511, Systems and software engineering — Requirements for managers of information for users of systems, software, and services [33] IEC 31010, Risk management — Risk assessment techniques [34] IEC 61508-7, Functional safety of electrical/electronic/programmable electronic safety-related systems — Part 7: Overview of techniques and measures [35] JOHNSON Christopher, et al. (2016) Guide to Cyber Threat Information Sharing [online]. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) 800- 150, October 2016 [viewed 2021-02-16]. Available at: https://​doi​​.org/​10​​.6028/​NIST​​. SP​​.800​​-150 [36] JOINT TASK FORCE TRANSFORMATION INITIATIVE 2012), Guide for Conducting Risk Assessments [online]. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) 800-30, Rev. 1. September 2012 [viewed 2021-02-16]. Available at: http://​d x​​.doi​​.org/​10​​.6028/​NIST​​. SP​​.800​​-30r1 [37] SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems [38] SCARFONE Karen, et al. (2008), Technical Guide to Information Security Testing and Assessment [online]. (National Institute of Standards and Technology, Gaithersburg, MD), NIST Special Publication (SP) 800-115. September 2008 [viewed 2021-02-16]. Available at: https://​doi​​.org/​10​​.6028/​NIST​​. SP​​.800​​-115 [39] TAKANEN Ari et al. Fuzzing for Software Security and Quality Assurance, Second Edition. Boston, Massachusetts/London: Artech House, January 2018. ISBN: 978-1-60807-850-9. ICS 43.040.15 Price based on 81 pages"
     expects_deliverables: [WP-09-02]
@@ -1166,15 +1166,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "09"
     clause_name: "Concept"
     phase: concept
     locator: "§9.4.2"
     short_title: "If the risk treatment decision for a threat scenario includes"
     text: "If the risk treatment decision for a threat scenario includes reducing the risk, then one or more corresponding cybersecurity goals shall be specified."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-09-03]
+    verification: "inspect required deliverable(s): WP-09-03"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-09-06
@@ -1182,15 +1182,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "unspecified"
-    nature: process
+    nature: deliverable-producing
     clause: "09"
     clause_name: "Concept"
     phase: concept
     locator: "§9.4.2"
     short_title: "If the risk treatment decision for a threat scenario includes"
     text: "If the risk treatment decision for a threat scenario includes: a) sharing the risk; or b) retaining the risk due to one or more assumptions used during the analysis of [RQ-09-03], then one or more corresponding cybersecurity claims shall be specified."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-09-04]
+    verification: "inspect required deliverable(s): WP-09-04"
     tailorable: true
     refs: [RQ-09-03]
     audit_status: not-reviewed
@@ -1199,15 +1199,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "09"
     clause_name: "Concept"
     phase: concept
     locator: "§9.4.2"
     short_title: "A verification shall be performed to confirm"
     text: "A verification shall be performed to confirm: a) correctness and completeness of the result of [RQ-09-03] with respect to the item definition; b) completeness, correctness and consistency of the risk treatment decisions of [RQ-09-04] with respect to the results of [RQ-09-03]; c) completeness, correctness and consistency of the cybersecurity goals of [RQ-09-05] and of the cybersecurity claims of [RQ-09-06] with respect to the risk treatment decisions of [RQ-09-04]; and d) consistency of all cybersecurity goals of [RQ-09-05] and cybersecurity claims of [RQ-09-06] of the item."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-09-05]
+    verification: "inspect required deliverable(s): WP-09-05"
     tailorable: true
     refs: [RQ-09-03, RQ-09-04, RQ-09-05, RQ-09-06]
     audit_status: not-reviewed
@@ -1265,15 +1265,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "09"
     clause_name: "Concept"
     phase: concept
     locator: "§9.5.2"
     short_title: "The results of [RQ-09-08], [RQ-09-09] and [RQ-09-10] shall be verified"
     text: "The results of [RQ-09-08], [RQ-09-09] and [RQ-09-10] shall be verified to confirm: a) completeness, correctness, and consistency with respect to cybersecurity goals; and b) consistency with respect to cybersecurity claims."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-09-07]
+    verification: "inspect required deliverable(s): WP-09-07"
     tailorable: true
     refs: [RQ-09-08, RQ-09-09, RQ-09-10]
     audit_status: not-reviewed
@@ -1314,15 +1314,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
     short_title: "Procedures to ensure cybersecurity after the development of the component"
     text: "Procedures to ensure cybersecurity after the development of the component shall be specified, if applicable."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-02]
+    verification: "inspect required deliverable(s): WP-10-02"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-04
@@ -1330,15 +1330,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "unspecified"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
     short_title: "If design, modelling or programming notations or languages are used"
     text: "If design, modelling or programming notations or languages are used for the cybersecurity specifications or their implementation, the following shall be considered when selecting such a notation or language: a) an unambiguous and comprehensible definition in both syntax and semantics; b) support for achievement of modularity, abstraction and encapsulation; c) support for the use of structured constructs; d) support for the use of secure design and implementation techniques; e) ability to integrate already existing components; and"
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-03]
+    verification: "inspect required deliverable(s): WP-10-03"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-05
@@ -1346,15 +1346,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "unspecified"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
     short_title: "Criteria (see [RQ-10-04]) for suitable design, modelling or programming languages"
     text: "Criteria (see [RQ-10-04]) for suitable design, modelling or programming languages for cybersecurity that are not addressed by the language itself shall be covered by design, modelling and coding guidelines, or by the development environment."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-03]
+    verification: "inspect required deliverable(s): WP-10-03"
     tailorable: true
     refs: [RQ-10-04]
     audit_status: not-reviewed
@@ -1379,15 +1379,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
     short_title: "The architectural design defined in [RQ-10-01] shall be analysed to"
     text: "The architectural design defined in [RQ-10-01] shall be analysed to identify weaknesses."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-05]
+    verification: "inspect required deliverable(s): WP-10-05"
     tailorable: true
     refs: [RQ-10-01]
     audit_status: not-reviewed
@@ -1396,15 +1396,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "unspecified"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
-    locator: "§10"
+    locator: "§10.4.1"
     short_title: "Verification of the implementation [RQ-10-09] I1 I1 I2 I2 Applies"
     text: "Verification of the implementation [RQ-10-09] I1 I1 I2 I2 Applies to the highest CAL among and integration of components the cybersecurity requirements Cybersecurity validation [RQ-11-01] I1 I1 I2 I2 Cybersecurity assessment [RQ-06-27] — I1 I2 I3 a The notations are defined as follows: —: no suggestion regarding the independence of this activity; I1: the activity is performed by a different person in relation to the person(s) responsible for the creation of the considered work product(s); I2: the activity is performed by a person who is independent from the team that is responsible for the creation of the considered work product(s), i.e. by a person reporting to a different direct superior; and I3: the activity is performed by a person who is independent, regarding management, resources and release authority, from the department responsible for the creation of the considered work product(s). Table E.4 provides an example of how CALs can be used to determine parameters that influence the rigour of testing methods used for verification and validation. Table E.4 — Example of parameters of testing methods Activity Require- Testing parameters apply Scope ments toa CAL1 CAL2 CAL3 CAL4 Functional testing [RC-10-12] T1 T1 T2 T2"
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-04]
+    verification: "inspect required deliverable(s): WP-10-04"
     tailorable: true
     refs: [RC-10-12, RQ-06-27, RQ-10-09, RQ-11-01]
     audit_status: not-reviewed
@@ -1413,15 +1413,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "integration and verification activities"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.2"
     short_title: "Integration and verification activities shall verify that the implementation and"
     text: "Integration and verification activities shall verify that the implementation and integration of components fulfil the defined cybersecurity specifications."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-07]
+    verification: "inspect required deliverable(s): WP-10-07"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-10
@@ -1429,15 +1429,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.2"
     short_title: "The integration and verification activities of [RQ-10-09] shall be specified"
     text: "The integration and verification activities of [RQ-10-09] shall be specified considering: a) the defined cybersecurity specifications; b) configurations intended for series production, if applicable; c) sufficient capability to support the functionality specified in the defined cybersecurity specifications; and d) conformity with the modelling, design and coding guidelines of [RQ-10-05], if applicable."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-06]
+    verification: "inspect required deliverable(s): WP-10-06"
     tailorable: true
     refs: [RQ-10-05, RQ-10-09]
     audit_status: not-reviewed
@@ -1446,15 +1446,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.2"
     short_title: "If verification by testing is adopted, test coverage shall be"
     text: "If verification by testing is adopted, test coverage shall be evaluated using defined test coverage metrics to determine sufficiency of the test activities."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-07]
+    verification: "inspect required deliverable(s): WP-10-07"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-10-12
@@ -1462,15 +1462,15 @@ requirements:
     normativity: recommendation
     verb: should
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
     phase: development
     locator: "§10.4.2"
     short_title: "Testing should be performed in order to confirm that unidentified"
     text: "Testing should be performed in order to confirm that unidentified weaknesses and vulnerabilities remaining in the component are minimized."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-10-05, WP-10-07]
+    verification: "inspect required deliverable(s): WP-10-05, WP-10-07"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-13
@@ -1499,7 +1499,7 @@ requirements:
     clause: "11"
     clause_name: "Cybersecurity validation"
     phase: validation
-    locator: "§11"
+    locator: "§11.4"
     short_title: "A The notations are defined as follows"
     text: "a The notations are defined as follows: —: no suggestion regarding testing parameters for this activity; T1: testing parameter set 1: — functional testing based on requirements; — vulnerability scanning for known vulnerabilities; — fuzz testing with random of selection of inputs; — penetration testing assuming moderate attacker expertise, knowledge of the item or component and/or resources; T2: testing parameters set 2: — functional testing based on requirements and interactions between components; — vulnerability scanning for known vulnerabilities; — fuzz testing with an increased number of test case iterations and/or adaptive selection of inputs; — penetration testing assuming higher attacker expertise, knowledge of the item or component and/or resources. Annex F (informative) Guidelines for impact rating F.1 General This annex gives examples of criteria for impact rating (see 15.5) for damage scenarios involving safety, financial, operational and privacy damage. The tables (see Table F.1 through Table F.4) in this annex can be used for impact rating. Considerations on how the scalability of damage (i.e. impact to multiple road users in a single damage scenario) modify the impact rating have not been included in the examples given, but can be added to the organization‑specific rating criteria as appropriate (e.g. Reference [20], C.1.2, Table 4). F.2 Impact rating for safety damage Table F.1 — Example safety impact rating criteria Impact rating Criteria for safety impact rating Severe S3: Life-threatening injuries (survival uncertain), fatal injuries Major S2: Severe and life-threatening injuries (survival probable) Moderate S1: Light and moderate injuries Negligible S0: No injuries a a Rating for S0 can be based on ISO 26262-3:2018, Table B.1. Safety impact rating criteria are taken from ISO 26262-3:2018. Controllability and exposure in accordance with ISO 26262-3:2018 can also be considered for rating impact on safety, if a rationale is provided. F.3 Impact rating for financial damage Table F.2 — Example financial impact rating criteria Impact rating Criteria for financial impact rating The financial damage leads to catastrophic consequences which the affected road user might Severe not overcome. The financial damage leads to substantial consequences which the affected road user will be Major able to overcome. The financial damage leads to inconvenient consequences which the affected road user will Moderate be able to overcome with limited resources. Negligible The financial damage leads to no effect, negligible consequences or is irrelevant to the road user. F.4 Impact rating for operational damage Table F.3 — Example operational impact rating criteria Impact rating Criteria for operational impact rating The operational damage leads to the loss or impairment of a core vehicle function. Severe EXAMPLE 1 Vehicle not working or showing unexpected behaviour of core functions such as enabling of limp home mode or autonomous driving to an unintended location. The operational damage leads to the loss or impairment of an important vehicle function. Major"
     expects_deliverables: [WP-11-01]
@@ -1624,15 +1624,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "14"
     clause_name: "End of cybersecurity support and decommissioning"
     phase: end-of-support
     locator: "§14.3.2"
     short_title: "A procedure shall be created to communicate to customers when"
     text: "A procedure shall be created to communicate to customers when an organization decides to end cybersecurity support for an item or component."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-14-01]
+    verification: "inspect required deliverable(s): WP-14-01"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-14-02
@@ -1672,15 +1672,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "15"
     clause_name: "Threat analysis and risk assessment (TARA) methods"
     phase: tara-method
     locator: "§15.3.2"
     short_title: "Assets with cybersecurity properties whose compromise leads to a damage"
     text: "Assets with cybersecurity properties whose compromise leads to a damage scenario shall be identified."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-15-02]
+    verification: "inspect required deliverable(s): WP-15-02"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-03
@@ -1720,15 +1720,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "15"
     clause_name: "Threat analysis and risk assessment (TARA) methods"
     phase: tara-method
     locator: "§15.5.2"
     short_title: "The impact rating of a damage scenario shall be determined"
     text: "The impact rating of a damage scenario shall be determined for each impact category to be one of the following: — severe; — major; — moderate; or — negligible."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-15-04]
+    verification: "inspect required deliverable(s): WP-15-04"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-06
@@ -1736,15 +1736,15 @@ requirements:
     normativity: requirement
     verb: shall
     actor: "project (implied)"
-    nature: process
+    nature: deliverable-producing
     clause: "15"
     clause_name: "Threat analysis and risk assessment (TARA) methods"
     phase: tara-method
     locator: "§15.5.2"
     short_title: "Safety related impact ratings shall be derived from ISO 26262-3"
     text: "Safety related impact ratings shall be derived from ISO 26262-3:2018, 6.4.3."
-    expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    expects_deliverables: [WP-15-04]
+    verification: "inspect required deliverable(s): WP-15-04"
     tailorable: true
     external_refs: ["ISO 26262-3"]
     audit_status: not-reviewed
@@ -1941,9 +1941,9 @@ required_deliverables:
     deliverable: true
     clause: "05"
     clause_name: "Organizational cybersecurity management"
-    locator: "§5.4.2"
+    locator: "§5.5"
     title: "Evidence of competence management, awareness management and continuous improvement"
-    from_requirements: []
+    from_requirements: [RQ-05-07, RQ-05-08]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-05-03
     designator: WP-05-03
@@ -2031,18 +2031,18 @@ required_deliverables:
     deliverable: true
     clause: "08"
     clause_name: "Continual cybersecurity activities"
-    locator: "§8.3"
+    locator: "§8.3.3"
     title: "Triggers"
-    from_requirements: []
+    from_requirements: [RQ-08-02]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-08-03
     designator: WP-08-03
     deliverable: true
     clause: "08"
     clause_name: "Continual cybersecurity activities"
-    locator: "§8.3"
+    locator: "§8.3.3"
     title: "Cybersecurity events"
-    from_requirements: []
+    from_requirements: [RQ-08-03]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-08-04
     designator: WP-08-04
@@ -2094,27 +2094,27 @@ required_deliverables:
     deliverable: true
     clause: "09"
     clause_name: "Concept"
-    locator: "§9.4"
+    locator: "§9.4.3"
     title: "Cybersecurity goals"
-    from_requirements: []
+    from_requirements: [RQ-09-05]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-09-04
     designator: WP-09-04
     deliverable: true
     clause: "09"
     clause_name: "Concept"
-    locator: "§9.4"
+    locator: "§9.4.3"
     title: "Cybersecurity claims"
-    from_requirements: []
+    from_requirements: [RQ-09-06]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-09-05
     designator: WP-09-05
     deliverable: true
     clause: "09"
     clause_name: "Concept"
-    locator: "§9.4"
+    locator: "§9.4.3"
     title: "Verification report for cybersecurity goals"
-    from_requirements: []
+    from_requirements: [RQ-09-07]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-09-06
     designator: WP-09-06
@@ -2130,9 +2130,9 @@ required_deliverables:
     deliverable: true
     clause: "09"
     clause_name: "Concept"
-    locator: "§9.5"
-    title: "Verification report of cybersecurity concept Product development phase"
-    from_requirements: []
+    locator: "§9.5.3"
+    title: "Verification report for the cybersecurity concept"
+    from_requirements: [RQ-09-11]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-10-01
     designator: WP-10-01
@@ -2148,54 +2148,54 @@ required_deliverables:
     deliverable: true
     clause: "10"
     clause_name: "Product development"
-    locator: "§10.4.1"
+    locator: "§10.5"
     title: "Cybersecurity requirements for post-development"
-    from_requirements: []
+    from_requirements: [RQ-10-03]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-10-03
     designator: WP-10-03
     deliverable: true
     clause: "10"
     clause_name: "Product development"
-    locator: "§10.4.1"
-    title: "Documentation of the modelling, design, or programming languages and coding guidelines"
-    from_requirements: []
+    locator: "§10.5"
+    title: "Documentation of the modelling, design or programming languages and coding guidelines, if applicable"
+    from_requirements: [RQ-10-04, RQ-10-05]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-10-04
     designator: WP-10-04
     deliverable: true
     clause: "10"
     clause_name: "Product development"
-    locator: "§10.4.1"
+    locator: "§10.5"
     title: "Verification report for the cybersecurity specifications"
-    from_requirements: []
+    from_requirements: [RQ-10-08]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-10-05
     designator: WP-10-05
     deliverable: true
     clause: "10"
     clause_name: "Product development"
-    locator: "§10.4.1"
+    locator: "§10.5"
     title: "Weaknesses found during product development"
-    from_requirements: []
+    from_requirements: [RQ-10-07, RC-10-12]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-10-06
     designator: WP-10-06
     deliverable: true
     clause: "10"
     clause_name: "Product development"
-    locator: "§10.4.2"
+    locator: "§10.5"
     title: "Integration and verification specification"
-    from_requirements: []
+    from_requirements: [RQ-10-10]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-10-07
     designator: WP-10-07
     deliverable: true
     clause: "10"
     clause_name: "Product development"
-    locator: "§10.4.2"
-    title: "Integration and verification report Clause 11 Cybersecurity validation [WP-11-01] Validation report Post-development phases Clause 12 Production [WP-12-01] Production control plan"
-    from_requirements: []
+    locator: "§10.5"
+    title: "Integration and verification report"
+    from_requirements: [RQ-10-09, RQ-10-11, RC-10-12]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-11-01
     designator: WP-11-01
@@ -2231,7 +2231,7 @@ required_deliverables:
     clause_name: "End of cybersecurity support and decommissioning"
     locator: "§14.3.3"
     title: "Procedures to communicate the end of cybersecurity support"
-    from_requirements: []
+    from_requirements: [RQ-14-01]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-15-01
     designator: WP-15-01
@@ -2247,9 +2247,9 @@ required_deliverables:
     deliverable: true
     clause: "15"
     clause_name: "Threat analysis and risk assessment (TARA) methods"
-    locator: "§15.3"
+    locator: "§15.3.3"
     title: "Assets with cybersecurity properties"
-    from_requirements: []
+    from_requirements: [RQ-15-02]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-15-03
     designator: WP-15-03
@@ -2267,7 +2267,7 @@ required_deliverables:
     clause_name: "Threat analysis and risk assessment (TARA) methods"
     locator: "§15.5.3"
     title: "Impact ratings with associated impact categories"
-    from_requirements: [RQ-15-04]
+    from_requirements: [RQ-15-04, RQ-15-05, RQ-15-06]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-15-05
     designator: WP-15-05

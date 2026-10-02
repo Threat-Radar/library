@@ -12,6 +12,9 @@ This is the query the library exists to answer.
 - [`draft-ietf-cbor-packed`](../records/ietf/draft-ietf-cbor-packed/) — Packed CBOR
 - [`fips-186-4`](../records/nist/fips-186-4/) — Digital Signature Standard (DSS), FIPS 186-4
 - [`ietf-vcon-wg`](../records/ietf/ietf-vcon-wg/) — IETF vCon Working Group
+- [`iso-24089-2023`](../records/iso/iso-24089-2023/) — ISO 24089:2023, Road vehicles: Software update engineering
+- [`iso-pas-5112-2022`](../records/iso/iso-pas-5112-2022/) — ISO/PAS 5112:2022, Road vehicles: Guidelines for auditing cybersecurit
+- [`iso-sae-tr-8477`](../records/iso/iso-sae-tr-8477/) — ISO/SAE TR 8477, Road vehicles: Cybersecurity verification and validat
 - [`rfc-1952`](../records/ietf/rfc-1952/) — GZIP
 - [`rfc-3339`](../records/ietf/rfc-3339/) — Timestamps
 - [`rfc-3966`](../records/ietf/rfc-3966/) — tel URI
@@ -96,10 +99,15 @@ This is the query the library exists to answer.
 ### DEC-003
 
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
+- [`evita-d2-3`](../records/other/evita-d2-3/) — EVITA Deliverable D2.3: Security requirements for automotive on-board 
 - [`first-cvss`](../records/community/first-cvss/) — FIRST, Common Vulnerability Scoring System (CVSS)
+- [`first-cvss-v3-1`](../records/community/first-cvss-v3-1/) — FIRST, Common Vulnerability Scoring System v3.1: Specification Documen
+- [`first-cvss-v4-0`](../records/community/first-cvss-v4-0/) — FIRST, Common Vulnerability Scoring System v4.0: Specification Documen
 - [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) — ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept 
 - [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
 - [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
+- [`iso-iec-29100-2024`](../records/iso/iso-iec-29100-2024/) — ISO/IEC 29100:2024, Information technology: Security techniques: Priva
+- [`iso-sae-pas-8475`](../records/iso/iso-sae-pas-8475/) — ISO/SAE PAS 8475, Road vehicles: Cybersecurity Assurance Levels (CAL) 
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
@@ -187,6 +195,8 @@ This is the query the library exists to answer.
 ### R-011
 
 - [`first-cvss`](../records/community/first-cvss/) — FIRST, Common Vulnerability Scoring System (CVSS)
+- [`first-cvss-v3-1`](../records/community/first-cvss-v3-1/) — FIRST, Common Vulnerability Scoring System v3.1: Specification Documen
+- [`first-cvss-v4-0`](../records/community/first-cvss-v4-0/) — FIRST, Common Vulnerability Scoring System v4.0: Specification Documen
 - [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
 - [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
 

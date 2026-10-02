@@ -42,7 +42,7 @@ cites:
   - etsi-ts-102-165-1          # [21]
   - pasta-risk-centric-threat-modeling # [22]
   - iso-iec-18045              # [23]
-  - first-cvss                 # [24]
+  - first-cvss-v3-1           # [24] CVSS v3.1 specification
   - iso-iec-15408              # [29]
   - sae-j3061                  # [37]
   # remaining bibliography — gaps worth ingesting when needed:
@@ -64,8 +64,8 @@ cites:
   - {ref: "[16]", title: "ISO 26262 (all parts), Road vehicles — Functional safety"}
   - {ref: "[17]", title: "MISRA C 2012, Guidelines for the use of the C language in critical systems, 3rd Edition, 1st Revision. Nuneaton, England: HORIBA MIRA, February 2019. ISBN (print/electronic): 978-1"}
   - {ref: "[18]", title: "SEI CERT C Coding Standard – Rules for developing safe, reliable and secure systems [online]. Pittsburgh, Pennsylvania: Software Engineering Institue, Carnegie Mellon University, 2"}
-  - {ref: "[20]", title: "E-SAFETY VEHICLE INTRUSION PROTECTED APPLICATIONS (EVITA) Deliverable D2.3: Security requirements for automotive on-board networks based on dark-side scenarios [online]. Edited by "}
-  - {ref: "[25]", title: "ISO/IEC 29100, Information technology — Security techniques — Privacy framework"}
+  - evita-d2-3                 # [20]
+  - iso-iec-29100-2024         # [25] cited undated; the 2011 edition was current in 2021
   - {ref: "[26]", title: "Automotive ISAC, Automotive Cybersecurity Best Practices [online]. Available at: https://​w ww​ .automotiveisac​.com/​best​-practices/​"}
   - {ref: "[27]", title: "FORUM OF INCIDENT RESPONSE AND SECURITY TEAMS (FIRST). Traffic Light Protocol (TLP), FIRST Standards Definitions and Usage Guidance - Version 1.0, [online]. Available at: https://​"}
   - {ref: "[28]", title: "ISO/IEC 23822), Information technology — Vocabulary"}
@@ -105,7 +105,7 @@ distillation:
   artifacts:
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "All 118 normative statements (101 RQ, 13 RC, 4 PM) + 42 required deliverables, `#RQ-CC-NN`. Audit-typed (library-requirements/v2): normativity, actor, nature (process vs deliverable-producing: 26 D / 92 P), expects_deliverables, verification, tailorable. Full verbatim text. Derived fields (actor/nature/verification/short_title) NOT yet human-reviewed."
+      coverage: "All 118 normative statements (101 RQ, 13 RC, 4 PM) + 42 required deliverables, `#RQ-CC-NN`. Audit-typed (library-requirements/v2): normativity, actor, nature (process vs deliverable-producing: 47 D / 71 P), expects_deliverables, verification, tailorable. Full verbatim text. Derived fields (actor/nature/verification/short_title) NOT yet human-reviewed."
       generated_from: "pdftotext -layout of the purchased PDF + marker extraction"
       reviewed_by: ""
     - kind: requirements

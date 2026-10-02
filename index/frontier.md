@@ -24,10 +24,12 @@ This is the snowballing queue (Wohlin backward pass).
 | `fips-140-3` | nist-sp-800-140e    # approved authentication mechanisms |
 | `fips-140-3` | nist-sp-800-140f    # approved non-invasive attack mitigation metrics |
 | `iso-sae-21434-2021` | etsi-ts-102-165-1          # [21] |
-| `iso-sae-21434-2021` | first-cvss                 # [24] |
+| `iso-sae-21434-2021` | evita-d2-3                 # [20] |
+| `iso-sae-21434-2021` | first-cvss-v3-1           # [24] CVSS v3.1 specification |
 | `iso-sae-21434-2021` | iso-26262-3-2018            # normative reference (Clause 2) |
 | `iso-sae-21434-2021` | iso-iec-15408              # [29] |
 | `iso-sae-21434-2021` | iso-iec-18045              # [23] |
+| `iso-sae-21434-2021` | iso-iec-29100-2024         # [25] cited undated; the 2011 edition was current in 2021 |
 | `iso-sae-21434-2021` | nist-sp-800-160            # [19] |
 | `iso-sae-21434-2021` | pasta-risk-centric-threat-modeling # [22] |
 | `iso-sae-21434-2021` | sae-j3061                  # [37] |
