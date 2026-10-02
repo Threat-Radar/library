@@ -8,6 +8,14 @@ This is the snowballing queue (Wohlin backward pass).
 
 | cited by | target |
 |---|---|
+| `cisa-ai-in-ot-principles` | ETSI TR 104 048, SAI; Data Supply Chain Security <https://www.etsi.org/deliver/etsi_tr/104000_104099/104048/01.01.01_60/tr_104048v010101p.pdf> |
+| `cisa-ai-in-ot-principles` | ETSI TR 104 128, SAI; Guide to Cyber Security for AI Models and Systems <https://www.etsi.org/deliver/etsi_tr/104100_104199/104128/01.01.01_60/tr_104128v010101p.pdf> |
+| `cisa-ai-in-ot-principles` | ETSI TS 104 223, SAI; Baseline Cyber Security Requirements for AI Models and Systems <https://www.etsi.org/deliver/etsi_ts/104200_104299/104223/01.01.01_60/ts_104223v010101p.pdf> |
+| `cisa-ai-in-ot-principles` | MITRE ATLAS <https://atlas.mitre.org/> |
+| `cisa-ai-in-ot-principles` | NCSC-UK and CISA, Guidelines for Secure AI System Development <https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development> |
+| `cisa-ai-in-ot-principles` | NIST AI Risk Management Framework <https://www.nist.gov/itl/ai-risk-management-framework> |
+| `cisa-ai-in-ot-principles` | Overview of IEC 61508 & Functional Safety (IEC, 2022) <https://assets.iec.ch/public/acos/IEC%2061508%20&%20Functional%20Safety-2022.pdf> |
+| `cisa-ai-in-ot-principles` | UK Government, Code of Practice for the Cyber Security of AI <https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice> |
 | `cisa-framing-software-component-transparency` | CISA, Software Identification Ecosystem Analysis <https://www.cisa.gov/resources-tools/resources/software-identification-ecosystem-option-analysis> |
 | `cisa-framing-software-component-transparency` | ISO 8601 — Date and time format <https://www.iso.org/iso-8601-date-and-time-format.html> |
 | `cisa-framing-software-component-transparency` | OmniBOR Specification <https://github.com/omnibor/spec> |
@@ -40,3 +48,6 @@ This is the snowballing queue (Wohlin backward pass).
 | `ntia-sbom-minimum-elements` | Roles and Benefits for SBOM Across the Supply Chain <https://www.ntia.gov/files/ntia/publications/ntia_sbom_use_cases_roles_benefits-nov2019.pdf> |
 | `ntia-sbom-minimum-elements` | SPDX project site — SPDX 2.2.x when cited; the line is held as `spdx-3-0-1`, no ingestion gap <https://spdx.dev/> |
 | `ntia-sbom-minimum-elements` | Software Identification Challenges and Guidance <https://www.ntia.gov/files/ntia/publications/ntia_sbom_software_identity-2021mar30.pdf> |
+| `spml-image-prompt-injection` | Sharma et al., SPML: A DSL for Defending Language Models Against Prompt Attacks <https://arxiv.org/abs/2402.11755> |
+| `spotlighting-indirect-prompt-injection` | Greshake et al., More than you've asked for: A Comprehensive Analysis of Novel Prompt Injection Threats to Application-Integrated Large Language Models <https://arxiv.org/abs/2302.12173> |
+| `spotlighting-indirect-prompt-injection` | Yi et al., Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models <https://arxiv.org/abs/2312.14197> |

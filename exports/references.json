@@ -12,6 +12,22 @@
     "URL": "https://aidanhogan.com/docs/knowledge-graphs-computing-surveys.pdf"
   },
   {
+    "id": "llm-programmatic-dual-use",
+    "type": "article-journal",
+    "title": "Exploiting Programmatic Behavior of LLMs: Dual-Use Through Standard Security Attacks",
+    "URL": "https://arxiv.org/abs/2302.05733",
+    "issued": {
+      "date-parts": [
+        [
+          2023,
+          2,
+          11
+        ]
+      ]
+    },
+    "publisher": "accepted at SAGAI'24 (IEEE SPW 2024)"
+  },
+  {
     "id": "mulval",
     "type": "article-journal",
     "title": "MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)",
@@ -24,16 +40,91 @@
     "URL": "https://www.wiley.com/"
   },
   {
+    "id": "pretrained-encoders-secure-learning",
+    "type": "article-journal",
+    "title": "Pre-trained Encoders in Self-Supervised Learning Improve Secure and Privacy-preserving Supervised Learning",
+    "URL": "https://arxiv.org/abs/2212.03334",
+    "issued": {
+      "date-parts": [
+        [
+          2022,
+          12,
+          6
+        ]
+      ]
+    },
+    "publisher": "accepted at SAGAI'24 (IEEE SPW 2024)"
+  },
+  {
+    "id": "sagai-workshop",
+    "type": "report",
+    "title": "SAGAI \u2014 IEEE Security and Privacy workshop series on securing generative AI (2024\u2013)",
+    "URL": "https://sites.google.com/view/sagai2024/home",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "publisher": "IEEE Security and Privacy Workshops (SPW)"
+  },
+  {
     "id": "securechain-okn",
     "type": "webpage",
     "title": "SecureChain \u2014 Knowledge Graph for Resilient, Trustworthy, Secure Software Supply Chains (Purdue, Proto-OKN)",
     "URL": "https://www.proto-okn.net/theme-1-projects/"
   },
   {
+    "id": "spml-image-prompt-injection",
+    "type": "article-journal",
+    "title": "Defending Language Models Against Image-Based Prompt Attacks via User-Provided Specifications",
+    "URL": "https://ieeexplore.ieee.org/abstract/document/10579532",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "publisher": "IEEE Security and Privacy Workshops (SPW) 2024 \u2014 SAGAI'24"
+  },
+  {
+    "id": "spotlighting-indirect-prompt-injection",
+    "type": "article-journal",
+    "title": "Defending Against Indirect Prompt Injection Attacks With Spotlighting",
+    "URL": "https://arxiv.org/abs/2403.14720",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          3,
+          20
+        ]
+      ]
+    },
+    "publisher": "Microsoft; accepted at SAGAI'24 (IEEE SPW 2024)"
+  },
+  {
     "id": "sudokn-okn",
     "type": "webpage",
     "title": "SUDOKN \u2014 Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)",
     "URL": "https://www.proto-okn.net/theme-1-projects/"
+  },
+  {
+    "id": "systems-security-agentic-computing",
+    "type": "article-journal",
+    "title": "Systems Security Foundations for Agentic Computing",
+    "URL": "https://arxiv.org/abs/2512.01295",
+    "issued": {
+      "date-parts": [
+        [
+          2025,
+          12,
+          1
+        ]
+      ]
+    }
   },
   {
     "id": "unifying-llm-kg",
@@ -1380,6 +1471,22 @@
     "type": "report",
     "title": "SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems (superseded by ISO/SAE 21434)",
     "URL": "https://www.sae.org/standards/content/j3061/"
+  },
+  {
+    "id": "cisa-ai-in-ot-principles",
+    "type": "report",
+    "title": "Principles for the Secure Integration of Artificial Intelligence in Operational Technology",
+    "URL": "https://www.cisa.gov/resources-tools/resources/principles-secure-integration-artificial-intelligence-operational-technology",
+    "issued": {
+      "date-parts": [
+        [
+          2025,
+          12,
+          3
+        ]
+      ]
+    },
+    "publisher": "Cybersecurity and Infrastructure Security Agency"
   },
   {
     "id": "cisa-framing-software-component-transparency",

@@ -3,7 +3,7 @@
 
 # Records
 
-129 records across 10 bodies.
+136 records across 10 bodies.
 
 
 ## academic
@@ -12,10 +12,16 @@
 |---|---|---|---|---|---|---|
 | [`bron`](../records/academic/bron/) | BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al | paper | white-paper | summarized | useful | — |
 | [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) | Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4 | paper | white-paper | summarized | useful | — |
+| [`llm-programmatic-dual-use`](../records/academic/llm-programmatic-dual-use/) | Exploiting Programmatic Behavior of LLMs: Dual-Use Through | paper | — | summarized | useful | — |
 | [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
 | [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana) | book | — | queued | — | — |
+| [`pretrained-encoders-secure-learning`](../records/academic/pretrained-encoders-secure-learning/) | Pre-trained Encoders in Self-Supervised Learning Improve S | paper | — | summarized | marginal | — |
+| [`sagai-workshop`](../records/academic/sagai-workshop/) | SAGAI — IEEE Security and Privacy workshop series on secur | hierarchy | — | summarized | useful | — |
 | [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |
+| [`spml-image-prompt-injection`](../records/academic/spml-image-prompt-injection/) | Defending Language Models Against Image-Based Prompt Attac | paper | — | summarized | useful | — |
+| [`spotlighting-indirect-prompt-injection`](../records/academic/spotlighting-indirect-prompt-injection/) | Defending Against Indirect Prompt Injection Attacks With S | paper | — | summarized | useful | — |
 | [`sudokn-okn`](../records/academic/sudokn-okn/) | SUDOKN — Supply and Demand Open Knowledge Network (Arizona | web | implementation | summarized | useful | — |
+| [`systems-security-agentic-computing`](../records/academic/systems-security-agentic-computing/) | Systems Security Foundations for Agentic Computing | paper | — | summarized | useful | — |
 | [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) | Unifying Large Language Models and Knowledge Graphs: A Roa | paper | white-paper | summarized | useful | — |
 
 ## community
@@ -170,6 +176,7 @@
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`cisa-ai-in-ot-principles`](../records/regulator/cisa-ai-in-ot-principles/) | Principles for the Secure Integration of Artificial Intell | spec | best-practice | summarized | useful | — |
 | [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) | Framing Software Component Transparency: Establishing a Co | spec | best-practice | summarized | useful | — |
 | [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) | The Minimum Elements For a Software Bill of Materials (SBO | spec | best-practice | summarized | useful | — |
 

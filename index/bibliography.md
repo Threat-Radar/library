@@ -3,7 +3,7 @@
 
 # Bibliography
 
-129 records.
+136 records.
 
 
 ## academic
@@ -14,17 +14,35 @@
 - **Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)**  
   `hogan-kg-survey` · paper · white-paper · **summarized** · [source](https://aidanhogan.com/docs/knowledge-graphs-computing-surveys.pdf)  
   _Best single orientation document; frames tmodel's RDF-vs-LPG model choice._
+- **Exploiting Programmatic Behavior of LLMs: Dual-Use Through Standard Security Attacks** — Daniel Kang, Xuechen Li, Ion Stoica, Carlos Guestrin, Matei Zaharia, Tatsunori Hashimoto. 2023-02-11  
+  `llm-programmatic-dual-use` · paper · **summarized** · [source](https://arxiv.org/pdf/2302.05733v1)  
+  _Evidence that content filters are bypassed by classic program-attack techniques; names misuse / filter bypass as an AI threat type._
 - **MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)**  
   `mulval` · paper · white-paper · **summarized** · [source](https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf)  
   _Reference model for rule-based attack-path derivation; facts=nodes, rules=logic, derivation graph = the reviewable attack-path artifact._
 - **Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)**  
   `pasta-risk-centric-threat-modeling` · book · [source](https://www.wiley.com/)
+- **Pre-trained Encoders in Self-Supervised Learning Improve Secure and Privacy-preserving Supervised Learning** — Hongbin Liu, Wenjie Qu, Jinyuan Jia, Neil Zhenqiang Gong. 2022-12-06  
+  `pretrained-encoders-secure-learning` · paper · **summarized** · [source](https://arxiv.org/pdf/2212.03334)  
+  _Model-level defenses for image classifiers, not GenAI systems; kept because it is a SAGAI'24 paper._
+- **SAGAI — IEEE Security and Privacy workshop series on securing generative AI (2024–)** — Mihai Christodorescu, John Mitchell, Somesh Jha, Khawaja Shams, Earlence Fernandes. 2024  
+  `sagai-workshop` · hierarchy · **summarized** · [source](https://sites.google.com/view/sagai2024/home)  
+  _The confirmed target of tmodel #13; parent record that groups the SAGAI papers._
 - **SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Software Supply Chains (Purdue, Proto-OKN)**  
   `securechain-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Direct domain analog: connecting components, artifacts and vulnerabilities as a graph — the pattern tmodel needs for the composition→weakness layer._
+- **Defending Language Models Against Image-Based Prompt Attacks via User-Provided Specifications** — Reshabh K Sharma, Vinayak Gupta, Dan Grossman. 2024  
+  `spml-image-prompt-injection` · paper · **summarized** · [source](https://homes.cs.washington.edu/~reshabh/SAGAI.pdf)  
+  _Shows prompt injection through images and a specification-driven input check; widens the AI threat types the object model must express._
+- **Defending Against Indirect Prompt Injection Attacks With Spotlighting** — Keegan Hines, Gary Lopez, Matthew Hall, Federico Zarfati, Yonatan Zunger, Emre Kıcıman. 2024-03-20  
+  `spotlighting-indirect-prompt-injection` · paper · **summarized** · [source](https://arxiv.org/pdf/2403.14720v1)  
+  _Defines indirect prompt injection and a cheap system-level defense; the threat applies to any AI feature that reads third-party text, tmodel's included._
 - **SUDOKN — Supply and Demand Open Knowledge Network (Arizona State U., Proto-OKN)**  
   `sudokn-okn` · web · implementation · **summarized** · [source](https://www.proto-okn.net/theme-1-projects/)  
   _Demonstrates cross-domain linking (products↔companies↔risk) at scale — the supply-chain-security use case tmodel aligns with._
+- **Systems Security Foundations for Agentic Computing** — Mihai Christodorescu, Earlence Fernandes, Ashish Hooda, Somesh Jha, Johann Rehberger, Kamalika Chaudhuri, Xiaohan Fu, Khawaja Shams, Guy Amir, Jihye Choi, Sarthak Choudhary, Nils Palumbo, Andrey Labunets, Nishit V. Pandya. 2025-12-01  
+  `systems-security-agentic-computing` · paper · **summarized** · [source](https://arxiv.org/pdf/2512.01295v2)  
+  _Eleven real agent attacks mapped to classic security principles, plus the open problems; the systems view of AI security that the SAGAI papers point to._
 - **Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et al., IEEE TKDE 2024)**  
   `unifying-llm-kg` · paper · white-paper · **summarized** · [source](https://arxiv.org/abs/2306.08302)  
   _The 'synergized' pattern (LLM proposes, KG constrains/verifies) is essentially tmodel's AI-proposes/human-reviews design._
@@ -357,6 +375,9 @@
 
 ## regulator
 
+- **Principles for the Secure Integration of Artificial Intelligence in Operational Technology** — CISA, Australian Signals Directorate's Australian Cyber Security Centre (ASD's ACSC), NSA Artificial Intelligence Security Center, FBI, Canadian Centre for Cyber Security, German Federal Office for Information Security (BSI), Netherlands National Cyber Security Centre (NCSC-NL), New Zealand National Cyber Security Centre (NCSC-NZ), United Kingdom National Cyber Security Centre (NCSC-UK). 2025-12-03  
+  `cisa-ai-in-ot-principles` · spec · best-practice · **summarized** · [source](https://www.cisa.gov/sites/default/files/2026-01/joint-guidance-principles-for-the-secure-integration-of-artificial-intelligence-in-operational-technology-508cV2.pdf)  
+  _Seed source for #13. Asks for AI-specific attack vectors and MITRE ATLAS in threat models (DEC-001) and for human-in-the-loop review with an audit trail (R-018)._
 - **Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM)** — CISA SBOM Tooling and Implementation Working Group. 2024-09-03  
   `cisa-framing-software-component-transparency` · spec · best-practice · **summarized** · [source](https://www.cisa.gov/sites/default/files/2024-10/SBOM%20Framing%20Software%20Component%20Transparency%202024.pdf)  
   _Promotes the cryptographic hash from NTIA's recommended tier to Minimum Expected, and defines relationship completeness with an explicit open-world default. Both are directly load-bearing for R-M-07 and R-M-11._

@@ -9,8 +9,11 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-81 of 129 records have at least one edge.
+88 of 136 records have at least one edge.
 
+
+### `cisa-ai-in-ot-principles`
+- **cites** → `mitre-attack`
 
 ### `cisa-framing-software-component-transparency`
 - **cites** → `cyclonedx-1-7`, `iso-iec-5962-2021`, `spdx-3-0-1`
@@ -89,6 +92,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `iso-sae-21434-2021`
 - **supersedes** → `sae-j3061`
 
+### `llm-programmatic-dual-use`
+- **part_of** → `sagai-workshop`
+
 ### `nist-sp-800-140`
 - **cited_by** → `fips-140-3`
 - **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
@@ -120,6 +126,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `ntia-sbom-minimum-elements`
 - **see_also** → `sp-800-161r1`
 - **updated_by** → `cisa-framing-software-component-transparency`
+
+### `pretrained-encoders-secure-learning`
+- **part_of** → `sagai-workshop`
 
 ### `rfc-7049`
 - **part_of** → `ietf-cbor-wg`
@@ -274,6 +283,10 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `sae-j3061`
 - **superseded_by** → `iso-sae-21434-2021`
 
+### `sagai-workshop`
+- **has_part** → `llm-programmatic-dual-use`, `pretrained-encoders-secure-learning`, `spml-image-prompt-injection`, `spotlighting-indirect-prompt-injection`
+- **see_also** → `systems-security-agentic-computing`
+
 ### `secure-systems-lab-dsse`
 - **see_also** → `cyclonedx-1-7`, `spdx-3-0-1`
 
@@ -286,6 +299,15 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `spdx-3-0-1`
 - **see_also** → `cyclonedx-1-7`, `guac`, `in-toto-attestation-v1`, `secure-systems-lab-dsse`
 - **supersedes** → `iso-iec-5962-2021`
+
+### `spml-image-prompt-injection`
+- **part_of** → `sagai-workshop`
+
+### `spotlighting-indirect-prompt-injection`
+- **part_of** → `sagai-workshop`
+
+### `systems-security-agentic-computing`
+- **see_also** → `sagai-workshop`
 
 ## Orphans
 
