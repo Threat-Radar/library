@@ -12,6 +12,7 @@ This is the query the library exists to answer.
 - [`draft-ietf-cbor-packed`](../records/ietf/draft-ietf-cbor-packed/) — Packed CBOR
 - [`fips-186-4`](../records/nist/fips-186-4/) — Digital Signature Standard (DSS), FIPS 186-4
 - [`ietf-vcon-wg`](../records/ietf/ietf-vcon-wg/) — IETF vCon Working Group
+- [`pretrained-encoders-secure-learning`](../records/academic/pretrained-encoders-secure-learning/) — Pre-trained Encoders in Self-Supervised Learning Improve Secure and Pr
 - [`rfc-1952`](../records/ietf/rfc-1952/) — GZIP
 - [`rfc-3339`](../records/ietf/rfc-3339/) — Timestamps
 - [`rfc-3966`](../records/ietf/rfc-3966/) — tel URI
@@ -38,6 +39,7 @@ This is the query the library exists to answer.
 - [`rfc-9921`](../records/ietf/rfc-9921/) — CBOR Object Signing and Encryption (COSE) Header Parameter for Timesta
 - [`rfc-9964`](../records/ietf/rfc-9964/) — ML-DSA for JSON Object Signing and Encryption (JOSE) and CBOR Object S
 - [`rfc-9997`](../records/ietf/rfc-9997/) — YANG-CBOR: Allocating SID Ranges for Private Enterprise Number (PEN) H
+- [`sagai-workshop`](../records/academic/sagai-workshop/) — SAGAI — IEEE Security and Privacy workshop series on securing generati
 - [`sp-800-161r1`](../records/nist/sp-800-161r1/) — Cybersecurity Supply Chain Risk Management Practices for Systems and O
 - [`sp-800-186`](../records/nist/sp-800-186/) — Recommendations for Discrete Logarithm-based Cryptography: Elliptic Cu
 - [`w3c-did-core`](../records/w3c/w3c-did-core/) — Decentralized Identifiers (DIDs) v1.0
@@ -46,19 +48,24 @@ This is the query the library exists to answer.
 
 - [`bron`](../records/academic/bron/) — BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)
 - [`capec`](../records/other/capec/) — MITRE CAPEC — Common Attack Pattern Enumeration and Classification
+- [`cisa-ai-in-ot-principles`](../records/regulator/cisa-ai-in-ot-principles/) — Principles for the Secure Integration of Artificial Intelligence in Op
 - [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
 - [`cwe`](../records/other/cwe/) — MITRE CWE — Common Weakness Enumeration
 - [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
 - [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
 - [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`llm-programmatic-dual-use`](../records/academic/llm-programmatic-dual-use/) — Exploiting Programmatic Behavior of LLMs: Dual-Use Through Standard Se
 - [`mitre-attack`](../records/other/mitre-attack/) — MITRE ATT&CK (knowledge base + STIX 2.1 data)
 - [`nsf-23-571`](../records/other/nsf-23-571/) — NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)
 - [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
 - [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
 - [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
 - [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
+- [`spml-image-prompt-injection`](../records/academic/spml-image-prompt-injection/) — Defending Language Models Against Image-Based Prompt Attacks via User-
+- [`spotlighting-indirect-prompt-injection`](../records/academic/spotlighting-indirect-prompt-injection/) — Defending Against Indirect Prompt Injection Attacks With Spotlighting
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
+- [`systems-security-agentic-computing`](../records/academic/systems-security-agentic-computing/) — Systems Security Foundations for Agentic Computing
 
 ### DEC-002
 
@@ -200,6 +207,7 @@ This is the query the library exists to answer.
 
 ### R-018
 
+- [`cisa-ai-in-ot-principles`](../records/regulator/cisa-ai-in-ot-principles/) — Principles for the Secure Integration of Artificial Intelligence in Op
 - [`prov-o`](../records/w3c/prov-o/) — PROV-O: The PROV Ontology
 
 ### R-021                 # mitigation tracking over the design lifecycle
