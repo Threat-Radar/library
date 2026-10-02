@@ -4,7 +4,7 @@ id: iso-sae-21434-2021-distilled-index
 record: iso-sae-21434-2021
 type: index
 audience: human   # orientation for people; the machine source is requirements.yaml
-updated: "2026-09-26"
+updated: "2026-10-02"
 ---
 
 # Distilled artifacts — ISO/SAE 21434:2021
@@ -23,6 +23,7 @@ as authoritative.
 
 ## Not yet done (next passes)
 - Line-by-line human review of `requirements.yaml` (set `reviewed_by`, fix any truncation/verb drift).
-- Precise sub-clause locators for every requirement (currently section-level).
-- Annex distillation: impact-rating criteria (Annex F) and attack-feasibility methods (attack-potential / CVSS / attack-vector).
+- Fix the 16 wrong texts listed in `summary.md` (Limits), once the sponsor decides whether this public repository may hold the standard's verbatim text.
+- Done 2026-10-02: every provision and work-product locator points to the subclause that holds it, and the work-product links are complete (RPT-0007 §7).
+- Annex distillation: impact-rating criteria (Annex F) and attack-feasibility methods (attack-potential / CVSS / attack-vector). tmodel RPT-0007 §3 and §4 summarize Annexes E to H in its own words.
 - `fields.yaml` + a `schema/` encoding of the object model, once the model is chosen (#17).

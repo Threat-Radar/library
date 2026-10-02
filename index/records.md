@@ -3,7 +3,7 @@
 
 # Records
 
-129 records across 10 bodies.
+137 records across 10 bodies.
 
 
 ## academic
@@ -25,6 +25,8 @@
 | [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) | CycloneDX Bill of Materials Specification | spec | standard | queued | unassessed | — |
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
+| [`first-cvss-v3-1`](../records/community/first-cvss-v3-1/) | FIRST, Common Vulnerability Scoring System v3.1: Specifica | spec | — | fetched | — | — |
+| [`first-cvss-v4-0`](../records/community/first-cvss-v4-0/) | FIRST, Common Vulnerability Scoring System v4.0: Specifica | spec | — | fetched | — | — |
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
 | [`linkml`](../records/community/linkml/) | LinkML — Linked Data Modeling Language | repo | implementation | summarized | useful | — |
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
@@ -109,13 +111,18 @@
 | [`iana-cbor-simple-values`](../records/iso/iana-cbor-simple-values/) | IANA Concise Binary Object Representation (CBOR) Simple Va | dataset | — | fetched | useful | — |
 | [`iana-cbor-tags`](../records/iso/iana-cbor-tags/) | IANA Concise Binary Object Representation (CBOR) Tags Regi | dataset | — | fetched | useful | — |
 | [`iana-cose-algorithms`](../records/iso/iana-cose-algorithms/) | IANA COSE Algorithms registry | dataset | — | stub | — | — |
+| [`iso-24089-2023`](../records/iso/iso-24089-2023/) | ISO 24089:2023, Road vehicles: Software update engineering | spec | standard | stub | — | — |
 | [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) | ISO 26262-3:2018, Road vehicles — Functional safety — Part | spec | — | queued | — | — |
 | [`iso-iec-15408`](../records/iso/iso-iec-15408/) | ISO/IEC 15408 (all parts), Evaluation criteria for IT secu | spec | — | queued | — | — |
 | [`iso-iec-18045`](../records/iso/iso-iec-18045/) | ISO/IEC 18045, Methodology for IT security evaluation (att | spec | — | queued | — | — |
 | [`iso-iec-19790`](../records/iso/iso-iec-19790/) | ISO/IEC 19790:2012, Security requirements for cryptographi | spec | — | queued | — | — |
 | [`iso-iec-24759`](../records/iso/iso-iec-24759/) | ISO/IEC 24759:2017, Test requirements for cryptographic mo | spec | — | queued | — | — |
+| [`iso-iec-29100-2024`](../records/iso/iso-iec-29100-2024/) | ISO/IEC 29100:2024, Information technology: Security techn | spec | standard | queued | — | — |
 | [`iso-iec-5962-2021`](../records/iso/iso-iec-5962-2021/) | Information technology — SPDX Specification V2.2.1 | spec | standard | queued | marginal | — |
+| [`iso-pas-5112-2022`](../records/iso/iso-pas-5112-2022/) | ISO/PAS 5112:2022, Road vehicles: Guidelines for auditing  | spec | — | stub | — | — |
 | [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) | Road vehicles — Cybersecurity engineering | spec | standard | distilled | useful | — |
+| [`iso-sae-pas-8475`](../records/iso/iso-sae-pas-8475/) | ISO/SAE PAS 8475, Road vehicles: Cybersecurity Assurance L | spec | — | queued | — | — |
+| [`iso-sae-tr-8477`](../records/iso/iso-sae-tr-8477/) | ISO/SAE TR 8477, Road vehicles: Cybersecurity verification | spec | — | stub | — | — |
 
 ## nist
 
@@ -158,6 +165,7 @@
 | [`cwe`](../records/other/cwe/) | MITRE CWE — Common Weakness Enumeration | dataset | best-practice | summarized | useful | — |
 | [`d3fend`](../records/other/d3fend/) | MITRE D3FEND — defensive countermeasures knowledge graph ( | spec | recommendation | summarized | useful | — |
 | [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) | ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: M | spec | — | queued | — | — |
+| [`evita-d2-3`](../records/other/evita-d2-3/) | EVITA Deliverable D2.3: Security requirements for automoti | paper | — | queued | — | — |
 | [`frink-fabric`](../records/other/frink-fabric/) | FRINK — FabRic Integrating Networked Knowledge (RENCI, Pro | repo | implementation | summarized | useful | — |
 | [`graphrag-ms`](../records/other/graphrag-ms/) | GraphRAG (Microsoft Research, 2024) | repo | implementation | summarized | useful | — |
 | [`mitre-attack`](../records/other/mitre-attack/) | MITRE ATT&CK (knowledge base + STIX 2.1 data) | dataset | best-practice | summarized | useful | — |

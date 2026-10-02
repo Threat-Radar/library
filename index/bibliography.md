@@ -3,7 +3,7 @@
 
 # Bibliography
 
-129 records.
+137 records.
 
 
 ## academic
@@ -38,6 +38,10 @@
   _An INDIVIDUAL draft with no IETF stream and no WG standing, widely miscited as 'the' deterministic CBOR profile. At -18 it narrows RFC 8949 Sec.4.2 directly and does not mention CDE, contrary to common secondary accounts._
 - **FIRST, Common Vulnerability Scoring System (CVSS)**  
   `first-cvss` · spec · [source](https://www.first.org/cvss/)
+- **FIRST, Common Vulnerability Scoring System v3.1: Specification Document**  
+  `first-cvss-v3-1` · spec · [source](https://www.first.org/cvss/v3-1/cvss-v31-specification_r1.pdf)
+- **FIRST, Common Vulnerability Scoring System v4.0: Specification Document** — 2023-11-01  
+  `first-cvss-v4-0` · spec · [source](https://www.first.org/cvss/v4-0/cvss-v40-specification.pdf)
 - **in-toto Attestation Framework v1**  
   `in-toto-attestation-v1` · spec · [source](https://in-toto.io/)
 - **LinkML — Linked Data Modeling Language**  
@@ -245,6 +249,8 @@
   _The central extension point of CBOR, and the single strongest piece of evidence for R-M-12: a native model built on it is registry-dependent._
 - **IANA COSE Algorithms registry**  
   `iana-cose-algorithms` · dataset · [source](https://www.iana.org/assignments/cose/cose.xhtml)
+- **ISO 24089:2023, Road vehicles: Software update engineering** — 2023-02-08  
+  `iso-24089-2023` · spec · standard · [source](https://www.iso.org/standard/77796.html)
 - **ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept phase**  
   `iso-26262-3-2018` · spec · [source](https://www.iso.org/)
 - **ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common Criteria)**  
@@ -255,12 +261,20 @@
   `iso-iec-19790` · spec · [source](https://www.iso.org/standard/52906.html)
 - **ISO/IEC 24759:2017, Test requirements for cryptographic modules**  
   `iso-iec-24759` · spec · [source](https://www.iso.org/standard/72515.html)
+- **ISO/IEC 29100:2024, Information technology: Security techniques: Privacy framework** — 2024-02-16  
+  `iso-iec-29100-2024` · spec · standard · [source](https://www.iso.org/standard/85938.html)
 - **Information technology — SPDX Specification V2.2.1** — ISO/IEC JTC 1/SC 7. 2021-08  
   `iso-iec-5962-2021` · spec · standard · [source](https://www.iso.org/standard/81870.html)  
   _Held for the standing it establishes, not for its text: it is the one SBOM format with ISO ratification, and it carries SPDX 2.2.1, which SPDX 3.0.1 has moved past. Paywalled, so we work from the 3.0.1 record._
+- **ISO/PAS 5112:2022, Road vehicles: Guidelines for auditing cybersecurity engineering** — 2022-03-31  
+  `iso-pas-5112-2022` · spec · [source](https://www.iso.org/standard/80840.html)
 - **Road vehicles — Cybersecurity engineering** — 2021-08  
   `iso-sae-21434-2021` · spec · standard · **distilled** · [source](https://www.iso.org/standard/70918.html)  
   _The reference method for automotive threat modeling and risk: a structured TARA pipeline (asset -> threat scenario -> impact rating S/F/O/P -> attack path -> attack feasibility -> risk value -> treatment), a normative object model (Fig 3), and a requirement/work-product structure that is itself the template for automating conformance audits (tmodel #15)._
+- **ISO/SAE PAS 8475, Road vehicles: Cybersecurity Assurance Levels (CAL) and Targeted Attack Feasibility (TAF)**  
+  `iso-sae-pas-8475` · spec · [source](https://www.iso.org/standard/83187.html)
+- **ISO/SAE TR 8477, Road vehicles: Cybersecurity verification and validation**  
+  `iso-sae-tr-8477` · spec · [source](https://www.iso.org/standard/83188.html)
 
 ## nist
 
@@ -334,6 +348,8 @@
   _Authoritative mitigations layer with defense→offense edges; directly importable if tmodel is RDF; DAO seeds asset/component modeling._
 - **ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and proforma for Threat, Vulnerability, Risk Analysis (TVRA)**  
   `etsi-ts-102-165-1` · spec · [source](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/)
+- **EVITA Deliverable D2.3: Security requirements for automotive on-board networks based on dark-side scenarios** — 2009-12. 10.5281/zenodo.1188418  
+  `evita-d2-3` · paper · [source](https://doi.org/10.5281/zenodo.1188418)
 - **FRINK — FabRic Integrating Networked Knowledge (RENCI, Proto-OKN Theme 2)**  
   `frink-fabric` · repo · implementation · **summarized** · [source](https://frink.renci.org/)  
   _Concrete blueprint for federating multiple KGs under one endpoint with per-graph provenance and stable identifiers — the mechanism tmodel needs for attribution/governance and any OKN federation._

@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-81 of 129 records have at least one edge.
+88 of 137 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -59,6 +59,17 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **see_also** → `sp-800-186`
 - **supersedes** → `fips-186-4`
 
+### `first-cvss`
+- **see_also** → `first-cvss-v3-1`, `first-cvss-v4-0`
+
+### `first-cvss-v3-1`
+- **see_also** → `first-cvss`
+- **superseded_by** → `first-cvss-v4-0`
+
+### `first-cvss-v4-0`
+- **see_also** → `first-cvss`
+- **supersedes** → `first-cvss-v3-1`
+
 ### `guac`
 - **see_also** → `spdx-3-0-1`
 
@@ -77,6 +88,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `in-toto-attestation-v1`
 - **see_also** → `cyclonedx-1-7`, `sp-800-161r1`, `spdx-3-0-1`
 
+### `iso-24089-2023`
+- **see_also** → `iso-sae-21434-2021`
+
 ### `iso-iec-19790`
 - **see_also** → `nist-sp-800-140`, `nist-sp-800-140a`, `nist-sp-800-140b`, `nist-sp-800-140c`, `nist-sp-800-140d`, `nist-sp-800-140e`, `nist-sp-800-140f`
 
@@ -86,8 +100,18 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 ### `iso-iec-5962-2021`
 - **superseded_by** → `spdx-3-0-1`
 
+### `iso-pas-5112-2022`
+- **see_also** → `iso-sae-21434-2021`
+
 ### `iso-sae-21434-2021`
+- **see_also** → `iso-24089-2023`, `iso-pas-5112-2022`, `iso-sae-pas-8475`, `iso-sae-tr-8477`
 - **supersedes** → `sae-j3061`
+
+### `iso-sae-pas-8475`
+- **see_also** → `iso-sae-21434-2021`
+
+### `iso-sae-tr-8477`
+- **see_also** → `iso-sae-21434-2021`
 
 ### `nist-sp-800-140`
 - **cited_by** → `fips-140-3`
@@ -299,7 +323,7 @@ is a record nothing will surface.
 - `d3fend`
 - `draft-mih-scitt-agent-action-capsule-02`
 - `etsi-ts-102-165-1`
-- `first-cvss`
+- `evita-d2-3`
 - `frink-fabric`
 - `graphrag-ms`
 - `hogan-kg-survey`
@@ -308,6 +332,7 @@ is a record nothing will surface.
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
+- `iso-iec-29100-2024`
 - `linkml`
 - `mcp-okn`
 - `mitre-attack`
