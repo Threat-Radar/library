@@ -3,7 +3,7 @@
 
 # Bibliography
 
-129 records.
+143 records.
 
 
 ## academic
@@ -46,10 +46,28 @@
 - **mcp-okn — Model Context Protocol access to NSF OKN graphs**  
   `mcp-okn` · repo · implementation · **summarized** · [source](https://github.com/sbl-sdsc/mcp-okn)  
   _Prior art for an LLM→governed-KG bridge — the pattern for grounding a threat-modeling assistant against tmodel's graph._
+- **OWASP pytm** — OWASP  
+  `owasp-pytm` · repo · implementation · **summarized** · [source](https://github.com/OWASP/pytm)  
+  _Inspectable model-as-code precedent for a Python object model, rule-based threat generation, and generated diagrams and reports._
+- **OWASP Threat Dragon** — OWASP  
+  `owasp-threat-dragon` · repo · implementation · **summarized** · [source](https://github.com/OWASP/threat-dragon)  
+  _Inspectable diagram-first implementation with editable threats and mitigations, repository storage, and a tool-specific JSON model._
+- **OWASP Developer Guide — Threat Dragon** — OWASP  
+  `owasp-threat-dragon-guide` · web · documentation · **summarized** · [source](https://github.com/OWASP/DevGuide/blob/main/docs/en/04-design/01-threat-modeling/03-threat-dragon.md)  
+  _OWASP guidance for Threat Dragon methods, editing flow, delivery modes, and reporting._
+- **OWASP Threat Model Library and TM-BOM** — OWASP  
+  `owasp-threat-model-library` · repo · draft · **summarized** · [source](https://github.com/OWASP/www-project-threat-model-library)  
+  _Emerging neutral JSON threat-model interchange effort directly relevant to DEC-002 portability evidence._
 - **Dead Simple Signing Envelope (DSSE)**  
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
 - **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
   `spdx-3-0-1` · spec · [source](https://spdx.github.io/spdx-spec/v3.0.1/)
+- **Threagile** — Threagile  
+  `threagile` · repo · implementation · **summarized** · [source](https://github.com/Threagile/threagile)  
+  _Inspectable YAML model, risk-rule engine, explicit risk tracking, generated outputs, and REST execution mode._
+- **Threat Dragon Threat Model File format and TM-BOM direction** — OWASP Threat Dragon project  
+  `threat-dragon-tmf-format` · web · draft · **summarized** · [source](https://github.com/OWASP/threat-dragon/wiki/Threat-Model-File-%28TMF%29-format)  
+  _Primary project note documenting the limits of Threat Dragon's tool-specific format and the TM-BOM successor direction._
 
 ## ietf
 
@@ -363,6 +381,33 @@
 - **The Minimum Elements For a Software Bill of Materials (SBOM)** — National Telecommunications and Information Administration. 2021-07-12  
   `ntia-sbom-minimum-elements` · spec · best-practice · **summarized** · [source](https://www.ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf)  
   _Establishes the floor for what an SBOM must contain, and — decisively for us — puts the component hash OUTSIDE that floor. That omission is the evidence R-M-07 needs._
+
+## vendor
+
+- **AWS Threat Composer** — Amazon Web Services  
+  `aws-threat-composer` · repo · implementation · **summarized** · [source](https://github.com/awslabs/threat-composer)  
+  _Inspectable structured-threat model covering assumptions, threat statements, mitigations, diagrams, and machine-assisted interfaces._
+- **Devici–SD Elements integration generally available** — Security Compass  
+  `devici-sd-elements-integration` · web · implementation · [source](https://www.securitycompass.com/blog/devici-sd-elements-integration-generally-available/)  
+  _Primary release evidence for OTM handoff and downstream work-item delivery between Devici and SD Elements._
+- **IriusRisk — Creating a threat model** — IriusRisk. 2025-09-01  
+  `iriusrisk-creating-threat-model` · web · implementation · **summarized** · [source](https://www.iriusrisk.com/documentation/creating-a-threat-model)  
+  _First-party evidence for architecture-input, generated-finding, and analyst-review workflows in a commercial threat-modeling product._
+- **Microsoft Threat Modeling Tool feature overview** — Microsoft. 2017-08-17  
+  `microsoft-threat-modeling-tool-features` · web · implementation · **summarized** · [source](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-feature-overview)  
+  _Documents design and analysis views, templates, threat status, and reports relevant to review interaction and lifecycle evidence._
+- **Microsoft Threat Modeling Tool overview** — Microsoft. 2017-02-16  
+  `microsoft-threat-modeling-tool-overview` · web · implementation · **summarized** · [source](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool)  
+  _First-party overview of STRIDE-per-element analysis and mitigation workflow in an established diagram-first tool._
+- **Open Threat Model specification and JSON Schema** — IriusRisk  
+  `open-threat-model` · repo · specification · **summarized** · [source](https://github.com/iriusrisk/OpenThreatModel)  
+  _Machine-readable threat-model object and interchange schema directly relevant to DEC-001 and DEC-002._
+- **SD Elements Threat Modeling Datasheet** — Security Compass  
+  `sd-elements-threat-modeling-datasheet` · web · implementation · **summarized** · [source](https://www.securitycompass.com/Datasheets/SD-Elements-Threat-Modeling-Datasheet.pdf)  
+  _Primary vendor datasheet for automated findings, countermeasures, training, and verification workflow claims._
+- **ThreatTree Help Center** — ThreatTree  
+  `threattree-help` · web · implementation · **summarized** · [source](https://threattree.com/app/help)  
+  _First-party technical documentation for linked DFD, attack-tree, risk-register, export, collaboration, and ticket-lifecycle behavior._
 
 ## w3c
 

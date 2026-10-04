@@ -97,6 +97,30 @@
     "URL": "https://github.com/sbl-sdsc/mcp-okn"
   },
   {
+    "id": "owasp-pytm",
+    "type": "software",
+    "title": "OWASP pytm",
+    "URL": "https://github.com/OWASP/pytm"
+  },
+  {
+    "id": "owasp-threat-dragon",
+    "type": "software",
+    "title": "OWASP Threat Dragon",
+    "URL": "https://github.com/OWASP/threat-dragon"
+  },
+  {
+    "id": "owasp-threat-dragon-guide",
+    "type": "webpage",
+    "title": "OWASP Developer Guide \u2014 Threat Dragon",
+    "URL": "https://github.com/OWASP/DevGuide/blob/main/docs/en/04-design/01-threat-modeling/03-threat-dragon.md"
+  },
+  {
+    "id": "owasp-threat-model-library",
+    "type": "software",
+    "title": "OWASP Threat Model Library and TM-BOM",
+    "URL": "https://github.com/OWASP/www-project-threat-model-library"
+  },
+  {
     "id": "secure-systems-lab-dsse",
     "type": "software",
     "title": "Dead Simple Signing Envelope (DSSE)",
@@ -117,6 +141,18 @@
       ]
     },
     "publisher": "The Linux Foundation"
+  },
+  {
+    "id": "threagile",
+    "type": "software",
+    "title": "Threagile",
+    "URL": "https://github.com/Threagile/threagile"
+  },
+  {
+    "id": "threat-dragon-tmf-format",
+    "type": "webpage",
+    "title": "Threat Dragon Threat Model File format and TM-BOM direction",
+    "URL": "https://github.com/OWASP/threat-dragon/wiki/Threat-Model-File-%28TMF%29-format"
   },
   {
     "id": "draft-ietf-cbor-cddl-modules",
@@ -1412,6 +1448,81 @@
       ]
     },
     "publisher": "United States Department of Commerce"
+  },
+  {
+    "id": "aws-threat-composer",
+    "type": "software",
+    "title": "AWS Threat Composer",
+    "URL": "https://github.com/awslabs/threat-composer"
+  },
+  {
+    "id": "devici-sd-elements-integration",
+    "type": "webpage",
+    "title": "Devici\u2013SD Elements integration generally available",
+    "URL": "https://www.securitycompass.com/blog/devici-sd-elements-integration-generally-available/"
+  },
+  {
+    "id": "iriusrisk-creating-threat-model",
+    "type": "webpage",
+    "title": "IriusRisk \u2014 Creating a threat model",
+    "URL": "https://www.iriusrisk.com/documentation/creating-a-threat-model",
+    "issued": {
+      "date-parts": [
+        [
+          2025,
+          9,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "id": "microsoft-threat-modeling-tool-features",
+    "type": "webpage",
+    "title": "Microsoft Threat Modeling Tool feature overview",
+    "URL": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-feature-overview",
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          17
+        ]
+      ]
+    }
+  },
+  {
+    "id": "microsoft-threat-modeling-tool-overview",
+    "type": "webpage",
+    "title": "Microsoft Threat Modeling Tool overview",
+    "URL": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool",
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          2,
+          16
+        ]
+      ]
+    }
+  },
+  {
+    "id": "open-threat-model",
+    "type": "software",
+    "title": "Open Threat Model specification and JSON Schema",
+    "URL": "https://github.com/iriusrisk/OpenThreatModel"
+  },
+  {
+    "id": "sd-elements-threat-modeling-datasheet",
+    "type": "webpage",
+    "title": "SD Elements Threat Modeling Datasheet",
+    "URL": "https://www.securitycompass.com/Datasheets/SD-Elements-Threat-Modeling-Datasheet.pdf"
+  },
+  {
+    "id": "threattree-help",
+    "type": "webpage",
+    "title": "ThreatTree Help Center",
+    "URL": "https://threattree.com/app/help"
   },
   {
     "id": "owl-2-primer",

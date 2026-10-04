@@ -44,6 +44,7 @@ This is the query the library exists to answer.
 
 ### DEC-001
 
+- [`aws-threat-composer`](../records/vendor/aws-threat-composer/) — AWS Threat Composer
 - [`bron`](../records/academic/bron/) — BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)
 - [`capec`](../records/other/capec/) — MITRE CAPEC — Common Attack Pattern Enumeration and Classification
 - [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
@@ -51,17 +52,28 @@ This is the query the library exists to answer.
 - [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
 - [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
 - [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
+- [`iriusrisk-creating-threat-model`](../records/vendor/iriusrisk-creating-threat-model/) — IriusRisk — Creating a threat model
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`microsoft-threat-modeling-tool-features`](../records/vendor/microsoft-threat-modeling-tool-features/) — Microsoft Threat Modeling Tool feature overview
+- [`microsoft-threat-modeling-tool-overview`](../records/vendor/microsoft-threat-modeling-tool-overview/) — Microsoft Threat Modeling Tool overview
 - [`mitre-attack`](../records/other/mitre-attack/) — MITRE ATT&CK (knowledge base + STIX 2.1 data)
 - [`nsf-23-571`](../records/other/nsf-23-571/) — NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)
 - [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
+- [`open-threat-model`](../records/vendor/open-threat-model/) — Open Threat Model specification and JSON Schema
 - [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
+- [`owasp-pytm`](../records/community/owasp-pytm/) — OWASP pytm
+- [`owasp-threat-dragon`](../records/community/owasp-threat-dragon/) — OWASP Threat Dragon
+- [`owasp-threat-dragon-guide`](../records/community/owasp-threat-dragon-guide/) — OWASP Developer Guide — Threat Dragon
 - [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
 - [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
+- [`threagile`](../records/community/threagile/) — Threagile
+- [`threattree-help`](../records/vendor/threattree-help/) — ThreatTree Help Center
 
 ### DEC-002
 
+- [`aws-threat-composer`](../records/vendor/aws-threat-composer/) — AWS Threat Composer
+- [`devici-sd-elements-integration`](../records/vendor/devici-sd-elements-integration/) — Devici–SD Elements integration generally available
 - [`draft-ietf-cbor-cddl-modules`](../records/ietf/draft-ietf-cbor-cddl-modules/) — CDDL Module Structure
 - [`draft-ietf-cbor-cde`](../records/ietf/draft-ietf-cbor-cde/) — CBOR Common Deterministic Encoding (CDE)
 - [`draft-ietf-cbor-edn-literals`](../records/ietf/draft-ietf-cbor-edn-literals/) — Concise Diagnostic Notation (CDN)
@@ -72,6 +84,9 @@ This is the query the library exists to answer.
 - [`iana-cbor-tags`](../records/iso/iana-cbor-tags/) — IANA Concise Binary Object Representation (CBOR) Tags Registry
 - [`ietf-cbor-wg`](../records/ietf/ietf-cbor-wg/) — IETF Concise Binary Object Representation Maintenance and Extensions (
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`open-threat-model`](../records/vendor/open-threat-model/) — Open Threat Model specification and JSON Schema
+- [`owasp-threat-dragon`](../records/community/owasp-threat-dragon/) — OWASP Threat Dragon
+- [`owasp-threat-model-library`](../records/community/owasp-threat-model-library/) — OWASP Threat Model Library and TM-BOM
 - [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
 - [`rdf-1-1-concepts`](../records/w3c/rdf-1-1-concepts/) — RDF 1.1 Concepts and Abstract Syntax
 - [`rfc-7049`](../records/ietf/rfc-7049/) — Concise Binary Object Representation (CBOR)
@@ -92,17 +107,29 @@ This is the query the library exists to answer.
 - [`rfc-9943`](../records/ietf/rfc-9943/) — An Architecture for Trustworthy and Transparent Digital Supply Chains
 - [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) — Dead Simple Signing Envelope (DSSE)
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
+- [`threagile`](../records/community/threagile/) — Threagile
+- [`threat-dragon-tmf-format`](../records/community/threat-dragon-tmf-format/) — Threat Dragon Threat Model File format and TM-BOM direction
+- [`threattree-help`](../records/vendor/threattree-help/) — ThreatTree Help Center
 
 ### DEC-003
 
+- [`aws-threat-composer`](../records/vendor/aws-threat-composer/) — AWS Threat Composer
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
 - [`first-cvss`](../records/community/first-cvss/) — FIRST, Common Vulnerability Scoring System (CVSS)
+- [`iriusrisk-creating-threat-model`](../records/vendor/iriusrisk-creating-threat-model/) — IriusRisk — Creating a threat model
 - [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) — ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept 
 - [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
 - [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
+- [`microsoft-threat-modeling-tool-features`](../records/vendor/microsoft-threat-modeling-tool-features/) — Microsoft Threat Modeling Tool feature overview
+- [`microsoft-threat-modeling-tool-overview`](../records/vendor/microsoft-threat-modeling-tool-overview/) — Microsoft Threat Modeling Tool overview
+- [`owasp-pytm`](../records/community/owasp-pytm/) — OWASP pytm
+- [`owasp-threat-dragon`](../records/community/owasp-threat-dragon/) — OWASP Threat Dragon
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
+- [`sd-elements-threat-modeling-datasheet`](../records/vendor/sd-elements-threat-modeling-datasheet/) — SD Elements Threat Modeling Datasheet
+- [`threagile`](../records/community/threagile/) — Threagile
+- [`threattree-help`](../records/vendor/threattree-help/) — ThreatTree Help Center
 
 ### DEC-003               # risk-metric scheme (impact rating, attack feasibility, risk value)
 
@@ -153,7 +180,18 @@ This is the query the library exists to answer.
 
 ### DEC-006
 
+- [`aws-threat-composer`](../records/vendor/aws-threat-composer/) — AWS Threat Composer
+- [`devici-sd-elements-integration`](../records/vendor/devici-sd-elements-integration/) — Devici–SD Elements integration generally available
 - [`graphrag-ms`](../records/other/graphrag-ms/) — GraphRAG (Microsoft Research, 2024)
+- [`iriusrisk-creating-threat-model`](../records/vendor/iriusrisk-creating-threat-model/) — IriusRisk — Creating a threat model
+- [`microsoft-threat-modeling-tool-features`](../records/vendor/microsoft-threat-modeling-tool-features/) — Microsoft Threat Modeling Tool feature overview
+- [`microsoft-threat-modeling-tool-overview`](../records/vendor/microsoft-threat-modeling-tool-overview/) — Microsoft Threat Modeling Tool overview
+- [`owasp-pytm`](../records/community/owasp-pytm/) — OWASP pytm
+- [`owasp-threat-dragon`](../records/community/owasp-threat-dragon/) — OWASP Threat Dragon
+- [`owasp-threat-dragon-guide`](../records/community/owasp-threat-dragon-guide/) — OWASP Developer Guide — Threat Dragon
+- [`sd-elements-threat-modeling-datasheet`](../records/vendor/sd-elements-threat-modeling-datasheet/) — SD Elements Threat Modeling Datasheet
+- [`threagile`](../records/community/threagile/) — Threagile
+- [`threattree-help`](../records/vendor/threattree-help/) — ThreatTree Help Center
 - [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) — Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et
 
 ### DEC-007
@@ -200,7 +238,23 @@ This is the query the library exists to answer.
 
 ### R-018
 
+- [`aws-threat-composer`](../records/vendor/aws-threat-composer/) — AWS Threat Composer
+- [`iriusrisk-creating-threat-model`](../records/vendor/iriusrisk-creating-threat-model/) — IriusRisk — Creating a threat model
+- [`microsoft-threat-modeling-tool-features`](../records/vendor/microsoft-threat-modeling-tool-features/) — Microsoft Threat Modeling Tool feature overview
+- [`microsoft-threat-modeling-tool-overview`](../records/vendor/microsoft-threat-modeling-tool-overview/) — Microsoft Threat Modeling Tool overview
+- [`owasp-threat-dragon`](../records/community/owasp-threat-dragon/) — OWASP Threat Dragon
+- [`owasp-threat-dragon-guide`](../records/community/owasp-threat-dragon-guide/) — OWASP Developer Guide — Threat Dragon
 - [`prov-o`](../records/w3c/prov-o/) — PROV-O: The PROV Ontology
+- [`sd-elements-threat-modeling-datasheet`](../records/vendor/sd-elements-threat-modeling-datasheet/) — SD Elements Threat Modeling Datasheet
+- [`threattree-help`](../records/vendor/threattree-help/) — ThreatTree Help Center
+
+### R-021
+
+- [`aws-threat-composer`](../records/vendor/aws-threat-composer/) — AWS Threat Composer
+- [`devici-sd-elements-integration`](../records/vendor/devici-sd-elements-integration/) — Devici–SD Elements integration generally available
+- [`sd-elements-threat-modeling-datasheet`](../records/vendor/sd-elements-threat-modeling-datasheet/) — SD Elements Threat Modeling Datasheet
+- [`threagile`](../records/community/threagile/) — Threagile
+- [`threattree-help`](../records/vendor/threattree-help/) — ThreatTree Help Center
 
 ### R-021                 # mitigation tracking over the design lifecycle
 

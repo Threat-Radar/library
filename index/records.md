@@ -3,7 +3,7 @@
 
 # Records
 
-129 records across 10 bodies.
+143 records across 11 bodies.
 
 
 ## academic
@@ -28,8 +28,14 @@
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
 | [`linkml`](../records/community/linkml/) | LinkML — Linked Data Modeling Language | repo | implementation | summarized | useful | — |
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
+| [`owasp-pytm`](../records/community/owasp-pytm/) | OWASP pytm | repo | implementation | summarized | useful | — |
+| [`owasp-threat-dragon`](../records/community/owasp-threat-dragon/) | OWASP Threat Dragon | repo | implementation | summarized | useful | — |
+| [`owasp-threat-dragon-guide`](../records/community/owasp-threat-dragon-guide/) | OWASP Developer Guide — Threat Dragon | web | documentation | summarized | useful | — |
+| [`owasp-threat-model-library`](../records/community/owasp-threat-model-library/) | OWASP Threat Model Library and TM-BOM | repo | draft | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 | [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
+| [`threagile`](../records/community/threagile/) | Threagile | repo | implementation | summarized | useful | — |
+| [`threat-dragon-tmf-format`](../records/community/threat-dragon-tmf-format/) | Threat Dragon Threat Model File format and TM-BOM directio | web | draft | summarized | useful | — |
 
 ## ietf
 
@@ -172,6 +178,19 @@
 |---|---|---|---|---|---|---|
 | [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) | Framing Software Component Transparency: Establishing a Co | spec | best-practice | summarized | useful | — |
 | [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) | The Minimum Elements For a Software Bill of Materials (SBO | spec | best-practice | summarized | useful | — |
+
+## vendor
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`aws-threat-composer`](../records/vendor/aws-threat-composer/) | AWS Threat Composer | repo | implementation | summarized | useful | — |
+| [`devici-sd-elements-integration`](../records/vendor/devici-sd-elements-integration/) | Devici–SD Elements integration generally available | web | implementation | queued | useful | — |
+| [`iriusrisk-creating-threat-model`](../records/vendor/iriusrisk-creating-threat-model/) | IriusRisk — Creating a threat model | web | implementation | summarized | useful | — |
+| [`microsoft-threat-modeling-tool-features`](../records/vendor/microsoft-threat-modeling-tool-features/) | Microsoft Threat Modeling Tool feature overview | web | implementation | summarized | useful | — |
+| [`microsoft-threat-modeling-tool-overview`](../records/vendor/microsoft-threat-modeling-tool-overview/) | Microsoft Threat Modeling Tool overview | web | implementation | summarized | useful | — |
+| [`open-threat-model`](../records/vendor/open-threat-model/) | Open Threat Model specification and JSON Schema | repo | specification | summarized | useful | — |
+| [`sd-elements-threat-modeling-datasheet`](../records/vendor/sd-elements-threat-modeling-datasheet/) | SD Elements Threat Modeling Datasheet | web | implementation | summarized | useful | — |
+| [`threattree-help`](../records/vendor/threattree-help/) | ThreatTree Help Center | web | implementation | summarized | useful | — |
 
 ## w3c
 

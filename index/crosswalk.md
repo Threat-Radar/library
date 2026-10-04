@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-81 of 129 records have at least one edge.
+81 of 143 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -292,11 +292,13 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 No edges in or out. Not wrong — but a record connected to nothing
 is a record nothing will surface.
 
+- `aws-threat-composer`
 - `bron`
 - `capec`
 - `cve-json-5`
 - `cwe`
 - `d3fend`
+- `devici-sd-elements-integration`
 - `draft-mih-scitt-agent-action-capsule-02`
 - `etsi-ts-102-165-1`
 - `first-cvss`
@@ -305,18 +307,26 @@ is a record nothing will surface.
 - `hogan-kg-survey`
 - `iana-cbor-simple-values`
 - `iana-cbor-tags`
+- `iriusrisk-creating-threat-model`
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
 - `linkml`
 - `mcp-okn`
+- `microsoft-threat-modeling-tool-features`
+- `microsoft-threat-modeling-tool-overview`
 - `mitre-attack`
 - `mulval`
 - `nist-sp-800-160`
 - `nsf-23-571`
 - `nsf-okn-launch`
 - `okn-roadmap-2022`
+- `open-threat-model`
 - `osv-schema`
+- `owasp-pytm`
+- `owasp-threat-dragon`
+- `owasp-threat-dragon-guide`
+- `owasp-threat-model-library`
 - `owl-2-primer`
 - `pasta-risk-centric-threat-modeling`
 - `prov-o`
@@ -332,11 +342,15 @@ is a record nothing will surface.
 - `rfc-8620`
 - `rfc-9110`
 - `rfc-9804`
+- `sd-elements-threat-modeling-datasheet`
 - `securechain-okn`
 - `shacl`
 - `sparql-1-1`
 - `stix-2-1`
 - `sudokn-okn`
+- `threagile`
+- `threat-dragon-tmf-format`
+- `threattree-help`
 - `unifying-llm-kg`
 - `w3-org-pics`
 - `w3c-did-core`
