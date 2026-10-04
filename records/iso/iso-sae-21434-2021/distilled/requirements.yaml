@@ -11,6 +11,8 @@ note: >
   expects_deliverables=the required work product(s) that evidence conformance; verification=how
   an audit checks it. All 21434 requirements are tailorable at project level (Clause 6.4.3).
   DERIVED fields (actor, nature, verification, short_title) need human review; text is verbatim.
+  from_subclauses=the subclauses a work product results from, for the 10 work products the
+  standard ties to subclauses instead of provisions; their provisions can be found by locator.
 counts: { requirement: 101, recommendation: 13, permission: 4, required_deliverables: 42 }
 
 requirements:
@@ -1935,6 +1937,7 @@ required_deliverables:
     locator: "§5.5"
     title: "Cybersecurity policy, rules and processes"
     from_requirements: []
+    from_subclauses: ["§5.4.1", "§5.4.2", "§5.4.3"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-05-02
     designator: WP-05-02
@@ -1953,6 +1956,7 @@ required_deliverables:
     locator: "§5.5"
     title: "Evidence of the organization's management systems"
     from_requirements: []
+    from_subclauses: ["§5.4.4", "§5.4.6"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-05-04
     designator: WP-05-04
@@ -1962,6 +1966,7 @@ required_deliverables:
     locator: "§5.5"
     title: "Evidence of tool management"
     from_requirements: []
+    from_subclauses: ["§5.4.5"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-05-05
     designator: WP-05-05
@@ -1971,6 +1976,7 @@ required_deliverables:
     locator: "§5.5"
     title: "Organizational cybersecurity audit report"
     from_requirements: []
+    from_subclauses: ["§5.4.7"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-06-01
     designator: WP-06-01
@@ -1980,6 +1986,7 @@ required_deliverables:
     locator: "§6.5"
     title: "Cybersecurity plan"
     from_requirements: []
+    from_subclauses: ["§6.4.1", "§6.4.2", "§6.4.3", "§6.4.4", "§6.4.5", "§6.4.6"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-06-02
     designator: WP-06-02
@@ -1989,6 +1996,7 @@ required_deliverables:
     locator: "§6.5"
     title: "Cybersecurity case"
     from_requirements: []
+    from_subclauses: ["§6.4.7"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-06-03
     designator: WP-06-03
@@ -1998,6 +2006,7 @@ required_deliverables:
     locator: "§6.5"
     title: "Cybersecurity assessment report, if applicable"
     from_requirements: []
+    from_subclauses: ["§6.4.8"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-06-04
     designator: WP-06-04
@@ -2007,6 +2016,7 @@ required_deliverables:
     locator: "§6.5"
     title: "Release for post-development report"
     from_requirements: []
+    from_subclauses: ["§6.4.9"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-07-01
     designator: WP-07-01
@@ -2016,6 +2026,7 @@ required_deliverables:
     locator: "§7.5"
     title: "Cybersecurity interface agreement"
     from_requirements: []
+    from_subclauses: ["§7.4.3"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-08-01
     designator: WP-08-01
@@ -2079,6 +2090,7 @@ required_deliverables:
     locator: "§9.3.3"
     title: "Item definition"
     from_requirements: []
+    from_subclauses: ["§9.3.2"]
     audit_check: "present and adequate for its requirement(s); human judges adequacy"
   - id: iso-sae-21434-2021#WP-09-02
     designator: WP-09-02

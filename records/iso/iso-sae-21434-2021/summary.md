@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: iso-sae-21434-2021
 record: iso-sae-21434-2021
 type: summary
-updated: "2026-10-02"
+updated: "2026-10-03"
 ---
 
 # Road vehicles — Cybersecurity engineering (ISO/SAE 21434:2021)
@@ -108,5 +108,6 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
 - Work-product links (22 were missing), locators (5 provision, 14 work product) and three
   work-product titles were corrected against the source on 2026-10-02 (RPT-0007 §7). The
   derived `nature` and `verification` fields follow the links: 47 provisions are now
-  deliverable-producing.
+  deliverable-producing. The 10 work products that the standard ties to subclauses rather than
+  provisions list those subclauses in `from_subclauses` (2026-10-03).
 - 21434 defines a *method*, not machine-readable schemas; the object model is ours to encode.

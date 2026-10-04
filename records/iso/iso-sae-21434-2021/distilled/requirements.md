@@ -5,7 +5,7 @@ record: iso-sae-21434-2021
 type: index
 audience: human   # generated from requirements.yaml — do not hand-edit
 generated_from: distilled/requirements.yaml
-updated: "2026-10-02"
+updated: "2026-10-03"
 ---
 
 # ISO/SAE 21434:2021 — requirements (human-viewable list)
@@ -13,6 +13,7 @@ updated: "2026-10-02"
 > **Generated** from `requirements.yaml` (the machine/AI source of truth). Do not hand-edit.
 > **118 requirements** + **42 required deliverables**. `P`=process, `D`=deliverable-producing.
 > Full text, actor, verification, cross-refs and deliverables are in the YAML. (HTML version will be expandable.)
+> In the work-product table, an entry starting with § is a subclause: for 10 work products the standard names subclauses, not provisions (`from_subclauses` in the YAML).
 
 
 ## Clause 5 — Organizational cybersecurity management
@@ -192,23 +193,23 @@ updated: "2026-10-02"
 
 | designator | title | from requirements |
 |---|---|---|
-| `WP-05-01` | Cybersecurity policy, rules and processes | — |
+| `WP-05-01` | Cybersecurity policy, rules and processes | §5.4.1 to §5.4.3 |
 | `WP-05-02` | Evidence of competence management, awareness management and continuous improvement | RQ-05-07, RQ-05-08 |
-| `WP-05-03` | Evidence of the organization's management systems | — |
-| `WP-05-04` | Evidence of tool management | — |
-| `WP-05-05` | Organizational cybersecurity audit report | — |
-| `WP-06-01` | Cybersecurity plan | — |
-| `WP-06-02` | Cybersecurity case | — |
-| `WP-06-03` | Cybersecurity assessment report, if applicable | — |
-| `WP-06-04` | Release for post-development report | — |
-| `WP-07-01` | Cybersecurity interface agreement | — |
+| `WP-05-03` | Evidence of the organization's management systems | §5.4.4, §5.4.6 |
+| `WP-05-04` | Evidence of tool management | §5.4.5 |
+| `WP-05-05` | Organizational cybersecurity audit report | §5.4.7 |
+| `WP-06-01` | Cybersecurity plan | §6.4.1 to §6.4.6 |
+| `WP-06-02` | Cybersecurity case | §6.4.7 |
+| `WP-06-03` | Cybersecurity assessment report, if applicable | §6.4.8 |
+| `WP-06-04` | Release for post-development report | §6.4.9 |
+| `WP-07-01` | Cybersecurity interface agreement | §7.4.3 |
 | `WP-08-01` | Sources for cybersecurity information | RQ-08-01 |
 | `WP-08-02` | Triggers | RQ-08-02 |
 | `WP-08-03` | Cybersecurity events | RQ-08-03 |
 | `WP-08-04` | Weaknesses from cybersecurity events | RQ-08-04 |
 | `WP-08-05` | Vulnerability analysis | RQ-08-05, RQ-08-06 |
 | `WP-08-06` | Evidence of managed vulnerabilities | RQ-08-07 |
-| `WP-09-01` | Item definition | — |
+| `WP-09-01` | Item definition | §9.3.2 |
 | `WP-09-02` | TARA | RQ-09-03, RQ-09-04 |
 | `WP-09-03` | Cybersecurity goals | RQ-09-05 |
 | `WP-09-04` | Cybersecurity claims | RQ-09-06 |
