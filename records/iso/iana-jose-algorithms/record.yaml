@@ -1,19 +1,19 @@
 # Dataset: a living registry. The digest is a dated snapshot, not a fixed work.
 schema: "library-record/v1"
-id: iana-cose-algorithms
+id: iana-jose-algorithms
 body: iso
 type: dataset
-title: "IANA COSE Algorithms registry"
-short_title: "IANA COSE Algorithms"
+title: "IANA JSON Web Signature and Encryption Algorithms registry"
+short_title: "IANA JOSE Algorithms"
 authors: []
 date: "2026-10-03"
 publisher: IANA
 version: "snapshot 2026-10-03"
 identifiers:
-  url: https://www.iana.org/assignments/cose/cose.xhtml
+  url: https://www.iana.org/assignments/jose/jose.xhtml
 content:
-  url: https://www.iana.org/assignments/cose/algorithms.csv
-  sha256: "4dc4c64f84e6020a05403862219b66b0bfd9cc853245d87b82ed00f6d77600f3"
+  url: https://www.iana.org/assignments/jose/web-signature-encryption-algorithms.csv
+  sha256: "0e997b2cad5bb64c3fd383ac1e66db0af6095ea05b1228eb27dddfbb0c8654cd"
   retrieved: "2026-10-03"
   local: false
   media_type: text/csv
@@ -21,11 +21,9 @@ relations:
   supersedes: []
   superseded_by: []
   see_also:
-    - rfc-9053
+    - rfc-7518
     - rfc-9964
-    - rfc-9864
-    - iana-jose-algorithms
-    - draft-ietf-cose-sphincs-plus
+    - iana-cose-algorithms
   cited_by: []
   implements_concept: []
   contradicts: []
@@ -37,7 +35,7 @@ applicability:
   this_project: adjacent
 usefulness:
   verdict: useful
-  reason: "The authoritative list of what a COSE alg value may be. The RFCs each register a slice; only the registry says what is actually assigned, and checking it caught a stale code point in draft-ietf-cose-sphincs-plus."
+  reason: "The JOSE counterpart to iana-cose-algorithms. Its Implementation Requirements column is the comparison COSE has no equivalent of, and it is where JOSE records which algorithms are Prohibited."
   assessed: "2026-10-03"
 implementations:
   open_source: []
