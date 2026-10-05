@@ -200,27 +200,48 @@ def main():
     (IDX / "by-decision.md").write_text("\n".join(out) + "\n")
 
     # ---- bibliography.md
+    def entry(rid, d):
+        a = d.get("authors")
+        a = ", ".join(listify(a)) if isinstance(a, list) else ""
+        pub = str(d.get("publisher") or "").strip()
+        bits = [b for b in [a, pub, d.get("date", ""),
+                            idents(d.get("identifiers"))] if b]
+        return (f"- **{d.get('title', rid)}**"
+                + (f" — {'. '.join(bits)}" if bits else "")
+                + f"  \n  `{rid}` · {d.get('type','')}"
+                + (f" · {d.get('maturity')}" if d.get("maturity")
+                   and d.get("maturity") != d.get("type") else "")
+                + (f" · **{d.get('status')}**" if d.get("status") in
+                   ("summarized", "distilled") else "")
+                + (f" · [source]({d.get('content',{}).get('url','')})"
+                   if isinstance(d.get("content"), dict) and d["content"].get("url") else "")
+                + (f"  \n  _{(d.get('usefulness') or {}).get('reason','')}_"
+                   if isinstance(d.get("usefulness"), dict)
+                   and d["usefulness"].get("reason") else ""))
+
     out = [BANNER, "# Bibliography\n", f"{len(recs)} records.\n", SHELF_NOTE]
     for body in sorted(by_body):
         out.append(f"\n## {body}\n")
-        for rid, d in sorted(by_body[body]):
-            a = d.get("authors")
-            a = ", ".join(listify(a)) if isinstance(a, list) else ""
-            pub = str(d.get("publisher") or "").strip()
-            bits = [b for b in [a, pub, d.get("date", ""),
-                                idents(d.get("identifiers"))] if b]
-            out.append(f"- **{d.get('title', rid)}**"
-                       + (f" — {'. '.join(bits)}" if bits else "")
-                       + f"  \n  `{rid}` · {d.get('type','')}"
-                       + (f" · {d.get('maturity')}" if d.get("maturity")
-                          and d.get("maturity") != d.get("type") else "")
-                       + (f" · **{d.get('status')}**" if d.get("status") in
-                          ("summarized", "distilled") else "")
-                       + (f" · [source]({d.get('content',{}).get('url','')})"
-                          if isinstance(d.get("content"), dict) and d["content"].get("url") else "")
-                       + (f"  \n  _{(d.get('usefulness') or {}).get('reason','')}_"
-                          if isinstance(d.get("usefulness"), dict)
-                          and d["usefulness"].get("reason") else ""))
+        out += [entry(rid, d) for rid, d in sorted(by_body[body])]
+
+    # Topic sections: the same entries regrouped by the question they serve.
+    # A record belongs to a topic if the topic lists it or the record names it.
+    topics = {}
+    for f in sorted((ROOT / "topics").glob("*.yaml")):
+        t = miniyaml(f.read_text())
+        members = {r for r in listify(t.get("records")) if r in recs}
+        members |= {r for r, d in recs.items() if d.get("topic") == t.get("id", f.stem)}
+        if members:
+            topics[t.get("id", f.stem)] = (t, members)
+    if topics:
+        out.append("\n# By topic\n")
+        out.append("Each topic's records, regrouped from the shelves above.\n")
+        for tid in sorted(topics):
+            t, members = topics[tid]
+            out.append(f"\n## Topic: {tid}\n")
+            if t.get("question"):
+                out.append(f"_{t['question']}_\n")
+            out += [entry(rid, recs[rid]) for rid in sorted(members)]
     (IDX / "bibliography.md").write_text("\n".join(out) + "\n")
 
     stale = [r for r, d in recs.items()
