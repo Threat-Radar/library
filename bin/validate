@@ -98,13 +98,20 @@ def check_full(recdir, d, where, errs):
                 return int(str(v).split("#")[0].strip().strip('"'))
             except ValueError:
                 return dflt
-        src = num(r.get("source_keyword_count", 0), 0)
+        src = num(r.get("source_keyword_count", -1), -1)
         hdr = num(r.get("extracted_keyword_count", -1), -1)
-        if src <= 0:
+        recon = str(r.get("reconciliation", "")).strip()
+        if src < 0:
             errs.append(f"{where}: FX-1 — requirements.yaml source_keyword_count not set (bin/bcp14-count)")
+        elif src == 0 and not recon:
+            # A measured zero is legitimate (process standards, regulations and
+            # guidance rarely use BCP 14), but then the reconciliation must say
+            # which normative forms the extraction counted instead.
+            errs.append(f"{where}: FX-1 — source_keyword_count is 0; reconciliation must state "
+                        f"the document's own normative baseline (shall/should/tasks/activities)")
         if hdr != got:
             errs.append(f"{where}: FX-1 — extracted_keyword_count says {hdr}, texts contain {got}")
-        if src > 0 and got != src and not str(r.get("reconciliation", "")).strip():
+        if src > 0 and got != src and not recon:
             errs.append(f"{where}: FX-1 — source has {src} BCP 14 keywords, extraction has {got}, "
                         f"and no reconciliation explains the difference")
 
