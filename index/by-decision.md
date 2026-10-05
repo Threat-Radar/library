@@ -46,19 +46,30 @@ This is the query the library exists to answer.
 
 - [`bron`](../records/academic/bron/) — BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)
 - [`capec`](../records/other/capec/) — MITRE CAPEC — Common Attack Pattern Enumeration and Classification
+- [`csa-maestro-2025`](../records/community/csa-maestro-2025/) — Agentic AI Threat Modeling Framework: MAESTRO
 - [`cve-json-5`](../records/other/cve-json-5/) — CVE JSON Record Format v5
 - [`cwe`](../records/other/cwe/) — MITRE CWE — Common Weakness Enumeration
 - [`d3fend`](../records/other/d3fend/) — MITRE D3FEND — defensive countermeasures knowledge graph (OWL)
+- [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) — A privacy threat analysis framework: supporting the elicitation and fu
 - [`guac`](../records/openssf/guac/) — GUAC — Graph for Understanding Artifact Composition (OpenSSF)
 - [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) — Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4), 2021)
+- [`linddun-org`](../records/academic/linddun-org/) — LINDDUN privacy threat modeling framework (linddun.org)
 - [`linkml`](../records/community/linkml/) — LinkML — Linked Data Modeling Language
+- [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) — Intelligence-Driven Computer Network Defense Informed by Analysis of A
 - [`mitre-attack`](../records/other/mitre-attack/) — MITRE ATT&CK (knowledge base + STIX 2.1 data)
+- [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) — MITRE ATT&CK: Design and Philosophy
 - [`nsf-23-571`](../records/other/nsf-23-571/) — NSF 23-571: Building the Prototype Open Knowledge Network (Proto-OKN)
 - [`nsf-okn-launch`](../records/other/nsf-okn-launch/) — NSF Open Knowledge Network (NSF OKN) — public launch
 - [`osv-schema`](../records/openssf/osv-schema/) — OSV Schema (OpenSSF)
 - [`owl-2-primer`](../records/w3c/owl-2-primer/) — OWL 2 Web Ontology Language Primer
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
+- [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
 - [`securechain-okn`](../records/academic/securechain-okn/) — SecureChain — Knowledge Graph for Resilient, Trustworthy, Secure Softw
+- [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
+- [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
 - [`stix-2-1`](../records/oasis/stix-2-1/) — STIX Version 2.1 (OASIS Standard)
+- [`trike-v1-2005`](../records/community/trike-v1-2005/) — Trike v.1 Methodology Document [Draft]
+- [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-002
 
@@ -100,9 +111,13 @@ This is the query the library exists to answer.
 - [`iso-26262-3-2018`](../records/iso/iso-26262-3-2018/) — ISO 26262-3:2018, Road vehicles — Functional safety — Part 3: Concept 
 - [`iso-iec-15408`](../records/iso/iso-iec-15408/) — ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common
 - [`iso-iec-18045`](../records/iso/iso-iec-18045/) — ISO/IEC 18045, Methodology for IT security evaluation (attack potentia
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9360`](../records/ietf/rfc-9360/) — CBOR Object Signing and Encryption (COSE): Header Parameters for Carry
 - [`rfc-9679`](../records/ietf/rfc-9679/) — CBOR Object Signing and Encryption (COSE) Key Thumbprint
+- [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
+- [`trike-v1-2005`](../records/community/trike-v1-2005/) — Trike v.1 Methodology Document [Draft]
+- [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-003               # risk-metric scheme (impact rating, attack feasibility, risk value)
 
@@ -127,12 +142,17 @@ This is the query the library exists to answer.
 
 ### DEC-005
 
+- [`csa-maestro-2025`](../records/community/csa-maestro-2025/) — Agentic AI Threat Modeling Framework: MAESTRO
+- [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) — A privacy threat analysis framework: supporting the elicitation and fu
 - [`draft-ietf-vcon-vcon-core-04`](../records/ietf/draft-ietf-vcon-vcon-core-04/) — The JSON format for vCon - Conversation Data Container
 - [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) — ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: Method and pr
 - [`ietf-cose-wg`](../records/ietf/ietf-cose-wg/) — IETF CBOR Object Signing and Encryption (COSE) Working Group
+- [`linddun-org`](../records/academic/linddun-org/) — LINDDUN privacy threat modeling framework (linddun.org)
+- [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) — Intelligence-Driven Computer Network Defense Informed by Analysis of A
+- [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) — MITRE ATT&CK: Design and Philosophy
 - [`mulval`](../records/academic/mulval/) — MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Sec
 - [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) — NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)
-- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana)
+- [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) — Risk Centric Threat Modeling: Process for Attack Simulation and Threat
 - [`rfc-8152`](../records/ietf/rfc-8152/) — CBOR Object Signing and Encryption (COSE)
 - [`rfc-8392`](../records/ietf/rfc-8392/) — CBOR Web Token (CWT)
 - [`rfc-9052`](../records/ietf/rfc-9052/) — CBOR Object Signing and Encryption (COSE): Structures and Process
@@ -146,6 +166,12 @@ This is the query the library exists to answer.
 - [`rfc-9942`](../records/ietf/rfc-9942/) — CBOR Object Signing and Encryption (COSE) Receipts
 - [`rfc-9995`](../records/ietf/rfc-9995/) — CBOR Object Signing and Encryption (COSE) Hash Envelope
 - [`sae-j3061`](../records/other/sae-j3061/) — SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehicle Systems 
+- [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) — Attack Trees
+- [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) — Introducing OCTAVE Allegro: Improving the Information Security Risk As
+- [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) — Threat Modeling: A Summary of Available Methods
+- [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) — VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler
+- [`trike-v1-2005`](../records/community/trike-v1-2005/) — Trike v.1 Methodology Document [Draft]
+- [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) — Real World Threat Modeling Using the PASTA Methodology
 
 ### DEC-005               # MVP scope (TARA is a candidate expansion dimension)
 
@@ -154,6 +180,7 @@ This is the query the library exists to answer.
 ### DEC-006
 
 - [`graphrag-ms`](../records/other/graphrag-ms/) — GraphRAG (Microsoft Research, 2024)
+- [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) — VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler
 - [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) — Unifying Large Language Models and Knowledge Graphs: A Roadmap (Pan et
 
 ### DEC-007

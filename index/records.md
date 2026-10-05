@@ -3,7 +3,7 @@
 
 # Records
 
-129 records across 10 bodies.
+140 records across 11 bodies.
 
 
 ## academic
@@ -11,10 +11,14 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`bron`](../records/academic/bron/) | BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al | paper | white-paper | summarized | useful | — |
+| [`deng-linddun-2011`](../records/academic/deng-linddun-2011/) | A privacy threat analysis framework: supporting the elicit | paper | — | summarized | — | — |
 | [`hogan-kg-survey`](../records/academic/hogan-kg-survey/) | Knowledge Graphs (Hogan et al., ACM Computing Surveys 54(4 | paper | white-paper | summarized | useful | — |
+| [`linddun-org`](../records/academic/linddun-org/) | LINDDUN privacy threat modeling framework (linddun.org) | web | — | summarized | — | — |
 | [`mulval`](../records/academic/mulval/) | MulVAL: A Logic-based Network Security Analyzer (Ou et al. | paper | white-paper | summarized | useful | — |
-| [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: PASTA (UcedaVélez & Morana) | book | — | queued | — | — |
+| [`pasta-risk-centric-threat-modeling`](../records/academic/pasta-risk-centric-threat-modeling/) | Risk Centric Threat Modeling: Process for Attack Simulatio | book | — | queued | — | — |
 | [`securechain-okn`](../records/academic/securechain-okn/) | SecureChain — Knowledge Graph for Resilient, Trustworthy,  | web | implementation | summarized | useful | — |
+| [`sei-octave-allegro-2007`](../records/academic/sei-octave-allegro-2007/) | Introducing OCTAVE Allegro: Improving the Information Secu | paper | — | summarized | — | — |
+| [`sei-threat-modeling-methods-2018`](../records/academic/sei-threat-modeling-methods-2018/) | Threat Modeling: A Summary of Available Methods | paper | — | summarized | — | — |
 | [`sudokn-okn`](../records/academic/sudokn-okn/) | SUDOKN — Supply and Demand Open Knowledge Network (Arizona | web | implementation | summarized | useful | — |
 | [`unifying-llm-kg`](../records/academic/unifying-llm-kg/) | Unifying Large Language Models and Knowledge Graphs: A Roa | paper | white-paper | summarized | useful | — |
 
@@ -22,6 +26,7 @@
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`csa-maestro-2025`](../records/community/csa-maestro-2025/) | Agentic AI Threat Modeling Framework: MAESTRO | web | — | summarized | — | — |
 | [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) | CycloneDX Bill of Materials Specification | spec | standard | queued | unassessed | — |
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
@@ -30,6 +35,8 @@
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 | [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
+| [`trike-v1-2005`](../records/community/trike-v1-2005/) | Trike v.1 Methodology Document [Draft] | paper | — | summarized | — | — |
+| [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) | Real World Threat Modeling Using the PASTA Methodology | web | — | summarized | — | — |
 
 ## ietf
 
@@ -161,10 +168,12 @@
 | [`frink-fabric`](../records/other/frink-fabric/) | FRINK — FabRic Integrating Networked Knowledge (RENCI, Pro | repo | implementation | summarized | useful | — |
 | [`graphrag-ms`](../records/other/graphrag-ms/) | GraphRAG (Microsoft Research, 2024) | repo | implementation | summarized | useful | — |
 | [`mitre-attack`](../records/other/mitre-attack/) | MITRE ATT&CK (knowledge base + STIX 2.1 data) | dataset | best-practice | summarized | useful | — |
+| [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) | MITRE ATT&CK: Design and Philosophy | paper | — | summarized | — | — |
 | [`nsf-23-571`](../records/other/nsf-23-571/) | NSF 23-571: Building the Prototype Open Knowledge Network  | web | informational | summarized | useful | — |
 | [`nsf-okn-launch`](../records/other/nsf-okn-launch/) | NSF Open Knowledge Network (NSF OKN) — public launch | web | informational | summarized | useful | — |
 | [`okn-roadmap-2022`](../records/other/okn-roadmap-2022/) | Open Knowledge Network Roadmap: Powering the Next Data Rev | web | informational | summarized | useful | — |
 | [`sae-j3061`](../records/other/sae-j3061/) | SAE J3061, Cybersecurity Guidebook for Cyber-Physical Vehi | spec | — | queued | — | — |
+| [`schneier-attack-trees-1999`](../records/other/schneier-attack-trees-1999/) | Attack Trees | article | — | summarized | — | — |
 
 ## regulator
 
@@ -172,6 +181,13 @@
 |---|---|---|---|---|---|---|
 | [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) | Framing Software Component Transparency: Establishing a Co | spec | best-practice | summarized | useful | — |
 | [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) | The Minimum Elements For a Software Bill of Materials (SBO | spec | best-practice | summarized | useful | — |
+
+## vendor
+
+| id | title | type | maturity | status | useful | versions |
+|---|---|---|---|---|---|---|
+| [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) | Intelligence-Driven Computer Network Defense Informed by A | paper | — | summarized | — | — |
+| [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) | VAST (Visual, Agile, and Simple Threat) modeling — ThreatM | web | — | summarized | — | — |
 
 ## w3c
 
