@@ -10,8 +10,39 @@ or tags — the record schema forbids all of them anyway.
 """
 
 
-def _scalar(v):
+def _strip_comment(v):
+    """Drop a trailing ` # comment`, as YAML does for plain scalars.
+
+    A quoted scalar keeps everything inside its quotes; a `#` not preceded by
+    whitespace (a URL fragment, `#R-0001`) is not a comment.
+    """
     v = v.strip()
+    if v and v[0] in "\"'":
+        q, i = v[0], 1
+        while i < len(v):
+            if q == '"' and v[i] == "\\":
+                i += 2
+                continue
+            if v[i] == q:
+                if q == "'" and v[i + 1:i + 2] == "'":
+                    i += 2
+                    continue
+                rest = v[i + 1:].strip()
+                # Only a comment may follow a closing quote; anything else
+                # means this was not one quoted scalar, so leave it intact.
+                return v[:i + 1] if not rest or rest.startswith("#") else v
+            i += 1
+        return v
+    if v.startswith("#"):
+        return ""
+    for i in range(1, len(v)):
+        if v[i] == "#" and v[i - 1] in " \t":
+            return v[:i].rstrip()
+    return v
+
+
+def _scalar(v):
+    v = _strip_comment(v)
     if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
         return v[1:-1]
     if v == "[]":
@@ -47,7 +78,7 @@ def parse(text):
             pending_key = None
 
         if line.startswith("- "):
-            item = line[2:].strip()
+            item = _strip_comment(line[2:])
             if not isinstance(cur, list):
                 continue
             if ":" in item and not item.startswith(("http", "\"", "'")):
@@ -65,7 +96,7 @@ def parse(text):
                 cur.append(_scalar(item))
         elif ":" in line:
             k, _, v = line.partition(":")
-            k, v = k.strip(), v.strip()
+            k, v = k.strip(), _strip_comment(v)
             if not isinstance(cur, dict):
                 continue
             if v:
