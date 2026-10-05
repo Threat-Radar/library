@@ -1,0 +1,72 @@
+schema: "library-record/v1"
+id: nist-sp-800-218
+body: nist
+type: spec
+maturity: standard
+title: "NIST SP 800-218: Secure Software Development Framework (SSDF) Version 1.1 — Recommendations for Mitigating the Risk of Software Vulnerabilities"
+short_title: "NIST SSDF (SP 800-218 v1.1)"
+authors: ["Murugiah Souppaya", "Karen Scarfone", "Donna Dodson"]
+date: "2022-02"
+publisher: "NIST"
+version: "1.1"
+identifiers:
+  nist: "SP 800-218"
+  doi: "10.6028/NIST.SP.800-218"
+  url: https://csrc.nist.gov/pubs/sp/800/218/final
+content:
+  url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218.pdf
+  sha256: "617746e553a9e2da49bfbd4eef0dfc3094758a39b869314e4173ac36605cde22"
+  retrieved: "2026-10-05"
+  local: false
+  media_type: application/pdf
+  pages: 36
+relations:
+  supersedes:
+    - nist-cswp-13          # Mitigating the Risk of SW Vulns (2020) — not held
+  superseded_by: []         # SP 800-218 Rev.1 (v1.2) is DRAFT as of 2026-10-05, not final
+  see_also:
+    - nist-sp-800-218a      # generative-AI community profile
+    - owasp-samm-v2
+    - slsa-v1-0
+  implements_concept: []
+cites: []
+bears_on:
+  - DEC-009                  # mitigation lifecycle / conformance (SDL)
+  - R-040                    # mitigation kind (technical/documentation/process)
+  - R-042                    # conformance validation
+  - R-044                    # requirements crosswalk (MAP-0001)
+applicability:
+  security: core
+  process: core
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "The reference secure-development practice catalogue (PO/PS/PW/RV). PW.1.1 is the canonical 'perform threat modeling' requirement that anchors tmodel; PW.4/PS.3.2 anchor SBOM/provenance; RV.1-3 anchor vuln response. Outcome-based and SDLC-agnostic, so it maps cleanly onto the SDL gate/requirement model (R-041/R-044) and the MAP-0001 crosswalk. No certification regime — conformance is self-attestation (federal procurement, outside the SP)."
+  assessed: "2026-10-05"
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-10-05"
+topic: ""
+tags:
+  - nist
+  - ssdf
+  - secure-development-lifecycle
+  - sdl
+  - standard
+  - threat-modeling
+  - sbom
+  - process
+status: distilled
+confidence: high
+distillation:
+  artifacts:
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "All 19 practices (PO.1-5, PS.1-3, PW.1-2/4-9, RV.1-3) and their tasks, as requirement rows with Practice.Task locators. Task text condensed from a pdftotext pass of the free NIST PDF; Notional Implementation Examples (non-normative) are excluded. PW.3 is withdrawn; a few PW.4.x/PW.5.2 are 'Moved' stubs."
+      generated_from: "pdftotext -layout of the NIST PDF + hand distillation (agent-assisted)"
+      reviewed_by: ""
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "Group structure (PO/PS/PW/RV), the four practice elements, the recommendation-style (no SHALL) normative stance, the conformance/attestation model, and the v1.2 draft status."
+      reviewed_by: ""

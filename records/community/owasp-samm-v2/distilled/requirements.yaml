@@ -1,0 +1,24 @@
+# SAMM v2 — activities (maturity model). Locator = <Practice>-<Stream>-<Level>, e.g. TA-B-2.
+# Only Design>Threat Assessment is VERIFIED from the live page. All other practices are
+# summarized from agent memory and MUST be verified before use as normative.
+schema: "library-requirements/v1"
+record: owasp-samm-v2
+functions: [Governance, Design, Implementation, Verification, Operations]
+verified:
+  threat_assessment:
+    practice: "Design > Threat Assessment (TA)"
+    streams:
+      TA-A:  # Application Risk Profile
+        L1: "Basic application-risk assessment (attack likelihood + impact)."
+        L2: "Centralized risk-profile inventory across applications."
+        L3: "Periodic review and validation of risk profiles."
+      TA-B:  # Threat Modeling
+        L1: "Risk-based (informal) threat modeling: brainstorming + diagrams + simple checklists."
+        L2: "Standardized methodology: training, process and tools that scale."
+        L3: "Continuous optimization and automation of the methodology."
+unverified_from_memory:   # DO NOT treat as normative — verify (T-029)
+  practices: [SM, PC, EG, SR, SA, SB, SD, DM, AA, RT, ST, IM, EM, OM]
+  note: "Codes and L1-3 wording for the 14 non-TA practices came from agent memory; the fetched model page did not expose stream codes or level text."
+flags:
+  - "Scoring scale (0-3 with + increments) and the assessment toolbox unverified."
+  - "Fetch the 14 practice pages or the v2 PDF to complete FX-1."

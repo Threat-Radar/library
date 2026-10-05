@@ -1,0 +1,33 @@
+schema: "library-record/v1"
+id: bsimm
+body: vendor
+type: spec
+maturity: standard
+title: "BSIMM (Building Security In Maturity Model)"
+short_title: "BSIMM (Building Security In Maturity Model)"
+authors: ["Black Duck"]
+date: ""
+publisher: "Black Duck"
+version: ""
+identifiers:
+  url: https://www.blackduck.com/services/security-program/bsimm-maturity-model.html
+content:
+  url: https://www.blackduck.com/services/security-program/bsimm-maturity-model.html
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: ""
+  pages: 0
+relations: {supersedes: [], superseded_by: [], see_also: [nist-sp-800-218], implements_concept: []}
+cites: []
+bears_on: [DEC-009, R-041, R-044]
+applicability: {security: adjacent, process: core, this_project: adjacent}
+usefulness:
+  verdict: unassessed
+  reason: "Descriptive, observation-based maturity model (4 domains / 12 practices). Vendor-gated assessment. Source structure publicly; FX-1 next batch / ask."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [bsimm, maturity-model, sdl, vendor]
+status: stub
+confidence: low

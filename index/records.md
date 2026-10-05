@@ -3,7 +3,7 @@
 
 # Records
 
-140 records across 11 bodies.
+149 records across 11 bodies.
 
 
 ## academic
@@ -33,6 +33,8 @@
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
 | [`linkml`](../records/community/linkml/) | LinkML — Linked Data Modeling Language | repo | implementation | summarized | useful | — |
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
+| [`owasp-samm-v2`](../records/community/owasp-samm-v2/) | OWASP Software Assurance Maturity Model (SAMM) v2 | spec | standard | summarized | useful | — |
+| [`safecode-fundamental-practices`](../records/community/safecode-fundamental-practices/) | SAFECode Fundamental Practices for Secure Software Develop | spec | standard | stub | unassessed | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
 | [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
 | [`trike-v1-2005`](../records/community/trike-v1-2005/) | Trike v.1 Methodology Document [Draft] | paper | — | summarized | — | — |
@@ -121,6 +123,7 @@
 | [`iso-iec-18045`](../records/iso/iso-iec-18045/) | ISO/IEC 18045, Methodology for IT security evaluation (att | spec | — | queued | — | — |
 | [`iso-iec-19790`](../records/iso/iso-iec-19790/) | ISO/IEC 19790:2012, Security requirements for cryptographi | spec | — | queued | — | — |
 | [`iso-iec-24759`](../records/iso/iso-iec-24759/) | ISO/IEC 24759:2017, Test requirements for cryptographic mo | spec | — | queued | — | — |
+| [`iso-iec-27034`](../records/iso/iso-iec-27034/) | ISO/IEC 27034 — Application security | spec | standard | stub | unassessed | — |
 | [`iso-iec-5962-2021`](../records/iso/iso-iec-5962-2021/) | Information technology — SPDX Specification V2.2.1 | spec | standard | queued | marginal | — |
 | [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) | Road vehicles — Cybersecurity engineering | spec | standard | distilled | useful | — |
 
@@ -140,6 +143,8 @@
 | [`nist-sp-800-140e`](../records/nist/nist-sp-800-140e/) | NIST SP 800-140E, CMVP Approved Authentication Mechanisms | spec | best-practice | distilled | useful | — |
 | [`nist-sp-800-140f`](../records/nist/nist-sp-800-140f/) | NIST SP 800-140F, CMVP Approved Non-Invasive Attack Mitiga | spec | best-practice | distilled | useful | — |
 | [`nist-sp-800-160`](../records/nist/nist-sp-800-160/) | NIST SP 800-160, Systems Security Engineering (Ross et al. | spec | — | queued | — | — |
+| [`nist-sp-800-218`](../records/nist/nist-sp-800-218/) | NIST SP 800-218: Secure Software Development Framework (SS | spec | standard | distilled | useful | — |
+| [`nist-sp-800-218a`](../records/nist/nist-sp-800-218a/) | NIST SP 800-218A: Secure Software Development Practices fo | spec | standard | summarized | useful | — |
 | [`sp-800-161r1`](../records/nist/sp-800-161r1/) | Cybersecurity Supply Chain Risk Management Practices for S | spec | best-practice | stub | marginal | — |
 | [`sp-800-186`](../records/nist/sp-800-186/) | Recommendations for Discrete Logarithm-based Cryptography: | spec | recommendation | stub | — | — |
 
@@ -155,6 +160,7 @@
 |---|---|---|---|---|---|---|
 | [`guac`](../records/openssf/guac/) | GUAC — Graph for Understanding Artifact Composition (OpenS | repo | implementation | summarized | useful | — |
 | [`osv-schema`](../records/openssf/osv-schema/) | OSV Schema (OpenSSF) | spec | best-practice | summarized | useful | — |
+| [`slsa-v1-0`](../records/openssf/slsa-v1-0/) | Supply-chain Levels for Software Artifacts (SLSA) v1.0 — B | spec | standard | summarized | useful | — |
 
 ## other
 
@@ -167,6 +173,7 @@
 | [`etsi-ts-102-165-1`](../records/other/etsi-ts-102-165-1/) | ETSI TS 102 165-1, CYBER; Methods and protocols; Part 1: M | spec | — | queued | — | — |
 | [`frink-fabric`](../records/other/frink-fabric/) | FRINK — FabRic Integrating Networked Knowledge (RENCI, Pro | repo | implementation | summarized | useful | — |
 | [`graphrag-ms`](../records/other/graphrag-ms/) | GraphRAG (Microsoft Research, 2024) | repo | implementation | summarized | useful | — |
+| [`iec-62443-4-1`](../records/other/iec-62443-4-1/) | IEC 62443-4-1:2018 — Secure product development lifecycle  | spec | standard | stub | unassessed | — |
 | [`mitre-attack`](../records/other/mitre-attack/) | MITRE ATT&CK (knowledge base + STIX 2.1 data) | dataset | best-practice | summarized | useful | — |
 | [`mitre-attack-design-philosophy`](../records/other/mitre-attack-design-philosophy/) | MITRE ATT&CK: Design and Philosophy | paper | — | summarized | — | — |
 | [`nsf-23-571`](../records/other/nsf-23-571/) | NSF 23-571: Building the Prototype Open Knowledge Network  | web | informational | summarized | useful | — |
@@ -180,12 +187,14 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`cisa-framing-software-component-transparency`](../records/regulator/cisa-framing-software-component-transparency/) | Framing Software Component Transparency: Establishing a Co | spec | best-practice | summarized | useful | — |
+| [`cisa-secure-by-design`](../records/regulator/cisa-secure-by-design/) | CISA Secure by Design | spec | standard | stub | unassessed | — |
 | [`ntia-sbom-minimum-elements`](../records/regulator/ntia-sbom-minimum-elements/) | The Minimum Elements For a Software Bill of Materials (SBO | spec | best-practice | summarized | useful | — |
 
 ## vendor
 
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
+| [`bsimm`](../records/vendor/bsimm/) | BSIMM (Building Security In Maturity Model) | spec | standard | stub | unassessed | — |
 | [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) | Intelligence-Driven Computer Network Defense Informed by A | paper | — | summarized | — | — |
 | [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) | VAST (Visual, Agile, and Simple Threat) modeling — ThreatM | web | — | summarized | — | — |
 

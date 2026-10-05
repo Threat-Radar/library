@@ -1,0 +1,67 @@
+# FX-1 requirements — NIST SP 800-218 (SSDF v1.1)
+# Task text condensed from a pdftotext pass of the NIST PDF. Normative stance is
+# recommendation-style ("should"); actor is "the organization (software producer)"
+# unless noted. Locator = Practice.Task id. Notional Implementation Examples are
+# non-normative and excluded. reviewed_by: "" (FX-1 verbatim verify pending, T-029).
+schema: "library-requirements/v1"
+record: nist-sp-800-218
+verb_default: should
+actor_default: "the organization (software producer)"
+groups:
+  PO: "Prepare the Organization"
+  PS: "Protect the Software"
+  PW: "Produce Well-Secured Software"
+  RV: "Respond to Vulnerabilities"
+requirements:
+  # --- PO: Prepare the Organization ---
+  - {id: PO.1.1, locator: PO.1.1, statement: "Identify and document all security requirements for the organization's software development infrastructures and processes, and maintain them over time."}
+  - {id: PO.1.2, locator: PO.1.2, statement: "Identify and document all security requirements for organization-developed software, and maintain them over time."}
+  - {id: PO.1.3, locator: PO.1.3, actor: "organization → third-party suppliers", statement: "Communicate requirements to third parties who provide commercial software components for reuse. [formerly PW.3.1]"}
+  - {id: PO.2.1, locator: PO.2.1, statement: "Create new roles and alter existing responsibilities to cover all parts of the SDLC; review and update periodically."}
+  - {id: PO.2.2, locator: PO.2.2, statement: "Provide role-based training for all personnel with secure-development responsibilities; review proficiency and update training."}
+  - {id: PO.2.3, locator: PO.2.3, actor: "upper management / authorizing official", statement: "Obtain and convey management commitment to secure development."}
+  - {id: PO.3.1, locator: PO.3.1, statement: "Specify which tools or tool types must/should be in each toolchain to mitigate identified risks, and how they integrate."}
+  - {id: PO.3.2, locator: PO.3.2, statement: "Follow recommended security practices to deploy, operate and maintain tools and toolchains."}
+  - {id: PO.3.3, locator: PO.3.3, statement: "Configure tools to generate artifacts of their support for secure development practices."}
+  - {id: PO.4.1, locator: PO.4.1, statement: "Define criteria for software security checks and track them throughout the SDLC."}
+  - {id: PO.4.2, locator: PO.4.2, statement: "Implement processes and mechanisms to gather and safeguard the information needed to support the criteria."}
+  - {id: PO.5.1, locator: PO.5.1, statement: "Separate and protect each environment involved in software development."}
+  - {id: PO.5.2, locator: PO.5.2, statement: "Secure and harden development endpoints using a risk-based approach."}
+  # --- PS: Protect the Software ---
+  - {id: PS.1.1, locator: PS.1.1, statement: "Store all forms of code (source, executable, configuration-as-code) under least privilege so only authorized personnel, tools and services have access."}
+  - {id: PS.2.1, locator: PS.2.1, actor: "producer → acquirers", statement: "Make software integrity verification information available to acquirers."}
+  - {id: PS.3.1, locator: PS.3.1, statement: "Securely archive the files and supporting data (integrity verification, provenance) retained for each release."}
+  - {id: PS.3.2, locator: PS.3.2, statement: "Collect, safeguard, maintain and share provenance data for all components of each release (e.g. an SBOM)."}
+  # --- PW: Produce Well-Secured Software ---
+  - {id: PW.1.1, locator: PW.1.1, statement: "Use forms of risk modeling — such as threat modeling, attack modeling or attack-surface mapping — to assess the security risk for the software.", note: "primary threat-modeling anchor for tmodel"}
+  - {id: PW.1.2, locator: PW.1.2, statement: "Track and maintain the software's security requirements, risks and design decisions."}
+  - {id: PW.1.3, locator: PW.1.3, statement: "Where appropriate, build in support for standardized security features and services (log mgmt, identity, access control). [formerly PW.4.3]"}
+  - {id: PW.2.1, locator: PW.2.1, actor: "qualified reviewer independent of the designer, or the toolchain", statement: "Review the design to confirm it meets all security requirements and addresses the risk information."}
+  # PW.3 withdrawn (PW.3.1 -> PO.1.3, PW.3.2 -> PW.4.4)
+  - {id: PW.4.1, locator: PW.4.1, statement: "Acquire and maintain well-secured components (libraries, modules, middleware, frameworks) from third parties.", note: "SBOM / third-party anchor"}
+  - {id: PW.4.2, locator: PW.4.2, statement: "Create and maintain well-secured in-house components for common internal needs when third-party software cannot better meet them."}
+  - {id: PW.4.4, locator: PW.4.4, statement: "Verify that acquired third-party components comply with the organization's requirements throughout their life cycles."}
+  - {id: PW.5.1, locator: PW.5.1, statement: "Follow all secure coding practices appropriate to the languages and environment."}
+  - {id: PW.6.1, locator: PW.6.1, statement: "Use compiler, interpreter and build tools that offer features to improve executable security."}
+  - {id: PW.6.2, locator: PW.6.2, statement: "Determine which tool security features to use and how to configure them; implement and use the approved configurations."}
+  - {id: PW.7.1, locator: PW.7.1, statement: "Determine whether code review and/or code analysis should be used, and which.", note: "SAST anchor"}
+  - {id: PW.7.2, locator: PW.7.2, statement: "Perform the review/analysis against the secure coding standards; record and triage all issues and remediations in the team's workflow."}
+  - {id: PW.8.1, locator: PW.8.1, statement: "Determine whether executable-code testing should be done to find vulnerabilities missed earlier, and which types."}
+  - {id: PW.8.2, locator: PW.8.2, statement: "Scope, design, perform and document testing, including recording and triaging all issues and remediations."}
+  - {id: PW.9.1, locator: PW.9.1, statement: "Define a secure baseline so each security-related setting's default is secure and does not weaken security functions."}
+  - {id: PW.9.2, locator: PW.9.2, statement: "Implement the default settings and document each setting for software administrators."}
+  # --- RV: Respond to Vulnerabilities ---
+  - {id: RV.1.1, locator: RV.1.1, statement: "Gather information from acquirers, users and public sources on potential vulnerabilities in the software and its third-party components; investigate all credible reports."}
+  - {id: RV.1.2, locator: RV.1.2, statement: "Review, analyze and/or test the code to identify or confirm previously undetected vulnerabilities."}
+  - {id: RV.1.3, locator: RV.1.3, statement: "Have a vulnerability disclosure and remediation policy, and implement the roles and processes to support it."}
+  - {id: RV.2.1, locator: RV.2.1, statement: "Analyze each vulnerability to gather enough risk information to plan remediation or another risk response."}
+  - {id: RV.2.2, locator: RV.2.2, statement: "Plan and implement risk responses for vulnerabilities."}
+  - {id: RV.3.1, locator: RV.3.1, statement: "Analyze identified vulnerabilities to determine root causes."}
+  - {id: RV.3.2, locator: RV.3.2, statement: "Analyze root causes over time to identify patterns (e.g. a secure coding practice not consistently followed)."}
+  - {id: RV.3.3, locator: RV.3.3, statement: "Review the software for similar vulnerabilities to eradicate a class; proactively fix rather than wait for external reports."}
+  - {id: RV.3.4, locator: RV.3.4, statement: "Review and update the SDLC process to prevent or reduce recurrence of the root cause."}
+flags:
+  - "Task titles for some practices were truncated in the PDF extraction (Table 1 columns) — verify practice titles against Table 1."
+  - "PW.3 withdrawn; PW.4.3/PW.4.5/PW.5.2 are 'Moved' stubs — a live-task count is < 42."
+  - "SP 800-218 Rev.1 (SSDF v1.2) was an Initial Public Draft (Dec 2025); NOT final as of 2026-10-05. v1.1 is current."
+  - "FX-1 verbatim verify (exact normative wording per locator) pending — T-029."

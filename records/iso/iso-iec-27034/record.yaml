@@ -1,0 +1,33 @@
+schema: "library-record/v1"
+id: iso-iec-27034
+body: iso
+type: spec
+maturity: standard
+title: "ISO/IEC 27034 — Application security"
+short_title: "ISO/IEC 27034 — Application security"
+authors: ["ISO/IEC"]
+date: ""
+publisher: "ISO/IEC"
+version: ""
+identifiers:
+  url: https://www.iso.org/standard/44378.html
+content:
+  url: https://www.iso.org/standard/44378.html
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: ""
+  pages: 0
+relations: {supersedes: [], superseded_by: [], see_also: [nist-sp-800-218], implements_concept: []}
+cites: []
+bears_on: [DEC-009, R-041, R-044]
+applicability: {security: adjacent, process: core, this_project: adjacent}
+usefulness:
+  verdict: unassessed
+  reason: "Application security (ONF/ANF/ASC). PAYWALLED — iTeh preview or ask."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [iso, iec, 27034, application-security, standard, paywalled]
+status: stub
+confidence: low

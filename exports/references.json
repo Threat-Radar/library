@@ -176,6 +176,27 @@
     "URL": "https://github.com/sbl-sdsc/mcp-okn"
   },
   {
+    "id": "owasp-samm-v2",
+    "type": "report",
+    "title": "OWASP Software Assurance Maturity Model (SAMM) v2",
+    "URL": "https://owaspsamm.org/model/",
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "publisher": "OWASP"
+  },
+  {
+    "id": "safecode-fundamental-practices",
+    "type": "report",
+    "title": "SAFECode Fundamental Practices for Secure Software Development (3rd ed, 2018)",
+    "URL": "https://safecode.org/wp-content/uploads/2018/03/SAFECode_Fundamental_Practices_for_Secure_Software_Development_March_2018.pdf",
+    "publisher": "SAFECode"
+  },
+  {
     "id": "secure-systems-lab-dsse",
     "type": "software",
     "title": "Dead Simple Signing Envelope (DSSE)",
@@ -1231,6 +1252,13 @@
     "URL": "https://www.iso.org/standard/72515.html"
   },
   {
+    "id": "iso-iec-27034",
+    "type": "report",
+    "title": "ISO/IEC 27034 \u2014 Application security",
+    "URL": "https://www.iso.org/standard/44378.html",
+    "publisher": "ISO/IEC"
+  },
+  {
     "id": "iso-iec-5962-2021",
     "type": "report",
     "title": "Information technology \u2014 SPDX Specification V2.2.1",
@@ -1362,6 +1390,38 @@
     "URL": "https://csrc.nist.gov/pubs/sp/800/160/"
   },
   {
+    "id": "nist-sp-800-218",
+    "type": "report",
+    "title": "NIST SP 800-218: Secure Software Development Framework (SSDF) Version 1.1 \u2014 Recommendations for Mitigating the Risk of Software Vulnerabilities",
+    "URL": "https://csrc.nist.gov/pubs/sp/800/218/final",
+    "issued": {
+      "date-parts": [
+        [
+          2022,
+          2
+        ]
+      ]
+    },
+    "DOI": "10.6028/NIST.SP.800-218",
+    "publisher": "NIST"
+  },
+  {
+    "id": "nist-sp-800-218a",
+    "type": "report",
+    "title": "NIST SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models \u2014 An SSDF Community Profile",
+    "URL": "https://csrc.nist.gov/pubs/sp/800/218/a/final",
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          7
+        ]
+      ]
+    },
+    "DOI": "10.6028/NIST.SP.800-218A",
+    "publisher": "NIST"
+  },
+  {
     "id": "sp-800-161r1",
     "type": "report",
     "title": "Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations",
@@ -1401,6 +1461,20 @@
     "type": "report",
     "title": "OSV Schema (OpenSSF)",
     "URL": "https://ossf.github.io/osv-schema/"
+  },
+  {
+    "id": "slsa-v1-0",
+    "type": "report",
+    "title": "Supply-chain Levels for Software Artifacts (SLSA) v1.0 \u2014 Build track",
+    "URL": "https://slsa.dev/spec/v1.0/levels",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "publisher": "OpenSSF (Linux Foundation)"
   },
   {
     "id": "capec",
@@ -1443,6 +1517,13 @@
     "type": "software",
     "title": "GraphRAG (Microsoft Research, 2024)",
     "URL": "https://github.com/microsoft/graphrag"
+  },
+  {
+    "id": "iec-62443-4-1",
+    "type": "report",
+    "title": "IEC 62443-4-1:2018 \u2014 Secure product development lifecycle requirements (IACS/OT)",
+    "URL": "https://webstore.iec.ch/publication/33615",
+    "publisher": "IEC"
   },
   {
     "id": "mitre-attack",
@@ -1537,6 +1618,13 @@
     "publisher": "Cybersecurity and Infrastructure Security Agency"
   },
   {
+    "id": "cisa-secure-by-design",
+    "type": "report",
+    "title": "CISA Secure by Design",
+    "URL": "https://www.cisa.gov/securebydesign",
+    "publisher": "CISA"
+  },
+  {
     "id": "ntia-sbom-minimum-elements",
     "type": "report",
     "title": "The Minimum Elements For a Software Bill of Materials (SBOM)",
@@ -1551,6 +1639,13 @@
       ]
     },
     "publisher": "United States Department of Commerce"
+  },
+  {
+    "id": "bsimm",
+    "type": "report",
+    "title": "BSIMM (Building Security In Maturity Model)",
+    "URL": "https://www.blackduck.com/services/security-program/bsimm-maturity-model.html",
+    "publisher": "Black Duck"
   },
   {
     "id": "lockheed-kill-chain-2011",

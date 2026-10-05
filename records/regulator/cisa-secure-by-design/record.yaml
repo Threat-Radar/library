@@ -1,0 +1,33 @@
+schema: "library-record/v1"
+id: cisa-secure-by-design
+body: regulator
+type: spec
+maturity: standard
+title: "CISA Secure by Design"
+short_title: "CISA Secure by Design"
+authors: ["CISA"]
+date: ""
+publisher: "CISA"
+version: ""
+identifiers:
+  url: https://www.cisa.gov/securebydesign
+content:
+  url: https://www.cisa.gov/securebydesign
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: ""
+  pages: 0
+relations: {supersedes: [], superseded_by: [], see_also: [nist-sp-800-218], implements_concept: []}
+cites: []
+bears_on: [DEC-009, R-041, R-044]
+applicability: {security: adjacent, process: core, this_project: adjacent}
+usefulness:
+  verdict: unassessed
+  reason: "Principles-based initiative + pledge; public; design guidance, not a lifecycle. FX-1 next batch."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [cisa, secure-by-design, principles, process]
+status: stub
+confidence: low

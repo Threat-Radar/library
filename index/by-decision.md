@@ -9,9 +9,15 @@ This is the query the library exists to answer.
 
 ### (none — stub or unassessed)
 
+- [`bsimm`](../records/vendor/bsimm/) — BSIMM (Building Security In Maturity Model)
+- [`cisa-secure-by-design`](../records/regulator/cisa-secure-by-design/) — CISA Secure by Design
 - [`draft-ietf-cbor-packed`](../records/ietf/draft-ietf-cbor-packed/) — Packed CBOR
 - [`fips-186-4`](../records/nist/fips-186-4/) — Digital Signature Standard (DSS), FIPS 186-4
+- [`iec-62443-4-1`](../records/other/iec-62443-4-1/) — IEC 62443-4-1:2018 — Secure product development lifecycle requirements
 - [`ietf-vcon-wg`](../records/ietf/ietf-vcon-wg/) — IETF vCon Working Group
+- [`iso-iec-27034`](../records/iso/iso-iec-27034/) — ISO/IEC 27034 — Application security
+- [`nist-sp-800-218a`](../records/nist/nist-sp-800-218a/) — NIST SP 800-218A: Secure Software Development Practices for Generative
+- [`owasp-samm-v2`](../records/community/owasp-samm-v2/) — OWASP Software Assurance Maturity Model (SAMM) v2
 - [`rfc-1952`](../records/ietf/rfc-1952/) — GZIP
 - [`rfc-3339`](../records/ietf/rfc-3339/) — Timestamps
 - [`rfc-3966`](../records/ietf/rfc-3966/) — tel URI
@@ -38,6 +44,8 @@ This is the query the library exists to answer.
 - [`rfc-9921`](../records/ietf/rfc-9921/) — CBOR Object Signing and Encryption (COSE) Header Parameter for Timesta
 - [`rfc-9964`](../records/ietf/rfc-9964/) — ML-DSA for JSON Object Signing and Encryption (JOSE) and CBOR Object S
 - [`rfc-9997`](../records/ietf/rfc-9997/) — YANG-CBOR: Allocating SID Ranges for Private Enterprise Number (PEN) H
+- [`safecode-fundamental-practices`](../records/community/safecode-fundamental-practices/) — SAFECode Fundamental Practices for Secure Software Development (3rd ed
+- [`slsa-v1-0`](../records/openssf/slsa-v1-0/) — Supply-chain Levels for Software Artifacts (SLSA) v1.0 — Build track
 - [`sp-800-161r1`](../records/nist/sp-800-161r1/) — Cybersecurity Supply Chain Risk Management Practices for Systems and O
 - [`sp-800-186`](../records/nist/sp-800-186/) — Recommendations for Discrete Logarithm-based Cryptography: Elliptic Cu
 - [`w3c-did-core`](../records/w3c/w3c-did-core/) — Decentralized Identifiers (DIDs) v1.0
@@ -207,6 +215,10 @@ This is the query the library exists to answer.
 
 - [`fips-140-3`](../records/nist/fips-140-3/) — FIPS 140-3, Security Requirements for Cryptographic Modules
 
+### DEC-009                  # mitigation lifecycle / conformance (SDL)
+
+- [`nist-sp-800-218`](../records/nist/nist-sp-800-218/) — NIST SP 800-218: Secure Software Development Framework (SSDF) Version 
+
 ### DEC-009               # generic->product mapping & mitigation lifecycle
 
 - [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
@@ -232,6 +244,18 @@ This is the query the library exists to answer.
 ### R-021                 # mitigation tracking over the design lifecycle
 
 - [`iso-sae-21434-2021`](../records/iso/iso-sae-21434-2021/) — Road vehicles — Cybersecurity engineering
+
+### R-040                    # mitigation kind (technical/documentation/process)
+
+- [`nist-sp-800-218`](../records/nist/nist-sp-800-218/) — NIST SP 800-218: Secure Software Development Framework (SSDF) Version 
+
+### R-042                    # conformance validation
+
+- [`nist-sp-800-218`](../records/nist/nist-sp-800-218/) — NIST SP 800-218: Secure Software Development Framework (SSDF) Version 
+
+### R-044                    # requirements crosswalk (MAP-0001)
+
+- [`nist-sp-800-218`](../records/nist/nist-sp-800-218/) — NIST SP 800-218: Secure Software Development Framework (SSDF) Version 
 
 ### R-M-02
 

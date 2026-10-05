@@ -1,0 +1,33 @@
+schema: "library-record/v1"
+id: safecode-fundamental-practices
+body: community
+type: spec
+maturity: standard
+title: "SAFECode Fundamental Practices for Secure Software Development (3rd ed, 2018)"
+short_title: "SAFECode Fundamental Practices for Secure Software Development (3rd ed, 2018)"
+authors: ["SAFECode"]
+date: ""
+publisher: "SAFECode"
+version: ""
+identifiers:
+  url: https://safecode.org/wp-content/uploads/2018/03/SAFECode_Fundamental_Practices_for_Secure_Software_Development_March_2018.pdf
+content:
+  url: https://safecode.org/wp-content/uploads/2018/03/SAFECode_Fundamental_Practices_for_Secure_Software_Development_March_2018.pdf
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: ""
+  pages: 0
+relations: {supersedes: [], superseded_by: [], see_also: [nist-sp-800-218], implements_concept: []}
+cites: []
+bears_on: [DEC-009, R-041, R-044]
+applicability: {security: adjacent, process: core, this_project: adjacent}
+usefulness:
+  verdict: unassessed
+  reason: "Industry secure-development practices; public PDF, FX-1 next batch."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [safecode, sdl, secure-coding, process]
+status: stub
+confidence: low

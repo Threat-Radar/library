@@ -1,0 +1,40 @@
+schema: "library-record/v1"
+id: slsa-v1-0
+body: openssf
+type: spec
+maturity: standard
+title: "Supply-chain Levels for Software Artifacts (SLSA) v1.0 — Build track"
+short_title: "SLSA v1.0"
+authors: ["OpenSSF SLSA Project"]
+date: "2023"
+publisher: "OpenSSF (Linux Foundation)"
+version: "1.0"
+identifiers:
+  url: https://slsa.dev/spec/v1.0/levels
+content:
+  url: https://slsa.dev/spec/v1.0/requirements
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: text/html
+  pages: 0
+relations:
+  supersedes: []
+  superseded_by: [slsa-v1-2]   # v1.0 retired, superseded by v1.2 (not held)
+  see_also: [nist-sp-800-218, in-toto-attestation-v1, guac]
+  implements_concept: []
+cites: []
+bears_on: [DEC-002, R-042]      # build provenance -> radar contract; conformance evidence
+applicability: {security: core, supply_chain: core, this_project: adjacent}
+usefulness:
+  verdict: useful
+  reason: "Build-track provenance levels (L0-L3) + the in-toto attestation model — the supply-chain/build-integrity evidence that feeds radar->tmodel (ADR-0001) and the conformance 'evidence' mechanism (R-042). Summary-grade (WebFetch); requirement names paraphrased, Hosted-level and predicate detail unverified."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [openssf, slsa, supply-chain, provenance, attestation, build]
+status: summarized
+confidence: medium
+distillation:
+  artifacts:
+    - {kind: requirements, path: distilled/requirements.yaml, coverage: "Build-track requirements L1-L3 by role (producer/build-platform/consumer). Names paraphrased from WebFetch summary; Hosted-at-L2 and in-toto predicate detail UNVERIFIED.", generated_from: "WebFetch of slsa.dev (summary-grade)", reviewed_by: ""}

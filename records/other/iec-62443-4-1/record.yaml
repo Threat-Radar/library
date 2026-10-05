@@ -1,0 +1,33 @@
+schema: "library-record/v1"
+id: iec-62443-4-1
+body: other
+type: spec
+maturity: standard
+title: "IEC 62443-4-1:2018 — Secure product development lifecycle requirements (IACS/OT)"
+short_title: "IEC 62443-4-1:2018 — Secure product development lifecycle requirements (IACS/OT)"
+authors: ["IEC"]
+date: ""
+publisher: "IEC"
+version: ""
+identifiers:
+  url: https://webstore.iec.ch/publication/33615
+content:
+  url: https://webstore.iec.ch/publication/33615
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: ""
+  pages: 0
+relations: {supersedes: [], superseded_by: [], see_also: [nist-sp-800-218], implements_concept: []}
+cites: []
+bears_on: [DEC-009, R-041, R-044]
+applicability: {security: adjacent, process: core, this_project: adjacent}
+usefulness:
+  verdict: unassessed
+  reason: "OT/ICS secure-dev lifecycle (8 practices SM/SR/SD/SI/SVV/DM/SUM/SG, ML1-4; SR-2 threat model). PAYWALLED — source via iTeh licensed preview or ask (see memory: paywalled-standards-sourcing)."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [iec, 62443, ot, sdl, standard, paywalled]
+status: stub
+confidence: low

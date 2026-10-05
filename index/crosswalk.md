@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-91 of 140 records have at least one edge.
+94 of 149 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -132,9 +132,15 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **cited_by** → `fips-140-3`
 - **see_also** → `fips-140-3`, `iso-iec-19790`, `iso-iec-24759`
 
+### `nist-sp-800-218`
+- **see_also** → `owasp-samm-v2`, `slsa-v1-0`
+
 ### `ntia-sbom-minimum-elements`
 - **see_also** → `sp-800-161r1`
 - **updated_by** → `cisa-framing-software-component-transparency`
+
+### `owasp-samm-v2`
+- **see_also** → `nist-sp-800-218`
 
 ### `pasta-risk-centric-threat-modeling`
 - **see_also** → `ucedavelez-pasta-owasp-2012`
@@ -305,6 +311,9 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 - **cites** → `schneier-attack-trees-1999`
 - **contradicts** → `sei-octave-allegro-2007`
 
+### `slsa-v1-0`
+- **see_also** → `nist-sp-800-218`
+
 ### `sp-800-161r1`
 - **see_also** → `in-toto-attestation-v1`, `ntia-sbom-minimum-elements`, `rfc-9943`
 
@@ -324,7 +333,9 @@ No edges in or out. Not wrong — but a record connected to nothing
 is a record nothing will surface.
 
 - `bron`
+- `bsimm`
 - `capec`
+- `cisa-secure-by-design`
 - `csa-maestro-2025`
 - `cve-json-5`
 - `cwe`
@@ -337,13 +348,16 @@ is a record nothing will surface.
 - `hogan-kg-survey`
 - `iana-cbor-simple-values`
 - `iana-cbor-tags`
+- `iec-62443-4-1`
 - `iso-26262-3-2018`
 - `iso-iec-15408`
 - `iso-iec-18045`
+- `iso-iec-27034`
 - `linkml`
 - `lockheed-kill-chain-2011`
 - `mcp-okn`
 - `nist-sp-800-160`
+- `nist-sp-800-218a`
 - `nsf-23-571`
 - `nsf-okn-launch`
 - `okn-roadmap-2022`
@@ -362,6 +376,7 @@ is a record nothing will surface.
 - `rfc-8620`
 - `rfc-9110`
 - `rfc-9804`
+- `safecode-fundamental-practices`
 - `securechain-okn`
 - `shacl`
 - `sparql-1-1`
@@ -377,4 +392,5 @@ is a record nothing will surface.
 
 Pointing at a record that does not exist. **These are errors.**
 
-_none_
+- `nist-sp-800-218` **see_also** → `nist-sp-800-218a      # generative-AI community profile` (no such record)
+- `nist-sp-800-218` **supersedes** → `nist-cswp-13          # Mitigating the Risk of SW Vulns (2020) — not held` (no such record)

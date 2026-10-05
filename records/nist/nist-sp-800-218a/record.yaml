@@ -1,0 +1,39 @@
+schema: "library-record/v1"
+id: nist-sp-800-218a
+body: nist
+type: spec
+maturity: standard
+title: "NIST SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models — An SSDF Community Profile"
+short_title: "NIST SSDF AI Profile (SP 800-218A)"
+authors: ["Harold Booth", "Murugiah Souppaya", "Apostol Vassilev", "Michael Ogata", "Martin Stanley", "Karen Scarfone"]
+date: "2024-07"
+publisher: "NIST"
+version: "800-218A"
+identifiers:
+  nist: "SP 800-218A"
+  doi: "10.6028/NIST.SP.800-218A"
+  url: https://csrc.nist.gov/pubs/sp/800/218/a/final
+content:
+  url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.pdf
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: application/pdf
+  pages: 0
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: [nist-sp-800-218]
+  implements_concept: []
+cites: [nist-sp-800-218]
+bears_on: [DEC-009, R-040]
+applicability: {security: adjacent, ai: core, this_project: adjacent}
+usefulness:
+  verdict: useful
+  reason: "Community profile augmenting SSDF for generative-AI / dual-use foundation models; feeds the agentic-threat line (#12, MAESTRO facet) and AI-workflow modeling. Summarized only — PDF not yet extracted."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [nist, ssdf, ai, generative-ai, sdl, standard]
+status: summarized
+confidence: medium

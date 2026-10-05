@@ -1,0 +1,40 @@
+schema: "library-record/v1"
+id: owasp-samm-v2
+body: community
+type: spec
+maturity: standard
+title: "OWASP Software Assurance Maturity Model (SAMM) v2"
+short_title: "OWASP SAMM v2"
+authors: ["OWASP SAMM Project"]
+date: "2020"
+publisher: "OWASP"
+version: "2.0"
+identifiers:
+  url: https://owaspsamm.org/model/
+content:
+  url: https://owaspsamm.org/model/
+  sha256: ""
+  retrieved: "2026-10-05"
+  local: false
+  media_type: text/html
+  pages: 0
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: [nist-sp-800-218, slsa-v1-0]
+  implements_concept: []
+cites: []
+bears_on: [DEC-009, R-041, R-042, R-044]
+applicability: {security: core, process: core, this_project: core}
+usefulness:
+  verdict: useful
+  reason: "A maturity model (5 functions x 3 practices x 2 streams, L1-3). Its Design > Threat Assessment practice (Application Risk Profile + Threat Modeling) anchors the SDL/conformance work; a natural MAP-0001 column. Licence CC BY-SA 4.0. TA verified from the live page; the other 14 practices are summarized (unverified) — FX-1 pending."
+  assessed: "2026-10-05"
+implementations: {open_source: [], commercial: [], searched: "2026-10-05"}
+topic: ""
+tags: [owasp, samm, maturity-model, sdl, threat-modeling, process]
+status: summarized
+confidence: medium
+distillation:
+  artifacts:
+    - {kind: requirements, path: distilled/requirements.yaml, coverage: "Design>Threat Assessment verified in full (TA-A/TA-B, L1-3); other 14 practices listed at stream level from the agent's memory — UNVERIFIED, must not be treated as normative.", generated_from: "WebFetch of owaspsamm.org (summary-grade) + agent knowledge", reviewed_by: ""}

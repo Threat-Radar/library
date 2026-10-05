@@ -3,7 +3,7 @@
 
 # Bibliography
 
-140 records.
+149 records.
 
 
 ## academic
@@ -56,6 +56,12 @@
 - **mcp-okn — Model Context Protocol access to NSF OKN graphs**  
   `mcp-okn` · repo · implementation · **summarized** · [source](https://github.com/sbl-sdsc/mcp-okn)  
   _Prior art for an LLM→governed-KG bridge — the pattern for grounding a threat-modeling assistant against tmodel's graph._
+- **OWASP Software Assurance Maturity Model (SAMM) v2** — 2020  
+  `owasp-samm-v2` · spec · standard · **summarized** · [source](https://owaspsamm.org/model/)  
+  _A maturity model (5 functions x 3 practices x 2 streams, L1-3). Its Design > Threat Assessment practice (Application Risk Profile + Threat Modeling) anchors the SDL/conformance work; a natural MAP-0001 column. Licence CC BY-SA 4.0. TA verified from the live page; the other 14 practices are summarized (unverified) — FX-1 pending._
+- **SAFECode Fundamental Practices for Secure Software Development (3rd ed, 2018)**  
+  `safecode-fundamental-practices` · spec · standard · [source](https://safecode.org/wp-content/uploads/2018/03/SAFECode_Fundamental_Practices_for_Secure_Software_Development_March_2018.pdf)  
+  _Industry secure-development practices; public PDF, FX-1 next batch._
 - **Dead Simple Signing Envelope (DSSE)**  
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
 - **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
@@ -269,6 +275,9 @@
   `iso-iec-19790` · spec · [source](https://www.iso.org/standard/52906.html)
 - **ISO/IEC 24759:2017, Test requirements for cryptographic modules**  
   `iso-iec-24759` · spec · [source](https://www.iso.org/standard/72515.html)
+- **ISO/IEC 27034 — Application security**  
+  `iso-iec-27034` · spec · standard · [source](https://www.iso.org/standard/44378.html)  
+  _Application security (ONF/ANF/ASC). PAYWALLED — iTeh preview or ask._
 - **Information technology — SPDX Specification V2.2.1** — ISO/IEC JTC 1/SC 7. 2021-08  
   `iso-iec-5962-2021` · spec · standard · [source](https://www.iso.org/standard/81870.html)  
   _Held for the standing it establishes, not for its text: it is the one SBOM format with ISO ratification, and it carries SPDX 2.2.1, which SPDX 3.0.1 has moved past. Paywalled, so we work from the 3.0.1 record._
@@ -311,6 +320,12 @@
   _Part of the FIPS 140-3 modification stack (SP 800-140F); Approved test metrics for non-invasive attack (e.g. side-channel) mitigation._
 - **NIST SP 800-160, Systems Security Engineering (Ross et al., 2018)**  
   `nist-sp-800-160` · spec · [source](https://csrc.nist.gov/pubs/sp/800/160/)
+- **NIST SP 800-218: Secure Software Development Framework (SSDF) Version 1.1 — Recommendations for Mitigating the Risk of Software Vulnerabilities** — 2022-02. 10.6028/NIST.SP.800-218  
+  `nist-sp-800-218` · spec · standard · **distilled** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218.pdf)  
+  _The reference secure-development practice catalogue (PO/PS/PW/RV). PW.1.1 is the canonical 'perform threat modeling' requirement that anchors tmodel; PW.4/PS.3.2 anchor SBOM/provenance; RV.1-3 anchor vuln response. Outcome-based and SDLC-agnostic, so it maps cleanly onto the SDL gate/requirement model (R-041/R-044) and the MAP-0001 crosswalk. No certification regime — conformance is self-attestation (federal procurement, outside the SP)._
+- **NIST SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models — An SSDF Community Profile** — 2024-07. 10.6028/NIST.SP.800-218A  
+  `nist-sp-800-218a` · spec · standard · **summarized** · [source](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.pdf)  
+  _Community profile augmenting SSDF for generative-AI / dual-use foundation models; feeds the agentic-threat line (#12, MAESTRO facet) and AI-workflow modeling. Summarized only — PDF not yet extracted._
 - **Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations** — Jon Boyens, Angela Smith, Nadya Bartol, Kris Winkler, Alex Holbrook, Matthew Fallon. 2022-05. 10.6028/NIST.SP.800-161r1-upd1  
   `sp-800-161r1` · spec · best-practice · [source](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final)  
   _Enterprise process guidance, not a mechanism specification. Supplies the vocabulary and the institutional frame that an attestation is consumed by, but we conform to no clause in it._
@@ -331,6 +346,9 @@
 - **OSV Schema (OpenSSF)**  
   `osv-schema` · spec · best-practice · **summarized** · [source](https://ossf.github.io/osv-schema/)  
   _Best template for linking tmodel vuln nodes to specific component/version nodes._
+- **Supply-chain Levels for Software Artifacts (SLSA) v1.0 — Build track** — 2023  
+  `slsa-v1-0` · spec · standard · **summarized** · [source](https://slsa.dev/spec/v1.0/requirements)  
+  _Build-track provenance levels (L0-L3) + the in-toto attestation model — the supply-chain/build-integrity evidence that feeds radar->tmodel (ADR-0001) and the conformance 'evidence' mechanism (R-042). Summary-grade (WebFetch); requirement names paraphrased, Hosted-level and predicate detail unverified._
 
 ## other
 
@@ -354,6 +372,9 @@
 - **GraphRAG (Microsoft Research, 2024)**  
   `graphrag-ms` · repo · implementation · **summarized** · [source](https://github.com/microsoft/graphrag)  
   _Models the build-graph-then-reason pipeline over a security corpus for grounding AI-proposed threats._
+- **IEC 62443-4-1:2018 — Secure product development lifecycle requirements (IACS/OT)**  
+  `iec-62443-4-1` · spec · standard · [source](https://webstore.iec.ch/publication/33615)  
+  _OT/ICS secure-dev lifecycle (8 practices SM/SR/SD/SI/SVV/DM/SUM/SG, ML1-4; SR-2 threat model). PAYWALLED — source via iTeh licensed preview or ask (see memory: paywalled-standards-sourcing)._
 - **MITRE ATT&CK (knowledge base + STIX 2.1 data)**  
   `mitre-attack` · dataset · best-practice · **summarized** · [source](https://attack.mitre.org/)  
   _Canonical vocabulary/IDs for tmodel's threat + attack-path layer; ready-made graph-ingestion source._
@@ -378,12 +399,18 @@
 - **Framing Software Component Transparency: Establishing a Common Software Bill of Materials (SBOM)** — CISA SBOM Tooling and Implementation Working Group. 2024-09-03  
   `cisa-framing-software-component-transparency` · spec · best-practice · **summarized** · [source](https://www.cisa.gov/sites/default/files/2024-10/SBOM%20Framing%20Software%20Component%20Transparency%202024.pdf)  
   _Promotes the cryptographic hash from NTIA's recommended tier to Minimum Expected, and defines relationship completeness with an explicit open-world default. Both are directly load-bearing for R-M-07 and R-M-11._
+- **CISA Secure by Design**  
+  `cisa-secure-by-design` · spec · standard · [source](https://www.cisa.gov/securebydesign)  
+  _Principles-based initiative + pledge; public; design guidance, not a lifecycle. FX-1 next batch._
 - **The Minimum Elements For a Software Bill of Materials (SBOM)** — National Telecommunications and Information Administration. 2021-07-12  
   `ntia-sbom-minimum-elements` · spec · best-practice · **summarized** · [source](https://www.ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf)  
   _Establishes the floor for what an SBOM must contain, and — decisively for us — puts the component hash OUTSIDE that floor. That omission is the evidence R-M-07 needs._
 
 ## vendor
 
+- **BSIMM (Building Security In Maturity Model)**  
+  `bsimm` · spec · standard · [source](https://www.blackduck.com/services/security-program/bsimm-maturity-model.html)  
+  _Descriptive, observation-based maturity model (4 domains / 12 practices). Vendor-gated assessment. Source structure publicly; FX-1 next batch / ask._
 - **Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains** — Eric M. Hutchins, Michael J. Cloppert, Rohan M. Amin. 2011  
   `lockheed-kill-chain-2011` · paper · **summarized** · [source](https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf)
 - **VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler** — ThreatModeler Software  
