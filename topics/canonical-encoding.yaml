@@ -1,16 +1,211 @@
 schema: "library-topic/v1"
 id: canonical-encoding
-question: "What must hold for a canonical form to be safe to sign?"
+question: "What must hold for a canonical encoding to be safe to sign, and to derive a stable identifier from?"
 owner: S1
-status: open
+status: active
 bears_on:
   - DEC-002
+  - DEC-003
   - R-M-02
+  - R-M-11
+  - R-O-03
   - R-O-05
 records:
-  - draft-ietf-cbor-cde
-  - draft-ietf-cbor-serialization
-  - draft-mcnally-deterministic-cbor
+  - rfc-8785
+  - rfc-8949
   - rfc-9804
   - secure-systems-lab-dsse
-answer: ""
+answer: >
+  Six conditions, in two groups, and the rule proposed to cover them reaches
+  only the first group. The question was widened on 2026-10-03 because the
+  evidence pointed at a stronger claim than the original wording admitted, per
+  close-topic. The original asked only what must hold to SIGN. Signing turns out
+  to be the easy half.
+
+  TO BE SAFE TO SIGN, four conditions. (1) The encoding is INJECTIVE over the
+  values it encodes, not merely deterministic. (2) The decoder REJECTS
+  non-canonical input rather than normalising it. (3) Canonicalisation runs
+  once, at authoring, on trusted input, and never as part of verification. (4)
+  The encoding profile is named by an authenticated type indicator carried
+  inside the signed bytes. R-O-05, proposed in ARCH-0001-PROPOSAL-v0.2.0 §3.4,
+  delivers (3) and (4) and assumes (1) and (2).
+
+  TO BE SAFE TO DERIVE AN IDENTIFIER FROM, two further conditions that no
+  candidate encoding supplies and no document of ours currently states. (5)
+  Set-valued fields carried in arrays have a defined canonical order. (6) Text
+  that is load-bearing for identity has a declared Unicode normalisation rule,
+  or an explicit refusal to normalise together with rejection of unnormalised
+  input. Neither is reachable by R-O-05, because at an identifier there are no
+  received bytes to verify verbatim. The digest IS produced by canonicalising.
+
+  DETERMINISM IS NOT UNIQUENESS. RFC 8949 §4.2 is an ENCODER-side rule, and a
+  conforming DECODER accepts non-deterministic input happily. Its FX-1
+  extraction enumerates fourteen decisions §4.2 leaves to the application, each
+  with a negative fixture. Condition (2) is the one nobody writes down. It is
+  absent from §4.2, absent from ARCH-0001 §5.3, and absent from the rcbor spike,
+  which has an encoder and NO DECODER.
+
+  R-O-05 answers the DSSE critique rather than dodging it, and DSSE's own text
+  is friendlier to us than expected. Its objections are that canonicalisation
+  forces a verifier to parse untrusted input before authenticating it, that
+  canonicalisation schemes have been broken before, and that TWO SEMANTICALLY
+  DIFFERENT PAYLOADS COULD HAVE THE SAME CANONICAL ENCODING, which is condition
+  (1) stated as an attack. But in DSSE's own design-requirements list these are
+  SHOULD, not MUST. DSSE recommends against canonicalisation; it does not forbid
+  it. R-O-05, which keeps a canonical form while honouring the ordering, is
+  therefore consistent with DSSE's requirements as written. Two DSSE rules are
+  worth importing. Its MUST that the same bytes verified are the bytes handed to
+  the application, with no re-parsing of the envelope afterwards, closes a gap
+  R-O-05 leaves between verifying and acting. And its (t, n) multi-signature
+  envelope means the export target named in R-I-03 already carries threshold
+  semantics, which is a cheaper interchange story for R-M-06 than anyone
+  assumed.
+
+  CONDITION (2) BELONGS TO ARCH-0002 P5 RATHER THAN TO A NEW REQUIREMENT. P5
+  already reads as validity checked and unknown rejected, with encoder and
+  verifier both obliged to reject, and the RFC 8949 extraction already routes
+  three of its fourteen open rows through P5. The only stretch is that P5 as
+  drafted speaks to unknown CONTENT while condition (2) speaks to a
+  non-canonical SERIALISATION of known content. Extending P5 by a clause is
+  cheaper and truer than minting an R-O-07. The amendment is a propose-arch
+  change in the m-of-n repository and is not made from the library.
+
+  THE GAP IS IDENTITY, NOT PAYLOADS. For condition (5), RFC 8949 §4.2.1
+  canonicalises map KEY order and nothing else, deliberately, because major type
+  4 arrays are ordered by definition. RFC 8785 §3.2.3 goes further and says
+  array element order MUST NOT be changed. That difference decides more than it
+  appears to. Several of our constructs are logical SETS carried in arrays,
+  namely Threshold members under ARCH-0001 §4.1, a tag's value set under
+  DEC-004, and P4's set of schemas serialised so it can be repeatably hashed.
+  Two parties building the same set in different insertion orders get different
+  hashes and, under P4, conclude they hold different vocabularies. The rcbor
+  spike does NOT close this, since it sorts map keys and preserves author order
+  for arrays, correct for sequences and wrong for sets. For condition (6), under
+  P1 a type is a pair of defining key and label, RFC 8949 §5.6.1 compares text
+  byte by byte, and §3.1 requires UTF-8 while saying nothing about normalisation
+  form. RFC 8785 §3.1 is better here than RFC 8949 in one respect, since it
+  closes the ambiguity explicitly by requiring that all components preserve
+  Unicode string data as is. It is worse in another, because that MUST binds
+  parties we do not control and is unenforceable, and because it forecloses
+  normalising at canonicalisation time, leaving only normalise-at-authoring plus
+  reject-at-decode as a citation-compatible route. The hazard is not theoretical.
+  Transcribing this record's own test vectors corrupted U+FB33 HEBREW LETTER
+  DALET WITH DAGESH, which has a canonical decomposition that an ordinary
+  normalising layer applies silently. Any JCS pipeline containing such a layer
+  breaks signatures on exactly that input.
+
+  So R-M-02 makes uniqueness a NAMING requirement and not only a
+  signature-integrity one, and a collision on the identity path is not a
+  verification failure but two distinct principals sharing one name, or two
+  distinct vocabularies sharing one identifier. One asymmetry is worth naming.
+  A sort or normalisation divergence fails LOUDLY when signing, as a signature
+  mismatch, and SILENTLY when deriving an identifier, where it yields a
+  confidently wrong name.
+
+  RFC 8785 IS NOW FULLY EXTRACTED AND THE FINDING IS THAT DEC-002 OPTION 3
+  SHOULD BE WITHDRAWN RATHER THAN OUT-SCORED. Four grounds, in descending force.
+  First, condition (5). RFC 8949 is SILENT on array order, so a profile may add
+  a bytewise rule without contradicting it, whereas RFC 8785 PROHIBITS
+  reordering. The canonicalisation we need is therefore a modification of JCS
+  rather than a subset of it, and under R-O-03, which requires that an algorithm
+  be cited rather than silently invented, a modification is a partly invented
+  algorithm. Scoping the citation cannot repair that. Prohibited versus absent
+  is the decisive distinction. Second, §5 mandates the ordering R-O-05 forbids.
+  Applications MUST parse and check I-JSON, then verify correctness and locate
+  the signature property, and only then verify the signature. Appendix F spells
+  the same scheme out as parse, save the signature value, REMOVE the signature
+  property, re-serialise the remainder, re-canonicalise it, and only then
+  compare. Precision matters here. Appendix F carries no BCP 14 keyword
+  anywhere, so the contradiction rests on §5 alone, with Appendix F as the only
+  worked description of what §5 means. JCS can be used producer-side only, and
+  Appendix C licenses exactly that, but Appendix C also concedes it is the
+  minority path, and once R-O-05 forces the signature out of the payload JCS
+  does no work at verification time at all. Its remaining job is identity
+  derivation, which is the job it is worst at. Third, the number algorithm is
+  not in the cited document. §3.2.2.3 says the algorithm itself is not included,
+  pointing instead at V8 and Ryu, both implementations. Citing RFC 8785 means
+  citing three artifacts, one of them an edition of an annually revised
+  standard. Citing RFC 8949 §4.2.1 means citing STD 94, complete in itself. That
+  is the R-O-03 argument, and it is better than the one from standing. RFC 8785
+  being an Independent Submission whose BCP 14 force rests on a single lowercase
+  sentence in §2 is true and is weaker evidence. Fourth, option 3's named
+  envelope reintroduces a global type identifier, since DSSE's payloadType is a
+  media type or URI, which R-M-12 excludes from the native model.
+
+  THE NUMBER PROBLEM IS A CONSTRAINT, NOT THE DISQUALIFIER, and an earlier draft
+  of this answer had that wrong. Field by field, Threshold k and n, digests,
+  counters and Validity at second, millisecond or microsecond resolution all fit
+  inside IEEE 754 double precision. The ceiling falls between microsecond and
+  nanosecond time and nowhere else in our model. The real hazards are sharper
+  and sit elsewhere. Appendix B serialises `4430000000000000`, which is exactly
+  2^68, as `295147905179352830000`, a DIFFERENT integer, silently, with a
+  signature that verifies perfectly, since the ±9007199254740991 integer range
+  is only a SHOULD in Note (1). And Appendix D's remedy of carrying such values
+  as JSON strings is itself NOT canonicalised, so Appendix E's own worked
+  example shows `"055"` becoming `"55"` and a timestamp gaining `.000` under a
+  different parser style, which is condition (1) failing inside the remedy. The
+  field the RFC uses to demonstrate it is named `time`, which is our Validity.
+  Appendix B also serialises both `0000000000000000` and `8000000000000000` as
+  `0`, so positive and negative zero collapse, which is a small but literal
+  instance of the hazard DSSE names, sitting in the specification's own sample
+  table.
+
+  WHAT IS RECORDED IN OPTION 3'S FAVOUR. It wins namespace governance outright,
+  the criterion the v0.2.0 proposal §3.3 says was never scored. JSON has no tag
+  space and no header space, and §4 of RFC 8785 reads that the document has no
+  IANA actions. Where option 5 must CONSTRUCT registry-freedom by subtraction,
+  with a positive rule excluding major type 6, decoder rejection, and a named
+  untagged export profile, option 3 is registry-free by construction, and P1's
+  displacement of type identity is a no-op in JSON because there is no encoding
+  layer to move it out of. It also removes five of RFC 8949's fourteen
+  determinism rows. That belongs in the D5 package whichever way the decision
+  goes. An earlier version of this answer also claimed JCS leaves a duplicate-key
+  hole. It does not. §3.1 requires I-JSON, under which JSON objects MUST NOT
+  exhibit duplicate property names, so JCS closes it by constraining input. The
+  residual problem is that §5 mandates a duplicate check which Appendix A's
+  reference canonicaliser is structurally incapable of performing, because by
+  the time it runs the parser has already collapsed duplicates and destroyed the
+  evidence.
+
+  The cheapest route to condition (1) remains EXCLUSION rather than harder
+  canonicalisation. The rcbor spike reaches it by removing the hard cases, with
+  no floats, no tags, definite lengths only, smallest-form integer heads, map
+  keys sorted bytewise on their ENCODED form per §4.2.1, and duplicate encoded
+  keys rejected rather than resolved. The cost is expressiveness, in that a
+  decimal must be carried as an integer or a string. Exclusion does not reach
+  (5) or (6), which are additions rather than removals, and that asymmetry is
+  worth naming, since a reduced profile buys signing safety by deleting cases
+  and cannot buy naming safety the same way.
+
+  Three defects in the spike are evidence for the identity-path gap rather than
+  incidental bugs. keyid() hashes the key bytes it is handed with NO canonical
+  encoding step, so the DEC-003 requirement to specify canonical key bytes
+  before hashing is unsatisfied in the only code that exists, and the demo hides
+  this because its keys are literal byte strings. Every identifier is truncated
+  to 128 bits, a roughly 2^64 birthday bound for something that functions as a
+  name under R-M-02. And the envelope type indicator is a global string naming
+  the rcbor statement profile, which is R-M-12-non-conformant.
+
+  What would overturn this. If checking canonicality on decode cannot be done
+  without re-encoding, then condition (2) drags the canonicaliser of the
+  producer back into the verifier, the R-O-05 separation is cosmetic, and DSSE
+  is simply right, meaning abandon canonical form, sign received bytes, and
+  identify subjects by content digest only. The experiment that settles it is to
+  write the decode path in rcbor as single-pass rejection and see whether
+  bytewise key order and smallest-form heads are checkable inline. They appear
+  to be, and it is untested. Conditions (5) and (6), and with them the first and
+  strongest ground for withdrawing option 3, are CONDITIONAL ON ARCH-0002 P4 and
+  on Threshold members being a set rather than a sequence. DECISIONS-0001 T1-B
+  currently recommends HOLDING P4, so this is live, and a decision to drop P4
+  would shrink this answer back to its original four conditions and would
+  restore option 3 to contention.
+
+  PROVISIONAL. RFC 8949 and RFC 8785 are fully extracted under FX-1 and
+  everything above resting on them is cited. DSSE is summarised from
+  background.md and protocol.md at a pinned commit, but is type repo so FX-1
+  does not apply and its envelope.md and worked attack notebook are unread. RFC
+  9804 is still queued, which is the one remaining blocker, since option 1
+  cannot be fairly scored against the six conditions until it is extracted. The
+  three CBOR profile drafts moved to the deterministic-cbor-profiles topic on
+  2026-10-03 because they ask about convergence rather than conditions. Per
+  close-topic step 2 this topic is therefore NOT yet answered.
