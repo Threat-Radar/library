@@ -136,6 +136,18 @@
     "publisher": "Ecma International"
   },
   {
+    "id": "cytoscape-js",
+    "type": "software",
+    "title": "Cytoscape.js documentation and project",
+    "URL": "https://github.com/cytoscape/cytoscape.js"
+  },
+  {
+    "id": "d3-js",
+    "type": "software",
+    "title": "D3.js documentation and project",
+    "URL": "https://github.com/d3/d3"
+  },
+  {
     "id": "draft-mcnally-deterministic-cbor",
     "type": "report",
     "title": "dCBOR: Deterministic CBOR",
@@ -158,10 +170,28 @@
     "URL": "https://www.first.org/cvss/"
   },
   {
+    "id": "gephi",
+    "type": "software",
+    "title": "Gephi desktop documentation and project",
+    "URL": "https://github.com/gephi/gephi"
+  },
+  {
     "id": "in-toto-attestation-v1",
     "type": "report",
     "title": "in-toto Attestation Framework v1",
     "URL": "https://in-toto.io/"
+  },
+  {
+    "id": "kuzu",
+    "type": "software",
+    "title": "K\u00f9zu graph database",
+    "URL": "https://github.com/kuzudb/kuzu"
+  },
+  {
+    "id": "kuzu-explorer",
+    "type": "software",
+    "title": "K\u00f9zu Explorer",
+    "URL": "https://github.com/kuzudb/explorer"
   },
   {
     "id": "linkml",
@@ -180,6 +210,12 @@
     "type": "software",
     "title": "Dead Simple Signing Envelope (DSSE)",
     "URL": "https://github.com/secure-systems-lab/dsse"
+  },
+  {
+    "id": "sigma-js",
+    "type": "software",
+    "title": "Sigma.js documentation and project",
+    "URL": "https://github.com/jacomyal/sigma.js"
   },
   {
     "id": "spdx-3-0-1",
@@ -1567,11 +1603,29 @@
     "publisher": "Lockheed Martin Corporation"
   },
   {
+    "id": "memgraph-lab",
+    "type": "webpage",
+    "title": "Memgraph Lab documentation",
+    "URL": "https://memgraph.com/lab"
+  },
+  {
+    "id": "neo4j-bloom",
+    "type": "webpage",
+    "title": "Neo4j Bloom user guide",
+    "URL": "https://neo4j.com/docs/bloom-user-guide/current/"
+  },
+  {
     "id": "threatmodeler-vast",
     "type": "webpage",
     "title": "VAST (Visual, Agile, and Simple Threat) modeling \u2014 ThreatModeler",
     "URL": "https://www.threatmodeler.ai/innovation-lab/vast",
     "publisher": "ThreatModeler Software, Inc."
+  },
+  {
+    "id": "yfiles-html",
+    "type": "webpage",
+    "title": "yFiles for HTML developer documentation",
+    "URL": "https://docs.yworks.com/yfiles-html/dguide/"
   },
   {
     "id": "owl-2-primer",

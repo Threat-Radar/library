@@ -3,7 +3,7 @@
 
 # Records
 
-140 records across 11 bodies.
+149 records across 11 bodies.
 
 
 ## academic
@@ -28,12 +28,18 @@
 |---|---|---|---|---|---|---|
 | [`csa-maestro-2025`](../records/community/csa-maestro-2025/) | Agentic AI Threat Modeling Framework: MAESTRO | web | — | summarized | — | — |
 | [`cyclonedx-1-7`](../records/community/cyclonedx-1-7/) | CycloneDX Bill of Materials Specification | spec | standard | queued | unassessed | — |
+| [`cytoscape-js`](../records/community/cytoscape-js/) | Cytoscape.js documentation and project | repo | — | summarized | useful | — |
+| [`d3-js`](../records/community/d3-js/) | D3.js documentation and project | repo | — | summarized | useful | — |
 | [`draft-mcnally-deterministic-cbor`](../records/community/draft-mcnally-deterministic-cbor/) | dCBOR: Deterministic CBOR | draft | draft | fetched | marginal | — |
 | [`first-cvss`](../records/community/first-cvss/) | FIRST, Common Vulnerability Scoring System (CVSS) | spec | — | queued | — | — |
+| [`gephi`](../records/community/gephi/) | Gephi desktop documentation and project | repo | — | summarized | useful | — |
 | [`in-toto-attestation-v1`](../records/community/in-toto-attestation-v1/) | in-toto Attestation Framework v1 | spec | — | queued | — | — |
+| [`kuzu`](../records/community/kuzu/) | Kùzu graph database | repo | — | summarized | marginal | — |
+| [`kuzu-explorer`](../records/community/kuzu-explorer/) | Kùzu Explorer | repo | — | summarized | marginal | — |
 | [`linkml`](../records/community/linkml/) | LinkML — Linked Data Modeling Language | repo | implementation | summarized | useful | — |
 | [`mcp-okn`](../records/community/mcp-okn/) | mcp-okn — Model Context Protocol access to NSF OKN graphs | repo | implementation | summarized | useful | — |
 | [`secure-systems-lab-dsse`](../records/community/secure-systems-lab-dsse/) | Dead Simple Signing Envelope (DSSE) | repo | — | queued | — | — |
+| [`sigma-js`](../records/community/sigma-js/) | Sigma.js documentation and project | repo | — | summarized | useful | — |
 | [`spdx-3-0-1`](../records/community/spdx-3-0-1/) | System Package Data Exchange (SPDX) Specification Version  | spec | — | queued | unassessed | — |
 | [`trike-v1-2005`](../records/community/trike-v1-2005/) | Trike v.1 Methodology Document [Draft] | paper | — | summarized | — | — |
 | [`ucedavelez-pasta-owasp-2012`](../records/community/ucedavelez-pasta-owasp-2012/) | Real World Threat Modeling Using the PASTA Methodology | web | — | summarized | — | — |
@@ -187,7 +193,10 @@
 | id | title | type | maturity | status | useful | versions |
 |---|---|---|---|---|---|---|
 | [`lockheed-kill-chain-2011`](../records/vendor/lockheed-kill-chain-2011/) | Intelligence-Driven Computer Network Defense Informed by A | paper | — | summarized | — | — |
+| [`memgraph-lab`](../records/vendor/memgraph-lab/) | Memgraph Lab documentation | web | — | summarized | useful | — |
+| [`neo4j-bloom`](../records/vendor/neo4j-bloom/) | Neo4j Bloom user guide | web | — | summarized | useful | — |
 | [`threatmodeler-vast`](../records/vendor/threatmodeler-vast/) | VAST (Visual, Agile, and Simple Threat) modeling — ThreatM | web | — | summarized | — | — |
+| [`yfiles-html`](../records/vendor/yfiles-html/) | yFiles for HTML developer documentation | web | — | summarized | useful | — |
 
 ## w3c
 

@@ -3,7 +3,7 @@
 
 # Bibliography
 
-140 records.
+149 records.
 
 
 ## academic
@@ -43,13 +43,28 @@
   `csa-maestro-2025` · web · **summarized** · [source](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
 - **CycloneDX Bill of Materials Specification** — Jan Kowalleck, Steve Springett. 2025-12  
   `cyclonedx-1-7` · spec · standard · [source](https://ecma-international.org/wp-content/uploads/ECMA-424_2nd_edition_december_2025.pdf)
+- **Cytoscape.js documentation and project**  
+  `cytoscape-js` · repo · **summarized** · [source](https://github.com/cytoscape/cytoscape.js)  
+  _Primary capability and license evidence for the Cytoscape.js option in RPT-0006._
+- **D3.js documentation and project**  
+  `d3-js` · repo · **summarized** · [source](https://github.com/d3/d3)  
+  _Primary capability and license evidence for the low-level D3 visualization path in RPT-0006._
 - **dCBOR: Deterministic CBOR** — 2026-08-10  
   `draft-mcnally-deterministic-cbor` · draft · [source](https://www.ietf.org/archive/id/draft-mcnally-deterministic-cbor-18.txt)  
   _An INDIVIDUAL draft with no IETF stream and no WG standing, widely miscited as 'the' deterministic CBOR profile. At -18 it narrows RFC 8949 Sec.4.2 directly and does not mention CDE, contrary to common secondary accounts._
 - **FIRST, Common Vulnerability Scoring System (CVSS)**  
   `first-cvss` · spec · [source](https://www.first.org/cvss/)
+- **Gephi desktop documentation and project**  
+  `gephi` · repo · **summarized** · [source](https://github.com/gephi/gephi)  
+  _Desktop analysis precedent and project scale-claim evidence for RPT-0006._
 - **in-toto Attestation Framework v1**  
   `in-toto-attestation-v1` · spec · [source](https://in-toto.io/)
+- **Kùzu graph database**  
+  `kuzu` · repo · **summarized** · [source](https://github.com/kuzudb/kuzu)  
+  _Provides lifecycle and version context for Kùzu Explorer, but the database repository is archived._
+- **Kùzu Explorer**  
+  `kuzu-explorer` · repo · **summarized** · [source](https://github.com/kuzudb/explorer)  
+  _Relevant local graph-query UI precedent, but archived and incompletely documented._
 - **LinkML — Linked Data Modeling Language**  
   `linkml` · repo · implementation · **summarized** · [source](https://linkml.io/)  
   _Author tmodel's threat/asset/CWE/CVE schema once → generate SHACL (validation) + OWL/RDF (graph); aligns with OKN peers for federation._
@@ -58,6 +73,9 @@
   _Prior art for an LLM→governed-KG bridge — the pattern for grounding a threat-modeling assistant against tmodel's graph._
 - **Dead Simple Signing Envelope (DSSE)**  
   `secure-systems-lab-dsse` · repo · [source](https://github.com/secure-systems-lab/dsse)
+- **Sigma.js documentation and project**  
+  `sigma-js` · repo · **summarized** · [source](https://github.com/jacomyal/sigma.js)  
+  _Primary capability and license evidence for the Sigma.js rendering option in RPT-0006._
 - **System Package Data Exchange (SPDX) Specification Version 3.0.1** — The Linux Foundation and its Contributors. 2024-12-17  
   `spdx-3-0-1` · spec · [source](https://spdx.github.io/spdx-spec/v3.0.1/)
 - **Trike v.1 Methodology Document [Draft]** — Paul Saitta, Brenda Larcom, Michael Eddington. 2005-07-13  
@@ -386,8 +404,17 @@
 
 - **Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains** — Eric M. Hutchins, Michael J. Cloppert, Rohan M. Amin. 2011  
   `lockheed-kill-chain-2011` · paper · **summarized** · [source](https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf)
+- **Memgraph Lab documentation**  
+  `memgraph-lab` · web · **summarized** · [source](https://memgraph.com/lab)  
+  _Product precedent for query/graph views, data-driven styling, and LLM-assisted querying in RPT-0006._
+- **Neo4j Bloom user guide**  
+  `neo4j-bloom` · web · **summarized** · [source](https://neo4j.com/docs/bloom-user-guide/current/)  
+  _Product precedent for graph exploration, saved presentation state, and database editing in RPT-0006._
 - **VAST (Visual, Agile, and Simple Threat) modeling — ThreatModeler** — ThreatModeler Software  
   `threatmodeler-vast` · web · **summarized** · [source](https://www.threatmodeler.ai/innovation-lab/vast)
+- **yFiles for HTML developer documentation**  
+  `yfiles-html` · web · **summarized** · [source](https://docs.yworks.com/yfiles-html/dguide/)  
+  _Primary documentation and licensing evidence for the commercial SDK path in RPT-0006._
 
 ## w3c
 

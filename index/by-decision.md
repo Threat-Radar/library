@@ -9,9 +9,16 @@ This is the query the library exists to answer.
 
 ### (none — stub or unassessed)
 
+- [`cytoscape-js`](../records/community/cytoscape-js/) — Cytoscape.js documentation and project
+- [`d3-js`](../records/community/d3-js/) — D3.js documentation and project
 - [`draft-ietf-cbor-packed`](../records/ietf/draft-ietf-cbor-packed/) — Packed CBOR
 - [`fips-186-4`](../records/nist/fips-186-4/) — Digital Signature Standard (DSS), FIPS 186-4
+- [`gephi`](../records/community/gephi/) — Gephi desktop documentation and project
 - [`ietf-vcon-wg`](../records/ietf/ietf-vcon-wg/) — IETF vCon Working Group
+- [`kuzu`](../records/community/kuzu/) — Kùzu graph database
+- [`kuzu-explorer`](../records/community/kuzu-explorer/) — Kùzu Explorer
+- [`memgraph-lab`](../records/vendor/memgraph-lab/) — Memgraph Lab documentation
+- [`neo4j-bloom`](../records/vendor/neo4j-bloom/) — Neo4j Bloom user guide
 - [`rfc-1952`](../records/ietf/rfc-1952/) — GZIP
 - [`rfc-3339`](../records/ietf/rfc-3339/) — Timestamps
 - [`rfc-3966`](../records/ietf/rfc-3966/) — tel URI
@@ -38,9 +45,11 @@ This is the query the library exists to answer.
 - [`rfc-9921`](../records/ietf/rfc-9921/) — CBOR Object Signing and Encryption (COSE) Header Parameter for Timesta
 - [`rfc-9964`](../records/ietf/rfc-9964/) — ML-DSA for JSON Object Signing and Encryption (JOSE) and CBOR Object S
 - [`rfc-9997`](../records/ietf/rfc-9997/) — YANG-CBOR: Allocating SID Ranges for Private Enterprise Number (PEN) H
+- [`sigma-js`](../records/community/sigma-js/) — Sigma.js documentation and project
 - [`sp-800-161r1`](../records/nist/sp-800-161r1/) — Cybersecurity Supply Chain Risk Management Practices for Systems and O
 - [`sp-800-186`](../records/nist/sp-800-186/) — Recommendations for Discrete Logarithm-based Cryptography: Elliptic Cu
 - [`w3c-did-core`](../records/w3c/w3c-did-core/) — Decentralized Identifiers (DIDs) v1.0
+- [`yfiles-html`](../records/vendor/yfiles-html/) — yFiles for HTML developer documentation
 
 ### DEC-001
 

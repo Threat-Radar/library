@@ -9,7 +9,7 @@ write `supersedes` on one record and `superseded_by` appears on the other.
 `cites` is what a document itself references (fact). Everything else is
 our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
-91 of 140 records have at least one edge.
+93 of 149 records have at least one edge.
 
 
 ### `cisa-framing-software-component-transparency`
@@ -91,6 +91,12 @@ our curatorial judgement. See [`docs/references.md`](../docs/references.md).
 
 ### `iso-sae-21434-2021`
 - **supersedes** → `sae-j3061`
+
+### `kuzu`
+- **see_also** → `kuzu-explorer`
+
+### `kuzu-explorer`
+- **see_also** → `kuzu`
 
 ### `linddun-org`
 - **see_also** → `deng-linddun-2011`
@@ -328,11 +334,14 @@ is a record nothing will surface.
 - `csa-maestro-2025`
 - `cve-json-5`
 - `cwe`
+- `cytoscape-js`
+- `d3-js`
 - `d3fend`
 - `draft-mih-scitt-agent-action-capsule-02`
 - `etsi-ts-102-165-1`
 - `first-cvss`
 - `frink-fabric`
+- `gephi`
 - `graphrag-ms`
 - `hogan-kg-survey`
 - `iana-cbor-simple-values`
@@ -343,6 +352,8 @@ is a record nothing will surface.
 - `linkml`
 - `lockheed-kill-chain-2011`
 - `mcp-okn`
+- `memgraph-lab`
+- `neo4j-bloom`
 - `nist-sp-800-160`
 - `nsf-23-571`
 - `nsf-okn-launch`
@@ -364,6 +375,7 @@ is a record nothing will surface.
 - `rfc-9804`
 - `securechain-okn`
 - `shacl`
+- `sigma-js`
 - `sparql-1-1`
 - `stix-2-1`
 - `sudokn-okn`
@@ -372,6 +384,7 @@ is a record nothing will surface.
 - `unifying-llm-kg`
 - `w3-org-pics`
 - `w3c-did-core`
+- `yfiles-html`
 
 ## Dangling relations
 
