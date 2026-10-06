@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: iso-sae-21434-2021
 record: iso-sae-21434-2021
 type: summary
-updated: "2026-09-25"
+updated: "2026-10-03"
 ---
 
 # Road vehicles — Cybersecurity engineering (ISO/SAE 21434:2021)
@@ -97,7 +97,17 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
 - Distilled from the document body; **Annexes not distilled** — impact criteria (Annex F),
   attack-feasibility methods (attack-potential / CVSS / attack-vector, Annexes G/H), and the
   worked example are referenced but not extracted.
-- Requirement statements are **verbatim prefixes** (≤320 chars) and **not yet reviewed
-  line-by-line** against the source (`reviewed_by` empty). A human pass is required before
-  any requirement is treated as authoritative.
+- Requirement statements are **verbatim** and **not yet reviewed line by line** (`reviewed_by`
+  empty). A check against the source (tmodel RPT-0007 §7, 2026-10-02) found 16 of the 118 texts
+  wrong: 5 hold annex text instead of the provision (RQ-07-04, RQ-09-03, RQ-09-04, RQ-10-08,
+  RQ-11-01), and 11 lose the list items that follow an interrupting NOTE or EXAMPLE (RQ-05-11,
+  RQ-06-02, RQ-06-15, RQ-06-16, RQ-06-30, RQ-09-01, RQ-10-01, RQ-10-04, RQ-12-02, RQ-13-01,
+  RQ-15-17). Their text is left as it is until the sponsor decides whether this public
+  repository may hold the standard's verbatim text; read the standard for those entries. A
+  human pass is still required before any requirement is treated as authoritative.
+- Work-product links (22 were missing), locators (5 provision, 14 work product) and three
+  work-product titles were corrected against the source on 2026-10-02 (RPT-0007 §7). The
+  derived `nature` and `verification` fields follow the links: 47 provisions are now
+  deliverable-producing. The 10 work products that the standard ties to subclauses rather than
+  provisions list those subclauses in `from_subclauses` (2026-10-03).
 - 21434 defines a *method*, not machine-readable schemas; the object model is ours to encode.

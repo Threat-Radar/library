@@ -26,14 +26,22 @@ is the method. This skill is the judgment around them.
 6. **Set `maturity` only if you checked it.** RFC 2026 levels — `standard`,
    `best-practice`, `informational`, `experimental`, `historic`. An RFC being an
    RFC does not make it a standard. Leave unset rather than guess.
-7. **Prefer a controlled tag** from `schema/tags.yaml` — subject, body, role.
+7. **Prefer a controlled tag** from `schema/tags.yaml` — subject and role.
+   `body` is **not** a tag there and never was one: it is the storage shelf, and
+   its values live in `schema/record.schema.yaml:fields.body`. Pick the shelf a
+   reader would look on, then **name the issuer in `publisher`** — `body` does
+   not record who published the document, and `publisher` may name two where
+   authorship and ratification differ. `docs/scope.md` §4.
 8. Typed relations only — `supersedes`, `updates`, `see_also`, `contradicts`,
    `part_of`, `implements_concept`. `contradicts` is the valuable one and the
    one everybody forgets.
-9. `bin/validate && bin/export && bin/reindex`, and commit the regenerated
-   `exports/` **and `index/`**. Ingestion makes every derived view stale —
-   records, folded versions, crosswalk, bibliography, frontier. CI fails if
-   you skip it.
+9. `bin/validate`, then `bin/export && bin/reindex` to read what you changed.
+   Ingestion makes every derived view stale — records, folded versions,
+   crosswalk, bibliography, frontier, by-decision. **Do not commit `index/` or
+   `exports/`:** they are generated and untracked since library#31, and CI
+   fails if they come back. CI regenerates them itself and gates against the
+   fresh output, including the check that every record produces a bibliography
+   entry, so a reviewer sees your records in the bibliography either way.
 
 Use `--fetch` only when the digest matters. It reaches the network and writes to
 `.cache/`, which is gitignored.
