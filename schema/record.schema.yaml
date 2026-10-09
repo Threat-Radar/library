@@ -1,6 +1,6 @@
 schema: "library-record-schema/v5"
-version: "0.6.0"
-updated: "2026-10-01"
+version: "0.7.0"
+updated: "2026-10-09"
 description: Normative shape of library/records/<id>/record.yaml
 basis: >
   Envelope aligns with Google Cloud Open Knowledge Format (OKF) v0.1 — a
@@ -206,7 +206,17 @@ fields:
         item_keys:
           kind: {type: enum, values: [normative, fields, requirements, state-machine,
                                       schema, messages, protocol, code, examples,
-                                      design-notes, glossary, diagram]}
+                                      design-notes, glossary, diagram,
+                                      object-model, crosswalk, claim-trees, verification]}
+          # object-model, crosswalk, claim-trees and verification were added in
+          # v0.7.0 (2026-10-09). They name artifact families that already exist in
+          # distilled/ but were filed under older kinds: object-model.yaml and
+          # apc-claim-trees.yaml under `diagram`, crosswalk.yaml under `requirements`,
+          # and verification.md carried no kind at all. The body shape of each is
+          # formalised in schema/artifact.schema.yaml. RE-TAGGING the existing
+          # records to the new kinds is a SEPARATE migration PR; this schema only
+          # makes the values legal so that migration does not also have to edit the
+          # schema. See docs/artifacts-schema.md.
           path: {type: string}
           coverage: {type: string, note: "what it covers AND what it does not"}
           generated_from: {type: string, required: false, note: "another artifact, for derived ones"}
@@ -226,7 +236,22 @@ fields:
       passes:
         type: list
         required: false
-        note: "{pass: extract|verify|cross-check, by, effort: max, date}. All three required under profile: full."
+        note: >
+          {pass: extract|verify|cross-check, by, effort: max, date, note?}. All
+          three passes are required under profile: full.
+        item_keys:
+          pass:   {type: enum, values: [extract, verify, cross-check]}
+          by:     {type: string, note: "who ran the pass"}
+          effort: {type: enum, values: [max], note: "every pass runs at maximum reasoning effort (docs/extraction.md)"}
+          date:   {type: string, note: "YYYY-MM-DD"}
+          note:
+            type: string
+            required: false
+            note: >
+              Free-text record of HOW the pass was run — scripts used, what was
+              machine-checked, defects found and fixed. Already written on many
+              records (e.g. owasp-asvs-5, owasp-samm-2, safecode-fpssd-3);
+              documented here so it is a known optional field, not accidental.
   confidence: {type: enum, values: [low, medium, high], required: false}
   owner:      {type: string, required: false}
 
@@ -244,16 +269,16 @@ companions:
       progressive: a record accumulates artifacts as understanding deepens.
       Never a substitute for summary.md.
 
-      Artifact kinds, all optional and independently reviewable:
-        normative.md       compacted normative prose, locators preserved
-        fields.yaml        field/parameter definitions
-        requirements.yaml  qualified requirements, EXTERNALLY REFERENCEABLE
-        state-machines.md  state and transition descriptions
-        schema/            CDDL, JSON Schema, generated from fields
-        code/              reference types in any language - CODE IS AN ARTIFACT
-        examples/          test vectors and examples lifted from the source
+      The artifact FAMILIES and their body shapes are defined ONCE, in
+      schema/artifact.schema.yaml — this note used to restate a partial,
+      stale list (it named `state-machines.md`, omitted protocol, messages,
+      object-model, crosswalk and verification, and gave the wrong filenames)
+      and that copy drifted the same way schema/tags.yaml:body did (library#27).
+      Do not restate the family list here; `distillation.artifacts[].kind`
+      above is the one enum of kinds, schema/artifact.schema.yaml is the one
+      definition of their shapes, and bin/check-artifacts validates them.
 
-      distilled/README.md indexes them with per-artifact coverage.
+      distilled/README.md indexes the files with per-artifact coverage.
       Derived artifacts name what they were generated_from, so a defect in a
       field table can be traced into the code generated from it.
   versions/:

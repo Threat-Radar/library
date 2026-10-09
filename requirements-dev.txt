@@ -1,0 +1,4 @@
+# Dev/CI-only dependencies. bin/validate stays dependency-free (bin/_yaml.py),
+# but bin/check-artifacts needs a real YAML parser: the distilled artifact files
+# use flow collections that bin/_yaml.py deliberately drops.
+PyYAML>=6.0

@@ -1,0 +1,537 @@
+schema: "library-artifact-schema/v1"
+version: "0.1.0"
+updated: "2026-10-09"
+description: Normative shape of the distilled artifact files under records/<body>/<id>/distilled/
+basis: >
+  schema/record.schema.yaml governs record.yaml; THIS file governs the distilled
+  artifact SET (docs/extraction.md, FX-1). One family per distilled file kind.
+  These shapes are deliberately YAML-SHAPE, like record.schema.yaml and
+  topic.schema.yaml — NOT LinkML. Only requirements.yaml is LinkML (its shape is
+  in the LinkML requirements schema, library#16), because requirements are
+  externally referenceable identifiers that other repos import and a generated
+  class model earns its keep. The other families' real checks are
+  cross-reference rules — "every edge endpoint names a declared object", "every
+  protocol step names a declared message" — which bin/check-artifacts performs
+  directly over the parsed YAML. A class model would not add anything those
+  checks do not already give, and would couple the library to a toolchain it
+  does not otherwise need. bin/check-artifacts is the enforcement; this file is
+  the reference it implements.
+standalone: >
+  The library is standalone by design (CLAUDE.md): independently cloneable,
+  forkable, citable. `tmodel_mapping` strings inside object-model files are a
+  per-edge/per-object NOTE written by the extractor, not a dependency — this
+  schema does not reference tmodel and the checker does not resolve those
+  strings against anything.
+
+# ---------------------------------------------------------------------------
+# SHARED SHAPES
+# ---------------------------------------------------------------------------
+common:
+  envelope:
+    note: >
+      The top-of-file keys shared across families. Observed presence across the
+      155 distilled/*.yaml on 2026-10-09 is recorded per key. The ONLY key the
+      checker treats as structurally required is `record` (present on all 155);
+      everything else is optional and WARNed if a convention is broken, because
+      the real files predate this schema and vary (the free-text "why" key is
+      written as note / notes / method / finding / source depending on the
+      lane). Families MAY add their own extra scalar keys; the checker does not
+      reject unknown top-level keys.
+    keys:
+      schema:
+        type: string
+        required: false        # present on 148/155; the 7 without it are a data gap, WARNed
+        note: >
+          "library-<family>/v1" (or /v2 for requirements). Identifies the family.
+          The checker resolves family by FILENAME first (canonical and reliable)
+          and uses this string only to WARN on a mismatch — see
+          kind_reconciliation.fields_collision.
+      record:
+        type: string
+        required: true         # present on all 155 — the one hard invariant
+        note: "the record id this artifact belongs to; must equal the directory's <id>"
+      reviewed_by:
+        type: string
+        required: false        # present on 119/155; empty string "" means not yet human-reviewed
+        note: "who signed off; empty string is legitimate and means readable-but-not-buildable-on"
+      note:
+        type: string
+        required: false        # the free-text 'why/how' key; also seen as notes/method/finding/source
+        note: "extractor prose; the key may appear as note|notes|method|finding|source — all accepted"
+      source_version:
+        type: string
+        required: false        # 74/155
+        note: "the document version this artifact was extracted from"
+      source_digest:
+        type: string
+        required: false        # 47/155
+        note: "sha256 of the retrieved source bytes the extraction read"
+      extracted:
+        type: string
+        required: false        # 43/155
+        note: "YYYY-MM-DD the extraction pass ran (also seen as retrieved on transcribed files)"
+      extracted_by:
+        type: string
+        required: false        # 23/155
+        note: "agent/human that produced the artifact"
+  provenance:
+    note: >
+      Every statement, object, edge, state, message field and claim carries a
+      `kind` saying how we know it. This is the controlled vocabulary for that
+      field across all families. Grounded in the real values observed in
+      object-model edges, messages fields and claim-trees.
+    type: enum
+    values:
+      - stated                 # written in the source as fact
+      - inferred               # our inference from the source, not stated verbatim
+      - inferred-from-heading  # we know a subclause/field EXISTS (e.g. from a paywalled Contents) but not its content
+    derived_from: "records/nist/sp-800-218/distilled/object-model.yaml (edges[].kind); records/iso/iso-iec-29147-2018/distilled/messages.yaml (inferred-from-heading)"
+
+# ---------------------------------------------------------------------------
+# FAMILIES — one per distilled file kind
+# ---------------------------------------------------------------------------
+families:
+
+  object-model:
+    file: "distilled/object-model.yaml"
+    schema_string: "library-object-model/v1"
+    kind: object-model            # the record.yaml distillation.artifacts[].kind to use (was: diagram)
+    provenance: "derived from records/nist/sp-800-218/distilled/object-model.yaml"
+    note: >
+      The entities and relationships a document defines. objects + edges are
+      required; gaps is an optional list of things the extractor could not
+      model. tmodel_mapping is an optional per-object/per-edge NOTE, never a
+      dependency (see standalone above).
+    required: [objects, edges]
+    body:
+      objects:
+        type: list
+        note: "each object is identified by `name`; edges reference objects by that name"
+        item_keys:
+          name:           {type: string, note: "the identity; unique within the file"}
+          definition:     {type: string, required: false}
+          attributes:     {type: list, of: string, required: false, note: "field names; may carry a parenthetical type hint, e.g. 'id (PO|PS|PW|RV)'"}
+          locator:        {type: string, required: false, note: "source citation"}
+          kind:           {type: enum, values: [stated, inferred, inferred-from-heading]}
+          tmodel_mapping: {type: string, required: false, note: "extractor note; not resolved by the checker"}
+          notes:          {type: string, required: false}
+      edges:
+        type: list
+        note: "a directed relationship between objects"
+        item_keys:
+          name:           {type: string, note: "the verb/relationship; NOT unique — the same name recurs"}
+          from:
+            type: "string | list<string>"
+            note: >
+              the source object(s). A bare object name, a YAML list of names
+              [A, B], OR a pipe-union string "A|B|C" (30 edges use the pipe form,
+              sometimes spaced "A | B"). The checker splits on `|`, flattens
+              lists, and resolves each token to a declared object name.
+          to:
+            type: "string | list<string>"
+            note: "the target object(s); same forms as `from`"
+          cardinality:    {type: string, required: false, note: "e.g. '1:N', 'N:M', 'N:1', '1:4', '1:1..N'"}
+          definition:     {type: string, required: false}
+          locator:        {type: string, required: false}
+          kind:           {type: enum, values: [stated, inferred, inferred-from-heading]}
+          tmodel_mapping: {type: string, required: false}
+      gaps:
+        type: list
+        of: string
+        required: false
+        note: "free-text list of entities/relationships the extractor could not model from the source"
+    referential_integrity:
+      note: >
+        WARN-first (data issue for the migration PR, never a gate failure). Every
+        token in every edge's `from` and `to` — after splitting on `|` and
+        flattening list endpoints — SHOULD resolve to a declared objects[].name.
+        Descriptive free-text endpoints (e.g. "Party (not previously aware)") and
+        list-valued endpoints that name an undeclared node are expected residuals
+        and are reported as warnings, not errors.
+
+  state-machine:
+    file: "distilled/state-machine.yaml"
+    schema_string: "library-state-machine/v1"
+    kind: state-machine
+    provenance: "derived from records/openssf/slsa-1-2/distilled/state-machine.yaml and records/iso/iso-iec-30111-2019/distilled/state-machine.yaml"
+    note: >
+      Lifecycle: states and transitions. TWO container shapes exist; a file uses
+      exactly one. (a) a top-level `machines` LIST, each machine carrying its own
+      states+transitions (one file may hold several machines); (b) a single
+      machine declared with top-level `states`+`transitions`. The checker accepts
+      either. A state is identified by `id` OR `name` (both occur: iso/samm use
+      id, slsa uses name).
+    required_one_of:
+      - [machines]
+      - [states, transitions]
+    body:
+      machines:
+        type: list
+        required: false
+        note: "multi-machine shape; each item is one machine"
+        item_keys:
+          name:        {type: string, required: false}
+          id:          {type: string, required: false}
+          subject:     {type: string, required: false}
+          locator:     {type: string, required: false}
+          initial:     {type: "string | list<string>", required: false}
+          states:      {type: list, note: "see states below"}
+          transitions: {type: list, note: "see transitions below"}
+          error_states: {type: list, required: false}
+          notes:       {type: string, required: false}
+      states:
+        type: list
+        required: false
+        note: "single-machine shape, or nested inside a machine"
+        item_keys:
+          id:          {type: string, required: false, note: "identity in iso/samm files"}
+          name:        {type: string, required: false, note: "identity in slsa files ({name, meaning})"}
+          meaning:     {type: string, required: false}
+          label:       {type: string, required: false}
+          description: {type: string, required: false}
+          kind:        {type: string, required: false}
+          locator:     {type: string, required: false}
+          terminal:    {type: bool, required: false}
+      transitions:
+        type: list
+        required: false
+        item_keys:
+          from:    {type: string, note: "source state id/name; may be a wildcard — see integrity"}
+          to:      {type: string, note: "target state id/name; may be a wildcard/descriptive string"}
+          trigger: {type: string, required: false}
+          guard:   {type: string, required: false, note: "or a guard id referencing a top-level guards[] entry"}
+          effect:  {type: string, required: false}
+          kind:    {type: string, required: false}
+          locator: {type: string, required: false}
+    referential_integrity:
+      note: >
+        WARN-first. Each transition's `from`/`to` SHOULD resolve to a declared
+        state id or name in the same machine. The vocabulary includes wildcards
+        that are NOT states and MUST NOT warn: `any`, `any_lower`, `none`, the
+        empty string, and the level-pattern tokens `level-n`/`level-m`.
+        Descriptive endpoints (e.g. "level(builder.id) from verifier roots of
+        trust") are expected residuals and are reported as warnings.
+
+  protocol:
+    file: "distilled/protocol.yaml  (+ protocol.md prose, not validated here)"
+    schema_string: "library-protocol/v1"
+    kind: protocol
+    provenance: "derived from records/community/owasp-asvs-5/distilled/protocol.yaml and records/ietf/rfc-9052/distilled/protocol.yaml"
+    note: >
+      Roles and the flows (sequences of steps) exchanged between them. `roles` is
+      a list of either bare strings or {id/name, definition, ...}. `flows` is a
+      list of {name/id, locator, steps[], error_paths[]}. A step MAY carry a
+      `message` naming a message defined in this record's messages.yaml (or an
+      inline `messages` block, where present).
+    required_one_of:
+      - [roles]
+      - [flows]
+    body:
+      roles:
+        type: list
+        note: "bare strings, or {id|name, definition, locator, aka, realised_by, kind}"
+      flows:
+        type: list
+        note: "a named sequence"
+        item_keys:
+          name:        {type: string, required: false}
+          id:          {type: string, required: false}
+          locator:     {type: string, required: false}
+          steps:
+            type: list
+            item_keys:
+              n:       {type: int, required: false, note: "step number"}
+              from:    {type: "string | list<string>", required: false, note: "role (or actor:)"}
+              to:      {type: "string | list<string>", required: false}
+              actor:   {type: string, required: false, note: "iso-style single-actor step"}
+              action:  {type: string, required: false}
+              message: {type: string, required: false, note: "names a message in messages.yaml — see integrity"}
+              produces: {type: string, required: false, note: "iso-style: the message/document a step emits"}
+              source:  {type: string, required: false}
+              kind:    {type: enum, values: [stated, inferred], required: false}
+          error_paths:
+            type: list
+            required: false
+            item_keys:
+              condition: {type: string}
+              result:    {type: string, required: false}
+              source:    {type: string, required: false}
+              kind:      {type: enum, values: [stated, inferred], required: false}
+      messages:
+        type: list
+        required: false
+        note: "some protocol files inline the messages they exchange rather than only citing messages.yaml"
+    referential_integrity:
+      note: >
+        WARN-first. Each step's `message` (and `produces`) SHOULD resolve to a
+        message declared in the same record's messages.yaml — by `name` or `id`,
+        across its messages/structures/exchanges blocks — or to an inline
+        protocol `messages[]` entry. Author-coined message names with no
+        messages.yaml (e.g. sp-800-204d) are an expected residual and warn.
+
+  messages:
+    file: "distilled/messages.yaml"
+    schema_string: "library-messages/v1"
+    kind: messages
+    provenance: "derived from records/ietf/rfc-9052/distilled/messages.yaml and records/regulator/bsi-tr-03185/distilled/messages.yaml"
+    note: >
+      Every message / structure / header a document defines: fields, types,
+      encoding, byte layout, and which requirements constrain each field. The
+      message container is one (or more) of `messages`, `structures`, `exchanges`
+      — wire-format documents use `messages`, work-product documents use
+      `structures`, and the cross-check pass adds `exchanges` for message names a
+      protocol flow referenced but the body did not define. Some files also carry
+      an `events` list.
+    required_one_of:
+      - [messages]
+      - [structures]
+      - [exchanges]
+    body:
+      messages:
+        type: list
+        required: false
+        note: "each item keyed by `name` (wire style) or `id` (heading style)"
+        item_keys:
+          name:     {type: string, required: false}
+          id:       {type: string, required: false}
+          locator:  {type: string, required: false}
+          encoding: {type: string, required: false, note: "e.g. CBOR, YAML"}
+          cbor_tag: {type: "int | string", required: false}
+          structure: {type: string, required: false, note: "choice|table|group|bstr|map|array|rules"}
+          fields:
+            type: list
+            required: false
+            note: "field-item keys are a loose superset; nothing beyond name is required"
+            item_keys:
+              name:          {type: string}
+              type:          {type: string, required: false}
+              required:      {type: "bool | string", required: false, note: "true/false, or 'should'/'where-applicable'/'may' mirroring the governing verb"}
+              index:         {type: "int | string", required: false}
+              value:         {type: string, required: false}
+              layout:        {type: string, required: false, note: "byte/bit layout"}
+              constrained_by: {type: list, of: string, required: false, note: "requirement ids, e.g. 'rfc-8949#R-0002'"}
+              source_phrase: {type: string, required: false, note: "verbatim field phrase from the source"}
+              kind:          {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+              notes:         {type: string, required: false}
+          layout:   {type: string, required: false}
+          notes:    {type: string, required: false}
+      structures:
+        type: list
+        required: false
+        note: "same item shape as messages; used for work-product content specs (keyed by id)"
+      exchanges:
+        type: list
+        required: false
+        note: "{id, from, to, used_in_flows, constrained_by, kind, fields}; added in cross-check to define protocol-referenced message names"
+      events:
+        type: list
+        required: false
+
+  crosswalk:
+    file: "distilled/crosswalk.yaml"
+    schema_string: "library-crosswalk/v1"
+    kind: crosswalk               # was filed under kind: requirements
+    provenance: "derived from the six crosswalk.yaml files (nist/sp-800-218, community/owasp-samm-2, community/owasp-dsomm, regulator/esf-sscs-developers-2022, regulator/bsi-tr-03185, other/etsi-ts-104-219)"
+    note: >
+      A mapping between this record's own ids and external frameworks. SIX real
+      files use FIVE distinct body layouts; `layout` is the discriminator. No
+      file carries an explicit `layout:` key yet, so the checker INFERS it from
+      the top-level data key and the row shape; the migration PR will add the key
+      explicitly. `generated_from` (present on the machine-derived files) vs
+      `source`/none (hand-transcribed) is a secondary signal.
+    layout:
+      type: enum
+      values: [pivot-by-scheme, inverse-index, row-table, pair-list, transcribed-tables]
+    sub_shapes:
+      pivot-by-scheme:
+        example: "records/nist/sp-800-218/distilled/crosswalk.yaml"
+        data_key: schemes
+        shape: >
+          `schemes`: list of one block per EXTERNAL scheme, each
+          {scheme, edition, target_record, tasks_citing, rows:[{task, ids:[...]}],
+          by_id:[{id, tasks:[...]}]}. Carries BOTH a forward (rows, keyed by this
+          record's task) and an inverse (by_id) index — the only two-directional layout.
+      inverse-index:
+        example: "records/regulator/bsi-tr-03185/distilled/crosswalk.yaml ; records/other/etsi-ts-104-219/distilled/crosswalk.yaml"
+        data_key: "targets | frameworks"
+        shape: >
+          a single grouped list (`targets` with entries {ref, tr_ids:[...]}, or
+          `frameworks` with entries {ref, ssdif_tasks:[...]}). Each leaf maps one
+          EXTERNAL ref to a list of THIS record's own ids. Forward-only,
+          external->own. bsi and etsi share this shape with different key names.
+      row-table:
+        example: "records/community/owasp-dsomm/distilled/crosswalk.yaml"
+        data_key: rows
+        shape: >
+          `rows`: one row per THIS record's activity, each row carrying several
+          heterogeneous target-framework columns side by side
+          ({dimension, sub_dimension, activity, uuid, level, samm2:[...],
+          iso27001_2022:[...], openCRE:[...]}). Spreadsheet-like.
+      pair-list:
+        example: "records/community/owasp-samm-2/distilled/crosswalk.yaml"
+        data_key: pairs
+        shape: >
+          `pairs`: a flat normalized list, one entry per (own id, target id) pair
+          {samm, framework, target, sheet}. Usually accompanied by a
+          `summary_by_stream` per-id rollup, but the flat `pairs` list is the signature.
+      transcribed-tables:
+        example: "records/regulator/esf-sscs-developers-2022/distilled/crosswalk.yaml"
+        data_key: "<named source tables>"
+        shape: >
+          top-level blocks named after the source document's own tables/appendices
+          (table_1, appendix_a, appendix_b_dependencies, ...), each with its OWN
+          column set and carrying columns:/observations:/legend: transcription
+          metadata. Verbatim-transcription of publisher-supplied crosswalks.
+    referential_integrity:
+      note: >
+        WARN-first. The checker infers `layout` from the body and WARNs if it
+        cannot determine one. It does not resolve the external ids (external
+        schemes are not records); own-id resolution is out of scope for B0.
+
+  field-definitions:
+    file: "distilled/fields.yaml"
+    schema_string: "library-requirements/v1   (COLLISION — see kind_reconciliation.fields_collision)"
+    kind: fields
+    provenance: "derived from records/draft-ietf-vcon-vcon-core-04/distilled/fields.yaml"
+    note: >
+      Object/field/parameter definitions lifted from a spec (json_type,
+      cardinality, required, governing verb). The ONE real fields.yaml carries
+      `schema: library-requirements/v1` — a historical mislabel; its body is a
+      `fields` list, not a `requirements` list. The checker resolves this file as
+      field-definitions BY FILENAME and WARNs on the schema-string mismatch.
+    required: [fields]
+    body:
+      fields:
+        type: list
+        item_keys:
+          object:      {type: string, required: false}
+          field:       {type: string}
+          json_type:   {type: string, required: false}
+          cardinality: {type: string, required: false}
+          required:    {type: bool, required: false}
+          verb:        {type: string, required: false, note: "governing BCP 14 keyword"}
+
+  table-registry:
+    file: "distilled/crypto-registry.yaml (or other *-registry.yaml)"
+    schema_string: "library-fields/v1"
+    kind: fields
+    provenance: "derived from records/community/owasp-asvs-5/distilled/crypto-registry.yaml"
+    note: >
+      A verbatim transcription of one or more source TABLES (one block per source
+      table, in source order, cells verbatim). The ONE real file carries
+      `schema: library-fields/v1` — so library-fields/v1 is, in practice, the
+      table-registry family, NOT the field-definition fields.yaml above. See
+      kind_reconciliation.fields_collision.
+    required: [tables]
+    body:
+      status_legend: {type: map, required: false, note: "letter -> meaning, e.g. A/L/D"}
+      tables:
+        type: list
+        item_keys:
+          locator: {type: string}
+          columns: {type: list, of: string}
+          rows:    {type: list, note: "list of maps keyed by the column headers; cells verbatim"}
+
+  claim-trees:
+    file: "distilled/*-claim-trees.yaml"
+    schema_string: "library-claim-trees/v1"
+    kind: claim-trees             # was filed under kind: diagram
+    provenance: "derived from records/uk-software-security-code-of-practice/distilled/apc-claim-trees.yaml"
+    note: >
+      Assurance claim trees transcribed from source diagrams (e.g. SVG images)
+      where the body text prints only theme headings. Each tree records its
+      source image and sha256; each claim records its text, parent, and how the
+      parent was determined. Edge geometry from the diagram is NOT recovered;
+      `parent` is typically inferred-from-numbering.
+    required: [trees]
+    body:
+      trees:
+        type: list
+        item_keys:
+          theme:   {type: "int | string"}
+          svg_url: {type: string, required: false}
+          sha256:  {type: string, required: false}
+          claims:
+            type: list
+            item_keys:
+              id:                {type: string, note: "dotted numbering, e.g. '1.1.2.1'"}
+              text:              {type: string}
+              parent:            {type: string, required: false, note: "another claim id, or the theme number for a root"}
+              parent_kind:       {type: enum, values: [inferred-from-numbering, stated], required: false}
+              same_as_body_claim: {type: string, required: false, note: "<record>#APC-... when the tree claim equals a body claim"}
+    referential_integrity:
+      note: "WARN-first. A claim's `parent` SHOULD resolve to another claim id (or a theme root) within the same tree."
+
+  verification:
+    file: "distilled/verification.md   (Markdown + YAML front matter — NOT a *.yaml artifact)"
+    schema_string: "library-verification/v1"
+    kind: verification            # previously carried NO kind
+    provenance: "derived from the three existing conventions in distilled/verification.md: records/iso/iso-iec-29147-2018 (library-distilled/v1 header), records/nist/sp-800-218 (kind/verified/verified_by), records/community/owasp-samm-2 (kind/date/by)"
+    note: >
+      The pass-2/3 evidence log: what the adversarial verifier re-derived and
+      checked against the source, defects found and fixed, and residual open
+      issues. It is a first-class artifact and gets its own kind `verification`.
+      It is MARKDOWN, so it is outside bin/check-artifacts's distilled/*.yaml gate;
+      this is the schema the migration PR will normalise the existing 41 files to.
+    front_matter:
+      note: >
+        GOING-FORWARD schema (library-verification/v1). The 41 existing files use
+        THREE divergent conventions (see provenance); only `record` is universal
+        today. The migration PR aligns them. required[] below is what a new
+        verification.md must carry, not a claim about the existing files.
+      required: [schema, id, record, type, updated, by, reviewed_by]
+      keys:
+        schema:      {type: string, note: "library-verification/v1"}
+        id:          {type: string, note: "<record>-verification"}
+        record:      {type: string}
+        type:        {type: enum, values: [verification], note: "existing files use `type` (library-distilled header) or `kind`; unify on type"}
+        updated:     {type: string, note: "YYYY-MM-DD; existing files use updated | verified | date"}
+        by:          {type: string, note: "the independent verifier; existing files use by | verified_by"}
+        reviewed_by: {type: string, note: "empty until a human signs off"}
+        passes:
+          type: list
+          required: false
+          note: "which passes this log covers"
+          of_enum: [verify, cross-check]
+        scope:
+          type: enum
+          required: false
+          values: [full, verify-only]
+          note: "whether the log covers the full FX-1 cross-check or only the verify pass"
+    body_convention:
+      note: >
+        Free Markdown; no fixed heading vocabulary. A top `# ` H1 title, usually an
+        author/effort/date prose line beneath it, then either a numbered section
+        list (## 1. Source identity and currency, ## 2. Verbatim, ## 3. Locators,
+        ## 4. Completeness, ## 5. Typing, ## 6. Object model, ## 7. Claims,
+        ## 8. Cross-check, ## 9. Residual open issues) or a pass-structured set
+        (## Pass 2: verify, ## Pass 3: cross-check, ## Residual open issues). The
+        checker does not enforce the heading set.
+
+# ---------------------------------------------------------------------------
+# KIND RECONCILIATION — record.yaml distillation.artifacts[].kind
+# ---------------------------------------------------------------------------
+kind_reconciliation:
+  note: >
+    Four families existed in distilled/ with no matching `kind`, so they were
+    filed under a nearest-neighbour value. record.schema.yaml v0.7.0 adds the
+    four real kinds. RE-TAGGING the data records to use them is a SEPARATE
+    migration PR; this schema and bin/check-artifacts only make and document the
+    kinds. See docs/artifacts-schema.md.
+  added_kinds:
+    object-model: "object-model.yaml was filed under kind: diagram -> now kind: object-model"
+    crosswalk:    "crosswalk.yaml was filed under kind: requirements -> now kind: crosswalk"
+    claim-trees:  "*-claim-trees.yaml was filed under kind: diagram -> now kind: claim-trees"
+    verification: "verification.md carried NO kind -> now kind: verification"
+  fields_collision:
+    note: >
+      `library-fields/v1` and the FX-1 `fields` kind name two DIFFERENT things.
+      The FX-1 artifact `distilled/fields.yaml` (field/parameter definitions,
+      family field-definitions above) is the one record.schema.yaml means by
+      kind `fields`; it is mislabelled `schema: library-requirements/v1` in the
+      one real file. The schema string `library-fields/v1` is actually used by a
+      different artifact — the verbatim table-registry crypto-registry.yaml
+      (family table-registry). Both map to record kind `fields`. bin/check-artifacts
+      resolves the two apart by FILENAME and warns on the schema-string mismatch.
+      Picking a non-colliding schema string for one of them is left to the
+      migration PR, which can re-tag safely in one place.
