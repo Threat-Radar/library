@@ -28,10 +28,15 @@ LIB = Path(__file__).resolve().parents[1]
 RECORDS_ROOT = LIB / "records"
 TAGS_PATH = LIB / "schema" / "tags.yaml"
 PAGE_NAME = "summary.html"
+# The top chrome is a single REPLACEABLE REGION bounded by these two markers. The
+# library's own standalone pages render the default banner (README link) between them;
+# a publisher that hosts these pages elsewhere replaces everything from SITE_NAV_SLOT
+# to SITE_NAV_END (inclusive) with its own nav — so no library-relative link leaks and
+# there is no double chrome. Replace the REGION, not just the opening comment.
 SITE_NAV_SLOT = "<!-- site-nav -->"
-# Link to the library's front page, shown at the top of every generated page.
-# Relative to records/<body>/<id>/summary.html → the repo-root README. A publisher
-# that flattens the tree overrides it by replacing SITE_NAV_SLOT.
+SITE_NAV_END = "<!-- /site-nav -->"
+# Link to the library's front page in the default (standalone) banner.
+# Relative to records/<body>/<id>/summary.html → the repo-root README.
 README_HREF = "../../../README.md"
 
 SCHEMA_BODIES = {
@@ -602,6 +607,7 @@ def page(title: str, body: str) -> str:
         f"<a class=\"mark\" href=\"{README_HREF}\">Threat-Radar library</a>"
         f"<nav><a href=\"{README_HREF}\">README ↑</a></nav>"
         "</div></header>\n"
+        f"{SITE_NAV_END}\n"
         f"<main class=\"wrap\">\n{body}\n"
         "<footer><p>Generated from <code>record.yaml</code> and <code>summary.md</code> "
         "in this directory by the library's <code>bin/render-html</code>. Do not hand-edit. "

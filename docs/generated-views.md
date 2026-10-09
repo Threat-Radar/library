@@ -62,7 +62,11 @@ and copy the page into their site, keeping the `records/<body>/<id>/` layout
 so links between records still resolve. The page has two hooks for a
 publisher:
 
-- `<!-- site-nav -->` is where a site puts its own navigation.
+- The top chrome is a **replaceable region** between `<!-- site-nav -->` and
+  `<!-- /site-nav -->`. Standalone library pages render a default banner (a link
+  to the repo README) inside it; a publisher replaces the **whole region**
+  (both markers inclusive) with its own nav — so no library-relative link leaks
+  and there is no double chrome. Replace the region, not just the opening comment.
 - `<a class="rec" data-id="…">` marks a link to another record, so a site
   can turn a link to a record it does not publish into plain text.
 
