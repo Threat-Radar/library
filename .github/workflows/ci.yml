@@ -30,7 +30,9 @@ jobs:
       - name: every record appears in the bibliography
         run: |
           recs=$(ls -d records/*/*/ 2>/dev/null | wc -l | tr -d ' ')
-          bib=$(grep -c '^- \*\*' index/bibliography.md || echo 0)
+          # Count the main list only. bin/reindex appends a `# By topic`
+          # section that lists records again; counting it double-counts.
+          bib=$(awk '/^# By topic/{exit} /^- \*\*/{n++} END{print n+0}' index/bibliography.md)
           echo "records=$recs bibliography-entries=$bib"
           if [ "$recs" != "$bib" ]; then
             echo "::error::$recs records but $bib bibliography entries - the bibliography is incomplete"
