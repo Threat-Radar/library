@@ -109,8 +109,13 @@ count reconciliation, `kind=inferred` needs a note, `provenance=ours` needs a
   scheme-keyed map validates natively.
 - **M2** — `verb`/`actor` demoted to `recommended` (108/48 real rows lack them).
   `condition` is **recommended, not required**: §1 lists it mandatory but only
-  **984/6274** rows carry one — a deliberate, documented divergence from §1
-  pending a decision on whether to infer "unconditional" on extraction.
+  **984/6274** rows carry one. **RESOLVED (sponsor, 2026-10-09) → hybrid:** keep
+  `recommended` in the schema so the corpus loads; the gate emits a warn-only finding
+  for a missing `condition`; the extract skill + §1 are tightened so **every newly
+  extracted or re-touched requirement states `condition`** (explicit "unconditional"
+  allowed); old rows are backfilled **as records are revisited**, not in a mass
+  inference pass. The requirements schema may keep resolving toward required as
+  coverage rises.
 - **M3** — `verbs` (multivalued) added for the 72 rows that bundle verbs.
 - **M4** — `maps_to` gains `xref_record` (`record`), `xref_id` (`id`),
   `xref_basis` (`basis`), and reuses `title`; `id` is renamed so it never
