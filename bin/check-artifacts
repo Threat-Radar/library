@@ -48,6 +48,12 @@ SCHEMA_FAMILY = {
     "library-requirements/v1": "requirements",
     "library-requirements/v2": "requirements",
     "library-fields/v1": "table-registry",
+    # forward-looking families (no records yet — see schema/artifact.schema.yaml
+    # forward_looking_families): resolved by filename, string used only to WARN.
+    "library-procedures/v1": "procedures",
+    "library-agents/v1": "agents",
+    "library-formal-proofs/v1": "formal-proofs",
+    "library-threats/v1": "threats-vulnerabilities",
 }
 
 # state-machine transition endpoints that are wildcards, not state ids
@@ -65,6 +71,14 @@ def family_of(path):
     if stem == "crosswalk":       return "crosswalk"
     if stem == "fields":          return "field-definitions"
     if stem == "crypto-registry": return "table-registry"
+    # forward-looking families (0 files today — see schema/artifact.schema.yaml
+    # forward_looking_families). With no files these resolvers never fire, so the
+    # gate is unchanged on the existing corpus; they are ready for the first such
+    # artifact.
+    if stem == "procedures":      return "procedures"
+    if stem == "agents":          return "agents"
+    if stem == "formal-proofs":   return "formal-proofs"
+    if stem == "threats":         return "threats-vulnerabilities"
     if stem.endswith("claim-trees"): return "claim-trees"
     if stem.endswith("registry"): return "table-registry"
     return None  # unknown stem
@@ -193,6 +207,29 @@ def check_protocol(d, recdir, warn):
              f"in messages.yaml (author-coined names — data issue for the migration PR)")
 
 
+def check_procedures(d, warn):
+    """WARN-first: each step's `actor` SHOULD resolve to a declared role.
+
+    Forward-looking family (no records yet); runs only once such files exist.
+    Roles may be declared at the top level or inside each procedure.
+    """
+    top_roles = {n for r in as_list(d.get("roles")) for n in node_id(r)}
+    unresolved = 0
+    for proc in as_list(d.get("procedures")):
+        if not isinstance(proc, dict):
+            continue
+        roles = top_roles | {n for r in as_list(proc.get("roles")) for n in node_id(r)}
+        for step in as_list(proc.get("steps")):
+            if not isinstance(step, dict):
+                continue
+            actor = step.get("actor")
+            if isinstance(actor, str) and actor.strip() and actor not in roles:
+                unresolved += 1
+    if unresolved:
+        warn(f"procedures: {unresolved} step actor(s) do not resolve to a declared role "
+             f"(descriptive/cross-document actors — data issue)")
+
+
 def crosswalk_layout(d):
     """Infer the crosswalk layout from the body; None if undetermined."""
     if isinstance(d.get("schemes"), list):
@@ -298,6 +335,23 @@ def main():
         elif fam == "claim-trees":
             if not isinstance(d.get("trees"), list):
                 struct_err.append(f"{rel}: claim-trees requires a list `trees`")
+        # --- forward-looking families (no records yet) ---
+        elif fam == "procedures":
+            if not isinstance(d.get("procedures"), list):
+                struct_err.append(f"{rel}: procedures requires a list `procedures`")
+            else:
+                check_procedures(d, warn)
+        elif fam == "agents":
+            if not isinstance(d.get("agents"), list):
+                struct_err.append(f"{rel}: agents requires a list `agents`")
+        elif fam == "formal-proofs":
+            if not (isinstance(d.get("claims"), list) or isinstance(d.get("proofs"), list)):
+                struct_err.append(f"{rel}: formal-proofs requires a list `claims` or `proofs`")
+        elif fam == "threats-vulnerabilities":
+            if not any(isinstance(d.get(k), list)
+                       for k in ("threats", "weaknesses", "vulnerabilities")):
+                struct_err.append(f"{rel}: threats requires one of list "
+                                  f"`threats`/`weaknesses`/`vulnerabilities`")
 
     # --- report ---
     for w in warns:

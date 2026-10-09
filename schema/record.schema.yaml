@@ -1,5 +1,5 @@
 schema: "library-record-schema/v5"
-version: "0.7.0"
+version: "0.8.0"
 updated: "2026-10-09"
 description: Normative shape of library/records/<id>/record.yaml
 basis: >
@@ -207,7 +207,8 @@ fields:
           kind: {type: enum, values: [normative, fields, requirements, state-machine,
                                       schema, messages, protocol, code, examples,
                                       design-notes, glossary, diagram,
-                                      object-model, crosswalk, claim-trees, verification]}
+                                      object-model, crosswalk, claim-trees, verification,
+                                      procedures, agents, formal-proofs, threats]}
           # object-model, crosswalk, claim-trees and verification were added in
           # v0.7.0 (2026-10-09). They name artifact families that already exist in
           # distilled/ but were filed under older kinds: object-model.yaml and
@@ -217,6 +218,19 @@ fields:
           # records to the new kinds is a SEPARATE migration PR; this schema only
           # makes the values legal so that migration does not also have to edit the
           # schema. See docs/artifacts-schema.md.
+          #
+          # procedures, agents, formal-proofs and threats were added in v0.8.0
+          # (2026-10-09). These are FORWARD-LOOKING, sponsor-requested families
+          # with NO records yet (0 in the corpus): their shapes are grounded
+          # DESIGN anchored in external standards and the FX-1 intent, not
+          # extraction of observed files. Legalising the values now means a
+          # record can declare one the day the first such artifact is extracted,
+          # without another schema edit. Their body shapes are formalised under
+          # forward_looking_families in schema/artifact.schema.yaml. `threats`
+          # extracts the threat/weakness/vulnerability DESCRIPTIONS a source
+          # gives; a consuming knowledge graph references them by opaque id —
+          # the library carries no dependency on any consumer. See
+          # docs/artifacts-schema.md.
           path: {type: string}
           coverage: {type: string, note: "what it covers AND what it does not"}
           generated_from: {type: string, required: false, note: "another artifact, for derived ones"}

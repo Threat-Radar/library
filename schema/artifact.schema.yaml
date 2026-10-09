@@ -1,5 +1,5 @@
 schema: "library-artifact-schema/v1"
-version: "0.1.0"
+version: "0.2.0"
 updated: "2026-10-09"
 description: Normative shape of the distilled artifact files under records/<body>/<id>/distilled/
 basis: >
@@ -507,6 +507,257 @@ families:
         ## 8. Cross-check, ## 9. Residual open issues) or a pass-structured set
         (## Pass 2: verify, ## Pass 3: cross-check, ## Residual open issues). The
         checker does not enforce the heading set.
+
+# ---------------------------------------------------------------------------
+# FORWARD-LOOKING FAMILIES — sponsor-requested, NO records yet (0 in corpus)
+# ---------------------------------------------------------------------------
+# These four families are grounded DESIGN, not extraction of observed files:
+# no distilled/ file uses them today, so their shapes are anchored in external
+# standards and the FX-1 intent (docs/extraction.md) rather than derived from a
+# real file (contrast the `provenance: derived from ...` on the seven families
+# above, which cite a real record). They are EXTRACTION-layer artifacts — what a
+# SOURCE DOCUMENT describes — and stay standalone: any mention of a downstream
+# knowledge-graph object (a threat/weakness/vulnerability/mitigation modelled by
+# a consuming project) is an OPAQUE reference by id, never a dependency, exactly
+# like the tmodel_mapping notes on object-model (see standalone above). The
+# checker recognises each by FILENAME stem and, with zero files, performs zero
+# checks — no regression. See docs/artifacts-schema.md for example skeletons.
+forward_looking_families:
+
+  procedures:
+    file: "distilled/procedures.yaml"
+    schema_string: "library-procedures/v1"
+    kind: procedures
+    anchor: >
+      process standards and secure-development-lifecycle docs that write a
+      practice AS A PROCEDURE: NIST SSDF (SP 800-218) practices/tasks, ISO/IEC
+      process clauses (e.g. 12207/15288 activity-task-outcome), SAMM/BSIMM
+      activities. No derived-from file — grounded in those process models.
+    note: >
+      The documented processes/procedures a source defines: named procedures,
+      each an ORDERED list of steps (order is significant), with the roles that
+      perform them and the entry/exit criteria that bound them. Distinct from
+      protocol (message exchange between roles) — a procedure is a work process,
+      steps need not exchange a message.
+    required: [procedures]
+    body:
+      roles:
+        type: list
+        required: false
+        note: "the actors a procedure's steps reference; bare strings, or {id|name, definition, locator}"
+      procedures:
+        type: list
+        note: "each a named process the source defines"
+        item_keys:
+          id:             {type: string, required: false}
+          name:           {type: string, required: false, note: "id or name identifies the procedure"}
+          locator:        {type: string, required: false}
+          trigger:        {type: string, required: false, note: "what initiates the procedure"}
+          entry_criteria: {type: list, of: string, required: false, note: "preconditions that must hold to start"}
+          exit_criteria:  {type: list, of: string, required: false, note: "postconditions that mark completion"}
+          roles:          {type: list, required: false, note: "roles local to this procedure, if not declared at top level"}
+          steps:
+            type: list
+            note: "ORDERED — order is the step sequence"
+            item_keys:
+              n:       {type: int, required: false, note: "step number / order"}
+              actor:   {type: string, required: false, note: "the role performing the step; SHOULD resolve to a declared role — see integrity"}
+              action:  {type: string, note: "what the step does"}
+              inputs:  {type: list, of: string, required: false, note: "artifacts/inputs the step consumes"}
+              outputs: {type: list, of: string, required: false, note: "artifacts/outputs the step produces"}
+              trigger: {type: string, required: false, note: "event that fires this step, if conditional"}
+              locator: {type: string, required: false}
+              kind:    {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+          kind:           {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+    referential_integrity:
+      note: >
+        WARN-first. Each step's `actor` SHOULD resolve to a role declared in the
+        procedure's own `roles` or the top-level `roles`. Descriptive or
+        cross-document actors are expected residuals and warn, never fail.
+
+  agents:
+    file: "distilled/agents.yaml"
+    schema_string: "library-agents/v1"
+    kind: agents
+    anchor: >
+      AI-agent and actor-model descriptions: agentic-AI threat sources (SAGAI /
+      secure-agentic-AI guidance, OWASP agentic threat taxonomies, NIST AI-agent
+      material). No derived-from file — grounded in those actor-model sources.
+    scope: >
+      SPONSOR-NAMED family; the precise scope is OPEN FOR REVIEW (flagged in
+      docs/artifacts-schema.md). "agents" here means an actor/agent role the
+      SOURCE DOCUMENT defines — NOT our FX-1 extraction agents, and NOT the
+      consuming project's model objects. The autonomy vocabulary below is
+      PROVISIONAL pending that review.
+    note: >
+      The agent/actor roles a source defines: identity, role, capabilities,
+      autonomy level, and the trust assumptions the source attaches to each.
+      An extraction-layer description of actors, consumed (by opaque id) by
+      whatever models them downstream.
+    required: [agents]
+    body:
+      agents:
+        type: list
+        item_keys:
+          id:                {type: string, note: "the identity; unique within the file"}
+          role:              {type: string, required: false, note: "the actor role the source names"}
+          capabilities:      {type: list, of: string, required: false, note: "what the source says the agent can do"}
+          autonomy:          {type: enum, values: [human-directed, supervised, semi-autonomous, autonomous], required: false, note: "PROVISIONAL vocabulary — scope under review"}
+          trust_assumptions: {type: list, of: string, required: false, note: "what the source assumes trusted/untrusted about this agent"}
+          locator:           {type: string, required: false}
+          kind:              {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+          notes:             {type: string, required: false}
+
+  formal-proofs:
+    file: "distilled/formal-proofs.yaml"
+    schema_string: "library-formal-proofs/v1"
+    kind: formal-proofs
+    anchor: >
+      assurance cases and formal-verification claims: OMG SACM, CAE
+      (Claims-Arguments-Evidence) and GSN (Goal Structuring Notation) assurance
+      cases, and formal-method proof claims/obligations. No derived-from file.
+    note: >
+      Formal/assurance proof structures: the claims a source asserts, the
+      arguments/strategies connecting them to subclaims and evidence, the
+      evidence grounding leaf claims, the assumptions relied on, and the proof
+      obligations still to discharge. A file carries either a single case
+      (top-level `claims`) or several (`proofs`).
+    relation_to_claim_trees: >
+      DISTINCT from the claim-trees family. claim-trees is a NARROW transcription
+      of APC assurance-claim trees recovered from SOURCE DIAGRAMS (SVG), where
+      each node is {id, text, parent, parent_kind} and edge geometry is lost.
+      formal-proofs is the GENERAL assurance/proof artifact: it models arguments,
+      evidence, assumptions and obligations as first-class lists, independent of
+      any diagram. A claim-tree could be expressed as a trivial formal-proof
+      (claims only, no arguments/evidence), but the two are kept separate so the
+      diagram-transcription provenance of claim-trees is not lost.
+    required_one_of:
+      - [claims]
+      - [proofs]
+    body:
+      proofs:
+        type: list
+        required: false
+        note: "multi-case shape; each item is one named assurance case / proof the source defines"
+        item_keys:
+          id:           {type: string, required: false}
+          name:         {type: string, required: false}
+          locator:      {type: string, required: false}
+          claims:       {type: list, note: "see claims below"}
+          arguments:    {type: list, required: false, note: "see arguments below"}
+          evidence:     {type: list, required: false, note: "see evidence below"}
+          assumptions:  {type: list, required: false}
+          obligations:  {type: list, required: false}
+      claims:
+        type: list
+        required: false
+        note: "single-case shape — the asserted claims/goals (GSN goals, CAE claims)"
+        item_keys:
+          id:        {type: string, note: "the identity; referenced by arguments/evidence"}
+          statement: {type: string, required: false, note: "the claim text (also seen as text)"}
+          parent:    {type: string, required: false, note: "a parent claim id, for a claim hierarchy"}
+          supported_by: {type: "string | list<string>", required: false, note: "argument/evidence id(s) that discharge this claim — see integrity"}
+          locator:   {type: string, required: false}
+          kind:      {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+      arguments:
+        type: list
+        required: false
+        note: "the reasoning strategies connecting claims to subclaims/evidence (GSN strategy, CAE argument)"
+        item_keys:
+          id:          {type: string}
+          statement:   {type: string, required: false}
+          from_claim:  {type: "string | list<string>", required: false, note: "claim id(s) this argument supports"}
+          to:          {type: "string | list<string>", required: false, note: "subclaim/evidence id(s) it appeals to"}
+          locator:     {type: string, required: false}
+          kind:        {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+      evidence:
+        type: list
+        required: false
+        note: "the solutions/evidence nodes grounding leaf claims (GSN solution)"
+        item_keys:
+          id:          {type: string}
+          description: {type: string, required: false}
+          source_ref:  {type: string, required: false, note: "where the evidence lives; an opaque string, not resolved"}
+          locator:     {type: string, required: false}
+          kind:        {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+      assumptions:
+        type: list
+        required: false
+        note: "{id, statement, locator, kind} — context/assumption nodes the case relies on"
+      obligations:
+        type: list
+        required: false
+        note: "{id, statement, discharged (bool), locator, kind} — proof obligations still open or discharged"
+    referential_integrity:
+      note: >
+        WARN-first. A claim's `supported_by` and an argument's `from_claim`/`to`
+        SHOULD resolve to a declared claim/argument/evidence id in the same file
+        (or the same proof). Unresolved ids are a data issue, warned not failed.
+
+  threats-vulnerabilities:
+    file: "distilled/threats.yaml"
+    schema_string: "library-threats/v1"
+    kind: threats
+    anchor: >
+      threat/weakness/vulnerability catalogues and taxonomies a source
+      describes: MITRE CWE/CAPEC/ATT&CK, CVE/NVD, STRIDE and kill-chain
+      narratives, ISO/SAE 21434 threat scenarios. No derived-from file.
+    note: >
+      The threats, weaknesses and vulnerabilities a source DESCRIBES: threat
+      scenarios (actor, capability, attack vector, affected asset) and
+      weakness/vulnerability entries (an external id such as a CWE/CAPEC/CVE
+      string, plus a description). A file carries one or more of `threats`,
+      `weaknesses`, `vulnerabilities`.
+    consumed_by: >
+      These are the EXTRACTED descriptions of what the source says. A consuming
+      threat-model knowledge graph (e.g. its ThreatInstance / Weakness /
+      Vulnerability / Mitigation objects) CONSUMES them by OPAQUE id — the link
+      runs consumer->library and lives in the consumer, exactly like the
+      tmodel_mapping notes on object-model. This family does NOT model the KG:
+      no instantiation against a product, no risk vector, no mitigation state.
+      external_id fields are opaque strings; the checker does not resolve them.
+    required_one_of:
+      - [threats]
+      - [weaknesses]
+      - [vulnerabilities]
+    body:
+      threats:
+        type: list
+        required: false
+        note: "threat scenarios the source describes"
+        item_keys:
+          id:             {type: string, required: false}
+          name:           {type: string, required: false, note: "id or name identifies the threat"}
+          description:    {type: string, required: false}
+          actor:          {type: string, required: false, note: "the threat actor the scenario names"}
+          capability:     {type: string, required: false, note: "the capability/skill the actor is assumed to have"}
+          attack_vector:  {type: string, required: false, note: "how the threat is carried out"}
+          affected_asset: {type: "string | list<string>", required: false, note: "the asset(s) at risk"}
+          external_id:    {type: "string | list<string>", required: false, note: "e.g. a CAPEC or ATT&CK id, as an OPAQUE string — not resolved"}
+          locator:        {type: string, required: false}
+          kind:           {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+      weaknesses:
+        type: list
+        required: false
+        note: "weakness classes the source describes (a flaw type, not a product instance)"
+        item_keys:
+          id:          {type: string, required: false}
+          external_id: {type: "string | list<string>", required: false, note: "e.g. a CWE id, as an OPAQUE string — not resolved"}
+          description: {type: string, required: false}
+          locator:     {type: string, required: false}
+          kind:        {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
+      vulnerabilities:
+        type: list
+        required: false
+        note: "concrete vulnerabilities the source names (an instance in a product/version)"
+        item_keys:
+          id:            {type: string, required: false}
+          external_id:   {type: "string | list<string>", required: false, note: "e.g. a CVE id, as an OPAQUE string — not resolved"}
+          description:   {type: string, required: false}
+          affected:      {type: string, required: false, note: "the product/version the source says is affected"}
+          weakness_ref:  {type: "string | list<string>", required: false, note: "a weakness id/external_id this instantiates; opaque, not resolved"}
+          locator:       {type: string, required: false}
+          kind:          {type: enum, values: [stated, inferred, inferred-from-heading], required: false}
 
 # ---------------------------------------------------------------------------
 # KIND RECONCILIATION — record.yaml distillation.artifacts[].kind
