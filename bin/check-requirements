@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+"""
+check-requirements — the requirements-schema acceptance gate.
+
+Normalizes every raw v2 `records/*/*/distilled/requirements.yaml` through
+bin/_requirements.normalize_set() and validates the normalized output against
+schema/requirements.linkml.yaml with `linkml-validate` (target class
+RequirementSet). The raw data files are never modified.
+
+  bin/check-requirements            # gate: normalize + linkml-validate all 44
+  bin/check-requirements --keep     # also leave normalized YAML in a temp dir
+  bin/check-requirements --invariants   # + warn-only cross-field invariants
+
+Exit status is non-zero if any file fails to validate. Requires `linkml` and
+`pyyaml` (dev/CI deps).
+"""
+from __future__ import annotations
+import glob
+import os
+import subprocess
+import sys
+import tempfile
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+sys.path.insert(0, HERE)
+
+import yaml  # noqa: E402
+from _requirements import normalize_set  # noqa: E402
+
+SCHEMA = os.path.join(ROOT, "schema", "requirements.linkml.yaml")
+GLOB = os.path.join(ROOT, "records", "*", "*", "distilled", "requirements.yaml")
+
+
+def record_id(path: str) -> str:
+    return os.path.basename(os.path.dirname(os.path.dirname(path)))
+
+
+def run_linkml_validate(files: list[str]) -> tuple[int, str]:
+    cmd = [
+        "linkml-validate", "-s", SCHEMA, "-C", "RequirementSet",
+        "--allow-null-for-optional-enums", *files,
+    ]
+    p = subprocess.run(cmd, capture_output=True, text=True)
+    return p.returncode, (p.stdout + p.stderr)
+
+
+def cross_field_invariants(rid: str, doc: dict) -> list[str]:
+    """Warn-only checks that are NOT expressible as schema shape (stay here, not SHACL)."""
+    warns = []
+    skw, ekw = doc.get("source_keyword_count"), doc.get("extracted_keyword_count")
+    if isinstance(skw, int) and isinstance(ekw, int) and skw != ekw and not doc.get("reconciliation"):
+        warns.append(f"{rid}: source/extracted keyword counts differ ({skw}!={ekw}) with no reconciliation")
+    for r in (doc.get("requirements") or []):
+        if not isinstance(r, dict):
+            continue
+        i = r.get("id", "?")
+        if r.get("kind") == "inferred" and not (r.get("inferred_note") or r.get("notes")):
+            warns.append(f"{rid}: {i}: kind=inferred but no inferred_note/notes")
+        for m in (r.get("maps_to") or []):
+            if isinstance(m, dict) and m.get("provenance") == "ours" and not m.get("rationale"):
+                warns.append(f"{rid}: {i}: maps_to provenance=ours but no rationale")
+    return warns
+
+
+def main() -> int:
+    keep = "--keep" in sys.argv
+    do_inv = "--invariants" in sys.argv
+    files = sorted(glob.glob(GLOB))
+    if not files:
+        print("no requirements.yaml files found", file=sys.stderr)
+        return 2
+    print(f"found {len(files)} requirement sets")
+
+    tmpdir = tempfile.mkdtemp(prefix="reqnorm-")
+    normalized, inv_warnings = [], []
+    for path in files:
+        rid = record_id(path)
+        with open(path) as fh:
+            raw = yaml.safe_load(fh)
+        norm = normalize_set(raw)
+        outp = os.path.join(tmpdir, f"{rid}.yaml")
+        with open(outp, "w") as fh:
+            yaml.safe_dump(norm, fh, sort_keys=False, allow_unicode=True)
+        normalized.append(outp)
+        if do_inv:
+            inv_warnings += cross_field_invariants(rid, norm)
+
+    print(f"normalized -> {tmpdir}")
+    print("running: linkml-validate -s schema/requirements.linkml.yaml "
+          "-C RequirementSet --allow-null-for-optional-enums <44 normalized files>")
+    rc, out = run_linkml_validate(normalized)
+
+    failures = []
+    if rc != 0 or "error" in out.lower() or "not valid" in out.lower():
+        # localize: validate each file on its own
+        for outp in normalized:
+            frc, fout = run_linkml_validate([outp])
+            if frc != 0 or fout.strip().lower().replace("no issues found", "").strip():
+                if "No issues found" not in fout or frc != 0:
+                    failures.append((os.path.basename(outp), fout.strip()))
+
+    n = len(normalized)
+    nfail = len(failures)
+    print("\n=== GATE RESULT ===")
+    if nfail == 0 and rc == 0:
+        print(f"{n} files validated, 0 failures")
+    else:
+        print(f"{n} files checked, {nfail} failures")
+        for name, msg in failures:
+            print(f"\n--- {name} ---\n{msg[:2000]}")
+        if not failures and rc != 0:
+            print("bulk linkml-validate returned non-zero; raw output:")
+            print(out[:2000])
+
+    if do_inv:
+        print(f"\n=== cross-field invariant warnings ({len(inv_warnings)}) ===")
+        for w in inv_warnings[:50]:
+            print("  WARN", w)
+        if len(inv_warnings) > 50:
+            print(f"  ... and {len(inv_warnings)-50} more")
+
+    if not keep:
+        import shutil
+        shutil.rmtree(tmpdir, ignore_errors=True)
+    else:
+        print(f"\nnormalized files kept in {tmpdir}")
+
+    return 0 if (nfail == 0 and rc == 0) else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -15,16 +15,22 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
 
+      - name: YAML reader regression tests
+        run: bin/test_yaml.py
+
       - name: records and topics validate
         run: bin/validate
 
-      - name: distilled artifact families validate
-        # Structural gate over records/*/*/distilled/*.yaml (schema/artifact.schema.yaml).
-        # Fails on a parse failure or a structural error; referential-integrity
-        # mismatches are reported as warnings (data issues for the re-tagging PR).
+      - name: requirements schema gate (normalize v2 -> validate v3)
         run: |
           python -m pip install --quiet -r requirements-dev.txt
-          bin/check-artifacts
+          bin/check-requirements
+      - name: distilled artifact families validate
+        # Structural gate over records/*/*/distilled/*.yaml (schema/artifact.schema.yaml).
+        # Deps already installed by the step above (same job). Fails on a parse
+        # failure or a structural error; referential-integrity mismatches are
+        # reported as warnings (data issues for the re-tagging PR).
+        run: bin/check-artifacts
 
       - name: generate derived views
         run: |
@@ -38,8 +44,9 @@ jobs:
       - name: every record appears in the bibliography
         run: |
           recs=$(ls -d records/*/*/ 2>/dev/null | wc -l | tr -d ' ')
-          # Count the main list only. bin/reindex appends a `# By topic`
-          # section that lists records again; counting it double-counts.
+          # Count the per-shelf section only. Since #49 the bibliography also
+          # regroups the same entries "By topic"; counting those too made main
+          # report 563 entries for 280 records and fail.
           bib=$(awk '/^# By topic/{exit} /^- \*\*/{n++} END{print n+0}' index/bibliography.md)
           echo "records=$recs bibliography-entries=$bib"
           if [ "$recs" != "$bib" ]; then

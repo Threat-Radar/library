@@ -1,4 +1,9 @@
-# Dev/CI-only dependencies. bin/validate stays dependency-free (bin/_yaml.py),
-# but bin/check-artifacts needs a real YAML parser: the distilled artifact files
-# use flow collections that bin/_yaml.py deliberately drops.
-PyYAML>=6.0
+# Dev / CI-only dependencies. The library's record/topic tooling (bin/validate,
+# bin/export, bin/reindex, bin/render-html) stays stdlib-only. These are needed
+# only by the schema gates:
+#   - linkml: `linkml-validate` + `gen-json-schema` for the requirements schema
+#     (bin/check-requirements, via the bin/_requirements.py normalization loader)
+#   - pyyaml: the requirements loader AND bin/check-artifacts (the distilled
+#     artifact files use flow collections that bin/_yaml.py deliberately drops)
+linkml>=1.12.0
+pyyaml>=6.0
