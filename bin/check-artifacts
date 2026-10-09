@@ -1,0 +1,378 @@
+#!/usr/bin/env python3
+"""check-artifacts — validate the distilled artifact families.
+
+schema/record.schema.yaml governs record.yaml; this tool governs the distilled
+artifact SET (schema/artifact.schema.yaml, FX-1 in docs/extraction.md). For
+every records/<body>/<id>/distilled/*.yaml it:
+
+  1. parses it (PyYAML — the in-repo bin/_yaml.py drops flow collections and
+     cannot read these files, so this tool uses real YAML; see requirements-dev.txt),
+  2. checks the envelope (`record` required; `schema` expected),
+  3. checks the family's required body keys (family resolved by FILENAME, which
+     is canonical and handles both the 7 schema-less files and the
+     fields.yaml / crypto-registry.yaml schema collision), and
+  4. runs referential integrity WARN-FIRST:
+       - object-model: every edge endpoint resolves to a declared object,
+       - state-machine: every transition endpoint resolves to a declared state,
+       - protocol: every step message resolves to a declared message.
+
+GATE: every file must PARSE and pass structural checks (0 parse failures, 0
+structural errors). Referential-integrity mismatches are WARNINGS — they are
+data issues for the separate re-tagging/migration PR, not schema defects — and
+are reported with counts. Exit non-zero only on a parse failure or a structural
+error.
+
+Dependency-only-PyYAML by design; CI installs requirements-dev.txt.
+"""
+import glob, os, pathlib, sys
+
+try:
+    import yaml
+except ImportError:
+    sys.exit("ERROR check-artifacts needs PyYAML (pip install -r requirements-dev.txt)")
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+# Family is resolved by filename stem — canonical and reliable. crypto-registry
+# and *-claim-trees are the two non-obvious stems.
+PROVENANCE = {"stated", "inferred", "inferred-from-heading"}
+
+# schema string -> the family the string claims (used only to WARN on mismatch)
+SCHEMA_FAMILY = {
+    "library-object-model/v1": "object-model",
+    "library-state-machine/v1": "state-machine",
+    "library-protocol/v1": "protocol",
+    "library-messages/v1": "table-registry-or-messages",  # see note in resolve_family
+    "library-crosswalk/v1": "crosswalk",
+    "library-claim-trees/v1": "claim-trees",
+    "library-requirements/v1": "requirements",
+    "library-requirements/v2": "requirements",
+    "library-fields/v1": "table-registry",
+    # forward-looking families (no records yet — see schema/artifact.schema.yaml
+    # forward_looking_families): resolved by filename, string used only to WARN.
+    "library-procedures/v1": "procedures",
+    "library-agents/v1": "agents",
+    "library-formal-proofs/v1": "formal-proofs",
+    "library-threats/v1": "threats-vulnerabilities",
+}
+
+# state-machine transition endpoints that are wildcards, not state ids
+SM_WILDCARDS = {"any", "any_lower", "none", "", "level-n", "level-m"}
+
+
+def family_of(path):
+    """Resolve the artifact family from the filename stem."""
+    stem = os.path.basename(path)[:-5]  # strip .yaml
+    if stem == "object-model":    return "object-model"
+    if stem == "requirements":    return "requirements"
+    if stem == "state-machine":   return "state-machine"
+    if stem == "protocol":        return "protocol"
+    if stem == "messages":        return "messages"
+    if stem == "crosswalk":       return "crosswalk"
+    if stem == "fields":          return "field-definitions"
+    if stem == "crypto-registry": return "table-registry"
+    # forward-looking families (0 files today — see schema/artifact.schema.yaml
+    # forward_looking_families). With no files these resolvers never fire, so the
+    # gate is unchanged on the existing corpus; they are ready for the first such
+    # artifact.
+    if stem == "procedures":      return "procedures"
+    if stem == "agents":          return "agents"
+    if stem == "formal-proofs":   return "formal-proofs"
+    if stem == "threats":         return "threats-vulnerabilities"
+    if stem.endswith("claim-trees"): return "claim-trees"
+    if stem.endswith("registry"): return "table-registry"
+    return None  # unknown stem
+
+
+def as_list(v):
+    return v if isinstance(v, list) else []
+
+
+def norm_tokens(endpoint):
+    """Endpoint -> list of plain object/state tokens.
+
+    An endpoint may be a bare string, a pipe-union 'A|B|C' (optionally spaced),
+    or a YAML list of such strings. Returns stripped tokens.
+    """
+    out = []
+    items = endpoint if isinstance(endpoint, list) else [endpoint]
+    for it in items:
+        if not isinstance(it, str):
+            continue
+        for tok in it.split("|"):
+            tok = tok.strip()
+            if tok:
+                out.append(tok)
+    return out
+
+
+def node_id(item):
+    """Identity of an object/state item: the bare string, or its id/name."""
+    if isinstance(item, str):
+        return [item]
+    if isinstance(item, dict):
+        return [str(item[k]) for k in ("id", "name") if item.get(k)]
+    return []
+
+
+def check_object_model(d, warn):
+    objs = as_list(d.get("objects"))
+    names = {n for o in objs for n in node_id(o)}
+    unresolved = 0
+    for e in as_list(d.get("edges")):
+        if not isinstance(e, dict):
+            continue
+        for side in ("from", "to"):
+            for tok in norm_tokens(e.get(side)):
+                if tok not in names:
+                    unresolved += 1
+    if unresolved:
+        warn(f"object-model: {unresolved} edge endpoint(s) do not resolve to a declared object "
+             f"(descriptive/list/union endpoints — data issue for the migration PR)")
+
+
+def iter_machines(d):
+    """Yield (states_list, transitions_list) for every machine in the file."""
+    if isinstance(d.get("machines"), list):
+        for m in d["machines"]:
+            if isinstance(m, dict):
+                yield as_list(m.get("states")), as_list(m.get("transitions"))
+    if "states" in d or "transitions" in d:
+        yield as_list(d.get("states")), as_list(d.get("transitions"))
+
+
+def check_state_machine(d, warn):
+    unresolved = 0
+    for states, transitions in iter_machines(d):
+        ids = {n for s in states for n in node_id(s)}
+        for t in transitions:
+            if not isinstance(t, dict):
+                continue
+            for side in ("from", "to"):
+                v = t.get(side)
+                if v is None:
+                    continue
+                for tok in norm_tokens(v):
+                    if tok in SM_WILDCARDS or str(tok).startswith("level("):
+                        continue
+                    if tok not in ids:
+                        unresolved += 1
+    if unresolved:
+        warn(f"state-machine: {unresolved} transition endpoint(s) do not resolve to a declared state "
+             f"(descriptive/wildcard endpoints — data issue for the migration PR)")
+
+
+def declared_messages_for(recdir):
+    """Names/ids of every message declared in a record's messages.yaml."""
+    names = set()
+    mfile = recdir / "messages.yaml"
+    if not mfile.exists():
+        return names
+    try:
+        md = yaml.safe_load(mfile.read_text()) or {}
+    except Exception:
+        return names
+    if not isinstance(md, dict):
+        return names
+    for container in ("messages", "structures", "exchanges"):
+        for m in as_list(md.get(container)):
+            if isinstance(m, dict):
+                for k in ("name", "id"):
+                    if m.get(k):
+                        names.add(str(m[k]))
+    return names
+
+
+def check_protocol(d, recdir, warn):
+    declared = declared_messages_for(recdir)
+    # a protocol file may also inline its own messages
+    for m in as_list(d.get("messages")):
+        if isinstance(m, dict):
+            for k in ("name", "id"):
+                if m.get(k):
+                    declared.add(str(m[k]))
+    unresolved = 0
+    for flow in as_list(d.get("flows")):
+        if not isinstance(flow, dict):
+            continue
+        for step in as_list(flow.get("steps")):
+            if not isinstance(step, dict):
+                continue
+            for key in ("message", "produces"):
+                ref = step.get(key)
+                if isinstance(ref, str) and ref.strip() and ref not in declared:
+                    unresolved += 1
+    if unresolved:
+        warn(f"protocol: {unresolved} step message reference(s) do not resolve to a declared message "
+             f"in messages.yaml (author-coined names — data issue for the migration PR)")
+
+
+def check_procedures(d, warn):
+    """WARN-first: each step's `actor` SHOULD resolve to a declared role.
+
+    Forward-looking family (no records yet); runs only once such files exist.
+    Roles may be declared at the top level or inside each procedure.
+    """
+    top_roles = {n for r in as_list(d.get("roles")) for n in node_id(r)}
+    unresolved = 0
+    for proc in as_list(d.get("procedures")):
+        if not isinstance(proc, dict):
+            continue
+        roles = top_roles | {n for r in as_list(proc.get("roles")) for n in node_id(r)}
+        for step in as_list(proc.get("steps")):
+            if not isinstance(step, dict):
+                continue
+            actor = step.get("actor")
+            if isinstance(actor, str) and actor.strip() and actor not in roles:
+                unresolved += 1
+    if unresolved:
+        warn(f"procedures: {unresolved} step actor(s) do not resolve to a declared role "
+             f"(descriptive/cross-document actors — data issue)")
+
+
+def crosswalk_layout(d):
+    """Infer the crosswalk layout from the body; None if undetermined."""
+    if isinstance(d.get("schemes"), list):
+        return "pivot-by-scheme"
+    if isinstance(d.get("pairs"), list):
+        return "pair-list"
+    if isinstance(d.get("targets"), list) or isinstance(d.get("frameworks"), list):
+        return "inverse-index"
+    if any(k.startswith(("table_", "appendix")) for k in d):
+        return "transcribed-tables"
+    if isinstance(d.get("rows"), list):
+        return "row-table"
+    return None
+
+
+def main():
+    files = sorted(glob.glob(str(ROOT / "records" / "*" / "*" / "distilled" / "*.yaml")))
+    parse_fail = []
+    struct_err = []
+    warns = []
+    fam_counts = {}
+    layout_counts = {}
+
+    def mkwarn(path):
+        rel = os.path.relpath(path, ROOT)
+        return lambda msg: warns.append(f"{rel}: {msg}")
+
+    for f in files:
+        rel = os.path.relpath(f, ROOT)
+        try:
+            d = yaml.safe_load(pathlib.Path(f).read_text())
+        except Exception as e:
+            parse_fail.append(f"{rel}: {str(e).splitlines()[0]}")
+            continue
+        if not isinstance(d, dict):
+            struct_err.append(f"{rel}: top level is not a mapping")
+            continue
+
+        warn = mkwarn(f)
+
+        # --- envelope ---
+        if not d.get("record"):
+            struct_err.append(f"{rel}: missing required envelope key `record`")
+        sch = d.get("schema")
+        if not sch:
+            warn("missing `schema` envelope key (data gap — migration PR)")
+
+        fam = family_of(f)
+        if fam is None:
+            warn("unknown artifact family (unrecognised filename) — skipped family checks")
+            continue
+        fam_counts[fam] = fam_counts.get(fam, 0) + 1
+
+        # --- schema-string vs family mismatch (WARN) ---
+        if sch:
+            claimed = SCHEMA_FAMILY.get(str(sch).strip())
+            if fam == "table-registry" and str(sch).strip() == "library-fields/v1":
+                pass  # correct
+            elif fam == "field-definitions":
+                warn(f"schema string {sch!r} on a fields.yaml — known fields/requirements "
+                     f"collision (see schema/artifact.schema.yaml kind_reconciliation.fields_collision)")
+            elif fam == "messages" and str(sch).strip() == "library-messages/v1":
+                pass
+            elif claimed and claimed != fam and claimed != "table-registry-or-messages":
+                warn(f"schema string {sch!r} does not match filename family {fam!r}")
+
+        # --- family required body keys (STRUCTURAL) ---
+        if fam == "object-model":
+            if not (isinstance(d.get("objects"), list) and isinstance(d.get("edges"), list)):
+                struct_err.append(f"{rel}: object-model requires list `objects` and list `edges`")
+            else:
+                check_object_model(d, warn)
+        elif fam == "requirements":
+            # requirements shape is LinkML (library#16); here only presence is checked
+            if not isinstance(d.get("requirements"), list):
+                struct_err.append(f"{rel}: requirements requires a list `requirements`")
+        elif fam == "state-machine":
+            if not (isinstance(d.get("machines"), list)
+                    or (isinstance(d.get("states"), list) and isinstance(d.get("transitions"), list))):
+                struct_err.append(f"{rel}: state-machine requires `machines`, or `states`+`transitions`")
+            else:
+                check_state_machine(d, warn)
+        elif fam == "protocol":
+            if not (isinstance(d.get("roles"), list) or isinstance(d.get("flows"), list)):
+                struct_err.append(f"{rel}: protocol requires a list `roles` or `flows`")
+            else:
+                check_protocol(d, pathlib.Path(f).parent, warn)
+        elif fam == "messages":
+            if not any(isinstance(d.get(k), list) for k in ("messages", "structures", "exchanges")):
+                struct_err.append(f"{rel}: messages requires one of list `messages`/`structures`/`exchanges`")
+        elif fam == "crosswalk":
+            layout = crosswalk_layout(d)
+            if layout is None:
+                struct_err.append(f"{rel}: crosswalk has no recognisable layout body key")
+            else:
+                layout_counts[layout] = layout_counts.get(layout, 0) + 1
+        elif fam == "field-definitions":
+            if not isinstance(d.get("fields"), list):
+                struct_err.append(f"{rel}: fields.yaml requires a list `fields`")
+        elif fam == "table-registry":
+            if not isinstance(d.get("tables"), list):
+                struct_err.append(f"{rel}: table-registry requires a list `tables`")
+        elif fam == "claim-trees":
+            if not isinstance(d.get("trees"), list):
+                struct_err.append(f"{rel}: claim-trees requires a list `trees`")
+        # --- forward-looking families (no records yet) ---
+        elif fam == "procedures":
+            if not isinstance(d.get("procedures"), list):
+                struct_err.append(f"{rel}: procedures requires a list `procedures`")
+            else:
+                check_procedures(d, warn)
+        elif fam == "agents":
+            if not isinstance(d.get("agents"), list):
+                struct_err.append(f"{rel}: agents requires a list `agents`")
+        elif fam == "formal-proofs":
+            if not (isinstance(d.get("claims"), list) or isinstance(d.get("proofs"), list)):
+                struct_err.append(f"{rel}: formal-proofs requires a list `claims` or `proofs`")
+        elif fam == "threats-vulnerabilities":
+            if not any(isinstance(d.get(k), list)
+                       for k in ("threats", "weaknesses", "vulnerabilities")):
+                struct_err.append(f"{rel}: threats requires one of list "
+                                  f"`threats`/`weaknesses`/`vulnerabilities`")
+
+    # --- report ---
+    for w in warns:
+        print(f"warn  {w}")
+    for e in struct_err:
+        print(f"ERROR {e}")
+    for p in parse_fail:
+        print(f"PARSE {p}")
+
+    families = ", ".join(f"{k}={v}" for k, v in sorted(fam_counts.items()))
+    layouts = ", ".join(f"{k}={v}" for k, v in sorted(layout_counts.items()))
+    print()
+    print(f"{len(files)} distilled/*.yaml parsed — families: {families}")
+    if layouts:
+        print(f"crosswalk layouts: {layouts}")
+    print(f"{len(parse_fail)} parse failures, {len(struct_err)} structural errors, {len(warns)} warnings")
+
+    if parse_fail or struct_err:
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

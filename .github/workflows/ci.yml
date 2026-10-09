@@ -23,8 +23,14 @@ jobs:
 
       - name: requirements schema gate (normalize v2 -> validate v3)
         run: |
-          pip install -r requirements-dev.txt
+          python -m pip install --quiet -r requirements-dev.txt
           bin/check-requirements
+      - name: distilled artifact families validate
+        # Structural gate over records/*/*/distilled/*.yaml (schema/artifact.schema.yaml).
+        # Deps already installed by the step above (same job). Fails on a parse
+        # failure or a structural error; referential-integrity mismatches are
+        # reported as warnings (data issues for the re-tagging PR).
+        run: bin/check-artifacts
 
       - name: generate derived views
         run: |

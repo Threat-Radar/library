@@ -1,8 +1,9 @@
-# Dev / CI dependencies for the requirements-schema gate ONLY.
-# The library's record/topic tooling (bin/validate, bin/export, bin/reindex,
-# bin/render-html) stays stdlib-only. These two are needed solely to normalize
-# and validate the requirements LinkML schema (bin/check-requirements):
-#   - linkml provides `linkml-validate` and `gen-json-schema`
-#   - pyyaml is used by the normalization loader (bin/_requirements.py)
+# Dev / CI-only dependencies. The library's record/topic tooling (bin/validate,
+# bin/export, bin/reindex, bin/render-html) stays stdlib-only. These are needed
+# only by the schema gates:
+#   - linkml: `linkml-validate` + `gen-json-schema` for the requirements schema
+#     (bin/check-requirements, via the bin/_requirements.py normalization loader)
+#   - pyyaml: the requirements loader AND bin/check-artifacts (the distilled
+#     artifact files use flow collections that bin/_yaml.py deliberately drops)
 linkml>=1.12.0
 pyyaml>=6.0
