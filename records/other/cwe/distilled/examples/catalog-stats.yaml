@@ -1,0 +1,802 @@
+schema: "library-catalog-stats/v1"
+record: "cwe"
+reviewed_by: ""
+note: >-
+  Whole-catalog expected results for CWE List 4.20 (cwec_v4.20.xml), computed in one pass by the logic under
+  derivation. kind: observed throughout — these are facts about this release, not schema rules; a
+  release-to-release importer test can assert them for 4.20 exactly. The XSD basis of an invariant, where there
+  is one, is cited by line of schema/cwe_schema_v7.3.xsd.
+source:
+  file: "cwec_v4.20.xml"
+  url: "https://cwe.mitre.org/data/xml/cwec_v4.20.xml.zip"
+  zip_sha256: "3976f599e5e5200219a3108bb896d06e2a88fbb293369e1883cb423a5e9d7d50"
+  sha256: "1f5a78bd62e00f86436b4fe32d5034a57e8f0da88e4063b2072b664ae510912e"
+  bytes: 18192305
+  newlines: 287200
+  crlf_line_ends: 7934
+  crlf_only_in: "the External_References section (all 1,026 entries)"
+  trailing_newline: false
+  encoding: "UTF-8, no BOM"
+root:
+  element: "Weakness_Catalog"
+  Name: "CWE"
+  Version: "4.20"
+  Date: "2026-04-30"
+  xmlns: "http://cwe.mitre.org/cwe-7"
+  "xmlns:xhtml": "http://www.w3.org/1999/xhtml"
+  "xsi:schemaLocation": "http://cwe.mitre.org/cwe-7 http://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd"
+validation:
+  against: "schema/cwe_schema_v7.3.xsd + xhtml1-strict.xsd (offline catalog)"
+  result: "cwec_v4.20.xml validates"
+  xmllint_exit: 0
+  without_xhtml_schema: >-
+    xmllint skips the unresolvable import with a warning and the file fails (exit 3) with 5,457 validity errors
+    'No matching global element declaration available, but demanded by the strict wildcard', one per top-level
+    XHTML element (2,902 under StructuredTextType slots + 2,555 under Example_Code).
+counts:
+  Weakness: 969
+  Category: 422
+  View: 59
+  External_Reference: 1026
+status:
+  Weakness:
+    Incomplete: 486
+    Draft: 432
+    Stable: 26
+    Deprecated: 25
+  Category:
+    Incomplete: 185
+    Obsolete: 86
+    Draft: 70
+    Stable: 46
+    Deprecated: 35
+  View:
+    Draft: 18
+    Incomplete: 18
+    Obsolete: 11
+    Stable: 8
+    Deprecated: 4
+  all:
+    Incomplete: 689
+    Draft: 520
+    Obsolete: 97
+    Stable: 80
+    Deprecated: 64
+status_values_never_used: ["Usable"]
+mapping_usage:
+  Weakness:
+    Allowed: 749
+    Allowed-with-Review: 93
+    Prohibited: 83
+    Discouraged: 44
+  Category:
+    Prohibited: 422
+  View:
+    Prohibited: 59
+status_x_usage:
+  Weakness:
+    "Draft / Allowed": 365
+    "Incomplete / Allowed": 363
+    "Incomplete / Prohibited": 58
+    "Incomplete / Allowed-with-Review": 51
+    "Draft / Allowed-with-Review": 40
+    "Draft / Discouraged": 27
+    "Deprecated / Prohibited": 25
+    "Stable / Allowed": 21
+    "Incomplete / Discouraged": 14
+    "Stable / Discouraged": 3
+    "Stable / Allowed-with-Review": 2
+  Category:
+    "Incomplete / Prohibited": 185
+    "Obsolete / Prohibited": 86
+    "Draft / Prohibited": 70
+    "Stable / Prohibited": 46
+    "Deprecated / Prohibited": 35
+  View:
+    "Draft / Prohibited": 18
+    "Incomplete / Prohibited": 18
+    "Obsolete / Prohibited": 11
+    "Stable / Prohibited": 8
+    "Deprecated / Prohibited": 4
+reasons_by_usage:
+  Weakness:
+    Allowed:
+      Acceptable-Use: 745
+      Other: 5
+    Allowed-with-Review:
+      Abstraction: 85
+      Other: 8
+      "Frequent Misuse": 7
+      "Frequent Misinterpretation": 4
+      Acceptable-Use: 3
+      "Potential Deprecation": 1
+      "Potential Major Changes": 1
+    Discouraged:
+      Abstraction: 32
+      "Frequent Misuse": 14
+      "Potential Deprecation": 8
+      "Frequent Misinterpretation": 7
+      Other: 4
+      "CWE Overlap": 2
+      "Multiple Use": 1
+      "Potential Major Changes": 1
+    Prohibited:
+      Other: 57
+      Deprecated: 25
+      "Frequent Misinterpretation": 1
+      "Frequent Misuse": 1
+      "Potential Deprecation": 1
+  Category:
+    Prohibited:
+      Category: 422
+      Deprecated: 35
+      "Frequent Misuse": 4
+  View:
+    Prohibited:
+      View: 55
+      Deprecated: 4
+abstraction:
+  Base: 539
+  Variant: 299
+  Class: 114
+  Pillar: 10
+  Compound: 7
+structure:
+  Simple: 962
+  Composite: 4
+  Chain: 3
+abstraction_x_structure:
+  "Base / Simple": 539
+  "Variant / Simple": 299
+  "Class / Simple": 114
+  "Pillar / Simple": 10
+  "Compound / Composite": 4
+  "Compound / Chain": 3
+abstraction_x_usage:
+  "Base / Allowed": 452
+  "Variant / Allowed": 290
+  "Class / Allowed-with-Review": 82
+  "Base / Prohibited": 70
+  "Class / Discouraged": 24
+  "Base / Allowed-with-Review": 11
+  "Pillar / Discouraged": 10
+  "Variant / Prohibited": 8
+  "Base / Discouraged": 6
+  "Class / Prohibited": 5
+  "Compound / Allowed": 4
+  "Class / Allowed": 3
+  "Compound / Discouraged": 3
+  "Variant / Discouraged": 1
+abstraction_x_status:
+  "Base / Incomplete": 288
+  "Base / Draft": 214
+  "Variant / Draft": 157
+  "Variant / Incomplete": 134
+  "Class / Incomplete": 57
+  "Class / Draft": 52
+  "Base / Stable": 21
+  "Base / Deprecated": 16
+  "Variant / Deprecated": 7
+  "Pillar / Draft": 5
+  "Pillar / Incomplete": 5
+  "Compound / Draft": 4
+  "Class / Stable": 3
+  "Class / Deprecated": 2
+  "Compound / Incomplete": 2
+  "Compound / Stable": 1
+  "Variant / Stable": 1
+named_chains:
+  - {id: 680, name: "Integer Overflow to Buffer Overflow", status: "Draft", usage: "Discouraged", starts_with: 190}
+  - {id: 690, name: "Unchecked Return Value to NULL Pointer Dereference", status: "Draft", usage: "Discouraged", starts_with: 252}
+  - {id: 692, name: "Incomplete Denylist to Cross-Site Scripting", status: "Draft", usage: "Discouraged", starts_with: 184}
+composites:
+  - {id: 352, name: "Cross-Site Request Forgery (CSRF)", status: "Stable", usage: "Allowed", requires: [346, 441, 642, 613]}
+  - {id: 384, name: "Session Fixation", status: "Incomplete", usage: "Allowed", requires: [346, 472, 441]}
+  - {id: 61, name: "UNIX Symbolic Link (Symlink) Following", status: "Incomplete", usage: "Allowed", requires: [362, 340, 386, 732]}
+  - {id: 689, name: "Permission Race Condition During Resource Copy", status: "Draft", usage: "Allowed", requires: [362, 732]}
+view_type:
+  Graph: 38
+  Implicit: 17
+  Explicit: 4
+view_type_x_definition:
+  "Graph / Members": 37
+  "Implicit / Filter": 17
+  "Explicit / Members": 3
+  "Explicit / neither": 1
+  "Graph / neither": 1
+implicit_view_filters:
+  - {id: 1040, status: "Incomplete", filter: "/Weakness_Catalog/Weaknesses/Weakness[Weakness_Ordinalities/Weakness_Ordinality/Ordinality='Indirect']"}
+  - {id: 1081, status: "Draft", filter: "/Weakness_Catalog/*/*[Notes/Note[@Type='Maintenance']]"}
+  - {id: 1424, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Taxonomy_Mappings/Taxonomy_Mapping/@Taxonomy_Name='ISA/IEC 62443']"}
+  - {id: 2000, status: "Draft", filter: "/Weakness_Catalog/*[not(self::External_References)]/*"}
+  - {id: 604, status: "Draft", filter: "/Weakness_Catalog/*/*[@Status='Deprecated']"}
+  - {id: 658, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Applicable_Platforms/Language/@Name='C']"}
+  - {id: 659, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Applicable_Platforms/Language/@Name='C++']"}
+  - {id: 660, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Applicable_Platforms/Language/@Name='Java']"}
+  - {id: 661, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Applicable_Platforms/Language/@Name='PHP']"}
+  - {id: 677, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[@Abstraction='Base'][not(@Status='Deprecated')]"}
+  - {id: 678, status: "Draft", filter: "/Weakness_Catalog/Weaknesses/Weakness[@Structure='Composite'][not(@Status='Deprecated')]"}
+  - {id: 679, status: "Deprecated", filter: "/Weakness_Catalog[false()]"}
+  - {id: 701, status: "Incomplete", filter: "/Weakness_Catalog/Weaknesses/Weakness[(@Abstraction='Base') or (@Abstraction='Class')][./Modes_Of_Introduction/Introduction/Phase='Architecture and Design']"}
+  - {id: 702, status: "Incomplete", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Modes_Of_Introduction/Introduction/Phase='Implementation']"}
+  - {id: 709, status: "Incomplete", filter: "/Weakness_Catalog/Weaknesses/Weakness[@Structure='Chain']"}
+  - {id: 919, status: "Incomplete", filter: "/Weakness_Catalog/Weaknesses/Weakness[./Applicable_Platforms/Technology/@Class='Mobile']"}
+  - {id: 999, status: "Deprecated", filter: "/Weakness_Catalog[false()]"}
+related_weakness:
+  total: 1602
+  nature:
+    ChildOf: 1318
+    CanPrecede: 143
+    PeerOf: 98
+    CanAlsoBe: 27
+    Requires: 13
+    StartsWith: 3
+  natures_never_used: ["ParentOf", "CanFollow", "RequiredBy"]
+  view_id:
+    "1000": 1360
+    "1003": 93
+    "1340": 53
+    "1305": 49
+    "700": 24
+    "1194": 19
+    "709": 3
+    "928": 1
+  nature_x_view:
+    "ChildOf / 1000": 1086
+    "CanPrecede / 1000": 143
+    "ChildOf / 1003": 93
+    "PeerOf / 1000": 91
+    "ChildOf / 1340": 53
+    "ChildOf / 1305": 49
+    "CanAlsoBe / 1000": 27
+    "ChildOf / 700": 24
+    "Requires / 1000": 13
+    "ChildOf / 1194": 12
+    "PeerOf / 1194": 7
+    "StartsWith / 709": 3
+    "ChildOf / 928": 1
+  ordinal_primary_by_nature:
+    ChildOf: 1166
+    PeerOf: 18
+    CanPrecede: 9
+  chain_id_uses:
+    - {source: 184, nature: "CanPrecede", cwe_id: 79, view_id: 1000, chain_id: 692}
+    - {source: 190, nature: "CanPrecede", cwe_id: 119, view_id: 1000, chain_id: 680}
+    - {source: 252, nature: "CanPrecede", cwe_id: 476, view_id: 1000, chain_id: 690}
+    - {source: 680, nature: "StartsWith", cwe_id: 190, view_id: 709, chain_id: 680}
+    - {source: 690, nature: "StartsWith", cwe_id: 252, view_id: 709, chain_id: 690}
+    - {source: 692, nature: "StartsWith", cwe_id: 184, view_id: 709, chain_id: 692}
+  target_kind:
+    Weakness: 1602
+  view_id_kind:
+    View: 1602
+  source_status:
+    Draft: 785
+    Incomplete: 745
+    Stable: 72
+  target_status:
+    Draft: 802
+    Incomplete: 661
+    Stable: 139
+taxonomy_mapping:
+  total: 1660
+  by_entry_kind:
+    Weakness: 1637
+    Category: 23
+  entries_with_mappings:
+    Weakness: 638
+    Category: 19
+  taxonomy_name:
+    "Software Fault Patterns": 305
+    PLOVER: 304
+    "CERT C Secure Coding": 228
+    "ISA/IEC 62443": 199
+    "The CERT Oracle Secure Coding Standard for Java (2011)": 139
+    CLASP: 105
+    "7 Pernicious Kingdoms": 89
+    "OWASP Top Ten 2004": 71
+    WASC: 56
+    "OWASP Top Ten 2007": 31
+    "SEI CERT Perl Coding Standard": 30
+    "OMG ASCRM": 29
+    "OMG ASCSM": 22
+    "OMG ASCMM": 20
+    "OMG ASCPEM": 15
+    Landwehr: 9
+    "SEI CERT Oracle Coding Standard for Java": 8
+  taxonomy_name_by_kind:
+    Weakness:
+      "Software Fault Patterns": 304
+      PLOVER: 291
+      "CERT C Secure Coding": 227
+      "ISA/IEC 62443": 199
+      "The CERT Oracle Secure Coding Standard for Java (2011)": 139
+      CLASP: 105
+      "7 Pernicious Kingdoms": 87
+      "OWASP Top Ten 2004": 68
+      WASC: 54
+      "OWASP Top Ten 2007": 31
+      "OMG ASCRM": 29
+      "SEI CERT Perl Coding Standard": 29
+      "OMG ASCSM": 22
+      "OMG ASCMM": 20
+      "OMG ASCPEM": 15
+      Landwehr: 9
+      "SEI CERT Oracle Coding Standard for Java": 8
+    Category:
+      PLOVER: 13
+      "OWASP Top Ten 2004": 3
+      "7 Pernicious Kingdoms": 2
+      WASC: 2
+      "CERT C Secure Coding": 1
+      "SEI CERT Perl Coding Standard": 1
+      "Software Fault Patterns": 1
+  taxonomy_names_never_used: ["19 Deadly Sins", "Aslam", "Bishop", "CERT C++ Secure Coding", "OWASP Top Ten", "Protection Analysis", "RISOS", "SEI CERT C Coding Standard", "SEI CERT C++ Coding Standard", "Weber, Karger, Paradkar"]
+  mapping_fit:
+    "(absent)": 1375
+    "CWE More Specific": 120
+    "CWE More Abstract": 81
+    Imprecise: 46
+    Exact: 38
+  mapping_fit_by_kind:
+    Weakness:
+      "(absent)": 1357
+      "CWE More Specific": 117
+      "CWE More Abstract": 79
+      Imprecise: 46
+      Exact: 38
+    Category:
+      "(absent)": 18
+      "CWE More Specific": 3
+      "CWE More Abstract": 2
+  mapping_fit_never_used: ["Perspective"]
+  entry_id_absent: 503
+  entry_name_absent: 86
+deprecated_successors:
+  definition: >-
+    successor_machine_readable = Mapping_Notes/Suggestions/Suggestion present. successor_only_in_prose = no
+    Suggestion and no Related_Weakness, but the prose (Description / Summary / Objective, Extended_Description,
+    Mapping_Notes Rationale and Comments) names at least one CWE-<n> that is not a View. no_successor_named = no
+    Suggestion and no non-View CWE-<n> in that prose. Ids named in prose are mentions, not necessarily successors
+    (e.g. 'deprecated because it overlapped ... CWE-362'); a mapper must read the text.
+  Weakness:
+    deprecated: 25
+    successor_machine_readable: 2
+    successor_machine_readable_ids:
+      - {id: 534, suggestion: [532]}
+      - {id: 769, suggestion: [774]}
+    successor_only_in_prose: 22
+    no_successor_named: 1
+    no_successor_named_ids: [216]
+    entries:
+      - {id: 1187, cwe_ids_in_prose: [908], suggestion: []}
+      - {id: 132, cwe_ids_in_prose: [170], suggestion: []}
+      - {id: 1324, cwe_ids_in_prose: [319], suggestion: []}
+      - {id: 216, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 217, cwe_ids_in_prose: [766, 767], suggestion: []}
+      - {id: 218, cwe_ids_in_prose: [493], suggestion: []}
+      - {id: 225, cwe_ids_in_prose: [199], suggestion: []}
+      - {id: 247, cwe_ids_in_prose: [350], suggestion: []}
+      - {id: 249, cwe_ids_in_prose: [73, 222, 785], suggestion: []}
+      - {id: 292, cwe_ids_in_prose: [350], suggestion: []}
+      - {id: 365, cwe_ids_in_prose: [367], suggestion: []}
+      - {id: 373, cwe_ids_in_prose: [362, 662], suggestion: []}
+      - {id: 423, cwe_ids_in_prose: [441], suggestion: []}
+      - {id: 443, cwe_ids_in_prose: [113], suggestion: []}
+      - {id: 458, cwe_ids_in_prose: [454, 665], suggestion: []}
+      - {id: 516, cwe_ids_in_prose: [385], suggestion: []}
+      - {id: 533, cwe_ids_in_prose: [532], suggestion: []}
+      - {id: 534, cwe_ids_in_prose: [532], suggestion: [532]}
+      - {id: 542, cwe_ids_in_prose: [532], suggestion: []}
+      - {id: 545, cwe_ids_in_prose: [470], suggestion: []}
+      - {id: 592, cwe_ids_in_prose: [287], suggestion: []}
+      - {id: 596, cwe_ids_in_prose: [1023], suggestion: []}
+      - {id: 71, cwe_ids_in_prose: [62], suggestion: []}
+      - {id: 769, cwe_ids_in_prose: [774], suggestion: [774]}
+      - {id: 92, cwe_ids_in_prose: [75], suggestion: []}
+  Category:
+    deprecated: 35
+    successor_machine_readable: 0
+    successor_machine_readable_ids: []
+    successor_only_in_prose: 7
+    no_successor_named: 28
+    no_successor_named_ids: [1, 10, 100, 101, 169, 17, 171, 18, 3, 380, 381, 4, 442, 461, 490, 503, 504, 505, 513, 517, 518, 519, 559, 60, 63, 632, 633, 634]
+    entries:
+      - {id: 1, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 10, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 100, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 101, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 139, cwe_ids_in_prose: [138], suggestion: []}
+      - {id: 169, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 17, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 171, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 18, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 21, cwe_ids_in_prose: [706, 1219], suggestion: []}
+      - {id: 3, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 376, cwe_ids_in_prose: [699, 1219], suggestion: []}
+      - {id: 380, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 381, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 4, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 418, cwe_ids_in_prose: [417], suggestion: []}
+      - {id: 442, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 445, cwe_ids_in_prose: [355], suggestion: []}
+      - {id: 461, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 490, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 503, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 504, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 505, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 513, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 517, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 518, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 519, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 559, cwe_ids_in_prose: [699], suggestion: []}
+      - {id: 60, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 63, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 632, cwe_ids_in_prose: [631], suggestion: []}
+      - {id: 633, cwe_ids_in_prose: [631], suggestion: []}
+      - {id: 634, cwe_ids_in_prose: [631], suggestion: []}
+      - {id: 68, cwe_ids_in_prose: [66, 632], suggestion: []}
+      - {id: 70, cwe_ids_in_prose: [66, 632], suggestion: []}
+  View:
+    deprecated: 4
+    successor_machine_readable: 0
+    successor_machine_readable_ids: []
+    successor_only_in_prose: 0
+    no_successor_named: 4
+    no_successor_named_ids: [630, 631, 679, 999]
+    entries:
+      - {id: 630, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 631, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 679, cwe_ids_in_prose: [], suggestion: []}
+      - {id: 999, cwe_ids_in_prose: [888], suggestion: []}
+content_history:
+  submission_per_entry:
+    "1": 1450
+  events:
+    Weakness:
+      Modification: 14707
+      Submission: 969
+      Previous_Entry_Name: 774
+      Contribution: 263
+    Category:
+      Modification: 1677
+      Submission: 422
+      Previous_Entry_Name: 134
+      Contribution: 16
+    View:
+      Modification: 191
+      Submission: 59
+      Previous_Entry_Name: 17
+      Contribution: 4
+  modification_importance:
+    "(absent)": 16552
+    Critical: 23
+  critical_modifications:
+    - {kind: "Weakness", id: 113, status_now: "Incomplete", date: "2022-06-28", version: "4.8", comment: "Extended the abstraction of this entry to include both HTTP request and response splitting."}
+    - {kind: "Weakness", id: 234, status_now: "Incomplete", date: "2009-03-09", version: "1.3", comment: "added maintenance note: this entry will probably be deprecated"}
+    - {kind: "Weakness", id: 247, status_now: "Deprecated", date: "2013-06-23", version: "2.5", comment: "CWE-247 and CWE-292 deprecated and merged into CWE-350 to address duplicates."}
+    - {kind: "Weakness", id: 249, status_now: "Deprecated", date: "2009-07-17", version: "1.5", comment: "Described inconsistencies in this entry, which the CWE Content Team had already slated for deprecation."}
+    - {kind: "Weakness", id: 284, status_now: "Incomplete", date: "2011-03-24", version: "1.12", comment: "Changed name and description; clarified difference between \"access control\" and \"authorization.\""}
+    - {kind: "Weakness", id: 285, status_now: "Draft", date: "2011-03-24", version: "1.12", comment: "Changed name and description; clarified difference between \"access control\" and \"authorization.\""}
+    - {kind: "Weakness", id: 291, status_now: "Incomplete", date: "2013-06-23", version: "2.5", comment: "Changed type from composite to weakness."}
+    - {kind: "Weakness", id: 292, status_now: "Deprecated", date: "2013-06-23", version: "2.5", comment: "CWE-247 and CWE-292 deprecated and merged into CWE-350 to address duplicates."}
+    - {kind: "Weakness", id: 295, status_now: "Draft", date: "2012-12-28", version: "2.4", comment: "Converted from category to weakness class."}
+    - {kind: "Weakness", id: 326, status_now: "Draft", date: "2009-07-08", version: "1.5", comment: "Clarified entry to focus on algorithms that do not have major weaknesses, but may not be strong enough for some purposes."}
+    - {kind: "Weakness", id: 350, status_now: "Draft", date: "2013-06-23", version: "2.5", comment: "CWE-247 and CWE-292 deprecated and merged into CWE-350 to address duplicates."}
+    - {kind: "Weakness", id: 373, status_now: "Deprecated", date: "2010-12-12", version: "1.11", comment: "Deprecated entry"}
+    - {kind: "Weakness", id: 412, status_now: "Incomplete", date: "2009-07-17", version: "1.5", comment: "Suggested a better name and the minimal relationship with resources regardless of their criticality."}
+    - {kind: "Weakness", id: 434, status_now: "Draft", date: "2010-02-16", version: "1.8", comment: "converted from Compound_Element to Weakness"}
+    - {kind: "Weakness", id: 444, status_now: "Incomplete", date: "2022-06-28", version: "4.8", comment: "Extended the abstraction of this entry to include both HTTP request and response smuggling."}
+    - {kind: "Weakness", id: 451, status_now: "Draft", date: "2014-02-13", version: "2.6", comment: "Defined several different subtypes of this issue."}
+    - {kind: "Weakness", id: 565, status_now: "Incomplete", date: "2009-07-16", version: "1.5", comment: "Clarified name and description; broadened the definition to include any security-critical operation, not just security decisions, to allow for relationships with injection weaknesses."}
+    - {kind: "Weakness", id: 567, status_now: "Draft", date: "2010-12-09", version: "1.11", comment: "Made name and description more specific to match the essence of the rest of the entry."}
+    - {kind: "Weakness", id: 668, status_now: "Draft", date: "2009-07-22", version: "1.5", comment: "Clarified description to include permissions."}
+    - {kind: "Weakness", id: 926, status_now: "Incomplete", date: "2014-01-22", version: "2.6", comment: "Expanded entry to be more general and include all types of Android components that may be improperly exported."}
+    - {kind: "Weakness", id: 98, status_now: "Draft", date: "2010-02-16", version: "1.8", comment: "converted from Compound_Element to Weakness"}
+    - {kind: "View", id: 701, status_now: "Incomplete", date: "2009-02-10", version: "1.3", comment: "Updated the View_Filter to reflect new structure in CWE Schema v4.2"}
+    - {kind: "View", id: 702, status_now: "Incomplete", date: "2009-02-10", version: "1.3", comment: "Updated the View_Filter to reflect new structure in CWE Schema v4.2"}
+  contribution_type:
+    Content: 235
+    Feedback: 48
+  modification_comments_naming_status_field: 0
+  modified_in_release_4_20:
+    Weakness: 126
+    Category: 2
+  submitted_in_release_4_20:
+    Category: 2
+    View: 1
+  versions_seen: 63
+  non_numeric_versions: ["Draft 3", "Draft 5", "Draft 6", "Draft 7", "Draft 8", "Draft 9"]
+  versions_with_two_release_dates:
+    - {version: "1.1", release_dates: ["2008-11-24", "2008-11-25"]}
+    - {version: "2.2", release_dates: ["2012-05-14", "2012-05-15"]}
+    - {version: "3.1", release_dates: ["2018-03-27", "2018-03-29"]}
+    - {version: "4.1", release_dates: ["2020-02-24", "2020-06-25"]}
+    - {version: "4.10", release_dates: ["2023-01-24", "2023-01-31"]}
+    - {version: "4.11", release_dates: ["2023-04-23", "2023-04-26", "2023-04-27"]}
+    - {version: "4.18", release_dates: ["2025-08-28", "2025-09-09"]}
+    - {version: "4.19", release_dates: ["2025-12-08", "2025-12-11"]}
+membership:
+  by_relation:
+    "Category / Has_Member": 4260
+    "View / Has_Member": 764
+  target_kind:
+    "Category -> Weakness": 4152
+    "View -> Weakness": 451
+    "View -> Category": 313
+    "Category -> Category": 108
+  target_status:
+    Draft: 2522
+    Incomplete: 2027
+    Stable: 378
+    Obsolete: 97
+references:
+  citations: 2245
+  unresolved: 0
+  external_references_never_cited: ["REF-664", "REF-1045", "REF-1128", "REF-1173", "REF-1174", "REF-1195", "REF-1196", "REF-1263", "REF-1306", "REF-1474", "1300"]
+  external_reference_children:
+    Author: 1416
+    Title: 1026
+    URL: 1005
+    Publication_Year: 680
+    URL_Date: 600
+    Publication_Month: 532
+    Publication_Day: 458
+    Publisher: 100
+    Publication: 54
+    Edition: 9
+suggestions:
+  total: 63
+  on_kind:
+    Weakness: 63
+  target_usage:
+    Allowed: 37
+    Allowed-with-Review: 23
+    Discouraged: 3
+  source_usage:
+    Discouraged: 48
+    Allowed-with-Review: 8
+    Prohibited: 5
+    Allowed: 2
+xhtml:
+  elements:
+    br: 9414
+    div: 5334
+    p: 2436
+    li: 1274
+    i: 689
+    ul: 517
+    td: 216
+    b: 154
+    tr: 112
+    th: 48
+    table: 26
+    ol: 14
+    img: 6
+    tbody: 3
+    sup: 3
+  total: 20246
+invariants:
+  - id: "I01"
+    kind: "observed"
+    statement: "Status Deprecated => Mapping_Notes/Usage Prohibited"
+    holds: 64
+    of: 64
+    exceptions: []
+  - id: "I02"
+    kind: "observed"
+    statement: "Reason Deprecated <=> Status Deprecated (both directions)"
+    holds: 64
+    of: 64
+    exceptions: []
+  - id: "I03"
+    kind: "observed"
+    statement: "every Category: Usage Prohibited with Reason Category"
+    holds: 422
+    of: 422
+    exceptions: []
+  - id: "I04"
+    kind: "observed"
+    statement: "every View: Usage Prohibited; Reasons exactly [View] when not Deprecated, exactly [Deprecated] when Deprecated"
+    holds: 59
+    of: 59
+    exceptions: []
+  - id: "I05"
+    kind: "observed"
+    statement: "Status Deprecated <=> Name starts with 'DEPRECATED: '"
+    holds: 1450
+    of: 1450
+    exceptions: []
+  - id: "I06"
+    kind: "observed"
+    statement: "every Deprecated entry has at least one Previous_Entry_Name"
+    holds: 64
+    of: 64
+    exceptions: []
+  - id: "I07"
+    kind: "observed"
+    statement: "a Deprecated entry's last Previous_Entry_Name is its pre-deprecation name, i.e. the current Name without the 'DEPRECATED: ' prefix. Exceptions: 8 weaknesses whose last Previous_Entry_Name is the older prefixed form 'DEPRECATED (Duplicate): <name>', renamed to 'DEPRECATED: <name>' on 2021-07-20"
+    holds: 56
+    of: 64
+    exceptions: ["Weakness-132: last Previous_Entry_Name 'DEPRECATED (Duplicate): Miscalculated Null Termination' (2021-07-20)", "Weakness-218: last Previous_Entry_Name 'DEPRECATED (Duplicate): Failure to provide confidentiality for stored data' (2021-07-20)", "Weakness-225: last Previous_Entry_Name 'DEPRECATED (Duplicate): General Information Management Problems' (2021-07-20); no earlier name recorded", "Weakness-247: last Previous_Entry_Name 'DEPRECATED (Duplicate): Reliance on DNS Lookups in a Security Decision' (2021-07-20)", "Weakness-292: last Previous_Entry_Name 'DEPRECATED (Duplicate): Trusting Self-reported DNS Name' (2021-07-20)", "Weakness-423: last Previous_Entry_Name 'DEPRECATED (Duplicate): Proxied Trusted Channel' (2021-07-20)", "Weakness-443: last Previous_Entry_Name 'DEPRECATED (Duplicate): HTTP response splitting' (2021-07-20); no earlier name recorded", "Weakness-516: last Previous_Entry_Name 'DEPRECATED (Duplicate): Covert Timing Channel' (2021-07-20); no earlier name recorded"]
+  - id: "I08"
+    kind: "observed"
+    statement: "a Deprecated entry keeps only: Weakness {Description, Extended_Description?, Mapping_Notes, Content_History}; Category {Summary, Mapping_Notes, Content_History}; View {Objective, Filter?, Mapping_Notes, Content_History}"
+    holds: 64
+    of: 64
+    exceptions: []
+  - id: "I09"
+    kind: "observed"
+    statement: "Obsolete occurs only on Category (86) and View (11) entries and never with a name prefix; unlike Deprecated entries they keep their content: Relationships 82/86 and References 83/86 categories, Members 11/11 and References 11/11 views"
+    holds: 97
+    of: 97
+    exceptions: []
+  - id: "I10"
+    kind: "observed"
+    statement: "no Related_Weakness has a Deprecated or Obsolete source or target"
+    holds: 1602
+    of: 1602
+    exceptions: []
+  - id: "I11"
+    kind: "observed"
+    statement: "no Has_Member targets a Deprecated entry"
+    holds: 5024
+    of: 5024
+    exceptions: []
+  - id: "I12"
+    kind: "observed"
+    statement: "Abstraction Compound <=> Structure Chain or Composite"
+    holds: 969
+    of: 969
+    exceptions: []
+    xsd_basis: "AbstractionEnumeration documentation (L616); requirements.yaml cwe#R-0198 (added by the verify pass)"
+  - id: "I13"
+    kind: "observed"
+    statement: "every non-Deprecated, non-Pillar weakness has exactly one Primary ChildOf in View 1000; the 10 Pillars have none"
+    holds: 944
+    of: 944
+    exceptions: []
+  - id: "I14"
+    kind: "observed"
+    statement: "at most one Ordinal=Primary per (entry, Nature, View_ID) — stronger than the documented rule, which is stated per triple <Nature, CWE_ID, View_ID>"
+    holds: 1193
+    of: 1193
+    exceptions: []
+    xsd_basis: "RelatedWeaknessesType documentation (L540)"
+  - id: "I15"
+    kind: "observed"
+    statement: "Ordinal=Primary only on ChildOf relationships — does NOT hold: the documentation says the attribute 'is used to determine if this relationship is the primary ChildOf relationship for this weakness for a given View_ID' and 'should only be included for the primary parent/child relationship', but 27 PeerOf/CanPrecede relationships carry it"
+    holds: 1166
+    of: 1193
+    exceptions: ["1102 PeerOf 1105 (view 1000)", "1255 PeerOf 1259 (view 1194)", "1260 CanPrecede 119 (view 1000)", "1261 PeerOf 1254 (view 1000)", "1272 CanPrecede 200 (view 1000)", "1287 PeerOf 843 (view 1000)", "1289 PeerOf 178 (view 1000)", "1291 PeerOf 321 (view 1000)", "1295 PeerOf 209 (view 1000)", "1299 PeerOf 1191 (view 1194)", "1314 PeerOf 1299 (view 1194)", "1321 CanPrecede 471 (view 1000)", "1322 CanPrecede 835 (view 1000)", "1325 PeerOf 789 (view 1000)", "1328 PeerOf 757 (view 1000)", "1332 PeerOf 1247 (view 1194)", "1339 PeerOf 190 (view 1000)", "1339 CanPrecede 834 (view 1000)", "1341 CanPrecede 672 (view 1000)", "1429 PeerOf 392 (view 1000)", "20 PeerOf 345 (view 1000)", "212 CanPrecede 201 (view 1000)", "489 CanPrecede 215 (view 1000)", "526 PeerOf 214 (view 1000)", "615 PeerOf 546 (view 1000)", "754 CanPrecede 416 (view 1000)", "917 PeerOf 1336 (view 1000)"]
+    xsd_basis: "RelatedWeaknessesType documentation (L540)"
+  - id: "I16"
+    kind: "observed"
+    statement: "Chain_ID only on CanFollow / CanPrecede — does NOT hold: the documentation says Chain_ID names 'a named chain that a CanFollow or CanPrecede relationship pertains to', but the 3 StartsWith relationships of the named chains also carry it"
+    holds: 3
+    of: 6
+    exceptions: ["680 StartsWith 190 Chain_ID 680", "690 StartsWith 252 Chain_ID 690", "692 StartsWith 184 Chain_ID 692"]
+    xsd_basis: "RelatedWeaknessesType documentation (L540)"
+  - id: "I17"
+    kind: "observed"
+    statement: "Chain_ID always names a Structure=Chain weakness"
+    holds: 6
+    of: 6
+    exceptions: []
+  - id: "I18"
+    kind: "observed"
+    statement: "inverse natures ParentOf, CanFollow, RequiredBy are never serialised (a consumer derives them from ChildOf, CanPrecede, Requires)"
+    holds: 1602
+    of: 1602
+    exceptions: []
+  - id: "I19"
+    kind: "observed"
+    statement: "every Related_Weakness CWE_ID resolves to a Weakness and every View_ID to a View"
+    holds: 1602
+    of: 1602
+    exceptions: []
+    xsd_basis: "no xs:keyref — unchecked by the schema"
+  - id: "I20"
+    kind: "observed"
+    statement: "every Has_Member CWE_ID resolves (Weakness or Category) and View_ID resolves to a View; inside a View, Has_Member/@View_ID equals the View's own ID"
+    holds: 5024
+    of: 5024
+    exceptions: []
+    xsd_basis: "no xs:keyref — unchecked by the schema"
+  - id: "I21"
+    kind: "observed"
+    statement: "Member_Of is never used: every Relationships/Members element takes choice branch 2 (Has_Member only)"
+    holds: 5024
+    of: 5024
+    exceptions: []
+    xsd_basis: "RelationshipsType choice L558"
+  - id: "I22"
+    kind: "observed"
+    statement: "every Reference/@External_Reference_ID resolves to an External_Reference"
+    holds: 2245
+    of: 2245
+    exceptions: []
+    xsd_basis: "no xs:keyref — unchecked by the schema"
+  - id: "I23"
+    kind: "observed"
+    statement: "every Suggestion/@CWE_ID resolves to a non-Deprecated Weakness"
+    holds: 63
+    of: 63
+    exceptions: []
+  - id: "I24"
+    kind: "observed"
+    statement: "Weakness, Category and View IDs are pairwise disjoint (one numeric ID space in practice; the schema only makes each kind unique within itself)"
+    holds: 1450
+    of: 1450
+    exceptions: []
+    xsd_basis: "uniqueWeaknessID / uniqueCategoryID / uniqueViewID (L55-70)"
+  - id: "I25"
+    kind: "observed"
+    statement: "within each entry, Modification elements are in ascending Modification_Date order (document order = chronological order)"
+    holds: 1450
+    of: 1450
+    exceptions: []
+  - id: "I26"
+    kind: "observed"
+    statement: "within each entry, Contribution elements are in ascending Contribution_Date order"
+    holds: 1450
+    of: 1450
+    exceptions: []
+  - id: "I27"
+    kind: "observed"
+    statement: "within each entry, Previous_Entry_Name elements are in ascending @Date order"
+    holds: 1450
+    of: 1450
+    exceptions: []
+  - id: "I28"
+    kind: "observed"
+    statement: "Submission_Date is on or before every Modification_Date of the entry"
+    holds: 1434
+    of: 1450
+    exceptions: ["Weakness-694", "Weakness-695", "Weakness-703", "Weakness-704", "Weakness-705", "Weakness-706", "Weakness-707", "Weakness-708", "Weakness-785", "Category-1027", "Category-1028", "Category-1030", "Category-1031", "Category-1032", "Category-1033", "View-1026"]
+  - id: "I29"
+    kind: "observed"
+    statement: "Previous_Entry_Name/@Date equals the Modification_Date or Modification_ReleaseDate of some Modification of the same entry (the documentation: 'A Previous_Entry_Name element should align with a corresponding Modification element.')"
+    holds: 641
+    of: 925
+    exceptions_count: 284
+    xsd_basis: "ContentHistoryType documentation (L293)"
+  - id: "I30"
+    kind: "observed"
+    statement: "Modification_Importance, when present, is Critical (Normal is never written)"
+    holds: 23
+    of: 23
+    exceptions: []
+  - id: "I31"
+    kind: "observed"
+    statement: "every Implicit view has a Filter and no Members; the two Deprecated implicit views (679, 999) have Filter /Weakness_Catalog[false()], which selects nothing"
+    holds: 17
+    of: 17
+    exceptions: []
+  - id: "I32"
+    kind: "observed"
+    statement: "External_Reference/@Reference_ID has the form REF-<n> (the documentation's example form, L170: 'e.g., REF-1'; xs:string, no pattern facet)"
+    holds: 1025
+    of: 1026
+    exceptions: ["1300 (catalog line 285297; never cited; sits between REF-1299 and REF-1301, no REF-1300 exists)"]
+    xsd_basis: "ExternalReferenceType documentation (L170)"
+derivation:
+  parser: "any namespace-aware XML parser; elements are in http://cwe.mitre.org/cwe-7, XHTML in http://www.w3.org/1999/xhtml"
+  steps:
+    - "entries = the children of Weakness_Catalog/Weaknesses, /Categories, /Views and /External_References; kind = the element name"
+    - "Status, Abstraction, Structure, Type, ID, Name = the entry's attributes; Usage = text of Mapping_Notes/Usage; reasons = Mapping_Notes/Reasons/Reason/@Type in document order; suggestions = Mapping_Notes/Suggestions/Suggestion/@CWE_ID"
+    - "distributions are plain counts over entries (or over relationship / mapping elements where stated); 'A / B' keys are cross-tabulations"
+    - "Related_Weakness = Weakness/Related_Weaknesses/Related_Weakness; resolution looks the CWE_ID / View_ID / Chain_ID up among Weakness, Category and View IDs"
+    - "membership = Category/Relationships/* and View/Members/* (Member_Of or Has_Member)"
+    - "references = every Reference element carrying @External_Reference_ID anywhere inside an entry (entry References and Demonstrative_Example/References)"
+    - "prose CWE ids = regular expression CWE-(\\d+) over the decoded text (including XHTML descendants) of Description / Summary / Objective, Extended_Description, Mapping_Notes/Rationale and Mapping_Notes/Comments"
+    - "dates compare as ISO strings (all are xs:date YYYY-MM-DD); version strings are compared only for equality"
+    - "invariant counts: holds = entries (or elements) satisfying the statement, of = the population it quantifies over"
+  implementation: "agent scratchpad scripts (stdlib xml.parsers.expat; not committed)"
+  cross_check: >-
+    These figures were asserted equal to an earlier, separately written first pass over the same file:
+    abstraction, abstraction_x_structure, abstraction_x_usage, counts, deprecated children,
+    history.contribution_type, history.events, history.importance, mapping_fit, mapping_usage, membership,
+    previous names aligned, reasons_by_usage, references, related_weakness.nature, related_weakness.ordinal,
+    related_weakness.target_kind, related_weakness.view_id, status, status_x_usage, structure, suggestions,
+    taxonomy entry_id/entry_name absent, taxonomy_name, view_type, xhtml. The invariants were computed once.

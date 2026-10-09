@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><Weakness_Catalog Name="CWE" Version="4.20" Date="2026-04-30" xmlns="http://cwe.mitre.org/cwe-7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cwe.mitre.org/cwe-7 http://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<External_References>
+		<External_Reference Reference_ID="REF-7">
+			<Author>Michael Howard</Author>
+			<Author>David LeBlanc</Author>
+			<Title>Writing Secure Code</Title>
+			<Edition>2nd Edition</Edition>
+			<Publication_Year>2002</Publication_Year>
+			<Publication_Month>--12</Publication_Month>
+			<Publication_Day>---04</Publication_Day>
+			<Publisher>Microsoft Press</Publisher>
+			<URL>https://www.microsoftpressstore.com/store/writing-secure-code-9780735617223</URL>
+		</External_Reference>
+		<External_Reference Reference_ID="REF-44">
+			<Author>Michael Howard</Author>
+			<Author>David LeBlanc</Author>
+			<Author>John Viega</Author>
+			<Title>24 Deadly Sins of Software Security</Title>
+			<Publication>McGraw-Hill</Publication>
+			<Publication_Year>2010</Publication_Year>
+		</External_Reference>
+		<External_Reference Reference_ID="REF-726">
+			<Author>Jason Lam</Author>
+			<Title>Top 25 series - Rank 1 - Cross Site Scripting</Title>
+			<Publication_Year>2010</Publication_Year>
+			<Publication_Month>--02</Publication_Month>
+			<Publication_Day>---22</Publication_Day>
+			<Publisher>SANS Software Security Institute</Publisher>
+			<URL>https://www.sans.org/blog/top-25-series-rank-1-cross-site-scripting/</URL>
+			<URL_Date>2023-04-07</URL_Date>
+		</External_Reference>
+	</External_References>
+</Weakness_Catalog>
