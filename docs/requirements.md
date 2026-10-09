@@ -4,8 +4,8 @@ id: requirements
 title: "What is a requirement"
 type: policy
 status: draft
-version: "0.1.0"
-updated: "2026-09-22"
+version: "0.2.0"
+updated: "2026-10-08"
 needs_review: true
 reviewed: false
 source: "sponsor question 2026-09-22: what is a requirement?"
@@ -14,6 +14,18 @@ source: "sponsor question 2026-09-22: what is a requirement?"
 # What is a requirement
 
 **Status: draft. Open for review.** Governs `records/<body>/<id>/requirements/`.
+
+> **Formal schema (new).** This prose is the human spec; the **machine schema** is
+> now `schema/requirements.linkml.yaml` (`library_requirements` v3, LinkML — an
+> open IDL owned by the library). It formalizes the de-facto `library-requirements/v2`
+> shape that 41 records already use: the four mandatory parts (verb/actor/condition/
+> locator), verbatim `text`, the `<record>#<designator>` id, the polymorphic
+> `maps_to` crosswalk with MAP-0001 provenance, and OPTIONAL provenance-bearing
+> `applies_to`/`satisfied_by` edges to products/organizations/projects/procedures in
+> a consuming KG (targets are opaque — the dependency points consumer→library, never
+> the reverse). A documented v2→v3 migration and ten open questions ship with the
+> schema PR; cross-field invariants (count reconciliation, "inferred needs a reason",
+> "ours mapping needs a rationale") stay in `bin/validate`, not generated SHACL.
 
 ## 1. Definition
 

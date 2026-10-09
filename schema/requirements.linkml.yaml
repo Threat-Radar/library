@@ -1,0 +1,1072 @@
+id: https://w3id.org/library/requirements
+name: library_requirements
+title: Library Requirements Schema
+description: >-
+  Canonical, standalone LinkML IDL for extracted, qualified requirements held by
+  the bibliographic library. A RequirementSet is the formalization of one
+  `records/<body>/<id>/distilled/requirements.yaml` file (library-requirements/v1
+  and /v2). Every Requirement is a statement in a source document that constrains
+  a conforming implementation, carries a normative verb, an actor, a condition,
+  and a locator (docs/requirements.md §1), and resolves from a stable external id
+  `<record>#<designator>` back to the exact sentence in the exact revision we read
+  (docs/requirements.md §3b). The schema is OWNED BY THE LIBRARY and forkable: it
+  imports only linkml:types and references no downstream project (e.g. a threat
+  model). Downstream knowledge graphs depend on THIS file, never the reverse.
+license: CC0-1.0
+version: 3.0.0
+status: draft
+
+# ---------------------------------------------------------------------------
+# Namespaces. w3id.org/library/* is the library's OWN namespace (placeholder,
+# relocatable on fork). oscal/reqif/sacm/sysml/otm/stix/bcp14 are cited for
+# external-import alignment via exact/close/related mappings ONLY — none is
+# imported, so the schema stands alone (constraint: tmodel->library, never
+# library->tmodel; ADR-0007 is tmodel-scoped and does not govern this file).
+# ---------------------------------------------------------------------------
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  libreq:   https://w3id.org/library/requirements/
+  library:  https://w3id.org/library/records/       # resolves <record>#<designator>
+  dcterms:  http://purl.org/dc/terms/
+  skos:     http://www.w3.org/2004/02/skos/core#
+  prov:     http://www.w3.org/ns/prov#
+  bibo:     http://purl.org/ontology/bibo/
+  bcp14:    https://www.rfc-editor.org/info/bcp14#   # RFC 2119 + RFC 8174
+  oscal:    http://csrc.nist.gov/ns/oscal/1.0/
+  reqif:    http://www.omg.org/spec/ReqIF/20110401/reqif.xsd#
+  sacm:     http://www.omg.org/spec/SACM/2.1/
+  sysml:    https://www.omg.org/spec/SysML/20230201/
+  otm:      https://github.com/iriusrisk/OpenThreatModel#
+  stix:     https://docs.oasis-open.org/cti/stix/v2.1/
+
+default_prefix: libreq
+default_range: string
+default_curi_maps:
+  - semweb_context
+
+imports:
+  - linkml:types
+
+# ===========================================================================
+# CLASSES
+# ===========================================================================
+classes:
+
+  Any:
+    class_uri: linkml:Any
+    description: >-
+      Untyped escape hatch for free-form YAML preserved verbatim for round-trip:
+      the document-family-specific `attributes` bag and the open metric maps
+      (counts, native_counts, normative-form tallies). Keys are
+      document-specific and are not validated by this schema; a companion
+      integrity checker may warn. This is the only way v2's irreducibly
+      heterogeneous payload survives a lossless round-trip (see migration notes).
+
+  RequirementSet:
+    description: >-
+      One extracted requirement set = one distilled/requirements.yaml file for a
+      single library record (FX-1, extraction.md:27). Tree root. The header
+      carries the provenance and completeness evidence that makes the set
+      REPEATABLE and citable (docs/requirements.md §3b; extraction.md:44-53).
+    tree_root: true
+    exact_mappings:
+      - oscal:catalog            # a catalog of controls, with metadata + back-matter
+      - reqif:SPECIFICATION      # a ReqIF Specification over SpecObjects
+    slots:
+      - conforms_to
+      - record
+      - source_version
+      - source_digest
+      - source_keyword_count
+      - extracted_keyword_count
+      - reconciliation
+      - counts
+      - native_counts
+      - source_normative_forms
+      - extracted_normative_forms
+      - audience
+      - generated_from
+      - generated_by
+      - extracted
+      - extracted_by
+      - reviewed_by
+      - set_note
+      - reference_editions
+      - required_deliverables
+      - taxonomy
+      - excluded
+      - requirements
+    slot_usage:
+      requirements:
+        inlined_as_list: true
+
+  Requirement:
+    description: >-
+      A single qualified requirement. The MANDATORY four parts of the library's
+      definition (docs/requirements.md §1) are: a normative verb, an actor, a
+      condition (unconditional is a valid, explicitly-stated condition), and a
+      locator. `text` is VERBATIM — never paraphrased (docs/requirements.md §3,
+      "paraphrase is how a MUST silently becomes a SHOULD"). The id resolves to
+      locator + source_version + source_digest + verb + text (§3b); those five
+      are what make the requirement QUALIFIED rather than an assertion about a
+      document.
+    exact_mappings:
+      - oscal:control            # OSCAL control (id + prose + props + parts + links)
+      - reqif:SPEC-OBJECT        # ReqIF SpecObject (identifier + typed attribute values)
+    close_mappings:
+      - sysml:RequirementUsage   # SysML v2 requirement (subject/text/constraints)
+    slots:
+      # --- identity & provenance ---
+      - id
+      - designator
+      - native_id
+      - entry_type
+      - status
+      - formerly
+      - former_ids
+      - moved_to
+      - withdrawn_to
+      - inherits_from
+      - added_by
+      - cite_as
+      # --- the four mandatory parts (docs/requirements.md §1) ---
+      - verb
+      - actor
+      - condition
+      - locator
+      # --- the statement ---
+      - text
+      - short_title
+      - title
+      - kind
+      - inferred_note
+      # --- the constrained thing (v1 RFC/vCon shape) + semantic context ---
+      - object
+      - field
+      - context
+      - applies_from
+      # --- audit / classification typing (v2 de-facto) ---
+      - normativity
+      - nature
+      - phase
+      - level
+      - tailorable
+      # --- hierarchy (generic + SSDF convenience) ---
+      - parent
+      - children
+      - group
+      - practice
+      - task
+      - tasks
+      # --- testability & verification (SACM-aligned) ---
+      - testable
+      - testable_reason
+      - verification
+      - audit_status
+      - expects_deliverables
+      - contributes_to_assurance
+      # --- illustrative material ---
+      - notional_implementation_examples
+      - footnote
+      - footnotes
+      # --- cross-document & KG linkage (all OPTIONAL, provenance-bearing) ---
+      - maps_to
+      - satisfied_by
+      - applies_to
+      - external_refs
+      # --- notes + open extension ---
+      - notes
+      - attributes
+
+  NormativeExample:
+    description: >-
+      A notional/illustrative example attached to a requirement (SSDF Table 1
+      "notional implementation examples", sp-800-218/requirements.yaml:250-258).
+      Illustrative, NOT itself a requirement unless it carries its own normative
+      verb (docs/requirements.md §2).
+    close_mappings:
+      - oscal:part               # an OSCAL part with name="example"
+    slots:
+      - id
+      - text
+
+  Footnote:
+    description: >-
+      A source footnote carried verbatim with its anchor (sp-800-218:657-660).
+    slots:
+      - number
+      - anchored_at
+      - text
+
+  CrossReference:
+    description: >-
+      A requirement->requirement / requirement->framework cross-reference. This
+      is the de-facto `maps_to` structure, UNIONED across every observed variant
+      (scheme+ids+source_text | framework+entries+target_edition+relationship |
+      ref+standard+record+target_id+published_by | framework+target+source).
+      Every slot is optional so each publisher's native shape round-trips. A
+      cross-reference is PROVENANCE-BEARING: `published_by`/`source` says who
+      asserted the mapping, `provenance` grades it (anchor/direct/chained/bridge/
+      ours, from MAP-0001.yaml), `edition` pins the edition, `rationale` carries
+      the one-line justification for an `ours` judgement. The crosswalk TARGET
+      resolves in the consuming KG; `target_record` names the library record when
+      we hold the target, otherwise the id is carried as text (record.schema.yaml
+      `cites` semantics: a gap worth ingesting).
+    exact_mappings:
+      - oscal:link               # OSCAL link with @rel + @href
+      - skos:mappingRelation
+    close_mappings:
+      - reqif:SPEC-RELATION      # ReqIF SpecRelation (typed source->target)
+    slots:
+      - scheme
+      - framework
+      - standard
+      - target
+      - ids
+      - entries
+      - ref
+      - target_id
+      - source_text
+      - relation
+      - provenance
+      - target_record
+      - library_record
+      - published_by
+      - mapping_source
+      - edition
+      - edition_note
+      - rationale
+      - xref_kind
+      - adopted
+      - refs
+      - xref_note
+      - also
+
+  ContextLink:
+    description: >-
+      An OPTIONAL, provenance-bearing edge from a requirement to a thing in the
+      consuming knowledge graph — a product, company/organization, project,
+      procedure, component, mitigation, control, environment, or another
+      requirement. This is the library's STABLE REFERENCE SLOT for the mapping
+      the program needs (map a requirement to products/companies/projects/
+      procedures); the TARGET lives in the KG and is an opaque uriorcurie the
+      consumer resolves (so the library takes on no dependency on any downstream
+      model). Used by `satisfied_by` (what discharges the requirement) and
+      `applies_to` (what the requirement is scoped to). Never required: an
+      extraction with zero ContextLinks is complete.
+    close_mappings:
+      - oscal:link
+      - prov:wasInfluencedBy
+      - sacm:AssertedRelationship
+    slots:
+      - target
+      - target_kind
+      - relation
+      - asserted_by
+      - method
+      - confidence
+      - review_status
+      - as_of
+      - rationale
+      - xref_note
+
+  Deliverable:
+    description: >-
+      A required work product / evidence artifact a requirement expects
+      (ISO/SAE 21434 work products; iso-sae-21434-2021 header `required_deliverables`
+      and per-req `expects_deliverables`). SACM Artifact / OSCAL assessment
+      evidence.
+    exact_mappings:
+      - sacm:Artifact
+    slots:
+      - id
+      - designator
+      - deliverable
+      - title
+      - from_requirements
+      - from_subclauses
+      - deliverable_note
+
+  TaxonomyNode:
+    description: >-
+      A node of a parallel taxonomy a RequirementSet references but that is not
+      itself an extracted requirement: SSDF/IEC practices, FIPS requirement
+      areas, security/assurance levels, ENISA principles, ETSI SSDF-task
+      crosswalk rows, UK source documents, reference schemes. Generic catch-all
+      so 10 differently-shaped files round-trip without 10 bespoke classes.
+    close_mappings:
+      - oscal:group
+    slots:
+      - id
+      - taxonomy_kind
+      - number
+      - name
+      - title
+      - attributes
+
+  ExcludedItem:
+    description: >-
+      Source material the extractor deliberately did NOT treat as a requirement,
+      recorded so the omission is auditable, never silent (FDA record `excluded`;
+      cf. extraction.md "never silently omitted"). A negative-space completeness
+      record.
+    slots:
+      - locator
+      - text
+      - reason
+
+  ReferenceEdition:
+    description: >-
+      Per-scheme edition pinning for a source's own crosswalk (sp-800-218
+      header `reference_editions`:29-59). Says which EDITION a References key
+      names, whether the library holds that edition (`target_record`), and names
+      any OTHER edition the library holds whose ids may not carry over
+      (`library_holds_other_edition`). This is what makes a crosswalk
+      ROUND-TRIPPABLE across editions.
+    slots:
+      - edition
+      - target_record
+      - library_holds_other_edition
+
+# ===========================================================================
+# SLOTS
+# ===========================================================================
+slots:
+
+  # ---- RequirementSet header ----
+  conforms_to:
+    description: >-
+      The requirements-schema version this set declares (verbatim), e.g.
+      "library-requirements/v2". Preserved for round-trip and migration.
+    slot_uri: dcterms:conformsTo
+    pattern: "^library-requirements/v[0-9]+$"
+    ifabsent: "string(library-requirements/v2)"
+    required: true
+  record:
+    description: The library record id this set extracts (record.schema.yaml id pattern).
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+    required: true
+    slot_uri: dcterms:source
+  source_version:
+    description: The source revision read, verbatim (e.g. "-04", "STD 96", "1.1 (February 2022)"). docs/requirements.md §3b.
+    recommended: true
+  source_digest:
+    description: sha256 of the source bytes we read (docs/requirements.md §3b "the bytes we read"). Sources are never committed; this is recorded, not re-derived.
+    pattern: "^[0-9a-f]{64}$"
+    recommended: true
+  source_keyword_count:
+    description: BCP 14 keyword count in the fetched source, from bin/bcp14-count (extraction.md:44-53).
+    range: integer
+    minimum_value: 0
+  extracted_keyword_count:
+    description: BCP 14 keywords across all extracted texts; bin/validate recomputes and must match (extraction.md:46-52).
+    range: integer
+    minimum_value: 0
+  reconciliation:
+    description: REQUIRED prose if the two keyword counts differ — says exactly why (extraction.md:47-52).
+  counts:
+    description: Free map of extraction tallies (entries/by-normativity/by-phase …). Document-specific keys; preserved verbatim.
+    range: Any
+    inlined: true
+  native_counts:
+    description: The source's OWN native normative units when it is not a BCP 14 document (sp-800-218:8-19 groups/practices/tasks/examples/reference_lines). Free map.
+    range: Any
+    inlined: true
+  source_normative_forms:
+    description: Source tally of lowercase modal forms (shall/should/may …) for non-BCP-14 documents. Free map.
+    range: Any
+    inlined: true
+  extracted_normative_forms:
+    description: Extracted tally of lowercase modal forms; reconciled against source_normative_forms. Free map.
+    range: Any
+    inlined: true
+  audience:
+    description: Whether this file is the canonical machine view or a human view (iso-sae-21434:5 "canonical structured source; requirements.md is the human view").
+    any_of:
+      - range: Audience
+      - range: string
+  generated_from:
+    description: What this set was derived from (another artifact / a script / the xlsx). Derived artifacts must name their source (record.schema.yaml:211).
+  generated_by:
+    description: The tool/agent that generated it, when generated (vcon:6 "bin/derive").
+  extracted:
+    description: Extraction date (v1 header).
+    range: date
+  extracted_by:
+    description: Who extracted — an agent or a person (v1 header; docs/requirements.md:54).
+  reviewed_by:
+    description: >-
+      REQUIRED before a set is BUILT ON. Empty string means readable but not
+      buildable-on (docs/requirements.md §3 "reviewed_by empty means unusable";
+      record.schema.yaml:213). Present (empty) in all 44 records today.
+    required: true
+    slot_uri: prov:wasAttributedTo
+  set_note:
+    aliases: [note]
+    description: Free-text header note for the whole set (extraction/typing conventions, id scheme, derived-field warnings).
+  reference_editions:
+    description: Per-scheme edition pinning (sp-800-218:29-59). Map scheme-key -> ReferenceEdition.
+    range: ReferenceEdition
+    multivalued: true
+    inlined: true
+  required_deliverables:
+    description: Work products the source defines (ISO 21434). Parallel taxonomy list.
+    range: Deliverable
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  taxonomy:
+    description: >-
+      Parallel non-requirement taxonomy nodes the set references (practices,
+      requirement_areas, security_levels, principles, SSDF-task crosswalk,
+      source documents, reference schemes). Generic; absorbs 10 file variants.
+    range: TaxonomyNode
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  excluded:
+    description: Deliberately-excluded source items, recorded for auditability (FDA `excluded`).
+    range: ExcludedItem
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  requirements:
+    description: The extracted requirements. Flat list in every observed file (no nesting; hierarchy via `parent`/`level`).
+    range: Requirement
+    multivalued: true
+    inlined: true
+
+  # ---- Requirement identity & provenance ----
+  id:
+    identifier: true
+    description: >-
+      Stable external id `<record>#<designator>` (docs/requirements.md §3b, §4).
+      Resolves to a specific statement in a specific version of a specific
+      document. STABLE AND NEVER REUSED; a withdrawn requirement keeps its id and
+      is marked (docs/requirements.md:110,118). The designator mirrors the
+      source's native numbering (R-0012, PO.1.1, RQ-05-01, OSPS-AC-01,
+      AnnexI-PartI(1), 5.1.1-1.1, probe:archived).
+    range: uriorcurie
+    pattern: "^[a-z0-9][a-z0-9-]*#[^\\s#]+$"
+    required: true
+    slot_uri: dcterms:identifier
+  designator:
+    description: The source-native code portion of the id, verbatim (sp-800-218 PO.1.1; iso-21434 RQ-05-01). Present in 25 files.
+    close_mappings: [oscal:control]   # OSCAL control @id
+  native_id:
+    description: An alternative native identifier when the source carries one distinct from the designator.
+  entry_type:
+    description: >-
+      The kind of source entry this row captures (activity, quality-criterion,
+      stream, practice, sub-practice, paragraph, item, agile-row, table-row …).
+      Open vocabulary; ReqIF SpecObjectType / OSCAL control `class`.
+    close_mappings: [reqif:SPEC-OBJECT-TYPE, oscal:control]   # OSCAL @class
+    any_of:
+      - range: EntryType
+      - range: string
+  status:
+    description: Lifecycle of the requirement (docs/requirements.md §4 no-renumber rule). Closed vocabulary.
+    range: RequirementStatus
+    ifabsent: "string(active)"
+  formerly:
+    description: A single prior designator this requirement was renumbered from (SSDF "[Formerly PW.3.1]"; sp-800-218:540).
+  former_ids:
+    description: Multiple prior ids (renumbering history).
+    multivalued: true
+  moved_to:
+    description: Where a withdrawn/relocated requirement's content moved.
+    multivalued: true
+  withdrawn_to:
+    description: Target id(s) superseding a withdrawn requirement.
+    multivalued: true
+  inherits_from:
+    description: Requirement id(s) this one inherits normative force from (e.g. SSDF tasks inherit the group-level "Organizations should").
+    multivalued: true
+  added_by:
+    description: Provenance of a requirement added by a verify/cross-check pass (sp-800-218 R-0001.."added by the independent verify pass"). FX-1 multi-agent passes (extraction.md:56-70).
+  cite_as:
+    description: A ready-to-use citation string for this requirement.
+    slot_uri: dcterms:bibliographicCitation
+
+  # ---- the four mandatory parts ----
+  verb:
+    description: >-
+      The normative verb, VERBATIM as the source writes it (docs/requirements.md
+      §1; open question §5.3 — DO NOT normalise SHALL->MUST, source wording is
+      preserved). BCP 14 keyword when the source is a BCP 14 document; otherwise
+      a lowercase modal or a document-native verb ("verify", "imperative"). The
+      NormativeVerb enum is the canonical BCP 14 set (RFC 2119 as updated by RFC
+      8174); the string arm carries everything else.
+    required: true
+    exact_mappings: [bcp14:keyword]
+    any_of:
+      - range: NormativeVerb
+      - range: string
+  actor:
+    description: >-
+      WHO must act — the obligated party (docs/requirements.md §1; e.g. verifier,
+      sender, recipient, organization). Scalar in most files, list in a few;
+      both accepted (list is normalized on ingest).
+    required: true
+    recommended: true
+    any_of:
+      - range: string
+      - range: string
+        multivalued: true
+  condition:
+    description: >-
+      WHEN the requirement applies (docs/requirements.md §1). "Unconditional is a
+      valid condition, stated as such." Part of the requirement's semantic
+      context.
+  locator:
+    description: >-
+      WHERE in the source — section or clause, NEVER a page number ("pages do not
+      survive conversion", docs/requirements.md §1). Verbatim (§4.2, §2 Table 1
+      practice PO.1 task PO.1.1, Annex I Part II(1)).
+    required: true
+    slot_uri: oscal:part    # OSCAL part/@id addressing
+
+  # ---- the statement ----
+  text:
+    description: >-
+      The requirement text, VERBATIM. Never paraphrased (docs/requirements.md §3).
+      For an inferred requirement this is the lowercase-prose / numbered-step text
+      the obligation is stated in (rfc-9052 inferred entries).
+    required: true
+    exact_mappings: [reqif:ATTRIBUTE-VALUE-STRING]
+    close_mappings: [oscal:prose, sysml:text]
+  short_title:
+    description: A short human label (derived field in v2; needs human review per source notes). sp-800-218:70,248.
+  title:
+    description: A title when the source gives the requirement one (control title, practice name). OSCAL control title.
+    close_mappings: [oscal:title, dcterms:title]
+  kind:
+    description: >-
+      Whether the requirement is STATED in the source or INFERRED by us from
+      prose/structure (docs/requirements.md §3; "an invented MUST is a defect").
+      Closed vocabulary. An inferred requirement carries no BCP 14 keyword and
+      MUST explain itself in inferred_note/notes.
+    range: RequirementKind
+    ifabsent: "string(stated)"
+  inferred_note:
+    description: Why/how an inferred requirement is inferred (required when kind=inferred; docs/requirements.md §3). Enforced by the companion checker.
+
+  # ---- constrained thing + semantic context ----
+  object:
+    description: >-
+      The structural object the requirement constrains (v1 RFC/vCon shape:
+      rfc-9052 "protected header bucket", "COSE_Key"; vcon "vCon"). Links a
+      requirement to the message/field model (FX-1 cross-check pass,
+      extraction.md:64 "every field a requirement names exists in the schema").
+    close_mappings: [sysml:subject]
+  field:
+    description: The specific field/parameter of `object` the requirement governs (rfc-9052 "map labels", vcon "uuid").
+  context:
+    description: >-
+      Free-form semantic context of the requirement beyond condition — the
+      situation, scope, or qualifying circumstance (corpus `context`, 441 uses).
+      Scalar or list; both accepted.
+    any_of:
+      - range: string
+      - range: string
+        multivalued: true
+  applies_from:
+    description: An effective date / applicability trigger when the source sets one (regulatory records).
+
+  # ---- audit / classification typing ----
+  normativity:
+    description: >-
+      The normative CHARACTER of the statement — requirement / recommendation /
+      permission / prohibition and the document-family extensions actually in use
+      (descriptive-practice, assessment-criterion, control, conformance-claim,
+      checklist-question, attestation, commitment, definition, informative …,
+      ~50 observed). Controlled core enum + string arm so no record is rejected;
+      the companion checker warns on a value outside the enum.
+    close_mappings: [oscal:prop]   # OSCAL prop name="label"/"method"
+    any_of:
+      - range: Normativity
+      - range: string
+  nature:
+    description: >-
+      Process (an activity) vs deliverable / deliverable-producing (yields a work
+      product) vs product vs property (iso-21434 note:9-11). Closed — the four
+      observed values are stable.
+    range: Nature
+  phase:
+    description: >-
+      Lifecycle phase the requirement belongs to (SDLC; aligned to the MAP-0001
+      canonical phase line concept->requirements->design->implementation->
+      verification->release->response + spanning). ~25 observed values; controlled
+      core enum + string arm.
+    any_of:
+      - range: LifecyclePhase
+      - range: string
+  level:
+    description: >-
+      Structural level in the source's own hierarchy (framework / group /
+      practice / task / control / control-enhancement / clause / item …). NOTE:
+      some records (ASVS, SLSA) historically overload `level` with assurance/
+      maturity TIERS (1/2/3, "Build L2+"); those migrate to attributes.tier (see
+      migration). Controlled core enum + string arm.
+    close_mappings: [skos:broader]
+    any_of:
+      - range: StructuralLevel
+      - range: string
+  tailorable:
+    description: Whether the requirement may be tailored/omitted at project level (ISO 21434 Clause 6.4.3; iso-21434:34). SysML/assurance tailoring.
+    range: boolean
+
+  # ---- hierarchy ----
+  parent:
+    description: Generic parent requirement id (corpus `parent`, 608 uses). The hierarchy edge; SSDF group/practice/task is a special case.
+    range: uriorcurie
+    slot_uri: skos:broader
+  children:
+    description: Child requirement ids (inverse of parent).
+    range: uriorcurie
+    multivalued: true
+    slot_uri: skos:narrower
+  group:
+    description: SSDF group designator this requirement sits under (convenience denormalization of the hierarchy; sp-800-218 `group`).
+  practice:
+    description: SSDF practice designator (convenience; sp-800-218 `practice`).
+  task:
+    description: SSDF/ETSI task designator (convenience).
+  tasks:
+    description: The task designators under a practice (sp-800-218:227-230).
+    multivalued: true
+
+  # ---- testability & verification (SACM) ----
+  testable:
+    description: >-
+      Whether the requirement is testable: yes / no / partial (docs/requirements.md
+      §3 "testable: no is a finding, not a failure"). Closed. SACM claim
+      decidability. Boolean True/False in a few files migrate to yes/no.
+    range: Testable
+  testable_reason:
+    aliases: [testable_note]
+    description: Why the requirement is (not / partly) testable.
+  verification:
+    description: >-
+      How conformance is checked / audited (derived field in v2; e.g. "document
+      review", "contract/acquisition document review; supplier attestation
+      records"). SACM Evidence / assurance argument.
+    close_mappings: [sacm:Evidence, oscal:part]   # OSCAL assessment method
+  audit_status:
+    description: Review state of the derived audit typing (iso-21434 "not-reviewed"). Parallels reviewed_by at per-requirement grain.
+  expects_deliverables:
+    description: The work product(s) that evidence conformance (iso-21434; sp-800-218:356-358). SACM Artifact list.
+    multivalued: true
+    exact_mappings: [sacm:Artifact]
+  contributes_to_assurance:
+    description: Whether/how this requirement contributes to an assurance case (SACM claim support). Observed in assurance-oriented records.
+
+  # ---- illustrative ----
+  notional_implementation_examples:
+    aliases: [implementation_examples]
+    description: Illustrative examples from the source (SSDF Table 1; sp-800-218:250-258). NOT requirements unless independently normative.
+    range: NormativeExample
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  footnote:
+    description: A single source footnote carried verbatim with its anchor (sp-800-218:657-660).
+    range: Footnote
+    inlined: true
+  footnotes:
+    description: Multiple source footnotes.
+    range: Footnote
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  # ---- cross-document & KG linkage ----
+  maps_to:
+    description: >-
+      Cross-references from this requirement to other frameworks/requirements —
+      the source's OWN crosswalk (SSDF References column, sp-800-218:259-355) or
+      our curated mapping. OPTIONAL, provenance-bearing. Each entry is a
+      CrossReference (polymorphic union of every observed shape).
+    range: CrossReference
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+    exact_mappings: [oscal:link, skos:mappingRelation]
+  satisfied_by:
+    description: >-
+      OPTIONAL edges to things in the consuming knowledge graph that DISCHARGE
+      this requirement — a mitigation, a product feature, a procedure, a control
+      implementation. Provenance-bearing (ContextLink). Targets are opaque
+      uriorcurie resolved by the consumer; the library takes no dependency on the
+      downstream model. NOT in v2 today — a formalization of the program's
+      requirement->product/company/project/procedure mapping need.
+    range: ContextLink
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  applies_to:
+    description: >-
+      OPTIONAL edges scoping this requirement to things in the KG it APPLIES to —
+      a product, company/organization, project, procedure, component,
+      environment. Provenance-bearing (ContextLink); opaque targets. Grounds the
+      corpus `applies_to` (14 uses) and the program's scoping need.
+    range: ContextLink
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  external_refs:
+    aliases: [refs]
+    description: Opaque external reference strings (work-item keys, URLs, cited ids) not modeled as a CrossReference (corpus `external_refs`/`refs`).
+    multivalued: true
+
+  # ---- notes + extension ----
+  notes:
+    aliases: [note, additional_notes]
+    description: Free-text note(s) on the requirement.
+  attributes:
+    description: >-
+      OPEN, document-family-specific attribute bag (ReqIF SpecObject model: a
+      SpecObject is an identifier plus a set of typed attribute values). Absorbs
+      the ~120-key long tail observed across the corpus that is NOT a general
+      requirement attribute — clause_name, section_title, chapter, role /
+      responsible_roles / obligated_party / verifier, variant, basis, question /
+      answer_set, stream / business_function / security_practice / maturity_level,
+      principle, track, theme, domain, control_title, pruefspezifikation_adjustment,
+      sdl_agile_bucket, baselines, implementation_level, etc. Lossless round-trip;
+      keys are not validated here. A fork MAY instead subclass Requirement with
+      typed slots for a given document family (LinkML is_a).
+    range: Any
+    inlined: true
+    exact_mappings: [reqif:ATTRIBUTE-VALUE]
+
+  # ---- CrossReference slots ----
+  scheme:
+    description: Target framework key as the source names it (SSDF References scheme BSAFSS/BSIMM/EO14028/SP80053 …; sp-800-218:260-355).
+  framework:
+    description: 'Target framework name (OSPS/SAMM variant: "NIST SP 800-218 (SSDF 1.1)").'
+  standard:
+    description: 'Target standard full name (BSI variant: "Regulation (EU) 2024/2847 (CRA)").'
+  target:
+    description: >-
+      Context: on a CrossReference, a single target id (SAMM/SAFECode variant:
+      "PO.1.1"). On a ContextLink, the OPAQUE uriorcurie of the KG object, resolved
+      by the consumer; the library does not dereference it.
+    range: uriorcurie
+  ids:
+    description: 'Target local ids under `scheme` (SSDF variant: [SM.3, DE.1, IA.1]).'
+    multivalued: true
+  entries:
+    description: 'Target entries (OSPS variant: [''1.2d'',''1.2e'']).'
+    multivalued: true
+  ref:
+    description: 'Raw reference text as printed (ASVS/BSI variant: "CRA Annex I Part I (1)", "CWE-174").'
+  target_id:
+    description: 'Fully-qualified target id when the source gives one (BSI: "eu-cra-2024-2847#AnnexI-PartI(1)").'
+    range: uriorcurie
+  source_text:
+    description: 'The crosswalk cell VERBATIM as the source prints it (SSDF "BSAFSS: SM.3, DE.1, IA.1, IA.2"; sp-800-218:266). The round-trip anchor for ids.'
+  relation:
+    aliases: [relationship, xref_relation]
+    description: Relation type (relates-to / equivalent / broader / narrower / legacy-mapping / derived-from …). SKOS mapping relation.
+    any_of:
+      - range: MappingRelation
+      - range: string
+  provenance:
+    description: >-
+      How well-founded the mapping is (MAP-0001.yaml method): anchor / direct /
+      chained / bridge / ours / published. `ours` requires a `rationale`.
+    any_of:
+      - range: MappingProvenance
+      - range: string
+  target_record:
+    description: The library record id of the target, when the library holds it (sp-800-218r1 variant). Keep strictly as fact; a gap if absent (record.schema.yaml `cites` semantics).
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+  library_record:
+    description: Alias used by OSPS-family files for target_record.
+    pattern: "^[a-z0-9][a-z0-9-]*$"
+  published_by:
+    aliases: [published_by_source]
+    description: 'Who published the mapping (BSI: "BSI TR-03183-1 §5.8.1.1 …"). Provenance.'
+  mapping_source:
+    aliases: [source, source_ref]
+    description: 'The source document/sheet the mapping was read from (SAMM: "OWASP SAMM mappings spreadsheet …").'
+  edition:
+    aliases: [target_edition]
+    description: Edition of the target the ids belong to (MAP-0001 `edition`; sp-800-218r1 `target_record` + edition).
+  edition_note:
+    description: Note about edition drift (OSPS `edition_note`).
+  rationale:
+    aliases: [ours_rationale]
+    description: One-line justification for an `ours` (judgement) mapping (MAP-0001.yaml ours_rationale). REQUIRED when provenance=ours.
+  xref_kind:
+    aliases: [kind]
+    description: 'Mapping entry kind (ASVS: stated/inferred). Distinct from the requirement''s own `kind`.'
+  adopted:
+    description: Whether we adopt this mapping (MAP-0001 `also[].adopted:false` lists published ids NOT adopted).
+    range: boolean
+  refs:
+    description: Fully-qualified `library:<record>#<id>` target refs (MAP-0001.yaml `refs`).
+    range: uriorcurie
+    multivalued: true
+  xref_note:
+    aliases: [maps_to_note, target_note, note]
+    description: Free note on the cross-reference.
+  also:
+    description: Alternative/older-edition mappings for the same target, each a nested CrossReference (MAP-0001.yaml `also[]`).
+    range: CrossReference
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  # ---- ContextLink slots ----
+  target_kind:
+    description: The kind of KG object this requirement links to.
+    range: ContextTargetKind
+  asserted_by:
+    description: Who asserted this link (a person, an agent, a review id). Provenance.
+    slot_uri: prov:wasAttributedTo
+  method:
+    description: How the link was established (extracted / inferred / asserted / reviewed). Provenance.
+    any_of:
+      - range: AssertionMethod
+      - range: string
+  confidence:
+    description: Confidence in the link (low/medium/high). Advisory; scale not fixed.
+    any_of:
+      - range: ConfidenceLevel
+      - range: string
+  review_status:
+    description: Whether a human has accepted this link. An AI-asserted link is a hypothesis until reviewed.
+    any_of:
+      - range: ReviewStatus
+      - range: string
+  as_of:
+    description: Date the link was asserted/reviewed.
+    range: date
+
+  # ---- NormativeExample / Footnote / Deliverable / Taxonomy / Excluded / ReferenceEdition ----
+  number:
+    description: Footnote number (sp-800-218:658).
+    range: integer
+  anchored_at:
+    description: Where in the requirement the footnote anchors (sp-800-218:659).
+  deliverable:
+    description: The work-product description (iso-21434 required_deliverables).
+  from_requirements:
+    description: Requirement ids that produce this deliverable.
+    multivalued: true
+  from_subclauses:
+    description: Subclauses a work product results from (iso-21434 note:12-14).
+    multivalued: true
+  deliverable_note:
+    description: Note on the deliverable.
+  taxonomy_kind:
+    description: Which taxonomy this node belongs to (practice / requirement-area / security-level / principle / ssdf-task / source-doc / reference-scheme).
+  name:
+    description: Node name.
+  reason:
+    description: Why an item was excluded (ExcludedItem).
+  library_holds_other_edition:
+    description: A different edition the library holds whose ids may not carry over (sp-800-218:31 "bsimm-16 (BSIMM16, different edition …)").
+
+# ===========================================================================
+# ENUMS
+# ===========================================================================
+enums:
+
+  NormativeVerb:
+    description: >-
+      BCP 14 normative keywords — RFC 2119 as updated by RFC 8174
+      (docs/requirements.md §1). Canonical set; the source's own casing is
+      preserved in `verb` via the string arm (open question §5.3: do not
+      normalise SHALL->MUST).
+    permissible_values:
+      MUST: {meaning: bcp14:MUST}
+      MUST NOT: {meaning: bcp14:MUSTNOT}
+      REQUIRED: {meaning: bcp14:REQUIRED}
+      SHALL: {meaning: bcp14:SHALL}
+      SHALL NOT: {meaning: bcp14:SHALLNOT}
+      SHOULD: {meaning: bcp14:SHOULD}
+      SHOULD NOT: {meaning: bcp14:SHOULDNOT}
+      RECOMMENDED: {meaning: bcp14:RECOMMENDED}
+      NOT RECOMMENDED: {meaning: bcp14:NOTRECOMMENDED}
+      MAY: {meaning: bcp14:MAY}
+      OPTIONAL: {meaning: bcp14:OPTIONAL}
+
+  Normativity:
+    description: >-
+      Normative character. Core is RFC-2119-aligned (requirement / recommendation
+      / permission / prohibition); the remaining values are the document-family
+      extensions actually observed across the 44 records. Extensible via the
+      string arm on the slot.
+    permissible_values:
+      requirement:
+      recommendation:
+      permission:
+      prohibition:
+      descriptive-practice:
+      assessment-criterion:
+      conformance-claim:
+      checklist-question:
+      control:
+      attestation:
+      commitment:
+      definition:
+      informative:
+      consideration:
+      exemption:
+      principle:
+      statement:
+      scope:
+      unknown:
+
+  RequirementKind:
+    description: Stated in the source vs inferred by us (docs/requirements.md §3). Closed.
+    permissible_values:
+      stated:
+      inferred:
+
+  Testable:
+    description: Testability finding (docs/requirements.md §3). Closed.
+    permissible_values:
+      "yes":
+      "no":
+      partial:
+
+  Nature:
+    description: Process vs deliverable-producing vs product vs property (iso-21434:9-11). Closed.
+    permissible_values:
+      process:
+      deliverable:
+      deliverable-producing:
+      product:
+      property:
+
+  RequirementStatus:
+    description: Lifecycle (docs/requirements.md §4, no-renumber rule). Closed.
+    permissible_values:
+      active:
+      withdrawn:
+      retired:
+      rescinded:
+
+  LifecyclePhase:
+    description: >-
+      SDLC phase, aligned to the MAP-0001 canonical phase line
+      (MAP-0001-sdl-requirements-crosswalk.md §Canonical phase line). Core values
+      below; extensible via the string arm for family-specific phases
+      (tara-method, secure-end-of-life …).
+    permissible_values:
+      concept:
+      requirements:
+      design:
+      implementation:
+      verification:
+      release:
+      response:
+      governance:
+      supply-chain:
+      operations:
+      training:
+      organizational:
+      spanning:
+
+  StructuralLevel:
+    description: Structural hierarchy level. Extensible via the string arm. (Assurance/maturity TIERS do not belong here — see attributes.tier.)
+    permissible_values:
+      framework:
+      group:
+      practice:
+      task:
+      control:
+      control-enhancement:
+      requirement:
+      clause:
+      item:
+      statement:
+      prose:
+      note:
+
+  EntryType:
+    description: Source-entry kind (ReqIF SpecObjectType / OSCAL control class). Extensible.
+    permissible_values:
+      activity:
+      quality-criterion:
+      practice:
+      sub-practice:
+      stream:
+      paragraph:
+      item:
+      table-row:
+      agile-row:
+      lifecycle-stage:
+
+  MappingRelation:
+    description: Cross-reference relation. Extensible via the string arm.
+    permissible_values:
+      equivalent: {meaning: skos:exactMatch}
+      broader: {meaning: skos:broadMatch}
+      narrower: {meaning: skos:narrowMatch}
+      related: {meaning: skos:relatedMatch}
+      relates-to: {meaning: skos:closeMatch}
+      derived-from: {meaning: prov:wasDerivedFrom}
+      satisfies:
+      conflicts-with:
+      legacy-mapping:
+
+  MappingProvenance:
+    description: >-
+      How well-founded a cross-reference is (MAP-0001.yaml method block:
+      anchor/direct/chained/bridge/ours; plus `published` for a publisher-stated
+      mapping that is not graded on that scale).
+    permissible_values:
+      anchor:   {description: the row's defining requirement}
+      direct:   {description: a publisher maps the id to a row anchor}
+      chained:  {description: a publisher maps it to another id of the same row (one hop)}
+      bridge:   {description: a publisher maps it to a non-column requirement stating the row}
+      ours:     {description: our judgement; requires a rationale}
+      published: {description: a publisher-stated mapping not graded on the anchor/direct scale}
+
+  ContextTargetKind:
+    description: Kind of consuming-KG object a requirement links to (satisfied_by/applies_to targets).
+    permissible_values:
+      product:
+      component:
+      organization:    {aliases: [company]}
+      project:
+      procedure:
+      mitigation:
+      control:
+      requirement:
+      environment:
+      party:
+      other:
+
+  AssertionMethod:
+    description: How a ContextLink was established (provenance). Extensible.
+    permissible_values:
+      extracted:
+      inferred:
+      asserted:
+      reviewed:
+
+  ConfidenceLevel:
+    permissible_values:
+      low:
+      medium:
+      high:
+
+  ReviewStatus:
+    description: Human-review state of an asserted link (an AI assertion is a hypothesis until accepted).
+    permissible_values:
+      unreviewed:
+      proposed:
+      accepted:
+      rejected:
+
+  Audience:
+    description: Whether the file is the canonical machine view or a human view (iso-21434:5).
+    permissible_values:
+      machine:
+      human:
+      both:
