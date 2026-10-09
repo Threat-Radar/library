@@ -21,6 +21,11 @@ jobs:
       - name: records and topics validate
         run: bin/validate
 
+      - name: requirements schema gate (normalize v2 -> validate v3)
+        run: |
+          pip install -r requirements-dev.txt
+          bin/check-requirements
+
       - name: generate derived views
         run: |
           bin/export && bin/reindex
