@@ -29,6 +29,10 @@ RECORDS_ROOT = LIB / "records"
 TAGS_PATH = LIB / "schema" / "tags.yaml"
 PAGE_NAME = "summary.html"
 SITE_NAV_SLOT = "<!-- site-nav -->"
+# Link to the library's front page, shown at the top of every generated page.
+# Relative to records/<body>/<id>/summary.html → the repo-root README. A publisher
+# that flattens the tree overrides it by replacing SITE_NAV_SLOT.
+README_HREF = "../../../README.md"
 
 SCHEMA_BODIES = {
     "ietf", "nist", "w3c", "iso", "oasis", "c2pa", "openssf", "google",
@@ -224,12 +228,12 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.5;
 }
 a { color: var(--accent); }
 a:hover { text-decoration: none; }
-.wrap { max-width: 920px; margin: 0 auto; padding: 0 24px 64px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px 40px; }
 header { border-bottom: 1px solid var(--line); background: var(--card); }
 .bar {
   max-width: 920px; margin: 0 auto; padding: 16px 24px;
@@ -239,10 +243,10 @@ header { border-bottom: 1px solid var(--line); background: var(--card); }
 nav { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.92rem; }
 nav a { color: var(--muted); text-decoration: none; }
 nav a[aria-current="page"] { color: var(--ink); font-weight: 650; }
-h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.15; letter-spacing: -0.03em; margin: 28px 0 8px; }
-h2 { font-size: 1.25rem; margin: 1.6em 0 0.4em; }
-h3 { font-size: 1.05rem; margin: 1.2em 0 0.3em; }
-.kicker { margin: 22px 0 0; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 650; }
+h1 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.15; letter-spacing: -0.03em; margin: 20px 0 6px; }
+h2 { font-size: 1.15rem; margin: 1.25em 0 0.3em; padding-top: 0.6em; border-top: 1px solid var(--line); }
+h3 { font-size: 1rem; margin: 1em 0 0.2em; }
+.kicker { margin: 18px 0 0; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 650; }
 .lede { color: var(--muted); margin-top: 0; }
 .banner, .callout {
   background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 12px 14px; margin: 16px 0;
@@ -250,8 +254,11 @@ h3 { font-size: 1.05rem; margin: 1.2em 0 0.3em; }
 .callout.quiet { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
 .callout strong { color: var(--ink); }
 ul.clean { padding-left: 1.2rem; }
-table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1em; background: var(--card); }
-th, td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 8px 10px; font-size: 0.95rem; }
+table { width: 100%; border-collapse: collapse; margin: 0.4em 0 0.8em; background: var(--card); }
+th, td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 6px 10px; font-size: 0.93rem; }
+table.kv { background: transparent; }
+table.kv td { border-bottom: none; padding: 2px 12px 2px 0; }
+td.rowhead { color: var(--muted); font-size: 0.74rem; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; width: 1%; padding-top: 6px; }
 th { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
 code { font-size: 0.9em; }
 .badge {
@@ -297,10 +304,8 @@ def applicability_table(app: dict | None) -> str:
             f"<tr><td>{esc(label)}</td><td><span class=\"badge {esc(rating)}\">{esc(shown)}</span></td></tr>"
         )
     note = (
-        "<p class=\"meta\">Ratings are the <code>applicability</code> map on "
-        "<code>record.yaml</code>. A missing axis is not assessed — it is not "
-        "<code>none</code>. The summary's Why column is not scraped; two summary "
-        "dialects exist, and a blank template cell is not a judgement.</p>"
+        "<p class=\"meta\">From <code>record.yaml</code>; a missing axis is "
+        "not assessed, not <code>none</code>.</p>"
     )
     return (
         "<table><thead><tr><th>Axis</th><th>Rating</th></tr></thead><tbody>"
@@ -312,23 +317,21 @@ def applicability_table(app: dict | None) -> str:
 
 def tag_html(groups: dict[str, list[str]]) -> str:
     labels = [
-        ("topic", "Topic tags", "Subject vocabulary and free tags. These are what the topic view and the tag crosswalk use."),
-        ("body", "Body tags", "Issuing-body names. Shown here, excluded from the topic view so it is not a second copy of the body index."),
-        ("role", "Role tags", "Why the record was kept (normative, prior-art, evidence, …). Not a subject."),
-        ("standing", "Standing tags", "Maturity words such as standard or draft. Not a shared subject."),
+        ("topic", "Topic"),
+        ("body", "Body"),
+        ("role", "Role"),
+        ("standing", "Standing"),
     ]
-    parts = []
-    any_tags = False
-    for key, title, why in labels:
+    rows = []
+    for key, title in labels:
         tags = groups[key]
         if not tags:
             continue
-        any_tags = True
         badges = " ".join(f'<span class="badge">{esc(t)}</span>' for t in tags)
-        parts.append(f"<h3>{title}</h3><p>{badges}</p><p class=\"meta\">{why}</p>")
-    if not any_tags:
+        rows.append(f"<tr><td class=\"rowhead\">{title}</td><td>{badges}</td></tr>")
+    if not rows:
         return "<p class=\"meta\">No tags recorded.</p>"
-    return "".join(parts)
+    return "<table class=\"kv\"><tbody>" + "".join(rows) + "</tbody></table>"
 
 
 def type_section(rec: dict, published: dict[str, dict]) -> str:
@@ -446,8 +449,7 @@ def relations_section(rec: dict, published: dict[str, dict]) -> str:
         return ""
     return (
         "<h2>Recorded relations</h2>"
-        "<p class=\"meta\">Curatorial <code>relations</code> on this record only. "
-        "Empty lists are omitted. These are not crosswalk edges and not a knowledge graph.</p>"
+        "<p class=\"meta\">Curatorial <code>relations</code> only — not crosswalk edges.</p>"
         + "".join(blocks)
     )
 
@@ -476,8 +478,7 @@ def cites_section(rec: dict, published: dict[str, dict]) -> str:
         return ""
     return (
         "<h2>Document cites</h2>"
-        "<p class=\"meta\">From <code>cites</code>: what the document references. "
-        "Fact about the source, not our crosswalk. Gaps stay gaps.</p><ul>"
+        "<p class=\"meta\">From <code>cites</code> — what the source references.</p><ul>"
         + "".join(items) + "</ul>"
     )
 
@@ -513,9 +514,7 @@ def record_page(rec: dict, published: dict[str, dict]) -> str:
     if rec["summary_written"]:
         summary = (
             "<h2>Summary</h2>"
-            "<p class=\"meta\">Prose from <code>summary.md</code>, unedited. "
-            "The strip above is <code>record.yaml</code>. If they disagree, "
-            "the record wins for type, tags, applicability ratings, and bears_on.</p>"
+            "<p class=\"meta\">Prose from <code>summary.md</code>, unedited.</p>"
             + rec["summary_html"]
         )
     else:
@@ -599,6 +598,10 @@ def page(title: str, body: str) -> str:
         f"<title>{esc(title)}</title>\n"
         f"<style>{CSS}</style>\n</head>\n<body>\n"
         f"{SITE_NAV_SLOT}\n"
+        "<header><div class=\"bar\">"
+        f"<a class=\"mark\" href=\"{README_HREF}\">Threat-Radar library</a>"
+        f"<nav><a href=\"{README_HREF}\">README ↑</a></nav>"
+        "</div></header>\n"
         f"<main class=\"wrap\">\n{body}\n"
         "<footer><p>Generated from <code>record.yaml</code> and <code>summary.md</code> "
         "in this directory by the library's <code>bin/render-html</code>. Do not hand-edit. "
