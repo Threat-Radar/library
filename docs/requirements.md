@@ -26,6 +26,9 @@ source: "sponsor question 2026-09-22: what is a requirement?"
 > the reverse). A documented v2→v3 migration and ten open questions ship with the
 > schema PR; cross-field invariants (count reconciliation, "inferred needs a reason",
 > "ours mapping needs a rationale") stay in `bin/validate`, not generated SHACL.
+> The schema describes the NORMALIZED v3 shape; the 44 files stay raw v2 and are
+> bridged by a normalization loader. See `docs/requirements-schema.md` for the
+> loader, the v2→v3 transforms, and the `bin/check-requirements` acceptance gate.
 
 ## 1. Definition
 
