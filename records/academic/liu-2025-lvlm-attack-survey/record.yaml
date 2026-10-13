@@ -1,0 +1,52 @@
+schema: "library-record/v1"
+id: liu-2025-lvlm-attack-survey
+body: academic
+type: paper
+title: "A Survey of Attacks on Large Vision-Language Models: Resources, Advances, and Future Trends"
+authors:
+  - "Daizong Liu"
+  - "Mingyu Yang"
+  - "Xiaoye Qu"
+  - "Pan Zhou"
+  - "Yu Cheng"
+  - "Wei Hu"
+date: "2024-07-12"
+publisher: "arXiv"
+version: "arXiv v2"
+identifiers:
+  arxiv: "2407.07403"
+  url: https://arxiv.org/abs/2407.07403
+content:
+  url: https://arxiv.org/pdf/2407.07403
+  sha256: "2150f8c9eb40674ab03854902024ea9e40cd0de448e6c06705d18cfb3ca87555"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: application/pdf
+  pages: 15
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "A broad survey of attacks on vision-language models; useful as a map of multimodal attack classes, less so for agentic/MCP specifics."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - academic
+  - background
+  - prompt-injection
+  - jailbreak
+  - data-poisoning
+  - backdoor
+  - evasion
+status: summarized
+confidence: medium
