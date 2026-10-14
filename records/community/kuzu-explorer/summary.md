@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: kuzu-explorer
 record: kuzu-explorer
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Kùzu Explorer
@@ -22,8 +22,8 @@ visualization. The repository was archived on 2025-10-10.
 
 ## Applicability
 
-Local graph-query UI precedent for Issue #10. It bears on no accepted decision in this
-record.
+Local graph-query UI precedent for Issue #10. It informs DEC-006 and R-014 without
+accepting a decision.
 
 ## Limits
 

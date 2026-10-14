@@ -1,0 +1,36 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+schema: "library-record/v1"
+id: react-flow
+body: community
+type: repo
+title: "React Flow"
+authors:
+  - xyflow contributors
+date: ""
+publisher: "xyflow"
+identifiers:
+  git: https://github.com/xyflow/xyflow
+content:
+  url: https://github.com/xyflow/xyflow
+  sha256: ""
+  retrieved: "2026-10-14"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-006
+  - R-014
+topic: rpt-0006-knowledge-graph-visualization
+commit: "3d35b57317576b0916c0bfeaaedd573aaacc2839"
+license: "MIT"
+tags:
+  - graph-visualization
+  - node-editor
+  - accessibility
+  - prior-art
+status: summarized
+confidence: high

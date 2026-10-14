@@ -7,6 +7,7 @@ title: "Sigma.js documentation and project"
 authors: []
 date: ""
 version: "3.0.3"
+publisher: "Sigma.js project"
 identifiers:
   git: https://github.com/jacomyal/sigma.js
 content:
@@ -20,7 +21,10 @@ relations:
   see_also: []
   cited_by: []
   implements_concept: []
-bears_on: []
+bears_on:
+  - DEC-006
+  - R-014
+  - R-018
 topic: rpt-0006-knowledge-graph-visualization
 commit: "d32c4e5bfd4c5f49724ebc21bd786b01be555dac"
 license: "MIT"

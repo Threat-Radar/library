@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: sigma-js
 record: sigma-js
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Sigma.js documentation and project
@@ -28,7 +28,8 @@ code.
 ## Applicability
 
 Core candidate evidence for Issue #10 rendering, focus, path styling, and separation of
-view state from domain facts. It bears on no accepted decision in this record.
+view state from domain facts. It informs DEC-006, R-014, and R-018 without accepting a
+decision.
 
 ## Limits
 

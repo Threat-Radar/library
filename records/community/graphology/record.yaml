@@ -1,0 +1,37 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+schema: "library-record/v1"
+id: graphology
+body: community
+type: repo
+title: "Graphology"
+authors:
+  - Guillaume Plique
+date: ""
+publisher: "Graphology project"
+identifiers:
+  git: https://github.com/graphology/graphology
+content:
+  url: https://github.com/graphology/graphology
+  sha256: ""
+  retrieved: "2026-10-14"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-006
+  - R-014
+  - R-018
+topic: rpt-0006-knowledge-graph-visualization
+commit: "65e278f0075de97bee3fce12d10e423752ed395a"
+license: "MIT"
+tags:
+  - graph-model
+  - graph-algorithms
+  - graph-visualization
+  - prior-art
+status: summarized
+confidence: high
