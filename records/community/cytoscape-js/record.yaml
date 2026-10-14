@@ -7,6 +7,7 @@ title: "Cytoscape.js documentation and project"
 authors: []
 date: ""
 version: "3.34.0"
+publisher: "Cytoscape.js project"
 identifiers:
   git: https://github.com/cytoscape/cytoscape.js
 content:
@@ -20,7 +21,10 @@ relations:
   see_also: []
   cited_by: []
   implements_concept: []
-bears_on: []
+bears_on:
+  - DEC-006
+  - R-014
+  - R-018
 topic: rpt-0006-knowledge-graph-visualization
 commit: "22716bfb75834b56fa6679648b0abb06f4ae691c"
 license: "MIT"

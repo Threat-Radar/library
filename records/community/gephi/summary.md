@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: gephi
 record: gephi
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Gephi desktop documentation and project
@@ -27,7 +27,7 @@ GPLv3.
 ## Applicability
 
 Reference environment for Issue #10 layout, filtering, weighting, and graph/table/timeline
-separation. It bears on no accepted decision in this record.
+separation. It informs DEC-006 and R-014 without accepting a decision.
 
 ## Limits
 

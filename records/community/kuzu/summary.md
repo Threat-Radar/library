@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: kuzu
 record: kuzu
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Kùzu graph database
@@ -21,8 +21,8 @@ final identified release is 0.11.3 and the repository is archived.
 
 ## Applicability
 
-Supporting lifecycle evidence for the Kùzu Explorer candidate in Issue #10. It bears on
-no accepted decision in this record.
+Supporting lifecycle evidence for the Kùzu Explorer candidate in Issue #10. It informs
+DEC-006 without accepting a decision.
 
 ## Limits
 

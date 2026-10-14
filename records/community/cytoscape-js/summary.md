@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: cytoscape-js
 record: cytoscape-js
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Cytoscape.js documentation and project
@@ -26,8 +26,8 @@ console, coordinated non-graph views, and proposal verdict workflow remain appli
 ## Applicability
 
 Core candidate evidence for Issue #10 visualization, interaction, layout, styling,
-filtering, and domain/presentation separation. It bears on no accepted decision in this
-record.
+filtering, and domain/presentation separation. It informs DEC-006, R-014, and R-018
+without accepting a decision.
 
 ## Limits
 

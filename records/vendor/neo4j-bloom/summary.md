@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: neo4j-bloom
 record: neo4j-bloom
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Neo4j Bloom user guide
@@ -26,7 +26,8 @@ the database in its GDS workflow.
 ## Applicability
 
 Product precedent for Issue #10 exploration, inspection, filtering, saved presentation
-state, and direct graph editing. It bears on no accepted decision in this record.
+state, and direct graph editing. It informs DEC-006 and R-014 without accepting a
+decision.
 
 ## Limits
 
