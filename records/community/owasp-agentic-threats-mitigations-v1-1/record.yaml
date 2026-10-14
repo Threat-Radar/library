@@ -1,0 +1,43 @@
+schema: "library-record/v1"
+id: owasp-agentic-threats-mitigations-v1-1
+body: community
+type: web
+title: "Agentic AI - Threats and Mitigations"
+short_title: "OWASP ASI Threats and Mitigations"
+authors:
+  - "OWASP GenAI Security Project, Agentic Security Initiative"
+date: "2025-02-17"
+publisher: "OWASP GenAI Security Project"
+version: "1.0 (resource page, 2025-02-17); v1.1 (Dec 2025) per sources.md"
+identifiers:
+  url: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/
+content:
+  url: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/
+  sha256: ""
+  retrieved: "2026-10-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - csa-maestro-2025
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "OWASP's threat-model-based reference for agentic AI threats and mitigations — a primary catalog for the agentic lane; to be read in full once the PDF is obtained."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - community
+  - ai-threat-model
+  - agent-security
+  - ai-weakness-catalog
+status: queued
+confidence: low
