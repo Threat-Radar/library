@@ -1,0 +1,32 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: aws-security-agent-threat-modeling
+body: vendor
+type: web
+title: "AWS Security Agent threat modeling"
+authors:
+  - Amazon Web Services
+date: "2026-06-17"
+publisher: "Amazon Web Services"
+identifiers:
+  url: https://aws.amazon.com/about-aws/whats-new/2026/06/aws-security-agent-threat-modeling/
+content:
+  url: https://aws.amazon.com/about-aws/whats-new/2026/06/aws-security-agent-threat-modeling/
+  sha256: ""
+  retrieved: "2026-10-11"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-003
+  - R-005
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, generative-ai, vendor]
+status: summarized
+confidence: high

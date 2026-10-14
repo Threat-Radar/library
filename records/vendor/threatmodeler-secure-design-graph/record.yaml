@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: threatmodeler-secure-design-graph
+body: vendor
+type: web
+title: "ThreatModeler Secure Design Graph"
+authors: [ThreatModeler Software]
+date: ""
+publisher: "ThreatModeler Software, Inc."
+identifiers:
+  url: https://www.threatmodeler.ai/platform/secure-design-graph
+content:
+  url: https://www.threatmodeler.ai/platform/secure-design-graph
+  sha256: ""
+  retrieved: "2026-10-12"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-006
+  - DEC-009
+  - R-015
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, knowledge-graph, vendor]
+status: summarized
+confidence: medium

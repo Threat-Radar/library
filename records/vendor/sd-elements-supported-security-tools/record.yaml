@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: sd-elements-supported-security-tools
+body: vendor
+type: web
+title: "SD Elements supported verification tools"
+authors:
+  - Security Compass
+date: ""
+publisher: "Security Compass"
+identifiers:
+  url: https://docs.sdelements.com/master/guide/docs/integrations/security_tools/supported_tools/
+content:
+  url: https://docs.sdelements.com/master/guide/docs/integrations/security_tools/supported_tools/
+  sha256: ""
+  retrieved: "2026-10-11"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-003
+  - R-018
+  - R-030
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, integrations, verification]
+status: summarized
+confidence: high
