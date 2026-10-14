@@ -9,12 +9,13 @@ title: "AWS Threat Composer"
 authors:
   - Amazon Web Services
 maturity: implementation
+publisher: "Amazon Web Services"
 identifiers:
   git: https://github.com/awslabs/threat-composer
 content:
   url: https://github.com/awslabs/threat-composer
   sha256: ""
-  retrieved: ""
+  retrieved: "2026-10-11"
   local: false
 relations:
   supersedes: []
@@ -30,7 +31,7 @@ bears_on:
   - R-018
   - R-021
 topic: rpt-0003-threat-modeling-products
-commit: "3d4ed92f96a29605a74795d8df103e068f11ed70"
+commit: "4ae9bda22d75165c461c3c396c204603db2a092e"
 license: "Apache-2.0"
 applicability:
   security: core

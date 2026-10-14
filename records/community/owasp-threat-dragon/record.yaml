@@ -9,12 +9,13 @@ title: "OWASP Threat Dragon"
 authors:
   - OWASP
 maturity: implementation
+publisher: "OWASP Foundation"
 identifiers:
   git: https://github.com/OWASP/threat-dragon
 content:
   url: https://github.com/OWASP/threat-dragon
   sha256: ""
-  retrieved: ""
+  retrieved: "2026-10-11"
   local: false
 relations:
   supersedes: []
@@ -29,7 +30,7 @@ bears_on:
   - DEC-006
   - R-018
 topic: rpt-0003-threat-modeling-products
-commit: "5d6db4f735b0430431a495f4821ccdbe1ec5db8a"
+commit: "1753ad0fae42d65c56e754fa8faf8fb57179f9f5"
 license: "Apache-2.0"
 applicability:
   security: core

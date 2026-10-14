@@ -1,0 +1,39 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: iriusrisk-cli
+body: vendor
+type: repo
+title: "IriusRisk CLI"
+authors:
+  - IriusRisk
+date: ""
+identifiers:
+  git: https://github.com/iriusrisk/iriusrisk-cli
+publisher: "IriusRisk"
+content:
+  url: https://github.com/iriusrisk/iriusrisk-cli
+  sha256: ""
+  retrieved: "2026-10-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-003
+  - R-014
+  - R-018
+topic: rpt-0003-threat-modeling-products
+commit: "a7d5aafcbb887bb180dbd5f3ee89c315218e3232"
+license: "MIT"
+tags:
+  - threat-modeling
+  - otm
+  - cli
+status: summarized
+confidence: high

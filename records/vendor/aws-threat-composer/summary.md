@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: aws-threat-composer
 record: aws-threat-composer
 type: summary
-updated: "2026-10-04"
+updated: "2026-10-13"
 ---
 
 # AWS Threat Composer
@@ -13,7 +13,7 @@ updated: "2026-10-04"
 | **Type** | repo |
 | **Maturity** | open-source implementation |
 | **Authors** | Amazon Web Services |
-| **Published** | not stated; reviewed 2026-09-26 |
+| **Published** | not stated; reviewed 2026-10-11 |
 | **Identifier** | git: https://github.com/awslabs/threat-composer |
 | **Source** | https://github.com/awslabs/threat-composer |
 | **Digest** | `not fetched` |
@@ -30,7 +30,7 @@ AWS Threat Composer is an Apache-2.0 open-source application for composing struc
 | Cryptography | none | Does not define cryptographic mechanisms. |
 | This project | core | Relevant to DEC-001, DEC-002, DEC-003, DEC-006, R-018, and adjacent R-021 workflow evidence. |
 
-Reviewed at commit `3d4ed92f96a29605a74795d8df103e068f11ed70`.
+Reviewed at commit `4ae9bda22d75165c461c3c396c204603db2a092e`.
 
 ## Implementations
 

@@ -1,0 +1,30 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: iriusrisk-plans
+body: vendor
+type: web
+title: "IriusRisk plans"
+authors: [IriusRisk]
+date: ""
+publisher: "IriusRisk"
+identifiers:
+  url: https://www.iriusrisk.com/plans
+content:
+  url: https://www.iriusrisk.com/plans
+  sha256: ""
+  retrieved: "2026-10-11"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-006
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, pricing, vendor]
+status: summarized
+confidence: medium

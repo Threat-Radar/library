@@ -1,0 +1,38 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: cairis
+body: community
+type: repo
+title: "CAIRIS"
+authors:
+  - CAIRIS project
+date: ""
+identifiers:
+  git: https://github.com/cairis-platform/cairis
+publisher: "CAIRIS project"
+content:
+  url: https://github.com/cairis-platform/cairis
+  sha256: ""
+  retrieved: "2026-10-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-006
+  - R-005
+topic: rpt-0003-threat-modeling-products
+commit: "44cc57ddd08fb41a8d028411ec712847eefc9be5"
+license: "Apache-2.0"
+tags:
+  - threat-modeling
+  - requirements
+  - security-design
+status: summarized
+confidence: high

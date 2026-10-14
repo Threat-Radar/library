@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: owasp-threat-dragon
 record: owasp-threat-dragon
 type: summary
-updated: "2026-10-04"
+updated: "2026-10-13"
 ---
 
 # OWASP Threat Dragon
@@ -13,14 +13,14 @@ updated: "2026-10-04"
 | **Type** | repo |
 | **Maturity** | established OWASP implementation |
 | **Authors** | OWASP Threat Dragon project |
-| **Published** | not stated; reviewed 2026-09-26 |
+| **Published** | v2.6.2 released 2026-05-10; reviewed 2026-10-11 |
 | **Identifier** | git: https://github.com/OWASP/threat-dragon |
 | **Source** | https://github.com/OWASP/threat-dragon |
 | **Digest** | `not fetched` |
 
 ## Overview
 
-OWASP Threat Dragon is an Apache-2.0 threat-modeling application available in web, desktop, and self-hosted forms. Its repository documents diagram-based modeling, threat and mitigation editing, reports, and repository-backed model storage. RPT-0003 reviewed commit `5d6db4f735b0430431a495f4821ccdbe1ec5db8a`.
+OWASP Threat Dragon is an Apache-2.0 threat-modeling application available in web, desktop, and self-hosted forms. Its repository documents diagram-based modeling, threat and mitigation editing, reports, and repository-backed model storage. RPT-0003 reviewed commit `1753ad0fae42d65c56e754fa8faf8fb57179f9f5`.
 
 ## Applicability
 

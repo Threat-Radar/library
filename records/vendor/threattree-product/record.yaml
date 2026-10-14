@@ -1,0 +1,36 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: threattree-product
+body: vendor
+type: web
+title: "ThreatTree"
+authors: [ThreatTree]
+date: ""
+publisher: "ThreatTree"
+identifiers:
+  url: https://threattree.com/
+content:
+  url: https://threattree.com/
+  sha256: ""
+  retrieved: "2026-10-11"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-006
+  - R-005
+  - R-014
+  - R-015
+  - R-018
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, attack-tree, vendor]
+status: summarized
+confidence: medium

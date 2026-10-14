@@ -1,0 +1,38 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: stride-gpt
+body: community
+type: repo
+title: "STRIDE GPT"
+authors:
+  - Matthew Adams
+date: ""
+identifiers:
+  git: https://github.com/mrwadams/stride-gpt
+publisher: "STRIDE GPT project"
+content:
+  url: https://github.com/mrwadams/stride-gpt
+  sha256: ""
+  retrieved: "2026-10-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-003
+  - DEC-006
+  - R-005
+topic: rpt-0003-threat-modeling-products
+commit: "4ae531247d698d07bb99400c24c1d13010d400f3"
+license: "MIT"
+tags:
+  - threat-modeling
+  - stride
+  - generative-ai
+status: summarized
+confidence: high

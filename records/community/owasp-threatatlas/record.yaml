@@ -1,0 +1,34 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: owasp-threatatlas
+body: community
+type: web
+title: "OWASP ThreatAtlas"
+authors:
+  - OWASP ThreatAtlas project
+date: ""
+publisher: "OWASP Foundation"
+identifiers:
+  url: https://owasp.org/projects/threatatlas
+content:
+  url: https://owasp.org/projects/threatatlas
+  sha256: ""
+  retrieved: "2026-10-12"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-003
+  - DEC-006
+  - DEC-009
+  - R-021
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, collaboration, owasp]
+status: summarized
+confidence: high
