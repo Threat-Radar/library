@@ -1,0 +1,58 @@
+schema: "library-record/v1"
+id: shavit-2023-openai-governing-agentic
+body: vendor
+type: paper
+title: "Practices for Governing Agentic AI Systems"
+authors:
+  - "Yonadav Shavit"
+  - "Sandhini Agarwal"
+  - "Miles Brundage"
+  - "Steven Adler"
+  - "Cullen O'Keefe"
+  - "Rosie Campbell"
+  - "Teddy Lee"
+  - "Pamela Mishkin"
+  - "Tyna Eloundou"
+  - "Alan Hickey"
+  - "Katarina Slama"
+  - "Lama Ahmad"
+  - "Paul McMillan"
+  - "Alex Beutel"
+  - "Alexandre Passos"
+  - "David G. Robinson"
+date: "2023-12"
+publisher: "OpenAI"
+identifiers:
+  url: https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf
+content:
+  url: https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf
+  sha256: "22b3a8607ed781a848b82b0bfe8e638b16cd027aac90a19b2aecf236063d0e7c"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: application/pdf
+  pages: 23
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - R-018
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "Defines agentic AI, the parties in its life-cycle, and seven practices (approval, legibility, monitoring, attributability, interruptibility) that map onto tmodel's mitigations and human-review model."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - vendor
+  - method
+  - agent-security
+  - ai-governance
+status: summarized
+confidence: high
