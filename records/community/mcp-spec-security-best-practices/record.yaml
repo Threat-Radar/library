@@ -1,0 +1,44 @@
+schema: "library-record/v1"
+id: mcp-spec-security-best-practices
+body: community
+type: spec
+title: "Model Context Protocol — Security Best Practices"
+short_title: "MCP Security Best Practices"
+authors:
+  - "Model Context Protocol maintainers"
+date: "2025-11-25"
+publisher: "Model Context Protocol (modelcontextprotocol.io)"
+version: "draft specification page (retrieved 2026-10-13)"
+identifiers:
+  url: https://modelcontextprotocol.io/specification/draft/basic/security_best_practices
+content:
+  url: https://modelcontextprotocol.io/specification/draft/basic/security_best_practices
+  sha256: "d2aa765d51a39a470ecbb44738766cfe75323c26f9db3edc2336933671e393dc"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "The MCP project's own catalog of protocol-level attacks (confused deputy, token passthrough, SSRF, session hijacking, local server compromise) with normative mitigations — the authoritative source for MCP authorization threats."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - community
+  - normative
+  - mcp
+  - agent-security
+  - authorization
+status: summarized
+confidence: high

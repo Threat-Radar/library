@@ -1,0 +1,45 @@
+schema: "library-record/v1"
+id: owasp-mcp-top10-2025
+body: community
+type: web
+title: "OWASP MCP Top 10"
+short_title: "OWASP MCP Top 10 (2025, beta)"
+authors:
+  - "OWASP Foundation, OWASP MCP Top 10 project"
+date: "2025"
+publisher: "OWASP Foundation"
+version: "2025 beta release"
+identifiers:
+  url: https://owasp.org/www-project-mcp-top-10/
+content:
+  url: https://owasp.org/www-project-mcp-top-10/
+  sha256: "335b03198c4daa360f1a9df537b8005151a63e7b11bd8792b6f6476f1ebb1387"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - mcp-spec-security-best-practices
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "A ten-item risk list for MCP-based systems (token exposure, scope creep, tool poisoning, supply chain, shadow servers…) — a ready crosswalk axis for MCP threats."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - community
+  - ai-weakness-catalog
+  - mcp
+  - agent-security
+  - ai-supply-chain
+status: summarized
+confidence: medium
