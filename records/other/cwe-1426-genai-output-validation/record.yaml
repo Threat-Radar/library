@@ -1,0 +1,47 @@
+schema: "library-record/v1"
+id: cwe-1426-genai-output-validation
+body: other
+type: web
+title: "CWE-1426: Improper Validation of Generative AI Output"
+short_title: "CWE-1426"
+authors:
+  - "CWE Artificial Intelligence Working Group"
+  - "MITRE CWE Content Team"
+date: "2024-07-16"
+publisher: "MITRE (CWE)"
+version: "CWE 4.20 (entry last modified 2026-04-30)"
+identifiers:
+  cwe: "CWE-1426"
+  url: https://cwe.mitre.org/data/definitions/1426.html
+content:
+  url: https://cwe.mitre.org/data/definitions/1426.html
+  sha256: "ae231ad85146fd428d14780d897fc8c7c1a4df16a6633ca0350f97efde81d09e"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cwe
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - R-010
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "One of CWE's few AI-specific weaknesses: trusting generative-AI output without validation. Gives tmodel a real CWE id for the output side of prompt-injection attack chains."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - normative
+  - ai-weakness-catalog
+  - prompt-injection
+  - agent-security
+status: summarized
+confidence: high

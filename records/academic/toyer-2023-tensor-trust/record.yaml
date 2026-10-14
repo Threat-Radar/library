@@ -1,0 +1,57 @@
+schema: "library-record/v1"
+id: toyer-2023-tensor-trust
+body: academic
+type: paper
+title: "Tensor Trust: Interpretable Prompt Injection Attacks from an Online Game"
+short_title: "Tensor Trust"
+authors:
+  - "Sam Toyer"
+  - "Olivia Watkins"
+  - "Ethan Mendes"
+  - "Justin Svegliato"
+  - "Luke Bailey"
+  - "Tiffany Wang"
+  - "Isaac Ong"
+  - "Karim Elmaaroufi"
+  - "Pieter Abbeel"
+  - "Trevor Darrell"
+  - "Alan Ritter"
+  - "Stuart Russell"
+date: "2023-11-02"
+publisher: "arXiv"
+version: "arXiv v1"
+identifiers:
+  arxiv: "2311.01011"
+  url: https://arxiv.org/abs/2311.01011
+content:
+  url: https://arxiv.org/pdf/2311.01011
+  sha256: "7f815c7caa9bd24db98aa02ec13ad612d496898838efad4bf56e49f71c6a123f"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: application/pdf
+  pages: 34
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - schulhoff-2023-hackaprompt
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "126K human-written injection attacks and 46K defenses from a game, with benchmarks for prompt extraction and prompt hijacking; evidence for system-prompt leakage and hijacking."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - academic
+  - evidence
+  - prompt-injection
+  - ai-benchmark
+status: summarized
+confidence: high
