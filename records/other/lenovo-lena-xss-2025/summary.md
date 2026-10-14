@@ -10,17 +10,17 @@ updated: "2026-10-13"
 
 |  |  |
 |---|---|
-| **Type** | article (news / research report) |
+| **Type** | article (news report of Cybernews' own research) |
 | **Maturity** | _unset — do not guess_ |
-| **Authors** | Cybernews Research team |
-| **Published** | 2025-08-18, Cybernews (per `sources.md`) |
-| **Identifier** | Cybernews article; MITRE ATLAS case study AML.CS0060 (per `sources.md`) |
+| **Authors** | Ernestas Naprys (Senior Journalist); research by the Cybernews Research team |
+| **Published** | 2025-08-18, Cybernews (updated 2025-08-21) |
+| **Identifier** | Cybernews article; MITRE ATLAS case study AML.CS0060 (per RPT-0014 catalog, not stated in the article) |
 | **Source** | https://cybernews.com/security/lenovo-chatbot-lena-plagued-by-critical-vulnerabilities/ |
-| **Digest** | `not fetched` (site refuses automated access (HTTP 403); not read in this pass) |
+| **Digest** | `1e9dd34aaffcec2748079821285cbb325a19f6a2bd233a41994459e3e99d48e6` (browser 'Save as PDF' copy of the page (10 pp., saved 2026-10-14); the site refuses automated access) |
 
 ## Overview
 
-**Not yet read** — Cybernews refuses automated access, so this record is a placeholder from the team's round-1 catalog (`incidents.md` INC-113), not verified here. As catalogued: a single ~400-character prompt asked **Lena**, Lenovo's GPT-4-based support chatbot, a product question and told it to format the answer as **HTML with an image tag whose error handler sends cookies** to an attacker. Because the output was rendered unsanitised, the payload ran — including when **support agents** opened the conversation — enabling **session hijacking** (prompt injection → improper output handling → stored XSS). MITRE ATLAS records it as case study AML.CS0060.
+Cybernews researchers found **critical XSS flaws in Lena**, Lenovo's customer-support chatbot built on **OpenAI's GPT-4**. A **single ~400-character prompt** did it in four parts: a harmless product question; instructions to return the answer in **HTML** (plus JSON and plain text in the order the web server expected); an **HTML image with a non-existent URL whose error handler sends the page's cookies** to an attacker's server; and insistence that the image be shown. Lena complied; the page rendered the HTML unsanitised and **leaked the session cookie**. When the conversation is handed to a **human support agent**, their browser renders the same HTML and **leaks the agent's cookie**, opening the support platform and a possible path to lateral movement. Root causes named: missing input and **output sanitisation**, the server not verifying chatbot content, running unverified code, and loading arbitrary resources. **Disclosure:** reported 2025-07-22, acknowledged 2025-08-06, mitigated before publication on 2025-08-18; Lenovo confirmed and thanked the researchers.
 
 ## Applicability
 
@@ -28,22 +28,22 @@ updated: "2026-10-13"
 |---|---|---|
 | Security | core | Real-world prompt injection reaching a classic web sink. |
 | Cryptography | none | Not about cryptography. |
-| This project | core | A clear two-step attack path (injection → unsafe rendering) on a deployed product. |
+| This project | core | A clear multi-step attack path (injection → unsafe rendering → session theft → support platform) on a deployed product. |
 
-Bears on **DEC-001**. Status `queued` until the article is read.
+Bears on **DEC-001** (object model — output handling and downstream consumers as attack-path steps).
 
 ## RPT-0014 applicability
 
 | Topic of interest | Rating | Linked ids | Why |
 |---|---|---|---|
-| Published attacks | not assessed | AIT-072 (catalog) | Not read; catalog link only |
-| Existing AI threat models | none | — | News report |
-| Weakness enumerations | not assessed | CWE-79, CWE-1426, CWE-1427, LLM05:2025, AML.CS0060 (catalog) | Not read |
-| Attack → asset mapping | not assessed | C07, C12, C17 (catalog) | Not read |
+| Published attacks | core | AIT-072, AIT-063 | Prompt injection to a classic sink (stored XSS); direct injection by the user |
+| Existing AI threat models | none | — | A news report of disclosed research |
+| Weakness enumerations | core | CWE-79, CWE-1426, CWE-1427, LLM05:2025, LLM01:2025, AML.CS0060 | XSS from unvalidated model output, as catalogued |
+| Attack → asset mapping | core | C07, C12, C17 | Chatbot app layer, human support agents, browsers rendering the output |
 
 ## Implementations
 
-— Searched 2026-10-13.
+Fixed by Lenovo (details not public). Searched 2026-10-13.
 
 | Name | Kind | License | URL |
 |---|---|---|---|
@@ -58,5 +58,6 @@ Bears on **DEC-001**. Status `queued` until the article is read.
 
 ## Limits
 
-- **Not read:** Cybernews blocks automated access; save the page from a browser to complete this record.
-- **Secondary report** of Cybernews' own research; Lenovo's response not checked.
+- **Journalistic write-up** of the publisher's own research; the full prompt and Lenovo's fix are not published.
+- **Digest is of a browser-saved PDF,** not a publisher file; the live page may differ.
+- Incident INC-113 in RPT-0014.

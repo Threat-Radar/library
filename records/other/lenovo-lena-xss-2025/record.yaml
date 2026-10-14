@@ -5,16 +5,20 @@ type: article
 title: "Critical flaw plagues Lenovo AI chatbot: attackers can run malicious code and steal cookies"
 short_title: "Lenovo Lena XSS"
 authors:
-  - "Cybernews Research"
+  - "Ernestas Naprys"
+  - "Cybernews Research team"
 date: "2025-08-18"
 publisher: "Cybernews"
+version: "updated 2025-08-21"
 identifiers:
   url: https://cybernews.com/security/lenovo-chatbot-lena-plagued-by-critical-vulnerabilities/
 content:
   url: https://cybernews.com/security/lenovo-chatbot-lena-plagued-by-critical-vulnerabilities/
-  sha256: ""
+  sha256: "1e9dd34aaffcec2748079821285cbb325a19f6a2bd233a41994459e3e99d48e6"
   retrieved: "2026-10-13"
   local: false
+  media_type: application/pdf
+  pages: 10
 relations:
   supersedes: []
   superseded_by: []
@@ -30,12 +34,12 @@ applicability:
   this_project: core
 usefulness:
   verdict: useful
-  reason: "A disclosed case of prompt injection turning a support chatbot's output into stored XSS against support agents — the classic sink of CWE-1426. To be confirmed once the article is read."
+  reason: "A disclosed case where one prompt made Lenovo's GPT-4 support chatbot emit HTML that ran as stored XSS, stealing session cookies — including support agents' — a clear injection-to-unsafe-rendering attack path."
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
   - evidence
   - prompt-injection
   - ai-incident
-status: queued
-confidence: low
+status: summarized
+confidence: high
