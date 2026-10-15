@@ -1,0 +1,3659 @@
+schema: "library-requirements/v2"
+record: "ecma-427"
+source_version: "ECMA-427 1st edition, December 2025"
+source_digest: "037180df99e7d7c26d910dc3adb3fa07c4fb787cc4bd29e43634de3802313825"
+source_url: "https://ecma-international.org/wp-content/uploads/ECMA-427_1st_edition_december_2025.pdf"
+generated_from: ".cache/ecma-427.txt (pdftotext -layout of the PDF); tables checked against .cache/ecma-427.raw.txt and rendered PDF pages"
+extracted: "2026-10-15"
+extracted_by: "claude (pass-1 requirements agent)"
+reviewed_by: ""
+attribution: "Contains text from ECMA-427 1st edition, © Ecma International 2025, reproduced under the Ecma copyright notice; full notice in distilled/README.md"
+source_keyword_count: 2         # bin/bcp14-count .cache/ecma-427.txt (REQUIRED 1, SHALL 1; both in the Software License, p. 31)
+extracted_keyword_count: 0      # recomputed by bin/validate from the text fields below
+source_normative_counts:
+  method: >-
+    Counted on .cache/ecma-427.txt (pdftotext -layout of the PDF) after dropping page footers and
+    joining lines, by matching the words shall not, shall, should not, should, may not and may between
+    non-letters, case-insensitively and longest form first, so a 'shall not' is counted once as
+    shall_not and never also as shall. Sentence-initial 'Shall' (5 times, 'Shall be one of:') and the
+    licence's uppercase 'SHALL' (1) count as shall; the single 'may not' (Copyright Notice, line 194)
+    counts as may; 'should not' never occurs. Regions are layout-text line ranges.
+  front_matter:
+    lines: "1-214"
+    region: "cover, Contents, Introduction, About this specification, Copyright Notice (pp. i to v)"
+    shall: 1
+    shall_not: 0
+    should: 0
+    may: 3
+  clause_1:
+    lines: "215-231"
+    region: "Clause 1 Scope"
+    shall: 0
+    shall_not: 0
+    should: 0
+    may: 0
+  clause_2:
+    lines: "232-267"
+    region: "Clause 2 Conformance"
+    shall: 8
+    shall_not: 2
+    should: 0
+    may: 2
+  clause_3:
+    lines: "268-283"
+    region: "Clause 3 Normative references"
+    shall: 0
+    shall_not: 0
+    should: 0
+    may: 0
+  clause_4:
+    lines: "284-311"
+    region: "Clause 4 Overview (non-normative)"
+    shall: 0
+    shall_not: 0
+    should: 0
+    may: 0
+  clause_5:
+    lines: "312-560"
+    region: "Clause 5 Package-URL specification, incl. Table 1"
+    shall: 21
+    shall_not: 11
+    should: 3
+    may: 11
+  clause_6:
+    lines: "561-1305"
+    region: "Clause 6 Package-URL Type Definition Schema, incl. Tables 2 to 8"
+    shall: 37
+    shall_not: 0
+    should: 0
+    may: 2
+  annex_a:
+    lines: "1306-1696"
+    region: "Annex A (normative) PURL Type Definition"
+    shall: 3
+    shall_not: 0
+    should: 0
+    may: 1
+  back_matter:
+    lines: "1697-1771"
+    region: "Bibliography, Colophon, Software License (pp. 27 to 31)"
+    shall: 1
+    shall_not: 0
+    should: 0
+    may: 2
+  total:
+    shall: 71
+    shall_not: 13
+    should: 3
+    may: 21
+    all_forms: 108
+extracted_normative_counts:
+  method: >-
+    The same matcher run over the text fields of the entries below (in_text), plus the source
+    occurrences that are verbatim repeats of an extracted sentence and are listed in that entry's
+    also_at, and the occurrences excluded as boilerplate. in_text + repeats_listed_in_also_at + excluded
+    = source_normative_counts.total.
+  in_text:
+    shall: 45
+    shall_not: 13
+    should: 3
+    may: 14
+  repeats_listed_in_also_at:
+    shall: 24
+    shall_not: 0
+    should: 0
+    may: 2
+  excluded:
+    shall: 2
+    shall_not: 0
+    should: 0
+    may: 5
+reconciliation: >-
+  bin/bcp14-count finds 2 BCP 14 keywords in .cache/ecma-427.txt and the extraction carries 0. Both
+  are uppercase words in the BSD Software License on p. 31, boilerplate about this document's
+  software, not provisions on PURLs: 'REQUIRED' (line 1744, '... PATENT CLAIMS THAT ARE REQUIRED TO
+  IMPLEMENT ECMA INTERNATIONAL STANDARDS.') and 'SHALL' (line 1759, 'IN NO EVENT SHALL ECMA
+  INTERNATIONAL BE LIABLE'). Neither is extracted, so extracted_keyword_count is 0 and the difference
+  of 2 is fully explained. ECMA-427 is not a BCP 14 document: it cites neither RFC 2119 nor RFC 8174
+  and does not define its own verbal forms. Its normative force is carried by lowercase verbal forms,
+  read here per the ISO/IEC Directives Part 2 conventions that Ecma drafting follows: shall =
+  requirement, shall not = prohibition, should = recommendation, may = permission; can and cannot
+  express possibility and are never extracted as requirements. The document's own baseline, counted as
+  described in source_normative_counts.method, is 108 occurrences: shall 71, shall not 13, should 3,
+  may 21. Of these, 75 sit in the text of an extracted entry (shall 45, shall not 13, should 3, may
+  14); 26 are verbatim repeats of an extracted sentence at another locator and are listed in that
+  entry's also_at (shall 24: 21 in the Clause 6 tables and subclauses and 3 in Annex A description
+  strings; may 2: Table 2 and Annex A, both repeating R-0141); 7 are excluded because they sit in the
+  Copyright Notice (p. v: may twice, may not, shall) or the Software License (p. 31: may twice,
+  SHALL). 75 + 26 + 7 = 108; keyword_accounting lists every occurrence by line. Clauses 1, 3 and 4
+  contain none of the four forms (Clause 4 is declared non-normative). Words with modal force that are
+  not counted: 'can' (lines 133 and 566) and 'cannot' (9 times, 'cannot be enforced only with a
+  schema', in Tables 4, 5, 6 and 8, §6.5.7, §6.6.5, §6.7.5, §6.9.5 and Annex A: lines 744, 819, 871,
+  929, 979, 1036, 1187, 1245 and 1375) express possibility; lowercase 'must' occurs only twice, in the
+  licence conditions (lines 1750 and 1752). Two of the extracted 'may' sentences also express
+  possibility, not permission ('may look like a host', R-0024 and R-0063); they stay in in_text and
+  are recorded with normativity informative (pass 2). Beyond the
+  modal statements the file carries 93 entries with verb none (table cells, Clause 6 property lines
+  and Annex A schema keywords, declarative constraints, one imperative and one 'are expected to'
+  sentence, one 'are strictly disallowed' sentence); they add nothing to either count.
+keyword_accounting:
+  - lines: "178"
+    where: "Copyright Notice (p. v)"
+    form: "may"
+    count: 2
+    disposition: >-
+      excluded: Copyright Notice (p. v), the terms on which this document may be copied; not a provision
+      on PURLs or PURL implementations
+  - lines: "194"
+    where: "Copyright Notice (p. v)"
+    form: "may not"
+    count: 1
+    disposition: >-
+      excluded: Copyright Notice (p. v), 'may not be modified' restricts changes to this document; not a
+      provision on PURLs
+  - lines: "200"
+    where: "Copyright Notice (p. v)"
+    form: "shall"
+    count: 1
+    disposition: >-
+      excluded: Copyright Notice (p. v), 'the official version shall govern' settles translation
+      discrepancies; not a provision on PURLs
+  - lines: "234"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0001"
+  - lines: "238"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0002"
+  - lines: "239"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0003"
+  - lines: "243"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0004"
+  - lines: "244"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0005"
+  - lines: "247"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0006"
+  - lines: "248"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0007"
+  - lines: "251"
+    where: "Clause 2 (p. 1)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0008"
+  - lines: "254"
+    where: "Clause 2 (p. 1)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0009"
+  - lines: "256"
+    where: "Clause 2 (p. 1)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0010"
+  - lines: "259"
+    where: "Clause 2 (p. 1)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0011"
+  - lines: "260"
+    where: "Clause 2 (p. 1)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0012"
+  - lines: "356"
+    where: "Clause 5 (p. 3)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0023"
+  - lines: "357"
+    where: "Clause 5 (p. 3)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0024"
+  - lines: "391"
+    where: "§5.1 (p. 3)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0029"
+  - lines: "399"
+    where: "§5.1 (p. 4)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0031"
+  - lines: "432"
+    where: "§5.4 (p. 4)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0034"
+  - lines: "434"
+    where: "§5.4 (p. 4)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0035"
+  - lines: "439"
+    where: "§5.4 (p. 4)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0036"
+  - lines: "445"
+    where: "§5.4 (p. 4)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0037"
+  - lines: "466"
+    where: "§5.6 (p. 5)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0042"
+  - lines: "467"
+    where: "§5.6 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0043"
+  - lines: "476"
+    where: "§5.6.1 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0045"
+  - lines: "477"
+    where: "§5.6.1 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0046"
+  - lines: "478"
+    where: "§5.6.1 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0047"
+  - lines: "482"
+    where: "§5.6.2 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0048"
+  - lines: "483"
+    where: "§5.6.2 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0049"
+  - lines: "484"
+    where: "§5.6.2 (p. 5)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0050"
+  - lines: "490"
+    where: "§5.6.3 (p. 5)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0054"
+  - lines: "492"
+    where: "§5.6.3 (p. 5)"
+    form: "should"
+    count: 1
+    disposition: "extracted as ecma-427#R-0055"
+  - lines: "494"
+    where: "§5.6.3 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0057"
+  - lines: "496"
+    where: "§5.6.3 (p. 5)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0058"
+  - lines: "497"
+    where: "§5.6.3 (p. 5)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0059"
+  - lines: "498"
+    where: "§5.6.3 (p. 5)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0060"
+  - lines: "500"
+    where: "§5.6.3 (p. 5)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0061"
+  - lines: "501"
+    where: "§5.6.3 (p. 5)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0063"
+  - lines: "506"
+    where: "§5.6.4 (p. 5)"
+    form: "should"
+    count: 1
+    disposition: "extracted as ecma-427#R-0065"
+  - lines: "508"
+    where: "§5.6.4 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0067"
+  - lines: "509"
+    where: "§5.6.4 (p. 5)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0068"
+  - lines: "516"
+    where: "§5.6.5 (p. 5)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0071"
+  - lines: "517"
+    where: "§5.6.5 (p. 5)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0072"
+  - lines: "527"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0074"
+  - lines: "530"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0077"
+  - lines: "532"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0079"
+  - lines: "534"
+    where: "§5.6.6 (p. 6)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0081"
+  - lines: "537"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0083"
+  - lines: "539"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0084"
+  - lines: "540"
+    where: "§5.6.6 (p. 6)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0085"
+  - lines: "541"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0086"
+  - lines: "542"
+    where: "§5.6.6 (p. 6)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0087"
+  - lines: "542"
+    where: "§5.6.6 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0088"
+  - lines: "550"
+    where: "§5.6.7 (p. 6)"
+    form: "should"
+    count: 1
+    disposition: "extracted as ecma-427#R-0092"
+  - lines: "551"
+    where: "§5.6.7 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0093"
+  - lines: "553"
+    where: "§5.6.7 (p. 6)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0094"
+  - lines: "554"
+    where: "§5.6.7 (p. 6)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0095"
+  - lines: "555"
+    where: "§5.6.7 (p. 6)"
+    form: "shall not"
+    count: 1
+    disposition: "extracted as ecma-427#R-0096"
+  - lines: "556"
+    where: "§5.6.7 (p. 6)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0097"
+  - lines: "558"
+    where: "§5.6.7 (p. 6)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0098"
+  - lines: "591, 1484"
+    where: "Table 2, Annex A"
+    form: "shall"
+    count: 2
+    disposition: "repeats of ecma-427#R-0117: the same sentence printed verbatim at the locators in its also_at"
+  - lines: "604, 1578"
+    where: "Table 2, Annex A"
+    form: "may"
+    count: 2
+    disposition: "repeats of ecma-427#R-0141: the same sentence printed verbatim at the locators in its also_at"
+  - lines: "724"
+    where: "§6.5 (p. 9)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0117"
+  - lines: "736, 863, 911, 971, 1018, 1179, 1227, 1356"
+    where: "Table 4, Table 5, §6.6.3, Table 6, §6.7.3, Table 8, §6.9.3, Annex A"
+    form: "shall"
+    count: 8
+    disposition: "repeats of ecma-427#R-0129: the same sentence printed verbatim at the locators in its also_at"
+  - lines: "740, 867, 920, 975, 1027, 1183, 1236, 1367"
+    where: "Table 4, Table 5, §6.6.4, Table 6, §6.7.4, Table 8, §6.9.4, Annex A"
+    form: "shall"
+    count: 8
+    disposition: "repeats of ecma-427#R-0131: the same sentence printed verbatim at the locators in its also_at"
+  - lines: "762"
+    where: "§6.5.1 (p. 9)"
+    form: "Shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0124"
+  - lines: "801"
+    where: "§6.5.5 (p. 10)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0129"
+  - lines: "810"
+    where: "§6.5.6 (p. 10)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0131"
+  - lines: "820"
+    where: "§6.5.7 (p. 10)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0133"
+  - lines: "822"
+    where: "§6.5.7 (p. 10)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0134"
+  - lines: "892"
+    where: "§6.6.1 (p. 12)"
+    form: "Shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0137"
+  - lines: "930, 1037, 1246"
+    where: "§6.6.5, §6.7.5, §6.9.5"
+    form: "shall"
+    count: 3
+    disposition: "repeats of ecma-427#R-0133: the same sentence printed verbatim at the locators in its also_at"
+  - lines: "932, 1039, 1248"
+    where: "§6.6.5, §6.7.5, §6.9.5"
+    form: "shall"
+    count: 3
+    disposition: "repeats of ecma-427#R-0134: the same sentence printed verbatim at the locators in its also_at"
+  - lines: "997"
+    where: "§6.7.1 (p. 13)"
+    form: "Shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0140"
+  - lines: "1066"
+    where: "§6.8 (p. 14)"
+    form: "may"
+    count: 1
+    disposition: "extracted as ecma-427#R-0141"
+  - lines: "1066"
+    where: "§6.8 (p. 14)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0142"
+  - lines: "1111"
+    where: "§6.8.1.2 (p. 15)"
+    form: "Shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0149"
+  - lines: "1159"
+    where: "§6.8.1.7 (p. 16)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0150"
+  - lines: "1208"
+    where: "§6.9.1 (p. 17)"
+    form: "Shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0153"
+  - lines: "1277"
+    where: "§6.10 (p. 18)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0156"
+  - lines: "1279"
+    where: "§6.10 (p. 18)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0157"
+  - lines: "1298"
+    where: "§6.12 (p. 18)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0159"
+  - lines: "1300"
+    where: "§6.12 (p. 18)"
+    form: "shall"
+    count: 1
+    disposition: "extracted as ecma-427#R-0160"
+  - lines: "1740"
+    where: "Software License (p. 31)"
+    form: "may"
+    count: 1
+    disposition: "excluded: Software License (p. 31), licence boilerplate on third-party rights"
+  - lines: "1754"
+    where: "Software License (p. 31)"
+    form: "may"
+    count: 1
+    disposition: "excluded: Software License (p. 31), BSD licence condition on endorsement"
+  - lines: "1759"
+    where: "Software License (p. 31)"
+    form: "SHALL"
+    count: 1
+    disposition: >-
+      excluded: Software License (p. 31), uppercase BCP 14 'SHALL' in the BSD disclaimer ('IN NO EVENT
+      SHALL ECMA INTERNATIONAL BE LIABLE'); also counted in source_keyword_count
+note: >-
+  Ids are stable and never reused; cite as ecma-427#R-NNNN (a bare R-NNNN in notes means the same).
+  Entries are in source order by primary locator. VERBAL FORMS: ECMA-427 neither defines its verbal
+  forms nor cites RFC 2119 or RFC 8174; this file reads them per ISO/IEC Directives Part 2, which Ecma
+  drafting follows: shall = requirement, shall not = prohibition, should = recommendation, may =
+  permission. `verb` holds the verbatim form in lowercase (the sentence-initial 'Shall' of 'Shall be
+  one of:' is recorded as 'shall'); `verb: none` marks a table cell, a Clause 6 property line, an
+  Annex A schema keyword, a declarative constraint, an imperative or an 'are expected to' sentence,
+  and each such entry says so in a note. Normativity adds 'constraint' for a statement without a
+  verbal form that still fixes a testable property, and 'informative' for a 'may' that states a
+  possibility rather than a permission (R-0024, R-0063); table cells are constraints (Required: the
+  property or component must be present; Optional: its absence is valid). TEXT: `text` is verbatim
+  from the PDF. The only normalization is joining a sentence wrapped across lines or pages (line break
+  and indentation collapsed to one space, page footers dropped), except that a break directly after a
+  hyphen inside a hyphenated token (percent-encoding, Package-URL, purl-type-definition, the Annex A
+  $id pattern) is joined with no space, because the hyphen is the source's and the token contains no
+  space. A bullet's text omits the bullet glyph; a bullet under a lead-in carries the lead-in verbatim
+  in `condition`. Where a lead-in introduces a list ('Shall be one of:', 'The following characters
+  shall not be percent-encoded:' and similar), `text` is the lead-in and each list item is copied
+  verbatim into `enumeration`. A compound sentence or bullet is split only where each part is
+  separately testable (R-0046/R-0047, R-0051/R-0052, R-0081/R-0082, R-0087/R-0088). REPEATS: the
+  Clause 6 tables, the Clause 6 subclauses and the Annex A description strings repeat many sentences
+  verbatim. Each is extracted once, at the subclause that defines the property, and every other
+  locator is listed in `also_at`, including Annex A JSON pointers and the Clause 6 property lines and
+  Annex A keywords that state the same rule. Rows that are identical in Tables 4, 5, 6 and 8
+  (permitted_characters, case_sensitive, normalization_rules, native_name, note: all Optional) are
+  extracted once, from Table 4, because Annex A defines them once in
+  /definitions/purl_component_definition. text_kind: sentence; bullet; table-cell (a verbatim
+  Requirement column cell); schema-keyword (a Clause 6 property line such as Pattern Constraint,
+  Constant, Format or Default Value, or an Annex A JSON Schema keyword). Locators are clause, table,
+  row and Annex A JSON pointer, with the printed page in parentheses. ACTORS: 'PURL string' is a rule
+  on the string itself, enforced by PURL producers (who must not emit a violating string) and by
+  parsers and validators (Clause 2 requires invalid PURLs to be identified and rejected); 'PURL type
+  definition' is the JSON document that defines a type, enforced by validating it against Annex A. The
+  1st edition contains no PURL type definition (Clause 1), so every rule that defers to a type
+  definition is testable only against one supplied from elsewhere. Exactly one entry is kind inferred
+  (R-0148). Derived fields (normativity, actor, condition, object, field, testable) are judgement and
+  need human review; `text` and `enumeration` are verbatim. Not extracted: the informative examples,
+  rationale and pointer sentences, and property descriptions that only name a property ('The type
+  string for this Package-URL type.'); where one of them bears on a rule, it is quoted in that entry's
+  notes. Property types are not extracted as entries either: the Type column of Tables 2 to 8, the
+  'Type:' lines of the Clause 6 property blocks and the 39 Annex A "type" keywords; messages.yaml
+  carries them field by field (json_type, json_type_sources), and the nine table cells that contradict
+  the subclauses are noted in the table-cell entries (pass 3 finding; distilled/verification.md).
+counts:
+  entries: 168
+  by_normativity:
+    requirement: 47
+    recommendation: 4
+    permission: 12
+    prohibition: 14
+    constraint: 89
+    informative: 2
+  by_verb:
+    shall: 45
+    shall_not: 13
+    should: 3
+    may: 14
+    none: 93
+  by_kind:
+    stated: 167
+    inferred: 1
+  by_testable:
+    testable_yes: 125
+    testable_partial: 34
+    testable_no: 9
+  by_text_kind:
+    sentence: 48
+    bullet: 68
+    table-cell: 36
+    schema-keyword: 16
+
+requirements:
+  - id: "ecma-427#R-0001"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "implementation behaviour"
+    field: "support for all elements of the Standard (syntax, components, semantic requirements)"
+    locator: "Clause 2, para 1 (p. 1)"
+    text: "A conforming implementation of Package-URL (PURL) shall fully implement and support all elements defined within this Standard, including the syntax, components, and semantic requirements for constructing and interpreting valid PURLs."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      An umbrella obligation: it can be tested only through the individual rules of Clauses 5 and 6 and
+      Annex A (R-0015 to R-0168). The 1st edition ships no conformance test suite and no PURL type
+      definitions (Clause 1), so the type-dependent semantics cannot be exercised from this document
+      alone.
+    status: "active"
+  - id: "ecma-427#R-0002"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "implementation behaviour"
+    field: "parsing, construction and validation of PURLs"
+    locator: "Clause 2, para 2 (p. 1)"
+    text: "A conforming implementation of PURL shall adhere to the syntax defined in this Standard, ensuring that all PURLs are parsed, constructed, and validated according to the prescribed rules."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: "An umbrella obligation, testable only through the syntax rules of Clause 5 (R-0015 to R-0098)."
+    status: "active"
+  - id: "ecma-427#R-0003"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "implementation behaviour"
+    field: "ecosystem-agnostic behaviour"
+    locator: "Clause 2, para 2 (p. 1)"
+    text: "The implementation shall provide full support for ecosystem-agnostic behaviour, enabling PURLs to function consistently and reliably across diverse environments."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      'ecosystem-agnostic behaviour' and 'function consistently and reliably across diverse environments'
+      are not defined and give no criterion a test can apply.
+    status: "active"
+  - id: "ecma-427#R-0004"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "PURL"
+    field: "required components (scheme, type, name)"
+    locator: "Clause 2, para 3 (p. 1)"
+    text: "All required components of a PURL, such as the scheme, type, and name, shall be present and validated according to the rules defined in this Standard."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Presence of scheme, type and name is testable; Table 1 marks exactly these three Required (R-0016,
+      R-0017, R-0019). 'such as' leaves the list open: a type definition can also require the namespace
+      (R-0053, R-0117) or qualifier keys (R-0141), and the 1st edition contains no type definition to test
+      those against.
+    status: "active"
+  - id: "ecma-427#R-0005"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation"
+    condition: "if an optional component is provided"
+    object: "PURL"
+    field: "optional components (qualifiers, subpaths)"
+    locator: "Clause 2, para 3 (p. 1)"
+    text: "Additionally, optional components, including qualifiers and subpaths, shall be handled appropriately if provided, in full compliance with their specified behaviours."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      'handled appropriately' has no criterion of its own; it is testable only through the component rules
+      of §5.6.6 and §5.6.7. The sentence names qualifiers and subpaths but not namespace and version,
+      which Table 1 also marks Optional.
+    status: "active"
+  - id: "ecma-427#R-0006"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation (canonicalizer)"
+    condition: "unconditional"
+    object: "PURL"
+    field: "canonical representation of equivalent PURLs"
+    locator: "Clause 2, para 4 (p. 1)"
+    text: "Implementations shall ensure that equivalent PURLs are consistently resolved to the same canonical representation. This includes strict adherence to normalisation and equivalence rules."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Only partly testable, because the 1st edition defines neither a complete canonical form nor an
+      equivalence relation. Missing: (1) 'equivalent PURLs' and 'equivalence rules' are never defined; the
+      only stated equivalences are the case of the type (R-0051), leading and trailing slashes (R-0055,
+      R-0065, R-0092), slashes after 'pkg:' (R-0047), an empty qualifier value (R-0082) and lowercasing
+      where a type definition sets case_sensitive to false (R-0131); (2) no rule fixes the order of
+      qualifiers in the canonical form: §5.6.6 says only that keys are unique and that pairs are separated
+      by '&', and the text never mentions sorting or order, so 'a=1&b=2' and 'b=2&a=1' have no defined
+      canonical order; (3) stripping leading and trailing slashes in the canonical form is a 'should', not
+      a 'shall'; (4) no rule fixes the case of the hexadecimal digits in a percent-encoded triplet, since
+      §5.4 borrows only the mechanism of RFC 3986 section 2.1 (R-0035, R-0038); a triplet for a character
+      that 'shall not be percent-encoded' (for example %41 for 'A') is not a second spelling but breaks
+      R-0036, and an uppercase qualifier key breaks R-0083, so both are invalid under Clause 2 (R-0008)
+      rather than non-canonical; (5) nothing says whether a qualifier given with its default_value
+      (Table 7) equals the same PURL without that qualifier; (6) nothing says whether the scheme may
+      appear in another case ('PKG:'); (7) type-specific normalization (case_sensitive,
+      normalization_rules) needs type definitions, the 1st edition contains none (Clause 1), and
+      normalization_rules are free text (R-0132).
+    status: "active"
+    notes: >-
+      Two adjacent sentences of one paragraph; the second ('This includes ...') has no verbal form of its
+      own and only qualifies the first.
+  - id: "ecma-427#R-0007"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation (encoder and decoder)"
+    condition: "unconditional"
+    object: "PURL components"
+    field: "URI encoding and decoding"
+    locator: "Clause 2, para 4 (p. 1)"
+    text: "Furthermore, implementations shall process URI encoding and decoding for PURL components according to the standards outlined in RFC 3986."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Testable for the percent-encoding mechanism, but the source points two ways: this sentence defers to
+      RFC 3986, while §5.4 says that, apart from the mechanism, the rules regarding percent-encoding are
+      defined by this Standard alone (R-0038). Which RFC 3986 rules beyond section 2.1 apply (for example
+      its normalization and comparison rules in section 6) is not stated.
+    status: "active"
+  - id: "ecma-427#R-0008"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "conforming implementation (validator)"
+    condition: "when a PURL fails to conform to the specification"
+    object: "PURL"
+    field: "identification and rejection of invalid PURLs"
+    locator: "Clause 2, para 5 (p. 1)"
+    text: "Invalid PURLs that fail to conform to the specification shall be identified and rejected by any conforming implementation."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Rejection is testable for any string that breaks a stated syntax rule of Clause 5. It is partial
+      because validity also depends on type definitions (none in this edition) and because the source
+      leaves some edges to the reader: an empty qualifier value is forbidden to producers (R-0081) but
+      given a meaning, the same as an absent pair (R-0082), so a reader drops the pair and the text does
+      not say whether a strict validator may also flag it; 'pkg://' forms must be accepted (R-0046); and
+      leading or trailing slashes are 'not significant' (R-0055) rather than invalid.
+    status: "active"
+    notes: >-
+      The next sentence ('This guarantees the integrity and reliability of PURLs in all supported
+      contexts.') is rationale and is not extracted.
+  - id: "ecma-427#R-0009"
+    normativity: "permission"
+    verb: "may"
+    actor: "conforming implementation"
+    condition: "as long as these extensions do not violate the core specification"
+    object: "implementation behaviour"
+    field: "ecosystem-specific validation, processing or metadata handling"
+    locator: "Clause 2, para 6 (p. 1)"
+    text: "A conforming implementation of PURL may extend its functionality by providing ecosystem-specific validation, processing, or metadata handling, as long as these extensions do not violate the core specification."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      A permission; its proviso is testable only through the core rules, and the 'core specification' is
+      not delimited.
+    status: "active"
+  - id: "ecma-427#R-0010"
+    normativity: "permission"
+    verb: "may"
+    actor: "conforming implementation"
+    condition: "provided they align with the standard's requirements"
+    object: "implementation behaviour"
+    field: "auxiliary tools or features"
+    locator: "Clause 2, para 6 (p. 1)"
+    text: "Additionally, implementations may offer auxiliary tools or features, such as utilities for constructing or validating PURLs, provided they align with the standard's requirements."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      A permission whose proviso ('align with the standard's requirements') adds no criterion beyond the
+      rest of the Standard.
+    status: "active"
+  - id: "ecma-427#R-0011"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "implementation behaviour"
+    field: "core syntax, components and semantics"
+    locator: "Clause 2, para 7 (p. 1)"
+    text: "A conforming implementation shall not redefine or alter the core syntax, components, or semantics defined by this Standard."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      An alteration of the syntax is detectable by conformance tests on the Clause 5 rules; 'semantics'
+      and 'core' are not delimited, so a redefinition of meaning has no test.
+    status: "active"
+  - id: "ecma-427#R-0012"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "conforming implementation"
+    condition: "for any extension the specification explicitly identifies as prohibited"
+    object: "implementation behaviour"
+    field: "prohibited extensions"
+    locator: "Clause 2, para 7 (p. 1)"
+    text: "Any prohibited extensions explicitly identified in the specification shall not be implemented."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      The 1st edition explicitly identifies no prohibited extension: apart from this sentence, the word
+      'prohibited' names only the 'prohibited' value of a namespace requirement in a type definition
+      (R-0127). The prohibition is empty until a later edition identifies one.
+    status: "active"
+  - id: "ecma-427#R-0013"
+    normativity: "prohibition"
+    verb: "none"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "implementation behaviour"
+    field: "interoperability across tools, platforms and ecosystems"
+    locator: "Clause 2, para 7 (p. 1)"
+    text: "Furthermore, behaviours that compromise the interoperability of PURLs across tools, platforms, or ecosystems are strictly disallowed."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: "'behaviours that compromise the interoperability of PURLs' are not defined."
+    status: "active"
+    notes: "No verbal form: the prohibition is carried by 'are strictly disallowed', recorded with verb none."
+  - id: "ecma-427#R-0014"
+    normativity: "constraint"
+    verb: "none"
+    actor: "conforming implementation"
+    condition: "for each undated normative reference"
+    object: "normative references"
+    field: "edition that applies"
+    locator: "Clause 3, para 1 (p. 2)"
+    text: "For undated references, the latest edition of the referenced document (including any amendments) applies."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      All three normative references (ECMA-262, RFC 3986, the Unicode Standard) are listed without a date,
+      so the governing edition moves over time: the Unicode case mapping of §5.5 and the ECMA-262 regular
+      expression dialect of §6.5.5 follow the latest editions, not those current in December 2025. A test
+      has to pin an edition the Standard does not pin.
+    status: "active"
+    notes: >-
+      Declarative, verb none. The paragraph opens 'The following documents are referred to in the text in
+      such a way that some or all of their content constitutes requirements of this document.' and says
+      'For dated references, only the edition cited applies.', which has nothing to apply to here. The
+      informative Bibliography cites ECMA-262 16th Edition, Annex A.8, for the regular expression grammar;
+      the normative reference itself is undated.
+  - id: "ecma-427#R-0015"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "component order and separators"
+    locator: "Clause 5 (p. 2)"
+    text: "A PURL is a URL composed of seven components:"
+    text_kind: "sentence"
+    enumeration:
+      - "scheme:type/namespace/name@version?qualifiers#subpath"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. The displayed syntax line (in enumeration) fixes the order of the seven
+      components and their separators; §5.3 lists the separators (R-0033). The next sentence, 'Components
+      are separated by a specific character for unambiguous parsing.', is descriptive and is not
+      extracted, as is the sentence after Table 1, 'Components are designed such that they form a
+      hierarchy from the most significant on the left to the least significant components on the right.'
+      Clause 1 (Scope) states the same model: 'A PURL is a valid URL and URI composed of seven components
+      to identify a software package.'
+  - id: "ecma-427#R-0016"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "scheme"
+    locator: "Table 1, row scheme, Requirement column (p. 3)"
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Required: present in every
+      PURL. Description cell: 'The URL scheme with the constant value of "pkg".', followed by a rationale
+      about registering the "pkg" scheme. Clause 2 names scheme, type and name as required components
+      (R-0004).
+  - id: "ecma-427#R-0017"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type"
+    locator: "Table 1, row type, Requirement column (p. 3)"
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Description cell: 'The
+      package "type" or package "protocol" such as maven, npm, nuget, gem, pypi, etc.' The 1st edition
+      defines none of these types (Clause 1).
+  - id: "ecma-427#R-0018"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional (unless a type definition says otherwise)"
+    object: "PURL string"
+    field: "namespace"
+    locator: "Table 1, row namespace, Requirement column (p. 3)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Absence is valid only by default: a type definition may require the namespace (R-0053) or prohibit
+      it (R-0117), and the 1st edition contains no type definition.
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Optional: a PURL without
+      this component is valid. Description cell: 'A name prefix such as a Maven groupid, a Docker image
+      owner, a GitHub user or organization. Namespace is type-specific.'
+  - id: "ecma-427#R-0019"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "name"
+    locator: "Table 1, row name, Requirement column (p. 3)"
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Description cell: 'The name
+      of the package.'
+  - id: "ecma-427#R-0020"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "version"
+    locator: "Table 1, row version, Requirement column (p. 3)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. A type definition cannot
+      make the version required: its version_definition requirement may only be 'optional' (R-0140).
+  - id: "ecma-427#R-0021"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional (unless a type definition requires a qualifier key)"
+    object: "PURL string"
+    field: "qualifiers"
+    locator: "Table 1, row qualifiers, Requirement column (p. 3)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Absence is valid only by default: a type definition may require qualifier keys (R-0141), which makes
+      the component non-empty for that type, and the 1st edition contains no type definition.
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Description cell:
+      'Qualifier data for a package such as OS, architecture, repository, etc. Qualifiers are
+      type-specific.'
+  - id: "ecma-427#R-0022"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "subpath"
+    locator: "Table 1, row subpath, Requirement column (p. 3)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. A type definition cannot
+      make the subpath required: its subpath_definition requirement may only be 'optional' (R-0153).
+  - id: "ecma-427#R-0023"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "URL Authority"
+    locator: "Clause 5, paragraph after Table 1 (p. 3)"
+    text: "A PURL shall not contain a URL Authority, i.e. there is no support for username, password, host and port components."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Restated in §5.1 (R-0027). §5.6.1 requires parsers to accept 'pkg://' and drop the slashes (R-0046,
+      R-0047), so a string that a generic URL parser reads as having an authority is still accepted and
+      read without one.
+  - id: "ecma-427#R-0024"
+    normativity: "informative"
+    verb: "may"
+    actor: "PURL string (honoured by validators)"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "namespace segment that looks like a host"
+    locator: "Clause 5, paragraph after Table 1 (p. 3)"
+    text: "A namespace segment may sometimes look like a host, but its interpretation is specific to a type."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      A statement of possibility: it grants nothing and requires nothing, so there is no behaviour to
+      test. Read with the prohibition before it (R-0023) and with R-0061 it only warns that a segment
+      that looks like a host is not by that fact a URL host; whether it is one is type-specific, and
+      the 1st edition defines no type.
+    status: "active"
+    notes: >-
+      'may' here expresses possibility (Ecma and ISO drafting would write 'can'), so the entry is
+      recorded as informative, not as a permission (pass 2 reclassification; normative.md U-14 reads
+      it the same way). The occurrence of 'may' stays accounted for in keyword_accounting. Same point
+      in §5.6.3 (R-0063).
+  - id: "ecma-427#R-0025"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "URL and URI validity"
+    locator: "§5.1, bullet 1 (p. 3)"
+    text: "A PURL is a valid URL and URI that conforms to the URL definitions or specifications at:"
+    text_kind: "bullet"
+    enumeration:
+      - "https://tools.ietf.org/html/rfc3986"
+      - "https://en.wikipedia.org/wiki/URL#Syntax"
+      - "https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax"
+      - "https://url.spec.whatwg.org/"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      The four references are not one definition: RFC 3986 and the WHATWG URL Standard parse differently,
+      and two of the four are Wikipedia articles. RFC 3986 URI syntax can be tested, but conformance to
+      all four has no single outcome.
+    status: "active"
+    notes: >-
+      Declarative, verb none; the four URLs are copied into enumeration. The next bullet ('A PURL is a
+      valid URL because it is a locator even though it has no Authority URL component: each type has a
+      default repository location when defined.') is rationale and is not extracted; its claim that each
+      type has a default repository location conflicts with Table 3, where default_repository_url is
+      Optional (R-0114).
+  - id: "ecma-427#R-0026"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "mapping of PURL components to URL components"
+    locator: "§5.1, bullet 3 (p. 3)"
+    text: "The PURL components are mapped to these URL components:"
+    text_kind: "bullet"
+    enumeration:
+      - "PURL scheme: this is a URL scheme with a constant value: pkg"
+      - "PURL type, namespace, name and version components: these are collectively mapped to a URL path"
+      - "PURL qualifiers: this maps to a URL query"
+      - "PURL subpath: this is a URL fragment"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none; the four sub-bullets are copied into enumeration. The scheme item restates
+      §5.6.1 (R-0044).
+  - id: "ecma-427#R-0027"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "URL Authority"
+    locator: "§5.1, bullet 3 (closing sentence) (p. 3)"
+    text: "In a PURL, there is no support for a URL Authority (e.g. no username, password, host and port components)."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative restatement of the 'shall not' after Table 1 (R-0023); verb none."
+  - id: "ecma-427#R-0028"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type and scheme versus special URL schemes"
+    locator: "§5.1, bullet 4 (p. 3)"
+    text: "Special URL schemes as defined in https://url.spec.whatwg.org/ such as file://, https://, http:// and ftp:// are not valid PURL types. They are valid URL or URI schemes but they are not a valid PURL scheme."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      It is unclear whether the first sentence forbids a PURL type string such as 'http' or 'file' (which
+      §5.6.2 would otherwise allow) or only says that URLs in these schemes are not PURLs; the second
+      sentence restates that the only PURL scheme is pkg (R-0044).
+    status: "active"
+    notes: "Two adjacent sentences of one bullet, declarative, verb none."
+  - id: "ecma-427#R-0029"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL producer"
+    condition: "for URLs in the special URL schemes (file, https, http, ftp)"
+    object: "PURL string"
+    field: "special-scheme URLs in a PURL qualifier"
+    locator: "§5.1, bullet 4 (p. 3)"
+    text: "They may be used to reference URLs in separate attributes outside of a PURL or in a PURL qualifier."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      A qualifier value holding such a URL is testable once it is percent-encoded per §5.4 (among the
+      Separator Characters only the colon stays unencoded, R-0036), but the 1st edition names no qualifier
+      key for it.
+    status: "active"
+    notes: "The sentence runs across the page break between p. 3 and p. 4; the page footer is dropped."
+  - id: "ecma-427#R-0030"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type and scheme versus VCS URLs"
+    locator: "§5.1, bullet 5 (p. 4)"
+    text: "Version control system (VCS) URLs such git://, svn://, hg:// or as defined in Python pip or SPDX download locations are not valid PURL types. They are valid URL or URI schemes but they are not a valid PURL scheme."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      As for R-0028: unclear whether a type string such as 'git' is forbidden or only VCS URLs are not
+      PURLs; 'as defined in Python pip or SPDX download locations' points to external formats that are not
+      normative references.
+    status: "active"
+    notes: >-
+      Verbatim, including the source's missing 'as' in 'such git://'. The following sentence, 'They are a
+      closely related, compact and uniform way to reference VCS URLs.', is descriptive and is not
+      extracted.
+  - id: "ecma-427#R-0031"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL producer"
+    condition: "for VCS URLs"
+    object: "PURL string"
+    field: "VCS URLs in a PURL qualifier"
+    locator: "§5.1, bullet 5 (p. 4)"
+    text: "They may be used as references in separate attributes outside of a PURL or in a PURL qualifier."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      As for R-0029: testable as a percent-encoded qualifier value, but the 1st edition names no qualifier
+      key for a VCS URL.
+    status: "active"
+  - id: "ecma-427#R-0032"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL producer (canonical form)"
+    condition: "for a canonical PURL"
+    object: "canonical PURL string"
+    field: "permitted characters"
+    locator: "§5.2 (p. 4)"
+    text: "A canonical PURL is composed of these permitted ASCII characters:"
+    text_kind: "sentence"
+    enumeration:
+      - "the Alphanumeric Characters: A to Z, a to z, 0 to 9"
+      - "the Punctuation Characters: .-_~ (period '.', dash '-', underscore '_' and tilde '~')"
+      - "the Percent Character: % (percent sign '%')"
+      - "the Separator Characters :/@?=&# (colon ':', slash '/', at sign '@', question mark '?', equal sign '=', ampersand '&' and hash sign '#')"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none; the four bullets are copied into enumeration. It applies to the canonical
+      form; whether a parser must reject a non-canonical string carrying other characters is not stated
+      here, though §5.6 calls every PURL string an ASCII URL string (R-0041).
+  - id: "ecma-427#R-0033"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "use of each Separator Character"
+    locator: "§5.3 (p. 4)"
+    text: "This is how each of the Separator Characters is used:"
+    text_kind: "sentence"
+    enumeration:
+      - "':' (colon) is the separator between scheme and type"
+      - "'/' (slash) is the separator between type, namespace and name"
+      - "'/' (slash) is the separator between subpath segments"
+      - "'@' (at sign) is the separator between name and version"
+      - "'?' (question mark) is the separator before qualifiers"
+      - "'=' (equals) is the separator between a key and a value of a qualifier"
+      - "'&' (ampersand) is the separator between qualifiers (each being a key=value pair)"
+      - "'#' (hash sign) is the separator before subpath"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none; the eight bullets are copied into enumeration. The Separator Characters are
+      listed in §5.2 (R-0032).
+  - id: "ecma-427#R-0034"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL producer"
+    condition: "When percent-encoding is required by a component definition"
+    object: "component string"
+    field: "character encoding before percent-encoding"
+    locator: "§5.4, bullet 2 (p. 4)"
+    text: "When percent-encoding is required by a component definition, the component string shall first be encoded as UTF-8."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      The first bullet of §5.4 ('In the Rules for each PURL component clause, each component defines when
+      and how to apply percent-encoding and decoding to its content.') is a pointer to §5.6 and is not
+      extracted.
+  - id: "ecma-427#R-0035"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL producer"
+    condition: "when a component string is percent-encoded"
+    object: "component string"
+    field: "data octets and character triplets"
+    locator: "§5.4, bullet 3 (p. 4)"
+    text: 'In the component string, each "data octet" shall be replaced by the percent-encoded "character triplet" applying the percent-encoding mechanism defined in RFC 3986 section 2.1, including the RFC definition of "data octet" and "character triplet", and using these definitions for RFC''s "allowed set" and "delimiters":'
+    text_kind: "bullet"
+    enumeration:
+      - '"allowed set" is composed of the Alphanumeric Characters and the Punctuation Characters'
+      - '"delimiters" is composed of the Separator Characters'
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      The mechanism is fixed, but neither §5.4 nor RFC 3986 section 2.1 makes the case of the hexadecimal
+      digits in a triplet mandatory (RFC 3986 only recommends uppercase), so two producers can emit
+      different strings for the same input. Read literally, 'each "data octet" shall be replaced' would
+      encode every octet; it is the imported RFC notion of the allowed set that leaves the Alphanumeric
+      and Punctuation Characters unencoded.
+    status: "active"
+    notes: "Lead-in with two sub-bullets, copied into enumeration."
+  - id: "ecma-427#R-0036"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL producer"
+    condition: "unconditional"
+    object: "component string"
+    field: "characters that are never percent-encoded"
+    locator: "§5.4, bullet 4 (p. 4)"
+    text: "The following characters shall not be percent-encoded:"
+    text_kind: "bullet"
+    enumeration:
+      - "the Alphanumeric Characters"
+      - "the Punctuation Characters"
+      - "the Separator Characters when being used as PURL separators"
+      - "the colon ':', whether used as a Separator Character or otherwise"
+      - "the percent sign '%' when used to represent a percent-encoded character"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      The five sub-bullets are copied into enumeration. A Separator Character that is not used as a
+      separator is data and is encoded under R-0035 (for example '@' inside a namespace segment), except
+      the colon, which is never encoded; '%' stays unencoded only as the start of a triplet.
+  - id: "ecma-427#R-0037"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL producer"
+    condition: "Where the space ' ' is permitted"
+    object: "component string"
+    field: "space character"
+    locator: "§5.4, bullet 5 (p. 4)"
+    text: "Where the space ' ' is permitted, it shall be percent-encoded as '%20'."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Rules out '+' as an encoding of the space."
+  - id: "ecma-427#R-0038"
+    normativity: "constraint"
+    verb: "none"
+    actor: "conforming implementation"
+    condition: "unconditional"
+    object: "percent-encoding rules"
+    field: "which document defines them"
+    locator: "§5.4, bullet 6 (p. 4)"
+    text: "With the exception of the percent-encoding mechanism, the rules regarding percent-encoding are defined by this Standard alone."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "no"
+    testable_reason: "It says which document governs; there is no behaviour to test."
+    status: "active"
+    notes: >-
+      Declarative, verb none. It pulls against Clause 2, which asks implementations to process URI
+      encoding and decoding 'according to the standards outlined in RFC 3986' (R-0007).
+  - id: "ecma-427#R-0039"
+    normativity: "constraint"
+    verb: "none"
+    actor: "conforming implementation"
+    condition: "wherever this Standard says 'lowercase'"
+    object: "case folding"
+    field: "meaning of 'lowercase'"
+    locator: "§5.5, para 1 (p. 4)"
+    text: 'References to "lowercase" in this Standard refer to the culture-invariant full case mapping defined in Section 3.13.2 of the Unicode Standard.'
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative definition, verb none. The Unicode Standard is an undated normative reference, so its
+      latest version applies (R-0014). A full case mapping can change string length (U+0130 lowercases to
+      two code points), which matters wherever case_sensitive is false (R-0131).
+  - id: "ecma-427#R-0040"
+    normativity: "constraint"
+    verb: "none"
+    actor: "conforming implementation"
+    condition: "when lowercasing ASCII characters"
+    object: "case folding"
+    field: "effect on ASCII"
+    locator: "§5.5, para 2 (p. 4)"
+    text: "When applied to the ASCII character set, this operation converts uppercase Latin letters (A to Z) to their corresponding lowercase forms (a to z). All other ASCII characters remain unchanged."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none; two adjacent sentences of one paragraph."
+  - id: "ecma-427#R-0041"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "character repertoire"
+    locator: "§5.6, para 1 (p. 5)"
+    text: "A PURL string is an ASCII URL string composed of seven components."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. Every non-ASCII character in a component therefore appears percent-encoded
+      (UTF-8, then triplets, §5.4). Two pointer sentences of §5.6 ('The "lowercase" rules are defined in
+      the Case folding clause.' and 'The rules for each component are:') are not extracted.
+  - id: "ecma-427#R-0042"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "Except as expressly stated otherwise in this Clause, each component:"
+    object: "PURL string"
+    field: "every component"
+    locator: "§5.6, bullet 1 (p. 5)"
+    text: "may be composed of any of the characters defined in the Permitted characters clause"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0043"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL producer"
+    condition: "Except as expressly stated otherwise in this Clause, each component:"
+    object: "PURL string"
+    field: "every component"
+    locator: "§5.6, bullet 2 (p. 5)"
+    text: "shall be encoded as defined in the Character encoding clause"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0044"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "scheme"
+    locator: "§5.6.1, bullet 1 (p. 5)"
+    text: 'The scheme is a constant with the value "pkg".'
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      The constant is testable; whether a parser accepts or rejects another casing such as 'PKG:' is not
+      stated (RFC 3986 treats URL schemes as case-insensitive).
+    status: "active"
+    notes: >-
+      Declarative, verb none. Also in Table 1 ('The URL scheme with the constant value of "pkg".') and
+      §5.1 ('PURL scheme: this is a URL scheme with a constant value: pkg', R-0026).
+  - id: "ecma-427#R-0045"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "separator after the scheme"
+    locator: "§5.6.1, bullet 2 (p. 5)"
+    text: "The scheme shall be followed by an unencoded colon ':'."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0046"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL parser"
+    condition: "when the scheme and colon are followed by one or more '/' characters"
+    object: "PURL string"
+    field: "slashes after 'pkg:'"
+    locator: "§5.6.1, bullet 3 (p. 5)"
+    text: "PURL parsers shall accept URLs where the scheme and colon ':' are followed by one or more slash '/' characters, such as 'pkg://',"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Split from one sentence: acceptance (here) and removal of the slashes (R-0047) are tested
+      separately. A generic URL parser reads 'pkg://npm/foo' as having the authority 'npm', which a PURL
+      may not contain (R-0023); this rule overrides that reading.
+  - id: "ecma-427#R-0047"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL parser"
+    condition: "when the scheme and colon are followed by one or more '/' characters"
+    object: "PURL string"
+    field: "slashes after 'pkg:'"
+    locator: "§5.6.1, bullet 3 (p. 5)"
+    text: "and shall ignore and remove all such '/' characters."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Second part of the split sentence (R-0046). The canonical form therefore has no slash after 'pkg:'."
+  - id: "ecma-427#R-0048"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type"
+    locator: "§5.6.2, bullet 1 (p. 5)"
+    text: "The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Allows uppercase letters (the type is case insensitive, R-0051) and a one-character type, while the
+      type definition pattern requires lowercase and at least two characters (R-0112).
+  - id: "ecma-427#R-0049"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type"
+    locator: "§5.6.2, bullet 2 (p. 5)"
+    text: "The type shall start with an ASCII letter."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0050"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type"
+    locator: "§5.6.2, bullet 3 (p. 5)"
+    text: "The type shall not be percent-encoded."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0051"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser (comparison)"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "type"
+    locator: "§5.6.2, bullet 4 (p. 5)"
+    text: "The type is case insensitive."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. Split from the bullet 'The type is case insensitive. The canonical form is
+      lowercase.': comparison (here) and canonical output (R-0052) are tested separately.
+  - id: "ecma-427#R-0052"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL producer (canonical form)"
+    condition: "in the canonical form"
+    object: "PURL string"
+    field: "type"
+    locator: "§5.6.2, bullet 4 (p. 5)"
+    text: "The canonical form is lowercase."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none; second sentence of the bullet. 'lowercase' as defined in §5.5 (R-0039)."
+  - id: "ecma-427#R-0053"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unless required by the package's type definition"
+    object: "PURL string"
+    field: "namespace"
+    locator: "§5.6.3, bullet 1 (p. 5)"
+    text: "The namespace is optional, unless required by the package's type definition."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Needs the type definition, and the 1st edition contains none. The sentence also omits the third
+      option a type definition has, 'prohibited' (R-0117).
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0054"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "if the namespace is present"
+    object: "PURL string"
+    field: "namespace segments"
+    locator: "§5.6.3, bullet 2 (p. 5)"
+    text: "If present, the namespace may contain one or more segments, separated by a single unencoded slash '/' character."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      The permission carries a constraint: segments are separated by a single unencoded '/'; an empty
+      segment is excluded by R-0059.
+  - id: "ecma-427#R-0055"
+    normativity: "recommendation"
+    verb: "should"
+    actor: "PURL producer (canonical form)"
+    condition: "in the canonical form"
+    object: "PURL string"
+    field: "leading and trailing slashes of the namespace"
+    locator: "§5.6.3, bullet 3 (p. 5)"
+    text: "All leading and trailing slashes '/' are not significant and should be stripped in the canonical form."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Observable, but a producer that keeps the slashes still conforms because the verb is 'should'; a
+      'should' inside a canonical-form rule leaves the canonical form underdetermined (R-0006).
+    status: "active"
+    notes: "The same sentence appears in §5.6.4 for the name (R-0065), where it governs a different component."
+  - id: "ecma-427#R-0056"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "leading and trailing slashes of the namespace"
+    locator: "§5.6.3, bullet 3 (p. 5)"
+    text: "They are not part of the namespace."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none: the parsed namespace excludes leading and trailing slashes."
+  - id: "ecma-427#R-0057"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "namespace segment"
+    locator: "§5.6.3, bullet 4 (p. 5)"
+    text: "Each namespace segment shall be a percent-encoded string."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0058"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "namespace segment (percent-decoded)"
+    locator: "§5.6.3, bullet 5, item 1 (p. 5)"
+    text: "shall not contain any slash '/' characters"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "So an encoded '%2F' inside a namespace segment makes the PURL invalid."
+  - id: "ecma-427#R-0059"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "namespace segment (percent-decoded)"
+    locator: "§5.6.3, bullet 5, item 2 (p. 5)"
+    text: "shall not be empty"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0060"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "namespace segment (percent-decoded)"
+    locator: "§5.6.3, bullet 5, item 3 (p. 5)"
+    text: "may contain any Unicode character other than '/' unless the package's type definition provides otherwise"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      The default (any Unicode character except '/') is testable; restrictions come from type definitions,
+      none of which is in this edition.
+    status: "active"
+  - id: "ecma-427#R-0061"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL producer"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "namespace"
+    locator: "§5.6.3, bullet 6 (p. 5)"
+    text: "A URL host or Authority shall not be used as a namespace."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      No criterion separates a host from a namespace that 'may look like a host' (R-0063, R-0024); only
+      the producer's intent distinguishes them.
+    status: "active"
+  - id: "ecma-427#R-0062"
+    normativity: "requirement"
+    verb: "none"
+    actor: "PURL producer"
+    condition: "when a URL host or Authority would otherwise be used as a namespace"
+    object: "PURL string"
+    field: "repository_url qualifier"
+    locator: "§5.6.3, bullet 6 (p. 5)"
+    text: "Use instead a repository_url qualifier."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Only the presence of the key can be checked: the 1st edition never defines the repository_url
+      qualifier (no value format, no semantics; Table 1 says qualifiers are type-specific).
+    status: "active"
+    notes: >-
+      Imperative mood, no modal verb, so verb none. Read as a requirement because ISO/IEC drafting uses
+      the imperative for a direct instruction; a reviewer may prefer recommendation.
+  - id: "ecma-427#R-0063"
+    normativity: "informative"
+    verb: "may"
+    actor: "PURL string (honoured by validators)"
+    condition: "for some types"
+    object: "PURL string"
+    field: "namespace that looks like a host"
+    locator: "§5.6.3, bullet 6 (p. 5)"
+    text: "Note however, that for some types, the namespace may look like a host."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      As for R-0024: a statement of possibility with nothing to test; it qualifies the prohibition just
+      before it (R-0061), and which types have host-like namespaces is type-specific.
+    status: "active"
+    notes: >-
+      An inline 'Note however' sentence inside a normative bullet, not a formal NOTE; 'may' expresses
+      possibility, so the entry is recorded as informative, not as a permission (pass 2
+      reclassification). Same point after Table 1 (R-0024).
+  - id: "ecma-427#R-0064"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "when the namespace is not empty"
+    object: "PURL string"
+    field: "name"
+    locator: "§5.6.4, bullet 1 (p. 5)"
+    text: "The name is prefixed by a single slash '/' separator when the namespace is not empty."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. Silent on an empty namespace, where the '/' between type and name comes from
+      §5.3 and the syntax line (R-0033, R-0015).
+  - id: "ecma-427#R-0065"
+    normativity: "recommendation"
+    verb: "should"
+    actor: "PURL producer (canonical form)"
+    condition: "in the canonical form"
+    object: "PURL string"
+    field: "leading and trailing slashes of the name"
+    locator: "§5.6.4, bullet 2 (p. 5)"
+    text: "All leading and trailing slashes '/' are not significant and should be stripped in the canonical form."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: "As for R-0055: observable, but optional ('should'), so the canonical form stays underdetermined."
+    status: "active"
+    notes: "Same sentence as §5.6.3 (R-0055), applied to the name."
+  - id: "ecma-427#R-0066"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "leading and trailing slashes of the name"
+    locator: "§5.6.4, bullet 2 (p. 5)"
+    text: "They are not part of the name."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0067"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "name"
+    locator: "§5.6.4, bullet 3 (p. 5)"
+    text: "A name shall be a percent-encoded string."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0068"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "when percent-decoded"
+    object: "PURL string"
+    field: "name (percent-decoded)"
+    locator: "§5.6.4, bullet 4 (p. 5)"
+    text: "When percent-decoded, a name may contain any Unicode character unless the package's type definition provides otherwise."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: "The default is testable; restrictions come from type definitions, none of which is in this edition."
+    status: "active"
+    notes: >-
+      Unlike namespace and subpath segments, the decoded name is not barred from containing '/' (it
+      travels as %2F).
+  - id: "ecma-427#R-0069"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "when the version is not empty"
+    object: "PURL string"
+    field: "version"
+    locator: "§5.6.5, bullet 1 (p. 5)"
+    text: "The version is prefixed by a '@' separator when not empty."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. Whether 'name@' with an empty version is invalid or equal to no version is
+      not stated.
+  - id: "ecma-427#R-0070"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "version"
+    locator: "§5.6.5, bullet 2 (p. 5)"
+    text: "This '@' is not part of the version."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0071"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "version"
+    locator: "§5.6.5, bullet 3 (p. 5)"
+    text: "A version shall be a percent-encoded string."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0072"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "when percent-decoded"
+    object: "PURL string"
+    field: "version (percent-decoded)"
+    locator: "§5.6.5, bullet 4 (p. 5)"
+    text: "When percent-decoded, a version may contain any Unicode character unless the package's type definition provides otherwise."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: "The default is testable; restrictions come from type definitions, none of which is in this edition."
+    status: "active"
+    notes: "Runs across the page break between p. 5 and p. 6; the page footer is dropped."
+  - id: "ecma-427#R-0073"
+    normativity: "constraint"
+    verb: "none"
+    actor: "conforming implementation (parser and comparator)"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "version"
+    locator: "§5.6.5, bullet 5 (p. 6)"
+    text: "A version is a plain and opaque string."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      'opaque' can be tested only negatively (the decoded version comes back unchanged and is not
+      interpreted); a type definition may still declare case_sensitive false or normalization_rules for
+      the version (§6.7.4, §6.7.5), so the version is opaque only to the core syntax.
+    status: "active"
+    notes: "Declarative, verb none. Version ranges (VERS) are out of scope (Clause 4)."
+  - id: "ecma-427#R-0074"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "when not empty"
+    object: "PURL string"
+    field: "qualifiers"
+    locator: "§5.6.6, bullet 1 (p. 6)"
+    text: "The qualifiers component shall be prefixed by an unencoded question mark '?' separator when not empty."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0075"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "qualifiers"
+    locator: "§5.6.6, bullet 1 (p. 6)"
+    text: "This '?' separator is not part of the qualifiers component."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0076"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "qualifiers"
+    locator: "§5.6.6, bullet 2 (p. 6)"
+    text: "The qualifiers component is composed of one or more key=value pairs."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0077"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "when there is more than one key=value pair"
+    object: "PURL string"
+    field: "qualifier separator"
+    locator: "§5.6.6, bullet 2 (p. 6)"
+    text: "Multiple key=value pairs shall be separated by an unencoded ampersand '&'."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Nothing fixes the order of the pairs (R-0006)."
+  - id: "ecma-427#R-0078"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "qualifier separator"
+    locator: "§5.6.6, bullet 2 (p. 6)"
+    text: "This '&' separator is not part of an individual qualifier."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0079"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "key and value separator"
+    locator: "§5.6.6, bullet 3 (p. 6)"
+    text: "A key and value shall be separated by the unencoded equal sign '=' character."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0080"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "key and value separator"
+    locator: "§5.6.6, bullet 3 (p. 6)"
+    text: "This '=' separator is not part of the key or value."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0081"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL producer"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "qualifier value"
+    locator: "§5.6.6, bullet 4 (p. 6)"
+    text: "A value shall not be an empty string:"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Testable on a producer's output (it never writes an empty value). For a reader, the same sentence
+      goes on to say that a pair with an empty value 'is the same as if no key=value pair exists for this
+      key' (R-0082): the text itself gives such a pair a meaning, so it does not conflict with the
+      rejection duty of Clause 2 (R-0008), and a reader drops the pair (examples PURL-NEG-06). What the
+      text does not say is whether a strict validator may also flag 'k=' as non-conforming input.
+    status: "active"
+    notes: >-
+      Split from one sentence at its colon: the prohibition (here) binds producers, the equivalence
+      (R-0082) binds parsers.
+  - id: "ecma-427#R-0082"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser (and canonicalizer)"
+    condition: "when a key=value pair has an empty value"
+    object: "PURL string"
+    field: "qualifier with an empty value"
+    locator: "§5.6.6, bullet 4 (p. 6)"
+    text: "a key=value pair with an empty value is the same as if no key=value pair exists for this key."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none; second part of the split sentence (R-0081). The only qualifier equivalence
+      the 1st edition states.
+  - id: "ecma-427#R-0083"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "For each key=value pair:"
+    object: "PURL string"
+    field: "qualifier key"
+    locator: "§5.6.6, bullet 5, item 1 (p. 6)"
+    text: "The key shall be composed only of lowercase ASCII letters and numbers, period '.', dash '-' and underscore '_'."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Uppercase is not allowed, so a key with an uppercase letter breaks this rule and Clause 2 requires the PURL to be rejected (R-0008); the 1st edition grants no case leniency for keys. packageurl-python 0.17.6 lowercases the key instead (examples PURL-NEG-04)."
+  - id: "ecma-427#R-0084"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "For each key=value pair:"
+    object: "PURL string"
+    field: "qualifier key"
+    locator: "§5.6.6, bullet 5, item 2 (p. 6)"
+    text: "A key shall start with an ASCII letter."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0085"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "For each key=value pair:"
+    object: "PURL string"
+    field: "qualifier key"
+    locator: "§5.6.6, bullet 5, item 3 (p. 6)"
+    text: "A key shall not be percent-encoded."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0086"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "For each key=value pair:"
+    object: "PURL string"
+    field: "qualifier key"
+    locator: "§5.6.6, bullet 5, item 4 (p. 6)"
+    text: "Each key shall be unique among all the keys of the qualifiers component."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "A repeated key makes the PURL invalid (R-0008); no merge rule is given."
+  - id: "ecma-427#R-0087"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "For each key=value pair:"
+    object: "PURL string"
+    field: "qualifier value"
+    locator: "§5.6.6, bullet 5, item 5 (p. 6)"
+    text: "A value may contain any Unicode character"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Split from 'A value may contain any Unicode character and all characters shall be encoded as
+      described in the Character encoding clause.': the permission (here) and the encoding duty (R-0088)
+      are tested separately.
+  - id: "ecma-427#R-0088"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL producer"
+    condition: "For each key=value pair:"
+    object: "PURL string"
+    field: "qualifier value"
+    locator: "§5.6.6, bullet 5, item 5 (p. 6)"
+    text: "all characters shall be encoded as described in the Character encoding clause."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Second part of the split sentence (R-0087)."
+  - id: "ecma-427#R-0089"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "when not empty"
+    object: "PURL string"
+    field: "subpath"
+    locator: "§5.6.7, bullet 1 (p. 6)"
+    text: "The subpath string is prefixed by a '#' separator when not empty."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0090"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL parser"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "subpath"
+    locator: "§5.6.7, bullet 2 (p. 6)"
+    text: "The '#' is not part of the subpath."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0091"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "subpath segments"
+    locator: "§5.6.7, bullet 3 (p. 6)"
+    text: "The subpath contains zero or more segments, separated by slash '/'."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none."
+  - id: "ecma-427#R-0092"
+    normativity: "recommendation"
+    verb: "should"
+    actor: "PURL producer (canonical form)"
+    condition: "in the canonical form"
+    object: "PURL string"
+    field: "leading and trailing slashes of the subpath"
+    locator: "§5.6.7, bullet 4 (p. 6)"
+    text: "Leading and trailing slashes '/' are not significant and should be stripped in the canonical form."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: "As for R-0055: observable, but optional ('should'), so the canonical form stays underdetermined."
+    status: "active"
+  - id: "ecma-427#R-0093"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL string"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "subpath segment"
+    locator: "§5.6.7, bullet 5 (p. 6)"
+    text: "Each subpath segment shall be a percent-encoded string."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0094"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "subpath segment (percent-decoded)"
+    locator: "§5.6.7, bullet 6, item 1 (p. 6)"
+    text: "shall not contain any slash '/' characters"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0095"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "subpath segment (percent-decoded)"
+    locator: "§5.6.7, bullet 6, item 2 (p. 6)"
+    text: "shall not be empty"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      With zero or more segments (R-0091) and only a 'should' on leading and trailing slashes (R-0092), an
+      inner '//' makes the subpath invalid rather than being collapsed.
+  - id: "ecma-427#R-0096"
+    normativity: "prohibition"
+    verb: "shall not"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "subpath segment (percent-decoded)"
+    locator: "§5.6.7, bullet 6, item 3 (p. 6)"
+    text: "shall not be any of '..' or '.'"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Applies to the decoded segment, so '%2E%2E' is equally invalid."
+  - id: "ecma-427#R-0097"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL string"
+    condition: "When percent-decoded, a segment:"
+    object: "PURL string"
+    field: "subpath segment (percent-decoded)"
+    locator: "§5.6.7, bullet 6, item 4 (p. 6)"
+    text: "may contain any Unicode character other than '/' unless the package's type definition provides otherwise"
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: "The default is testable; restrictions come from type definitions, none of which is in this edition."
+    status: "active"
+  - id: "ecma-427#R-0098"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL consumer"
+    condition: "unconditional"
+    object: "PURL string"
+    field: "subpath interpretation"
+    locator: "§5.6.7, bullet 7 (p. 6)"
+    text: "The subpath shall be interpreted as relative to the root of the package."
+    text_kind: "bullet"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Observable only in a consumer that resolves the subpath against package contents; the 1st edition
+      does not define the root of a package.
+    status: "active"
+  - id: "ecma-427#R-0099"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition"
+    field: "whole document"
+    locator: "Clause 6, para 1 (p. 6)"
+    text: "Each PURL type is specified in a JSON document that matches this schema."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. The root is an object ('Location: /', 'Type: Object'; Annex A "type":
+      "object"). Clause 6 prose and Annex A disagree in places (Tables 2, 4, 5, 6, 7 and 8 give 'Array'
+      where the subclauses and Annex A give object or string; Annex A requires "$id" and allows "$schema",
+      which Clause 6 never mentions, R-0163, R-0164), so 'this schema' is ambiguous; Annex A is the
+      machine-checkable form. The surrounding descriptive sentences (the schema 'is the reference data
+      model', the documents 'are then used to generate PURL type documentation') are not extracted.
+  - id: "ecma-427#R-0100"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "type"
+    locator: "Table 2, row type, Requirement column (p. 7)"
+    also_at:
+      - "§6.1, Property line 'Property: type (Required)' (p. 7)"
+      - 'Annex A, /required (item "type") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type column String; §6.1
+      'Type: String'; Annex A "type": "string" with a pattern (R-0112).
+  - id: "ecma-427#R-0101"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "type_name"
+    locator: "Table 2, row type_name, Requirement column (p. 7)"
+    also_at:
+      - "§6.2, Property line 'Property: type_name (Required)' (p. 8)"
+      - 'Annex A, /required (item "type_name") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Table cell, verb none: a Requirement column cell carries no verbal form. Type String throughout."
+  - id: "ecma-427#R-0102"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "description"
+    locator: "Table 2, row description, Requirement column (p. 7)"
+    also_at:
+      - "§6.3, Property line 'Property: description (Required)' (p. 8)"
+      - 'Annex A, /required (item "description") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Table cell, verb none: a Requirement column cell carries no verbal form. Type String throughout."
+  - id: "ecma-427#R-0103"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "repository"
+    locator: "Table 2, row repository, Requirement column (p. 7)"
+    also_at:
+      - "§6.4, Property line 'Property: repository (Required)' (p. 8)"
+      - 'Annex A, /required (item "repository") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type Object throughout; its
+      properties are in Table 3.
+  - id: "ecma-427#R-0104"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "namespace_definition"
+    locator: "Table 2, row namespace_definition, Requirement column (p. 7)"
+    also_at:
+      - "§6.5, Property line 'Property: namespace_definition (Required)' (p. 9)"
+      - 'Annex A, /required (item "namespace_definition") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Source inconsistency: the
+      table's Type column says 'Array', but the subclause says 'Type: Object' and Annex A gives "type":
+      "object". The description cell repeats R-0117.
+  - id: "ecma-427#R-0105"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "name_definition"
+    locator: "Table 2, row name_definition, Requirement column (p. 7)"
+    also_at:
+      - "§6.6, Property line 'Property: name_definition (Required)' (p. 11)"
+      - 'Annex A, /required (item "name_definition") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Source inconsistency: the
+      table's Type column says 'Array', but the subclause says 'Type: Object' and Annex A gives "type":
+      "object". The description cell repeats R-0135.
+  - id: "ecma-427#R-0106"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "version_definition"
+    locator: "Table 2, row version_definition, Requirement column (p. 7)"
+    also_at:
+      - "§6.7, Property line 'Property: version_definition (Optional)' (p. 13)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Not in Annex A's root
+      "required" list. Source inconsistency: the table's Type column says 'Array', but the subclause says
+      'Type: Object' and Annex A gives "type": "object". The description cell repeats R-0138.
+  - id: "ecma-427#R-0107"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "qualifiers_definition"
+    locator: "Table 2, row qualifiers_definition, Requirement column (p. 7)"
+    also_at:
+      - "§6.8, Property line 'Property: qualifiers_definition (Optional)' (p. 14)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Not in Annex A's root
+      "required" list. Type Array, consistent with §6.8 and Annex A "type": "array". The description cell
+      repeats R-0141.
+  - id: "ecma-427#R-0108"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "subpath_definition"
+    locator: "Table 2, row subpath_definition, Requirement column (p. 7)"
+    also_at:
+      - "§6.9, Property line 'Property: subpath_definition (Optional)' (p. 16)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Not in Annex A's root
+      "required" list. Source inconsistency: the table's Type column says 'Array', but the subclause says
+      'Type: Object' and Annex A gives "type": "object". The description cell repeats R-0151.
+  - id: "ecma-427#R-0109"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "examples"
+    locator: "Table 2, row examples, Requirement column (p. 7)"
+    also_at:
+      - "§6.10, Property line 'Property: examples (Required)' (p. 18)"
+      - 'Annex A, /required (item "examples") (p. 20)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type Array (array of
+      String). Annex A also sets "minItems": 1 (R-0168), which Clause 6 does not state. The description
+      cell repeats R-0155.
+  - id: "ecma-427#R-0110"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "note"
+    locator: "Table 2, row note, Requirement column (p. 7)"
+    also_at:
+      - "§6.11, Property line 'Property: note (Optional)' (p. 18)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type String. Not in Annex
+      A's root "required" list.
+  - id: "ecma-427#R-0111"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "reference_urls"
+    locator: "Table 2, row reference_urls, Requirement column (p. 7)"
+    also_at:
+      - "§6.12, Property line 'Property: reference_urls (Optional)' (p. 18)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type Array (array of
+      String). Not in Annex A's root "required" list. The description cell begins 'Optional list of
+      informational reference URLs about this PURL type.'
+  - id: "ecma-427#R-0112"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "type"
+    locator: "§6.1 (p. 7)"
+    also_at:
+      - 'Annex A, /properties/type/pattern ("pattern": "^[a-z][a-z0-9-\\.]+$", the same expression JSON-escaped) (p. 21)'
+    text: 'Pattern Constraint: ^[a-z][a-z0-9-\.]+$'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. Inconsistent with §5.6.2 (R-0048) in length only: the pattern
+      demands at least two characters, while §5.6.2 allows a one-character type (schema/README.md D4,
+      normative.md C-6). Its lowercase-only class agrees with the canonical form of §5.6.2, which is
+      lowercase (R-0052); a PURL may still carry the type in any case (R-0051), so that part is not a
+      contradiction (examples TD-NEG-06). Pass 3 narrowed this note to the length.
+  - id: "ecma-427#R-0113"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (repository object)"
+    field: "use_repository"
+    locator: "Table 3, row use_repository, Requirement column (p. 8)"
+    also_at:
+      - "§6.4.1, Property line 'Property: use_repository (Required)' (p. 8)"
+      - 'Annex A, /properties/repository/required (item "use_repository") (p. 21)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type Boolean throughout.
+      Description: 'true if this PURL type uses a public package repository.' Annex A also gives
+      "default": false, which can never apply to a required property.
+  - id: "ecma-427#R-0114"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (repository object)"
+    field: "default_repository_url"
+    locator: "Table 3, row default_repository_url, Requirement column (p. 8)"
+    also_at:
+      - "§6.4.2, Property line 'Property: default_repository_url (Optional)' (p. 8)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type String. §5.1 says
+      'each type has a default repository location when defined', yet this property is optional and
+      use_repository may be false. Annex A's description drops the final period ('The default public
+      repository URL for this PURL type').
+  - id: "ecma-427#R-0115"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (repository object)"
+    field: "note"
+    locator: "Table 3, row note, Requirement column (p. 8)"
+    also_at:
+      - "§6.4.3, Property line 'Property: note (Optional)' (p. 9)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Table cell, verb none: a Requirement column cell carries no verbal form. Type String."
+  - id: "ecma-427#R-0116"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "when default_repository_url is present"
+    object: "PURL type definition (repository object)"
+    field: "default_repository_url"
+    locator: "§6.4.2 (p. 8)"
+    also_at:
+      - 'Annex A, /properties/repository/properties/default_repository_url/format ("format": "uri") (p. 21)'
+    text: "Format: URI as specified in RFC 3986"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. JSON Schema draft-07 validators need not assert "format", so a
+      test has to check URI syntax explicitly.
+  - id: "ecma-427#R-0117"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition)"
+    field: "namespace requirement (required, optional or prohibited)"
+    locator: "§6.5 (p. 9)"
+    also_at:
+      - "Table 2, row namespace_definition, Description column (p. 7)"
+      - "Annex A, /properties/namespace_definition/description (p. 21)"
+    text: "The PURL namespace component shall be required, optional or prohibited for a specific PURL type definition."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Enforced by the enumeration of §6.5.1 (R-0124)."
+  - id: "ecma-427#R-0118"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition)"
+    field: "requirement"
+    locator: "Table 4, row requirement, Requirement column (p. 9)"
+    also_at:
+      - "§6.5.1, Property line 'Property: requirement (Required)' (p. 9)"
+      - 'Annex A, /properties/namespace_definition/required (item "requirement") (p. 21)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Source inconsistency: the
+      table's Type column says 'Array', but the subclause says 'Type: String' and Annex A gives "type":
+      "string". Annex A adds a oneOf (R-0124).
+  - id: "ecma-427#R-0119"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "permitted_characters"
+    locator: "Table 4, row permitted_characters, Requirement column (p. 9)"
+    also_at:
+      - "Table 5, row permitted_characters, Requirement column (p. 11)"
+      - "Table 6, row permitted_characters, Requirement column (p. 13)"
+      - "Table 8, row permitted_characters, Requirement column (p. 16)"
+      - "§6.5.5, Property line 'Property: permitted_characters (Optional)' (p. 10)"
+      - "§6.6.3, Property line 'Property: permitted_characters (Optional)' (p. 12)"
+      - "§6.7.3, Property line 'Property: permitted_characters (Optional)' (p. 14)"
+      - "§6.9.3, Property line 'Property: permitted_characters (Optional)' (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/permitted_characters (p. 19)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Identical row in Tables 4,
+      5, 6 and 8, extracted once: Annex A defines the property once, in
+      /definitions/purl_component_definition, which each component definition includes through allOf, and
+      lists it in no "required" array. Type String throughout.
+  - id: "ecma-427#R-0120"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "case_sensitive"
+    locator: "Table 4, row case_sensitive, Requirement column (p. 9)"
+    also_at:
+      - "Table 5, row case_sensitive, Requirement column (p. 11)"
+      - "Table 6, row case_sensitive, Requirement column (p. 13)"
+      - "Table 8, row case_sensitive, Requirement column (p. 16)"
+      - "§6.5.6, Property line 'Property: case_sensitive (Optional)' (p. 10)"
+      - "§6.6.4, Property line 'Property: case_sensitive (Optional)' (p. 12)"
+      - "§6.7.4, Property line 'Property: case_sensitive (Optional)' (p. 14)"
+      - "§6.9.4, Property line 'Property: case_sensitive (Optional)' (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/case_sensitive (p. 19)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Identical row in Tables 4,
+      5, 6 and 8, extracted once: Annex A defines the property once, in
+      /definitions/purl_component_definition, which each component definition includes through allOf, and
+      lists it in no "required" array. Type Boolean throughout.
+  - id: "ecma-427#R-0121"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "normalization_rules"
+    locator: "Table 4, row normalization_rules, Requirement column (p. 9)"
+    also_at:
+      - "Table 5, row normalization_rules, Requirement column (p. 11)"
+      - "Table 6, row normalization_rules, Requirement column (p. 13)"
+      - "Table 8, row normalization_rules, Requirement column (p. 16)"
+      - "§6.5.7, Property line 'Property: normalization_rules (Optional)' (p. 10)"
+      - "§6.6.5, Property line 'Property: normalization_rules (Optional)' (p. 12)"
+      - "§6.7.5, Property line 'Property: normalization_rules (Optional)' (p. 14)"
+      - "§6.9.5, Property line 'Property: normalization_rules (Optional)' (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/normalization_rules (p. 20)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Identical row in Tables 4,
+      5, 6 and 8, extracted once: Annex A defines the property once, in
+      /definitions/purl_component_definition, which each component definition includes through allOf, and
+      lists it in no "required" array. Type Array (array of String) throughout.
+  - id: "ecma-427#R-0122"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "native_name"
+    locator: "Table 4, row native_name, Requirement column (p. 9)"
+    also_at:
+      - "Table 5, row native_name, Requirement column (p. 11)"
+      - "Table 6, row native_name, Requirement column (p. 13)"
+      - "Table 8, row native_name, Requirement column (p. 16)"
+      - "§6.5.8, Property line 'Property: native_name (Optional)' (p. 11)"
+      - "§6.6.6, Property line 'Property: native_name (Optional)' (p. 12)"
+      - "§6.7.6, Property line 'Property: native_name (Optional)' (p. 14)"
+      - "§6.9.6, Property line 'Property: native_name (Optional)' (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/native_name (p. 20)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Identical row in Tables 4,
+      5, 6 and 8, extracted once: Annex A defines the property once, in
+      /definitions/purl_component_definition, which each component definition includes through allOf, and
+      lists it in no "required" array. Type String throughout.
+  - id: "ecma-427#R-0123"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "note"
+    locator: "Table 4, row note, Requirement column (p. 9)"
+    also_at:
+      - "Table 5, row note, Requirement column (p. 11)"
+      - "Table 6, row note, Requirement column (p. 13)"
+      - "Table 8, row note, Requirement column (p. 16)"
+      - "§6.5.9, Property line 'Property: note (Optional)' (p. 11)"
+      - "§6.6.7, Property line 'Property: note (Optional)' (p. 13)"
+      - "§6.7.7, Property line 'Property: note (Optional)' (p. 14)"
+      - "§6.9.7, Property line 'Property: note (Optional)' (p. 18)"
+      - "Annex A, /definitions/purl_component_definition/properties/note (p. 20)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Identical row in Tables 4,
+      5, 6 and 8, extracted once: Annex A defines the property once, in
+      /definitions/purl_component_definition, which each component definition includes through allOf, and
+      lists it in no "required" array. Type String throughout.
+  - id: "ecma-427#R-0124"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "for the requirement property of namespace_definition"
+    object: "PURL type definition (namespace_definition)"
+    field: "requirement"
+    locator: "§6.5.1 (p. 9)"
+    also_at:
+      - "Annex A, /properties/namespace_definition/properties/requirement/oneOf (optional_requirement, required_requirement, prohibited_requirement) (p. 22)"
+    text: "Shall be one of:"
+    text_kind: "sentence"
+    enumeration:
+      - "Component optional requirement"
+      - "Component required requirement"
+      - "Component prohibited requirement"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Sentence-initial 'Shall', recorded as verb 'shall'; the numbered list is copied into enumeration.
+      The items name §6.5.2 to §6.5.4, whose constants are 'optional', 'required' and 'prohibited'
+      (R-0125, R-0126, R-0127). Description: 'States that the PURL namespace component is optional,
+      required or prohibited for a PURL type.'
+  - id: "ecma-427#R-0125"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "when a requirement property takes this option"
+    object: "PURL type definition (Component optional requirement)"
+    field: "value"
+    locator: "§6.5.2 (p. 10)"
+    also_at:
+      - "§6.7.2 (p. 13)"
+      - "§6.8.1.3 (p. 15)"
+      - "§6.9.2 (p. 17)"
+      - 'Annex A, /definitions/optional_requirement/const ("const": "optional") (p. 19)'
+    text: "Constant: optional"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. 'Type: String'. Description: 'States that this PURL component is
+      optional for a PURL type.'
+  - id: "ecma-427#R-0126"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "when a requirement property takes this option"
+    object: "PURL type definition (Component required requirement)"
+    field: "value"
+    locator: "§6.5.3 (p. 10)"
+    also_at:
+      - "§6.6.2 (p. 12)"
+      - "§6.8.1.4 (p. 15)"
+      - 'Annex A, /definitions/required_requirement/const ("const": "required") (p. 19)'
+    text: "Constant: required"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. 'Type: String'. Description: 'States that this PURL component is
+      required for a PURL type.'
+  - id: "ecma-427#R-0127"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "when a requirement property takes this option"
+    object: "PURL type definition (Component prohibited requirement)"
+    field: "value"
+    locator: "§6.5.4 (p. 10)"
+    also_at:
+      - 'Annex A, /definitions/prohibited_requirement/const ("const": "prohibited") (p. 19)'
+    text: "Constant: prohibited"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. 'Type: String'. Description: 'States that this PURL component is
+      prohibited for a PURL type.' Only namespace_definition offers it (R-0124).
+  - id: "ecma-427#R-0128"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "when permitted_characters is present"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "permitted_characters"
+    locator: "§6.5.5 (p. 10)"
+    also_at:
+      - "§6.6.3 (p. 12)"
+      - "§6.7.3 (p. 14)"
+      - "§6.9.3 (p. 17)"
+      - 'Annex A, /definitions/purl_component_definition/properties/permitted_characters/format ("format": "regex") (p. 19)'
+    text: "Format: A regular expression dialect defined by ECMA-262"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. ECMA-262 is an undated normative reference, so its latest edition
+      applies (R-0014); the informative Bibliography cites the 16th Edition, Annex A.8.
+  - id: "ecma-427#R-0129"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "If provided (when a component definition carries permitted_characters)"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "permitted_characters"
+    locator: "§6.5.5 (p. 10)"
+    also_at:
+      - "Table 4, row permitted_characters, Description column (p. 9)"
+      - "Table 5, row permitted_characters, Description column (p. 11)"
+      - "Table 6, row permitted_characters, Description column (p. 13)"
+      - "Table 8, row permitted_characters, Description column (p. 16)"
+      - "§6.6.3 (p. 12)"
+      - "§6.7.3 (p. 14)"
+      - "§6.9.3 (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/permitted_characters/description (p. 19)"
+    text: "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Whether a regular expression matches only a subset of a character set is decidable for simple
+      character-class expressions but is not checkable by schema validation in general. The referent is
+      also unclear: 'Permitted characters' in §5.2 is the ASCII set of a canonical, encoded PURL (R-0032),
+      while decoded namespace, name, version and subpath text may contain any Unicode character, and the
+      source does not say whether the expression applies to the encoded or the decoded component.
+    status: "active"
+    notes: >-
+      Two sentences: the first defines the property, the second carries the requirement. The PDF breaks
+      'Package-URL' after its hyphen; it is joined without a space.
+  - id: "ecma-427#R-0130"
+    normativity: "constraint"
+    verb: "none"
+    actor: "tool applying a PURL type definition"
+    condition: "when a component definition omits case_sensitive"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "case_sensitive"
+    locator: "§6.5.6 (p. 10)"
+    also_at:
+      - "§6.6.4 (p. 12)"
+      - "§6.7.4 (p. 14)"
+      - "§6.9.4 (p. 17)"
+      - 'Annex A, /definitions/purl_component_definition/properties/case_sensitive/default ("default": true) (p. 20)'
+    text: "Default Value: true"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. A component is case sensitive unless its definition says
+      otherwise. In JSON Schema "default" is an annotation that a validator does not apply; the tool must.
+  - id: "ecma-427#R-0131"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL producer applying a PURL type definition"
+    condition: "If false (the component definition sets case_sensitive to false)"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "case_sensitive"
+    locator: "§6.5.6 (p. 10)"
+    also_at:
+      - "Table 4, row case_sensitive, Description column (p. 9)"
+      - "Table 5, row case_sensitive, Description column (p. 11)"
+      - "Table 6, row case_sensitive, Description column (p. 13)"
+      - "Table 8, row case_sensitive, Description column (p. 16)"
+      - "§6.6.4 (p. 12)"
+      - "§6.7.4 (p. 14)"
+      - "§6.9.4 (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/case_sensitive/description (p. 20)"
+    text: "true if this PURL component is case sensitive. If false, the canonical form shall be lowercased."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Testable against a supplied type definition, but the source does not say whether lowercasing applies
+      to the decoded component or to its percent-encoded form (where it would also lowercase the
+      hexadecimal digits of triplets), and the 1st edition supplies no type definition.
+    status: "active"
+    notes: >-
+      'lowercased' as defined in §5.5 (R-0039). The text keeps the first sentence, which defines the true
+      case.
+  - id: "ecma-427#R-0132"
+    normativity: "recommendation"
+    verb: "none"
+    actor: "tool applying a PURL type definition"
+    condition: "when a component definition carries normalization_rules"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "normalization_rules"
+    locator: "§6.5.7 (p. 10)"
+    also_at:
+      - "Table 4, row normalization_rules, Description column (p. 9)"
+      - "Table 5, row normalization_rules, Description column (p. 11)"
+      - "Table 6, row normalization_rules, Description column (p. 13)"
+      - "Table 8, row normalization_rules, Description column (p. 16)"
+      - "§6.6.5 (p. 12)"
+      - "§6.7.5 (p. 14)"
+      - "§6.9.5 (p. 17)"
+      - "Annex A, /definitions/purl_component_definition/properties/normalization_rules/description (p. 20)"
+    text: "These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "no"
+    testable_reason: >-
+      The rules are unstructured plain text with no defined language, so neither their application nor its
+      result can be checked mechanically.
+    status: "active"
+    notes: >-
+      No verbal form: 'are expected to' is not one of the Directives verbal forms, so verb none; recorded
+      as a recommendation. The text keeps the preceding sentence, which says why the rules cannot be
+      checked.
+  - id: "ecma-427#R-0133"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "when normalization_rules is present"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "normalization_rules (each item)"
+    locator: "§6.5.7 (p. 10)"
+    also_at:
+      - "§6.6.5 (p. 12)"
+      - "§6.7.5 (p. 14)"
+      - "§6.9.5 (p. 17)"
+      - 'Annex A, /definitions/purl_component_definition/properties/normalization_rules/items ("type": "string") (p. 20)'
+    text: "Each item of this array shall be a string."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0134"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "when normalization_rules is present"
+    object: "PURL type definition (namespace_definition, name_definition, version_definition, subpath_definition)"
+    field: "normalization_rules (all items)"
+    locator: "§6.5.7 (p. 10)"
+    also_at:
+      - "§6.6.5 (p. 12)"
+      - "§6.7.5 (p. 14)"
+      - "§6.9.5 (p. 17)"
+      - 'Annex A, /definitions/purl_component_definition/properties/normalization_rules/uniqueItems ("uniqueItems": true) (p. 20)'
+    text: "All items shall be unique."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0135"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (name_definition)"
+    field: "name requirement"
+    locator: "§6.6 (p. 11)"
+    also_at:
+      - "Table 2, row name_definition, Description column (p. 7)"
+      - "Annex A, /properties/name_definition/description (p. 22)"
+    text: "The PURL name component is required for all PURL type definitions."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none; enforced by §6.6.1 (R-0137)."
+  - id: "ecma-427#R-0136"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (name_definition)"
+    field: "requirement"
+    locator: "Table 5, row requirement, Requirement column (p. 11)"
+    also_at:
+      - "§6.6.1, Property line 'Property: requirement (Required)' (p. 12)"
+      - 'Annex A, /properties/name_definition/required (item "requirement") (p. 22)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Source inconsistency: the
+      table's Type column says 'Array', but the subclause says 'Type: String' and Annex A gives "type":
+      "string".
+  - id: "ecma-427#R-0137"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "for the requirement property of name_definition"
+    object: "PURL type definition (name_definition)"
+    field: "requirement"
+    locator: "§6.6.1 (p. 12)"
+    also_at:
+      - "Annex A, /properties/name_definition/properties/requirement/oneOf (required_requirement) (p. 22)"
+    text: "Shall be one of:"
+    text_kind: "sentence"
+    enumeration:
+      - "Component required requirement"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Sentence-initial 'Shall', recorded as verb 'shall'. The single item names §6.6.2, constant
+      'required' (R-0126). Description: 'States that the PURL name component is always required.'
+  - id: "ecma-427#R-0138"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (version_definition)"
+    field: "version requirement"
+    locator: "§6.7 (p. 13)"
+    also_at:
+      - "Table 2, row version_definition, Description column (p. 7)"
+      - "Annex A, /properties/version_definition/description (p. 22)"
+    text: "The PURL version component is optional for a specific PURL type definition."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none; enforced by §6.7.1 (R-0140)."
+  - id: "ecma-427#R-0139"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (version_definition)"
+    field: "requirement"
+    locator: "Table 6, row requirement, Requirement column (p. 13)"
+    also_at:
+      - "§6.7.1, Property line 'Property: requirement (Required)' (p. 13)"
+      - 'Annex A, /properties/version_definition/required (item "requirement") (p. 22)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Source inconsistency: the
+      table's Type column says 'Array', but the subclause says 'Type: String' and Annex A gives "type":
+      "string".
+  - id: "ecma-427#R-0140"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "for the requirement property of version_definition"
+    object: "PURL type definition (version_definition)"
+    field: "requirement"
+    locator: "§6.7.1 (p. 13)"
+    also_at:
+      - "Annex A, /properties/version_definition/properties/requirement/oneOf (optional_requirement) (p. 23)"
+    text: "Shall be one of:"
+    text_kind: "sentence"
+    enumeration:
+      - "Component optional requirement"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Sentence-initial 'Shall', recorded as verb 'shall'. So no type definition can make the version
+      required. Description: 'States that the PURL version is optional.'
+  - id: "ecma-427#R-0141"
+    normativity: "permission"
+    verb: "may"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition)"
+    field: "qualifier keys required by a type"
+    locator: "§6.8 (p. 14)"
+    also_at:
+      - "Table 2, row qualifiers_definition, Description column (p. 7)"
+      - "Annex A, /properties/qualifiers_definition/description (p. 23)"
+    text: "The PURL qualifiers component is optional for a specific PURL type, but a qualifiers key or keys may be required for a specific PURL type."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      The two clauses pull against each other: once a type requires a qualifier key, the qualifiers
+      component is no longer optional for that type. Kept as one entry because the operative verb is the
+      'may'.
+  - id: "ecma-427#R-0142"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "when qualifiers_definition is present"
+    object: "PURL type definition (qualifiers_definition)"
+    field: "qualifiers_definition (each item)"
+    locator: "§6.8 (p. 14)"
+    also_at:
+      - 'Annex A, /properties/qualifiers_definition/items ("type": "object") (p. 23)'
+    text: "Each item of this array shall be a Qualifiers definition object."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A also sets "additionalItems": false, which has no effect in draft-07 when "items" is a single
+      schema, and "uniqueItems": true (R-0150).
+  - id: "ecma-427#R-0143"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "key"
+    locator: "Table 7, row key, Requirement column (p. 15)"
+    also_at:
+      - 'Annex A, /properties/qualifiers_definition/items/required (item "key") (p. 23)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type String. §6.8.1.1 has
+      no Property line.
+  - id: "ecma-427#R-0144"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "requirement"
+    locator: "Table 7, row requirement, Requirement column (p. 15)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Not in Annex A's items
+      "required" list. Source inconsistency: the Type column says 'Array', but §6.8.1.2 says 'Type:
+      String' and Annex A gives "type": "string" with oneOf (R-0149). Nothing says what an absent
+      requirement means; no default is given.
+  - id: "ecma-427#R-0145"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "description"
+    locator: "Table 7, row description, Requirement column (p. 15)"
+    also_at:
+      - 'Annex A, /properties/qualifiers_definition/items/required (item "description") (p. 23)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Table cell, verb none: a Requirement column cell carries no verbal form. Type String."
+  - id: "ecma-427#R-0146"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "default_value"
+    locator: "Table 7, row default_value, Requirement column (p. 15)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type String. Description:
+      'The optional default value of this qualifier if not provided.' Whether a PURL that carries the
+      default value equals one that omits the qualifier is not stated (R-0006).
+  - id: "ecma-427#R-0147"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "native_name"
+    locator: "Table 7, row native_name, Requirement column (p. 15)"
+    text: "Optional"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Type String. Description:
+      'The equivalent native name for this qualifier key.'
+  - id: "ecma-427#R-0148"
+    normativity: "requirement"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "for every item of qualifiers_definition"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "key"
+    locator: "§6.8.1.1 (p. 15)"
+    text: "The key for the qualifier."
+    text_kind: "sentence"
+    kind: "inferred"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Inferred, not stated. The key a type definition declares is the key that appears in PURLs of that
+      type, so it is usable only if it meets the §5.6.6 key rules (R-0083 to R-0085: lowercase ASCII
+      letters, digits, '.', '-' and '_', starting with a letter, never percent-encoded). Neither §6.8.1.1
+      nor Annex A ("type": "string", no pattern) states this, so a schema-valid type definition can
+      declare a key that no conforming PURL can carry. Likewise "uniqueItems" (R-0150) compares whole
+      qualifier definition objects, so two items with the same key and different descriptions pass the
+      schema although keys must be unique within a PURL (R-0086). The quoted text is the property
+      description the inference rests on; it carries no verbal form.
+  - id: "ecma-427#R-0149"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "for the requirement property of a qualifiers_definition item"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "requirement"
+    locator: "§6.8.1.2 (p. 15)"
+    also_at:
+      - "Annex A, /properties/qualifiers_definition/items/properties/requirement/oneOf (optional_requirement, required_requirement) (p. 23)"
+    text: "Shall be one of:"
+    text_kind: "sentence"
+    enumeration:
+      - "Component optional requirement"
+      - "Component required requirement"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Sentence-initial 'Shall', recorded as verb 'shall'. Description: 'States that a PURL qualifier key
+      is optional or required for a PURL type.'
+  - id: "ecma-427#R-0150"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "when qualifiers_definition is present"
+    object: "PURL type definition (qualifiers_definition)"
+    field: "qualifiers_definition items (attribution is ours, see notes)"
+    locator: "§6.8.1.7 (p. 16)"
+    also_at:
+      - 'Annex A, /properties/qualifiers_definition/uniqueItems ("uniqueItems": true) (p. 23)'
+    text: "All items shall be unique."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Source defect: the sentence is printed at the end of §6.8.1.7 Native name, whose property is a
+      single String with no items. The only array it can govern is qualifiers_definition, which Annex A
+      marks "uniqueItems": true; that attribution is ours. Uniqueness of whole objects does not stop two
+      items from declaring the same key (R-0148).
+  - id: "ecma-427#R-0151"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (subpath_definition)"
+    field: "subpath requirement"
+    locator: "§6.9 (p. 16)"
+    also_at:
+      - "Table 2, row subpath_definition, Description column (p. 7)"
+      - "Annex A, /properties/subpath_definition/description (p. 24)"
+    text: "The PURL subpath component is optional for a specific PURL type definition."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Declarative, verb none; enforced by §6.9.1 (R-0153)."
+  - id: "ecma-427#R-0152"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (subpath_definition)"
+    field: "requirement"
+    locator: "Table 8, row requirement, Requirement column (p. 16)"
+    also_at:
+      - "§6.9.1, Property line 'Property: requirement (Required)' (p. 17)"
+      - 'Annex A, /properties/subpath_definition/required (item "requirement") (p. 24)'
+    text: "Required"
+    text_kind: "table-cell"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Table cell, verb none: a Requirement column cell carries no verbal form. Source inconsistency: the
+      table's Type column says 'Array', but the subclause says 'Type: String' and Annex A gives "type":
+      "string".
+  - id: "ecma-427#R-0153"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "for the requirement property of subpath_definition"
+    object: "PURL type definition (subpath_definition)"
+    field: "requirement"
+    locator: "§6.9.1 (p. 17)"
+    also_at:
+      - "Annex A, /properties/subpath_definition/properties/requirement/oneOf (optional_requirement) (p. 24)"
+    text: "Shall be one of:"
+    text_kind: "sentence"
+    enumeration:
+      - "Component optional requirement"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Sentence-initial 'Shall', recorded as verb 'shall'. So no type definition can make the subpath
+      required. Description: 'States that the PURL subpath is optional.'
+  - id: "ecma-427#R-0154"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "for each item of examples"
+    object: "PURL type definition (root object)"
+    field: "examples (each item)"
+    locator: "§6.10 (p. 18)"
+    also_at:
+      - 'Annex A, /properties/examples/items/pattern ("pattern": "^pkg:[a-z][a-z0-9-\\.]+/.*$", the same expression JSON-escaped) (p. 24)'
+    text: 'Pattern Constraint: ^pkg:[a-z][a-z0-9-\.]+/.*$'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Clause 6 property line, verb none. The pattern checks only the scheme, a lowercase type of at least
+      two characters and a slash; it neither ties the example's type to the definition's "type" nor checks
+      the rest of the PURL (R-0155).
+  - id: "ecma-427#R-0155"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "for each item of examples"
+    object: "PURL type definition (root object)"
+    field: "examples"
+    locator: "§6.10 (p. 18)"
+    also_at:
+      - "Table 2, row examples, Description column (p. 7)"
+      - "Annex A, /properties/examples/description (p. 24)"
+    text: "Example of valid, canonical PURLs for this package type."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "partial"
+    testable_reason: >-
+      Validity and type can be checked with a PURL validator; 'canonical' can be checked only as far as
+      the canonical form is defined, which it is not completely (R-0006).
+    status: "active"
+    notes: >-
+      A property description with no verbal form (verb none); read as a constraint because it states what
+      every example is: a valid, canonical PURL of the type being defined.
+  - id: "ecma-427#R-0156"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "examples (each item)"
+    locator: "§6.10 (p. 18)"
+    also_at:
+      - 'Annex A, /properties/examples/items ("type": "string") (p. 24)'
+    text: "Each item of this array shall be a string."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0157"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "examples (all items)"
+    locator: "§6.10 (p. 18)"
+    also_at:
+      - 'Annex A, /properties/examples/uniqueItems ("uniqueItems": true) (p. 24)'
+    text: "All items shall be unique."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0158"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "when reference_urls is present"
+    object: "PURL type definition (root object)"
+    field: "reference_urls (each item)"
+    locator: "§6.12 (p. 18)"
+    also_at:
+      - 'Annex A, /properties/reference_urls/items/format ("format": "uri") (p. 25)'
+    text: "Format: URI as specified in RFC 3986"
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: "Clause 6 property line, verb none. As for R-0116, a test has to check URI syntax explicitly."
+  - id: "ecma-427#R-0159"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "when reference_urls is present"
+    object: "PURL type definition (root object)"
+    field: "reference_urls (each item)"
+    locator: "§6.12 (p. 18)"
+    also_at:
+      - 'Annex A, /properties/reference_urls/items ("type": "string") (p. 25)'
+    text: "Each item of this array shall be a string."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0160"
+    normativity: "requirement"
+    verb: "shall"
+    actor: "PURL type definition"
+    condition: "when reference_urls is present"
+    object: "PURL type definition (root object)"
+    field: "reference_urls (all items)"
+    locator: "§6.12 (p. 18)"
+    also_at:
+      - 'Annex A, /properties/reference_urls/uniqueItems ("uniqueItems": true) (p. 24)'
+    text: "All items shall be unique."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+  - id: "ecma-427#R-0161"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition validator"
+    condition: "unconditional"
+    object: "PURL type definition schema"
+    field: "schema dialect"
+    locator: "Annex A, introduction (p. 19)"
+    also_at:
+      - 'Annex A, /$schema ("$schema": "http://json-schema.org/draft-07/schema#") (p. 19)'
+    text: "The format is JSON Schema version draft-07."
+    text_kind: "sentence"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Declarative, verb none. The Annex calls itself 'a copy of the current Package-URL Type Definition
+      Schema' and points to the main branch of the purl-spec repository for the electronic form, which can
+      change after publication; this file follows the printed Annex A.
+  - id: "ecma-427#R-0162"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "top-level properties"
+    locator: "Annex A, /additionalProperties (p. 19)"
+    text: '"additionalProperties": false'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none: Clause 6 never says that a type definition may not carry other top-level
+      properties. With the root properties list, the permitted top-level keys are $schema, $id, type,
+      type_name, description, repository, namespace_definition, name_definition, version_definition,
+      qualifiers_definition, subpath_definition, examples, note and reference_urls. The component
+      definitions (namespace_definition and the others) carry no such keyword, so they accept unknown
+      properties.
+  - id: "ecma-427#R-0163"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "$id"
+    locator: "Annex A, /required (p. 20)"
+    text: '"$id"'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none. One item of the root "required" array, whose items are "$id", "type",
+      "type_name", "description", "repository", "namespace_definition", "name_definition" and "examples";
+      the other seven repeat Table 2 and are listed in those entries' also_at. Clause 6 and Table 2 never
+      mention "$id" (Annex A: title 'PURL type definition id', description 'The unique identifier URI for
+      this PURL type definition.', "type": "string"), so a type definition built from Clause 6 alone fails
+      Annex A.
+  - id: "ecma-427#R-0164"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: 'when the type definition carries the optional "$schema" property'
+    object: "PURL type definition (root object)"
+    field: "$schema"
+    locator: "Annex A, /properties/$schema/const (p. 20)"
+    text: '"const": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json"'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none; Table 2 does not list "$schema" (Annex A also gives "format": "uri"). The
+      value equals the schema's own "$id". The PDF breaks the URL after 'purl-type-'; it is joined without
+      a space, as a JSON string cannot hold a line break. The hyphen is printed on the rendered page;
+      pdftotext without -layout drops it ('purl-typedefinition'), which is wrong.
+  - id: "ecma-427#R-0165"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "$id"
+    locator: "Annex A, /properties/$id/pattern (p. 20)"
+    text: '"pattern": "^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$"'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none. The PDF breaks the pattern after '+-'; it is joined without a space. The
+      hyphen is printed on the rendered page; pdftotext without -layout drops it ('+definition'), which is
+      wrong. Potential mismatch: the segment [a-z0-9-]+ excludes '.', which the type pattern (R-0112) and
+      §5.6.2 allow, so a type such as 'foo.bar' cannot have an "$id" that embeds its type string. Nothing
+      in Annex A or Clause 6 ties the name in "$id" to the "type" value, so such a type can still carry a
+      conforming "$id" (for example one ending 'foo-bar-definition.json'); this is an observation, not a
+      rule the schema breaks (normative.md U-11).
+  - id: "ecma-427#R-0166"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (repository object)"
+    field: "repository properties"
+    locator: "Annex A, /properties/repository/additionalProperties (p. 21)"
+    text: '"additionalProperties": false'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none: the repository object takes only use_repository, default_repository_url and
+      note.
+  - id: "ecma-427#R-0167"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (qualifiers_definition item)"
+    field: "qualifier definition properties"
+    locator: "Annex A, /properties/qualifiers_definition/items/additionalProperties (p. 23)"
+    text: '"additionalProperties": false'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none: a qualifier definition takes only key, requirement, description,
+      default_value and native_name.
+  - id: "ecma-427#R-0168"
+    normativity: "constraint"
+    verb: "none"
+    actor: "PURL type definition"
+    condition: "unconditional"
+    object: "PURL type definition (root object)"
+    field: "examples"
+    locator: "Annex A, /properties/examples/minItems (p. 24)"
+    text: '"minItems": 1'
+    text_kind: "schema-keyword"
+    kind: "stated"
+    testable: "yes"
+    status: "active"
+    notes: >-
+      Annex A only, verb none: Table 2 makes examples Required (R-0109), and only Annex A adds that the
+      array is non-empty.

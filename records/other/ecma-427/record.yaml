@@ -1,0 +1,143 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# The 2nd edition (purl-spec v1.1.0, approved by TC54 on 2026-10-07 for the
+# December 2026 Ecma General Assembly) is not adopted yet. When it is, it gets
+# its own record that supersedes this one.
+schema: "library-record/v1"
+id: ecma-427
+body: other
+type: spec
+maturity: standard
+title: "ECMA-427 Package-URL (PURL) specification, 1st edition"
+short_title: "ECMA-427 purl, 1st ed."
+# The editors named on p. iv of the standard.
+authors:
+  - "John Horan"
+  - "Michael Herzog"
+  - "Philippe Ombredanne"
+  - "Steve Springett"
+date: "2025-12"
+publisher: "Ecma International (TC54)"
+version: "1st edition (December 2025)"
+# The standard's own text says https://tc54.org/purl/ is "the most accurate and
+# up-to-date" version; that page tracks later drafts, so it is not this record.
+identifiers:
+  ecma: "ECMA-427, 1st edition (December 2025)"
+  url: https://www.ecma-international.org/publications-and-standards/standards/ecma-427/
+  git: https://github.com/Ecma-TC54/ECMA-427
+  iso: "ISO/IEC DIS 27056 (as listed on the Ecma page, 2026-10-15)"
+content:
+  url: https://ecma-international.org/wp-content/uploads/ECMA-427_1st_edition_december_2025.pdf
+  sha256: "037180df99e7d7c26d910dc3adb3fa07c4fb787cc4bd29e43634de3802313825"
+  retrieved: "2026-10-15"
+  local: false
+  media_type: application/pdf
+  pages: 40
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+    - spdx-3-0-1
+    - osv-schema
+    - cve-json-5
+  cited_by: []
+  implements_concept: []
+  contradicts: []
+cites:
+  - title: "ECMA-262, ECMAScript language specification"
+    locator: "Clause 3"
+  - title: "RFC 3986, Uniform Resource Identifier (URI): Generic Syntax"
+    locator: "Clause 3"
+  - title: "The Unicode Standard"
+    locator: "Clause 3"
+  - title: "ECMA-404, The JSON data interchange syntax"
+    locator: "Bibliography"
+  - title: "INCITS 4-1986 [R2022], 7-Bit ASCII"
+    locator: "Bibliography"
+  - title: "JSON Schema Validation, draft-handrews-json-schema-validation-01 (Draft-07)"
+    locator: "Bibliography"
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-009
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: core
+implementations:
+  open_source:
+    - "packageurl-python 0.17.6, https://github.com/package-url/packageurl-python, MIT"
+    - "packageurl-java, https://github.com/package-url/packageurl-java, MIT"
+    - "packageurl-go, https://github.com/package-url/packageurl-go, MIT"
+    - "packageurl-js, https://github.com/package-url/packageurl-js, MIT"
+    - "packageurl-dotnet, https://github.com/package-url/packageurl-dotnet, MIT"
+    - "packageurl.rs, https://github.com/package-url/packageurl.rs, MIT"
+    - "packageurl-ruby, https://github.com/package-url/packageurl-ruby, MIT"
+    - "packageurl-php, https://github.com/package-url/packageurl-php, MIT"
+  commercial: []
+  searched: "2026-10-15"
+usefulness:
+  verdict: useful
+  reason: "purl is the join key between an SBOM component and vulnerability data (CycloneDX, SPDX, CVE packageURL, OSV), and tmodel's accepted identifiers slot (ADR-0010) carries purl strings."
+  assessed: "2026-10-15"
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - naming
+  - normative
+  - purl
+status: distilled
+confidence: medium
+distillation:
+  profile: full
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "291 numbered statements, verbatim, in source order under the source's clause headings: Clauses 2, 3, 5 and 6, the Clause 6 property blocks, Tables 1 to 8, and Annex A (its constraint keywords with JSON Pointers and the shall sentences inside description strings); Clause 1, Clause 4 and the informative examples listed as excluded; verbal-form tally per region; 219 statements map to requirement ids and 72 carry a stated reason for having none"
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "168 entries R-0001 to R-0168 (requirement 47, prohibition 14, recommendation 4, permission 12, constraint 89, informative 2; 1 inferred). BCP 14: source 2 (both in the p. 31 licence), extracted 0. Lowercase baseline: all 108 shall, shall not, should and may occurrences accounted for by line (75 in entry texts, 26 verbatim repeats in also_at, 7 in the copyright notice and licence). Property types (Clause 6 Type lines) are carried in messages.yaml, not as entries"
+      reviewed_by: ""
+    - kind: schema
+      path: distilled/schema
+      coverage: "purl-type-definition.schema-1.0.json: the Annex A JSON Schema (draft-07), verbatim, byte-identical to purl-spec tag v1.0.0 (sha256 b8988773...e983) and equal to the printed Annex A token for token; purl.derived.abnf: an RFC 5234 grammar for the purl string derived from Clause 5 (the 1st edition has no grammar), enforcing 58 of 84 Clause 5 requirements in full and 12 in part, the rest listed as not expressible; 49 smoke tests pass"
+      reviewed_by: ""
+    - kind: messages
+      path: distilled/messages.yaml
+      coverage: "13 structures and 65 fields: the purl string's seven components, a qualifier pair, and every object of the type-definition document, with type, required, constraints and locators; where Tables 2 to 8, the subclauses and Annex A disagree, all three values are given. constrained_by wired in pass 3: 344 field links and 7 structure-level ids to 147 requirements; the 14 unreferenced requirements are listed with reasons in verification.md"
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "54 fixtures: the 10 source examples verbatim (byte-exact), 9 purl positives, 10 purl negatives, 2 purl edge cases, and 23 type-definition fixtures (1 positive, 13 negatives, 4 format, 1 pattern, 4 schema gaps), each negative tracing to the requirement ids it breaks; actual results from jsonschema 4.26.0 and packageurl-python 0.17.6 recorded beside the expected ones (13 tool differences, each a finding); run-fixtures.derived.py reproduces every result"
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "6 adopt, 7 adapt and 7 reject items for tmodel, each grounded in a quotation and mapped to an ADR or DEC with its status (accepted: DEC-001a, DEC-002, DEC-004, DEC-005, DEC-007, DEC-011; open: DEC-001b, DEC-008, DEC-009); a 22-row mapping table; 21 numbered source defects with whether the 2nd edition fixes them; evidence E1 to E12 from tmodel's tool runs and two labelled probes; 14 open questions routed to their owners"
+      reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "pass 2 (independent verify) and pass 3 (cross-check) evidence: recount table, every defect found and fixed, the normative-to-requirement mapping, the grammar coverage table, and what was not checked"
+      reviewed_by: ""
+  not_applicable:
+    - kind: protocol
+      reason: "ECMA-427 defines an identifier syntax (Clause 5) and a JSON document format for type definitions (Clause 6, Annex A). It names implementation roles (PURL parsers, 5.6.1; tools, 6.5.7; a conforming implementation, Clause 2) but no parties that exchange messages and no sequence of steps between them; Clause 1 lists where purls are used (SBOMs, vulnerability databases, advisories) without defining any exchange. Its procedural statements are all single-party string rules (for example a parser removing the slashes after 'pkg:', 5.6.1, the percent-encoding steps of 5.4, and the rejection duty of Clause 2), which requirements.yaml and schema/purl.derived.abnf carry."
+    - kind: state-machine
+      reason: "No lifecycle, persistent state or transitions: a purl is a string and a type definition is a static document. The 1st edition defines no parsing or building algorithm whose steps could be modelled as states (the P1 to P9 order in examples/expected.yaml is the library's own), and registered versus unregistered types arrive only with the 2nd edition."
+  passes:
+    - pass: extract
+      by: "claude (5 parallel agents: normative, requirements, schema and messages, examples, design notes)"
+      effort: max
+      date: "2026-10-15"
+      note: "each agent read the PDF's text rendering (and page images where the text layer was ambiguous), never a summary or another agent's output"
+    - pass: verify
+      by: "claude (independent agent, did not extract)"
+      effort: max
+      date: "2026-10-15"
+      note: "7 material defects found and fixed: two 'may look like a host' sentences misfiled as permissions, a withdrawn claim that 5.6.6 conflicts with Clause 2, two entries that called rejected inputs unspecified, a false claim about dotted types and $id, a false claim about raw spaces, a 2nd-edition schema claim, and a contradiction about parsing; all quotations verbatim (168 requirement texts, 344 normative quotations, 186 messages quotations, 204 design-note quotations); counts reconciled 108 of 108"
+    - pass: cross-check
+      by: "claude (independent agent)"
+      effort: max
+      date: "2026-10-15"
+      note: "every requirement's object resolves to messages.yaml or the schema; constrained_by wired on 65 of 65 fields; grammar coverage table; every negative fixture traced to requirement ids; 148 requirement ids added to design-notes.md; two open questions added; no verbatim text or schema byte changed"

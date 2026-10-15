@@ -1,0 +1,1 @@
+pkg:npm/foobar@12.3.1
