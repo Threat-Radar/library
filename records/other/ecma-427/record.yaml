@@ -1,0 +1,90 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# The 2nd edition (purl-spec v1.1.0, approved by TC54 on 2026-10-07 for the
+# December 2026 Ecma General Assembly) is not adopted yet. When it is, it gets
+# its own record that supersedes this one.
+schema: "library-record/v1"
+id: ecma-427
+body: other
+type: spec
+maturity: standard
+title: "ECMA-427 Package-URL (PURL) specification, 1st edition"
+short_title: "ECMA-427 purl, 1st ed."
+# The editors named on p. iv of the standard.
+authors:
+  - "John Horan"
+  - "Michael Herzog"
+  - "Philippe Ombredanne"
+  - "Steve Springett"
+date: "2025-12"
+publisher: "Ecma International (TC54)"
+version: "1st edition (December 2025)"
+# The standard's own text says https://tc54.org/purl/ is "the most accurate and
+# up-to-date" version; that page tracks later drafts, so it is not this record.
+identifiers:
+  ecma: "ECMA-427, 1st edition (December 2025)"
+  url: https://www.ecma-international.org/publications-and-standards/standards/ecma-427/
+  git: https://github.com/Ecma-TC54/ECMA-427
+  iso: "ISO/IEC DIS 27056 (as listed on the Ecma page, 2026-10-15)"
+content:
+  url: https://ecma-international.org/wp-content/uploads/ECMA-427_1st_edition_december_2025.pdf
+  sha256: "037180df99e7d7c26d910dc3adb3fa07c4fb787cc4bd29e43634de3802313825"
+  retrieved: "2026-10-15"
+  local: false
+  media_type: application/pdf
+  pages: 40
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+    - spdx-3-0-1
+    - osv-schema
+    - cve-json-5
+  cited_by: []
+  implements_concept: []
+  contradicts: []
+cites:
+  - title: "ECMA-262, ECMAScript language specification"
+    locator: "Clause 3"
+  - title: "RFC 3986, Uniform Resource Identifier (URI): Generic Syntax"
+    locator: "Clause 3"
+  - title: "The Unicode Standard"
+    locator: "Clause 3"
+  - title: "ECMA-404, The JSON data interchange syntax"
+    locator: "Bibliography"
+  - title: "INCITS 4-1986 [R2022], 7-Bit ASCII"
+    locator: "Bibliography"
+  - title: "JSON Schema Validation, draft-handrews-json-schema-validation-01 (Draft-07)"
+    locator: "Bibliography"
+bears_on:
+  - DEC-001
+  - DEC-002
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: core
+implementations:
+  open_source:
+    - "packageurl-python 0.17.6, https://github.com/package-url/packageurl-python, MIT"
+    - "packageurl-java, https://github.com/package-url/packageurl-java, MIT"
+    - "packageurl-go, https://github.com/package-url/packageurl-go, MIT"
+    - "packageurl-js, https://github.com/package-url/packageurl-js, MIT"
+    - "packageurl-dotnet, https://github.com/package-url/packageurl-dotnet, MIT"
+    - "packageurl.rs, https://github.com/package-url/packageurl.rs, MIT"
+    - "packageurl-ruby, https://github.com/package-url/packageurl-ruby, MIT"
+    - "packageurl-php, https://github.com/package-url/packageurl-php, MIT"
+  commercial: []
+  searched: "2026-10-15"
+usefulness:
+  verdict: useful
+  reason: "purl is the join key between an SBOM component and vulnerability data (CycloneDX, SPDX, CVE packageURL, OSV), and tmodel's accepted identifiers slot (ADR-0010) carries purl strings."
+  assessed: "2026-10-15"
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - naming
+  - normative
+  - purl
+status: summarized
+confidence: medium
