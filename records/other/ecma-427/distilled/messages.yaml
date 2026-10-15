@@ -1,0 +1,2539 @@
+# Contains text from ECMA-427 1st edition, © Ecma International 2025, reproduced under the Ecma copyright notice; full notice in distilled/README.md
+#
+# Block style only, and one line per scalar: bin/_yaml.py reads no flow
+# mappings. Strings that contain a single quote are double-quoted and hold no
+# backslash; all other quoted strings are single-quoted, with '' for a quote.
+schema: "library-messages/v1"
+record: ecma-427
+reviewed_by: ""
+source_version: "ECMA-427 1st edition (December 2025)"
+source_digest: "sha256:037180df99e7d7c26d910dc3adb3fa07c4fb787cc4bd29e43634de3802313825"
+attribution: "Contains text from ECMA-427 1st edition, © Ecma International 2025, reproduced under the Ecma copyright notice; full notice in distilled/README.md"
+extracted: "2026-10-15"
+extracted_by: "claude (FX-1 pass 1, schema and messages agent, effort max)"
+note: 'ECMA-427 defines no wire protocol. It defines two things, and this file decomposes both: (1) the PURL string of Clause 5, as structure purl-string (the seven components) and purl-qualifier (one key=value pair); (2) the PURL type definition document of Clause 6 and Annex A, a JSON document validated by the Annex A JSON Schema (JSON Schema draft-07), as one structure per object or property group (typedef-root, typedef-repository, typedef-namespace_definition, typedef-name_definition, typedef-version_definition, typedef-qualifiers_definition-item, typedef-subpath_definition, typedef-purl_component_definition, typedef-examples, typedef-note, typedef-reference_urls). Conventions. Every value of a key named text or source_phrase is verbatim from the PDF (a sentence the PDF wrapped is joined; nothing else changes), with its locator. Short values under keys such as permitted_characters, case, encoding, canonical_form, separator_before and separator_after are our structured restatement of the verbatim rules beside them, never a substitute for them. Anything implied but not stated is under an inferred key or carries kind: inferred with its basis. For type definition fields, json_type_sources, required_sources and default_sources give the value from the property table (Tables 2 to 8), from the subclause (the Type, Property and Default Value lines) and from the Annex A schema; where they disagree the field carries flags. Annex A locators are JSON Pointers into the schema (schema/purl-type-definition.schema-1.0.json). constrained_by (pass 3, cross-check) lists the requirements.yaml ids that constrain each field: the entries at the clauses in constrained_by_locators, kept only where the entry object, field and text reach the field, plus the whole-string rules of Clause 5 and §5.1 to §5.6 that a component attribute cites (position, url_mapping, permitted_characters, encoding, case). constrained_by_locators is the pass-1 list, kept unchanged; constrained_by_note explains a locator whose requirements bind another structure. A structure-level constrained_by holds the requirements that bind a structure as a whole (a closed set of components or members). No requirement entry states a property type, so json_type is not reflected in constrained_by. The Clause 2 implementation duties (R-0001 to R-0003, R-0006 to R-0013), R-0014 and the two informative entries (R-0024, R-0063) constrain no field; distilled/verification.md, pass 3, gives the reasons.'
+
+structures:
+
+  # =========================================================================
+  # PART 1. THE PURL STRING (Clause 5)
+  # =========================================================================
+
+  - name: purl-string
+    locator: "Clause 5 (Table 1, Examples 1 to 3); §5.1 to §5.6.7"
+    encoding: 'ASCII text (§5.6); namespace segments, name, version, qualifier values and subpath segments are percent-encoded strings of UTF-8 octets (§5.4); the scheme is a constant, and the type and qualifier keys are never percent-encoded (§5.6.2, §5.6.6)'
+    structure: sequence
+    layout: 'scheme:type/namespace/name@version?qualifiers#subpath'
+    grammar: "schema/purl.derived.abnf (DERIVED, not verbatim): rule purl; canonical-shape for the canonical shape; purl-parser-input for the strings §5.6.1 obliges a parser to accept"
+    kind: stated
+    constrained_by:
+      - ecma-427#R-0023
+      - ecma-427#R-0027
+    constrained_by_note: 'Structure-level: a PURL has no URL Authority component (R-0023, restated in §5.1 as R-0027), so the seven components are a closed set. After §5.6.1 removes the slashes after pkg: (R-0046, R-0047) an authority cannot be told from a type or a namespace (examples PURL-EDGE-01; design-notes.md, open question 13).'
+    rules:
+      - text: 'A PURL is a URL composed of seven components:'
+        locator: "Clause 5"
+      - text: 'Components are separated by a specific character for unambiguous parsing.'
+        locator: "Clause 5"
+      - text: 'Components are designed such that they form a hierarchy from the most significant on the left to the least significant components on the right.'
+        locator: "Clause 5"
+      - text: 'A PURL shall not contain a URL Authority, i.e. there is no support for username, password, host and port components. A namespace segment may sometimes look like a host, but its interpretation is specific to a type.'
+        locator: "Clause 5"
+      - text: 'A PURL is a valid URL and URI that conforms to the URL definitions or specifications at:'
+        locator: "§5.1"
+      - text: 'A PURL is a valid URL because it is a locator even though it has no Authority URL component: each type has a default repository location when defined.'
+        locator: "§5.1"
+      - text: 'A canonical PURL is composed of these permitted ASCII characters:'
+        locator: "§5.2"
+      - text: 'A PURL string is an ASCII URL string composed of seven components. Except as expressly stated otherwise in this Clause, each component:'
+        locator: "§5.6"
+      - text: 'may be composed of any of the characters defined in the Permitted characters clause'
+        locator: "§5.6"
+      - text: 'shall be encoded as defined in the Character encoding clause'
+        locator: "§5.6"
+      - text: 'The "lowercase" rules are defined in the Case folding clause.'
+        locator: "§5.6"
+      - text: 'All required components of a PURL, such as the scheme, type, and name, shall be present and validated according to the rules defined in this Standard. Additionally, optional components, including qualifiers and subpaths, shall be handled appropriately if provided, in full compliance with their specified behaviours.'
+        locator: "Clause 2"
+      - text: 'Implementations shall ensure that equivalent PURLs are consistently resolved to the same canonical representation. This includes strict adherence to normalisation and equivalence rules. Furthermore, implementations shall process URI encoding and decoding for PURL components according to the standards outlined in RFC 3986.'
+        locator: "Clause 2"
+      - text: 'Invalid PURLs that fail to conform to the specification shall be identified and rejected by any conforming implementation.'
+        locator: "Clause 2"
+    character_classes:
+      - name: Alphanumeric Characters
+        text: 'the Alphanumeric Characters: A to Z, a to z, 0 to 9'
+        locator: "§5.2"
+      - name: Punctuation Characters
+        text: "the Punctuation Characters: .-_~ (period '.', dash '-', underscore '_' and tilde '~')"
+        locator: "§5.2"
+      - name: Percent Character
+        text: "the Percent Character: % (percent sign '%')"
+        locator: "§5.2"
+      - name: Separator Characters
+        text: "the Separator Characters :/@?=&# (colon ':', slash '/', at sign '@', question mark '?', equal sign '=', ampersand '&' and hash sign '#')"
+        locator: "§5.2"
+    percent_encoding:
+      - text: 'In the Rules for each PURL component clause, each component defines when and how to apply percent-encoding and decoding to its content.'
+        locator: "§5.4"
+      - text: 'When percent-encoding is required by a component definition, the component string shall first be encoded as UTF-8.'
+        locator: "§5.4"
+      - text: 'In the component string, each "data octet" shall be replaced by the percent-encoded "character triplet" applying the percent-encoding mechanism defined in RFC 3986 section 2.1, including the RFC definition of "data octet" and "character triplet", and using these definitions for RFC''s "allowed set" and "delimiters":'
+        locator: "§5.4"
+      - text: '"allowed set" is composed of the Alphanumeric Characters and the Punctuation Characters'
+        locator: "§5.4"
+      - text: '"delimiters" is composed of the Separator Characters'
+        locator: "§5.4"
+      - text: 'The following characters shall not be percent-encoded:'
+        locator: "§5.4"
+      - text: 'the Alphanumeric Characters'
+        locator: "§5.4"
+      - text: 'the Punctuation Characters'
+        locator: "§5.4"
+      - text: 'the Separator Characters when being used as PURL separators'
+        locator: "§5.4"
+      - text: "the colon ':', whether used as a Separator Character or otherwise"
+        locator: "§5.4"
+      - text: "the percent sign '%' when used to represent a percent-encoded character"
+        locator: "§5.4"
+      - text: "Where the space ' ' is permitted, it shall be percent-encoded as '%20'."
+        locator: "§5.4"
+      - text: 'With the exception of the percent-encoding mechanism, the rules regarding percent-encoding are defined by this Standard alone.'
+        locator: "§5.4"
+    percent_encoding_reading:
+      statement: 'Inside a component, only the allowed set (A to Z, a to z, 0 to 9, period, dash, underscore, tilde) and the colon are written as themselves; every other character of component data, including the six other Separator Characters, the space and every non-ASCII character, is written as one triplet per UTF-8 octet. A triplet for an Alphanumeric or Punctuation Character or for the colon (for example %41, %2E, %3A) is not a product of the §5.4 encoding and is treated as invalid (schema/purl.derived.abnf, reading R1).'
+      kind: inferred
+      basis: 'The §5.4 statements above read with §5.6 "shall be encoded as defined in the Character encoding clause". A reader who takes §5.4 as a canonical-form rule only would accept any triplet.'
+    case_folding:
+      - text: 'References to "lowercase" in this Standard refer to the culture-invariant full case mapping defined in Section 3.13.2 of the Unicode Standard.'
+        locator: "§5.5"
+      - text: 'When applied to the ASCII character set, this operation converts uppercase Latin letters (A to Z) to their corresponding lowercase forms (a to z). All other ASCII characters remain unchanged.'
+        locator: "§5.5"
+    canonical_form_not_stated:
+      statement: 'The 1st edition defines no order for the key=value pairs of the qualifiers component and no case for the hexadecimal digits of a triplet, although Clause 2 requires that equivalent PURLs resolve to the same canonical representation. A search of the whole text for sort, order and lexicograph finds no qualifier ordering rule.'
+      kind: inferred
+      basis: 'Absence established by searching the cached text of the PDF; RFC 3986 section 2.1, which §5.4 invokes for the mechanism, only recommends upper-case hex digits to producers.'
+    worked_examples:
+      - purl: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie'
+        locator: "Clause 5, Example 1 (Informative): Debian"
+        components: 'scheme pkg; type deb; namespace debian; name curl; version 7.50.3-1; qualifiers arch=i386 and distro=jessie; no subpath'
+        kind: inferred
+      - purl: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources'
+        locator: "Clause 5, Example 2 (Informative): Maven"
+        components: 'scheme pkg; type maven; namespace org.apache.xmlgraphics (one segment); name batik-anim; version 1.9.1; qualifiers packaging=sources; no subpath'
+        kind: inferred
+      - purl: 'pkg:npm/foobar@12.3.1'
+        locator: "Clause 5, Example 3 (Informative): Node Package Manager (NPM)"
+        components: 'scheme pkg; type npm; no namespace; name foobar; version 12.3.1; no qualifiers; no subpath'
+        kind: inferred
+    notes: 'The three decompositions are our parse with schema/purl.derived.abnf (rule purl), not text from the standard; all three examples also match canonical-shape.'
+    fields:
+
+      - name: scheme
+        position: 1
+        type: string
+        required: true
+        required_source: 'Table 1: Required'
+        value: "pkg"
+        separator_before: none
+        separator_after: "':' unencoded; the colon is not part of the scheme"
+        encoding: 'none: the scheme is a constant'
+        case: 'not stated; only lower-case pkg is admitted by schema/purl.derived.abnf (reading R4)'
+        canonical_form: 'pkg followed directly by the colon'
+        url_mapping: 'PURL scheme: this is a URL scheme with a constant value: pkg'
+        grammar_rule: "scheme"
+        source_phrase: 'The URL scheme with the constant value of "pkg". One of the primary reasons for this single scheme is to facilitate the future official registration of the "pkg" scheme for Package-URLs.'
+        rules:
+          - text: 'The scheme is a constant with the value "pkg".'
+            locator: "§5.6.1"
+          - text: "The scheme shall be followed by an unencoded colon ':'."
+            locator: "§5.6.1"
+          - text: "PURL parsers shall accept URLs where the scheme and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters."
+            locator: "§5.6.1"
+          - text: "':' (colon) is the separator between scheme and type"
+            locator: "§5.3"
+          - text: 'Special URL schemes as defined in https://url.spec.whatwg.org/ such as file://, https://, http:// and ftp:// are not valid PURL types. They are valid URL or URI schemes but they are not a valid PURL scheme.'
+            locator: "§5.1"
+        inferred:
+          - statement: 'The canonical form has no slash between pkg: and the type.'
+            basis: 'A parser "shall ignore and remove all such ''/'' characters" (§5.6.1), and §5.3 makes the colon alone the separator between scheme and type.'
+            kind: inferred
+          - statement: 'The scheme is matched in lower case only.'
+            basis: 'The constant is given as "pkg" (§5.6.1, Table 1) and no clause calls the scheme case insensitive. RFC 3986 section 3.1 calls schemes case-insensitive; §5.1 invokes RFC 3986 but does not say this rule applies.'
+            kind: inferred
+        locator: "Table 1; §5.6.1; §5.3; §5.1"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0004
+          - ecma-427#R-0015
+          - ecma-427#R-0016
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0028
+          - ecma-427#R-0030
+          - ecma-427#R-0033
+          - ecma-427#R-0036
+          - ecma-427#R-0041
+          - ecma-427#R-0044
+          - ecma-427#R-0045
+          - ecma-427#R-0046
+          - ecma-427#R-0047
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.1"
+          - "§5.3"
+          - "§5.1"
+          - "Clause 2"
+
+      - name: type
+        position: 2
+        type: string
+        required: true
+        required_source: 'Table 1: Required'
+        separator_before: "':' (§5.3)"
+        separator_after: "'/' (§5.3)"
+        permitted_characters: 'ASCII letters, ASCII digits, period, dash; the first character an ASCII letter'
+        min_length: 'none stated in §5.6.2 (a one-letter type is valid); the §6.1 and Annex A pattern for the type of a type definition needs two characters'
+        encoding: 'never percent-encoded'
+        case: 'case insensitive'
+        canonical_form: 'lowercase (§5.5 case folding; for ASCII, A to Z become a to z)'
+        url_mapping: 'PURL type, namespace, name and version components: these are collectively mapped to a URL path'
+        grammar_rule: "type (any case), canonical-type (lower case)"
+        source_phrase: 'The package "type" or package "protocol" such as maven, npm, nuget, gem, pypi, etc.'
+        rules:
+          - text: "The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'."
+            locator: "§5.6.2"
+          - text: 'The type shall start with an ASCII letter.'
+            locator: "§5.6.2"
+          - text: 'The type shall not be percent-encoded.'
+            locator: "§5.6.2"
+          - text: 'The type is case insensitive. The canonical form is lowercase.'
+            locator: "§5.6.2"
+          - text: "'/' (slash) is the separator between type, namespace and name"
+            locator: "§5.3"
+          - text: 'Special URL schemes as defined in https://url.spec.whatwg.org/ such as file://, https://, http:// and ftp:// are not valid PURL types.'
+            locator: "§5.1"
+          - text: 'Version control system (VCS) URLs such git://, svn://, hg:// or as defined in Python pip or SPDX download locations are not valid PURL types.'
+            locator: "§5.1"
+          - text: 'The PURL type component defines the ecosystem-specific structure and meaning for the other PURL components.'
+            locator: "Clause 1"
+        flags:
+          - 'Length: §5.6.2 admits a one-character type; the pattern ^[a-z][a-z0-9-\.]+$ of §6.1 and Annex A /properties/type/pattern (and the examples pattern of §6.10) needs at least two characters, so no type definition can exist for a one-letter type. Source defect D4 in schema/README.md.'
+          - 'Blocked names: §5.1 says the special URL schemes and VCS URL schemes "are not valid PURL types", but both lists are open-ended ("such as", "such"), so the set of excluded type names is not determinable.'
+        locator: "Table 1; §5.6.2; §5.3; §5.1"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0004
+          - ecma-427#R-0015
+          - ecma-427#R-0017
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0028
+          - ecma-427#R-0030
+          - ecma-427#R-0033
+          - ecma-427#R-0036
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0041
+          - ecma-427#R-0048
+          - ecma-427#R-0049
+          - ecma-427#R-0050
+          - ecma-427#R-0051
+          - ecma-427#R-0052
+        constrained_by_note: 'R-0112 (§6.1) and the examples pattern R-0154 (§6.10) constrain the type property of a type definition, not this component; both need two characters where §5.6.2 sets no minimum (schema/README.md D4). Clause 1, in constrained_by_locators, states the role of the type but holds no requirement entry.'
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.2"
+          - "§5.3"
+          - "§5.1"
+          - "§5.5"
+          - "Clause 1"
+          - "Clause 2"
+          - "§6.1"
+
+      - name: namespace
+        position: 3
+        type: string
+        required: false
+        required_source: 'Table 1: Optional; required or prohibited per type by namespace_definition.requirement (§6.5.1)'
+        separator_before: "'/' after the type (§5.3)"
+        separator_after: "'/' before the name (§5.6.4)"
+        structure: 'one or more segments separated by a single unencoded slash'
+        segment_rules: 'each segment percent-encoded; when decoded: no slash, not empty, any Unicode character other than slash unless the type definition provides otherwise'
+        permitted_characters: 'encoded form: the allowed set, the colon and percent triplets, with no %2F; decoded: any Unicode character other than slash, unless the type definition narrows it (namespace_definition.permitted_characters, §6.5.5)'
+        encoding: 'each segment a percent-encoded string (§5.4)'
+        case: 'type-specific: namespace_definition.case_sensitive, default true; if false, the canonical form shall be lowercased (§6.5.6)'
+        canonical_form: 'leading and trailing slashes should be stripped; lowercased when the type says case_sensitive false; the type''s normalization_rules apply (§6.5.7)'
+        url_mapping: 'part of the URL path (§5.1)'
+        grammar_rule: "namespace, namespace-segment"
+        source_phrase: 'A name prefix such as a Maven groupid, a Docker image owner, a GitHub user or organization. Namespace is type-specific.'
+        rules:
+          - text: "The namespace is optional, unless required by the package's type definition."
+            locator: "§5.6.3"
+          - text: "If present, the namespace may contain one or more segments, separated by a single unencoded slash '/' character."
+            locator: "§5.6.3"
+          - text: "All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the namespace."
+            locator: "§5.6.3"
+          - text: 'Each namespace segment shall be a percent-encoded string.'
+            locator: "§5.6.3"
+          - text: 'When percent-decoded, a segment:'
+            locator: "§5.6.3"
+          - text: "shall not contain any slash '/' characters"
+            locator: "§5.6.3"
+          - text: 'shall not be empty'
+            locator: "§5.6.3"
+          - text: "may contain any Unicode character other than '/' unless the package's type definition provides otherwise"
+            locator: "§5.6.3"
+          - text: 'A URL host or Authority shall not be used as a namespace. Use instead a repository_url qualifier. Note however, that for some types, the namespace may look like a host.'
+            locator: "§5.6.3"
+          - text: "'/' (slash) is the separator between type, namespace and name"
+            locator: "§5.3"
+        locator: "Table 1; §5.6.3; §5.3"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0015
+          - ecma-427#R-0018
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0032
+          - ecma-427#R-0033
+          - ecma-427#R-0034
+          - ecma-427#R-0035
+          - ecma-427#R-0036
+          - ecma-427#R-0037
+          - ecma-427#R-0038
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0041
+          - ecma-427#R-0042
+          - ecma-427#R-0043
+          - ecma-427#R-0053
+          - ecma-427#R-0054
+          - ecma-427#R-0055
+          - ecma-427#R-0056
+          - ecma-427#R-0057
+          - ecma-427#R-0058
+          - ecma-427#R-0059
+          - ecma-427#R-0060
+          - ecma-427#R-0061
+          - ecma-427#R-0062
+          - ecma-427#R-0064
+          - ecma-427#R-0117
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+          - ecma-427#R-0132
+        constrained_by_note: 'R-0117, R-0130, R-0131 and R-0132 reach this component through a type definition (namespace_definition, structure typedef-namespace_definition), and the 1st edition contains none (Clause 1). The other §6.5 rules (R-0118, R-0124, R-0128, R-0129, R-0133, R-0134) bind the type definition and are wired there. R-0024 and R-0063 (a namespace that may look like a host) are informative and constrain nothing.'
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.3"
+          - "§5.3"
+          - "§5.4"
+          - "§5.2"
+          - "§5.6"
+          - "Clause 5"
+          - "§6.5"
+          - "§6.5.1"
+          - "§6.5.5"
+          - "§6.5.6"
+          - "§6.5.7"
+
+      - name: name
+        position: 4
+        type: string
+        required: true
+        required_source: 'Table 1: Required; §6.6.1 allows only required for name_definition.requirement'
+        separator_before: "'/' after the namespace when there is one, otherwise the '/' after the type (§5.3, §5.6.4)"
+        separator_after: "'@' if a version follows, else '?' if qualifiers follow, else '#' if a subpath follows; otherwise the end of the string"
+        permitted_characters: 'encoded form: the allowed set, the colon and percent triplets (an encoded slash %2F is allowed); decoded: any Unicode character unless the type definition narrows it (name_definition.permitted_characters, §6.6.3)'
+        encoding: 'a percent-encoded string (§5.4)'
+        case: 'type-specific: name_definition.case_sensitive, default true; if false, the canonical form shall be lowercased (§6.6.4)'
+        canonical_form: 'leading and trailing slashes should be stripped; lowercased when the type says case_sensitive false; the type''s normalization_rules apply (§6.6.5)'
+        url_mapping: 'part of the URL path (§5.1)'
+        grammar_rule: "name"
+        source_phrase: 'The name of the package.'
+        rules:
+          - text: "The name is prefixed by a single slash '/' separator when the namespace is not empty."
+            locator: "§5.6.4"
+          - text: "All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the name."
+            locator: "§5.6.4"
+          - text: 'A name shall be a percent-encoded string.'
+            locator: "§5.6.4"
+          - text: "When percent-decoded, a name may contain any Unicode character unless the package's type definition provides otherwise."
+            locator: "§5.6.4"
+          - text: "'/' (slash) is the separator between type, namespace and name"
+            locator: "§5.3"
+        inferred:
+          - statement: 'A name has at least one character.'
+            basis: 'Table 1 marks name "Required" and Clause 2 says "All required components of a PURL, such as the scheme, type, and name, shall be present".'
+            kind: inferred
+          - statement: 'A trailing slash after the name is admitted anywhere before the version, qualifiers or subpath separator (pkg:npm/foobar/@1.0 has name foobar).'
+            basis: 'Literal reading of §5.6.4 "They are not part of the name" (schema/purl.derived.abnf reading R5). The purl-spec v1.0.0 test suite (not part of ECMA-427) instead expects pkg:swift/github.com/Alamofire/@5.4.3 to fail as a PURL without a name; the 1st edition text does not decide between the two readings.'
+            kind: inferred
+        locator: "Table 1; §5.6.4; §5.3"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0004
+          - ecma-427#R-0015
+          - ecma-427#R-0019
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0032
+          - ecma-427#R-0033
+          - ecma-427#R-0034
+          - ecma-427#R-0035
+          - ecma-427#R-0036
+          - ecma-427#R-0037
+          - ecma-427#R-0038
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0041
+          - ecma-427#R-0042
+          - ecma-427#R-0043
+          - ecma-427#R-0064
+          - ecma-427#R-0065
+          - ecma-427#R-0066
+          - ecma-427#R-0067
+          - ecma-427#R-0068
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+          - ecma-427#R-0132
+          - ecma-427#R-0135
+        constrained_by_note: 'R-0130, R-0131, R-0132 and R-0135 reach this component through a type definition (name_definition, structure typedef-name_definition), and the 1st edition contains none (Clause 1). R-0136, R-0137 and the other §6.6 rules bind the type definition and are wired there.'
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.4"
+          - "§5.3"
+          - "§5.4"
+          - "§5.2"
+          - "§5.6"
+          - "Clause 2"
+          - "§6.6"
+          - "§6.6.1"
+          - "§6.6.3"
+          - "§6.6.4"
+          - "§6.6.5"
+
+      - name: version
+        position: 5
+        type: string
+        required: false
+        required_source: 'Table 1: Optional; §6.7.1 allows only optional for version_definition.requirement'
+        separator_before: "'@' when the version is not empty; the '@' is not part of the version (§5.6.5, §5.3)"
+        separator_after: "'?' if qualifiers follow, else '#' if a subpath follows; otherwise the end of the string"
+        permitted_characters: 'encoded form: the allowed set, the colon and percent triplets (an encoded slash %2F is allowed); decoded: any Unicode character unless the type definition narrows it (version_definition.permitted_characters, §6.7.3)'
+        encoding: 'a percent-encoded string (§5.4)'
+        case: 'type-specific: version_definition.case_sensitive, default true; if false, the canonical form shall be lowercased (§6.7.4)'
+        canonical_form: 'lowercased when the type says case_sensitive false; the type''s normalization_rules apply (§6.7.5); no leading or trailing slash rule is stated for the version'
+        url_mapping: 'part of the URL path (§5.1)'
+        grammar_rule: "version"
+        source_phrase: 'The version of the package.'
+        rules:
+          - text: "The version is prefixed by a '@' separator when not empty."
+            locator: "§5.6.5"
+          - text: "This '@' is not part of the version."
+            locator: "§5.6.5"
+          - text: 'A version shall be a percent-encoded string.'
+            locator: "§5.6.5"
+          - text: "When percent-decoded, a version may contain any Unicode character unless the package's type definition provides otherwise."
+            locator: "§5.6.5"
+          - text: 'A version is a plain and opaque string.'
+            locator: "§5.6.5"
+          - text: "'@' (at sign) is the separator between name and version"
+            locator: "§5.3"
+        inferred:
+          - statement: 'An @ is never followed by an empty version.'
+            basis: 'Converse of "The version is prefixed by a ''@'' separator when not empty." (§5.6.5); implied, not stated (schema/purl.derived.abnf reading R2).'
+            kind: inferred
+        locator: "Table 1; §5.6.5; §5.3"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0015
+          - ecma-427#R-0020
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0032
+          - ecma-427#R-0033
+          - ecma-427#R-0034
+          - ecma-427#R-0035
+          - ecma-427#R-0036
+          - ecma-427#R-0037
+          - ecma-427#R-0038
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0041
+          - ecma-427#R-0042
+          - ecma-427#R-0043
+          - ecma-427#R-0069
+          - ecma-427#R-0070
+          - ecma-427#R-0071
+          - ecma-427#R-0072
+          - ecma-427#R-0073
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+          - ecma-427#R-0132
+          - ecma-427#R-0138
+        constrained_by_note: 'R-0130, R-0131, R-0132 and R-0138 reach this component through a type definition (version_definition, structure typedef-version_definition), and the 1st edition contains none (Clause 1). R-0139, R-0140 and the other §6.7 rules bind the type definition and are wired there.'
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.5"
+          - "§5.3"
+          - "§5.4"
+          - "§5.2"
+          - "§5.6"
+          - "§6.7"
+          - "§6.7.1"
+          - "§6.7.3"
+          - "§6.7.4"
+          - "§6.7.5"
+
+      - name: qualifiers
+        position: 6
+        type: string
+        required: false
+        required_source: 'Table 1: Optional; a type may require particular keys (qualifiers_definition[].requirement, §6.8, §6.8.1.2)'
+        separator_before: "'?' unencoded, when the component is not empty; the '?' is not part of the component (§5.6.6, §5.3)"
+        separator_after: "'#' if a subpath follows; otherwise the end of the string"
+        structure: 'one or more key=value pairs (structure purl-qualifier) separated by an unencoded ampersand'
+        encoding: 'keys never percent-encoded; values percent-encoded (§5.6.6, §5.4)'
+        case: 'keys lower case only (an upper-case key is invalid, not merely non-canonical); no case rule stated for values'
+        canonical_form: 'a pair with an empty value is the same as no pair for that key; no order of pairs is stated in the 1st edition (see canonical_form_not_stated)'
+        url_mapping: 'PURL qualifiers: this maps to a URL query'
+        grammar_rule: "qualifiers, qualifier"
+        source_phrase: 'Qualifier data for a package such as OS, architecture, repository, etc. Qualifiers are type-specific.'
+        rules:
+          - text: "The qualifiers component shall be prefixed by an unencoded question mark '?' separator when not empty. This '?' separator is not part of the qualifiers component."
+            locator: "§5.6.6"
+          - text: "The qualifiers component is composed of one or more key=value pairs. Multiple key=value pairs shall be separated by an unencoded ampersand '&'. This '&' separator is not part of an individual qualifier."
+            locator: "§5.6.6"
+          - text: 'Each key shall be unique among all the keys of the qualifiers component.'
+            locator: "§5.6.6"
+          - text: "'?' (question mark) is the separator before qualifiers"
+            locator: "§5.3"
+          - text: "'&' (ampersand) is the separator between qualifiers (each being a key=value pair)"
+            locator: "§5.3"
+        inferred:
+          - statement: 'A ? is never followed by an empty qualifiers component, and & never ends or doubles inside it.'
+            basis: 'Converse of "shall be prefixed by an unencoded question mark ''?'' separator when not empty" and "composed of one or more key=value pairs" (§5.6.6); implied, not stated (schema/purl.derived.abnf reading R2).'
+            kind: inferred
+        locator: "Table 1; §5.6.6; §5.3"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0005
+          - ecma-427#R-0015
+          - ecma-427#R-0021
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0032
+          - ecma-427#R-0033
+          - ecma-427#R-0034
+          - ecma-427#R-0035
+          - ecma-427#R-0036
+          - ecma-427#R-0037
+          - ecma-427#R-0038
+          - ecma-427#R-0041
+          - ecma-427#R-0042
+          - ecma-427#R-0043
+          - ecma-427#R-0062
+          - ecma-427#R-0074
+          - ecma-427#R-0075
+          - ecma-427#R-0076
+          - ecma-427#R-0077
+          - ecma-427#R-0078
+          - ecma-427#R-0082
+          - ecma-427#R-0083
+          - ecma-427#R-0085
+          - ecma-427#R-0086
+          - ecma-427#R-0088
+          - ecma-427#R-0141
+        constrained_by_note: 'R-0141 reaches this component through a type definition (qualifiers_definition), and the 1st edition contains none (Clause 1); R-0142 to R-0150 bind the type definition and are wired there. The key and value rules that this component restates in case and encoding (R-0083, R-0085, R-0088) are also wired to structure purl-qualifier.'
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.6"
+          - "§5.3"
+          - "§5.4"
+          - "§5.6"
+          - "Clause 2"
+          - "§6.8"
+          - "§6.8.1"
+
+      - name: subpath
+        position: 7
+        type: string
+        required: false
+        required_source: 'Table 1: Optional; §6.9.1 allows only optional for subpath_definition.requirement'
+        separator_before: "'#' when the subpath is not empty; the '#' is not part of the subpath (§5.6.7, §5.3)"
+        separator_after: 'none: the subpath is last'
+        structure: 'zero or more segments separated by a slash'
+        segment_rules: 'each segment percent-encoded; when decoded: no slash, not empty, not .. or ., any Unicode character other than slash unless the type definition provides otherwise'
+        permitted_characters: 'encoded form: the allowed set, the colon and percent triplets, with no %2F; decoded: any Unicode character other than slash, unless the type definition narrows it (subpath_definition.permitted_characters, §6.9.3)'
+        encoding: 'each segment a percent-encoded string (§5.4)'
+        case: 'type-specific: subpath_definition.case_sensitive, default true; if false, the canonical form shall be lowercased (§6.9.4)'
+        canonical_form: 'leading and trailing slashes should be stripped; lowercased when the type says case_sensitive false; the type''s normalization_rules apply (§6.9.5)'
+        url_mapping: 'PURL subpath: this is a URL fragment'
+        grammar_rule: "subpath, canonical-subpath, subpath-segment"
+        source_phrase: 'Subpath within a package, relative to the package root.'
+        rules:
+          - text: "The subpath string is prefixed by a '#' separator when not empty."
+            locator: "§5.6.7"
+          - text: "The '#' is not part of the subpath."
+            locator: "§5.6.7"
+          - text: "The subpath contains zero or more segments, separated by slash '/'."
+            locator: "§5.6.7"
+          - text: "Leading and trailing slashes '/' are not significant and should be stripped in the canonical form."
+            locator: "§5.6.7"
+          - text: 'Each subpath segment shall be a percent-encoded string.'
+            locator: "§5.6.7"
+          - text: 'When percent-decoded, a segment:'
+            locator: "§5.6.7"
+          - text: "shall not contain any slash '/' characters"
+            locator: "§5.6.7"
+          - text: 'shall not be empty'
+            locator: "§5.6.7"
+          - text: "shall not be any of '..' or '.'"
+            locator: "§5.6.7"
+          - text: "may contain any Unicode character other than '/' unless the package's type definition provides otherwise"
+            locator: "§5.6.7"
+          - text: 'The subpath shall be interpreted as relative to the root of the package.'
+            locator: "§5.6.7"
+          - text: "'/' (slash) is the separator between subpath segments"
+            locator: "§5.3"
+          - text: "'#' (hash sign) is the separator before subpath"
+            locator: "§5.3"
+        inferred:
+          - statement: 'A # is never followed by an empty subpath, including one made only of slashes.'
+            basis: 'Converse of "The subpath string is prefixed by a ''#'' separator when not empty." (§5.6.7); implied, not stated (schema/purl.derived.abnf reading R2).'
+            kind: inferred
+        locator: "Table 1; §5.6.7; §5.3"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0005
+          - ecma-427#R-0015
+          - ecma-427#R-0022
+          - ecma-427#R-0025
+          - ecma-427#R-0026
+          - ecma-427#R-0032
+          - ecma-427#R-0033
+          - ecma-427#R-0034
+          - ecma-427#R-0035
+          - ecma-427#R-0036
+          - ecma-427#R-0037
+          - ecma-427#R-0038
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0041
+          - ecma-427#R-0042
+          - ecma-427#R-0043
+          - ecma-427#R-0089
+          - ecma-427#R-0090
+          - ecma-427#R-0091
+          - ecma-427#R-0092
+          - ecma-427#R-0093
+          - ecma-427#R-0094
+          - ecma-427#R-0095
+          - ecma-427#R-0096
+          - ecma-427#R-0097
+          - ecma-427#R-0098
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+          - ecma-427#R-0132
+          - ecma-427#R-0151
+        constrained_by_note: 'R-0130, R-0131, R-0132 and R-0151 reach this component through a type definition (subpath_definition, structure typedef-subpath_definition), and the 1st edition contains none (Clause 1). R-0152, R-0153 and the other §6.9 rules bind the type definition and are wired there.'
+        constrained_by_locators:
+          - "Table 1"
+          - "§5.6.7"
+          - "§5.3"
+          - "§5.4"
+          - "§5.2"
+          - "§5.6"
+          - "Clause 2"
+          - "§6.9"
+          - "§6.9.1"
+          - "§6.9.3"
+          - "§6.9.4"
+          - "§6.9.5"
+
+  - name: purl-qualifier
+    locator: "§5.6.6"
+    encoding: 'ASCII text inside the qualifiers component: key, unencoded equal sign, value'
+    structure: sequence
+    layout: 'key=value'
+    grammar: "schema/purl.derived.abnf (DERIVED): rules qualifier, qualifier-key, qualifier-value"
+    kind: stated
+    rules:
+      - text: "A key and value shall be separated by the unencoded equal sign '=' character. This '=' separator is not part of the key or value."
+        locator: "§5.6.6"
+      - text: "'=' (equals) is the separator between a key and a value of a qualifier"
+        locator: "§5.3"
+      - text: 'For each key=value pair:'
+        locator: "§5.6.6"
+    fields:
+
+      - name: key
+        position: 1
+        type: string
+        required: true
+        separator_after: "'=' unencoded; not part of the key"
+        permitted_characters: 'lower-case ASCII letters, ASCII digits, period, dash, underscore; the first character an ASCII letter'
+        encoding: 'never percent-encoded'
+        case: 'lower case only'
+        uniqueness: 'unique among all keys of the qualifiers component'
+        grammar_rule: "qualifier-key"
+        source_phrase: 'The key for the qualifier.'
+        rules:
+          - text: "The key shall be composed only of lowercase ASCII letters and numbers, period '.', dash '-' and underscore '_'."
+            locator: "§5.6.6"
+          - text: 'A key shall start with an ASCII letter.'
+            locator: "§5.6.6"
+          - text: 'A key shall not be percent-encoded.'
+            locator: "§5.6.6"
+          - text: 'Each key shall be unique among all the keys of the qualifiers component.'
+            locator: "§5.6.6"
+        notes: 'The source_phrase is the Table 7 description of qualifiers_definition[].key, the type definition field that names a key. Uniqueness is not expressible in the grammar (schema/purl.derived.abnf, gap G4). The Annex A schema puts no pattern on qualifiers_definition[].key, so a type definition can declare a key that §5.6.6 forbids in a PURL; see typedef-qualifiers_definition-item.'
+        inferred:
+          - statement: 'The only key the 1st edition names is repository_url, in the §5.6.3 sentence quoted under purl-string.namespace (R-0062). It meets the key rules above, but no clause defines its value or meaning (normative.md U-4).'
+            basis: 'Added in pass 3 so that the key R-0062 names appears in this file. Table 1 makes qualifiers type-specific and Clause 1 excludes type definitions, so no clause of the 1st edition defines a key.'
+            kind: inferred
+        locator: "§5.6.6; §5.3; source_phrase from Table 7 and §6.8.1.1"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0033
+          - ecma-427#R-0036
+          - ecma-427#R-0062
+          - ecma-427#R-0079
+          - ecma-427#R-0080
+          - ecma-427#R-0083
+          - ecma-427#R-0084
+          - ecma-427#R-0085
+          - ecma-427#R-0086
+        constrained_by_note: 'R-0148 (inferred) carries these rules over to the key a type definition declares (typedef-qualifiers_definition-item.key); §6.8.1.1 holds no other requirement for this key.'
+        constrained_by_locators:
+          - "§5.6.6"
+          - "§5.3"
+          - "§6.8.1.1"
+
+      - name: value
+        position: 2
+        type: string
+        required: true
+        separator_before: "'=' unencoded; not part of the value"
+        permitted_characters: 'encoded form: the allowed set, the colon and percent triplets (an encoded slash %2F is allowed); decoded: any Unicode character'
+        encoding: 'percent-encoded as described in §5.4'
+        case: 'no case rule stated'
+        empty_value: 'shall not be empty; a pair with an empty value is the same as no pair for that key'
+        grammar_rule: "qualifier-value"
+        rules:
+          - text: 'A value shall not be an empty string: a key=value pair with an empty value is the same as if no key=value pair exists for this key.'
+            locator: "§5.6.6"
+          - text: 'A value may contain any Unicode character and all characters shall be encoded as described in the Character encoding clause.'
+            locator: "§5.6.6"
+          - text: 'They may be used to reference URLs in separate attributes outside of a PURL or in a PURL qualifier.'
+            locator: "§5.1"
+        notes: 'The §5.1 sentence is about special URL schemes such as https:// being usable inside a qualifier value; in that value every slash is written %2F (§5.4), while the colon stays unencoded. Type definitions can give a default (qualifiers_definition[].default_value, §6.8.1.6).'
+        locator: "§5.6.6; §5.4"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0029
+          - ecma-427#R-0031
+          - ecma-427#R-0032
+          - ecma-427#R-0033
+          - ecma-427#R-0034
+          - ecma-427#R-0035
+          - ecma-427#R-0036
+          - ecma-427#R-0037
+          - ecma-427#R-0038
+          - ecma-427#R-0079
+          - ecma-427#R-0080
+          - ecma-427#R-0081
+          - ecma-427#R-0082
+          - ecma-427#R-0087
+          - ecma-427#R-0088
+        constrained_by_note: 'Table 7 and §6.8.1.6 (R-0146) define default_value in a type definition (typedef-qualifiers_definition-item.default_value), not this value.'
+        constrained_by_locators:
+          - "§5.6.6"
+          - "§5.4"
+          - "§5.3"
+          - "§5.1"
+          - "§6.8.1.6"
+
+  # =========================================================================
+  # PART 2. THE PURL TYPE DEFINITION DOCUMENT (Clause 6, Annex A)
+  # =========================================================================
+
+  - name: typedef-root
+    json_pointer: "/"
+    annex_a_pointer: "/"
+    locator: "Clause 6 (Table 2); §6.1 to §6.12; Annex A"
+    encoding: 'JSON document validated by the Annex A JSON Schema (JSON Schema draft-07); schema/purl-type-definition.schema-1.0.json is that schema, verbatim'
+    structure: map
+    kind: stated
+    constrained_by:
+      - ecma-427#R-0099
+      - ecma-427#R-0161
+      - ecma-427#R-0162
+    constrained_by_note: 'Structure-level: R-0099 (each type definition is a JSON document that matches the schema), R-0161 (the schema is JSON Schema draft-07) and R-0162 (no member beyond the fourteen in properties).'
+    rules:
+      - text: 'The PURL Type Definition JSON Schema is the reference data model that is used to define PURL types in a structured way. Each PURL type is specified in a JSON document that matches this schema.'
+        locator: "Clause 6"
+      - text: 'Schema to specify a Package-URL (PURL) type as a structured definition.'
+        locator: "Clause 6"
+      - text: 'This Annex provides a copy of the current Package-URL Type Definition Schema. The format is JSON Schema version draft-07.'
+        locator: "Annex A"
+    constraints:
+      type: object
+      additionalProperties: false
+    constraints_sources:
+      table: 'Table 2 lists twelve properties and says nothing about others'
+      subclause: 'Clause 6: Location: / and Type: Object'
+      annex_a: '"type": "object", "additionalProperties": false, "required": ["$id", "type", "type_name", "description", "repository", "namespace_definition", "name_definition", "examples"]'
+    flags:
+      - 'Only Annex A closes the root object (additionalProperties false) and lists $schema and $id; Table 2 and Clause 6 never mention either property.'
+    fields:
+
+      - name: "$schema"
+        json_pointer: "/$schema"
+        json_type: string
+        json_type_sources:
+          table: 'absent from Table 2'
+          subclause: 'no subclause'
+          annex_a: 'no type keyword; const and format uri'
+        required: false
+        required_sources:
+          table: 'absent'
+          subclause: 'absent'
+          annex_a: 'not in /required'
+        constraints:
+          const: 'https://packageurl.org/schemas/purl-type-definition.schema-1.0.json'
+          format: uri
+        source_phrase: 'Contains the URL of the JSON schema for Package-URL type definition.'
+        source_phrase_locator: "Annex A, /properties/$schema/description"
+        flags:
+          - 'Defined only in Annex A; Table 2 and Clause 6 do not list it.'
+        locator: "Annex A, /properties/$schema"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0164
+        constrained_by_locators:
+          - "Annex A, /properties/$schema"
+
+      - name: "$id"
+        json_pointer: "/$id"
+        json_type: string
+        json_type_sources:
+          table: 'absent from Table 2'
+          subclause: 'no subclause'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'absent'
+          subclause: 'absent'
+          annex_a: 'listed in /required'
+        constraints:
+          pattern: '^https:\/\/packageurl\.org/types/[a-z0-9-]+-definition\.json$'
+        source_phrase: 'The unique identifier URI for this PURL type definition.'
+        source_phrase_locator: "Annex A, /properties/$id/description"
+        flags:
+          - 'Required by Annex A but absent from Table 2 and from every subclause of Clause 6: a document built from Clause 6 alone fails the Annex A schema. Source defect D1 in schema/README.md.'
+          - 'The pattern allows only a-z, 0-9 and dash before -definition.json, while the type pattern (§6.1) also allows a period; nothing in the schema ties $id to type.'
+        locator: "Annex A, /properties/$id; Annex A, /required"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0163
+          - ecma-427#R-0165
+        constrained_by_locators:
+          - "Annex A, /properties/$id"
+          - "Annex A, /required"
+
+      - name: type
+        json_pointer: "/type"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 2)'
+          subclause: 'String (§6.1)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.1 Property line)'
+          annex_a: 'listed in /required'
+        constraints:
+          pattern: '^[a-z][a-z0-9-\.]+$'
+        constraints_sources:
+          subclause: 'Pattern Constraint: ^[a-z][a-z0-9-\.]+$ (§6.1)'
+          annex_a: 'pattern "^[a-z][a-z0-9-\\.]+$" (JSON spelling of the same regular expression)'
+        examples_in_source: 'maven, npm, pypi (§6.1 Examples 1 to 3, Informative; Annex A /properties/type/examples)'
+        source_phrase: 'The type string for this Package-URL type.'
+        flags:
+          - 'The pattern needs at least two characters; §5.6.2 sets no minimum for a PURL type. Source defect D4.'
+        locator: "Table 2; §6.1; Annex A, /properties/type"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0100
+          - ecma-427#R-0112
+        constrained_by_note: '§5.6.2 (R-0048 to R-0052) binds the type component of a PURL string (purl-string.type), not this property, and the 1st edition does not say this value must be a valid §5.6.2 type. R-0112 is narrower than §5.6.2 in length only (schema/README.md D4).'
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.1"
+          - "Annex A, /properties/type"
+          - "§5.6.2"
+
+      - name: type_name
+        json_pointer: "/type_name"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 2)'
+          subclause: 'String (§6.2)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.2 Property line)'
+          annex_a: 'listed in /required'
+        examples_in_source: 'Apache Maven, Python Package (§6.2 Examples 1 and 2, Informative; Annex A /properties/type_name/examples)'
+        source_phrase: 'The name for this PURL type.'
+        locator: "Table 2; §6.2; Annex A, /properties/type_name"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0101
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.2"
+          - "Annex A, /properties/type_name"
+
+      - name: description
+        json_pointer: "/description"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 2)'
+          subclause: 'String (§6.3)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.3 Property line)'
+          annex_a: 'listed in /required'
+        source_phrase: 'The description of this PURL type.'
+        locator: "Table 2; §6.3; Annex A, /properties/description"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0102
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.3"
+          - "Annex A, /properties/description"
+
+      - name: repository
+        json_pointer: "/repository"
+        json_type: object
+        json_type_sources:
+          table: 'Object (Table 2)'
+          subclause: 'Object (§6.4)'
+          annex_a: 'object'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.4 Property line)'
+          annex_a: 'listed in /required'
+        structure_ref: typedef-repository
+        source_phrase: 'The package repository usage for this PURL type.'
+        locator: "Table 2; §6.4; Annex A, /properties/repository"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0103
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.4"
+          - "Annex A, /properties/repository"
+
+      - name: namespace_definition
+        json_pointer: "/namespace_definition"
+        json_type: object
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'Object (§6.5)'
+          annex_a: 'object'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.5 Property line)'
+          annex_a: 'listed in /required'
+        structure_ref: typedef-namespace_definition
+        source_phrase: 'Definition of the namespace component for this PURL type. The PURL namespace component shall be required, optional or prohibited for a specific PURL type definition.'
+        flags:
+          - 'json_type: Table 2 says Array; §6.5 and Annex A say object. Source defect D5.'
+        locator: "Table 2; §6.5; Annex A, /properties/namespace_definition"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0104
+          - ecma-427#R-0117
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.5"
+          - "Annex A, /properties/namespace_definition"
+
+      - name: name_definition
+        json_pointer: "/name_definition"
+        json_type: object
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'Object (§6.6)'
+          annex_a: 'object'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.6 Property line)'
+          annex_a: 'listed in /required'
+        structure_ref: typedef-name_definition
+        source_phrase: 'Definition of the name component for this PURL type. The PURL name component is required for all PURL type definitions.'
+        flags:
+          - 'json_type: Table 2 says Array; §6.6 and Annex A say object. Source defect D5.'
+        locator: "Table 2; §6.6; Annex A, /properties/name_definition"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0105
+          - ecma-427#R-0135
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.6"
+          - "Annex A, /properties/name_definition"
+
+      - name: version_definition
+        json_pointer: "/version_definition"
+        json_type: object
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'Object (§6.7)'
+          annex_a: 'object'
+        required: false
+        required_sources:
+          table: 'Optional (Table 2)'
+          subclause: 'Optional (§6.7 Property line)'
+          annex_a: 'not in /required'
+        structure_ref: typedef-version_definition
+        source_phrase: 'Definition of the version component for this PURL type. The PURL version component is optional for a specific PURL type definition.'
+        flags:
+          - 'json_type: Table 2 says Array; §6.7 and Annex A say object. Source defect D5.'
+        locator: "Table 2; §6.7; Annex A, /properties/version_definition"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0106
+          - ecma-427#R-0138
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.7"
+          - "Annex A, /properties/version_definition"
+
+      - name: qualifiers_definition
+        json_pointer: "/qualifiers_definition"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'Array (§6.8)'
+          annex_a: 'array'
+        required: false
+        required_sources:
+          table: 'Optional (Table 2)'
+          subclause: 'Optional (§6.8 Property line)'
+          annex_a: 'not in /required'
+        constraints:
+          uniqueItems: true
+          additionalItems: false
+          items: 'object, structure typedef-qualifiers_definition-item'
+        constraints_sources:
+          subclause: '§6.8: "Each item of this array shall be a Qualifiers definition object." The only Clause 6 sentence on uniqueness, "All items shall be unique.", stands under §6.8.1.7 (a string property)'
+          annex_a: '"uniqueItems": true, "additionalItems": false, "items": {object}'
+        structure_ref: typedef-qualifiers_definition-item
+        source_phrase: 'Definition of the qualifiers specific to this PURL type. The PURL qualifiers component is optional for a specific PURL type, but a qualifiers key or keys may be required for a specific PURL type.'
+        rules:
+          - text: 'Each item of this array shall be a Qualifiers definition object.'
+            locator: "§6.8"
+        flags:
+          - 'additionalItems false has no effect: draft-07 ignores additionalItems unless items is an array of schemas, and here items is one schema. Source defect D2.'
+          - 'uniqueItems compares whole items, so two items with the same key and different descriptions are valid; nothing in Annex A makes keys unique among qualifier definitions.'
+          - 'The uniqueness sentence for this array appears under §6.8.1.7 instead of §6.8. Source defect D6.'
+        locator: "Table 2; §6.8; Annex A, /properties/qualifiers_definition"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0107
+          - ecma-427#R-0141
+          - ecma-427#R-0142
+          - ecma-427#R-0150
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.8"
+          - "§6.8.1"
+          - "§6.8.1.7"
+          - "Annex A, /properties/qualifiers_definition"
+
+      - name: subpath_definition
+        json_pointer: "/subpath_definition"
+        json_type: object
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'Object (§6.9)'
+          annex_a: 'object'
+        required: false
+        required_sources:
+          table: 'Optional (Table 2)'
+          subclause: 'Optional (§6.9 Property line)'
+          annex_a: 'not in /required'
+        structure_ref: typedef-subpath_definition
+        source_phrase: 'The definition for the subpath for this PURL type. The PURL subpath component is optional for a specific PURL type definition.'
+        flags:
+          - 'json_type: Table 2 says Array; §6.9 and Annex A say object. Source defect D5.'
+        locator: "Table 2; §6.9; Annex A, /properties/subpath_definition"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0108
+          - ecma-427#R-0151
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.9"
+          - "Annex A, /properties/subpath_definition"
+
+      - name: examples
+        json_pointer: "/examples"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'array (of String) (§6.10)'
+          annex_a: 'array'
+        required: true
+        required_sources:
+          table: 'Required (Table 2)'
+          subclause: 'Required (§6.10 Property line)'
+          annex_a: 'listed in /required'
+        structure_ref: typedef-examples
+        source_phrase: 'Example of valid, canonical PURLs for this package type.'
+        locator: "Table 2; §6.10; Annex A, /properties/examples"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0109
+          - ecma-427#R-0154
+          - ecma-427#R-0155
+          - ecma-427#R-0156
+          - ecma-427#R-0157
+          - ecma-427#R-0168
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.10"
+          - "Annex A, /properties/examples"
+
+      - name: note
+        json_pointer: "/note"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 2)'
+          subclause: 'String (§6.11)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 2)'
+          subclause: 'Optional (§6.11 Property line)'
+          annex_a: 'not in /required'
+        structure_ref: typedef-note
+        source_phrase: 'Note about this PURL type.'
+        locator: "Table 2; §6.11; Annex A, /properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0110
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.11"
+          - "Annex A, /properties/note"
+
+      - name: reference_urls
+        json_pointer: "/reference_urls"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 2)'
+          subclause: 'array (of String) (§6.12)'
+          annex_a: 'array'
+        required: false
+        required_sources:
+          table: 'Optional (Table 2)'
+          subclause: 'Optional (§6.12 Property line)'
+          annex_a: 'not in /required'
+        structure_ref: typedef-reference_urls
+        source_phrase: 'Optional list of informational reference URLs about this PURL type.'
+        locator: "Table 2; §6.12; Annex A, /properties/reference_urls"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0111
+          - ecma-427#R-0158
+          - ecma-427#R-0159
+          - ecma-427#R-0160
+        constrained_by_locators:
+          - "Table 2"
+          - "§6.12"
+          - "Annex A, /properties/reference_urls"
+
+  - name: typedef-repository
+    json_pointer: "/repository"
+    annex_a_pointer: "/properties/repository"
+    locator: "§6.4 (Table 3); §6.4.1 to §6.4.3; Annex A, /properties/repository"
+    encoding: 'JSON object'
+    structure: map
+    kind: stated
+    constrained_by:
+      - ecma-427#R-0166
+    constrained_by_note: 'Structure-level: R-0166 closes the object to use_repository, default_repository_url and note.'
+    constraints:
+      type: object
+      additionalProperties: false
+      required: 'use_repository'
+    constraints_sources:
+      table: 'Table 3 lists use_repository (Required), default_repository_url and note (Optional)'
+      subclause: '§6.4: Type: Object'
+      annex_a: '"type": "object", "additionalProperties": false, "required": ["use_repository"]'
+    flags:
+      - 'Only Annex A closes the object (additionalProperties false).'
+    fields:
+
+      - name: use_repository
+        json_pointer: "/repository/use_repository"
+        json_type: boolean
+        json_type_sources:
+          table: 'Boolean (Table 3)'
+          subclause: 'Boolean (§6.4.1)'
+          annex_a: 'boolean'
+        required: true
+        required_sources:
+          table: 'Required (Table 3)'
+          subclause: 'Required (§6.4.1 Property line)'
+          annex_a: 'listed in /properties/repository/required'
+        constraints:
+          default: false
+        default_sources:
+          table: 'none'
+          subclause: 'none: §6.4.1 has no Default Value line'
+          annex_a: '"default": false'
+        source_phrase: 'true if this PURL type uses a public package repository.'
+        flags:
+          - 'Annex A gives "default": false; §6.4.1 gives no default (compare §6.5.6, which prints Default Value: true). A default on a required property never applies to a valid document. Source defect D3.'
+        locator: "Table 3; §6.4.1; Annex A, /properties/repository/properties/use_repository"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0113
+        constrained_by_locators:
+          - "Table 3"
+          - "§6.4.1"
+          - "Annex A, /properties/repository/properties/use_repository"
+          - "Annex A, /properties/repository/required"
+
+      - name: default_repository_url
+        json_pointer: "/repository/default_repository_url"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 3)'
+          subclause: 'String (§6.4.2)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 3)'
+          subclause: 'Optional (§6.4.2 Property line)'
+          annex_a: 'not in /properties/repository/required'
+        constraints:
+          format: uri
+        constraints_sources:
+          subclause: 'Format: URI as specified in RFC 3986 (§6.4.2)'
+          annex_a: '"format": "uri"'
+        source_phrase: 'The default public repository URL for this PURL type.'
+        notes: 'Annex A spells the description without the final period: "The default public repository URL for this PURL type". Draft-07 makes format checking optional for validators. §5.1: "each type has a default repository location when defined."'
+        locator: "Table 3; §6.4.2; Annex A, /properties/repository/properties/default_repository_url"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0114
+          - ecma-427#R-0116
+        constrained_by_note: '§5.1, in constrained_by_locators, holds only the rationale sentence that each type has a default repository location when defined (normative.md statement 27), which has no requirement entry; R-0025 and R-0114 note its conflict with Table 3.'
+        constrained_by_locators:
+          - "Table 3"
+          - "§6.4.2"
+          - "Annex A, /properties/repository/properties/default_repository_url"
+          - "§5.1"
+
+      - name: note
+        json_pointer: "/repository/note"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 3)'
+          subclause: 'String (§6.4.3)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 3)'
+          subclause: 'Optional (§6.4.3 Property line)'
+          annex_a: 'not in /properties/repository/required'
+        source_phrase: 'Extra note text.'
+        locator: "Table 3; §6.4.3; Annex A, /properties/repository/properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0115
+        constrained_by_locators:
+          - "Table 3"
+          - "§6.4.3"
+          - "Annex A, /properties/repository/properties/note"
+
+  - name: typedef-namespace_definition
+    json_pointer: "/namespace_definition"
+    annex_a_pointer: "/properties/namespace_definition"
+    locator: "§6.5 (Table 4); §6.5.1 to §6.5.9; Annex A, /properties/namespace_definition"
+    encoding: 'JSON object'
+    structure: map
+    kind: stated
+    constraints:
+      type: object
+      required: 'requirement'
+      allOf: '#/definitions/purl_component_definition'
+      additionalProperties: 'not set (other properties are allowed)'
+    rules:
+      - text: 'Definition of the namespace component for this PURL type. The PURL namespace component shall be required, optional or prohibited for a specific PURL type definition.'
+        locator: "§6.5"
+    notes: 'Governs the namespace component of the PURL string (purl-string field namespace). The five shared fields below are the Annex A purl_component_definition (structure typedef-purl_component_definition), which Clause 6 repeats for each component with its own subclause.'
+    fields:
+
+      - name: requirement
+        json_pointer: "/namespace_definition/requirement"
+        json_type: string
+        json_type_sources:
+          table: 'Array (Table 4)'
+          subclause: 'String (§6.5.1)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 4)'
+          subclause: 'Required (§6.5.1 Property line)'
+          annex_a: 'listed in /properties/namespace_definition/required'
+        constraints:
+          allowed_values: 'optional, required, prohibited'
+          oneOf: '#/definitions/optional_requirement (const optional), #/definitions/required_requirement (const required), #/definitions/prohibited_requirement (const prohibited)'
+        constraints_sources:
+          subclause: '§6.5.1 "Shall be one of:" Component optional requirement, Component required requirement, Component prohibited requirement; §6.5.2 Constant: optional; §6.5.3 Constant: required; §6.5.4 Constant: prohibited'
+          annex_a: '"oneOf" of three $ref to the definitions optional_requirement, required_requirement and prohibited_requirement'
+        source_phrase: 'States that the PURL namespace component is optional, required or prohibited for a PURL type.'
+        rules:
+          - text: 'States that this PURL component is optional for a PURL type.'
+            locator: "§6.5.2"
+          - text: 'States that this PURL component is required for a PURL type.'
+            locator: "§6.5.3"
+          - text: 'States that this PURL component is prohibited for a PURL type.'
+            locator: "§6.5.4"
+        flags:
+          - 'json_type: Table 4 says Array; §6.5.1 and Annex A say string. Source defect D5.'
+        locator: "Table 4; §6.5.1 to §6.5.4; Annex A, /properties/namespace_definition/properties/requirement"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0117
+          - ecma-427#R-0118
+          - ecma-427#R-0124
+          - ecma-427#R-0125
+          - ecma-427#R-0126
+          - ecma-427#R-0127
+        constrained_by_note: '§5.6.3 (R-0053) states the PURL side of this property and is wired to purl-string.namespace.'
+        constrained_by_locators:
+          - "Table 4"
+          - "§6.5.1"
+          - "§6.5.2"
+          - "§6.5.3"
+          - "§6.5.4"
+          - "Annex A, /properties/namespace_definition/properties/requirement"
+          - "Annex A, /definitions/optional_requirement"
+          - "Annex A, /definitions/required_requirement"
+          - "Annex A, /definitions/prohibited_requirement"
+          - "§5.6.3"
+
+      - name: permitted_characters
+        json_pointer: "/namespace_definition/permitted_characters"
+        same_as: "typedef-purl_component_definition.permitted_characters"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 4)'
+          subclause: 'String (§6.5.5)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 4)'
+          subclause: 'Optional (§6.5.5 Property line)'
+          annex_a: 'not required'
+        constraints:
+          format: regex
+        source_phrase: "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification."
+        locator: "Table 4; §6.5.5; Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0032
+          - ecma-427#R-0119
+          - ecma-427#R-0128
+          - ecma-427#R-0129
+        constrained_by_note: 'R-0129 bounds the expression by the Permitted characters of §5.2 (R-0032), which is wired here for that reason; whether the expression applies to the encoded or the decoded component is not stated (normative.md U-7). The §5.6 rules that a type definition narrows (R-0060, R-0068, R-0072, R-0097) bind the PURL component and are wired to structure purl-string.'
+        constrained_by_locators:
+          - "Table 4"
+          - "§6.5.5"
+          - "Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+          - "§5.2"
+          - "§5.6.3"
+
+      - name: case_sensitive
+        json_pointer: "/namespace_definition/case_sensitive"
+        same_as: "typedef-purl_component_definition.case_sensitive"
+        json_type: boolean
+        json_type_sources:
+          table: 'Boolean (Table 4)'
+          subclause: 'Boolean (§6.5.6)'
+          annex_a: 'boolean'
+        required: false
+        required_sources:
+          table: 'Optional (Table 4)'
+          subclause: 'Optional (§6.5.6 Property line)'
+          annex_a: 'not required'
+        constraints:
+          default: true
+        default_sources:
+          table: 'none'
+          subclause: 'Default Value: true (§6.5.6)'
+          annex_a: '"default": true'
+        source_phrase: 'true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.'
+        locator: "Table 4; §6.5.6; Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0120
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+        constrained_by_locators:
+          - "Table 4"
+          - "§6.5.6"
+          - "Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+          - "§5.5"
+          - "§5.6.3"
+
+      - name: normalization_rules
+        json_pointer: "/namespace_definition/normalization_rules"
+        same_as: "typedef-purl_component_definition.normalization_rules"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 4)'
+          subclause: 'array (of String) (§6.5.7)'
+          annex_a: 'array of string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 4)'
+          subclause: 'Optional (§6.5.7 Property line)'
+          annex_a: 'not required'
+        constraints:
+          uniqueItems: true
+          items: string
+        source_phrase: 'List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.'
+        rules:
+          - text: 'Each item of this array shall be a string.'
+            locator: "§6.5.7"
+          - text: 'All items shall be unique.'
+            locator: "§6.5.7"
+        locator: "Table 4; §6.5.7; Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0121
+          - ecma-427#R-0132
+          - ecma-427#R-0133
+          - ecma-427#R-0134
+        constrained_by_locators:
+          - "Table 4"
+          - "§6.5.7"
+          - "Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+
+      - name: native_name
+        json_pointer: "/namespace_definition/native_name"
+        same_as: "typedef-purl_component_definition.native_name"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 4)'
+          subclause: 'String (§6.5.8)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 4)'
+          subclause: 'Optional (§6.5.8 Property line)'
+          annex_a: 'not required'
+        source_phrase: "The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type."
+        locator: "Table 4; §6.5.8; Annex A, /definitions/purl_component_definition/properties/native_name"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0122
+        constrained_by_locators:
+          - "Table 4"
+          - "§6.5.8"
+          - "Annex A, /definitions/purl_component_definition/properties/native_name"
+
+      - name: note
+        json_pointer: "/namespace_definition/note"
+        same_as: "typedef-purl_component_definition.note"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 4)'
+          subclause: 'String (§6.5.9)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 4)'
+          subclause: 'Optional (§6.5.9 Property line)'
+          annex_a: 'not required'
+        source_phrase: 'Extra note text.'
+        locator: "Table 4; §6.5.9; Annex A, /definitions/purl_component_definition/properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0123
+        constrained_by_locators:
+          - "Table 4"
+          - "§6.5.9"
+          - "Annex A, /definitions/purl_component_definition/properties/note"
+
+  - name: typedef-name_definition
+    json_pointer: "/name_definition"
+    annex_a_pointer: "/properties/name_definition"
+    locator: "§6.6 (Table 5); §6.6.1 to §6.6.7; Annex A, /properties/name_definition"
+    encoding: 'JSON object'
+    structure: map
+    kind: stated
+    constraints:
+      type: object
+      required: 'requirement'
+      allOf: '#/definitions/purl_component_definition'
+      additionalProperties: 'not set (other properties are allowed)'
+    rules:
+      - text: 'Definition of the name component for this PURL type. The PURL name component is required for all PURL type definitions.'
+        locator: "§6.6"
+    notes: 'Governs the name component of the PURL string (purl-string field name).'
+    fields:
+
+      - name: requirement
+        json_pointer: "/name_definition/requirement"
+        json_type: string
+        json_type_sources:
+          table: 'Array (Table 5)'
+          subclause: 'String (§6.6.1)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 5)'
+          subclause: 'Required (§6.6.1 Property line)'
+          annex_a: 'listed in /properties/name_definition/required'
+        constraints:
+          allowed_values: 'required'
+          oneOf: '#/definitions/required_requirement (const required)'
+        constraints_sources:
+          subclause: '§6.6.1 "Shall be one of:" Component required requirement; §6.6.2 Constant: required'
+          annex_a: '"oneOf" of one $ref to the definition required_requirement'
+        source_phrase: 'States that the PURL name component is always required.'
+        rules:
+          - text: 'States that this PURL component is required for a PURL type.'
+            locator: "§6.6.2"
+        flags:
+          - 'json_type: Table 5 says Array; §6.6.1 and Annex A say string. Source defect D5.'
+        locator: "Table 5; §6.6.1; §6.6.2; Annex A, /properties/name_definition/properties/requirement"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0126
+          - ecma-427#R-0135
+          - ecma-427#R-0136
+          - ecma-427#R-0137
+        constrained_by_note: 'Table 1 (R-0019) states the PURL side of this property and is wired to purl-string.name.'
+        constrained_by_locators:
+          - "Table 5"
+          - "§6.6.1"
+          - "§6.6.2"
+          - "Annex A, /properties/name_definition/properties/requirement"
+          - "Annex A, /definitions/required_requirement"
+          - "Table 1"
+
+      - name: permitted_characters
+        json_pointer: "/name_definition/permitted_characters"
+        same_as: "typedef-purl_component_definition.permitted_characters"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 5)'
+          subclause: 'String (§6.6.3)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 5)'
+          subclause: 'Optional (§6.6.3 Property line)'
+          annex_a: 'not required'
+        constraints:
+          format: regex
+        source_phrase: "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification."
+        locator: "Table 5; §6.6.3; Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0032
+          - ecma-427#R-0119
+          - ecma-427#R-0128
+          - ecma-427#R-0129
+        constrained_by_note: 'R-0129 bounds the expression by the Permitted characters of §5.2 (R-0032), which is wired here for that reason; whether the expression applies to the encoded or the decoded component is not stated (normative.md U-7). The §5.6 rules that a type definition narrows (R-0060, R-0068, R-0072, R-0097) bind the PURL component and are wired to structure purl-string.'
+        constrained_by_locators:
+          - "Table 5"
+          - "§6.6.3"
+          - "Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+          - "§5.2"
+          - "§5.6.4"
+
+      - name: case_sensitive
+        json_pointer: "/name_definition/case_sensitive"
+        same_as: "typedef-purl_component_definition.case_sensitive"
+        json_type: boolean
+        json_type_sources:
+          table: 'Boolean (Table 5)'
+          subclause: 'Boolean (§6.6.4)'
+          annex_a: 'boolean'
+        required: false
+        required_sources:
+          table: 'Optional (Table 5)'
+          subclause: 'Optional (§6.6.4 Property line)'
+          annex_a: 'not required'
+        constraints:
+          default: true
+        default_sources:
+          table: 'none'
+          subclause: 'Default Value: true (§6.6.4)'
+          annex_a: '"default": true'
+        source_phrase: 'true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.'
+        locator: "Table 5; §6.6.4; Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0120
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+        constrained_by_locators:
+          - "Table 5"
+          - "§6.6.4"
+          - "Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+          - "§5.5"
+          - "§5.6.4"
+
+      - name: normalization_rules
+        json_pointer: "/name_definition/normalization_rules"
+        same_as: "typedef-purl_component_definition.normalization_rules"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 5)'
+          subclause: 'array (of String) (§6.6.5)'
+          annex_a: 'array of string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 5)'
+          subclause: 'Optional (§6.6.5 Property line)'
+          annex_a: 'not required'
+        constraints:
+          uniqueItems: true
+          items: string
+        source_phrase: 'List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.'
+        rules:
+          - text: 'Each item of this array shall be a string.'
+            locator: "§6.6.5"
+          - text: 'All items shall be unique.'
+            locator: "§6.6.5"
+        locator: "Table 5; §6.6.5; Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0121
+          - ecma-427#R-0132
+          - ecma-427#R-0133
+          - ecma-427#R-0134
+        constrained_by_locators:
+          - "Table 5"
+          - "§6.6.5"
+          - "Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+
+      - name: native_name
+        json_pointer: "/name_definition/native_name"
+        same_as: "typedef-purl_component_definition.native_name"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 5)'
+          subclause: 'String (§6.6.6)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 5)'
+          subclause: 'Optional (§6.6.6 Property line)'
+          annex_a: 'not required'
+        source_phrase: "The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type."
+        locator: "Table 5; §6.6.6; Annex A, /definitions/purl_component_definition/properties/native_name"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0122
+        constrained_by_locators:
+          - "Table 5"
+          - "§6.6.6"
+          - "Annex A, /definitions/purl_component_definition/properties/native_name"
+
+      - name: note
+        json_pointer: "/name_definition/note"
+        same_as: "typedef-purl_component_definition.note"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 5)'
+          subclause: 'String (§6.6.7)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 5)'
+          subclause: 'Optional (§6.6.7 Property line)'
+          annex_a: 'not required'
+        source_phrase: 'Extra note text.'
+        locator: "Table 5; §6.6.7; Annex A, /definitions/purl_component_definition/properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0123
+        constrained_by_locators:
+          - "Table 5"
+          - "§6.6.7"
+          - "Annex A, /definitions/purl_component_definition/properties/note"
+
+  - name: typedef-version_definition
+    json_pointer: "/version_definition"
+    annex_a_pointer: "/properties/version_definition"
+    locator: "§6.7 (Table 6); §6.7.1 to §6.7.7; Annex A, /properties/version_definition"
+    encoding: 'JSON object'
+    structure: map
+    kind: stated
+    constraints:
+      type: object
+      required: 'requirement'
+      allOf: '#/definitions/purl_component_definition'
+      additionalProperties: 'not set (other properties are allowed)'
+    rules:
+      - text: 'Definition of the version component for this PURL type. The PURL version component is optional for a specific PURL type definition.'
+        locator: "§6.7"
+    notes: 'Governs the version component of the PURL string (purl-string field version).'
+    fields:
+
+      - name: requirement
+        json_pointer: "/version_definition/requirement"
+        json_type: string
+        json_type_sources:
+          table: 'Array (Table 6)'
+          subclause: 'String (§6.7.1)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 6)'
+          subclause: 'Required (§6.7.1 Property line)'
+          annex_a: 'listed in /properties/version_definition/required'
+        constraints:
+          allowed_values: 'optional'
+          oneOf: '#/definitions/optional_requirement (const optional)'
+        constraints_sources:
+          subclause: '§6.7.1 "Shall be one of:" Component optional requirement; §6.7.2 Constant: optional'
+          annex_a: '"oneOf" of one $ref to the definition optional_requirement'
+        source_phrase: 'States that the PURL version is optional.'
+        rules:
+          - text: 'States that this PURL component is optional for a PURL type.'
+            locator: "§6.7.2"
+        notes: 'The property is required in a version_definition object, but its only allowed value is optional: no type definition can make the version component required.'
+        flags:
+          - 'json_type: Table 6 says Array; §6.7.1 and Annex A say string. Source defect D5.'
+        locator: "Table 6; §6.7.1; §6.7.2; Annex A, /properties/version_definition/properties/requirement"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0125
+          - ecma-427#R-0138
+          - ecma-427#R-0139
+          - ecma-427#R-0140
+        constrained_by_note: 'Table 1 (R-0020) states the PURL side of this property and is wired to purl-string.version.'
+        constrained_by_locators:
+          - "Table 6"
+          - "§6.7.1"
+          - "§6.7.2"
+          - "Annex A, /properties/version_definition/properties/requirement"
+          - "Annex A, /definitions/optional_requirement"
+          - "Table 1"
+
+      - name: permitted_characters
+        json_pointer: "/version_definition/permitted_characters"
+        same_as: "typedef-purl_component_definition.permitted_characters"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 6)'
+          subclause: 'String (§6.7.3)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 6)'
+          subclause: 'Optional (§6.7.3 Property line)'
+          annex_a: 'not required'
+        constraints:
+          format: regex
+        source_phrase: "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification."
+        locator: "Table 6; §6.7.3; Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0032
+          - ecma-427#R-0119
+          - ecma-427#R-0128
+          - ecma-427#R-0129
+        constrained_by_note: 'R-0129 bounds the expression by the Permitted characters of §5.2 (R-0032), which is wired here for that reason; whether the expression applies to the encoded or the decoded component is not stated (normative.md U-7). The §5.6 rules that a type definition narrows (R-0060, R-0068, R-0072, R-0097) bind the PURL component and are wired to structure purl-string.'
+        constrained_by_locators:
+          - "Table 6"
+          - "§6.7.3"
+          - "Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+          - "§5.2"
+          - "§5.6.5"
+
+      - name: case_sensitive
+        json_pointer: "/version_definition/case_sensitive"
+        same_as: "typedef-purl_component_definition.case_sensitive"
+        json_type: boolean
+        json_type_sources:
+          table: 'Boolean (Table 6)'
+          subclause: 'Boolean (§6.7.4)'
+          annex_a: 'boolean'
+        required: false
+        required_sources:
+          table: 'Optional (Table 6)'
+          subclause: 'Optional (§6.7.4 Property line)'
+          annex_a: 'not required'
+        constraints:
+          default: true
+        default_sources:
+          table: 'none'
+          subclause: 'Default Value: true (§6.7.4)'
+          annex_a: '"default": true'
+        source_phrase: 'true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.'
+        locator: "Table 6; §6.7.4; Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0120
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+        constrained_by_locators:
+          - "Table 6"
+          - "§6.7.4"
+          - "Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+          - "§5.5"
+          - "§5.6.5"
+
+      - name: normalization_rules
+        json_pointer: "/version_definition/normalization_rules"
+        same_as: "typedef-purl_component_definition.normalization_rules"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 6)'
+          subclause: 'array (of String) (§6.7.5)'
+          annex_a: 'array of string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 6)'
+          subclause: 'Optional (§6.7.5 Property line)'
+          annex_a: 'not required'
+        constraints:
+          uniqueItems: true
+          items: string
+        source_phrase: 'List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.'
+        rules:
+          - text: 'Each item of this array shall be a string.'
+            locator: "§6.7.5"
+          - text: 'All items shall be unique.'
+            locator: "§6.7.5"
+        locator: "Table 6; §6.7.5; Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0121
+          - ecma-427#R-0132
+          - ecma-427#R-0133
+          - ecma-427#R-0134
+        constrained_by_locators:
+          - "Table 6"
+          - "§6.7.5"
+          - "Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+
+      - name: native_name
+        json_pointer: "/version_definition/native_name"
+        same_as: "typedef-purl_component_definition.native_name"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 6)'
+          subclause: 'String (§6.7.6)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 6)'
+          subclause: 'Optional (§6.7.6 Property line)'
+          annex_a: 'not required'
+        source_phrase: "The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type."
+        locator: "Table 6; §6.7.6; Annex A, /definitions/purl_component_definition/properties/native_name"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0122
+        constrained_by_locators:
+          - "Table 6"
+          - "§6.7.6"
+          - "Annex A, /definitions/purl_component_definition/properties/native_name"
+
+      - name: note
+        json_pointer: "/version_definition/note"
+        same_as: "typedef-purl_component_definition.note"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 6)'
+          subclause: 'String (§6.7.7)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 6)'
+          subclause: 'Optional (§6.7.7 Property line)'
+          annex_a: 'not required'
+        source_phrase: 'Extra note text.'
+        locator: "Table 6; §6.7.7; Annex A, /definitions/purl_component_definition/properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0123
+        constrained_by_locators:
+          - "Table 6"
+          - "§6.7.7"
+          - "Annex A, /definitions/purl_component_definition/properties/note"
+
+  - name: typedef-qualifiers_definition-item
+    json_pointer: "/qualifiers_definition/[]"
+    annex_a_pointer: "/properties/qualifiers_definition/items"
+    locator: "§6.8.1 (Table 7); §6.8.1.1 to §6.8.1.7; Annex A, /properties/qualifiers_definition/items"
+    encoding: 'JSON object, one per qualifier key the type defines'
+    structure: map
+    kind: stated
+    constrained_by:
+      - ecma-427#R-0167
+    constrained_by_note: 'Structure-level: R-0167 closes the object to key, requirement, description, default_value and native_name.'
+    constraints:
+      type: object
+      additionalProperties: false
+      required: 'key, description'
+    constraints_sources:
+      table: 'Table 7 lists key and description as Required; requirement, default_value and native_name as Optional'
+      subclause: '§6.8.1: Type: Object. The §6.8.1.x subclauses carry no Property line, so they state no Required or Optional'
+      annex_a: '"type": "object", "additionalProperties": false, "required": ["key", "description"]'
+    rules:
+      - text: 'The definition of a qualifier specific to this PURL type.'
+        locator: "§6.8.1"
+    flags:
+      - 'Only Annex A closes the object (additionalProperties false). Unlike Tables 4, 5, 6 and 8, Table 7 has no note row, and Annex A defines no note here, so a note property makes the item invalid.'
+    fields:
+
+      - name: key
+        json_pointer: "/qualifiers_definition/[]/key"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 7)'
+          subclause: 'String (§6.8.1.1)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 7)'
+          subclause: 'not stated (§6.8.1.1 has no Property line)'
+          annex_a: 'listed in /properties/qualifiers_definition/items/required'
+        constraints:
+          pattern: 'none in Annex A'
+        source_phrase: 'The key for the qualifier.'
+        flags:
+          - 'Annex A puts no pattern on key, although §5.6.6 restricts a qualifier key to lower-case ASCII letters, digits, period, dash and underscore, starting with a letter; a definition can declare a key no valid PURL can carry (for example a key with a space validates).'
+        locator: "Table 7; §6.8.1.1; Annex A, /properties/qualifiers_definition/items/properties/key"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0143
+          - ecma-427#R-0148
+        constrained_by_note: 'The §5.6.6 key rules (R-0083 to R-0086) bind a key in a PURL string (purl-qualifier.key); they reach this property only through the inferred R-0148, because Annex A puts no pattern on it (schema/README.md O4).'
+        constrained_by_locators:
+          - "Table 7"
+          - "§6.8.1.1"
+          - "Annex A, /properties/qualifiers_definition/items/properties/key"
+          - "§5.6.6"
+
+      - name: requirement
+        json_pointer: "/qualifiers_definition/[]/requirement"
+        json_type: string
+        json_type_sources:
+          table: 'Array (Table 7)'
+          subclause: 'String (§6.8.1.2)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 7)'
+          subclause: 'not stated (§6.8.1.2 has no Property line)'
+          annex_a: 'not in /properties/qualifiers_definition/items/required'
+        constraints:
+          allowed_values: 'optional, required'
+          oneOf: '#/definitions/optional_requirement (const optional), #/definitions/required_requirement (const required)'
+        constraints_sources:
+          subclause: '§6.8.1.2 "Shall be one of:" Component optional requirement, Component required requirement; §6.8.1.3 Constant: optional; §6.8.1.4 Constant: required'
+          annex_a: '"oneOf" of two $ref to the definitions optional_requirement and required_requirement'
+        source_phrase: 'States that a PURL qualifier key is optional or required for a PURL type.'
+        rules:
+          - text: 'States that this PURL component is optional for a PURL type.'
+            locator: "§6.8.1.3"
+          - text: 'States that this PURL component is required for a PURL type.'
+            locator: "§6.8.1.4"
+        notes: 'No default is stated anywhere for an absent requirement.'
+        flags:
+          - 'json_type: Table 7 says Array; §6.8.1.2 and Annex A say string. Source defect D5.'
+        locator: "Table 7; §6.8.1.2 to §6.8.1.4; Annex A, /properties/qualifiers_definition/items/properties/requirement"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0125
+          - ecma-427#R-0126
+          - ecma-427#R-0141
+          - ecma-427#R-0144
+          - ecma-427#R-0149
+        constrained_by_locators:
+          - "Table 7"
+          - "§6.8.1.2"
+          - "§6.8.1.3"
+          - "§6.8.1.4"
+          - "Annex A, /properties/qualifiers_definition/items/properties/requirement"
+          - "Annex A, /definitions/optional_requirement"
+          - "Annex A, /definitions/required_requirement"
+          - "§6.8"
+
+      - name: description
+        json_pointer: "/qualifiers_definition/[]/description"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 7)'
+          subclause: 'String (§6.8.1.5)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 7)'
+          subclause: 'not stated (§6.8.1.5 has no Property line)'
+          annex_a: 'listed in /properties/qualifiers_definition/items/required'
+        source_phrase: 'The description of this qualifier.'
+        locator: "Table 7; §6.8.1.5; Annex A, /properties/qualifiers_definition/items/properties/description"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0145
+        constrained_by_locators:
+          - "Table 7"
+          - "§6.8.1.5"
+          - "Annex A, /properties/qualifiers_definition/items/properties/description"
+
+      - name: default_value
+        json_pointer: "/qualifiers_definition/[]/default_value"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 7)'
+          subclause: 'String (§6.8.1.6)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 7)'
+          subclause: 'not stated (§6.8.1.6 has no Property line)'
+          annex_a: 'not required'
+        source_phrase: 'The optional default value of this qualifier if not provided.'
+        locator: "Table 7; §6.8.1.6; Annex A, /properties/qualifiers_definition/items/properties/default_value"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0146
+        constrained_by_note: 'Nothing in the 1st edition says whether a default_value must meet the §5.6.6 value rules (R-0081, R-0087, R-0088) or is written percent-encoded or decoded (design-notes.md, open question 14).'
+        constrained_by_locators:
+          - "Table 7"
+          - "§6.8.1.6"
+          - "Annex A, /properties/qualifiers_definition/items/properties/default_value"
+          - "§5.6.6"
+
+      - name: native_name
+        json_pointer: "/qualifiers_definition/[]/native_name"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 7)'
+          subclause: 'String (§6.8.1.7)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 7)'
+          subclause: 'not stated (§6.8.1.7 has no Property line)'
+          annex_a: 'not required'
+        source_phrase: 'The equivalent native name for this qualifier key.'
+        rules:
+          - text: 'All items shall be unique.'
+            locator: "§6.8.1.7"
+        flags:
+          - '§6.8.1.7 ends with "All items shall be unique." under a string property, which has no items. Annex A puts uniqueItems on the qualifiers_definition array, not here, so the sentence most likely belongs to §6.8 (inferred). Source defect D6.'
+        locator: "Table 7; §6.8.1.7; Annex A, /properties/qualifiers_definition/items/properties/native_name"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0147
+        constrained_by_note: 'The sentence All items shall be unique. is printed under §6.8.1.7 but cannot apply to a string; R-0150 attributes it to the qualifiers_definition array (schema/README.md D6) and is wired to typedef-root.qualifiers_definition.'
+        constrained_by_locators:
+          - "Table 7"
+          - "§6.8.1.7"
+          - "Annex A, /properties/qualifiers_definition/items/properties/native_name"
+
+  - name: typedef-subpath_definition
+    json_pointer: "/subpath_definition"
+    annex_a_pointer: "/properties/subpath_definition"
+    locator: "§6.9 (Table 8); §6.9.1 to §6.9.7; Annex A, /properties/subpath_definition"
+    encoding: 'JSON object'
+    structure: map
+    kind: stated
+    constraints:
+      type: object
+      required: 'requirement'
+      allOf: '#/definitions/purl_component_definition'
+      additionalProperties: 'not set (other properties are allowed)'
+    rules:
+      - text: 'The definition for the subpath for this PURL type. The PURL subpath component is optional for a specific PURL type definition.'
+        locator: "§6.9"
+    notes: 'Governs the subpath component of the PURL string (purl-string field subpath).'
+    fields:
+
+      - name: requirement
+        json_pointer: "/subpath_definition/requirement"
+        json_type: string
+        json_type_sources:
+          table: 'Array (Table 8)'
+          subclause: 'String (§6.9.1)'
+          annex_a: 'string'
+        required: true
+        required_sources:
+          table: 'Required (Table 8)'
+          subclause: 'Required (§6.9.1 Property line)'
+          annex_a: 'listed in /properties/subpath_definition/required'
+        constraints:
+          allowed_values: 'optional'
+          oneOf: '#/definitions/optional_requirement (const optional)'
+        constraints_sources:
+          subclause: '§6.9.1 "Shall be one of:" Component optional requirement; §6.9.2 Constant: optional'
+          annex_a: '"oneOf" of one $ref to the definition optional_requirement'
+        source_phrase: 'States that the PURL subpath is optional.'
+        rules:
+          - text: 'States that this PURL component is optional for a PURL type.'
+            locator: "§6.9.2"
+        flags:
+          - 'json_type: Table 8 says Array; §6.9.1 and Annex A say string. Source defect D5.'
+        locator: "Table 8; §6.9.1; §6.9.2; Annex A, /properties/subpath_definition/properties/requirement"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0125
+          - ecma-427#R-0151
+          - ecma-427#R-0152
+          - ecma-427#R-0153
+        constrained_by_note: 'Table 1 (R-0022) states the PURL side of this property and is wired to purl-string.subpath.'
+        constrained_by_locators:
+          - "Table 8"
+          - "§6.9.1"
+          - "§6.9.2"
+          - "Annex A, /properties/subpath_definition/properties/requirement"
+          - "Annex A, /definitions/optional_requirement"
+          - "Table 1"
+
+      - name: permitted_characters
+        json_pointer: "/subpath_definition/permitted_characters"
+        same_as: "typedef-purl_component_definition.permitted_characters"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 8)'
+          subclause: 'String (§6.9.3)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 8)'
+          subclause: 'Optional (§6.9.3 Property line)'
+          annex_a: 'not required'
+        constraints:
+          format: regex
+        source_phrase: "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification."
+        locator: "Table 8; §6.9.3; Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0032
+          - ecma-427#R-0119
+          - ecma-427#R-0128
+          - ecma-427#R-0129
+        constrained_by_note: 'R-0129 bounds the expression by the Permitted characters of §5.2 (R-0032), which is wired here for that reason; whether the expression applies to the encoded or the decoded component is not stated (normative.md U-7). The §5.6 rules that a type definition narrows (R-0060, R-0068, R-0072, R-0097) bind the PURL component and are wired to structure purl-string.'
+        constrained_by_locators:
+          - "Table 8"
+          - "§6.9.3"
+          - "Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+          - "§5.2"
+          - "§5.6.7"
+
+      - name: case_sensitive
+        json_pointer: "/subpath_definition/case_sensitive"
+        same_as: "typedef-purl_component_definition.case_sensitive"
+        json_type: boolean
+        json_type_sources:
+          table: 'Boolean (Table 8)'
+          subclause: 'Boolean (§6.9.4)'
+          annex_a: 'boolean'
+        required: false
+        required_sources:
+          table: 'Optional (Table 8)'
+          subclause: 'Optional (§6.9.4 Property line)'
+          annex_a: 'not required'
+        constraints:
+          default: true
+        default_sources:
+          table: 'none'
+          subclause: 'Default Value: true (§6.9.4)'
+          annex_a: '"default": true'
+        source_phrase: 'true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.'
+        locator: "Table 8; §6.9.4; Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0120
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+        constrained_by_locators:
+          - "Table 8"
+          - "§6.9.4"
+          - "Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+          - "§5.5"
+          - "§5.6.7"
+
+      - name: normalization_rules
+        json_pointer: "/subpath_definition/normalization_rules"
+        same_as: "typedef-purl_component_definition.normalization_rules"
+        json_type: array
+        json_type_sources:
+          table: 'Array (Table 8)'
+          subclause: 'array (of String) (§6.9.5)'
+          annex_a: 'array of string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 8)'
+          subclause: 'Optional (§6.9.5 Property line)'
+          annex_a: 'not required'
+        constraints:
+          uniqueItems: true
+          items: string
+        source_phrase: 'List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.'
+        rules:
+          - text: 'Each item of this array shall be a string.'
+            locator: "§6.9.5"
+          - text: 'All items shall be unique.'
+            locator: "§6.9.5"
+        locator: "Table 8; §6.9.5; Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0121
+          - ecma-427#R-0132
+          - ecma-427#R-0133
+          - ecma-427#R-0134
+        constrained_by_locators:
+          - "Table 8"
+          - "§6.9.5"
+          - "Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+
+      - name: native_name
+        json_pointer: "/subpath_definition/native_name"
+        same_as: "typedef-purl_component_definition.native_name"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 8)'
+          subclause: 'String (§6.9.6)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 8)'
+          subclause: 'Optional (§6.9.6 Property line)'
+          annex_a: 'not required'
+        source_phrase: "The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type."
+        locator: "Table 8; §6.9.6; Annex A, /definitions/purl_component_definition/properties/native_name"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0122
+        constrained_by_locators:
+          - "Table 8"
+          - "§6.9.6"
+          - "Annex A, /definitions/purl_component_definition/properties/native_name"
+
+      - name: note
+        json_pointer: "/subpath_definition/note"
+        same_as: "typedef-purl_component_definition.note"
+        json_type: string
+        json_type_sources:
+          table: 'String (Table 8)'
+          subclause: 'String (§6.9.7)'
+          annex_a: 'string'
+        required: false
+        required_sources:
+          table: 'Optional (Table 8)'
+          subclause: 'Optional (§6.9.7 Property line)'
+          annex_a: 'not required'
+        source_phrase: 'Extra note text.'
+        locator: "Table 8; §6.9.7; Annex A, /definitions/purl_component_definition/properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0123
+        constrained_by_locators:
+          - "Table 8"
+          - "§6.9.7"
+          - "Annex A, /definitions/purl_component_definition/properties/note"
+
+  - name: typedef-purl_component_definition
+    json_pointer: "(shared; applied by allOf to /namespace_definition, /name_definition, /version_definition, /subpath_definition)"
+    annex_a_pointer: "/definitions/purl_component_definition"
+    locator: "Annex A, /definitions/purl_component_definition; repeated in Clause 6 as §6.5.5 to §6.5.9, §6.6.3 to §6.6.7, §6.7.3 to §6.7.7, §6.9.3 to §6.9.7"
+    encoding: 'JSON object (a schema definition mixed into each component definition)'
+    structure: map
+    kind: stated
+    constraints:
+      type: object
+      required: 'none'
+      additionalProperties: 'not set'
+    source_phrase: 'PURL component definition properties that apply to most PURL components'
+    source_phrase_locator: "Annex A, /definitions/purl_component_definition/description"
+    notes: 'Clause 6 never names this definition; it repeats its five properties under each component. qualifiers_definition items do not use it. Because neither this definition nor the four component definitions set additionalProperties, a misspelt property (case_sensitve) in a component definition validates silently.'
+    fields:
+
+      - name: permitted_characters
+        json_type: string
+        required: false
+        constraints:
+          format: regex
+        format_sources:
+          subclause: 'Format: A regular expression dialect defined by ECMA-262 (§6.5.5, §6.6.3, §6.7.3, §6.9.3)'
+          annex_a: '"format": "regex"'
+        source_phrase: "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification."
+        inferred:
+          - statement: 'The subset condition is not checkable by the schema: format regex only says the string is a regular expression.'
+            basis: 'Draft-07 format regex is a syntax check (and format assertion is optional for validators); comparing two languages is outside JSON Schema.'
+            kind: inferred
+        locator: "Annex A, /definitions/purl_component_definition/properties/permitted_characters; §6.5.5; §6.6.3; §6.7.3; §6.9.3"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0032
+          - ecma-427#R-0119
+          - ecma-427#R-0128
+          - ecma-427#R-0129
+        constrained_by_note: 'R-0129 bounds the expression by the Permitted characters of §5.2 (R-0032), which is wired here for that reason; whether the expression applies to the encoded or the decoded component is not stated (normative.md U-7). The §5.6 rules that a type definition narrows (R-0060, R-0068, R-0072, R-0097) bind the PURL component and are wired to structure purl-string.'
+        constrained_by_locators:
+          - "Annex A, /definitions/purl_component_definition/properties/permitted_characters"
+          - "§6.5.5"
+          - "§6.6.3"
+          - "§6.7.3"
+          - "§6.9.3"
+          - "§5.2"
+
+      - name: case_sensitive
+        json_type: boolean
+        required: false
+        constraints:
+          default: true
+        source_phrase: 'true if this PURL component is case sensitive. If false, the canonical form shall be lowercased.'
+        locator: "Annex A, /definitions/purl_component_definition/properties/case_sensitive; §6.5.6; §6.6.4; §6.7.4; §6.9.4"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0039
+          - ecma-427#R-0040
+          - ecma-427#R-0120
+          - ecma-427#R-0130
+          - ecma-427#R-0131
+        constrained_by_locators:
+          - "Annex A, /definitions/purl_component_definition/properties/case_sensitive"
+          - "§6.5.6"
+          - "§6.6.4"
+          - "§6.7.4"
+          - "§6.9.4"
+          - "§5.5"
+
+      - name: normalization_rules
+        json_type: array
+        required: false
+        constraints:
+          uniqueItems: true
+          items: string
+        source_phrase: 'List of rules to normalize this component for this PURL type. These are plain text, unstructured rules as some require programming and cannot be enforced only with a schema. Tools are expected to apply these rules programmatically.'
+        locator: "Annex A, /definitions/purl_component_definition/properties/normalization_rules; §6.5.7; §6.6.5; §6.7.5; §6.9.5"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0121
+          - ecma-427#R-0132
+          - ecma-427#R-0133
+          - ecma-427#R-0134
+        constrained_by_locators:
+          - "Annex A, /definitions/purl_component_definition/properties/normalization_rules"
+          - "§6.5.7"
+          - "§6.6.5"
+          - "§6.7.5"
+          - "§6.9.5"
+
+      - name: native_name
+        json_type: string
+        required: false
+        source_phrase: "The native name of this PURL component in the package ecosystem. For instance, the 'namespace' for the 'maven' type is 'groupId', and 'scope' for the 'npm' PURL type."
+        locator: "Annex A, /definitions/purl_component_definition/properties/native_name; §6.5.8; §6.6.6; §6.7.6; §6.9.6"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0122
+        constrained_by_locators:
+          - "Annex A, /definitions/purl_component_definition/properties/native_name"
+          - "§6.5.8"
+          - "§6.6.6"
+          - "§6.7.6"
+          - "§6.9.6"
+
+      - name: note
+        json_type: string
+        required: false
+        source_phrase: 'Extra note text.'
+        locator: "Annex A, /definitions/purl_component_definition/properties/note; §6.5.9; §6.6.7; §6.7.7; §6.9.7"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0123
+        constrained_by_locators:
+          - "Annex A, /definitions/purl_component_definition/properties/note"
+          - "§6.5.9"
+          - "§6.6.7"
+          - "§6.7.7"
+          - "§6.9.7"
+
+  - name: typedef-examples
+    json_pointer: "/examples"
+    annex_a_pointer: "/properties/examples"
+    locator: "§6.10; Table 2; Annex A, /properties/examples"
+    encoding: 'JSON array of strings, each a PURL string (structure purl-string)'
+    structure: array
+    kind: stated
+    rules:
+      - text: 'Example of valid, canonical PURLs for this package type. Each item of this array shall be a string.'
+        locator: "§6.10"
+      - text: 'All items shall be unique.'
+        locator: "§6.10"
+    fields:
+
+      - name: "(array)"
+        json_pointer: "/examples"
+        json_type: array
+        required: true
+        constraints:
+          uniqueItems: true
+          minItems: 1
+        constraints_sources:
+          table: 'Array, Required (Table 2)'
+          subclause: 'Type: array (of String); "All items shall be unique." (§6.10); no minimum stated'
+          annex_a: '"uniqueItems": true, "minItems": 1'
+        flags:
+          - 'minItems 1 is stated only in Annex A; Clause 6 requires the property but sets no minimum.'
+        locator: "§6.10; Annex A, /properties/examples"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0109
+          - ecma-427#R-0157
+          - ecma-427#R-0168
+        constrained_by_locators:
+          - "§6.10"
+          - "Table 2"
+          - "Annex A, /properties/examples"
+
+      - name: "(item)"
+        json_pointer: "/examples/[]"
+        json_type: string
+        required: true
+        constraints:
+          pattern: '^pkg:[a-z][a-z0-9-\.]+/.*$'
+        constraints_sources:
+          subclause: 'Pattern Constraint: ^pkg:[a-z][a-z0-9-\.]+/.*$ (§6.10, printed against the property)'
+          annex_a: '"items": {"type": "string", "pattern": "^pkg:[a-z][a-z0-9-\\.]+/.*$"}'
+        inferred:
+          - statement: 'Each item should be a valid canonical PURL string; the pattern checks only the scheme, a lower-case type of two or more characters and a following slash.'
+            basis: 'The description says "valid, canonical PURLs" (§6.10, Table 2); everything after the first slash matches .* in the pattern. schema/purl.derived.abnf rule canonical-shape checks more.'
+            kind: inferred
+        flags:
+          - 'The pattern refuses a one-letter type that §5.6.2 allows. Source defect D4.'
+        locator: "§6.10; Annex A, /properties/examples/items"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0154
+          - ecma-427#R-0155
+          - ecma-427#R-0156
+        constrained_by_note: 'Each item is a PURL string (structure purl-string): R-0155 brings in every requirement wired there, which are not repeated here. The R-0154 pattern checks only the scheme and a type of two or more characters (schema/README.md D4). Clause 5 and §5.6.2, in constrained_by_locators, are reached that way.'
+        constrained_by_locators:
+          - "§6.10"
+          - "Annex A, /properties/examples/items"
+          - "Clause 5"
+          - "§5.6.2"
+
+  - name: typedef-note
+    json_pointer: "/note"
+    annex_a_pointer: "/properties/note"
+    locator: "§6.11; Table 2; Annex A, /properties/note"
+    encoding: 'JSON string'
+    structure: string
+    kind: stated
+    rules:
+      - text: 'Note about this PURL type.'
+        locator: "§6.11"
+    fields:
+
+      - name: "(value)"
+        json_pointer: "/note"
+        json_type: string
+        required: false
+        required_sources:
+          table: 'Optional (Table 2)'
+          subclause: 'Optional (§6.11 Property line)'
+          annex_a: 'not in /required'
+        locator: "§6.11; Annex A, /properties/note"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0110
+        constrained_by_locators:
+          - "§6.11"
+          - "Table 2"
+          - "Annex A, /properties/note"
+
+  - name: typedef-reference_urls
+    json_pointer: "/reference_urls"
+    annex_a_pointer: "/properties/reference_urls"
+    locator: "§6.12; Table 2; Annex A, /properties/reference_urls"
+    encoding: 'JSON array of URI strings'
+    structure: array
+    kind: stated
+    rules:
+      - text: 'Optional list of informational reference URLs about this PURL type. Each item of this array shall be a string.'
+        locator: "§6.12"
+      - text: 'All items shall be unique.'
+        locator: "§6.12"
+    fields:
+
+      - name: "(array)"
+        json_pointer: "/reference_urls"
+        json_type: array
+        required: false
+        constraints:
+          uniqueItems: true
+        constraints_sources:
+          table: 'Array, Optional (Table 2)'
+          subclause: 'Type: array (of String); "All items shall be unique." (§6.12)'
+          annex_a: '"uniqueItems": true'
+        locator: "§6.12; Annex A, /properties/reference_urls"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0111
+          - ecma-427#R-0160
+        constrained_by_locators:
+          - "§6.12"
+          - "Table 2"
+          - "Annex A, /properties/reference_urls"
+
+      - name: "(item)"
+        json_pointer: "/reference_urls/[]"
+        json_type: string
+        required: true
+        constraints:
+          format: uri
+        constraints_sources:
+          subclause: 'Format: URI as specified in RFC 3986 (§6.12, printed against the property)'
+          annex_a: '"items": {"type": "string", "format": "uri"}'
+        notes: 'Draft-07 makes format assertion optional for validators; a validator that does not assert format uri accepts any string here.'
+        locator: "§6.12; Annex A, /properties/reference_urls/items"
+        kind: stated
+        constrained_by:
+          - ecma-427#R-0158
+          - ecma-427#R-0159
+        constrained_by_locators:
+          - "§6.12"
+          - "Annex A, /properties/reference_urls/items"
