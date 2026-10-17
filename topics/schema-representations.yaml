@@ -1,0 +1,13 @@
+schema: "library-topic/v1"
+id: schema-representations
+question: "Which existing schemas and formats (catalogs, vulnerability records, threat-model interchange) can tmodel import, map or reuse, and what does each one's object model, identifier scheme, provenance and extension mechanism imply for DEC-001 and DEC-002? (tmodel RPT-0005, issue #39)"
+owner: Maimcghee
+status: open
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-008
+  - R-010
+records:
+  - cwe
+answer: ""

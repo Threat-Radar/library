@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><Weakness_Catalog Name="CWE" Version="4.20" Date="2026-04-30" xmlns="http://cwe.mitre.org/cwe-7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cwe.mitre.org/cwe-7 http://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<Categories>
+      <Category ID="411" Name="Resource Locking Problems" Status="Draft">
+         <Summary>Weaknesses in this category are related to improper handling of locks that are used to control access to resources.</Summary>
+         <Relationships>
+            <Has_Member CWE_ID="412" View_ID="699"/>
+            <Has_Member CWE_ID="413" View_ID="699"/>
+            <Has_Member CWE_ID="414" View_ID="699"/>
+            <Has_Member CWE_ID="609" View_ID="699"/>
+            <Has_Member CWE_ID="764" View_ID="699"/>
+            <Has_Member CWE_ID="765" View_ID="699"/>
+            <Has_Member CWE_ID="832" View_ID="699"/>
+            <Has_Member CWE_ID="833" View_ID="699"/>
+         </Relationships>
+         <Taxonomy_Mappings>
+            <Taxonomy_Mapping Taxonomy_Name="PLOVER">
+               <Entry_Name>Resource Locking problems</Entry_Name>
+            </Taxonomy_Mapping>
+         </Taxonomy_Mappings>
+         <Mapping_Notes>
+            <Usage>Prohibited</Usage>
+            <Rationale>This entry is a Category. Using categories for mapping has been discouraged since 2019. Categories are informal organizational groupings of weaknesses that can help CWE users with data aggregation, navigation, and browsing. However, they are not weaknesses in themselves.</Rationale>
+            <Comments>See member weaknesses of this category.</Comments>
+            <Reasons>
+               <Reason Type="Category"/>
+            </Reasons>
+         </Mapping_Notes>
+         <Content_History>
+            <Submission>
+               <Submission_Name>PLOVER</Submission_Name>
+               <Submission_Date>2006-07-19</Submission_Date>
+               <Submission_Version>Draft 3</Submission_Version>
+               <Submission_ReleaseDate>2006-07-19</Submission_ReleaseDate>
+            </Submission>
+            <Modification>
+               <Modification_Name>CWE Content Team</Modification_Name>
+               <Modification_Organization>MITRE</Modification_Organization>
+               <Modification_Date>2008-09-08</Modification_Date>
+               <Modification_Version>1.0</Modification_Version>
+               <Modification_ReleaseDate>2008-09-09</Modification_ReleaseDate>
+               <Modification_Comment>updated Relationships, Taxonomy_Mappings</Modification_Comment>
+            </Modification>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2020-02-24</Modification_Date>
+					<Modification_Version>4.0</Modification_Version>
+					<Modification_ReleaseDate>2020-02-24</Modification_ReleaseDate>
+					<Modification_Comment>updated Relationships</Modification_Comment>
+				</Modification>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2023-04-27</Modification_Date>
+					<Modification_Version>4.11</Modification_Version>
+					<Modification_ReleaseDate>2023-04-27</Modification_ReleaseDate>
+					<Modification_Comment>updated Mapping_Notes</Modification_Comment>
+				</Modification>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2023-06-29</Modification_Date>
+					<Modification_Version>4.12</Modification_Version>
+					<Modification_ReleaseDate>2023-06-29</Modification_ReleaseDate>
+					<Modification_Comment>updated Mapping_Notes</Modification_Comment>
+				</Modification>
+         </Content_History>
+      </Category>
+	</Categories>
+</Weakness_Catalog>
