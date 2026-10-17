@@ -1,0 +1,9 @@
+project:
+  name: Test project
+  id: test-project
+  description: This is a test project for the OTM development
+  owner: John Doe
+  ownerContact: john.doe@example.com
+  attributes:
+    filePath: “file.xml”
+    cmdbId: MyApp123

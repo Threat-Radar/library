@@ -1,0 +1,5 @@
+risk:
+  likelihood: 50
+  likelihoodComment: It is reasonable to think that this might happen, but it requires that the attacker has a deep knowledge of cryptography
+  impact: 100
+  impactComment: If this threat becomes a reality, the company will struggle to keep customers and the monetary loss would jeopardize the business

@@ -1,0 +1,3 @@
+mitigations:
+  - mitigation: fd6136f4-e2ff-11eb-ba80-0242ac130004
+    state: implemented

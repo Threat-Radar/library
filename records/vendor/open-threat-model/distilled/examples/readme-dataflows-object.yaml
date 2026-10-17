@@ -1,0 +1,21 @@
+dataflows:
+  - name: Dataflow between webservice and mongo.
+    id: cc-store-in-db
+    description: Creditcard information being exchanged in between the web app and the data base
+    bidirectional: true
+    source: web-service
+    target: customer-database
+    tags:
+      - http
+      - https
+    assets:
+      - cc-data
+    threats:
+      - threat: 22724267-be7e-44c0-8b1f-d7d33e9a34ec
+        state: exposed
+        mitigations:
+          - mitigation: fd6136f4-e2ff-11eb-ba80-0242ac130004
+            state: required
+    attributes:
+      attr1: value1
+      attr2: value2

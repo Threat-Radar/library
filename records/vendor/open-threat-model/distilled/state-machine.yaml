@@ -1,0 +1,298 @@
+schema: "library-state-machine/v1"
+record: "open-threat-model"
+reviewed_by: ""
+note: >-
+  The Open Threat Model is a data format: it defines no protocol, no message exchange and no processing model,
+  and no structure in it has a defined lifecycle. Two fields name a state, Threat instance state and Mitigation
+  instance state, both free strings with no enumeration, no transition and no rule in either the README or the
+  schema; their values appear only in examples (M1, M2). The specification itself has a version lifecycle:
+  semver is stated, one future change is announced, and the repository history shows the releases (M3). kind:
+  stated = README.md (or CONTRIBUTING.md) says it, quoted with its line; inferred = read from stated text, with
+  the evidence; observed = present in the examples (README examples, EXAMPLE.json, EXAMPLE.yaml) or in the
+  source repository's git history, with locators. An OTM document carries no revision number, timestamp or
+  history, so no transition can be observed inside one document: a change of state is visible only by comparing
+  two documents (event document-revision).
+events:
+  - name: "document-revision"
+    kind: "inferred"
+    definition: "a new version of an OTM document for the same project replaces the previous one"
+    evidence:
+      quote: >-
+        OTM can be used to document your system and threat model, to keep you threat model aware of the changes that
+        happens in the system and many other use cases.
+      locator: "README L7"
+    carried_by: >-
+      nothing in the format: no revision, date, author or history field exists (schema L1-308); a consumer compares
+      two documents, e.g. by project id (Project object id, README L93)
+  - name: "mitigation-put-in-place"
+    kind: "inferred"
+    definition: "the control or action a mitigation describes is implemented for one element"
+    evidence:
+      - quote: >-
+          Mitigations are the actions that we can take (or controls that we can put in place) in order to prevent a
+          threat from taking place.
+        locator: "README L1774"
+      - quote: "<b>REQUIRED</b> From 0 to 100. How much will the threat risk decrease once this mitigation is implemented?"
+        locator: "README L1824"
+  - name: "specification-release"
+    kind: "observed"
+    definition: "a new version of the OTM specification and its schema is published"
+    evidence:
+      - quote: >-
+          The Open Threat Model specification is versioned using [Semantic Versioning
+          2.0.0](https://semver.org/spec/v2.0.0.html) (semver) and follows the semver specification.
+        locator: "README L15"
+      - observed: >-
+          git tags 0.1.0 (4147643, 2023-08-29) and 0.2.0 (6bcb2ab, 2023-08-30) in
+          https://github.com/iriusrisk/OpenThreatModel
+  - name: "schema-revised-in-place"
+    kind: "observed"
+    definition: "the schema file changes without a version change"
+    evidence:
+      - observed: >-
+          commit 06288a0 (2024-01-31, "define objects for all arrays") changed otm_schema.json after the 0.2.0 tag:
+          sha256 bf3a9703...b18a at the tag, 81e7f5a5...ef0c at the pinned commit; $id otm-0.2.0 unchanged (schema L3);
+          README.md unchanged since 355287f (2023-08-29)
+machines:
+  - id: "M1"
+    name: "threat-instance-state"
+    entity: >-
+      a Threat instance object: one root threat as it applies to one component or one dataflow
+      (/components/*/threats/*, /dataflows/*/threats/*); the state is its state field
+    locator: >-
+      README L1715-1770 (Threat instance object; state at L1742-L1744); schema /definitions/threat/properties/state
+      L261
+    field:
+      readme: "<b>REQUIRED</b> Describes the state in which the threat currently is."
+      readme_type: "string"
+      readme_required: "yes"
+      schema_type: ["string"]
+      schema_required: "yes"
+      enumeration: "none: the README names no values and the schema accepts any string"
+    initial: "none defined"
+    states:
+      - name: "exposed"
+        kind: "observed"
+        observed_at: {README: ["L1061 (Components example)", "L1492 (Dataflows example)", "L1766 (Threat instance example)"], EXAMPLE.json: ["L127", "L216"], EXAMPLE.yaml: ["L92", "L161"]}
+        meaning: "not defined by the source"
+      - name: "mitigated"
+        kind: "observed"
+        observed_at: {README: ["L1747 (state field example)"]}
+        meaning: "not defined by the source"
+      - name: "(any other string)"
+        kind: "inferred"
+        meaning: >-
+          the schema accepts any string (L261) and the README lists no values, so a consumer must expect values no
+          source names
+    transitions:
+      - from: "exposed"
+        to: "mitigated"
+        kind: "inferred"
+        trigger: "document-revision"
+        guard: "none defined by the source"
+        evidence:
+          - quote: "<b>REQUIRED</b> Describes the state in which the threat currently is."
+            locator: "README L1744"
+            reading: "\"currently\" implies the state can change over time"
+          - quote: "Array of mitigation that can prevent the threat from taking place."
+            locator: "README L1756"
+        caveat: >-
+          Not stated. The source pairs no two values, so even the direction is a reading. No rule ties it to M2 either:
+          both complete examples that pair a threat instance with an implemented mitigation keep the threat exposed
+          (README L1061 with L1064; EXAMPLE.json L127 with L131). That contradicts a rule "an implemented mitigation
+          makes the threat mitigated"; it fits states set independently, or a rule that weighs riskReduction (50 for
+          that mitigation: README L1858, EXAMPLE.json L309). The source states no rule.
+    error_states:
+      - name: "(state absent)"
+        kind: "stated"
+        detection: "schema: required [\"threat\", \"state\"] (L258); examples/neg-threat-instance-missing-state.json"
+      - name: "(threat id not in root threats)"
+        kind: "stated"
+        quote: >-
+          <b>REQUIRED</b> Unique identifier of the related threat. It should be one of the threats described in the root
+          node threats.
+        locator: "README L1731-1732"
+        detection: "not by the schema: derived check XR-08; examples/neg-xref-dangling-threat-reference.json"
+    notes: >-
+      The state belongs to the instance, not to the root threat: a threat can be exposed on one element and in
+      another state elsewhere. Every complete threat instance in the source examples is exposed; mitigated occurs
+      only in the one-line state field example (README L1747).
+  - id: "M2"
+    name: "mitigation-instance-state"
+    entity: >-
+      a Mitigation instance object: one root mitigation as applied within one threat instance on one element
+      (/components/*/threats/*/mitigations/*, /dataflows/*/threats/*/mitigations/*); the state is its state field
+    locator: >-
+      README L1869-1914 (Mitigation instance object; state at L1895-L1897); schema
+      /definitions/threat/properties/mitigations/items/properties/state L269
+    field:
+      readme: "<b>REQUIRED</b> State of the mitigation"
+      readme_type: "string"
+      readme_required: "yes"
+      schema_type: ["string", "null"]
+      schema_required: "yes"
+      enumeration: "none: the README names no values and the schema accepts any string or null"
+    initial: "none defined"
+    states:
+      - name: "required"
+        kind: "observed"
+        observed_at: {README: ["L1495 (Dataflows example)"], EXAMPLE.json: ["L220"], EXAMPLE.yaml: ["L164"]}
+        meaning: "not defined by the source"
+      - name: "implemented"
+        kind: "observed"
+        observed_at: {README: ["L1064 (Components example)", "L1769 (Threat instance example)", "L1900 (state field example)", "L1913 (Mitigation instance example)"], EXAMPLE.json: ["L131"], EXAMPLE.yaml: ["L95"]}
+        meaning: "not defined by the source; L1824 uses the word: \"once this mitigation is implemented\""
+      - name: "(any other string)"
+        kind: "inferred"
+        meaning: "the schema accepts any string (L269) and the README lists no values"
+    transitions:
+      - from: "required"
+        to: "implemented"
+        kind: "inferred"
+        trigger: "mitigation-put-in-place, recorded by a document-revision"
+        guard: "none defined by the source"
+        evidence:
+          - quote: "<b>REQUIRED</b> From 0 to 100. How much will the threat risk decrease once this mitigation is implemented?"
+            locator: "README L1824"
+            reading: "a mitigation is implemented at some point; before that it is not"
+          - quote: >-
+              Mitigations are the actions that we can take (or controls that we can put in place) in order to prevent a
+              threat from taking place.
+            locator: "README L1774"
+        caveat: >-
+          Not stated. "required" is only an example value (README L1495); the source does not say that it precedes
+          "implemented" or what other states exist.
+    error_states:
+      - name: "(state absent)"
+        kind: "stated"
+        detection: "schema: required [\"mitigation\", \"state\"] (L266)"
+      - name: "(state null)"
+        kind: "inferred"
+        detection: >-
+          README REQUIRED string (L1896-1897) but the schema allows null (L269), M-09; strict profile S-18;
+          examples/neg-strict-mitigation-state-null.json
+      - name: "(mitigation id not in root mitigations)"
+        kind: "stated"
+        quote: >-
+          <b>REQUIRED</b> Unique identifier of the related mitigation. It should be declared in the root node
+          mitigation.
+        locator: "README L1885"
+        detection: "not by the schema: derived check XR-09"
+    notes: >-
+      Observed scoping: the same mitigation (fd6136f4-..., EXAMPLE.json L130 and L219) against the same threat
+      (22724267-..., L126 and L215) is implemented on component web-service (L131) and required on dataflow
+      cc-store-in-db (L220). The state is per element, threat and mitigation, not a property of the root mitigation,
+      which has no state field (Mitigations object, README L1772-1867).
+  - id: "M3"
+    name: "otm-specification-version"
+    entity: "the OTM specification and its JSON schema; a document names the version it uses in otmVersion"
+    locator: "README L13-19 (Versions), L55 (otmVersion), L1139 (TrustZones type); schema L3 ($id); CONTRIBUTING.md L26-28"
+    statements:
+      - quote: >-
+          The Open Threat Model specification is versioned using [Semantic Versioning
+          2.0.0](https://semver.org/spec/v2.0.0.html) (semver) and follows the semver specification.
+        locator: "README L15"
+        kind: "stated"
+      - quote: "Current schema version: 0.2.0"
+        locator: "README L18"
+        kind: "stated"
+      - quote: >-
+          **REQUIRED** This field states the OTM version used in the current file. It is an important field in order to
+          ensure backwards compatibility.
+        locator: "README L55"
+        kind: "stated"
+      - quote: "<b>RECOMMENDED (required in the next major version)</b> Type for the trust zone"
+        locator: "README L1139"
+        kind: "stated"
+      - quote: >-
+          As mentioned earlier in the documentation, the OTM standard is intended to use Semantic Versioning 2.0.0.
+          However, the proposal is already in progress, and the policy for versioning could change in the future.
+        locator: "CONTRIBUTING.md L27-28"
+        kind: "stated"
+    initial: "0.1.0"
+    states:
+      - name: "0.1.0"
+        kind: "observed"
+        observed_at:
+          - "git tag 0.1.0 -> 4147643 (2023-08-29)"
+          - "schema $id otm-0.1.0.schema.json before commit 355287f"
+          - "README L55 field example \"otmVersion: 0.1.0\""
+          - "README L372 \"OTM version 0.1.0\""
+      - name: "0.2.0"
+        kind: "stated"
+        quote: "Current schema version: 0.2.0"
+        locator: "README L18"
+        observed_at: ["git tag 0.2.0 -> 6bcb2ab (2023-08-30)", "schema $id otm-0.2.0.schema.json (L3)", "EXAMPLE.json L2, EXAMPLE.yaml L1"]
+        current: true
+      - name: "next major version"
+        kind: "stated"
+        quote: "<b>RECOMMENDED (required in the next major version)</b> Type for the trust zone"
+        locator: "README L1139"
+        number: "not stated; 1.0.0 by semver from 0.2.0 (inferred)"
+    transitions:
+      - from: "0.1.0"
+        to: "0.2.0"
+        kind: "observed"
+        trigger: "specification-release"
+        evidence: >-
+          commit 355287f (2023-08-29) "[OPT-952] Upgraded to v0.2.0 with a new recommended type field in the TrustZone
+          object"
+        effect: >-
+          TrustZones object gains the optional field type (README L1137-1143; schema L83); "Current schema version"
+          0.1.0 -> 0.2.0 (L18); $id otm-0.1.0 -> otm-0.2.0
+        semver_reading: "an optional field added: a backwards-compatible change, a minor version step under semver (inferred)"
+      - from: "0.2.0"
+        to: "0.2.0"
+        kind: "observed"
+        trigger: "schema-revised-in-place"
+        evidence: "commit 06288a0 (2024-01-31) \"define objects for all arrays\""
+        effect: >-
+          representations and assets item constraints move under items: in the tagged file they sat on the arrays, where
+          draft-07 ignores them, so items were unchecked. Two fixtures change result (examples/expected.yaml X-03). $id,
+          README and "Current schema version" unchanged.
+        note: >-
+          Two different files carry the $id otm-0.2.0. Whether this is a release of new contents under an old version
+          number is a question for design-notes; the source says nothing about it.
+      - from: "0.2.0"
+        to: "next major version"
+        kind: "stated"
+        trigger: "specification-release"
+        guard: "semver (L15): making an optional field required is a breaking change, hence a major version (inferred)"
+        effect: "TrustZones object type becomes required (L1139)"
+        quote: "<b>RECOMMENDED (required in the next major version)</b> Type for the trust zone"
+        locator: "README L1139"
+    consumer_rules:
+      stated: "otmVersion is REQUIRED and \"an important field in order to ensure backwards compatibility\" (L55)."
+      not_stated:
+        - "what a consumer does with a version it does not know (reject, best effort, warn)"
+        - "which schema validates which otmVersion; the 0.2.0 schema accepts any otmVersion string (M-13)"
+        - >-
+          whether a newer minor version may add fields an older consumer must ignore (no object is closed, so unknown
+          fields are accepted: messages.yaml extension_points.open_objects)
+        - "any deprecation process"
+    error_states:
+      - name: "(otmVersion absent)"
+        kind: "stated"
+        detection: "schema: root required [\"otmVersion\", \"project\"] (L7); examples/neg-missing-otmversion.yaml"
+      - name: "(otmVersion not a semver version)"
+        kind: "inferred"
+        detection: "not by the schema (L9-11); strict profile S-01; examples/neg-strict-otmversion-not-semver.yaml"
+      - name: "(otmVersion unknown to the consumer)"
+        kind: "inferred"
+        detection: "undefined by the source"
+no_lifecycle:
+  - structure: >-
+      Project, Representations, RepresentationElement, Assets, Components, TrustZones, Dataflows, Threats,
+      Mitigations
+    finding: "no status, state, revision or date field; nothing in the source describes a lifecycle for them"
+  - structure: "AssetRisk, TrustZoneRisk, ThreatRisk, Mitigations riskReduction"
+    finding: >-
+      numbers, not states. AssetRisk values "are passed through OTM into the IR rules engine which performs the
+      calculation for inherent risk" (README L784): a calculation outside OTM, not specified by it.
+  - structure: "the OTM document"
+    finding: >-
+      README L7 says OTM can "keep you threat model aware of the changes that happens in the system", but the format
+      has no document status, version of the content, timestamp, author or change history; only otmVersion, which is
+      the specification version (M3).
+  - structure: "exchange"
+    finding: "no exchange, request, response, transport or processing order is defined anywhere in the source"

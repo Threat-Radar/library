@@ -1,0 +1,6 @@
+representations:
+  representation: architecture-threat-model
+  id: threat-model-representation-id
+  name: Threat model representation
+  attributes:
+    author: John Doe

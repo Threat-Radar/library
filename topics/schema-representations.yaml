@@ -10,4 +10,5 @@ bears_on:
   - R-010
 records:
   - cwe
+  - open-threat-model
 answer: ""

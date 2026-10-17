@@ -1,0 +1,1599 @@
+schema: "library-examples/v1"
+record: "open-threat-model"
+reviewed_by: ""
+note: >-
+  Expected and actual results for every fixture in this directory. actual is what jsonschema reported when run
+  on 2026-10-14; nothing here is predicted. expected is the result the fixture is meant to have: for a source
+  example, that it conforms (the source presents it as an example); for a derived fixture, the one designed
+  violation. Where the two differ, matches_expected is false and source_defects says why from the source text. A
+  test harness should assert actual (instance_path and keyword are stable; message is jsonschema's wording). The
+  README Examples-column snippets are in readme-field-examples.yaml, with their own results.
+validation:
+  tool: "python 3.14.3, jsonschema 4.26.0 (Draft7Validator), PyYAML 6.0.3"
+  run_on: "2026-10-14"
+  schemas: {source: {file: "schema/otm_schema.json", sha256: "81e7f5a52a0a7d66b44cc4e0c15f21b5d60e1ca945c810e39622a730545eef0c"}, strict: {file: "schema/otm-0.2.0.derived-strict.schema.json", sha256: "1ffdbbaae740ba3d6148fdce3324be6f28f0c3e21e2cf277d6d3b0b8d676c235"}, tag_0_2_0: {file: "not held: git show 0.2.0:otm_schema.json in the source repository", sha256: "bf3a9703787b942ca81d08dd7e4288c4b6396258e8e117b181009c4e0c25b18a"}}
+  document_rule: "a whole document (kind: document) is validated against the root schema (schema_pointer \"\")"
+  fragment_rule: >-
+    a README example (kind: fragment) is a mapping whose top-level key names a field; the value under that key
+    (instance, a JSON pointer into the parsed fixture) is validated against the property subschema that key names
+    in the context of the section's structure (schema_pointer). The whole schema document is kept so that its
+    $refs resolve: the validator is built from the root with "$ref": "#<schema_pointer>" added (draft-07 ignores
+    the siblings of $ref) and $id removed. secondary repeats a check where the README writes a single element as a
+    mapping under a key that holds an array.
+  yaml_loading: >-
+    PyYAML SafeLoader with the YAML 1.1 timestamp resolver removed, so that every scalar maps onto a JSON type
+    (README L23: an OTM document is a JSON object); duplicate keys are an error (none occur). Where the stock YAML
+    1.1 loader gives a different result, it is recorded as actual_with_stock_yaml_1_1_loader.
+  errors: >-
+    one entry per jsonschema error, sorted by instance_path: instance_path (RFC 6901 pointer into the instance),
+    keyword, schema_path (relative to schema_pointer; jsonschema leaves $ref hops out of it) and message.
+  xref: >-
+    derived checks XR-01..XR-10 (messages.yaml derived_checks; ours, not the source's), run on whole documents
+    only. info lists ids reused across collections, which the README neither allows nor forbids.
+  undeclared_keys_accepted: >-
+    keys present in the instance that the schema declares no property for at that place; no object in the schema
+    is closed, so each is accepted and ignored
+counts:
+  fixtures: 49
+  readme_examples: 23
+  source_documents: 2
+  derived:
+    A_source_schema_negatives: 11
+    B_strict_only_negatives: 9
+    C_xref_negatives: 4
+  actual:
+    source_schema:
+      valid: 32
+      invalid: 17
+    strict_schema:
+      valid: 22
+      invalid: 27
+  matches_expected: 42
+  source_defects_shown:
+    - "readme-components-object.yaml"
+    - "readme-dataflows-object.yaml"
+    - "readme-representation-element-for-code.yaml"
+    - "readme-representation-element-for-diagram.yaml"
+    - "readme-representation-element-for-threat-model.yaml"
+    - "readme-representation-type-diagram.yaml"
+    - "readme-trustzones-object.yaml"
+  readme_field_examples:
+    vectors: 86
+    file: "readme-field-examples.yaml"
+    valid_under_both: 84
+    not_valid_yaml: ["FE-023"]
+    not_validated_key_absent: ["FE-073"]
+vectors:
+  - file: "readme-project-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Project object", section_heading_line: 65, example_heading_line: 169, fence_lines: [171, 181], lines: [172, 180], bytes: [7724, 7954], block: "1 of 1"}
+    sha256: "3a128b8d84c7a79e1d5b11cc0cf6f34f735e2833682d63888b5833e6f45b66b1"
+    size: 230
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["project"]
+    instance: "/project"
+    schema_pointer: "/properties/project"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Project object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-representations-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Representations object", section_heading_line: 183, example_heading_line: 271, fence_lines: [273, 294], lines: [274, 293], bytes: [9326, 9789], block: "1 of 1"}
+    sha256: "f13b07ca24d27ce7aab6f6d4a73b64530f369a9543ff5342917ac7374e3bc2a3"
+    size: 463
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations"]
+    instance: "/representations"
+    schema_pointer: "/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Representations object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-representation-type-diagram.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Diagram", section_heading_line: 300, example_heading_line: 310, fence_lines: [312, 324], lines: [313, 323], bytes: [10503, 10777], block: "1 of 1"}
+    sha256: "172c808a2d49c615fd30ff5d23f079feb2847186134aec6c21cb52461642aa21"
+    size: 274
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations"]
+    instance: "/representations"
+    schema_pointer: "/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Diagram\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/0/attributes/transparent", keyword: "type", schema_path: "items/properties/attributes/additionalProperties/type", message: "40 is not of type 'string'"}
+    undeclared_keys_accepted: []
+    matches_expected: false
+    source_defects:
+      - >-
+        attributes value transparent: 40 (README L323) is a number; attributes is "Map [string, string]" (L255). The
+        source schema accepts it; the strict profile rejects it (S-28).
+  - file: "readme-representation-type-code.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Code", section_heading_line: 326, example_heading_line: 336, fence_lines: [338, 348], lines: [339, 347], bytes: [11359, 11561], block: "1 of 1"}
+    sha256: "2326d2c09eaff53710d727b79dd9ab30cd46a9a844730811dcceed08fba798a7"
+    size: 202
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations"]
+    instance: "/representations"
+    schema_pointer: "/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Code\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-representation-type-threat-model.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Threat-Model", section_heading_line: 350, example_heading_line: 356, fence_lines: [358, 366], lines: [359, 365], bytes: [11694, 11880], block: "1 of 1"}
+    sha256: "30d7e58facf83a107265fd9fa7a056f2e933b4fc3249e3fe6876cbfb3f2e7386"
+    size: 186
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations"]
+    instance: "/representations"
+    schema_pointer: "/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Threat-Model\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-representation-element-for-diagram.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Representation element for diagram", section_heading_line: 380, example_heading_line: 460, fence_lines: [462, 476], lines: [463, 475], bytes: [13656, 13865], block: "1 of 1"}
+    sha256: "48b97ab36d04c85fb57c01577282183b292364ea162d9422a9ab3d866bb399f6"
+    size: 209
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations", "attributes"]
+    instance: "/representations"
+    schema_pointer: "/properties/components/items/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Representation element for diagram\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "type", schema_path: "type", message: "{'representation': 'architecture-diagram', 'name': 'Private Box', 'id': 'private-box-shape', 'position': {'x': 0, 'y': 0}, 'size': {'with': 100, 'height': 100}} is not of type 'array', 'null'"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "type", schema_path: "type", message: "{'representation': 'architecture-diagram', 'name': 'Private Box', 'id': 'private-box-shape', 'position': {'x': 0, 'y': 0}, 'size': {'with': 100, 'height': 100}} is not of type 'array', 'null'"}
+    secondary:
+      - instance: "/representations"
+        schema_pointer: "/definitions/representationElement"
+        actual:
+          source_schema:
+            valid: false
+            error_count: 1
+            errors:
+              - {instance_path: "/size", keyword: "required", schema_path: "properties/size/required", message: "'width' is a required property"}
+          strict_schema:
+            valid: false
+            error_count: 1
+            errors:
+              - {instance_path: "/size", keyword: "required", schema_path: "properties/size/required", message: "'width' is a required property"}
+        undeclared_keys_accepted: ["/representations/size/with"]
+    undeclared_keys_accepted: []
+    matches_expected: false
+    source_defects:
+      - >-
+        The element is written as a mapping under representations (README L463); everywhere an element occurs,
+        representations is an array (schema L112-115, L93-96), so the fragment fails "type".
+      - "Checked as an element (secondary), size has with: 100 (L471) for width, so size fails required width."
+      - "attributes (L473-475) sits at column 0, a sibling of representations, outside the element."
+  - file: "readme-representation-element-for-code.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Representation element for code", section_heading_line: 478, example_heading_line: 586, fence_lines: [588, 606], lines: [589, 605], bytes: [15522, 15963], block: "1 of 1"}
+    sha256: "ca4ebded11ff7cf8ff7ae25fdc26e411d20f859b7f145d6df580a465e35d18ca"
+    size: 441
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations"]
+    instance: "/representations"
+    schema_pointer: "/properties/components/items/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Representation element for code\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "type", schema_path: "type", message: "{'representation': 'code-repository', 'id': 'org.example.class', 'name': 'Example Class', 'file': 'path/to/class.java', 'line': 324, 'codeSnippet': 'public void createOTM(String[] args) {\\n  Scanner reader = new Scanner(System.in);\\n  System.out.print(\"Enter a number: \");\\n  \\n  int number = reader.nextInt()\\n  System.out.println(\"You entered: \" + number);\\n}\\n', 'attributes': {'source': 'sonar', 'author': 'John Doe'}} is not of type 'array', 'null'"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "type", schema_path: "type", message: "{'representation': 'code-repository', 'id': 'org.example.class', 'name': 'Example Class', 'file': 'path/to/class.java', 'line': 324, 'codeSnippet': 'public void createOTM(String[] args) {\\n  Scanner reader = new Scanner(System.in);\\n  System.out.print(\"Enter a number: \");\\n  \\n  int number = reader.nextInt()\\n  System.out.println(\"You entered: \" + number);\\n}\\n', 'attributes': {'source': 'sonar', 'author': 'John Doe'}} is not of type 'array', 'null'"}
+    secondary:
+      - instance: "/representations"
+        schema_pointer: "/definitions/representationElement"
+        actual:
+          source_schema:
+            valid: true
+            error_count: 0
+            errors: []
+          strict_schema:
+            valid: true
+            error_count: 0
+            errors: []
+        undeclared_keys_accepted: []
+    undeclared_keys_accepted: []
+    matches_expected: false
+    source_defects: ["The element is written as a mapping under representations (README L589), not as an array item; checked as an element (secondary) it is valid."]
+  - file: "readme-representation-element-for-threat-model.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Representation element for threat-model", section_heading_line: 608, example_heading_line: 672, fence_lines: [674, 681], lines: [675, 680], bytes: [16953, 17122], block: "1 of 1"}
+    sha256: "4558a0fe20088a7a72c0f1d5f3a12f10bb78abceb4c1566f8099789a146f269c"
+    size: 169
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["representations"]
+    instance: "/representations"
+    schema_pointer: "/properties/components/items/properties/representations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Representation element for threat-model\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "type", schema_path: "type", message: "{'representation': 'architecture-threat-model', 'id': 'threat-model-representation-id', 'name': 'Threat model representation', 'attributes': {'author': 'John Doe'}} is not of type 'array', 'null'"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "type", schema_path: "type", message: "{'representation': 'architecture-threat-model', 'id': 'threat-model-representation-id', 'name': 'Threat model representation', 'attributes': {'author': 'John Doe'}} is not of type 'array', 'null'"}
+    secondary:
+      - instance: "/representations"
+        schema_pointer: "/definitions/representationElement"
+        actual:
+          source_schema:
+            valid: true
+            error_count: 0
+            errors: []
+          strict_schema:
+            valid: true
+            error_count: 0
+            errors: []
+        undeclared_keys_accepted: []
+    undeclared_keys_accepted: []
+    matches_expected: false
+    source_defects: ["The element is written as a mapping under representations (README L675), not as an array item; checked as an element (secondary) it is valid."]
+  - file: "readme-assets-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Assets object", section_heading_line: 683, example_heading_line: 754, fence_lines: [756, 778], lines: [757, 777], bytes: [18225, 18961], block: "1 of 1"}
+    sha256: "ef697d86708e91edccf814059464eeed6cbfcea7f36fc2da4f0c1812ee6eca84"
+    size: 736
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["assets"]
+    instance: "/assets"
+    schema_pointer: "/properties/assets"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Assets object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+    notes: "The second asset ends with an empty attributes: (README L777), which is null; the schema allows null."
+  - file: "readme-asset-instance-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Asset Instance object", section_heading_line: 848, example_heading_line: 894, fence_lines: [896, 903], lines: [897, 902], bytes: [21057, 21217], block: "1 of 1"}
+    sha256: "1e38b45495aae22f851425089bab938012997a6d67cf7578ae2a8c8a2396bfa5"
+    size: 160
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["assets"]
+    instance: "/assets"
+    schema_pointer: "/properties/components/items/properties/assets"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Asset Instance object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+    notes: "The ids are UUIDs that name no asset of any README example; a fragment cannot be reference-checked."
+  - file: "readme-components-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Components object", section_heading_line: 905, example_heading_line: 1031, fence_lines: [1033, 1097], lines: [1034, 1096], bytes: [23558, 25125], block: "1 of 1"}
+    sha256: "59b2da91634cbdbec287f7ed0a8c6e674d0e33ee6250bcb5e30aca8018613b8e"
+    size: 1567
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["components"]
+    instance: "/components"
+    schema_pointer: "/properties/components"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Components object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 2
+        errors:
+          - {instance_path: "/0/attributes", keyword: "type", schema_path: "items/properties/attributes/type", message: "[{'owner': 'John Doe'}, {'department': 'IT'}] is not of type 'object', 'null'"}
+          - {instance_path: "/1/representations/0", keyword: "required", schema_path: "items/properties/representations/items/required", message: "'representation' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 2
+        errors:
+          - {instance_path: "/0/attributes", keyword: "type", schema_path: "items/properties/attributes/type", message: "[{'owner': 'John Doe'}, {'department': 'IT'}] is not of type 'object', 'null'"}
+          - {instance_path: "/1/representations/0", keyword: "required", schema_path: "items/properties/representations/items/required", message: "'representation' is a required property"}
+    undeclared_keys_accepted: ["/components/1/representations/0/represetation"]
+    matches_expected: false
+    source_defects:
+      - "attributes of the first component is a list of one-key mappings (README L1065-1067), not a map: fails \"type\"."
+      - >-
+        The second component's element writes represetation (L1077) for representation: the required key is missing,
+        and represetation itself is accepted as an undeclared key.
+  - file: "readme-trustzones-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "TrustZones object", section_heading_line: 1099, example_heading_line: 1208, fence_lines: [1210, 1248], lines: [1211, 1247], bytes: [27220, 28057], block: "1 of 1"}
+    sha256: "b71b4734a36d7854cc6187a6106c8e9e48c981ba57937214f07c9d3250ee9c33"
+    size: 837
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["trustzones"]
+    instance: "/trustzones"
+    schema_pointer: "/properties/trustZones"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"TrustZones object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 4
+        errors:
+          - {instance_path: "/0/representations", keyword: "type", schema_path: "items/properties/representations/type", message: "{'representation': 'architecture-diagram', 'id': 'internet-box-shape', 'name': 'Internet', 'position': {'x': 600, 'y': 100}, 'size': {'width': 100, 'height': 100}} is not of type 'array', 'null'"}
+          - {instance_path: "/1/parent", keyword: "oneOf", schema_path: "items/properties/parent/oneOf", message: "'internet' is valid under each of {'required': ['component']}, {'required': ['trustZone']}"}
+          - {instance_path: "/1/parent", keyword: "type", schema_path: "items/properties/parent/type", message: "'internet' is not of type 'object'"}
+          - {instance_path: "/1/representations", keyword: "type", schema_path: "items/properties/representations/type", message: "{'representation': 'architecture-diagram', 'id': 'private-box-shape', 'name': 'Private', 'postion': {'x': 0, 'y': 0}, 'size': {'with': 100, 'height': 100}} is not of type 'array', 'null'"}
+      strict_schema:
+        valid: false
+        error_count: 4
+        errors:
+          - {instance_path: "/0/representations", keyword: "type", schema_path: "items/properties/representations/type", message: "{'representation': 'architecture-diagram', 'id': 'internet-box-shape', 'name': 'Internet', 'position': {'x': 600, 'y': 100}, 'size': {'width': 100, 'height': 100}} is not of type 'array', 'null'"}
+          - {instance_path: "/1/parent", keyword: "oneOf", schema_path: "items/properties/parent/oneOf", message: "'internet' is valid under each of {'required': ['component']}, {'required': ['trustZone']}"}
+          - {instance_path: "/1/parent", keyword: "type", schema_path: "items/properties/parent/type", message: "'internet' is not of type 'object'"}
+          - {instance_path: "/1/representations", keyword: "type", schema_path: "items/properties/representations/type", message: "{'representation': 'architecture-diagram', 'id': 'private-box-shape', 'name': 'Private', 'postion': {'x': 0, 'y': 0}, 'size': {'with': 100, 'height': 100}} is not of type 'array', 'null'"}
+    secondary:
+      - instance: "/trustzones/0/representations"
+        schema_pointer: "/definitions/representationElement"
+        actual:
+          source_schema:
+            valid: true
+            error_count: 0
+            errors: []
+          strict_schema:
+            valid: true
+            error_count: 0
+            errors: []
+        undeclared_keys_accepted: []
+      - instance: "/trustzones/1/representations"
+        schema_pointer: "/definitions/representationElement"
+        actual:
+          source_schema:
+            valid: false
+            error_count: 1
+            errors:
+              - {instance_path: "/size", keyword: "required", schema_path: "properties/size/required", message: "'width' is a required property"}
+          strict_schema:
+            valid: false
+            error_count: 1
+            errors:
+              - {instance_path: "/size", keyword: "required", schema_path: "properties/size/required", message: "'width' is a required property"}
+        undeclared_keys_accepted: ["/trustzones/1/representations/postion", "/trustzones/1/representations/size/with"]
+    undeclared_keys_accepted: []
+    matches_expected: false
+    source_defects:
+      - >-
+        The key is trustzones (README L1211); field names are case sensitive (L25), so as a root key it is not
+        trustZones and would be ignored. Its value is validated against /properties/trustZones.
+      - "Both representations values are mappings, not arrays (L1218, L1238): two \"type\" errors."
+      - >-
+        parent: internet (L1236) is a string, not a Parent object: it fails "type", and also "oneOf", because both
+        required-only branches are satisfied vacuously by a non-object.
+      - >-
+        Checked as an element (secondary), the second representation has postion (L1241), an undeclared key that is
+        silently accepted, and with: 100 (L1245) for width, so size fails required width.
+    notes: >-
+      The second trust zone ends with an empty attributes: (README L1247), which is null; the schema allows null
+      there.
+  - file: "readme-trustzonerisk-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "TrustZoneRisk object", section_heading_line: 1250, example_heading_line: 1275, fence_lines: [1277, 1280], lines: [1278, 1279], bytes: [28473, 28497], block: "1 of 1"}
+    sha256: "8acb3ad5b0ddf9f6d12f1d13b887c38db6bb7fa3ad38598d5b9461585a3c1b9e"
+    size: 24
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["risk"]
+    instance: "/risk"
+    schema_pointer: "/properties/trustZones/items/properties/risk"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"TrustZoneRisk object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-parent-object-1.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Parent object", section_heading_line: 1282, example_heading_line: 1324, fence_lines: [1326, 1329], lines: [1327, 1328], bytes: [29415, 29444], block: "1 of 2"}
+    sha256: "ce59cb290579fbb83352d8e11e2f850360ab756862f255fea4d6ad283ae96896"
+    size: 29
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["parent"]
+    instance: "/parent"
+    schema_pointer: "/properties/components/items/properties/parent"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Parent object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+    notes: "One of two blocks under the same #### Example heading (L1324)."
+  - file: "readme-parent-object-2.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Parent object", section_heading_line: 1282, example_heading_line: 1324, fence_lines: [1331, 1334], lines: [1332, 1333], bytes: [29457, 29489], block: "2 of 2"}
+    sha256: "e805f28bc344a32f5155d3dc59c54a4c7d3f9bdfc213a9e5515ae2bcf4531415"
+    size: 32
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["parent"]
+    instance: "/parent"
+    schema_pointer: "/properties/components/items/properties/parent"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Parent object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+    notes: "One of two blocks under the same #### Example heading (L1324)."
+  - file: "readme-dataflows-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Dataflows object", section_heading_line: 1336, example_heading_line: 1475, fence_lines: [1477, 1499], lines: [1478, 1498], bytes: [31620, 32198], block: "1 of 1"}
+    sha256: "590f96add1e3feacdd806edd78c531f482211f7a62e3e79bb7ff8a41a1bf9345"
+    size: 578
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["dataflows"]
+    instance: "/dataflows"
+    schema_pointer: "/properties/dataflows"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Dataflows object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/0", keyword: "required", schema_path: "items/required", message: "'destination' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/0", keyword: "required", schema_path: "items/required", message: "'destination' is a required property"}
+    undeclared_keys_accepted: ["/dataflows/0/target"]
+    matches_expected: false
+    source_defects: ["target: customer-database (README L1484) is written for destination: the required destination is missing, and target is accepted as an undeclared key."]
+  - file: "readme-threats-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Threats object", section_heading_line: 1501, example_heading_line: 1616, fence_lines: [1618, 1640], lines: [1619, 1639], bytes: [34240, 35170], block: "1 of 1"}
+    sha256: "6417fd0625c58fe2ebf2e2f657bae907d166bbd5ad0372bb3d9e22b94bc6400a"
+    size: 930
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["threats"]
+    instance: "/threats"
+    schema_pointer: "/properties/threats"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Threats object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_with_stock_yaml_1_1_loader:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/0/attributes/expirationDate", keyword: "type", schema_path: "items/properties/attributes/additionalProperties/type", message: "datetime.date(2021, 5, 17) is not of type 'string'"}
+    undeclared_keys_accepted: []
+    matches_expected: true
+    source_defects:
+      - >-
+        Valid when YAML scalars are mapped onto JSON types. With a stock YAML 1.1 loader (PyYAML SafeLoader as
+        shipped) expirationDate: 2021-05-17 (README L1635) loads as a date, which the strict profile rejects as a
+        non-string attributes value (S-33); the source schema does not constrain attributes values.
+  - file: "readme-threatrisk-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "ThreatRisk object", section_heading_line: 1642, example_heading_line: 1705, fence_lines: [1707, 1713], lines: [1708, 1712], bytes: [36332, 36658], block: "1 of 1"}
+    sha256: "b6efb8245e259cc499659703fa55952d5b4d47335cf719e41f1106729325ee71"
+    size: 326
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["risk"]
+    instance: "/risk"
+    schema_pointer: "/properties/threats/items/properties/risk"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"ThreatRisk object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-threat-instance-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Threat instance object", section_heading_line: 1715, example_heading_line: 1761, fence_lines: [1763, 1770], lines: [1764, 1769], bytes: [37544, 37722], block: "1 of 1"}
+    sha256: "215d51db0639f4a507c0936817d0e84cb12a177109a6725035dcbf37662ac231"
+    size: 178
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["threats"]
+    instance: "/threats"
+    schema_pointer: "/properties/components/items/properties/threats"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Threat instance object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-mitigations-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Mitigations object", section_heading_line: 1772, example_heading_line: 1851, fence_lines: [1853, 1867], lines: [1854, 1866], bytes: [39012, 39387], block: "1 of 1"}
+    sha256: "9c4a8a3c010bc98eaff1ab0d502edbe5e72b35c61547cc75faac38d68bd43ece"
+    size: 375
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["mitigations"]
+    instance: "/mitigations"
+    schema_pointer: "/properties/mitigations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Mitigations object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+    notes: >-
+      attributes of the first mitigation is indented 7 spaces (L1860-1861) and a blank line separates the two items
+      (L1862); both are valid YAML.
+  - file: "readme-mitigation-instance-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Mitigation instance object", section_heading_line: 1869, example_heading_line: 1908, fence_lines: [1910, 1914], lines: [1911, 1913], bytes: [39992, 40081], block: "1 of 1"}
+    sha256: "1be8b9a70cdd3d4454eacc5e5e5aaa89aede7f88f95dad2b995c0c2c54e2dc56"
+    size: 89
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["mitigations"]
+    instance: "/mitigations"
+    schema_pointer: "/definitions/threat/properties/mitigations"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Mitigation instance object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "readme-repository-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Repository object", section_heading_line: 1916, example_heading_line: 1942, fence_lines: [1944, 1947], lines: [1945, 1946], bytes: [40465, 40514], block: "1 of 1"}
+    sha256: "b61a425a567f128eae2f7dd8ed37a6574419053334143008851087ba96aa043a"
+    size: 49
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["repository"]
+    instance: "/repository"
+    schema_pointer: "/properties/representations/items/properties/repository"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Repository object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+    notes: "Contrast the Repository field example (readme-field-examples.yaml FE-085), a bare URL with no key."
+  - file: "readme-position-object.yaml"
+    origin: "source, verbatim"
+    source: {file: "README.md", section: "Position object", section_heading_line: 1986, example_heading_line: 2024, fence_lines: [2026, 2030], lines: [2027, 2029], bytes: [41478, 41502], block: "1 of 1"}
+    sha256: "3e5c2000ff0757d47d4ecd5d881d062a50eca0670b0581a935f1019606650c04"
+    size: 24
+    format: "yaml"
+    kind: "fragment"
+    top_level_keys: ["position"]
+    instance: "/position"
+    schema_pointer: "/definitions/representationElement/properties/position"
+    expected: {source_schema: "valid", strict_schema: "valid", basis: "inferred: the README presents this block as the #### Example of \"Position object\"; an example is expected to conform"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    undeclared_keys_accepted: []
+    matches_expected: true
+  - file: "EXAMPLE.json"
+    origin: "source, verbatim"
+    source: {file: "EXAMPLE.json", lines: [1, 320], bytes: [0, 8115]}
+    sha256: "045667cd46ff8755a877f0af6104362bd438da3ca68e961ca9e3e1b969a5387b"
+    size: 8115
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "valid", xref: "all pass", basis: "README L11: \"For a complete example see EXAMPLE.yaml or EXAMPLE.json.\""}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+    notes: >-
+      Undeclared keys accepted: /components/3/representations/0/package (L177) and representations on both dataflows
+      (L195, L212). The trust zone type values are UUIDs and the ids slugs (commit 92d7ec6, 2025-12-11).
+  - file: "EXAMPLE.yaml"
+    origin: "source, verbatim"
+    source: {file: "EXAMPLE.yaml", lines: [1, 232], bytes: [0, 5975]}
+    sha256: "d78f42824cc7eec1a1f767aba29d8c0bc3081af6c05149130bb9f7df492a2761"
+    size: 5975
+    format: "yaml"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "valid", xref: "all pass", basis: "README L11: \"For a complete example see EXAMPLE.yaml or EXAMPLE.json.\""}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+    notes: "Parses to data identical to EXAMPLE.json (X-01)."
+  - file: "neg-missing-otmversion.yaml"
+    origin: "derived from EXAMPLE.yaml (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.yaml with its first line (otmVersion: 0.2.0) deleted"
+    diff: ["@@ -1 +0,0 @@", "-otmVersion: 0.2.0"]
+    breaks: "root required [\"otmVersion\", \"project\"] (schema L7)"
+    readme_lines: [55]
+    sha256: "0fd02c74678729ca9957c1742e582af862122eda1e45e5dbf39aba44482bf6b3"
+    size: 5957
+    format: "yaml"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: root required [\"otmVersion\", \"project\"] (schema L7)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "required", schema_path: "required", message: "'otmVersion' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "", keyword: "required", schema_path: "required", message: "'otmVersion' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-component-missing-parent.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /components/0/parent deleted"
+    diff: ["@@ -65,3 +64,0 @@", "-      \"parent\": {", "-        \"trustZone\": \"internet-trustzone\"", "-      },"]
+    breaks: "components items required [..., \"parent\"] (schema L105)"
+    readme_lines: [984]
+    sha256: "2dc38234544a79dedb1a4021230ad073135cbef472ccbb5fcc8aba70bcd6dde9"
+    size: 8046
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: components items required [..., \"parent\"] (schema L105)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/0", keyword: "required", schema_path: "properties/components/items/required", message: "'parent' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/0", keyword: "required", schema_path: "properties/components/items/required", message: "'parent' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-parent-both-trustzone-and-component.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with \"component\": \"web-client\" added to /components/1/parent beside its trustZone"
+    diff:
+      - "@@ -95 +95,2 @@"
+      - "-        \"trustZone\": \"private-trustzone\""
+      - "+        \"trustZone\": \"private-trustzone\","
+      - "+        \"component\": \"web-client\""
+    breaks: "definitions/parent oneOf (schema L224-227): the value matches both branches"
+    readme_lines: [986]
+    sha256: "cfbd05d886b0d7fab605c69918ed07787c45f0e6d4db29728a3b3e6a0c56cb79"
+    size: 8150
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: definitions/parent oneOf (schema L224-227): the value matches both branches"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/1/parent", keyword: "oneOf", schema_path: "properties/components/items/properties/parent/oneOf", message: "{'trustZone': 'private-trustzone', 'component': 'web-client'} is valid under each of {'required': ['component']}, {'required': ['trustZone']}"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/1/parent", keyword: "oneOf", schema_path: "properties/components/items/properties/parent/oneOf", message: "{'trustZone': 'private-trustzone', 'component': 'web-client'} is valid under each of {'required': ['component']}, {'required': ['trustZone']}"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-parent-miscased-key.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /components/2/parent key trustZone written trustzone"
+    diff: ["@@ -143 +143 @@", "-        \"trustZone\": \"private-trustzone\"", "+        \"trustzone\": \"private-trustzone\""]
+    breaks: >-
+      definitions/parent oneOf (schema L224-227): the value matches neither branch (field names are case sensitive,
+      README L25)
+    readme_lines: [25]
+    sha256: "ffdb9341711652bae863cb51b2b47bf014cfde04d157ddf844b051d36b999b94"
+    size: 8115
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: definitions/parent oneOf (schema L224-227): the value matches neither branch (field names are case sensitive, README L25)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/2/parent", keyword: "oneOf", schema_path: "properties/components/items/properties/parent/oneOf", message: "{'trustzone': 'private-trustzone'} is not valid under any of the given schemas"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/2/parent", keyword: "oneOf", schema_path: "properties/components/items/properties/parent/oneOf", message: "{'trustzone': 'private-trustzone'} is not valid under any of the given schemas"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/2/parent/trustzone", "/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-asset-risk-confidentiality-string.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /assets/0/risk/confidentiality the string \"100\""
+    diff: ["@@ -40 +40 @@", "-        \"confidentiality\": 100,", "+        \"confidentiality\": \"100\","]
+    breaks: "type number (schema L65)"
+    readme_lines: [800]
+    sha256: "4bbb14e3aca9e847283dc29342a644a1dec9aabcde55a60d5c2839acf94cacf7"
+    size: 8117
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: type number (schema L65)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/assets/0/risk/confidentiality", keyword: "type", schema_path: "properties/assets/items/properties/risk/properties/confidentiality/type", message: "'100' is not of type 'number'"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/assets/0/risk/confidentiality", keyword: "type", schema_path: "properties/assets/items/properties/risk/properties/confidentiality/type", message: "'100' is not of type 'integer'"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-threat-risk-impact-null.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /threats/0/risk/impact null"
+    diff: ["@@ -294 +294 @@", "-        \"impact\": 100,", "+        \"impact\": null,"]
+    breaks: "type number (schema L184); unlike likelihood (schema L182), impact is not nullable"
+    readme_lines: [1682]
+    sha256: "5e2e6249e1143503067943e461195ee6f8cf5d0b81a668d31c506f9b9e0b689b"
+    size: 8116
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: type number (schema L184); unlike likelihood (schema L182), impact is not nullable"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/threats/0/risk/impact", keyword: "type", schema_path: "properties/threats/items/properties/risk/properties/impact/type", message: "None is not of type 'number'"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/threats/0/risk/impact", keyword: "type", schema_path: "properties/threats/items/properties/risk/properties/impact/type", message: "None is not of type 'integer'"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-trustzones-null.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /trustZones null"
+    diff:
+      - "@@ -228,50 +228 @@"
+      - "-  \"trustZones\": ["
+      - "-    {"
+      - "-      \"name\": \"Internet\","
+      - "-      \"id\": \"internet-trustzone\","
+      - "-      \"type\": \"f0ba7722-39b6-4c81-8290-a30a248bb8d9\","
+      - "-      \"description\": \"This is the internet trust zone\","
+      - "-      \"risk\": {"
+      - "-        \"trustRating\": 20"
+      - "-      },"
+      - "-      \"representations\": ["
+      - "-        {"
+      - "-          \"representation\": \"architecture-diagram\","
+      - "-          \"id\": \"internet-box-shape\","
+      - "-          \"position\": {"
+      - "-            \"x\": 600,"
+      - "-            \"y\": 100"
+      - "-          },"
+      - "-          \"size\": {"
+      - "-            \"width\": 100,"
+      - "-            \"height\": 100"
+      - "-          }"
+      - "-        }"
+      - "-      ],"
+      - "-      \"attributes\": null"
+      - "-    },"
+      - "-    {"
+      - "-      \"name\": \"Private\","
+      - "-      \"id\": \"private-trustzone\","
+      - "-      \"type\": \"2ab4effa-40b7-4cd2-ba81-8247d29a6f2d\","
+      - "-      \"description\": \"Private trustzone for protected components\","
+      - "-      \"risk\": {"
+      - "-        \"trustRating\": 100"
+      - "-      },"
+      - "-      \"representations\": ["
+      - "-        {"
+      - "-          \"representation\": \"architecture-diagram\","
+      - "-          \"id\": \"private-box-shape\","
+      - "-          \"position\": {"
+      - "-            \"x\": 0,"
+      - "-            \"y\": 0"
+      - "-          },"
+      - "-          \"size\": {"
+      - "-            \"width\": 100,"
+      - "-            \"height\": 100"
+      - "-          }"
+      - "-        }"
+      - "-      ],"
+      - "-      \"attributes\": null"
+      - "-    }"
+      - "-  ],"
+      - "+  \"trustZones\": null,"
+    breaks: "type array (schema L76); unlike most root collections, trustZones is not nullable"
+    readme_lines: [61]
+    sha256: "886be8d96592953c594840487db5a57847de69aeb905b9df4689977b712c1a8f"
+    size: 6972
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: type array (schema L76); unlike most root collections, trustZones is not nullable"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/trustZones", keyword: "type", schema_path: "properties/trustZones/type", message: "None is not of type 'array'"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/trustZones", keyword: "type", schema_path: "properties/trustZones/type", message: "None is not of type 'array'"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "fail", findings: [{path: "/components/0/parent/trustZone", detail: "'internet-trustzone' is not the id of any trustZones entry"}, {path: "/components/1/parent/trustZone", detail: "'private-trustzone' is not the id of any trustZones entry"}, {path: "/components/2/parent/trustZone", detail: "'private-trustzone' is not the id of any trustZones entry"}, {path: "/components/3/parent/trustZone", detail: "'private-trustzone' is not the id of any trustZones entry"}]}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+    notes: >-
+      XR-02 also fails: with trustZones null, the parents' trustZone ids resolve to nothing. That is a consequence
+      of the one schema violation, not a second one.
+  - file: "neg-dataflow-target-instead-of-destination.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: >-
+      EXAMPLE.json with /dataflows/1 key destination written target, as the README Dataflows example writes it
+      (README L1484)
+    diff: ["@@ -204 +204 @@", "-      \"destination\": \"customer-database\",", "+      \"target\": \"customer-database\","]
+    breaks: "dataflows items required [..., \"destination\"] (schema L135)"
+    readme_lines: [1429, 1484]
+    sha256: "49f2fea1544eb8b24f216f879afda73fcfaff92eedf381fc628c812f4fd241dc"
+    size: 8110
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: dataflows items required [..., \"destination\"] (schema L135)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/dataflows/1", keyword: "required", schema_path: "properties/dataflows/items/required", message: "'destination' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/dataflows/1", keyword: "required", schema_path: "properties/dataflows/items/required", message: "'destination' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/target", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-representation-element-misspelled-representation.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: >-
+      EXAMPLE.json with /components/2/representations/0 key representation written represetation, as the README
+      Components example writes it (README L1077)
+    diff: ["@@ -151 +151 @@", "-          \"representation\": \"architecture-diagram\",", "+          \"represetation\": \"architecture-diagram\","]
+    breaks: "definitions/representationElement required [\"representation\", \"id\"] (schema L243)"
+    readme_lines: [396, 1077]
+    sha256: "50986c7c1693bf8c02f316e1822010962f1bdbed9da803306b802a45b8c2d524"
+    size: 8114
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: definitions/representationElement required [\"representation\", \"id\"] (schema L243)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/2/representations/0", keyword: "required", schema_path: "properties/components/items/properties/representations/items/required", message: "'representation' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/2/representations/0", keyword: "required", schema_path: "properties/components/items/properties/representations/items/required", message: "'representation' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted:
+      - "/components/2/representations/0/represetation"
+      - "/components/3/representations/0/package"
+      - "/dataflows/0/representations"
+      - "/dataflows/1/representations"
+    matches_expected: true
+  - file: "neg-size-missing-height.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /representations/0/size/height deleted"
+    diff: ["@@ -19,2 +19 @@", "-        \"width\": 1000,", "-        \"height\": 1100", "+        \"width\": 1000"]
+    breaks: "definitions/size required [\"width\", \"height\"] (schema L216)"
+    readme_lines: [1977]
+    sha256: "2a877f97253cdeb75d4af4e38ffc030420265466e9b0478852e447cc5438b255"
+    size: 8091
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: definitions/size required [\"width\", \"height\"] (schema L216)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/representations/0/size", keyword: "required", schema_path: "properties/representations/items/properties/size/required", message: "'height' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/representations/0/size", keyword: "required", schema_path: "properties/representations/items/properties/size/required", message: "'height' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-threat-instance-missing-state.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the source schema enforces the broken constraint"
+    change: "EXAMPLE.json with /components/1/threats/0/state deleted"
+    diff: ["@@ -127 +126,0 @@", "-          \"state\": \"exposed\","]
+    breaks: "definitions/threat required [\"threat\", \"state\"] (schema L258)"
+    readme_lines: [1744]
+    sha256: "c3a4e2b7e532b35c7de0f76ba80dde369944ec7fa59fa1e9b52c2452fc8675a2"
+    size: 8085
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "invalid", source_error_count: 1, strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one constraint the source schema enforces: definitions/threat required [\"threat\", \"state\"] (schema L258)"}
+    actual:
+      source_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/1/threats/0", keyword: "required", schema_path: "properties/components/items/properties/threats/items/required", message: "'state' is a required property"}
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/1/threats/0", keyword: "required", schema_path: "properties/components/items/properties/threats/items/required", message: "'state' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: false
+      error_count: 1
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-asset-risk-out-of-range.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /assets/1/risk/availability 150"
+    diff: ["@@ -54 +54 @@", "-        \"availability\": 50,", "+        \"availability\": 150,"]
+    breaks: "strict S-06 maximum 100"
+    readme_lines: [825]
+    sha256: "186c9a93e916eae4ff691dbc2bbceb9e7d2b394d81139c95192b38b76a9b75dc"
+    size: 8116
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-06 maximum 100) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/assets/1/risk/availability", keyword: "maximum", schema_path: "properties/assets/items/properties/risk/properties/availability/maximum", message: "150 is greater than the maximum of 100"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-trustrating-negative.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /trustZones/0/risk/trustRating -5"
+    diff: ["@@ -235 +235 @@", "-        \"trustRating\": 20", "+        \"trustRating\": -5"]
+    breaks: "strict S-07 minimum 0"
+    readme_lines: [1266]
+    sha256: "27e3a7154748472d857fe6cae1c3e49624d7aff16b450db49d30cb1626d3aea7"
+    size: 8115
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-07 minimum 0) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/trustZones/0/risk/trustRating", keyword: "minimum", schema_path: "properties/trustZones/items/properties/risk/properties/trustRating/minimum", message: "-5 is less than the minimum of 0"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-likelihood-fraction.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /threats/0/risk/likelihood 50.5"
+    diff: ["@@ -292 +292 @@", "-        \"likelihood\": 50,", "+        \"likelihood\": 50.5,"]
+    breaks: "strict S-08 type integer"
+    readme_lines: [1657]
+    sha256: "e41c3e82900773017347ceed8cb011579b89fc3394be4bb0394eba4381101d17"
+    size: 8117
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-08 type integer) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/threats/0/risk/likelihood", keyword: "type", schema_path: "properties/threats/items/properties/risk/properties/likelihood/type", message: "50.5 is not of type 'integer'"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-diagram-without-size.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /representations/0/size (a diagram representation) deleted"
+    diff: ["@@ -18,4 +17,0 @@", "-      \"size\": {", "-        \"width\": 1000,", "-        \"height\": 1100", "-      },"]
+    breaks: "strict S-03 if type diagram then size required"
+    readme_lines: [308]
+    sha256: "080ffee329b8915f2b7e852c4170712881c0f17b570659c8f65288ae6753f9fb"
+    size: 8044
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-03 if type diagram then size required) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/representations/0", keyword: "required", schema_path: "properties/representations/items/then/required", message: "'size' is a required property"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-representation-type-unknown.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /representations/1/type \"repository\""
+    diff: ["@@ -27 +27 @@", "-      \"type\": \"code\",", "+      \"type\": \"repository\","]
+    breaks: "strict S-02 enum diagram, code, threat-model"
+    readme_lines: [189]
+    sha256: "a1f3eafba845f699daa10b78330e94401e2da51f77191f50b5ffad488002719a"
+    size: 8121
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-02 enum diagram, code, threat-model) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/representations/1/type", keyword: "enum", schema_path: "properties/representations/items/properties/type/enum", message: "'repository' is not one of ['diagram', 'code', 'threat-model']"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-attributes-non-string-value.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /project/attributes/cmdbId the number 123"
+    diff: ["@@ -10 +10 @@", "-      \"cmdbId\": \"MyApp123\"", "+      \"cmdbId\": 123"]
+    breaks: "strict S-27 attributes values are strings"
+    readme_lines: [155]
+    sha256: "2a1bfc86e1c0d08457857ac67f5ebde4dde525ee1eb3335c2351322725c06501"
+    size: 8108
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-27 attributes values are strings) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/project/attributes/cmdbId", keyword: "type", schema_path: "properties/project/properties/attributes/additionalProperties/type", message: "123 is not of type 'string'"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-otmversion-not-semver.yaml"
+    origin: "derived from EXAMPLE.yaml (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.yaml with its first line changed to otmVersion: v0.2.0"
+    diff: ["@@ -1 +1 @@", "-otmVersion: 0.2.0", "+otmVersion: v0.2.0"]
+    breaks: "strict S-01 semver pattern"
+    readme_lines: [15, 55]
+    sha256: "23f956d49d23089a010b81b2ceaca7e69b78637be06ae4f94b2c8b24c8d92502"
+    size: 5976
+    format: "yaml"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-01 semver pattern) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/otmVersion", keyword: "pattern", schema_path: "properties/otmVersion/pattern", message: "'v0.2.0' does not match '^(0|[1-9]\\\\d*)\\\\.(0|[1-9]\\\\d*)\\\\.(0|[1-9]\\\\d*)(?:-((?:0|[1-9]\\\\d*|\\\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\\\.(?:0|[1-9]\\\\d*|\\\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\\\+([0-9a-zA-Z-]+(?:\\\\.[0-9a-zA-Z-]+)*))?$'"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-mitigation-state-null.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /dataflows/1/threats/0/mitigations/0/state null"
+    diff: ["@@ -220 +220 @@", "-              \"state\": \"required\"", "+              \"state\": null"]
+    breaks: "strict S-18 type string (REQUIRED)"
+    readme_lines: [1897]
+    sha256: "b305880ab8cb1b6d64bf2441428427eeaf74661946b57e085ddd2cc16ac5e60c"
+    size: 8109
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-18 type string (REQUIRED)) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/dataflows/1/threats/0/mitigations/0/state", keyword: "type", schema_path: "properties/dataflows/items/properties/threats/items/properties/mitigations/items/properties/state/type", message: "None is not of type 'string'"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-strict-tag-null-item.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; the source schema does not catch it; the derived strict profile does"
+    change: "EXAMPLE.json with /components/0/tags [\"external\", null]"
+    diff: ["@@ -70 +70,2 @@", "-        \"external\"", "+        \"external\",", "+        null"]
+    breaks: "strict S-19 array of strings"
+    readme_lines: [957]
+    sha256: "a9862ab639a8efc53d515dcd13494e851e0f822fa53678058f1b726e4088bb91"
+    size: 8129
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "invalid", strict_error_count: 1, basis: "designed: breaks exactly one strict addition (strict S-19 array of strings) and nothing the source schema enforces"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: false
+        error_count: 1
+        errors:
+          - {instance_path: "/components/0/tags/1", keyword: "type", schema_path: "properties/components/items/properties/tags/items/type", message: "None is not of type 'string'"}
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-xref-duplicate-component-id.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; no draft-07 schema here can express it; the derived checks (XR) catch it"
+    change: "EXAMPLE.json with /components/3/id \"customer-database\", the id of /components/2"
+    diff: ["@@ -167 +167 @@", "-      \"id\": \"class-customerdatabase\",", "+      \"id\": \"customer-database\","]
+    breaks: "XR-01 unique ids"
+    readme_lines: [934]
+    sha256: "325ac80f1332509f0ad2e231a384a4e7f6ea3943a75b982d469ae9292ce1c89c"
+    size: 8110
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "valid", xref: "XR-01 fails", basis: "designed: breaks exactly one derived check (XR-01 unique ids); no draft-07 schema can express it"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "fail", findings: [{path: "/components/3/id", detail: "components: id 'customer-database' already used at /components/2/id"}]}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-xref-dangling-dataflow-destination.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; no draft-07 schema here can express it; the derived checks (XR) catch it"
+    change: "EXAMPLE.json with /dataflows/1/destination \"customer-db\", which no component has as id"
+    diff: ["@@ -204 +204 @@", "-      \"destination\": \"customer-database\",", "+      \"destination\": \"customer-db\","]
+    breaks: "XR-05"
+    readme_lines: [1429]
+    sha256: "0bf5982fa2cfa3df858ee27d9c2735bcc47f10514c7e03cb3954999fc358e597"
+    size: 8109
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "valid", xref: "XR-05 fails", basis: "designed: breaks exactly one derived check (XR-05); no draft-07 schema can express it"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "fail", findings: [{path: "/dataflows/1/destination", detail: "'customer-db' is not the id of any components entry"}]}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-xref-dangling-threat-reference.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; no draft-07 schema here can express it; the derived checks (XR) catch it"
+    change: >-
+      EXAMPLE.json with /components/1/threats/0/threat "LOSS-CONTROL_ENV" (the README's example threat id), which is
+      not a root threat of this document
+    diff: ["@@ -126 +126 @@", "-          \"threat\": \"22724267-be7e-44c0-8b1f-d7d33e9a34ec\",", "+          \"threat\": \"LOSS-CONTROL_ENV\","]
+    breaks: "XR-08"
+    readme_lines: [1731]
+    sha256: "2b89555325f8d08d9f9c4f29d9c624c41dbfe19a32a4d748f052e8a5107b5489"
+    size: 8095
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "valid", xref: "XR-08 fails", basis: "designed: breaks exactly one derived check (XR-08); no draft-07 schema can express it"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "fail", findings: [{path: "/components/1/threats/0/threat", detail: "'LOSS-CONTROL_ENV' is not the id of any threats entry"}]}, XR-09: {result: "pass"}, XR-10: {result: "pass"}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+  - file: "neg-xref-diagram-element-without-position.json"
+    origin: "derived from EXAMPLE.json (an adaptation of CC BY-SA 4.0 material)"
+    category: "negative: the README forbids it; no draft-07 schema here can express it; the derived checks (XR) catch it"
+    change: >-
+      EXAMPLE.json with /trustZones/0/representations/0/position deleted; that element is on architecture-diagram, a
+      diagram representation
+    diff: ["@@ -241,4 +240,0 @@", "-          \"position\": {", "-            \"x\": 600,", "-            \"y\": 100", "-          },"]
+    breaks: "XR-10"
+    readme_lines: [432]
+    sha256: "6883e28cdb9cf3d95e349c57eccf7076a449944faf2230eed0ae65fc79b1c302"
+    size: 8035
+    format: "json"
+    kind: "document"
+    instance: ""
+    schema_pointer: ""
+    expected: {source_schema: "valid", strict_schema: "valid", xref: "XR-10 fails", basis: "designed: breaks exactly one derived check (XR-10); no draft-07 schema can express it"}
+    actual:
+      source_schema:
+        valid: true
+        error_count: 0
+        errors: []
+      strict_schema:
+        valid: true
+        error_count: 0
+        errors: []
+    actual_tag_0_2_0_schema:
+      valid: true
+      error_count: 0
+    xref: {XR-01: {result: "pass"}, XR-02: {result: "pass"}, XR-03: {result: "pass"}, XR-04: {result: "pass"}, XR-05: {result: "pass"}, XR-06: {result: "pass"}, XR-07: {result: "pass"}, XR-08: {result: "pass"}, XR-09: {result: "pass"}, XR-10: {result: "fail", findings: [{path: "/trustZones/0/representations/0", detail: "element of diagram representation 'architecture-diagram' has no position"}]}}
+    undeclared_keys_accepted: ["/components/3/representations/0/package", "/dataflows/0/representations", "/dataflows/1/representations"]
+    matches_expected: true
+cross_fixture:
+  - id: "X-01"
+    assertion: "EXAMPLE.yaml parses to data identical to EXAMPLE.json (same keys in the same order, same values and types)"
+    result: true
+  - id: "X-02"
+    assertion: >-
+      json.dumps(EXAMPLE.json data, indent=2, ensure_ascii=False) + LF reproduces EXAMPLE.json byte for byte, so
+      each derived .json fixture differs from it only in the lines its diff lists
+    result: true
+  - id: "X-03"
+    assertion: >-
+      the schema at tag 0.2.0 (commit 6bcb2ab, sha256
+      bf3a9703787b942ca81d08dd7e4288c4b6396258e8e117b181009c4e0c25b18a, same $id) and the pinned schema give
+      different results on whole-document fixtures
+    result: true
+    differing_fixtures: ["neg-asset-risk-confidentiality-string.json", "neg-size-missing-height.json"]
+    explanation: >-
+      In the tagged schema, representations and assets carried required/properties at the array level, where
+      draft-07 ignores them, so representation and asset items were not validated at all; commit 06288a0
+      (2024-01-31) moved them under items without changing $id. Both fixtures listed are valid under the tagged
+      schema and invalid under the pinned one.
+  - id: "X-04"
+    assertion: >-
+      every category A fixture yields exactly one source-schema error, every B fixture none under the source and
+      exactly one under the strict profile, every C fixture none under either and exactly its one XR failure
+    result: true
+  - id: "X-05"
+    assertion: "the strict profile never accepts what the source schema rejects (over all fixtures here)"
+    result: true

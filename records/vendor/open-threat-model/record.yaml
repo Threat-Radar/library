@@ -8,24 +8,40 @@ type: repo
 title: "Open Threat Model specification and JSON Schema"
 authors:
   - IriusRisk
-maturity: specification
+maturity: draft
+version: "0.2.0"
+date: "2025-12-11"
+publisher: "IriusRisk"
 identifiers:
   git: https://github.com/iriusrisk/OpenThreatModel
+  schema: https://iriusrisk.com/schema/otm-0.2.0.schema.json
 content:
-  url: https://github.com/iriusrisk/OpenThreatModel
-  sha256: ""
-  retrieved: ""
+  url: https://raw.githubusercontent.com/iriusrisk/OpenThreatModel/c88c5a7b4115f0f025e28d5682a2b0d790b389e4/otm_schema.json
+  sha256: "81e7f5a52a0a7d66b44cc4e0c15f21b5d60e1ca945c810e39622a730545eef0c"
+  retrieved: "2026-10-13"
+  media_type: application/schema+json
   local: false
 relations:
   supersedes: []
   superseded_by: []
-  see_also: []
+  see_also:
+    - cwe
+    - owasp-threat-model-library
+    - threat-dragon-tmf-format
+    - threagile
+    - owasp-pytm
+    - iriusrisk-creating-threat-model
   cited_by: []
   implements_concept: []
 bears_on:
   - DEC-001
   - DEC-002
-topic: rpt-0003-threat-modeling-products
+  - DEC-003
+  - DEC-009
+  - R-005
+  - R-010
+  - R-018
+topic: schema-representations
 commit: "c88c5a7b4115f0f025e28d5682a2b0d790b389e4"
 license: "CC-BY-SA-4.0 for repository documentation; otm_schema.json declares Apache-2.0"
 applicability:
@@ -34,13 +50,16 @@ applicability:
   this_project: core
 usefulness:
   verdict: useful
-  reason: "Machine-readable threat-model object and interchange schema directly relevant to DEC-001 and DEC-002."
-  assessed: "2026-10-04"
+  reason: "ADR-0007 (DEC-002) commits tmodel to importing OTM; the only cross-vendor threat-model interchange found. Its assets, trust zones and data flows have no ADR-0010 target class (RPT-0005 G13); no attack side, no review."
+  assessed: "2026-10-13"
 implementations:
   open_source:
     - name: iriusrisk-cli
       url: https://github.com/iriusrisk/iriusrisk-cli
       note: "First-party CLI documentation describes OTM import, export, and schema validation."
+    - name: StartLeft
+      url: https://github.com/iriusrisk/startleft
+      note: "IriusRisk's Apache-2.0 converter that generates OTM from infrastructure-as-code, diagrams and other tools' exports (RPT-0005, 2026-10-05)."
   commercial:
     - name: IriusRisk
       url: https://www.iriusrisk.com/
@@ -50,5 +69,60 @@ tags:
   - interchange
   - json-schema
   - otm
-status: summarized
+  - yaml
+status: distilled
 confidence: high
+distillation:
+  profile: full
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "README.md verbatim with line locators in source order: Versions, Format, Data Types, every object's field table (all rows, REQUIRED cells), the licence footer; otm_schema.json normative content by JSON pointer; README-vs-schema comparison per field; source defects D-01..D-32. Introduction is purpose text, not rules. Covers the pinned repository only, not IriusRisk product documentation."
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "287 requirements: 110 prose (97 stated, 13 inferred) + 177 schema (every type, every required entry, $ref, oneOf, $schema). BCP 14: README 51 (REQUIRED 50, RECOMMENDED 1) = extracted 51; every lower-case keyword and schema 'required' accounted in keyword_accounting (87 rows). 32 source defects."
+      reviewed_by: ""
+    - kind: schema
+      path: distilled/schema
+      coverage: "otm_schema.json byte-identical (Apache-2.0 notice kept); DERIVED strict profile otm-0.2.0.derived-strict.schema.json adding 36 README rules (S-01..S-36), each citing its README line; offline jsonschema commands and results; the weaker pre-2024-01-31 text that carried the same 0.2.0 $id."
+      reviewed_by: ""
+      generated_from: "README.md + otm_schema.json (strict profile only)"
+    - kind: messages
+      path: distilled/messages.yaml
+      coverage: "26 structures named as README headings, 120 field entries (README/schema type, required in each, constraints, references, pointers, lines, EXAMPLE.json occurrence); encodings, identifier scheme, 12 unchecked references, XR-01..XR-10 derived checks, extension points, mismatches M-01..M-16. constrained_by links 275 of 287 requirements and all 120 fields; 12 unlinked with reasons."
+      reviewed_by: ""
+    - kind: state-machine
+      path: distilled/state-machine.yaml
+      coverage: "No lifecycle is defined in the source. M1 threat-instance state and M2 mitigation-instance state (values observed only in examples; transitions inferred, flagged); M3 specification version lifecycle (semver stated; next-major change at L1139; releases from git history)."
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "49 fixtures: 23 README Example blocks and EXAMPLE.json/.yaml verbatim, 24 derived negatives (11 source-schema, 9 strict-only, 4 XR-only); 86 Examples-column snippets as vectors; actual jsonschema 4.26.0 results under both schemas. 7 README examples fail as published. README/EXAMPLE content CC BY-SA 4.0 with attribution; derived negatives CC BY-SA 4.0."
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Adopt / adapt / reject against tmodel ADR-0010 (DEC-001a classes), ADR-0007 (OTM import), ADR-0006, ADR-0004, R-005/010/018/020/021; G13 (no target class for assets, trustZones, dataflows; sponsor direction 2026-10-14 recorded) and related gaps; no classes proposed; open questions."
+      reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "Passes 2 and 3: keyword recount, verbatim and locator checks (21 planted errors caught), section walk, defects re-derived, messages rebuilt independently, every fixture re-run, schema byte check, cross-checks incl. design notes against tmodel main; defects fixed and residual issues."
+      reviewed_by: ""
+  not_applicable:
+    - kind: protocol
+      reason: "Pure data format: the source defines one JSON/YAML document and no exchange between parties (README Format, L23). How tools move OTM files between them is outside the pinned source."
+  passes:
+    - pass: extract
+      by: "claude (2 parallel agents + coordinator)"
+      effort: max
+      date: "2026-10-14"
+      note: "Agent A: normative, requirements. Agent B: schema, messages, state machine, examples. Coordinator: design notes, constrained_by linking, record, summary. Agents read the source only, never the summary or research notes. Started 2026-10-13; both agents were stopped twice by API usage limits and resumed from their transcripts."
+    - pass: verify
+      by: "claude (independent verifier, agent C)"
+      effort: max
+      date: "2026-10-16"
+      note: "Own scripts; see distilled/verification.md. Interrupted once by an API usage limit and resumed from its transcript."
+    - pass: cross-check
+      by: "claude (independent verifier, agent C)"
+      effort: max
+      date: "2026-10-16"
