@@ -9,12 +9,13 @@ title: "OWASP pytm"
 authors:
   - OWASP
 maturity: implementation
+publisher: "OWASP Foundation"
 identifiers:
   git: https://github.com/OWASP/pytm
 content:
   url: https://github.com/OWASP/pytm
   sha256: ""
-  retrieved: ""
+  retrieved: "2026-10-12"
   local: false
 relations:
   supersedes: []
@@ -27,8 +28,8 @@ bears_on:
   - DEC-003
   - DEC-006
 topic: rpt-0003-threat-modeling-products
-commit: "78895796f6c6f6ec3131c28b624c296810fa9797"
-license: "GPL-3.0"
+commit: "381dea05c58055ba218e632510dd3a327d2bf215"
+license: "MIT"
 applicability:
   security: core
   cryptography: none
@@ -36,7 +37,7 @@ applicability:
 usefulness:
   verdict: useful
   reason: "Inspectable model-as-code precedent for a Python object model, rule-based threat generation, and generated diagrams and reports."
-  assessed: "2026-10-04"
+  assessed: "2026-10-12"
 tags:
   - threat-modeling
   - model-as-code

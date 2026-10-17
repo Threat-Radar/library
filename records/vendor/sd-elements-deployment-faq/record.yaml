@@ -1,0 +1,31 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: sd-elements-deployment-faq
+body: vendor
+type: web
+title: "SD Elements FAQ — on-site deployment vs SaaS"
+authors:
+  - Security Compass
+date: ""
+publisher: "Security Compass"
+identifiers:
+  url: https://docs.sdelements.com/release/5.14/guide/docs/faq
+content:
+  url: https://docs.sdelements.com/release/5.14/guide/docs/faq
+  sha256: ""
+  retrieved: "2026-10-11"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-006
+topic: rpt-0003-threat-modeling-products
+tags: [threat-modeling, deployment, vendor]
+status: summarized
+confidence: high

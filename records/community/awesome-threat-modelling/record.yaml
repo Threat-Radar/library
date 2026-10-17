@@ -1,0 +1,35 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: awesome-threat-modelling
+body: community
+type: repo
+title: "awesome-threat-modelling"
+authors:
+  - hysnsec
+date: ""
+identifiers:
+  git: https://github.com/hysnsec/awesome-threat-modelling
+publisher: "hysnsec"
+content:
+  url: https://github.com/hysnsec/awesome-threat-modelling
+  sha256: ""
+  retrieved: "2026-10-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-005
+topic: rpt-0003-threat-modeling-products
+commit: "c60fb0a82371c8ce557afbdfe903860ae959e9b3"
+license: "CC0-1.0"
+tags:
+  - threat-modeling
+  - bibliography
+status: summarized
+confidence: medium
