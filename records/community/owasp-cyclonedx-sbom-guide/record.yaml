@@ -1,0 +1,42 @@
+schema: "library-record/v1"
+id: owasp-cyclonedx-sbom-guide
+body: community
+type: book
+title: "Authoritative Guide to SBOM: Implement and optimize use of Software Bill of Materials"
+short_title: "OWASP CycloneDX Authoritative Guide to SBOM"
+authors:
+  - "CycloneDX Core Working Group"
+date: "2025-10-21"
+publisher: "OWASP Foundation"
+version: "Third Edition"
+identifiers:
+  url: https://cyclonedx.org/guides/
+  git: https://github.com/CycloneDX/guides
+content:
+  url: https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-SBOM-en.pdf
+  sha256: "f478e3226831f91f8d4595f124aceb667ab40ba75993ceb1fd64dc06c82b4509"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 82
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+    - ntia-sbom-minimum-elements
+    - cyclonedx-property-taxonomy
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - background
+license: "CC-BY-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

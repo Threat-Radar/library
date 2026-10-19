@@ -1,0 +1,42 @@
+schema: "library-record/v1"
+id: osv-dev
+body: openssf
+type: dataset
+title: "OSV.dev vulnerability database: data exports and query API"
+short_title: "OSV.dev"
+authors: []
+date: "2026-10-18"
+publisher: "Google (OSV.dev)"
+identifiers:
+  url: https://osv.dev/
+  git: https://github.com/google/osv.dev
+content:
+  url: https://storage.googleapis.com/osv-vulnerabilities/Alpine/all.zip
+  sha256: "7a48aafb7ca0d81d1c50d3080522ea66edb64573c43de2e94636bcfb956a59d7"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/zip
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - osv-schema
+    - github-advisory-database
+    - ubuntu-security-notices
+    - alpine-secdb
+    - debian-security-tracker
+    - google-osv-scanner
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - naming
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

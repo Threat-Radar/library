@@ -1,0 +1,40 @@
+schema: "library-record/v1"
+id: rfc-6150
+body: ietf
+type: rfc
+maturity: informational
+title: "MD4 to Historic Status"
+short_title: "RFC 6150"
+authors:
+  - "S. Turner"
+  - "L. Chen"
+date: "2011-03"
+publisher: "IETF"
+identifiers:
+  url: https://www.rfc-editor.org/rfc/rfc6150.html
+  doi: 10.17487/RFC6150
+  rfc: 6150
+content:
+  url: https://www.rfc-editor.org/rfc/rfc6150.txt
+  sha256: "cdbf326c9bf4bfe7885b823de5606c752b405682819be32d6d0deca6a483aa1e"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/plain
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - rfc-6149
+    - spdx-3-0-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - hashing
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

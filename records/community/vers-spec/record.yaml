@@ -1,0 +1,45 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: vers-spec
+body: community
+type: spec
+maturity: draft
+title: "Version Range Specifier (VERS) specification"
+short_title: "VERS 1.2.1"
+authors:
+  - "John Horan"
+  - "Michael Herzog"
+  - "Philippe Ombredanne"
+  - "Steve Springett"
+date: "2026-10-07"
+publisher: "Package-URL project (package-url/vers-spec), developed for Ecma International TC54"
+version: "1.2.1"
+identifiers:
+  url: https://github.com/package-url/vers-spec/tree/v1.2.1
+  git: https://github.com/package-url/vers-spec
+content:
+  url: https://raw.githubusercontent.com/package-url/vers-spec/76c729180ce3ffb24b2e9f90e34585150fe0ffcf/docs/specification/standard/Clause-5-VERS-Specification.md
+  sha256: "e70398a23564721dab92b0d0a76f4f18f0ddd67f9a03de5ed2301cdb32c675ba"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - versioning
+  - vulnerability-data
+  - prior-art
+license: "MIT"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: dann-2022-oss-scanners
+body: academic
+type: paper
+title: "Identifying Challenges for OSS Vulnerability Scanners - A Study & Test Suite"
+short_title: "Challenges for OSS vulnerability scanners"
+authors:
+  - "Andreas Dann"
+  - "Henrik Plate"
+  - "Ben Hermann"
+  - "Serena Elisa Ponta"
+  - "Eric Bodden"
+date: "2022-09"
+publisher: "IEEE"
+version: "author preprint"
+identifiers:
+  url: https://doi.org/10.1109/TSE.2021.3101739
+  doi: 10.1109/TSE.2021.3101739
+content:
+  url: https://sse.cs.tu-dortmund.de/storages/sse-cs/r/Publications/Preprints/dphpb21-tse-achilles.pdf
+  sha256: "d783f31e22dbb9389c72b0491ea2ebaceeb5defdaf09212b6030e03378801ac0"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 13
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - supply-chain
+  - scanner
+  - evidence
+venue: "IEEE Transactions on Software Engineering 48(9), pp. 3613-3625"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

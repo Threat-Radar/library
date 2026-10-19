@@ -1,0 +1,41 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: oci-image-spec-1-1-1
+body: community
+type: spec
+title: "OCI Image Format Specification"
+short_title: "OCI Image Spec v1.1.1"
+authors: []
+date: "2025-03-03"
+publisher: "Open Container Initiative (OCI)"
+version: "1.1.1"
+identifiers:
+  url: https://github.com/opencontainers/image-spec/tree/v1.1.1
+  git: https://github.com/opencontainers/image-spec
+content:
+  url: https://raw.githubusercontent.com/opencontainers/image-spec/147f9c13cedb47a0c4d9a11a222961073d585877/spec.md
+  sha256: "4f700f4549e4c25faa806075bc3e6b4571d0400595cf73f4a142d38cd9d6586e"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - oci-distribution-spec-1-1-1
+    - buildkit-attestations
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-009
+topic: product-composition
+tags:
+  - naming
+  - containers
+  - prior-art
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

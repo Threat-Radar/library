@@ -1,0 +1,36 @@
+schema: "library-record/v1"
+id: anchore-nvd-data-overrides
+body: vendor
+type: dataset
+title: "NVD Data Overrides (anchore/nvd-data-overrides)"
+short_title: "Anchore NVD data overrides"
+authors: []
+date: "2026-10-08"
+publisher: "Anchore"
+identifiers:
+  url: https://github.com/anchore/nvd-data-overrides
+  git: https://github.com/anchore/nvd-data-overrides
+content:
+  url: https://raw.githubusercontent.com/anchore/nvd-data-overrides/56fa5a1cc8b7721500beeb17e9c9ce2e679b2205/README.md
+  sha256: "fd2a2d6647dd743b28adff9d68e30c4061794b99377631eff8f19ce59527f471"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anchore-grype
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - evidence
+license: "CC0-1.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

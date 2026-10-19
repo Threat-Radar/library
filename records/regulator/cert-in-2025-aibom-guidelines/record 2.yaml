@@ -1,0 +1,44 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: cert-in-2025-aibom-guidelines
+body: regulator
+type: spec
+maturity: best-practice
+title: "Technical Guidelines on SBOM, QBOM & CBOM, AIBOM and HBOM"
+short_title: "CERT-In BOM Guidelines v2.0"
+authors:
+  - "Indian Computer Emergency Response Team (CERT-In)"
+date: "2025-07-09"
+publisher: "Indian Computer Emergency Response Team (CERT-In), Ministry of Electronics and Information Technology, Government of India"
+version: "2.0"
+identifiers:
+  url: "https://www.cert-in.org.in/PDF/TechnicalGuidelines-on-SBOM,QBOM&CBOM,AIBOM_and_HBOM_ver2.0.pdf"
+content:
+  url: "https://www.cert-in.org.in/PDF/TechnicalGuidelines-on-SBOM,QBOM&CBOM,AIBOM_and_HBOM_ver2.0.pdf"
+  sha256: "28aa48f329114d665f8e4f8c4d2f33baf4981e29168a318e6e719c11a5ff5151"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: "application/pdf"
+  pages: 66
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - "cyclonedx-1-7"
+    - "spdx-3-0-1"
+    - "cisa-2023-vex-minimum-requirements"
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - "DEC-001"
+  - "DEC-002"
+topic: product-composition
+tags:
+  - "sbom"
+  - "regulation"
+  - "hardware"
+  - "evidence"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

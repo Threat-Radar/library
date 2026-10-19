@@ -1,0 +1,41 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: semver-2-0-0
+body: community
+type: spec
+title: "Semantic Versioning 2.0.0"
+short_title: "SemVer 2.0.0"
+authors:
+  - "Tom Preston-Werner"
+date: "2013-06-18"
+publisher: "Semantic Versioning (semver.org)"
+version: "2.0.0"
+identifiers:
+  url: https://semver.org/spec/v2.0.0.html
+  git: https://github.com/semver/semver
+content:
+  url: https://semver.org/spec/v2.0.0.html
+  sha256: "f9d4b8b1a5e9a0de6621dbbc70d69fdf05310b7a737509317b94a7bddfb9409e"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - vers-spec
+    - maven-version-order
+    - pypa-version-specifiers
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - versioning
+  - evidence
+license: "CC-BY-3.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

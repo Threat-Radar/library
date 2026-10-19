@@ -1,0 +1,37 @@
+schema: "library-record/v1"
+id: cisa-vulnrichment
+body: regulator
+type: dataset
+title: "CISA Vulnrichment"
+short_title: "Vulnrichment"
+authors: []
+date: "2026-10-08"
+publisher: "Cybersecurity and Infrastructure Security Agency (CISA)"
+identifiers:
+  url: https://github.com/cisagov/vulnrichment
+  git: https://github.com/cisagov/vulnrichment
+content:
+  url: https://raw.githubusercontent.com/cisagov/vulnrichment/776f3efcb14b2d86cdb6246b3eddb7ab0da5f1a2/README.md
+  sha256: "ffec1da10bdea8a98458362f7136d31b4143ef21875b6aa4b5d7bd9041164ba9"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cvelistv5
+    - cve-json-5
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - evidence
+license: "CC0-1.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

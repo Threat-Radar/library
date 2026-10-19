@@ -1,0 +1,45 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+schema: "library-record/v1"
+id: dependencytrack-dependency-track
+body: community
+type: repo
+maturity: implementation
+title: "OWASP Dependency-Track"
+short_title: "Dependency-Track"
+authors:
+  - "OWASP Dependency-Track"
+date: "2026-10-08"
+publisher: "OWASP Dependency-Track project"
+version: "5.2.0"
+identifiers:
+  url: https://github.com/DependencyTrack/dependency-track/releases/tag/5.2.0
+  git: https://github.com/DependencyTrack/dependency-track
+content:
+  url: https://github.com/DependencyTrack/dependency-track/releases/tag/5.2.0
+  sha256: ""
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+    - vers-spec
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - evidence
+commit: "d67a6a3a28006e95dcc7611553469bf89c6c9e0a"
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

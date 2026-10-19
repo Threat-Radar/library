@@ -1,0 +1,38 @@
+# Dataset: often unhashable in place — see R-M-11 'description' mode.
+schema: "library-record/v1"
+id: iana-hash-function-text-names
+body: iso
+type: dataset
+title: "Hash Function Textual Names"
+short_title: "IANA Hash Function Textual Names"
+authors: []
+date: "2019-12-16"
+publisher: "IANA"
+version: "snapshot of 2026-10-18 (registry last updated 2019-12-16)"
+identifiers:
+  url: "https://www.iana.org/assignments/hash-function-text-names"
+content:
+  url: "https://www.iana.org/assignments/hash-function-text-names/hash-function-text-names-1.csv"
+  sha256: "7ba3008aa33482a223291f6f556882d8ba0a92e1646080b4f1c5d89fdf0223bb"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: "text/csv"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - "cisa-2026-sbom-minimum"
+    - "rfc-6149"
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - "DEC-002"
+topic: product-composition
+tags:
+  - "naming"
+  - "hashing"
+  - "evidence"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

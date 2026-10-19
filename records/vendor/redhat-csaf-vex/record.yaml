@@ -1,0 +1,39 @@
+schema: "library-record/v1"
+id: redhat-csaf-vex
+body: vendor
+type: dataset
+title: "Red Hat Product Security CSAF VEX files"
+short_title: "Red Hat CSAF VEX"
+authors: []
+date: "2026-10-15"
+publisher: "Red Hat Product Security"
+identifiers:
+  url: https://security.access.redhat.com/data/csaf/v2/vex/
+content:
+  url: https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-54873.json
+  sha256: "85c1f06bb74f8ef2b5d77f2ae539c4475c7cca98f9b220aad4ec340e730701d2"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/json
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - redhat-2021-oval-rpm-matching
+    - rpm-version-7
+    - cisa-2023-vex-minimum-requirements
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+  - DEC-009
+topic: product-composition
+tags:
+  - vulnerability-data
+  - vex
+  - evidence
+license: "CC-BY-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

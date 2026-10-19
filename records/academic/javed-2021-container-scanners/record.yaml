@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: javed-2021-container-scanners
+body: academic
+type: paper
+title: "Understanding the Quality of Container Security Vulnerability Detection Tools"
+short_title: "Quality of container vulnerability detection tools"
+authors:
+  - "Omar Javed"
+  - "Salman Toor"
+date: "2021-01-11"
+publisher: "arXiv"
+version: "v1"
+identifiers:
+  url: https://arxiv.org/abs/2101.03844v1
+  arxiv: 2101.03844v1
+content:
+  url: https://arxiv.org/pdf/2101.03844v1
+  sha256: "f263c71d303fae091b9d27cb124c39d0899d0a52cbd537b759268d4364e2d7b9"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 11
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - scanner
+  - supply-chain
+  - evidence
+license: "CC-BY-NC-SA-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

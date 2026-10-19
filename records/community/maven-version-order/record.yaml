@@ -1,0 +1,39 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: maven-version-order
+body: community
+type: spec
+title: "POM Reference: Version Order Specification"
+short_title: "Maven version order"
+authors: []
+date: "2026-08-05"
+publisher: "The Apache Software Foundation (Apache Maven)"
+version: ""
+identifiers:
+  url: https://maven.apache.org/pom.html#Version_Order_Specification
+  git: https://github.com/apache/maven-site
+content:
+  url: https://raw.githubusercontent.com/apache/maven-site/15c4fdd29825c316056b20b07d9da4653ffe8e3b/content/markdown/pom.md
+  sha256: "25ad4e818ac5c73814c2f4d0a5296677e7e5b5c6c3a0383c1ede77def3594312"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - vers-spec
+    - semver-2-0-0
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - versioning
+  - evidence
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

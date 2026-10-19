@@ -1,0 +1,47 @@
+# Draft: record the revision. Re-ingest on a new rev; do NOT edit in place.
+schema: "library-record/v1"
+id: draft-ietf-suit-manifest
+body: ietf
+type: draft
+maturity: draft
+title: "A Concise Binary Object Representation (CBOR)-based Serialization Format for the Software Updates for Internet of Things (SUIT) Manifest"
+short_title: "SUIT manifest (-37)"
+authors:
+  - "B. Moran"
+  - "H. Tschofenig"
+  - "H. Birkholz"
+  - "K. Zandberg"
+  - "Ø. Rønningstad"
+date: "2026-06-18"
+publisher: "IETF (SUIT working group)"
+version: "-37"
+identifiers:
+  url: https://datatracker.ietf.org/doc/draft-ietf-suit-manifest/
+  draft: draft-ietf-suit-manifest-37
+content:
+  url: https://www.ietf.org/archive/id/draft-ietf-suit-manifest-37.txt
+  sha256: "6f20207134bdb011a601b661f9373ff085dde8f6ff9e3aacb070acd156f6c7c3"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/plain
+  pages: 102
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - rfc-9019
+    - rfc-9124
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - firmware
+  - software-update
+  - encoding
+  - prior-art
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

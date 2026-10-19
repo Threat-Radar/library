@@ -1,0 +1,46 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: churakova-2025-vexed-by-vex
+body: academic
+type: paper
+title: "Vexed by VEX Tools: Consistency Evaluation of Container Vulnerability Scanners"
+short_title: "Vexed by VEX tools"
+authors:
+  - "Yekatierina Churakova"
+  - "Mathias Ekstedt"
+  - "Larissa Schmid"
+date: "2026-03-26"
+publisher: "arXiv; Springer (LNCS version)"
+version: "v3"
+identifiers:
+  url: https://arxiv.org/abs/2503.14388v3
+  arxiv: 2503.14388v3
+  doi: 10.1007/978-3-032-20018-1_8
+content:
+  url: https://arxiv.org/pdf/2503.14388v3
+  sha256: "445fe242285a383d1a09083dc92d414554b8c203323d15258e492c0ab0d3cda8"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 19
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - aquasecurity-trivy
+    - anchore-grype
+    - google-osv-scanner
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - scanner
+  - supply-chain
+  - evidence
+venue: "Foundations and Practice of Security, Lecture Notes in Computer Science (Springer, 2026), pp. 139-156"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

@@ -1,0 +1,42 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: tcg-dice-attestation-architecture-1-2
+body: other
+type: spec
+maturity: standard
+title: "DICE Attestation Architecture"
+short_title: "TCG DICE Attestation Architecture 1.2"
+authors: []
+date: "2025-04-24"
+publisher: "Trusted Computing Group"
+version: "1.2"
+identifiers:
+  url: https://trustedcomputinggroup.org/resource/dice-attestation-architecture/
+content:
+  url: https://trustedcomputinggroup.org/wp-content/uploads/DICE-Attestation-Architecture-v1.2_pub.pdf
+  sha256: "a930c341a65493e87d42207ac485da0b97fe0eb2c0ce0c7642316e7825759f2d"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 44
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - tcg-dice-layering
+    - tcg-dice-cert-profiles
+    - rfc-9334
+    - rfc-9711
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - attestation
+  - firmware
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

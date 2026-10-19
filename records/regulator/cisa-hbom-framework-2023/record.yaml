@@ -1,0 +1,42 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: cisa-hbom-framework-2023
+body: regulator
+type: spec
+title: "A Hardware Bill of Materials (HBOM) Framework for Supply Chain Risk Management"
+short_title: "CISA HBOM Framework"
+authors:
+  - "ICT Supply Chain Risk Management Task Force, Hardware Bill of Materials (HBOM) Working Group"
+date: "2023-09-25"
+publisher: "Cybersecurity and Infrastructure Security Agency"
+version: ""
+identifiers:
+  url: https://www.cisa.gov/resources-tools/resources/hardware-bill-materials-hbom-framework-supply-chain-risk-management
+content:
+  url: https://www.cisa.gov/sites/default/files/2023-09/A%20Hardware%20Bill%20of%20Materials%20Framework%20for%20Supply%20Chain%20Risk%20Management%20%28508%29.pdf
+  sha256: "cba6ce12fc98be11b831f08b3cf3bb12b3a59f86397e3a27a410fdd515025806"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 33
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+    - iso-iec-5962-2021
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - hardware
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

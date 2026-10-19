@@ -1,0 +1,38 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: debian-policy-version
+body: community
+type: spec
+title: "Debian Policy Manual, chapter 5: Control files and their fields"
+short_title: "Debian Policy 4.7.4.1, ch. 5"
+authors: []
+date: "2026-03-31"
+publisher: "Debian Project"
+version: "4.7.4.1"
+identifiers:
+  url: https://www.debian.org/doc/debian-policy/ch-controlfields.html
+content:
+  url: https://www.debian.org/doc/debian-policy/ch-controlfields.html
+  sha256: "4d526c151f0a7dfcbe190f7b6fe4de5cc1a0f2208fb83e3ea40d60c7db9f8e15"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - vers-spec
+    - debian-security-tracker
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - versioning
+  - evidence
+license: "GPL-2.0-or-later"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier
