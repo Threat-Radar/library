@@ -1,0 +1,38 @@
+schema: "library-record/v1"
+id: cvelistv5
+body: other
+type: dataset
+title: "CVE List V5 (CVEProject/cvelistV5)"
+short_title: "cvelistV5"
+authors: []
+date: "2026-10-08"
+publisher: "CVE Program"
+version: "cve_2026-10-08_1700Z"
+identifiers:
+  url: https://github.com/CVEProject/cvelistV5/releases/tag/cve_2026-10-08_1700Z
+  git: https://github.com/CVEProject/cvelistV5
+content:
+  url: https://github.com/CVEProject/cvelistV5/releases/download/cve_2026-10-08_1700Z/2026-10-08_all_CVEs_at_midnight.zip.zip
+  sha256: "affae4d6b70a956a6699d0e811449e11605effeff964a6647f78e68bc5072015"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/zip
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cve-json-5
+    - cisa-vulnrichment
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - naming
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

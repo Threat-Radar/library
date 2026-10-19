@@ -1,0 +1,47 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: nistir-7696
+body: nist
+type: spec
+title: "Common Platform Enumeration: Name Matching Specification Version 2.3"
+short_title: "NIST IR 7696 (CPE Name Matching 2.3)"
+authors:
+  - "Mary C. Parmelee"
+  - "Harold Booth"
+  - "David Waltermire"
+  - "Karen Scarfone"
+date: "2011-08"
+publisher: "National Institute of Standards and Technology (NIST), Computer Security Division"
+version: "2.3"
+identifiers:
+  url: https://csrc.nist.gov/pubs/ir/7696/final
+  doi: 10.6028/NIST.IR.7696
+  nist: "NIST IR 7696"
+content:
+  url: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7696.pdf
+  sha256: "966eecc18a0d94c1e1c035994a633c4adee790c83d122bad2a79ac7ce4981a45"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 28
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - nistir-7695
+    - nistir-7697
+    - nistir-7698
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - naming
+  - cpe
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

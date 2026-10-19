@@ -1,0 +1,46 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: nistir-8060
+body: nist
+type: spec
+title: "Guidelines for the Creation of Interoperable Software Identification (SWID) Tags"
+short_title: "NIST IR 8060"
+authors:
+  - "David Waltermire"
+  - "Brant A. Cheikes"
+  - "Larry Feldman"
+  - "Greg Witte"
+date: "2016-04"
+publisher: "National Institute of Standards and Technology (NIST)"
+version: "Final"
+identifiers:
+  url: https://csrc.nist.gov/pubs/ir/8060/final
+  doi: 10.6028/NIST.IR.8060
+  nist: "NIST IR 8060"
+content:
+  url: https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf
+  sha256: "9aff60d8aecab8cc6143476867a1ea8a1faf45bbed89d73492c7f77c238a6de8"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 86
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - iso-iec-19770-2-2015
+    - rfc-9393
+    - nistir-7695
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - sbom
+  - naming
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

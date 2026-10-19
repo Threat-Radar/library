@@ -1,0 +1,45 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+schema: "library-record/v1"
+id: aquasecurity-trivy
+body: vendor
+type: repo
+maturity: implementation
+title: "Trivy"
+short_title: "Trivy"
+authors:
+  - "Aqua Security"
+date: "2026-10-01"
+publisher: "Aqua Security"
+version: "v0.75.0"
+identifiers:
+  url: https://github.com/aquasecurity/trivy/releases/tag/v0.75.0
+  git: https://github.com/aquasecurity/trivy
+content:
+  url: https://github.com/aquasecurity/trivy/releases/tag/v0.75.0
+  sha256: ""
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anchore-syft
+    - anchore-grype
+    - cyclonedx-1-7
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - sbom
+  - scanner
+  - evidence
+commit: "591e9799316a602e703f0b484f6c6d7b234ec8f3"
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

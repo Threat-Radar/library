@@ -1,0 +1,48 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: rosso-2026-svs-test
+body: academic
+type: paper
+title: "A Practical Solution to Systematically Monitor Inconsistencies in SBOM-based Vulnerability Scanners"
+short_title: "SVS-TEST"
+authors:
+  - "Martin Rosso"
+  - "Muhammad Asad Jahangir Jaffar"
+  - "Alessandro Brighente"
+  - "Mauro Conti"
+date: "2025-12-19"
+publisher: "arXiv; ACM (SAC '26 version)"
+version: "v1"
+identifiers:
+  url: https://arxiv.org/abs/2512.17710v1
+  arxiv: 2512.17710v1
+  doi: 10.1145/3748522.3779717
+content:
+  url: https://arxiv.org/pdf/2512.17710v1
+  sha256: "4ff067220c54a207531af8db5b98442dc833f2a7ffd2e3b0718cde98be94deb0"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 15
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anchore-grype
+    - dependencytrack-dependency-track
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - sbom
+  - scanner
+  - evidence
+license: "CC-BY-4.0"
+venue: "SAC '26: Proceedings of the 41st ACM/SIGAPP Symposium on Applied Computing, pp. 1739-1748"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

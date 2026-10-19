@@ -1,0 +1,46 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: unece-r155
+body: regulator
+type: spec
+maturity: standard
+title: "UN Regulation No. 155: Uniform provisions concerning the approval of vehicles with regards to cyber security and cyber security management system"
+short_title: "UN R155 (cyber security, CSMS)"
+authors: []
+date: "2021-03-04"
+publisher: "United Nations Economic Commission for Europe (UNECE), under the 1958 Agreement"
+version: "original version (E/ECE/TRANS/505/Rev.3/Add.154)"
+identifiers:
+  url: https://documents.un.org/api/symbol/access?s=E/ECE/TRANS/505/Rev.3/Add.154&l=en&t=pdf
+  authentic_text: "ECE/TRANS/WP.29/2020/79, as amended by ECE/TRANS/WP.29/2020/94 and ECE/TRANS/WP.29/2020/97"
+  celex: 42021X0387
+  oj: "OJ L 82, 9.3.2021, pp. 30-59"
+  un_symbol: E/ECE/TRANS/505/Rev.3/Add.154
+  unece: https://unece.org/sites/default/files/2021-03/R155e.pdf
+content:
+  url: https://documents.un.org/doc/undoc/gen/g21/054/90/pdf/g2105490.pdf
+  sha256: "c41424c6f17784aa7cf8d3de79491e6bce142a674748039f1235dc8c37ea9654"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 30
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - unece-r156
+    - iso-sae-21434-2021
+    - auto-isac-sbom-ir-v3
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-009
+topic: product-composition
+tags:
+  - regulation
+  - automotive
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

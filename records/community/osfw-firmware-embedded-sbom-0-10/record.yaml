@@ -1,0 +1,47 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: osfw-firmware-embedded-sbom-0-10
+body: community
+type: spec
+maturity: draft
+title: "Firmware Embedded SBOM Specification"
+short_title: "OSFW Firmware Embedded SBOM 0.10"
+authors:
+  - "Richard Hughes"
+  - "Martin Fernandez"
+  - "Adam Williamson"
+date: "2024-02-21"
+publisher: "Open-Source Firmware Foundation"
+version: "0.10"
+identifiers:
+  url: https://sbomspec.osfw.foundation/
+  git: https://github.com/open-source-firmware/sbom
+content:
+  url: https://sbomspec.osfw.foundation/
+  sha256: "52dcd10bcec2ac09cd44a3ae8982f415e0abc2507f8b0d2804f4a5dd59305e9e"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - rfc-9393
+    - uefi-firmware-sbom-proposal-2023
+    - lvfs
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - firmware
+  - evidence
+license: "CC-BY-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

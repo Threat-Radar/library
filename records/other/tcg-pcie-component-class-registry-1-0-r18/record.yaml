@@ -1,0 +1,43 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: tcg-pcie-component-class-registry-1-0-r18
+body: other
+type: spec
+maturity: standard
+title: "PCIe-based Component Class Registry"
+short_title: "TCG PCIe-based Component Class Registry r18"
+authors:
+  - "TCG Infrastructure Work Group (IWG)"
+date: "2021-10-27"
+publisher: "Trusted Computing Group"
+version: "1.0 Revision 18"
+identifiers:
+  url: https://trustedcomputinggroup.org/resource/pcie-based-component-class-registry/
+content:
+  url: https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCIe_Component_Class_Registry_v1_r18_pub10272021.pdf
+  sha256: "453bad2ac9729058c3403592952d1c2a0a8aec6702fc8a5aed351e26c80eea10"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 14
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - tcg-platform-certificate-profile-2-1
+    - tcg-component-class-registry-1-0-r14
+    - tcg-smbios-component-class-registry-1-r01
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - naming
+  - attestation
+  - hardware
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

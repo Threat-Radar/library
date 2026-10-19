@@ -1,0 +1,36 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+schema: "library-record/v1"
+id: reproducible-builds-definition
+body: community
+type: web
+title: "Reproducible Builds: Definitions"
+short_title: "Reproducible Builds definition"
+authors: []
+date: ""
+publisher: "Reproducible Builds project (reproducible-builds.org)"
+identifiers:
+  url: https://reproducible-builds.org/docs/definition/
+content:
+  url: https://reproducible-builds.org/docs/definition/
+  sha256: "3b30400b3c7c2d0a9032b147cafaab57f29efb06105c2a78ad99754f3481d929"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - supply-chain
+  - reproducible-builds
+  - background
+license: "CC-BY-SA-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

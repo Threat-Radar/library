@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: auto-isac-sbom-ir-v3
+body: other
+type: paper
+maturity: informational
+title: "Auto-ISAC Software Bill of Materials (SBOM) Informational Report"
+short_title: "Auto-ISAC SBOM IR v3.0"
+authors:
+  - "Auto-ISAC SBOM Working Group (SBOM-WG)"
+date: "2025-01-17"
+publisher: "Automotive Information Sharing and Analysis Center (Auto-ISAC)"
+version: "3.0"
+identifiers:
+  url: https://automotiveisac.com/sbom-reports
+content:
+  url: https://automotiveisac.com/s/2025_01_17_SBOM-IR_v30_TLP_CLEAR-1.pdf
+  sha256: "5a3c0587db01494fdbe8740924f9a2d086981f2c573d36c58ee8e537db688740"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 101
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - iso-sae-21434-2021
+    - unece-r155
+    - unece-r156
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-009
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - automotive
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

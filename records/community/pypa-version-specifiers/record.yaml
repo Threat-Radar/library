@@ -1,0 +1,39 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: pypa-version-specifiers
+body: community
+type: spec
+title: "Version specifiers (PyPA specification)"
+short_title: "PyPA version specifiers"
+authors: []
+date: "2026-01"
+publisher: "Python Packaging Authority (PyPA)"
+version: ""
+identifiers:
+  url: https://packaging.python.org/en/latest/specifications/version-specifiers/
+  git: https://github.com/pypa/packaging.python.org
+content:
+  url: https://raw.githubusercontent.com/pypa/packaging.python.org/95fd4ab22a0a00a9f4f105aab76ec6071d74729c/source/specifications/version-specifiers.rst
+  sha256: "9a0bbe770971cd769d9cb1e3d30d5e456d82bc1720c209ba1e2b14943ce899c3"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/x-rst
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - vers-spec
+    - semver-2-0-0
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - versioning
+  - evidence
+license: "CC-BY-SA-3.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: lf-2024-spdx3-aibom
+body: community
+type: paper
+title: "Implementing AI Bill of Materials (AI BOM) with SPDX 3.0: A Comprehensive Guide to Creating AI and Dataset Bill of Materials"
+short_title: "LF AI BOM with SPDX 3.0"
+authors:
+  - "Karen Bennet"
+  - "Gopi Krishnan Rajbahadur"
+  - "Arthit Suriyawongkul"
+  - "Kate Stewart"
+date: "2024-10"
+publisher: "The Linux Foundation (Linux Foundation Research)"
+identifiers:
+  url: https://www.linuxfoundation.org/research/ai-bom
+  arxiv: 2504.16743
+  doi: 10.70828/RNED4427
+content:
+  url: https://www.linuxfoundation.org/hubfs/LF%20Research/lfr_spdx_aibom_102524a.pdf
+  sha256: "d4d60f903d32eca183ca16a92b661dc00c017096535e61854c7b168ae54994c6"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 71
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - spdx-3-0-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - sbom
+  - ai-bom
+  - evidence
+license: "CC-BY-ND-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

@@ -1,0 +1,41 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+schema: "library-record/v1"
+id: docs-deps-dev-api-v3
+body: google
+type: web
+title: "deps.dev API"
+short_title: "deps.dev API v3"
+authors: []
+date: ""
+publisher: "Google (Open Source Insights)"
+version: "v3"
+identifiers:
+  url: https://docs.deps.dev/api/v3/
+content:
+  url: https://docs.deps.dev/api/v3/
+  sha256: "010ef93f40c66f0be9c6976d7b27d7fde11034ceaea6c1f5918af2e196642079"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - docs-deps-dev-bigquery-v1
+    - osv-dev
+    - guac
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-004
+topic: product-composition
+tags:
+  - supply-chain
+  - naming
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

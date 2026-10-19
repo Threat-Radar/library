@@ -1,0 +1,47 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: unece-r156
+body: regulator
+type: spec
+maturity: standard
+title: "UN Regulation No. 156: Uniform provisions concerning the approval of vehicles with regards to software update and software updates management system"
+short_title: "UN R156 (software update, SUMS)"
+authors: []
+date: "2021-03-04"
+publisher: "United Nations Economic Commission for Europe (UNECE), under the 1958 Agreement"
+version: "original version (E/ECE/TRANS/505/Rev.3/Add.155)"
+identifiers:
+  url: https://documents.un.org/api/symbol/access?s=E/ECE/TRANS/505/Rev.3/Add.155&l=en&t=pdf
+  authentic_text: ECE/TRANS/WP.29/2020/80
+  celex: 42021X0388
+  oj: "OJ L 82, 9.3.2021, pp. 60-74"
+  un_symbol: E/ECE/TRANS/505/Rev.3/Add.155
+  unece: https://unece.org/sites/default/files/2021-03/R156e.pdf
+content:
+  url: https://documents.un.org/doc/undoc/gen/g21/054/93/pdf/g2105493.pdf
+  sha256: "e3394d6cf2b54bf16c0bbf750ec08b7ec1aa3506a8b655f0f5e3a677fed36807"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 16
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - unece-r155
+    - iso-24089-2023
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-009
+topic: product-composition
+tags:
+  - regulation
+  - automotive
+  - software-update
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

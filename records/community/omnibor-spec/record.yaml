@@ -1,0 +1,48 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: omnibor-spec
+body: community
+type: spec
+maturity: draft
+title: "OmniBOR Specification"
+short_title: "OmniBOR v0.1"
+authors:
+  - "OmniBOR Community"
+date: "2024-10-13"
+publisher: "OmniBOR Community (github.com/omnibor/spec)"
+version: "0.1"
+identifiers:
+  url: https://github.com/omnibor/spec/tree/v0.1
+  git: https://github.com/omnibor/spec
+  iana: https://www.iana.org/assignments/uri-schemes/prov/gitoid
+  uri_scheme: gitoid
+content:
+  url: https://raw.githubusercontent.com/omnibor/spec/03cd41e6faffcdb7b54dc99e2ba1ec54456b2866/spec/SPEC.md
+  sha256: "d81992650a9feed63a128e5e2c066df86d91e3d97e4e75991e0fe6323567d698"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - swhid-spec-1-2
+    - iana-uri-schemes
+    - cyclonedx-1-7
+    - spdx-3-0-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+topic: product-composition
+tags:
+  - naming
+  - provenance
+  - supply-chain
+  - prior-art
+license: "Community-Spec-1.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier
