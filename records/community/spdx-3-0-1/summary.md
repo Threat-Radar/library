@@ -46,6 +46,13 @@ or read SBOMs (Syft, Grype, Trivy, Dependency-Track). In Table 6's run on
 2026-10-18, Syft 1.52.0 wrote SPDX 3.0.1 JSON-LD (`-o spdx-json@3.0`) and
 Grype 0.119.0 read it.
 
+`record.yaml` lists three more implementations RPT-0004 cites, which get no
+record of their own (docs/scope.md section 3): spdx3-validate 0.0.7,
+spdx/tools-golang (SPDX 3 code only in the v0.6.0-rc4 pre-release; SPDX 3.0.1
+support on its main branch, unreleased) and the OpenEmbedded-Core SPDX 3.0
+classes of Yocto Project 6.0.3. Zephyr's `west spdx` is cited too, but its
+v4.4.2 release writes only SPDX 2.2 and 2.3, so it is not listed here.
+
 ## Artifacts in this record
 
 | File | What it is |
