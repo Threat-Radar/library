@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.9.2",
+  "id": "x_FIXTURE-0001",
+  "modified": "2026-10-18T00:00:00Z",
+  "published": "2026-10-01T00:00:00Z",
+  "summary": "Made-up vulnerability used as an OSV test fixture",
+  "details": "This record is a library test fixture. It describes no real vulnerability.",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "osv-fixture"
+      },
+      "ranges": [
+        {
+          "type": "SEMVER",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.0.2"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1.0.0",
+        "1.0.1"
+      ]
+    },
+    {
+      "ranges": [
+        {
+          "type": "GIT",
+          "repo": "https://example.com/osv-fixture.git",
+          "events": [
+            {
+              "introduced": "1111111111111111111111111111111111111111"
+            },
+            {
+              "fixed": "2222222222222222222222222222222222222222"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "v1.0.0",
+        "v1.0.1"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "type": "ADVISORY",
+      "url": "https://example.com/advisories/x_FIXTURE-0001"
+    }
+  ],
+  "credits": [
+    {
+      "name": "Fixture Finder",
+      "contact": [
+        "https://example.com/fixture-finder"
+      ],
+      "type": "FINDER"
+    },
+    {
+      "name": "Fixture Reporter",
+      "type": "REPORTER"
+    },
+    {
+      "name": "Fixture Analyst",
+      "type": "ANALYST"
+    },
+    {
+      "name": "Fixture Coordinator",
+      "type": "COORDINATOR"
+    },
+    {
+      "name": "Fixture Remediation Developer",
+      "type": "REMEDIATION_DEVELOPER"
+    },
+    {
+      "name": "Fixture Remediation Reviewer",
+      "type": "REMEDIATION_REVIEWER"
+    },
+    {
+      "name": "Fixture Remediation Verifier",
+      "type": "REMEDIATION_VERIFIER"
+    },
+    {
+      "name": "fixture-scanner",
+      "type": "TOOL"
+    },
+    {
+      "name": "Fixture Sponsor",
+      "type": "SPONSOR"
+    },
+    {
+      "name": "Fixture Other",
+      "type": "OTHER"
+    }
+  ]
+}

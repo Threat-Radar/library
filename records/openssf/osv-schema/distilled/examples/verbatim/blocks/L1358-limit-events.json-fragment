@@ -1,0 +1,8 @@
+"ranges": [ {
+    "type": "GIT",
+    "repo": "https://github.com/owner/repo",
+    "events": [
+      { "introduced": "X" },
+      { "limit": "Y" },
+    ]
+} ]

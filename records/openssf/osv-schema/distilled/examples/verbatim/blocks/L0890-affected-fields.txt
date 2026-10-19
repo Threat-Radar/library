@@ -1,0 +1,27 @@
+{
+	"affected": [ {
+		"package": {
+			"ecosystem": string,
+			"name": string,
+			"purl": string
+		},
+		"severity": [ {
+			"type": string,
+			"score": string,
+			"source": string
+		} ],
+		"ranges": [ {
+			"type": string,
+			"repo": string,
+			"events": [ {
+				"introduced": string,
+				"fixed": string,
+				"last_affected": string,
+				"limit": string
+			} ]
+		} ],
+		"versions": [ string ],
+		"ecosystem_specific": { see description },
+		"database_specific": { see description }
+	} ]
+}
