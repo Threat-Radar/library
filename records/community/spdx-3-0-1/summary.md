@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: spdx-3-0-1
 record: spdx-3-0-1
 type: summary
-updated: "2026-09-27"
+updated: "2026-10-18"
 ---
 
 # System Package Data Exchange (SPDX) Specification Version 3.0.1
@@ -20,40 +20,61 @@ updated: "2026-09-27"
 
 ## Overview
 
-_Two to five sentences. What this document is and what it claims — the
-argument, not the table of contents._
+**A stub: nobody has read this specification in full or extracted it (FX-1).**
+SPDX 3.0.1 is the bill-of-materials specification of the Linux Foundation's
+SPDX project. SPDX 3 is a graph model: packages, files, relationships,
+vulnerabilities and their assessments are all elements with a global `spdxId`,
+and machine-readable files define the model (an RDF/OWL ontology with SHACL
+shapes, a JSON-LD context and a JSON Schema). Kept because tmodel RPT-0004
+(product composition, tmodel#8 and tmodel#38) and RPT-0005 (schema
+representations, tmodel#39) cite it.
 
 ## Applicability
 
-| Axis | Rating | Why |
-|---|---|---|
-| Security | | |
-| Cryptography | | |
-| This project | | |
-
-_Name the `DEC-*` or `R-*` it bears on, or say plainly that it bears on none
-yet and this is a stub._
+A stub. `bears_on` R-M-07 and R-M-11 and the `adjacent` ratings in
+`record.yaml` are the upstream `sbom` lane's; DEC-002 was added in this fork
+for the RDF model (see the note below). None was re-assessed here. tmodel's
+committed imports are OTM and STIX 2.1 (tmodel ADR-0007, which lets the
+tmodel#39 crosswalk extend that list), so tmodel does not import SPDX today.
+RPT-0004 Table 6 (tmodel#127, a draft) proposes how an SPDX 3 SBOM's elements
+would fill the inputs of tmodel's core object model, and accepts nothing.
 
 ## Implementations
 
-_What exists that we could build on. Open source and commercial. Record
-"searched: none found on YYYY-MM-DD" — that is a result too._
-
-| Name | Kind | License | URL |
-|---|---|---|---|
+Not searched for this record. tmodel RPT-0004 §3 covers four tools that write
+or read SBOMs (Syft, Grype, Trivy, Dependency-Track). In Table 6's run on
+2026-10-18, Syft 1.52.0 wrote SPDX 3.0.1 JSON-LD (`-o spdx-json@3.0`) and
+Grype 0.119.0 read it.
 
 ## Artifacts in this record
-
-_Everything else in this directory and what it is for._
 
 | File | What it is |
 |---|---|
 | `record.yaml` | metadata |
+| `summary.md` | this summary |
 
 ## Limits
 
-_What this document does not settle. If there is nothing here, it has not been
-read critically._
+Not read in full and not extracted. RPT-0004 §1.2 describes SPDX's identity,
+hardware, relationship, completeness and vulnerability terms. Table 6 checked
+every class, property and enum value it names against three 3.0.1 model files
+as served by spdx.org: `rdf/3.0.1/spdx-model.ttl` (sha256
+`30ebb4af2d70a9809044ef46f44cc3dc5125226d70f818a50ed2e1d5f404c593`),
+`rdf/3.0.1/spdx-context.jsonld`
+(`c72b0928f094c83e5c127784edb1ebca2af74a104fcacc007c332b23cbc788bd`) and
+`schema/3.0.1/spdx-json-schema.json`
+(`582c64e809d5b3ef9bd0c4de13a32391b47b0284a3e8d199569fb96f649234b1`).
+
+The served model is not byte-identical to `rdf/spdx-model.ttl` at this record's
+pinned tag `3.0.1`
+(`77b058ebbea268db1ad191f54da908945d4c279110a5e28b20eae4ac201a5cf8`).
+Compared with rdflib on 2026-10-18, the two define the same classes,
+properties, descriptions and enum values, and differ only in the ontology's
+label and in their SHACL shapes: the served file has 124 `sh:class`
+constraints against 71 at the tag, and one more property shape. SHACL
+validation of real SPDX output was not run. Whether this record gets an FX-1
+extraction, here or in the upstream `sbom` lane, is open (tmodel#38, question
+2 of 2026-10-15).
 
 ## Note — RDF/graph-native serialization (tmodel)
 
