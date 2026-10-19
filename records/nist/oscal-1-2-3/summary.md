@@ -13,7 +13,7 @@ updated: "2026-10-18"
 | **Type** | spec |
 | **Maturity** | _unset — do not guess_ |
 | **Authors** | |
-| **Published** | |
+| **Published** | 2026-08-07 |
 | **Identifier** | https://github.com/usnistgov/OSCAL/releases/tag/v1.2.3 |
 | **Source** | https://github.com/usnistgov/OSCAL/releases/tag/v1.2.3 |
 | **Digest** | `not fetched` |

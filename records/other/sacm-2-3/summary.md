@@ -11,12 +11,12 @@ updated: "2026-10-18"
 |  |  |
 |---|---|
 | **Type** | spec |
-| **Maturity** | _unset — do not guess_ |
+| **Maturity** | `standard` |
 | **Authors** | |
-| **Published** | |
-| **Identifier** | https://www.omg.org/spec/SACM/2.3/PDF |
+| **Published** | 2023-10 |
+| **Identifier** | omg: formal/23-05-08 |
 | **Source** | https://www.omg.org/spec/SACM/2.3/PDF |
-| **Digest** | `not fetched` |
+| **Digest** | `8004a2ee2e3469552ae199deea22e44ec86a1d4769948bdce4782c7220de3012` |
 
 ## Overview
 

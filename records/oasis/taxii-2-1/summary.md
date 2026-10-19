@@ -11,12 +11,12 @@ updated: "2026-10-18"
 |  |  |
 |---|---|
 | **Type** | spec |
-| **Maturity** | _unset — do not guess_ |
+| **Maturity** | `standard` |
 | **Authors** | |
-| **Published** | |
+| **Published** | 2021-06-10 |
 | **Identifier** | https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html |
 | **Source** | https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html |
-| **Digest** | `not fetched` |
+| **Digest** | `d8cf08a9dd96e6ccee2be125eb379125a4141b8a30c63d14a7a040b8153ad1b0` |
 
 ## Overview
 

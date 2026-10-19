@@ -16,7 +16,7 @@ updated: "2026-10-18"
 | **Published** | |
 | **Identifier** | https://raw.githubusercontent.com/openvex/spec/v0.2.0/OPENVEX-SPEC.md |
 | **Source** | https://raw.githubusercontent.com/openvex/spec/v0.2.0/OPENVEX-SPEC.md |
-| **Digest** | `not fetched` |
+| **Digest** | `2abdc5d06f2254fea39830e23e482c65d1631e9564a259dd884559a4a21ce330` |
 
 ## Overview
 

@@ -16,7 +16,7 @@ updated: "2026-10-18"
 | **Published** | |
 | **Identifier** | https://www.first.org/epss/ |
 | **Source** | https://www.first.org/epss/ |
-| **Digest** | `not fetched` |
+| **Digest** | `ffb1500c72a5c658e011917aff1f3aab16f5b420714829fec52bd7efb60e0e58` |
 
 ## Overview
 

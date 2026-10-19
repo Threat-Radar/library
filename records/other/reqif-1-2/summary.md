@@ -11,12 +11,12 @@ updated: "2026-10-18"
 |  |  |
 |---|---|
 | **Type** | spec |
-| **Maturity** | _unset — do not guess_ |
+| **Maturity** | `standard` |
 | **Authors** | |
-| **Published** | |
-| **Identifier** | https://www.omg.org/spec/ReqIF/1.2/PDF |
+| **Published** | 2016-07 |
+| **Identifier** | omg: formal/16-07-01 |
 | **Source** | https://www.omg.org/spec/ReqIF/1.2/PDF |
-| **Digest** | `not fetched` |
+| **Digest** | `c9d4fc54a13c5bd931c1a8eb039c77494d441e98a2be889ff3e9e96c3d299a2f` |
 
 ## Overview
 

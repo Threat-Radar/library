@@ -11,12 +11,12 @@ updated: "2026-10-18"
 |  |  |
 |---|---|
 | **Type** | spec |
-| **Maturity** | _unset — do not guess_ |
+| **Maturity** | `standard` |
 | **Authors** | |
 | **Published** | |
-| **Identifier** | https://www.omg.org/spec/SysML/2.0/Language/PDF |
+| **Identifier** | omg: formal/2026-03-02 |
 | **Source** | https://www.omg.org/spec/SysML/2.0/Language/PDF |
-| **Digest** | `not fetched` |
+| **Digest** | `46e6c0476a6f1f34f367d57e039d56659bff75e41d2e4b3d37ca4cadea84a83a` |
 
 ## Overview
 

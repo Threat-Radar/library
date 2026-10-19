@@ -11,12 +11,12 @@ updated: "2026-10-18"
 |  |  |
 |---|---|
 | **Type** | spec |
-| **Maturity** | _unset — do not guess_ |
+| **Maturity** | `standard` |
 | **Authors** | |
-| **Published** | |
+| **Published** | 2022-11-18 |
 | **Identifier** | https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md |
 | **Source** | https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md |
-| **Digest** | `not fetched` |
+| **Digest** | `5bc757cc8dcf1a48a73c50de8100b0437bda1f9b5b860afd051c585749f568be` |
 
 ## Overview
 
