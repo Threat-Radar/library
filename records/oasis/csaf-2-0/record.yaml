@@ -1,0 +1,36 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: csaf-2-0
+body: oasis
+type: spec
+maturity: standard
+title: "Common Security Advisory Framework Version 2.0"
+authors: []
+date: "2022-11-18"
+identifiers:
+  url: https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md
+content:
+  url: https://docs.oasis-open.org/csaf/csaf/v2.0/os/csaf-v2.0-os.md
+  sha256: "5bc757cc8dcf1a48a73c50de8100b0437bda1f9b5b860afd051c585749f568be"
+  retrieved: "2026-10-06"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: 
+publisher: "OASIS Open (CSAF TC)"
+version: "2.0"
+tags:
+  - csaf
+  - vex
+  - advisory
+status: stub
+confidence: low
+owner: Maimcghee

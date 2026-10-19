@@ -1,0 +1,36 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: sysml-2-0
+body: other
+type: spec
+maturity: standard
+title: "OMG Systems Modeling Language (SysML) Version 2.0, Part 1: Language"
+authors: []
+date: ""
+identifiers:
+  url: https://www.omg.org/spec/SysML/2.0/Language/PDF
+  omg: "formal/2026-03-02"
+content:
+  url: https://www.omg.org/spec/SysML/2.0/Language/PDF
+  sha256: "46e6c0476a6f1f34f367d57e039d56659bff75e41d2e4b3d37ca4cadea84a83a"
+  retrieved: "2026-10-05"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: 
+publisher: "Object Management Group (OMG)"
+version: "2.0"
+tags:
+  - sysml
+  - requirements
+status: stub
+confidence: low
+owner: Maimcghee
