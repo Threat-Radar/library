@@ -1,0 +1,3 @@
+wfn:[part="a",vendor="hp",product="openview_network_manager",
+version="7\.51",update=NA,edition=ANY,sw_edition=ANY,
+target_sw="linux",target_HW=ANY,other=ANY,language=ANY]

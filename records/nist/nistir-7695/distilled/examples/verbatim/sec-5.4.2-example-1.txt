@@ -1,0 +1,2 @@
+get(wfn:[vendor="microsoft",product="internet_explorer"],vendor)
+→ "microsoft"

@@ -1,0 +1,192 @@
+; =====================================================================
+; figure-5-1-avstring.derived.abnf
+;
+; DERIVED - not verbatim. Written for this library from NISTIR 7695
+; (CPE Naming Specification Version 2.3, August 2011), section 5.3.2
+; and Figure 5-1, with rules from 5.1, 5.3.1, 5.3.3.1 and 5.3.3.10.
+; The verbatim figure is figure-5-1-avstring.abnf beside this file.
+; Never cite a rule from this file as the specification's own grammar,
+; except where a comment says the rule is the figure's rule unchanged.
+;
+; Language: ABNF, RFC 5234 (the figure cites RFC 2234; the syntax used
+; here is the same in both). ASCII only. Checked by
+; ../examples/run-fixtures.derived.py, which parses this file with a
+; strict RFC 5234 parser and compiles each root rule to a regular
+; expression.
+;
+; Source PDF SHA-256
+; 01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6
+; <https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf>
+;
+; Conventions. Numbers such as 5.3.2 are NISTIR 7695 section numbers.
+; Text in double quotes that a comment attributes to a section is
+; verbatim from the specification (a sentence the PDF wraps across
+; lines is joined). Everything else in the comments is the library's.
+;
+; ROOT RULES
+;
+;   avstring         Figure 5-1 unchanged except one rename (see PART 1).
+;   avstring-prose   The prose of 5.3.2, items 1 to 6, as a grammar
+;                    (the library's reading; see PART 2).
+;   avstring-strict  Strings that both avstring and avstring-prose
+;                    accept (PART 3). Use this one to validate a value.
+;   part-string      The three string values 5.3.3.1 allows for part.
+;   language-string  A language value: an RFC 5646 Language-Tag written
+;                    with each hyphen quoted, as 5.3.2 item 5 requires.
+;   wfn-notation     The "wfn:[...]" illustration notation of 5.1, as
+;                    the examples print it (PART 5).
+;
+; Where avstring and avstring-prose differ (exactly two families of
+; strings, PART 3) the specification contradicts itself; README.md
+; beside this file records both readings as findings.
+; =====================================================================
+
+; ---------------------------------------------------------------------
+; PART 1. Figure 5-1, made valid RFC 5234 ABNF.
+;
+; The only change from the printed figure: the rule name spec_chrs is
+; written spec-chrs. RFC 2234 section 2.1 (and RFC 5234 section 2.1)
+; allows only letters, digits and hyphens in a rule name. DQUOTE, ALPHA
+; and DIGIT keep the figure's definitions, which equal the RFC 5234
+; core rules. Every other line is the figure's, token for token.
+; ---------------------------------------------------------------------
+
+avstring          = ( body / ( spec-chrs *body2 )) *1spec-chrs
+spec-chrs         = 1*spec1 / spec2
+spec1             = "?"
+spec2             = "*"
+body              = ( body1 *body2 ) / 2*body2
+body1             = unreserved / quoted1
+body2             = unreserved / quoted2
+unreserved        = ALPHA / DIGIT / "_"
+quoted1           = escape (escape / special / punc-no-dash)
+quoted2           = escape (escape / special / punc-w-dash)
+escape            = "\"
+special           = spec1 / spec2
+dash              = "-"
+punc-no-dash      = "!" / DQUOTE / "#"/ "$"/ "%" / "&" / "'" /
+                    "(" / ")" / "+" / "," / "." / "/" /
+                    ":" / ";" / "<" / "=" / ">" / "@" / "[" /
+                    "]" / "^" / "`" / "{" / "|" / "}" / "~"
+punc-w-dash       = punc-no-dash / dash
+DQUOTE            = %x22 ; double quote
+ALPHA             = %x41-5a / %x61-7A    ; A-Z or a-z
+DIGIT             = %x30-39    ; 0-9
+
+; ---------------------------------------------------------------------
+; PART 2. The prose of 5.3.2 as a grammar (library reading).
+;
+; 5.3.2 says: "Value strings assigned to attributes of WFNs SHALL be
+; non-empty contiguous strings of bytes encoded using printable Unicode
+; Transformation Format-8 (UTF-8) characters with hexadecimal values
+; between x00 and x7F [RFC3629]." Items 1 to 6 then admit letters and
+; digits (1), the underscore, with no whitespace (2), the backslash as
+; escape character (3), the special characters "*" and "?" (4), every
+; other printable non-alphanumeric character only when quoted (5), and
+; forbid a quoted hyphen by itself (6). Item 4 says:
+;   "A special character MAY be included at the beginning of an
+;    otherwise non-empty value string, and/or at the end of the
+;    string. A special character MUST NOT be embedded within a value
+;    string. A single asterisk MUST NOT be used by itself as an
+;    attribute value. The asterisk MUST NOT be used more than once in
+;    sequence. A single question mark MAY be used by itself as an
+;    attribute value. The question mark MAY be used more than once in
+;    sequence."
+;
+; Readings (judgement calls, listed in README.md):
+;   P1  A leading or trailing group of special characters is either a
+;       run of question marks or one asterisk ("more than once in
+;       sequence" is allowed for "?" only); a mixed group such as "?*"
+;       counts as an embedded special character.
+;   P2  A value made only of special characters is allowed only when it
+;       is one or more question marks ("A single question mark MAY be
+;       used by itself"; "more than once in sequence"); "*", "**", "?*"
+;       and "*?" are not allowed ("otherwise non-empty").
+;   P3  Item 6 forbids "\-" only as the whole value; "\-?" and "?\-"
+;       are allowed (the quoted hyphen is then not "by itself").
+;   P4  The prose does not say whether a letter, digit or underscore
+;       may follow the escape character. This rule follows Figure 5-1:
+;       it may not (quoted1, quoted2).
+;
+; Under these readings the prose is the regular language below. body
+; is reused from PART 1: one or more units (an unreserved character or
+; an escape pair) that are not exactly one quoted hyphen.
+; ---------------------------------------------------------------------
+
+avstring-prose    = 1*spec1                        ; P2: "?", "??", ...
+                  / body                           ; no special character
+                  / spec-chrs 1*body2 [ spec-chrs ]  ; leading group
+                  / 1*body2 spec-chrs              ; trailing group only
+
+; ---------------------------------------------------------------------
+; PART 3. Strings both readings accept.
+;
+; ABNF has no intersection operator, so the intersection of avstring
+; (PART 1) and avstring-prose (PART 2) is written out. The two differ in
+; exactly two families of strings:
+;   D1  Figure 5-1 accepts and the prose forbids: values made only of
+;       special characters other than question-mark runs: "*", "**",
+;       "*?", "*??", "?*", "??*" (spec-chrs followed by zero body2 and
+;       an optional second spec-chrs).
+;   D2  The prose allows and Figure 5-1 rejects: one quoted hyphen
+;       followed by a trailing group: "\-?", "\-??", "\-*". (Figure
+;       5-1's body excludes a lone "\-" even when special characters
+;       follow it, but its second alternative admits "?\-".)
+; ---------------------------------------------------------------------
+
+avstring-strict   = 1*spec1
+                  / body [ spec-chrs ]
+                  / spec-chrs 1*body2 [ spec-chrs ]
+
+; ---------------------------------------------------------------------
+; PART 4. Per-attribute value restrictions (5.3.3).
+;
+; 5.3.3.1 says: "The part attribute SHALL have one of these three
+; string values:" "a", "o" and "h". The values are written as %x so
+; that they are case-sensitive (an RFC 5234 quoted string is not).
+; Reading: the logical values ANY and NA stay allowed for part (5.2
+; item 2 defaults an unspecified attribute to ANY; Figure 6-1 allows an
+; empty part; Figure 6-3 allows a logical part).
+;
+; 5.3.3.10 says: "Values for this attribute SHALL be valid language
+; tags as defined by [RFC5646]". In a WFN the hyphens of the tag are
+; quoted (5.3.2 item 5), so "en-us" is written "en\-us". The rule is a
+; prose value: RFC 5646 is not reproduced here. run-fixtures.derived.py
+; checks the RFC 5646 section 2.1 Language-Tag production (RFC 5646
+; "well-formed"); RFC 5646 "valid" also needs the IANA subtag registry,
+; which nothing here checks.
+; ---------------------------------------------------------------------
+
+part-string       = %x61 / %x6F / %x68    ; a / o / h
+
+language-string   = <RFC 5646 Language-Tag, each "-" written as "\-">
+
+; ---------------------------------------------------------------------
+; PART 5. The WFN illustration notation (5.1, 5.3.1, 5.3.2).
+;
+; 5.1 says WFNs "will be notated as lists of attribute-value pairs
+; enclosed in square brackets", prefixed with the string wfn:, and
+; that "This notation is used solely for the purposes of explaining and
+; illustrating the concepts and procedures specified herein." 5.3.1:
+; logical values are "written in all uppercase characters, without
+; surrounding quotation marks". 5.3.2: string values "will be enclosed
+; in double quotes". The rule below is the library's, written so the
+; examples can be parsed; it is not a data format (5.1: "The WFN is a
+; logical construct only."). notation-string accepts any printable
+; ASCII with backslash escapes, so that a value can be read first and
+; judged by avstring-strict afterwards. Attribute names are quoted
+; strings and so match in any case, as 5.1 requires ("Lexical case
+; SHALL NOT distinguish attributes from one another"). The examples
+; print no space after a comma; the 5.1 template prints one ("a1=v1,
+; a2=v2"), so spaces are allowed there.
+; ---------------------------------------------------------------------
+
+wfn-notation      = "wfn:[" [ av-pair *( "," *SP av-pair ) ] "]"
+av-pair           = attribute "=" ( DQUOTE notation-string DQUOTE
+                                    / logical-value )
+attribute         = "part" / "vendor" / "product" / "version" /
+                    "update" / "edition" / "language" / "sw_edition" /
+                    "target_sw" / "target_hw" / "other"
+logical-value     = %x41.4E.59 / %x4E.41  ; ANY / NA, upper case only
+notation-string   = *( %x20-21 / %x23-5B / %x5D-7E / escape %x20-7E )
+SP                = %x20

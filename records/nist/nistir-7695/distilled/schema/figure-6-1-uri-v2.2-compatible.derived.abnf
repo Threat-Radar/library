@@ -1,0 +1,74 @@
+; =====================================================================
+; figure-6-1-uri-v2.2-compatible.derived.abnf
+;
+; DERIVED - not verbatim. Figure 6-1 of NISTIR 7695 (CPE Naming
+; Specification Version 2.3, August 2011), "ABNF for v2.2-Compatible
+; URI Binding", section 6.1.1, printed page 16, repaired so that it is
+; valid RFC 5234 ABNF. The verbatim figure is
+; figure-6-1-uri-v2.2-compatible.abnf beside this file.
+;
+; Root rule: cpe-name.
+;
+; Source PDF SHA-256
+; 01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6
+;
+; Role. 6.1.1 says: "To ensure full backward compatibility with
+; [CPE22], any implementation that consumes URIs and claims to be
+; conformant with this Naming specification MUST accept as valid input
+; any URI that obeys the full syntax shown in Figure 6-1." Section 4,
+; item 3: "If the implementation produces CPE names in URI form, it
+; MUST produce URIs that adhere to the syntax rules specified in
+; Figure 6-1".
+;
+; The three repairs, and nothing else (every other token is the
+; figure's):
+;   R1  "/=" is written "=/". RFC 2234 section 3.3 (and RFC 5234
+;       section 3.3) spells incremental alternatives "=/"; "/=" is not
+;       ABNF.
+;   R2  The last alternative of unreserved is printed as U+02DC SMALL
+;       TILDE (the PDF's text layer and its glyph agree). It is written
+;       "~" (ASCII tilde, %x7E) here: a char-val may hold only %x20-21
+;       and %x23-7E, the CPE 2.2 grammar that 6.1.1 says this figure
+;       shows lists "~" among its punctuation, and 6.1.3.3.7 says "The
+;       original v2.2 URI syntax allows tildes to appear without
+;       encoding".
+;   R3  "LANGTAG = cf. [RFC5646]" is prose, not ABNF. It is written as
+;       an ABNF prose value. run-fixtures.derived.py supplies it: the
+;       RFC 5646 section 2.1 Language-Tag production (well-formedness
+;       only).
+;
+; Reading kept from the figure, not repaired: RFC 2234 quoted strings
+; are case-insensitive, so "cpe:/", "h", "o", "a" and the hex digits
+; "a" to "f" match in either case. run-fixtures.derived.py also reports
+; a case-sensitive reading (every quoted string as RFC 7405 %s"...")
+; because the XML schema the specification calls authoritative is
+; case-sensitive; README.md compares the two.
+; =====================================================================
+
+cpe-name                = "cpe:/" component-list
+
+component-list          = part ":" vendor ":" product ":" version ":" update ":"
+                          edition ":" lang
+component-list          =/ part ":" vendor ":" product ":" version ":" update ":"
+                           edition
+component-list          =/ part ":" vendor ":" product ":" version ":" update
+component-list          =/ part ":" vendor ":" product ":" version
+component-list          =/ part ":" vendor ":" product
+component-list          =/ part ":" vendor
+component-list          =/ part
+component-list          =/ empty
+part                    = "h" / "o" / "a" / empty
+vendor                  = string
+product                 = string
+version                 = string
+update                  = string
+edition                 = string
+lang                    = LANGTAG / empty
+string                  = *( unreserved / pct-encoded )
+empty                   = ""
+unreserved              = ALPHA / DIGIT / "-" / "." / "_" / "~"
+pct-encoded             = "%" HEXDIG HEXDIG
+ALPHA                   = %x41-5a / %x61-7a   ; A-Z or a-z
+DIGIT                   = %x30-39 ; 0-9
+HEXDIG                  = DIGIT / "a" / "b" / "c" / "d" / "e" / "f"
+LANGTAG                 = <Language-Tag, RFC 5646 section 2.1>

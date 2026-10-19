@@ -1,0 +1,1 @@
+set(wfn:[vendor="microsoft"],vendor,nil) → wfn:[]
