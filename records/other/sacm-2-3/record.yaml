@@ -1,0 +1,36 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: sacm-2-3
+body: other
+type: spec
+maturity: standard
+title: "Structured Assurance Case Metamodel (SACM) Version 2.3"
+authors: []
+date: "2023-10"
+identifiers:
+  url: https://www.omg.org/spec/SACM/2.3/PDF
+  omg: "formal/23-05-08"
+content:
+  url: https://www.omg.org/spec/SACM/2.3/PDF
+  sha256: "8004a2ee2e3469552ae199deea22e44ec86a1d4769948bdce4782c7220de3012"
+  retrieved: "2026-10-05"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+publisher: "Object Management Group (OMG)"
+version: "2.3"
+tags:
+  - sacm
+  - assurance-case
+status: stub
+confidence: low
+owner: Maimcghee
