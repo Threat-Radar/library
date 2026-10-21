@@ -25,7 +25,7 @@ has a permanent integer id (`CWE-79`) that is never reused, even after
 deprecation. Entries are Weaknesses (at Pillar, Class, Base, Variant or
 Compound abstraction; Simple, Chain or Composite structure), Categories and
 Views. Relations between weaknesses are typed and scoped to a view
-(`ChildOf` in view 1000 can differ from `ChildOf` in view 699). Every entry
+(`ChildOf` in view 1000 can differ from `ChildOf` in view 1003). Every entry
 also says whether it may be used to map real vulnerabilities
 (`Mapping_Notes/Usage`).
 
@@ -36,9 +36,10 @@ also says whether it may be used to map real vulnerabilities
 - **Cryptography: adjacent.** Covers cryptographic weaknesses as entries; not
   a cryptographic specification.
 - **This project: core.** The external key for tmodel's Weakness type
-  (ARCH-0001 §3, R-010); its typed, view-scoped relations test DEC-001's edge
-  model; its file-per-release distribution bears on DEC-008 (mirror vs live
-  lookup) and its closed XSD on DEC-002 (import formats). Details in
+  (ARCH-0001 §3, R-010); its typed, view-scoped relations test the edge model
+  accepted as DEC-001a (ADR-0010); its file-per-release distribution bears on
+  DEC-008 (mirror vs live lookup, open) and its closed XSD on DEC-002 (import
+  formats, accepted as ADR-0007). Details in
   `distilled/design-notes.md`.
 
 ## Implementations
@@ -61,11 +62,11 @@ Model (`threats[].cwes`, record `open-threat-model`).
 
 - The record pins the XML distribution only. CSV and HTML views, and any
   MITRE web API, were not examined.
-- The schema's documentation contradicts its own structure in places, and the
-  4.20 data departs from the documentation in a few more (recorded under
-  `source_defects` in `distilled/requirements.yaml` and in
-  `distilled/verification.md`). The XSD is treated as authoritative for
-  structure.
+- The schema's documentation contradicts its own structure in places
+  (`source_defects` in `distilled/requirements.yaml`), and the 4.20 data
+  departs from the documentation in a few more (invariants I15, I16 and I29 in
+  `distilled/examples/catalog-stats.yaml`; see also `distilled/verification.md`).
+  The XSD is treated as authoritative for structure.
 - MITRE's root-cause mapping guidance (which prefers Base and Variant entries)
   is a separate document and not covered here.
 - Gathered for RPT-0011 (tmodel #25); fully extracted for RPT-0005 (tmodel #39).

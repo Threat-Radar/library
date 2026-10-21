@@ -11,4 +11,5 @@ bears_on:
 records:
   - cwe
   - open-threat-model
+  - ssvc
 answer: ""

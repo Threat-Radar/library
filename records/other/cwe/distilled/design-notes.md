@@ -10,9 +10,10 @@ How CWE bears on tmodel. Quotes are from `cwe_schema_v7.3.xsd` (SHA-256
 `690dedee…e45f98`) by line; data facts are from `cwec_v4.20.xml` (CWE List 4.20,
 2026-04-30) and can be re-derived from `examples/catalog-stats.yaml`. Decision ids
 are tmodel's: ARCH-0001 §3 (object model), R-010 (map Weakness→CWE), R-018
-(review), R-021/R-022, DEC-001 (object model), DEC-002 (encoding and imports),
-DEC-003 (risk), DEC-008 (CWE/NVD integration), DEC-009 (generic→product), ADR-0004
-(file canonical store, typed edges with properties).
+(review), R-021/R-022, DEC-001a (core object model, accepted as ADR-0010), DEC-001b
+(governed layer, open), DEC-002 (encoding and imports, accepted as ADR-0007), DEC-003
+(risk, accepted as ADR-0006), DEC-008 (CWE/NVD integration, open), DEC-009
+(generic→product, open), ADR-0004 (file canonical store, typed edges with properties).
 
 CWE is a **catalog**, not a protocol: one authority (MITRE) publishes a versioned
 XML file, and everyone else reads it. So the design question is not "do we
@@ -40,8 +41,8 @@ implement CWE" but "how do we import it, cite it, and keep citations honest".
    requires `Nature`, `CWE_ID` and `View_ID` (L545–547) and may carry
    `Chain_ID` and `Ordinal` (L548–549). Import each as one edge with all five as
    properties. Dropping `View_ID` would merge hierarchies that CWE keeps
-   separate (Research Concepts view 1000, Software Development 699, Hardware
-   Design 1194).
+   separate (Research Concepts view 1000, Simplified Mapping view 1003,
+   Hardware Design 1194).
 4. **The XSD as the import validator** (DEC-002). The 4.20 catalog is checked
    against the pinned XSD on every import (`schema/README.md` has the
    command). The schema is closed (no `xs:any` outside XHTML text), so a new
@@ -56,10 +57,11 @@ implement CWE" but "how do we import it, cite it, and keep citations honest".
 
 ## What we adapt, and how
 
-1. **`ChildOf` is specialization, not `part_of`** (DEC-001). "A ChildOf nature
+1. **`ChildOf` is specialization, not `part_of`** (DEC-001a, ADR-0010). "A ChildOf nature
    denotes a related weakness at a higher level of abstraction" (L973): it
-   means "is a kind of". ARCH-0001's edge list has no specialization edge, so
-   either add one (`specializes`) or carry it as an imported, view-scoped edge.
+   means "is a kind of". Neither ARCH-0001's edge list nor the core accepted in
+   ADR-0010 has a Weakness-to-Weakness edge, so either propose one (`specializes`)
+   in a follow-up ADR or carry it as an imported, view-scoped edge.
    Category and view membership (`Has_Member` / `Member_Of`, L556–563, scoped by
    `View_ID`) is the CWE relation closest to `part_of`.
 2. **Chains are ordered weaknesses, not attack paths** (ARCH-0001 §3
@@ -68,9 +70,9 @@ implement CWE" but "how do we import it, cite it, and keep citations honest".
    Composite "a set of weaknesses that must all be present simultaneously in
    order to produce an exploitable vulnerability" (L1050). Import `StartsWith` /
    `CanPrecede` / `CanFollow` (with `Chain_ID`) as ordering edges between
-   Weakness nodes and `Requires` / `RequiredBy` as an AND group. Attacker
-   actions (AttackStep) come from CAPEC through `Related_Attack_Pattern/@CAPEC_ID`
-   (L533), not from CWE.
+   Weakness nodes and `Requires` / `RequiredBy` as an AND group. Attack patterns
+   (tmodel `AttackPattern`) come from CAPEC through `Related_Attack_Pattern/@CAPEC_ID`
+   (L533), not from CWE; the CWE↔CAPEC link is a reviewed Assertion (ADR-0010 core).
 3. **Deprecation → `supersedes` is derived, and reviewed** (ARCH-0001 §3
    `supersedes`). A deprecated entry keeps its id with `Status="Deprecated"`
    and `Usage` Prohibited, and names its successor in prose. CWE-1187: "This
@@ -98,8 +100,11 @@ implement CWE" but "how do we import it, cite it, and keep citations honest".
    not a key.
 7. **Observed examples are a sample, not an index** (R-010). `Observed_Examples`
    (L465–480) lists CVE ids that illustrate a weakness. Import them as
-   `instance_of` (Vulnerability → Weakness) edges marked *example*; the forward
-   direction for a given CVE comes from the CVE record's `problemTypes`.
+   Vulnerability → Weakness links marked *example*; the forward direction for a
+   given CVE comes from the CVE record's `problemTypes`. `instance_of` is
+   ARCH-0001 §3's working name: the accepted core (ADR-0010) has no
+   Vulnerability-to-Weakness edge yet, so until one is added the link is an
+   Assertion (a proposed `Vulnerability.instance_of` is in tmodel#130).
 
 ## What we reject, and why
 
@@ -123,21 +128,25 @@ implement CWE" but "how do we import it, cite it, and keep citations honest".
 
 ## Mapping to our decisions
 
+The edge rows use ARCH-0001 §3's working names. The accepted LinkML schema
+(ADR-0010) has no `part_of`, `instance_of` or `supersedes` slot, so those rows
+are proposals against it, not mappings onto it.
+
 | tmodel item | CWE construct | verdict |
 |---|---|---|
 | ARCH-0001 §3 Weakness | `Weakness` (Pillar/Class/Base/Variant/Compound; Simple/Chain/Composite) | adopt as external key |
 | §3 Mitigation | `Potential_Mitigations/Mitigation` | adapt: generic template |
 | §3 AttackPath / ThreatChain | `Structure="Chain"` + `StartsWith`/`CanPrecede` | adapt: weakness ordering only |
-| §3 AttackStep | `Related_Attack_Pattern/@CAPEC_ID` | link out to CAPEC |
+| AttackPattern (ADR-0010) | `Related_Attack_Pattern/@CAPEC_ID` | link out to CAPEC as a reviewed Assertion |
 | §3 Review | `Status`, `Mapping_Notes` (editorial, not a decision record) | no equivalent; tmodel's own |
 | edge `part_of` | `Has_Member` / `Member_Of` (view-scoped) | adapt |
 | edge `instance_of` | `Observed_Example` (CVE ids) | adapt: example only |
 | edge `supersedes` | deprecated entry, successor in prose | adapt: inferred + reviewed |
-| (new) specialization | `ChildOf` / `ParentOf` (view-scoped) | DEC-001 must decide |
-| (new) causal order | `CanPrecede` / `CanFollow` | DEC-001 must decide |
+| (new) specialization | `ChildOf` / `ParentOf` (view-scoped) | not in the accepted core (DEC-001a, ADR-0010); needs a follow-up ADR |
+| (new) causal order | `CanPrecede` / `CanFollow` | not in the accepted core (DEC-001a, ADR-0010); needs a follow-up ADR |
 | R-010 | `CWE-<int>`, `Mapping_Notes/Usage` | adopt id + gate |
 | R-018 | `Allowed-with-Review`, Critical modifications | adopt as review triggers |
-| DEC-002 | XML + closed XSD 7.3 | import only, validated |
+| DEC-002 (accepted, ADR-0007) | XML + closed XSD 7.3 | import only, validated; adding it to ADR-0007's import set needs a MAP-NNNN crosswalk and a vector |
 | DEC-008 | bulk XML per release (zip ~2 MB; XML ~18 MB) | cached mirror pinned by version |
 | ADR-0004 | `Related_Weakness` with Nature/View_ID/Chain_ID/Ordinal | edges with properties |
 

@@ -79,7 +79,7 @@ Results:
   stated before inferred), and schema entries too (line, column, array
   order). Ids run 1 to 287 without a gap. Every figure in `counts` reproduces
   (by form, kind, verb, actor and testable). `testable_reason` is present
-  exactly when testable is not yes, and `inferred_rule` exactly when the kind
+  exactly when testable is not yes, and `inferred_note` exactly when the kind
   is inferred. Every `related` pair is symmetric, and every R- or D-id cited
   in a note resolves.
 - **Schema notes.** Every REQUIRED or RECOMMENDED row's note says "Schema:

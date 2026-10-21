@@ -243,8 +243,8 @@ Defects, fixed:
       R-0015 links Name on Weakness, Category and View (D-13)
     - value rules, to every field of that enumeration
   - **Result:** 191 of 198 requirements linked, giving 215 links on 128 of the
-    203 fields. The 75 empty fields are all optional, and no requirement names
-    them.
+    203 fields. No requirement names the other 75: 74 are optional and one is
+    the simpleContent value of Previous_Entry_Name (L349).
   - **Unlinked, with reasons, in `constrained_by_unlinked`** (7):
     R-0001, R-0002, R-0003, R-0004, R-0005, R-0035, R-0153.
 - **Names resolve.** Every element, attribute and type name, and every quoted

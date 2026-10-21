@@ -78,7 +78,7 @@ note: >
   R-0059, R-0071, R-0094, R-0095, R-0250, R-0283, R-0284, R-0285, R-0286, R-0287. A schema text is the verbatim
   member, key through value, e.g. "type": ["string", "null"]; the names of one required array share its text. KIND.
   stated = the text states the rule. inferred = a rule derived from a descriptive sentence: the text is that
-  sentence and inferred_rule states the rule in our words; 13 entries, all flagged. ACTORS (fixed vocabulary).
+  sentence and inferred_note states the rule in our words; 13 entries, all flagged. ACTORS (fixed vocabulary).
   otm-producer = whoever writes an OTM document, a tool or a person; otm-consumer = a tool or person that reads,
   imports, validates or renders one; spec-maintainer = the OTM maintainers who number and evolve the specification;
   licensee = anyone copying, adapting or redistributing README.md or otm_schema.json. Schema constraints bind the
@@ -105,7 +105,7 @@ note: >
   conditional or default; $id, title, properties, items and definitions constrain nothing by themselves. EXTRA
   FIELDS. pointer (schema entries), variant (the README subsection a row belongs to: Diagram, Code, Representation
   element for diagram, code or threat-model), condition (when a conditional requirement applies), applies_to (the
-  README fields a Data Types rule governs), inferred_rule, related (entries that restate, enforce or are enforced by
+  README fields a Data Types rule governs), inferred_note, related (entries that restate, enforce or are enforced by
   this one), note (extractor's remark, not source text). PASS. Pass-1 extraction by agent A, 2026-10-13. Verify and
   cross-check passes by agent C, 2026-10-14 (verification.md).
 counts:
@@ -205,7 +205,7 @@ requirements:
     kind: 'inferred'
     testable: 'partial'
     testable_reason: 'Checkable by loading a YAML document with a JSON-compatible loader and comparing the result with its JSON form; YAML 1.1 and YAML 1.2 loaders resolve unquoted scalars differently.'
-    inferred_rule: 'A YAML rendering must denote that JSON object: every value must have a JSON equivalent (mapping keys are strings; no YAML-only types). An unquoted 2021-05-17, as in the Threats example at L1635, is a timestamp to a YAML 1.1 loader and has no JSON equivalent.'
+    inferred_note: 'A YAML rendering must denote that JSON object: every value must have a JSON equivalent (mapping keys are strings; no YAML-only types). An unquoted 2021-05-17, as in the Threats example at L1635, is a timestamp to a YAML 1.1 loader and has no JSON equivalent.'
     note: 'Derived from ''is itself a JSON object, which may be represented either in JSON or YAML'' (L23): YAML is only a representation of the JSON object. See D-29.'
     status: 'active'
   - id: 'open-threat-model#R-0004'
@@ -381,7 +381,7 @@ requirements:
     kind: 'inferred'
     testable: 'partial'
     testable_reason: 'The semver syntax is checkable; the schema types otmVersion string with no pattern (schema L10). Which version a document ''uses'' is not checkable.'
-    inferred_rule: 'otmVersion is a Semantic Versioning 2.0.0 version string (L15) naming the OTM version the document follows; a document following this edition states 0.2.0 (L18).'
+    inferred_note: 'otmVersion is a Semantic Versioning 2.0.0 version string (L15) naming the OTM version the document follows; a document following this edition states 0.2.0 (L18).'
     related:
       - 'open-threat-model#R-0001'
     note: 'Derived from L15 (the specification is versioned with semver) and L18 (current version 0.2.0). The Examples cell of the same row shows 0.1.0 (D-02).'
@@ -562,7 +562,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'representation is the id of a representation declared in the root representations array; for this variant that representation''s type is diagram.'
+    inferred_note: 'representation is the id of a representation declared in the root representations array; for this variant that representation''s type is diagram.'
     note: 'Derived from ''Id of the representation'' and the variant structure (L372-L382: three representation types, three kinds of representation element). D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0030'
@@ -662,7 +662,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'representation is the id of a representation declared in the root representations array; for this variant that representation''s type is code.'
+    inferred_note: 'representation is the id of a representation declared in the root representations array; for this variant that representation''s type is code.'
     note: 'Derived as for the diagram variant (L372-L378, L478). D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0037'
@@ -720,7 +720,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'representation is the id of a representation declared in the root representations array; for this variant that representation''s type is threat-model.'
+    inferred_note: 'representation is the id of a representation declared in the root representations array; for this variant that representation''s type is threat-model.'
     note: 'Derived as for the diagram variant (L372-L378, L608). D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0041'
@@ -895,7 +895,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'Each entry of processed is the id of an asset declared in the root assets array.'
+    inferred_note: 'Each entry of processed is the id of an asset declared in the root assets array.'
     note: '''Array of ids that represent the assets'' states that the strings are asset ids; that each must resolve to a declared asset is inferred. D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0054'
@@ -908,7 +908,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'Each entry of stored is the id of an asset declared in the root assets array.'
+    inferred_note: 'Each entry of stored is the id of an asset declared in the root assets array.'
     note: 'As for processed. D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0055'
@@ -1153,7 +1153,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'parent.trustZone is the id of a trust zone declared in the root trustZones array: the key names the kind of the enclosing element.'
+    inferred_note: 'parent.trustZone is the id of a trust zone declared in the root trustZones array: the key names the kind of the enclosing element.'
     note: 'The key-as-kind reading follows from L1284-L1287 (two supported types of parents) and the rule that the parent ''should contain an attribute name stating the component type'' (L1302). The row''s next sentence says the id ''can be either a trust zone or another component'' (D-15). D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0073'
@@ -1180,7 +1180,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'parent.component is the id of a component declared in the root components array: the key names the kind of the enclosing element.'
+    inferred_note: 'parent.component is the id of a component declared in the root components array: the key names the kind of the enclosing element.'
     note: 'As for trustZone (open-threat-model#R-0072). D-15; D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0075'
@@ -1274,7 +1274,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'source is the id of a component declared in the root components array.'
+    inferred_note: 'source is the id of a component declared in the root components array.'
     note: '''Unique identifier for the source component'' names the component''s id; it is not a uniqueness rule on the dataflow. The text says component: whether an endpoint may be a trust zone is not stated. D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0082'
@@ -1301,7 +1301,7 @@ requirements:
     form: 'prose'
     kind: 'inferred'
     testable: 'yes'
-    inferred_rule: 'destination is the id of a component declared in the root components array.'
+    inferred_note: 'destination is the id of a component declared in the root components array.'
     note: 'As for source (open-threat-model#R-0081). The README''s Dataflows example writes target for destination (D-28).'
     status: 'active'
   - id: 'open-threat-model#R-0084'
@@ -1315,7 +1315,7 @@ requirements:
     kind: 'inferred'
     testable: 'partial'
     testable_reason: 'The text says ''assets'', not asset ids; that the strings are asset ids rests on the field type (array of strings) and the examples (L1445-L1446, L1489).'
-    inferred_rule: 'Each entry of a dataflow''s assets is the id of an asset declared in the root assets array.'
+    inferred_note: 'Each entry of a dataflow''s assets is the id of an asset declared in the root assets array.'
     note: 'Asset Instance object says ''Array of ids'' explicitly (L865, L880); this row does not. D-17.'
     status: 'active'
   - id: 'open-threat-model#R-0085'
@@ -1370,7 +1370,7 @@ requirements:
     kind: 'inferred'
     testable: 'partial'
     testable_reason: 'The identifier form is shown only by example; no pattern is stated or declared (schema L174-L176).'
-    inferred_rule: 'Each entry of cwes identifies a CWE weakness, written as in the examples: CWE-<number> (L1571-L1572, L1627-L1628).'
+    inferred_note: 'Each entry of cwes identifies a CWE weakness, written as in the examples: CWE-<number> (L1571-L1572, L1627-L1628).'
     note: 'An external reference into the CWE List (see the cwe record in this library).'
     status: 'active'
   - id: 'open-threat-model#R-0089'

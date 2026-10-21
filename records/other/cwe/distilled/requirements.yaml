@@ -55,7 +55,7 @@ note: >
   the line breaks of L1144-L1149, and the xsd start tags keep the source's own double spaces (L420, L421). XML
   character references are kept as written (&lt; and &gt; in L540), not decoded. Spelling is the source's own.
   KIND. stated = the text states the rule. inferred = a rule derived from a descriptive sentence: the text is
-  that verbatim sentence and inferred_rule states the rule in our words. 9 entries are inferred, all flagged
+  that verbatim sentence and inferred_note states the rule in our words. 9 entries are inferred, all flagged
   (cwe#R-0198 added by the verify pass). ACTORS (fixed vocabulary).
   catalog-producer = whoever writes a CWE catalog instance (the MITRE CWE team for the official List); consumer
   = a tool or person importing or interpreting a catalog; mapper = anyone mapping a vulnerability, such as a CVE
@@ -90,7 +90,7 @@ note: >
   co-constraint, cwe#R-0198), descriptions of what an element contains, purpose statements, examples, pointers ('Please refer to ...'), structural labels, and
   permissions that only restate optionality (L169 'Not all of the elements need to be used', L214 'an optional
   Common Platform Enumeration (CPE) identifier can be used'); all of it is quoted in normative.md. EXTRA FIELDS.
-  cardinality (xsd element particles and choices), selector and xpath_field (xs:unique), inferred_rule (inferred
+  cardinality (xsd element particles and choices), selector and xpath_field (xs:unique), inferred_note (inferred
   entries), related (requirements that restate or enforce this one), note (extractor's remark, not source text).
   PASS. Pass-1 extraction by agent A, 2026-10-08. Pass 2 (verify) and pass 3 (cross-check) by agent C,
   2026-10-08: checks, defects and fixes are in verification.md.
@@ -2021,7 +2021,7 @@ requirements:
     form: "prose"
     kind: "inferred"
     testable: "yes"
-    inferred_rule: "Every Reference/@External_Reference_ID equals the @Reference_ID of an External_Reference in the same catalog's External_References. The schema declares no xs:keyref, so validation does not check this."
+    inferred_note: "Every Reference/@External_Reference_ID equals the @Reference_ID of an External_Reference in the same catalog's External_References. The schema declares no xs:keyref, so validation does not check this."
     related:
       - "cwe#R-0155"
       - "cwe#R-0018"
@@ -2095,7 +2095,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "Resolvable against the full CWE List; a subset catalog may omit the target."
-    inferred_rule: "Related_Weakness/@CWE_ID is the @ID of a Weakness entry. No xs:keyref enforces it."
+    inferred_note: "Related_Weakness/@CWE_ID is the @ID of a Weakness entry. No xs:keyref enforces it."
     related:
       - "cwe#R-0165"
     status: "active"
@@ -2110,7 +2110,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "The co-occurrence with Nature is checkable; what entity a chain ID names is not stated."
-    inferred_rule: "@Chain_ID appears only on a Related_Weakness whose @Nature is CanFollow or CanPrecede."
+    inferred_note: "@Chain_ID appears only on a Related_Weakness whose @Nature is CanFollow or CanPrecede."
     note: "Observed (examples/catalog-stats.yaml I16): in CWE 4.20 the 3 StartsWith relationships of the named chains also carry Chain_ID (3 of the 6 Chain_ID uses), so MITRE's own data does not follow this reading. The source names only CanFollow and CanPrecede."
     status: "active"
   - id: "cwe#R-0160"
@@ -2207,7 +2207,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "Resolvable against the full CWE List; a subset catalog may omit the target."
-    inferred_rule: "Member_Of/@CWE_ID and Has_Member/@CWE_ID are the @ID of an existing entry (Weakness, Category or View). No xs:keyref enforces it."
+    inferred_note: "Member_Of/@CWE_ID and Has_Member/@CWE_ID are the @ID of an existing entry (Weakness, Category or View). No xs:keyref enforces it."
     related:
       - "cwe#R-0124"
     status: "active"
@@ -2222,7 +2222,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "Resolvable against the full CWE List; a subset catalog may omit the view."
-    inferred_rule: "@View_ID on Member_Of and Has_Member is the @ID of a View. No xs:keyref enforces it."
+    inferred_note: "@View_ID on Member_Of and Has_Member is the @ID of a View. No xs:keyref enforces it."
     related:
       - "cwe#R-0125"
     status: "active"
@@ -2276,7 +2276,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "Resolvable against the full CWE List; a subset catalog may omit the target."
-    inferred_rule: "Suggestion/@CWE_ID is the @ID of another CWE entry. No xs:keyref enforces it."
+    inferred_note: "Suggestion/@CWE_ID is the @ID of another CWE entry. No xs:keyref enforces it."
     related:
       - "cwe#R-0174"
     status: "active"
@@ -2348,7 +2348,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "A rule on consumer behaviour; testable in a consumer, not in the data."
-    inferred_rule: "A consumer does not treat Primary and Resultant as mutually exclusive for one entry; its Weakness_Ordinalities may list both."
+    inferred_note: "A consumer does not treat Primary and Resultant as mutually exclusive for one entry; its Weakness_Ordinalities may list both."
     status: "active"
   - id: "cwe#R-0179"
     object: "WeaknessOrdinalitiesType"
@@ -2433,7 +2433,7 @@ requirements:
     kind: "inferred"
     testable: "partial"
     testable_reason: "A rule on consumer behaviour; testable in a consumer, not in the data."
-    inferred_rule: "A consumer does not infer B CanAlsoBe A from A CanAlsoBe B; each direction is asserted separately."
+    inferred_note: "A consumer does not infer B CanAlsoBe A from A CanAlsoBe B; each direction is asserted separately."
     status: "active"
   - id: "cwe#R-0186"
     object: "StatusEnumeration"
@@ -2590,7 +2590,7 @@ requirements:
     form: "prose"
     kind: "inferred"
     testable: "yes"
-    inferred_rule: "A Weakness whose @Abstraction is Compound has @Structure Chain or Composite (StructureEnumeration, L1048-L1057; Chain and Composite are defined at L1050). The schema does not tie the two attributes together, so validation does not check this."
+    inferred_note: "A Weakness whose @Abstraction is Compound has @Structure Chain or Composite (StructureEnumeration, L1048-L1057; Chain and Composite are defined at L1050). The schema does not tie the two attributes together, so validation does not check this."
     related:
       - "cwe#R-0032"
       - "cwe#R-0033"
