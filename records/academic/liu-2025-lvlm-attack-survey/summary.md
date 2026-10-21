@@ -13,8 +13,8 @@ updated: "2026-10-13"
 | **Type** | paper (survey; 15 pp.) |
 | **Maturity** | _unset — do not guess_ |
 | **Authors** | D. Liu, M. Yang, X. Qu, P. Zhou, Y. Cheng, W. Hu |
-| **Published** | arXiv v2, 2024-07-12 (the record id says 2025, following `sources.md`; the PDF read is the July 2024 v2) |
-| **Identifier** | arXiv:2407.07403 |
+| **Published** | IEEE Transactions on Neural Networks and Learning Systems 36(11), 19525–19545, November 2025. The text read is the arXiv v2 preprint (2024-07-12) |
+| **Identifier** | DOI 10.1109/TNNLS.2025.3592935; arXiv:2407.07403 |
 | **Source** | https://arxiv.org/pdf/2407.07403 |
 | **Digest** | `2150f8c9eb40674ab03854902024ea9e40cd0de448e6c06705d18cfb3ca87555` (matches `pdf-manifest.tsv`) |
 
@@ -59,5 +59,5 @@ Continuously updated paper list: https://github.com/liudaizong/Awesome-LVLM-Atta
 ## Limits
 
 - **Model-centric.** Little on agents, tools or MCP — the lane's focus.
-- **Date mismatch:** `sources.md` lists 2025; the arXiv version read is July 2024 (a later journal version may exist).
+- **Version read:** the arXiv v2 preprint (July 2024), not the journal version (IEEE TNNLS, November 2025, which `sources.md` and the record id follow); the two were not compared.
 - Reference expansion not done in this pass (see PR notes).

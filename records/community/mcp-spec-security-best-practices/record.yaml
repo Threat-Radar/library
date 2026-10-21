@@ -8,13 +8,13 @@ authors:
   - "Model Context Protocol maintainers"
 date: "2025-11-25"
 publisher: "Model Context Protocol (modelcontextprotocol.io)"
-version: "draft specification page (retrieved 2026-10-13)"
+version: "2025-11-25 release (the release files this page under docs/tutorials/security)"
 identifiers:
-  url: https://modelcontextprotocol.io/specification/draft/basic/security_best_practices
+  url: https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices
 content:
-  url: https://modelcontextprotocol.io/specification/draft/basic/security_best_practices
-  sha256: "d2aa765d51a39a470ecbb44738766cfe75323c26f9db3edc2336933671e393dc"
-  retrieved: "2026-10-13"
+  url: https://modelcontextprotocol.io/docs/2025-11-25/tutorials/security/security_best_practices
+  sha256: "95beaace4d676d89e92d94751bab1ad4c9870e1458bc5f6f7eae8dd8bbc75bec"
+  retrieved: "2026-10-21"
   local: false
   media_type: text/html
 relations:

@@ -22,7 +22,8 @@ content:
 relations:
   supersedes: []
   superseded_by: []
-  see_also:
+  see_also: []
+  part_of:
     - cwe
   cited_by: []
   implements_concept: []

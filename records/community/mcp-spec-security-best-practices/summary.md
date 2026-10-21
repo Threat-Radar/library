@@ -10,17 +10,17 @@ updated: "2026-10-13"
 
 |  |  |
 |---|---|
-| **Type** | spec (security section of the MCP specification, draft) |
+| **Type** | spec (security best-practices page of the MCP 2025-11-25 release, which files it under docs/tutorials rather than the specification tree) |
 | **Maturity** | _unset — do not guess_ |
 | **Authors** | Model Context Protocol maintainers |
-| **Published** | Draft page of the MCP specification (it refers to its 2025-11-25 version); retrieved 2026-10-13 |
-| **Identifier** | modelcontextprotocol.io — specification/draft/basic/security_best_practices |
-| **Source** | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices |
-| **Digest** | `d2aa765d51a39a470ecbb44738766cfe75323c26f9db3edc2336933671e393dc` (HTML of the draft page as fetched; living page, the digest will drift) |
+| **Published** | MCP 2025-11-25 release; retrieved 2026-10-21 (first read as the living draft page on 2026-10-13) |
+| **Identifier** | modelcontextprotocol.io — specification/2025-11-25/basic/security_best_practices |
+| **Source** | https://modelcontextprotocol.io/docs/2025-11-25/tutorials/security/security_best_practices |
+| **Digest** | `95beaace4d676d89e92d94751bab1ad4c9870e1458bc5f6f7eae8dd8bbc75bec` (HTML of the dated 2025-11-25 page; identical on two fetches) |
 
 ## Overview
 
-The security companion to the **MCP Authorization** specification, for developers of MCP authorization flows, server operators and security reviewers. It describes **attacks on MCP implementations** and their mitigations: the **confused-deputy problem** in MCP proxy servers (static client ids, dynamic client registration and consent cookies letting an attacker obtain tokens without the user's consent), **token passthrough** (servers accepting tokens not issued for them), **server-side request forgery** through OAuth metadata discovery (including against authorization servers), **session hijacking**, **local MCP server compromise** (malicious startup commands), and **scope minimization**. Mitigations are normative — the page contains 20 **MUST** statements (e.g. per-client consent storage, consent-page requirements, redirect-URI and OAuth state validation).
+The security companion to the **MCP Authorization** specification, for developers of MCP authorization flows, server operators and security reviewers. It describes **attacks on MCP implementations** and their mitigations: the **confused-deputy problem** in MCP proxy servers (static client ids, dynamic client registration and consent cookies letting an attacker obtain tokens without the user's consent), **token passthrough** (servers accepting tokens not issued for them), **server-side request forgery** through OAuth metadata discovery (including against authorization servers), **session hijacking**, **local MCP server compromise** (malicious startup commands), **OAuth authorization-URL validation**, **stdio transport security in proxy setups**, and **scope minimization**. Mitigations are normative — the page contains about 21 **MUST** statements (a rough count; FX-1 extraction will give the exact one) (e.g. per-client consent storage, consent-page requirements, redirect-URI and OAuth state validation).
 
 ## Applicability
 
@@ -58,6 +58,6 @@ Applies to all MCP SDKs and servers; not assessed here. Searched 2026-10-13.
 
 ## Limits
 
-- **Draft and living:** the page changes between protocol revisions; the digest will not match later fetches.
+- **Dated release, not the draft:** pinned to the 2025-11-25 page. The living draft has since moved on (it adds mix-up attacks, localhost redirect-URI impersonation and CIMD trust policies, and has a "state handle hijacking" section where the release has "session hijacking"); a later release needs a new record or an update.
 - **Authorization-centric:** tool-description poisoning and prompt injection through tools are mostly out of its scope.
-- **Not FX-1 extracted** (20 MUSTs not yet extracted as requirements) — WAVE 2.
+- **Not FX-1 extracted** (its MUSTs are not yet extracted as requirements) — WAVE 2.

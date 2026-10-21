@@ -10,10 +10,11 @@ authors:
   - "Pan Zhou"
   - "Yu Cheng"
   - "Wei Hu"
-date: "2024-07-12"
-publisher: "arXiv"
-version: "arXiv v2"
+date: "2025-11"
+publisher: "IEEE"
+version: "IEEE Transactions on Neural Networks and Learning Systems 36(11), 19525-19545 (November 2025); text read: arXiv v2 (2024-07-12)"
 identifiers:
+  doi: "10.1109/TNNLS.2025.3592935"
   arxiv: "2407.07403"
   url: https://arxiv.org/abs/2407.07403
 content:

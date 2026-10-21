@@ -22,6 +22,8 @@ updated: "2026-10-13"
 
 A CWE **Base** weakness: *the product invokes a generative AI/ML component whose outputs cannot be directly controlled, but does not validate (or insufficiently validates) those outputs* against its security, content or privacy policy. Its main mitigation is architectural — treat model output as **untrusted** and run it in a non-privileged space — plus operational controls such as semantic comparators and independent checking components. The observed example is **CVE-2024-3402**, a ChatGPT GUI that validated input but not model output, leading to cross-site scripting (CWE-79). CWE marks the entry's **vulnerability mapping as DISCOURAGED**: it should not be used to map real CVEs directly.
 
+**Why a separate record:** `docs/scope.md` §5 keeps a registry as one record (`cwe`), but RPT-0014 assigns this entry its own canonical id (S-0886 in `sources.md`) and it carries entry-level `bears_on` and applicability for the agentic lane. It is linked to the registry with `part_of: cwe`.
+
 ## Applicability
 
 | Axis | Rating | Why |
