@@ -147,6 +147,10 @@ distillation:
       path: distilled/design-notes.md
       coverage: "Per provision: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision; class summary; 5 open questions incl. source defects."
       reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "Pass 1 self-checks and the stop point. Passes 2 (verify) and 3 (cross-check) started 2026-10-21 and were stopped by the account usage limit before reporting; to be finished."
+      reviewed_by: ""
   not_applicable:
     - kind: schema
       reason: "The EN defines no data format, schema or field-level structure. The nearest is the documentation list in 5.2.4-1.1 and 5.2.4-2.1 (training-data sources incl. URL and date/time, scope and limitations, guardrails, retention time, review frequency, failure modes): topics, not typed fields. A schema from it would be invention; design-notes.md records it as a candidate LinkML extension."

@@ -109,6 +109,10 @@ distillation:
       path: distilled/design-notes.md
       coverage: "Per statement: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision, incl. Table 2 impacts vs the ADR-0006 S/F/O/P vector and Purdue zones vs tmodel#130; 6 open questions."
       reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "Pass 1 self-checks and the stop point. Passes 2 (verify) and 3 (cross-check) started 2026-10-21 and were stopped by the account usage limit before reporting; to be finished."
+      reviewed_by: ""
   not_applicable:
     - kind: schema
       reason: "No data format or field structure is defined. The SBOM it asks vendors for is specified elsewhere (footnote 6 defers to CISA's 2025 Minimum Elements, which have their own records); the data usage policy and cloud contract clauses name topics, not fields."
