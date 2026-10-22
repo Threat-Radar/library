@@ -12,4 +12,13 @@ records:
   - cwe
   - open-threat-model
   - ssvc
+  - csaf-2-0
+  - first-epss
+  - nvd-cve-api-2-0
+  - openvex-0-2-0
+  - oscal-1-2-3
+  - reqif-1-2
+  - sacm-2-3
+  - sysml-2-0
+  - taxii-2-1
 answer: ""
