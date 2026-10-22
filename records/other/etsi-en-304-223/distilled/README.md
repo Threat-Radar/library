@@ -4,49 +4,41 @@ id: etsi-en-304-223-distilled-index
 record: etsi-en-304-223
 type: index
 audience: human   # orientation for people; the machine source is requirements.yaml
-updated: "2026-10-01"
+updated: "2026-10-21"
 ---
 
 # Distilled artifacts — ETSI EN 304 223 V2.1.1
 
-**Audience of each file:** `requirements.yaml` is the **machine/AI** source of truth (one entry
-per provision, verbatim text). `requirements.md` is the **human** view, *generated* from the
-YAML (do not hand-edit). `normative.md` is the compacted reading for people and agents.
+FX-1 (`docs/extraction.md`), `distillation.profile: full`. Source: the ETSI PDF, sha256
+`1ef542ac…d21a`, 16 pp. The first pass (2026-10-01, library#8) left `requirements.yaml`,
+`requirements.md` and a paraphrased `normative.md`; the FX-1 pass (2026-10-21, tmodel#39 part B)
+checked those against the source, fixed them and added the rest.
 
 Nothing here is reviewed line by line yet (`reviewed_by` is empty on each artifact).
 
-| artifact | what it is | coverage |
+| artifact | kind | coverage |
 |---|---|---|
-| `requirements.yaml` | **machine source.** All 72 provisions of clause 5, keyed by ETSI's designator (`#5.1.2-3`), with normativity, every modal verb, actor, principle, phase, locator, verbatim text, nature, expected deliverables, verification | all 72 provisions: 49 requirements (*shall*), 23 recommendations (*should*) |
-| `requirements.md` | **human view, generated.** One table per principle | all 72 |
-| `normative.md` | stakeholder roles, the 13 principles by lifecycle phase, the AI-specific threats the standard names, scope, and how it relates to tmodel | overview; the provisions themselves are in the YAML |
+| `requirements.yaml` | requirements | **machine source.** 73 entries: the 72 clause 5 provisions keyed by ETSI's designator (`#5.1.2-3`) and C4-1 (clause 4). Verbatim text, page locator, verbs, actor, `kind`, `testable`, `bears_on` (tmodel decisions) and `maps_to` (threat mapping to NIST AI 100-2 E2025 and MITRE ATLAS ids, stated or inferred). Header reconciles every modal verb in the source. |
+| `requirements.md` | requirements (generated) | **human view** of the YAML: one table per principle |
+| `normative.md` | normative | every normative statement verbatim with clause and page: verbal forms, scope, terms, clause 4 and Table 4-1, all 72 provisions with their headings |
+| `threats.yaml` | threats | the 13 threats and 4 weaknesses the EN describes, quoted, with NIST and ATLAS ids and the provisions that address each |
+| `design-notes.md` | design-notes | how each provision bears on tmodel (ADR-0006, ADR-0007, ADR-0010, tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and which AI attack class it defends against |
+| `verification.md` | verification | FX-1 passes 2 (verify) and 3 (cross-check): method, results, defects found and fixed |
 
-## Checks run (docs/distillation.md §4), 2026-10-01
+Not applicable, with reasons in `record.yaml` `distillation.not_applicable`: schema, messages,
+protocol, state machine, examples. The EN is a requirements standard in prose: it defines no
+format, exchange, lifecycle states or worked example.
+
+## Checks (pass 1, 2026-10-21)
 
 | check | result |
 |---|---|
-| **Verb baseline** — modal verbs in the clause-5 body vs. in the extracted `text` | shall 59 = 59 · should 28 = 28 · can 5 = 5 · shall not / should not / may 0 |
-| **1. Verbatim** — every `text` appears in the source, whitespace normalised | pass, 72/72 |
-| **2. Coverage** — every principle subsection (§5.1.1–§5.5.1) cited | pass, 13/13; provisions per principle 5, 9, 7, 5, 7, 6, 6, 6, 6, 5, 4, 4, 2 |
-| **3. Verb** — no provision containing *shall* typed weaker than `requirement` | pass |
+| `bin/bcp14-count` | 0 (the EN uses lower-case ETSI verbal forms) |
+| own-form baseline vs extracted, whole source | shall 61 → 59 · should 32 → 29 · can 22 → 6 · will 7 → 6 · cannot 5 → 2 · may 9 → 0 · must 2 → 0 · shall not 4 → 0 · should not, will not, need not 1 → 0; each exclusion itemised in `requirements.yaml` `reconciliation` |
+| clause 5 provisions vs source | 72 / 72 texts equal the full source provision |
+| ATLAS ids | all present in ATLAS 2026.09 (the data file atlas.mitre.org loads) |
+| `bin/check-requirements` (LinkML) | passes |
 
-The baseline is a verb count, not a marker count: the standard numbers every provision
-(`Provision 5.x.y-n`) but tags none as requirement or recommendation, so normativity is read
-from the verb. Four provisions mix *shall* and *should* (5.1.2-7, 5.1.3-1, 5.1.3-2,
-5.2.4-1); they take the strongest, and `verbs` keeps the full list.
-
-## Derived fields — what to review
-
-- `actor`: the stakeholders named before each modal verb. Four provisions name none
-  (5.1.1-1.1, 5.1.1-2.1, 5.1.3-1.1, 5.2.4-2.1) and carry `(implied)` actors; two were set by
-  hand where the first-named party is not the one obliged (5.1.2-1.1, 5.1.3-3).
-- `short_title`, `nature`, `expects_deliverables`, `verification`: written for this
-  distillation. EN 304 223 names no work products, so 22 provisions marked
-  deliverable-producing carry plain-language descriptions, not designators.
-
-## Not yet done
-
-- Line-by-line human review (set `reviewed_by`).
-- Conformance mapping to ETSI TS 104 216 once it is published (still a draft work item).
-- Mapping each provision to the tmodel object model (#15/#17) and to automated compliance
-  checks (#19).
+Derived fields to review: `actor` (four `(implied)`; 5.1.2-1.1 fixed in this pass), `short_title`,
+`nature`, `expects_deliverables`, `verification`, `testable`, `bears_on`, and every `maps_to`
+entry with `provenance: ours`.

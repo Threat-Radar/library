@@ -1,0 +1,170 @@
+schema: "library-threats/v1"
+record: etsi-en-304-223
+reviewed_by: ""
+extracted: "2026-10-21"
+extracted_by: "claude (main session, tmodel#39 part B)"
+note: >
+  The threats and weaknesses the source DESCRIBES, each quoted verbatim (description) with
+  its locator. kind: stated = the source describes it; inferred = our reading (a weakness
+  read as the negation of a recommendation). external_id holds our mapping as opaque
+  strings: NIST AI 100-2 E2025 index ids (NISTAML.*) and MITRE ATLAS 2026.09 technique ids
+  (AML.T*), the latter checked against the ATLAS data served by atlas.mitre.org. The source
+  prints neither. attack_class uses the NIST AI 100-2 E2025 classes plus three labels of
+  ours: non-adversarial (not an attack), conventional (an attack outside the AML taxonomy)
+  and general / unclear / out-of-scope. addressed_by lists the requirements whose maps_to
+  shares an id with the threat (derived; threats with no id list none). Nothing here is
+  instantiated against a product: no risk vector, no mitigation state (artifact.schema.yaml).
+threats:
+  - id: "T-01"
+    name: "data poisoning"
+    description: "data poisoning: type of adversarial attack where malicious data is introduced into training datasets to compromise the AI system's performance or behaviour"
+    affected_asset: ["training datasets"]
+    external_id: ["NISTAML.013", "AML.T0020"]
+    external_id_names: ["NISTAML.013 Data Poisoning", "AML.T0020 Training Data Poisoning"]
+    attack_class: ["poisoning"]
+    locator: "§3.1, p. 7; also Introduction p. 5, 5.1.3-1, 5.2.2-2, 5.2.4-2, 5.2.4-2.1, 5.4.2-2"
+    kind: "stated"
+    addressed_by: ["5.1.2-3", "5.1.3-1", "5.2.1-3.1", "5.2.1-4.1", "5.2.2-2", "5.2.4-1.1", "5.2.4-2", "5.2.4-2.1", "5.4.2-2", "5.4.2-4"]
+  - id: "T-02"
+    name: "poisoned publicly sourced training data"
+    description: "Where training data has been sourced from publicly available sources, there is a risk that this data might have been poisoned. As discovery of poisoned data is likely to occur after training (if at all),"
+    affected_asset: ["training data from public sources"]
+    external_id: ["NISTAML.013", "AML.T0020", "AML.T0010.002"]
+    external_id_names: ["NISTAML.013 Data Poisoning", "AML.T0020 Training Data Poisoning", "AML.T0010.002 Data"]
+    attack_class: ["poisoning"]
+    locator: "5.2.4-2, p. 13"
+    kind: "stated"
+    addressed_by: ["5.1.2-3", "5.1.3-1", "5.2.1-3.1", "5.2.1-4.1", "5.2.2-2", "5.2.3-1", "5.2.4-1.1", "5.2.4-2", "5.2.4-2.1", "5.4.2-2", "5.4.2-4"]
+  - id: "T-03"
+    name: "model obfuscation"
+    description: "These characteristics include security risks such as data poisoning, model obfuscation, indirect prompt injection and operational differences associated with data management."
+    external_id: []
+    attack_class: ["unclear"]
+    locator: "Introduction, p. 5"
+    kind: "stated"
+    addressed_by: []
+    note: "Named once and never defined. Neither NIST AI 100-2 E2025 nor ATLAS 2026.09 has a class of this name, so no id is given; see design-notes.md open questions."
+  - id: "T-04"
+    name: "indirect prompt injection"
+    description: "These characteristics include security risks such as data poisoning, model obfuscation, indirect prompt injection and operational differences associated with data management."
+    external_id: ["NISTAML.015", "AML.T0051.001"]
+    external_id_names: ["NISTAML.015 Indirect Prompt Injection", "AML.T0051.001 Indirect"]
+    attack_class: ["indirect-prompt-injection"]
+    locator: "Introduction, p. 5"
+    kind: "stated"
+    addressed_by: ["5.1.2-6", "5.1.3-1.2", "5.2.1-4.1"]
+    note: "Named in the Introduction only; no provision names it. The provisions that address it are our reading (5.1.2-6, 5.1.3-1.2, 5.2.1-4.1)."
+  - id: "T-05"
+    name: "adversarial attack"
+    description: "adversarial attack: attempt to manipulate an AI model by introducing specially crafted inputs to cause the model to produce errors or unintended outcomes"
+    attack_vector: "specially crafted inputs"
+    affected_asset: ["AI model"]
+    external_id: ["NISTAML.022", "AML.T0015", "AML.T0043"]
+    external_id_names: ["NISTAML.022 Evasion", "AML.T0015 Evade AI Model", "AML.T0043 Craft Adversarial Data"]
+    attack_class: ["evasion"]
+    locator: "§3.1, p. 7; 5.1.2-2"
+    kind: "stated"
+    addressed_by: ["5.1.2-2"]
+  - id: "T-06"
+    name: "model inversion"
+    description: "model inversion: privacy attack where an adversary infers sensitive information about the training data by analysing the AI model's outputs"
+    actor: "an adversary"
+    attack_vector: "analysing the AI model's outputs"
+    affected_asset: ["training data"]
+    external_id: ["NISTAML.032", "AML.T0024.001"]
+    external_id_names: ["NISTAML.032 Reconstruction", "AML.T0024.001 Invert AI Model"]
+    attack_class: ["privacy"]
+    locator: "§3.1, p. 8; 5.1.3-1"
+    kind: "stated"
+    addressed_by: ["5.1.2-5", "5.1.3-1", "5.2.5-4"]
+  - id: "T-07"
+    name: "membership inference"
+    description: "address AI-specific attacks, such as data poisoning, model inversion, and membership inference."
+    affected_asset: ["training data"]
+    external_id: ["NISTAML.033", "AML.T0024.000"]
+    external_id_names: ["NISTAML.033 Membership Inference", "AML.T0024.000 Infer Training Data Membership"]
+    attack_class: ["privacy"]
+    locator: "5.1.3-1, p. 11"
+    kind: "stated"
+    addressed_by: ["5.1.2-5", "5.1.3-1"]
+  - id: "T-08"
+    name: "reverse engineering of the model or its training data"
+    description: "Developers should evaluate model outputs to ensure they do not allow System Operators or End-users to reverse engineer non-public aspects of the model or the training data."
+    actor: "System Operators or End-users"
+    attack_vector: "model outputs; model access through an API"
+    affected_asset: ["non-public aspects of the model", "training data"]
+    external_id: ["NISTAML.031", "NISTAML.032", "NISTAML.038", "AML.T0024.002", "AML.T0024.001", "AML.T0057"]
+    external_id_names: ["NISTAML.031 Model Extraction", "NISTAML.032 Reconstruction", "NISTAML.038 Data Extraction", "AML.T0024.002 Extract AI Model", "AML.T0024.001 Invert AI Model", "AML.T0057 LLM Data Leakage"]
+    attack_class: ["privacy"]
+    locator: "5.2.5-4, p. 14; also 5.2.2-2 ('reverse engineer', via an API)"
+    kind: "stated"
+    addressed_by: ["5.1.2-5", "5.1.3-1", "5.2.2-2", "5.2.5-4", "5.4.2-1", "5.5.1-1"]
+  - id: "T-09"
+    name: "API abuse to overwhelm defences and poison a model"
+    description: "For example, placing limits on model access rate to limit an attacker's ability to reverse engineer or overwhelm defences to rapidly poison a model."
+    actor: "an attacker"
+    attack_vector: "an API offered to external customers or collaborators"
+    external_id: ["NISTAML.013", "AML.T0020", "AML.T0040"]
+    external_id_names: ["NISTAML.013 Data Poisoning", "AML.T0020 Training Data Poisoning", "AML.T0040 AI Model Inference API Access"]
+    attack_class: ["poisoning"]
+    locator: "5.2.2-2, p. 12"
+    kind: "stated"
+    addressed_by: ["5.1.2-3", "5.1.3-1", "5.2.1-3.1", "5.2.1-4.1", "5.2.2-2", "5.2.4-1.1", "5.2.4-2", "5.2.4-2.1", "5.4.2-2", "5.4.2-4"]
+  - id: "T-10"
+    name: "unintended influence over the system through outputs"
+    description: "Additionally, Developers should evaluate model outputs to ensure they do not provide System Operators or End-users with unintended influence over the system."
+    external_id: ["NISTAML.018", "AML.T0051.000"]
+    external_id_names: ["NISTAML.018 Prompt Injection", "AML.T0051.000 Direct"]
+    attack_class: ["direct-prompt-injection"]
+    locator: "5.2.5-4.1, p. 14"
+    kind: "inferred"
+    addressed_by: ["5.2.1-4.1", "5.2.5-4.1"]
+    note: "The source names the effect, not the attack; the class is our reading."
+  - id: "T-11"
+    name: "data drift"
+    description: "System Operators should analyse their logs to ensure that AI models continue to produce desired outputs and to detect anomalies, security breaches, or unexpected behaviour over time (such as due to data drift or data poisoning)."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "5.4.2-2, p. 15"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-12"
+    name: "unexpected inputs and AI system failure"
+    description: "Developers and System Operators shall ensure that AI systems are designed and implemented to withstand adversarial AI attacks, unexpected inputs and AI system failure."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "5.1.2-2, p. 10"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-13"
+    name: "security issues carried from one AI instantiation to another"
+    description: "This will protect AI against security issues that can transfer from one AI system instantiation to another."
+    external_id: []
+    attack_class: ["unclear"]
+    locator: "5.5.1-1, p. 15"
+    kind: "stated"
+    addressed_by: []
+    note: "Unspecified; design-notes.md maps 5.5.1-1 to data extraction as our reading."
+weaknesses:
+  - id: "W-01"
+    name: "superfluous functionality"
+    description: "Developers shall manage the security risks associated with AI models that provide superfluous functionalities, where increased functionality leads to increased risk. For example, where a multi-modal model is being used but only single modality is used for system function."
+    locator: "5.1.3-1.2, p. 11"
+    kind: "stated"
+  - id: "W-02"
+    name: "models or components that are not well-documented or secured"
+    description: "System Operators that choose to use or adapt any models, or components, which are not well-documented or secured shall be able to justify their decision"
+    locator: "5.2.3-2, p. 13"
+    kind: "stated"
+  - id: "W-03"
+    name: "excess permissions granted to the AI system on other systems"
+    description: "Developers and System Operators shall ensure that the permissions granted to the AI system on other systems are only provided as required for functionality and are risk assessed."
+    locator: "5.1.2-6, p. 11"
+    kind: "inferred"
+    note: "The weakness is the negation of the provision; our reading."
+  - id: "W-04"
+    name: "risk that remains after controls"
+    description: "It is important to recognize that a higher level of risk will remain in AI systems despite the application of controls to mitigate against them."
+    locator: "5.1.3-4, p. 11"
+    kind: "stated"
+vulnerabilities: []   # the source names no product vulnerability (no CVE)

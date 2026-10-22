@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: etsi-en-304-223
 record: etsi-en-304-223
 type: summary
-updated: "2026-10-01"
+updated: "2026-10-21"
 ---
 
 # Securing Artificial Intelligence (SAI); Baseline Cyber Security Requirements for AI Models and Systems
@@ -40,9 +40,10 @@ shared model components (5.2.4-1.2). It was first published as ETSI TS 104 223 V
 | This project | `core` | The testable requirement set behind tmodel #13; names AI threats the object model must express |
 
 `bears_on: DEC-001` — 5.1.3-1 asks threat models to address data poisoning, model inversion
-and membership inference; `distilled/normative.md` §4 lists every AI threat the standard
+and membership inference; `distilled/threats.yaml` lists every AI threat the standard
 names. `bears_on: R-018` — Principle 4 asks for human oversight and outputs humans can
-assess, matching ARCH-0001 §7.
+assess, matching ARCH-0001 §7. DEC-002, DEC-003, DEC-008 and DEC-009 are mapped provision by
+provision in `distilled/design-notes.md`.
 
 ## Implementations
 
@@ -58,9 +59,12 @@ belong in their own records.
 | `record.yaml` | metadata, including all 25 informative references as `cites` |
 | `summary.md` | this document |
 | `distilled/README.md` | index of the distillation, the checks run and their results |
-| `distilled/requirements.yaml` | **machine source:** all 72 provisions, verbatim, typed for audit |
+| `distilled/requirements.yaml` | **machine source:** all 72 provisions plus one clause 4 statement, verbatim, typed for audit, with the tmodel decisions each bears on and the AI attack class it defends against |
 | `distilled/requirements.md` | human view of the provisions, generated from the YAML |
-| `distilled/normative.md` | stakeholders, the 13 principles by phase, AI threats named, bearing on tmodel |
+| `distilled/normative.md` | every normative statement verbatim with clause and page |
+| `distilled/threats.yaml` | the AI threats and weaknesses the standard describes, with NIST AI 100-2 and MITRE ATLAS ids |
+| `distilled/design-notes.md` | how each provision bears on tmodel's decisions, and the threat mapping |
+| `distilled/verification.md` | how the extraction was checked (FX-1 passes 2 and 3) |
 
 ## Limits
 

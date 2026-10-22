@@ -3,21 +3,82 @@ record: etsi-en-304-223
 source_version: "V2.1.1 (2025-12)"
 source_digest: "1ef542acf1fac7f108aa0b3c8548d91d82395fe026f0036bffe7f1f32456d21a"
 audience: machine   # canonical structured source; requirements.md is the human view
-generated_from: 'pypdf text of the ETSI PDF (local .cache) + scratchpad etsi_extract.py / etsi_build.py'
+generated_from: 'pypdf text of the ETSI PDF (local .cache) + scratchpad etsi_extract.py / etsi_build.py (2026-10-01); FX-1 pass: PyMuPDF text .cache/etsi-en-304-223.txt + scratchpad etsi_audit.py / etsi_build_fx1.py (2026-10-21)'
+extracted: "2026-10-21"
+extracted_by: "claude (main session, tmodel#39 part B): FX-1 completion of the partial 2026-10-01 extraction from library#8"
 reviewed_by: ""
+source_keyword_count: 0
+extracted_keyword_count: 0
+reconciliation: "Not a BCP 14 document: bin/bcp14-count finds 0 uppercase keywords, so both BCP 14 counts are 0. ETSI deliverables use the ETSI Drafting Rules verbal forms in lower case and forbid 'must' except in citation ('Modal verbs terminology', p. 4). Own-form baseline over the whole source (.cache/etsi-en-304-223.txt, whitespace-normalised, page furniture dropped), source -> extracted: shall 61 -> 59 (excluded 2: the quoted term in 'Modal verbs terminology'; 'In no event shall ETSI be held liable' in the disclaimer, p. 2); shall not 4 -> 0 (two 'shall not be modified' notices and 'ETSI shall not be held liable', p. 2; the quoted term, p. 4); should 32 -> 29 (excluded 3: 'Users should be aware', p. 2; 'No recommendation ... should be implied', p. 2; the quoted term, p. 4); should not 1 -> 0 (quoted term); may 9 -> 0 (8 in the notices, IPR clause and clause 2.2 boilerplate, pp. 2, 4, 6; the quoted term); can 22 -> 6 (excluded 16, all possibility statements outside the provisions: 3 in notices and IPR clause, the quoted term, 3 in the Introduction NOTE, 3 in clause 3.1 NOTEs, 6 in clause 4 and Table 4-1 other than C4-1); cannot 5 -> 2 (excluded 3: the quoted term and 'ETSI cannot guarantee' in the clause 2.1 and 2.2 NOTEs); will 7 -> 6 (excluded the quoted term); will not 1 -> 0, need not 1 -> 0, must 2 -> 0 (all quoted terms in 'Modal verbs terminology'). Every shall and should in clause 5 is inside one of the 72 provision texts, and the one normative sentence outside clause 5 ('should note', clause 4) is C4-1. Also checked and excluded: the clause 5.3.1 NOTE 'is to be considered' (an informative NOTE, not a provision)."
+source_normative_forms:
+  method: "whole-word, case-insensitive count on .cache/etsi-en-304-223.txt after dropping page headers/footers and joining lines (scratchpad etsi_audit.py); multi-word forms counted once, not also as their single-word part"
+  "shall": 61
+  "shall not": 4
+  "should": 32
+  "should not": 1
+  "may": 9
+  "can": 22
+  "cannot": 5
+  "will": 7
+  "will not": 1
+  "need not": 1
+  "must": 2
+extracted_normative_forms:
+  "shall": 59
+  "shall not": 0
+  "should": 29
+  "should not": 0
+  "may": 0
+  "can": 6
+  "cannot": 2
+  "will": 6
+  "will not": 0
+  "need not": 0
+  "must": 0
 note: >
-  One entry per provision of clause 5 (72), keyed by ETSI's own designator, e.g. #5.1.2-3.
+  One entry per provision of clause 5 (72), keyed by ETSI's own designator, e.g. #5.1.2-3,
+  plus one clause 4 statement keyed C4-1 (not an ETSI designator; assigned by this library).
   Sub-provisions (5.1.2-1.1) carry `parent`. normativity follows the strongest modal verb
   (shall -> requirement, should -> recommendation); `verbs` lists every modal in order.
   `text` is verbatim. DERIVED fields need human review: actor (stakeholders named before
   each modal verb; '(implied)' = taken from the principle's 'Primarily applies to'),
-  short_title, nature, expects_deliverables, verification. EN 304 223 names no work
+  short_title, nature, expects_deliverables, verification, testable. EN 304 223 names no work
   products, so expects_deliverables are descriptions, not designators. The standard says
-  nothing about tailoring, so no `tailorable` field.
-counts: { requirement: 49, recommendation: 23, permission: 0 }
-verb_baseline: { shall: 59, should: 28, can: 5, shall_not: 0, should_not: 0, may: 0 }   # clause 5 body; all present in `text`
+  nothing about tailoring, so no `tailorable` field. bears_on names the tmodel decisions a
+  provision bears on (design-notes.md explains each; ADR-0006 accepts DEC-003, ADR-0007
+  accepts DEC-002, ADR-0010 accepts DEC-001a, tmodel#130 is a proposal, not a decision).
+  maps_to is the threat mapping: the
+  attack class each provision defends against, as NIST AI 100-2 E2025 index ids and MITRE
+  ATLAS technique ids (checked against ATLAS 2026.09 as served by atlas.mitre.org). Every
+  mapping is ours (provenance: ours, with a rationale); kind: stated means the provision's
+  own words name the attack (source_text), kind: inferred means it does not. The source
+  prints neither NIST nor ATLAS ids.
+counts: { requirement: 49, recommendation: 24, permission: 0, entries: 73, provisions: 72, clause_4_statements: 1 }
+verb_baseline: { shall: 59, should: 28, can: 5, will: 6, cannot: 2, shall_not: 0, should_not: 0, may: 0 }   # clause 5 body; all present in `text`
 
 requirements:
+  - id: etsi-en-304-223#C4-1
+    designator: ""
+    native_note: "Not a numbered provision. Clause 4 (Stakeholders) prose; id C4-1 = clause 4, statement 1, assigned by this library."
+    normativity: recommendation
+    verb: should
+    verbs: [should, can]
+    actor: ["Developer", "System Operator", "Data Custodian", "End-user", "Affected entity"]
+    primarily_applies_to: "All stakeholders included in Table 4-1"
+    principle: null
+    principle_name: ""
+    phase: spanning
+    locator: "§4, paragraph 2, p. 9"
+    short_title: "Note possible data protection obligations"
+    text: "All stakeholders included in Table 4-1 should note that they can have data protection obligations."
+    nature: process
+    expects_deliverables: []
+    verification: "none defined; awareness statement"
+    audit_status: not-reviewed
+    kind: stated
+    testable: "no"
+    testable_reason: "an instruction to take note; nothing observable to test"
+    bears_on: [ADR-0010]
   - id: etsi-en-304-223#5.1.1-1
     designator: "5.1.1-1"
     normativity: requirement
@@ -28,13 +89,17 @@ requirements:
     principle: 1
     principle_name: "Raise awareness of AI security threats and risks"
     phase: secure-design
-    locator: "§5.1.1"
+    locator: "§5.1.1, Provision 5.1.1-1, p. 10"
     short_title: "Include AI security content in cyber security training"
     text: "Organizations' cyber security training programme shall include AI security content which shall be regularly reviewed and updated, such as if new substantial AI-related security threats emerge."
     nature: deliverable-producing
     expects_deliverables: ["AI security content in the cyber security training programme"]
     verification: "inspect: AI security content in the cyber security training programme"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: AI security content in the cyber security training programme"
+    bears_on: [DEC-001b]
   - id: etsi-en-304-223#5.1.1-1.1
     designator: "5.1.1-1.1"
     parent: "5.1.1-1"
@@ -46,13 +111,17 @@ requirements:
     principle: 1
     principle_name: "Raise awareness of AI security threats and risks"
     phase: secure-design
-    locator: "§5.1.1"
+    locator: "§5.1.1, Provision 5.1.1-1.1, p. 10"
     short_title: "Tailor AI security training to staff roles"
     text: "AI security training shall be tailored to the specific roles and responsibilities of staff members."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-001b]
   - id: etsi-en-304-223#5.1.1-2
     designator: "5.1.1-2"
     normativity: requirement
@@ -63,13 +132,17 @@ requirements:
     principle: 1
     principle_name: "Raise awareness of AI security threats and risks"
     phase: secure-design
-    locator: "§5.1.1"
+    locator: "§5.1.1, Provision 5.1.1-2, p. 10"
     short_title: "Keep all staff aware of AI-related threats and mitigations"
     text: "As part of an Organization's wider staff training programme, they shall require all staff to maintain awareness of the latest security threats and vulnerabilities that are AI-related. Where available, this awareness shall include proposed mitigations."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-008]
   - id: etsi-en-304-223#5.1.1-2.1
     designator: "5.1.1-2.1"
     parent: "5.1.1-2"
@@ -81,13 +154,17 @@ requirements:
     principle: 1
     principle_name: "Raise awareness of AI security threats and risks"
     phase: secure-design
-    locator: "§5.1.1"
+    locator: "§5.1.1, Provision 5.1.1-2.1, p. 10"
     short_title: "Share AI threat updates through multiple channels"
     text: "These updates should be communicated through multiple channels, such as security bulletins, newsletters, or internal knowledge-sharing platforms. This will ensure broad dissemination and understanding among the staff."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
   - id: etsi-en-304-223#5.1.1-2.2
     designator: "5.1.1-2.2"
     parent: "5.1.1-2"
@@ -99,13 +176,17 @@ requirements:
     principle: 1
     principle_name: "Raise awareness of AI security threats and risks"
     phase: secure-design
-    locator: "§5.1.1"
+    locator: "§5.1.1, Provision 5.1.1-2.2, p. 10"
     short_title: "Train developers in secure AI coding and design"
     text: "Organizations shall provide developers with training in secure coding and system design techniques specific to AI development, with a focus on preventing and mitigating security vulnerabilities in AI algorithms, models, and associated software."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
   - id: etsi-en-304-223#5.1.2-1
     designator: "5.1.2-1"
     normativity: requirement
@@ -116,31 +197,40 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-1, p. 10"
     short_title: "Assess business need, AI security risks and mitigations before building"
     text: "As part of deciding whether to create an AI system, a System Operator and/or Developer shall conduct a thorough assessment that includes determining and documenting the business requirements and/or problem they are seeking to address, along with associated AI security risks and mitigation strategies."
     nature: deliverable-producing
     expects_deliverables: ["documented business requirements, AI security risks and mitigation strategies"]
     verification: "inspect: documented business requirements, AI security risks and mitigation strategies"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: documented business requirements, AI security risks and mitigation strategies"
+    bears_on: [ADR-0006, DEC-001b]
   - id: etsi-en-304-223#5.1.2-1.1
     designator: "5.1.2-1.1"
     parent: "5.1.2-1"
     normativity: requirement
     verb: shall
     verbs: [shall]
-    actor: ["Data Custodian"]
+    actor: ["Developer (implied)"]
+    actor_note: "The sentence is passive: the Data Custodian is the one included, the Developer's organization is the one obliged to include them. Fixed in the FX-1 pass (was Data Custodian)."
     primarily_applies_to: "System Operators and Developers"
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-1.1, p. 10"
     short_title: "Include the Data Custodian in requirements discussions"
     text: "Where the Data Custodian is part of a Developer's organization, they shall be included in internal discussions when determining the requirements and data needs of an AI system."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [ADR-0010]
   - id: etsi-en-304-223#5.1.2-2
     designator: "5.1.2-2"
     normativity: requirement
@@ -151,13 +241,48 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-2, p. 10"
     short_title: "Design AI systems to withstand adversarial attacks and failures"
     text: "Developers and System Operators shall ensure that AI systems are designed and implemented to withstand adversarial AI attacks, unexpected inputs and AI system failure."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [ADR-0010]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.022]
+        title: "NISTAML.022 Evasion"
+        attack_class: evasion
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "adversarial AI attacks"
+        rationale: "the provision names \"adversarial AI attacks\"; clause 3.1 defines an adversarial attack as specially crafted inputs that make the model produce errors, which is evasion"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0015, AML.T0043]
+        title: "AML.T0015 Evade AI Model; AML.T0043 Craft Adversarial Data"
+        attack_class: evasion
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "adversarial AI attacks"
+        rationale: "the provision names \"adversarial AI attacks\"; clause 3.1 defines an adversarial attack as specially crafted inputs that make the model produce errors, which is evasion"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: []
+        title: "outside the NIST AI 100-2 E2025 attack taxonomy"
+        attack_class: non-adversarial
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "unexpected inputs and AI system failure"
+        rationale: "the provision names \"unexpected inputs and AI system failure\"; failure and unexpected inputs are reliability risks, outside the NIST AI 100-2 attack taxonomy"
   - id: etsi-en-304-223#5.1.2-3
     designator: "5.1.2-3"
     normativity: requirement
@@ -168,13 +293,36 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-3, p. 10"
     short_title: "Keep an audit trail of models, datasets and prompts"
     text: "To support the process of preparing data, security auditing and incident response for an AI system, Developers shall document and create an audit trail in relation to the AI system. This shall include the operation, and lifecycle management of models, datasets and prompts incorporated into the system."
     nature: deliverable-producing
     expects_deliverables: ["audit trail covering operation and lifecycle of models, datasets and prompts"]
     verification: "inspect: audit trail covering operation and lifecycle of models, datasets and prompts"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: audit trail covering operation and lifecycle of models, datasets and prompts"
+    bears_on: [R-018, DEC-001b, ADR-0010]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an audit trail of datasets and models is what lets a poisoning be traced after the fact (5.2.4-2 makes the same link for training data)"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020]
+        title: "AML.T0020 Training Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an audit trail of datasets and models is what lets a poisoning be traced after the fact (5.2.4-2 makes the same link for training data)"
   - id: etsi-en-304-223#5.1.2-4
     designator: "5.1.2-4"
     normativity: requirement
@@ -185,13 +333,36 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-4, p. 10"
     short_title: "Risk-assess external components for AI-specific risks"
     text: "If a Developer or System Operator uses an external component, they shall conduct an AI security risk assessment and due diligence process in line with their existing software development processes, that assesses AI specific risks."
     nature: deliverable-producing
     expects_deliverables: ["AI security risk assessment and due diligence for external components"]
     verification: "inspect: AI security risk assessment and due diligence for external components"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: AI security risk assessment and due diligence for external components"
+    bears_on: [ADR-0006, DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.05]
+        title: "NISTAML.05 Supply Chain Attacks"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an external component is the entry point for an AI supply chain compromise"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010, AML.T0010.001, AML.T0010.003]
+        title: "AML.T0010 AI Supply Chain Compromise; AML.T0010.001 AI Software; AML.T0010.003 Model"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an external component is the entry point for an AI supply chain compromise"
   - id: etsi-en-304-223#5.1.2-5
     designator: "5.1.2-5"
     normativity: requirement
@@ -202,13 +373,36 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-5, p. 11"
     short_title: "Match intended use to the sensitivity of training data"
     text: "Data Custodians shall ensure that the intended usage of the system is appropriate to the sensitivity of the data it was trained on as well as the controls intended to ensure the security of the data."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.033, NISTAML.032, NISTAML.038]
+        title: "NISTAML.033 Membership Inference; NISTAML.032 Reconstruction; NISTAML.038 Data Extraction"
+        attack_class: privacy
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "a model can leak the data it was trained on, so its use has to match that data's sensitivity"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.000, AML.T0024.001, AML.T0057]
+        title: "AML.T0024.000 Infer Training Data Membership; AML.T0024.001 Invert AI Model; AML.T0057 LLM Data Leakage"
+        attack_class: privacy
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "a model can leak the data it was trained on, so its use has to match that data's sensitivity"
   - id: etsi-en-304-223#5.1.2-5.1
     designator: "5.1.2-5.1"
     parent: "5.1.2-5"
@@ -220,13 +414,17 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-5.1, p. 11"
     short_title: "Encourage staff to report AI security risks"
     text: "Organizations should ensure that employees are encouraged to proactively report and identify any potential security risks in AI systems and ensure appropriate safeguards are in place."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "no"
+    testable_reason: "encouraging staff to report risks has no observable pass/fail criterion in the EN"
+    bears_on: []
   - id: etsi-en-304-223#5.1.2-6
     designator: "5.1.2-6"
     normativity: requirement
@@ -237,13 +435,36 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-6, p. 11"
     short_title: "Give the AI system only the permissions it needs on other systems"
     text: "Where the AI system will be interacting with other systems or data sources, (be they internal or external), Developers and System Operators shall ensure that the permissions granted to the AI system on other systems are only provided as required for functionality and are risk assessed."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130, ADR-0010]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.015, NISTAML.039]
+        title: "NISTAML.015 Indirect Prompt Injection; NISTAML.039 Compromising connected resources"
+        attack_class: indirect-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "least privilege on connected systems limits what an injected instruction can make the AI system do there"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.001, AML.T0053]
+        title: "AML.T0051.001 Indirect; AML.T0053 AI Agent Tool Invocation"
+        attack_class: indirect-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "least privilege on connected systems limits what an injected instruction can make the AI system do there"
   - id: etsi-en-304-223#5.1.2-7
     designator: "5.1.2-7"
     normativity: requirement
@@ -254,13 +475,36 @@ requirements:
     principle: 2
     principle_name: "Design the AI system for security as well as functionality and performance"
     phase: secure-design
-    locator: "§5.1.2"
+    locator: "§5.1.2, Provision 5.1.2-7, p. 11"
     short_title: "Do due diligence on external providers"
     text: "If a Developer or System Operator chooses to work with an external provider, they shall undertake a due diligence assessment and should ensure that the provider is adhering to the present document."
     nature: deliverable-producing
     expects_deliverables: ["due diligence assessment of the external provider"]
     verification: "inspect: due diligence assessment of the external provider"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: due diligence assessment of the external provider"
+    bears_on: [DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.05]
+        title: "NISTAML.05 Supply Chain Attacks"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "due diligence on an external provider addresses compromise through the AI supply chain"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010]
+        title: "AML.T0010 AI Supply Chain Compromise"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "due diligence on an external provider addresses compromise through the AI supply chain"
   - id: etsi-en-304-223#5.1.3-1
     designator: "5.1.3-1"
     normativity: requirement
@@ -271,13 +515,78 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-1, p. 11"
     short_title: "Threat-model and manage risks, including AI-specific attacks"
     text: "Developers and System Operators shall analyse threats and manage security risks to their systems. Threat modelling should include regular reviews and updates and address AI-specific attacks, such as data poisoning, model inversion, and membership inference."
     nature: deliverable-producing
     expects_deliverables: ["threat model and security risk management record"]
     verification: "inspect: threat model and security risk management record"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: threat model and security risk management record"
+    bears_on: [ADR-0010, ADR-0006, DEC-001b]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data poisoning"
+        rationale: "the provision names \"data poisoning\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020]
+        title: "AML.T0020 Training Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data poisoning"
+        rationale: "the provision names \"data poisoning\""
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.032]
+        title: "NISTAML.032 Reconstruction"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "model inversion"
+        rationale: "the provision names \"model inversion\"; NIST AI 100-2 E2025 treats model inversion under data reconstruction (§2.4.1)"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.001]
+        title: "AML.T0024.001 Invert AI Model"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "model inversion"
+        rationale: "the provision names \"model inversion\"; NIST AI 100-2 E2025 treats model inversion under data reconstruction (§2.4.1)"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.033]
+        title: "NISTAML.033 Membership Inference"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "membership inference"
+        rationale: "the provision names \"membership inference\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.000]
+        title: "AML.T0024.000 Infer Training Data Membership"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "membership inference"
+        rationale: "the provision names \"membership inference\""
   - id: etsi-en-304-223#5.1.3-1.1
     designator: "5.1.3-1.1"
     parent: "5.1.3-1"
@@ -289,13 +598,17 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-1.1, p. 11"
     short_title: "Re-run threat modelling when settings or configuration change"
     text: "The threat modelling and risk management process shall be conducted to address any security risks that arise when a new setting or configuration option is implemented or updated at any stage of the AI lifecycle."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-001b]
   - id: etsi-en-304-223#5.1.3-1.2
     designator: "5.1.3-1.2"
     parent: "5.1.3-1"
@@ -307,13 +620,36 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-1.2, p. 11"
     short_title: "Manage risks of superfluous model functionality"
     text: "Developers shall manage the security risks associated with AI models that provide superfluous functionalities, where increased functionality leads to increased risk. For example, where a multi-modal model is being used but only single modality is used for system function."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [ADR-0010, ADR-0006]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.015]
+        title: "NISTAML.015 Indirect Prompt Injection"
+        attack_class: indirect-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an unused modality is an input channel no control watches; ATLAS describes instructions hidden in one part of a multimodal input"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0129]
+        title: "AML.T0129 Triggers in Multimodal Inputs"
+        attack_class: indirect-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an unused modality is an input channel no control watches; ATLAS describes instructions hidden in one part of a multimodal input"
   - id: etsi-en-304-223#5.1.3-1.3
     designator: "5.1.3-1.3"
     parent: "5.1.3-1"
@@ -325,13 +661,17 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-1.3, p. 11"
     short_title: "Apply controls in line with corporate risk tolerance"
     text: "System Operators shall apply controls to risks identified through the analysis based on a range of considerations, including the cost of implementation in line with their corporate risk tolerance."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [ADR-0006]
   - id: etsi-en-304-223#5.1.3-2
     designator: "5.1.3-2"
     normativity: requirement
@@ -342,13 +682,17 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-2, p. 11"
     short_title: "Pass unresolved AI threats on to System Operators and End-users"
     text: "Where AI security threats are identified that cannot be resolved by Developers, this shall be communicated to System Operators so they can threat model their systems. System Operators shall communicate this information to End-users, so they are made aware of these threats. This communication should include detailed descriptions of the risks, potential impacts, and recommended actions to address or monitor these threats."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009, ADR-0007]
   - id: etsi-en-304-223#5.1.3-3
     designator: "5.1.3-3"
     normativity: recommendation
@@ -359,13 +703,17 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-3, p. 11"
     short_title: "Get assurance from external parties responsible for AI risks"
     text: "Where an external entity has responsibility for AI security risks identified within an organizations infrastructure, System Operators should attain assurance that these parties are able to address such risks."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [ADR-0006, DEC-009]
   - id: etsi-en-304-223#5.1.3-4
     designator: "5.1.3-4"
     normativity: recommendation
@@ -376,13 +724,17 @@ requirements:
     principle: 3
     principle_name: "Evaluate the threats and manage the risks to the AI system"
     phase: secure-design
-    locator: "§5.1.3"
+    locator: "§5.1.3, Provision 5.1.3-4, p. 11"
     short_title: "Continuously monitor and review infrastructure against risk appetite"
     text: "Developers and System Operators should continuously monitor and review their system infrastructure according to risk appetite. It is important to recognize that a higher level of risk will remain in AI systems despite the application of controls to mitigate against them."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [ADR-0006, DEC-009]
   - id: etsi-en-304-223#5.1.4-1
     designator: "5.1.4-1"
     normativity: recommendation
@@ -393,13 +745,17 @@ requirements:
     principle: 4
     principle_name: "Enable human responsibility for AI systems"
     phase: secure-design
-    locator: "§5.1.4"
+    locator: "§5.1.4, Provision 5.1.4-1, p. 11"
     short_title: "Build in capabilities for human oversight"
     text: "When designing an AI system, Developers and/or System Operators should incorporate and maintain capabilities to enable human oversight."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [R-018]
   - id: etsi-en-304-223#5.1.4-2
     designator: "5.1.4-2"
     normativity: recommendation
@@ -410,13 +766,17 @@ requirements:
     principle: 4
     principle_name: "Enable human responsibility for AI systems"
     phase: secure-design
-    locator: "§5.1.4"
+    locator: "§5.1.4, Provision 5.1.4-2, p. 11"
     short_title: "Make outputs easy for humans to assess"
     text: "Developers should design systems to make it easy for humans to assess outputs that they are responsible for in said system (such as by ensuring that models outputs are explainable or interpretable)."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [R-018]
   - id: etsi-en-304-223#5.1.4-3
     designator: "5.1.4-3"
     normativity: requirement
@@ -427,13 +787,17 @@ requirements:
     principle: 4
     principle_name: "Enable human responsibility for AI systems"
     phase: secure-design
-    locator: "§5.1.4"
+    locator: "§5.1.4, Provision 5.1.4-3, p. 11"
     short_title: "Build technical measures where human oversight is a risk control"
     text: "Where human oversight is a risk control, Developers and/or System Operators shall design, develop, verify and maintain technical measures to reduce the risk through such oversight."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [R-018, ADR-0006]
   - id: etsi-en-304-223#5.1.4-4
     designator: "5.1.4-4"
     normativity: recommendation
@@ -444,13 +808,17 @@ requirements:
     principle: 4
     principle_name: "Enable human responsibility for AI systems"
     phase: secure-design
-    locator: "§5.1.4"
+    locator: "§5.1.4, Provision 5.1.4-4, p. 11"
     short_title: "Verify Data Custodian security controls are built in"
     text: "Developers should verify that the security controls specified by the Data Custodian have been built into the system."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [R-018]
   - id: etsi-en-304-223#5.1.4-5
     designator: "5.1.4-5"
     normativity: recommendation
@@ -461,13 +829,27 @@ requirements:
     principle: 4
     principle_name: "Enable human responsibility for AI systems"
     phase: secure-design
-    locator: "§5.1.4"
+    locator: "§5.1.4, Provision 5.1.4-5, p. 12"
     short_title: "Tell End-users about prohibited use cases"
     text: "Developers and System Operators should make End-users aware of prohibited use cases of the AI system."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.04]
+        title: "NISTAML.04 Misuse Violations"
+        attack_class: misuse
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "telling users which uses are prohibited addresses misuse; no ATLAS technique covers non-adversarial misuse by a legitimate user"
   - id: etsi-en-304-223#5.2.1-1
     designator: "5.2.1-1"
     normativity: requirement
@@ -478,13 +860,17 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-1, p. 12"
     short_title: "Maintain an inventory of assets and their interdependencies"
     text: "Developers, Data Custodians and System Operators shall maintain a comprehensive inventory of their assets (including their interdependencies/connectivity)."
     nature: deliverable-producing
     expects_deliverables: ["inventory of assets and their interdependencies"]
     verification: "inspect: inventory of assets and their interdependencies"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: inventory of assets and their interdependencies"
+    bears_on: [tmodel#130, ADR-0010, ADR-0007]
   - id: etsi-en-304-223#5.2.1-2
     designator: "5.2.1-2"
     normativity: requirement
@@ -495,13 +881,36 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-2, p. 12"
     short_title: "Track, authenticate, version-control and secure AI assets"
     text: "As part of broader software security practices, Developers, Data Custodians and System Operators shall have processes and tools to track, authenticate, manage version control and secure their assets due to the increased complexities of AI specific assets."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130, ADR-0010]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.051]
+        title: "NISTAML.051 Model Poisoning"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "authenticating and version-controlling model assets detects a swapped or manipulated model"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0018, AML.T0010.003]
+        title: "AML.T0018 Manipulate AI Model; AML.T0010.003 Model"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "authenticating and version-controlling model assets detects a swapped or manipulated model"
   - id: etsi-en-304-223#5.2.1-3
     designator: "5.2.1-3"
     normativity: requirement
@@ -512,13 +921,17 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-3, p. 12"
     short_title: "Tailor disaster recovery plans to attacks on AI systems"
     text: "System Operators shall develop and tailor their disaster recovery plans to account for specific attacks aimed at AI systems."
     nature: deliverable-producing
     expects_deliverables: ["disaster recovery plan covering attacks on AI systems"]
     verification: "inspect: disaster recovery plan covering attacks on AI systems"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: disaster recovery plan covering attacks on AI systems"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.2.1-3.1
     designator: "5.2.1-3.1"
     parent: "5.2.1-3"
@@ -530,13 +943,36 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-3.1, p. 12"
     short_title: "Be able to restore a known good state"
     text: "System Operators should ensure that a known good state can be restored."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013, NISTAML.026]
+        title: "NISTAML.013 Data Poisoning; NISTAML.026 Model Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "restoring a known good state is the recovery path from a poisoned dataset or model"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020, AML.T0018.000]
+        title: "AML.T0020 Training Data Poisoning; AML.T0018.000 Poison AI Model"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "restoring a known good state is the recovery path from a poisoned dataset or model"
   - id: etsi-en-304-223#5.2.1-4
     designator: "5.2.1-4"
     normativity: requirement
@@ -547,13 +983,27 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-4, p. 12"
     short_title: "Protect sensitive data such as training and test data"
     text: "Developers, System Operators, Data Custodians and End-users shall protect sensitive data, such as training or test data, against unauthorized access (see clause 5.2.3 for details on securing data)."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130]
+    maps_to:
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0035, AML.T0025]
+        title: "AML.T0035 AI Artifact Collection; AML.T0025 Exfiltration via Cyber Means"
+        attack_class: conventional
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "unauthorized access to training or test data is a conventional confidentiality attack on an AI artifact"
   - id: etsi-en-304-223#5.2.1-4.1
     designator: "5.2.1-4.1"
     parent: "5.2.1-4"
@@ -565,13 +1015,72 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-4.1, p. 12"
     short_title: "Check and sanitise data and inputs, and repeat on model revisions"
     text: "Developers, Data Custodians and System Operators shall apply checks and sanitisation to data and inputs when designing the model based on their access to said data and inputs and where those data and inputs are stored. This shall be repeated when model revisions are made in response to user feedback or continuous learning. See clause 5.2.2 for relevant provisions for open source."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "checking and sanitising data before training screens out poisoned samples"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020]
+        title: "AML.T0020 Training Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "checking and sanitising data before training screens out poisoned samples"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.018]
+        title: "NISTAML.018 Prompt Injection"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "sanitising inputs is a first filter against injected instructions"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.000]
+        title: "AML.T0051.000 Direct"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "sanitising inputs is a first filter against injected instructions"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.015]
+        title: "NISTAML.015 Indirect Prompt Injection"
+        attack_class: indirect-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "the same input checks apply to content the system ingests from third parties"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.001]
+        title: "AML.T0051.001 Indirect"
+        attack_class: indirect-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "the same input checks apply to content the system ingests from third parties"
   - id: etsi-en-304-223#5.2.1-4.2
     designator: "5.2.1-4.2"
     parent: "5.2.1-4"
@@ -583,13 +1092,27 @@ requirements:
     principle: 5
     principle_name: "Identify, track and protect the assets"
     phase: secure-development
-    locator: "§5.2.1"
+    locator: "§5.2.1, Provision 5.2.1-4.2, p. 12"
     short_title: "Protect confidential training data and model weights"
     text: "Where training data or model weights could be confidential, Developers shall put proportionate protections in place."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130]
+    maps_to:
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0035, AML.T0048.004]
+        title: "AML.T0035 AI Artifact Collection; AML.T0048.004 AI Intellectual Property Theft"
+        attack_class: conventional
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "confidential weights and training data are targets of theft by conventional means"
   - id: etsi-en-304-223#5.2.2-1
     designator: "5.2.2-1"
     normativity: requirement
@@ -600,13 +1123,27 @@ requirements:
     principle: 6
     principle_name: "Secure the infrastructure"
     phase: secure-development
-    locator: "§5.2.2"
+    locator: "§5.2.2, Provision 5.2.2-1, p. 12"
     short_title: "Secure access to APIs, models, data and pipelines"
     text: "Developers and System Operators shall evaluate their organization's access control frameworks and identify appropriate measures to secure APIs, models, data, and training and processing pipelines."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130]
+    maps_to:
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0012, AML.T0035]
+        title: "AML.T0012 Valid Accounts; AML.T0035 AI Artifact Collection"
+        attack_class: conventional
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "access control on APIs, models, data and pipelines blocks credential abuse and artifact collection"
   - id: etsi-en-304-223#5.2.2-2
     designator: "5.2.2-2"
     normativity: requirement
@@ -617,13 +1154,58 @@ requirements:
     principle: 6
     principle_name: "Secure the infrastructure"
     phase: secure-development
-    locator: "§5.2.2"
+    locator: "§5.2.2, Provision 5.2.2-2, p. 12"
     short_title: "Protect externally offered APIs, e.g. with rate limits"
     text: "If a Developer offers an API to external customers or collaborators, they shall apply controls that mitigate attacks on the AI system via the API. For example, placing limits on model access rate to limit an attacker's ability to reverse engineer or overwhelm defences to rapidly poison a model."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the API controls, e.g. a configured limit on model access rate"
+    bears_on: [ADR-0006]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.031]
+        title: "NISTAML.031 Model Extraction"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "reverse engineer"
+        rationale: "the provision names \"reverse engineer\"; rate limits on model access slow extraction of a model through its API"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.002, AML.T0040]
+        title: "AML.T0024.002 Extract AI Model; AML.T0040 AI Model Inference API Access"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "reverse engineer"
+        rationale: "the provision names \"reverse engineer\"; rate limits on model access slow extraction of a model through its API"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "rapidly poison a model"
+        rationale: "the provision names \"rapidly poison a model\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020]
+        title: "AML.T0020 Training Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "rapidly poison a model"
+        rationale: "the provision names \"rapidly poison a model\""
   - id: etsi-en-304-223#5.2.2-3
     designator: "5.2.2-3"
     normativity: requirement
@@ -634,13 +1216,27 @@ requirements:
     principle: 6
     principle_name: "Secure the infrastructure"
     phase: secure-development
-    locator: "§5.2.2"
+    locator: "§5.2.2, Provision 5.2.2-3, p. 12"
     short_title: "Use separate, least-privilege development and tuning environments"
     text: "Developers shall also create dedicated environments for development and model tuning activities. The dedicated environments shall be backed by technical controls to ensure separation and principle of least privilege. In the context of AI, this is particularly necessary because training data shall only be present in the training and development environments where this training data is not based on publicly available data."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the dedicated development and tuning environments and their separation controls"
+    bears_on: [tmodel#130]
+    maps_to:
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0035]
+        title: "AML.T0035 AI Artifact Collection"
+        attack_class: conventional
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "keeping non-public training data inside separated development environments limits where it can be collected"
   - id: etsi-en-304-223#5.2.2-4
     designator: "5.2.2-4"
     normativity: requirement
@@ -651,13 +1247,17 @@ requirements:
     principle: 6
     principle_name: "Secure the infrastructure"
     phase: secure-development
-    locator: "§5.2.2"
+    locator: "§5.2.2, Provision 5.2.2-4, p. 12"
     short_title: "Publish a vulnerability disclosure policy"
     text: "Developers and System Operators shall implement and publish a clear and accessible vulnerability disclosure policy."
     nature: deliverable-producing
     expects_deliverables: ["published vulnerability disclosure policy"]
     verification: "inspect: published vulnerability disclosure policy"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: published vulnerability disclosure policy"
+    bears_on: [DEC-008]
   - id: etsi-en-304-223#5.2.2-5
     designator: "5.2.2-5"
     normativity: requirement
@@ -668,13 +1268,17 @@ requirements:
     principle: 6
     principle_name: "Secure the infrastructure"
     phase: secure-development
-    locator: "§5.2.2"
+    locator: "§5.2.2, Provision 5.2.2-5, p. 12"
     short_title: "Maintain an AI incident management plan and recovery plan"
     text: "Developers and System Operators shall create, test and maintain an AI system incident management plan and an AI system recovery plan."
     nature: deliverable-producing
     expects_deliverables: ["AI system incident management plan", "AI system recovery plan"]
     verification: "inspect: AI system incident management plan; AI system recovery plan"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: AI system incident management plan"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.2.2-6
     designator: "5.2.2-6"
     normativity: recommendation
@@ -685,13 +1289,17 @@ requirements:
     principle: 6
     principle_name: "Secure the infrastructure"
     phase: secure-development
-    locator: "§5.2.2"
+    locator: "§5.2.2, Provision 5.2.2-6, p. 12"
     short_title: "Make cloud contracts support these requirements"
     text: "Developers and System Operators should ensure that, where they are using cloud service operators to help to deliver the capability, their contractual agreements support compliance with the above requirements."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
   - id: etsi-en-304-223#5.2.3-1
     designator: "5.2.3-1"
     normativity: requirement
@@ -702,13 +1310,36 @@ requirements:
     principle: 7
     principle_name: "Secure the supply chain"
     phase: secure-development
-    locator: "§5.2.3"
+    locator: "§5.2.3, Provision 5.2.3-1, p. 13"
     short_title: "Follow secure software supply chain processes"
     text: "Developers and System Operators shall follow secure software supply chain processes for their AI model and system development."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-008, ADR-0007]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.05]
+        title: "NISTAML.05 Supply Chain Attacks"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "secure supply chain processes are the control for AI supply chain compromise"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010, AML.T0010.001, AML.T0010.002, AML.T0010.003]
+        title: "AML.T0010 AI Supply Chain Compromise; AML.T0010.001 AI Software; AML.T0010.002 Data; AML.T0010.003 Model"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "secure supply chain processes are the control for AI supply chain compromise"
   - id: etsi-en-304-223#5.2.3-2
     designator: "5.2.3-2"
     normativity: requirement
@@ -719,13 +1350,36 @@ requirements:
     principle: 7
     principle_name: "Secure the supply chain"
     phase: secure-development
-    locator: "§5.2.3"
+    locator: "§5.2.3, Provision 5.2.3-2, p. 13"
     short_title: "Justify using poorly documented or unsecured models or components"
     text: "System Operators that choose to use or adapt any models, or components, which are not well-documented or secured shall be able to justify their decision to use such models or components through documentation (for example if there was no other supplier for said component)."
     nature: deliverable-producing
     expects_deliverables: ["documented justification for using poorly documented or unsecured models or components"]
     verification: "inspect: documented justification for using poorly documented or unsecured models or components"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: documented justification for using poorly documented or unsecured models or components"
+    bears_on: [DEC-008, DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.05]
+        title: "NISTAML.05 Supply Chain Attacks"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "a model that is not well documented or secured may be an unsafe artifact"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010.003, AML.T0011.000]
+        title: "AML.T0010.003 Model; AML.T0011.000 Unsafe AI Artifacts"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "a model that is not well documented or secured may be an unsafe artifact"
   - id: etsi-en-304-223#5.2.3-2.1
     designator: "5.2.3-2.1"
     parent: "5.2.3-2"
@@ -737,13 +1391,36 @@ requirements:
     principle: 7
     principle_name: "Secure the supply chain"
     phase: secure-development
-    locator: "§5.2.3"
+    locator: "§5.2.3, Provision 5.2.3-2.1, p. 13"
     short_title: "Mitigate and risk-assess such models or components"
     text: "In this case, Developers and System Operators shall have mitigating controls and undertake a risk assessment linked to such models or components."
     nature: deliverable-producing
     expects_deliverables: ["risk assessment for those models or components"]
     verification: "inspect: risk assessment for those models or components"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: risk assessment for those models or components"
+    bears_on: [ADR-0006]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.05]
+        title: "NISTAML.05 Supply Chain Attacks"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "mitigating controls for the same poorly documented models and components"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010.003, AML.T0011.000]
+        title: "AML.T0010.003 Model; AML.T0011.000 Unsafe AI Artifacts"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "mitigating controls for the same poorly documented models and components"
   - id: etsi-en-304-223#5.2.3-2.2
     designator: "5.2.3-2.2"
     parent: "5.2.3-2"
@@ -755,13 +1432,17 @@ requirements:
     principle: 7
     principle_name: "Secure the supply chain"
     phase: secure-development
-    locator: "§5.2.3"
+    locator: "§5.2.3, Provision 5.2.3-2.2, p. 13"
     short_title: "Share that justification with End-users"
     text: "System Operators shall share this documentation with End-users in an accessible way."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
   - id: etsi-en-304-223#5.2.3-3
     designator: "5.2.3-3"
     normativity: requirement
@@ -772,13 +1453,36 @@ requirements:
     principle: 7
     principle_name: "Secure the supply chain"
     phase: secure-development
-    locator: "§5.2.3"
+    locator: "§5.2.3, Provision 5.2.3-3, p. 13"
     short_title: "Re-run evaluations on released models before using them"
     text: "Developers and System Operators shall re-run evaluations on released models that they intend on using."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.051, NISTAML.023]
+        title: "NISTAML.051 Model Poisoning; NISTAML.023 Backdoor Poisoning"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "re-evaluating a released model before use can surface a poisoned or backdoored model"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010.003, AML.T0018.000]
+        title: "AML.T0010.003 Model; AML.T0018.000 Poison AI Model"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "re-evaluating a released model before use can surface a poisoned or backdoored model"
   - id: etsi-en-304-223#5.2.3-4
     designator: "5.2.3-4"
     normativity: requirement
@@ -789,13 +1493,17 @@ requirements:
     principle: 7
     principle_name: "Secure the supply chain"
     phase: secure-development
-    locator: "§5.2.3"
+    locator: "§5.2.3, Provision 5.2.3-4, p. 13"
     short_title: "Tell End-users before models are updated"
     text: "System Operators shall communicate their intention to update models to End-users in an accessible way prior to models being updated."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the notice given to End-users before a model update"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.2.4-1
     designator: "5.2.4-1"
     normativity: requirement
@@ -806,13 +1514,17 @@ requirements:
     principle: 8
     principle_name: "Document data, models and prompts"
     phase: secure-development
-    locator: "§5.2.4"
+    locator: "§5.2.4, Provision 5.2.4-1, p. 13"
     short_title: "Document an audit trail of design and maintenance plans"
     text: "Developers shall document and maintain a clear audit trail of their system design and post-deployment maintenance plans. Developers should make the documentation available to the downstream System Operators and Data Custodians."
     nature: deliverable-producing
     expects_deliverables: ["audit trail of system design and post-deployment maintenance plans"]
     verification: "inspect: audit trail of system design and post-deployment maintenance plans"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: audit trail of system design and post-deployment maintenance plans"
+    bears_on: [DEC-001b, R-018]
   - id: etsi-en-304-223#5.2.4-1.1
     designator: "5.2.4-1.1"
     parent: "5.2.4-1"
@@ -824,13 +1536,36 @@ requirements:
     principle: 8
     principle_name: "Document data, models and prompts"
     phase: secure-development
-    locator: "§5.2.4"
+    locator: "§5.2.4, Provision 5.2.4-1.1, p. 13"
     short_title: "Include security-relevant information in the documentation"
     text: "Developers should ensure that the document includes security-relevant information, such as the sources of training data (including fine-tuning data and human or other operational feedback), intended scope and limitations, guardrails, retention time, suggested review frequency and potential failure modes."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the documentation for the listed security-relevant items"
+    bears_on: [ADR-0007]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "recording training data sources is what makes later poisoning reports traceable (5.2.4-2 states this for public data)"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020]
+        title: "AML.T0020 Training Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "recording training data sources is what makes later poisoning reports traceable (5.2.4-2 states this for public data)"
   - id: etsi-en-304-223#5.2.4-1.2
     designator: "5.2.4-1.2"
     parent: "5.2.4-1"
@@ -842,13 +1577,36 @@ requirements:
     principle: 8
     principle_name: "Document data, models and prompts"
     phase: secure-development
-    locator: "§5.2.4"
+    locator: "§5.2.4, Provision 5.2.4-1.2, p. 13"
     short_title: "Release cryptographic hashes of shared model components"
     text: "Developers shall release cryptographic hashes for model components that are made available to other stakeholders to allow them to verify the authenticity of the components."
     nature: deliverable-producing
     expects_deliverables: ["published cryptographic hashes of model components"]
     verification: "inspect: published cryptographic hashes of model components"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: published cryptographic hashes of model components"
+    bears_on: [ADR-0010, ADR-0007]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.051]
+        title: "NISTAML.051 Model Poisoning"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "published hashes let a downstream party detect a tampered model component; the provision names authenticity, not an attack"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0010.003, AML.T0018]
+        title: "AML.T0010.003 Model; AML.T0018 Manipulate AI Model"
+        attack_class: supply-chain
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "published hashes let a downstream party detect a tampered model component; the provision names authenticity, not an attack"
   - id: etsi-en-304-223#5.2.4-2
     designator: "5.2.4-2"
     normativity: requirement
@@ -859,13 +1617,38 @@ requirements:
     principle: 8
     principle_name: "Document data, models and prompts"
     phase: secure-development
-    locator: "§5.2.4"
+    locator: "§5.2.4, Provision 5.2.4-2, p. 13"
     short_title: "Document the source and use of public training data"
     text: "Where training data has been sourced from publicly available sources, there is a risk that this data might have been poisoned. As discovery of poisoned data is likely to occur after training (if at all), Developers shall document how they obtained the public training data, where it came from and how that data is used in the model."
     nature: deliverable-producing
     expects_deliverables: ["documentation of how public training data was obtained, its source and use"]
     verification: "inspect: documentation of how public training data was obtained, its source and use"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: documentation of how public training data was obtained, its source and use"
+    bears_on: [ADR-0007, DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "this data might have been poisoned"
+        rationale: "the provision names \"this data might have been poisoned\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020, AML.T0010.002]
+        title: "AML.T0020 Training Data Poisoning; AML.T0010.002 Data"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "this data might have been poisoned"
+        rationale: "the provision names \"this data might have been poisoned\""
   - id: etsi-en-304-223#5.2.4-2.1
     designator: "5.2.4-2.1"
     parent: "5.2.4-2"
@@ -877,13 +1660,38 @@ requirements:
     principle: 8
     principle_name: "Document data, models and prompts"
     phase: secure-development
-    locator: "§5.2.4"
+    locator: "§5.2.4, Provision 5.2.4-2.1, p. 13"
     short_title: "Record the source URL and date of training data"
     text: "The documentation of training data should include at a minimum the source of the data, such as the URL of the scraped page, and the date/time the data was obtained. This will allow Developers to identify whether a reported data poisoning attack was in their data sets."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the training-data records for source (e.g. URL) and date/time obtained"
+    bears_on: [ADR-0007]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data poisoning attack"
+        rationale: "the provision names \"data poisoning attack\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020, AML.T0010.002]
+        title: "AML.T0020 Training Data Poisoning; AML.T0010.002 Data"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data poisoning attack"
+        rationale: "the provision names \"data poisoning attack\""
   - id: etsi-en-304-223#5.2.4-3
     designator: "5.2.4-3"
     normativity: recommendation
@@ -894,13 +1702,27 @@ requirements:
     principle: 8
     principle_name: "Document data, models and prompts"
     phase: secure-development
-    locator: "§5.2.4"
+    locator: "§5.2.4, Provision 5.2.4-3, p. 13"
     short_title: "Keep an audit log of system prompt and configuration changes"
     text: "Developers should ensure that they have an audit log of changes to system prompts or other model configuration (including prompts) that affect the underlying working of the systems. Developers can make this available to any System Operators and End-Users that have access to the model."
     nature: deliverable-producing
     expects_deliverables: ["audit log of changes to system prompts and model configuration"]
     verification: "inspect: audit log of changes to system prompts and model configuration"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: audit log of changes to system prompts and model configuration"
+    bears_on: [R-018, DEC-001b]
+    maps_to:
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0081, AML.T0018.003]
+        title: "AML.T0081 Modify AI Agent Configuration; AML.T0018.003 Modify Prompt Construction Logic"
+        attack_class: conventional
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "an audit log of system prompt and configuration changes exposes unauthorized changes to them"
   - id: etsi-en-304-223#5.2.5-1
     designator: "5.2.5-1"
     normativity: requirement
@@ -911,13 +1733,17 @@ requirements:
     principle: 9
     principle_name: "Conduct appropriate testing and evaluation"
     phase: secure-development
-    locator: "§5.2.5"
+    locator: "§5.2.5, Provision 5.2.5-1, p. 13"
     short_title: "Security-test all released models, applications and systems"
     text: "Developers shall ensure that all models, applications and systems that are released to System Operators and/or End-users have been tested as part of a security assessment process."
     nature: deliverable-producing
     expects_deliverables: ["security assessment results for released models, applications and systems"]
     verification: "inspect: security assessment results for released models, applications and systems"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: security assessment results for released models, applications and systems"
+    bears_on: [DEC-001b]
   - id: etsi-en-304-223#5.2.5-2
     designator: "5.2.5-2"
     normativity: requirement
@@ -928,13 +1754,17 @@ requirements:
     principle: 9
     principle_name: "Conduct appropriate testing and evaluation"
     phase: secure-development
-    locator: "§5.2.5"
+    locator: "§5.2.5, Provision 5.2.5-2, p. 13"
     short_title: "Test before deployment, with Developer support"
     text: "System Operators shall conduct testing prior to the system being deployed with support from Developers."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect pre-deployment test records"
+    bears_on: [DEC-001b]
   - id: etsi-en-304-223#5.2.5-2.1
     designator: "5.2.5-2.1"
     parent: "5.2.5-2"
@@ -946,13 +1776,17 @@ requirements:
     principle: 9
     principle_name: "Conduct appropriate testing and evaluation"
     phase: secure-development
-    locator: "§5.2.5"
+    locator: "§5.2.5, Provision 5.2.5-2.1, p. 14"
     short_title: "Use independent security testers"
     text: "For security testing, System Operators and Developers should use independent security testers with technical skills relevant to their AI systems."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [R-018]
   - id: etsi-en-304-223#5.2.5-3
     designator: "5.2.5-3"
     normativity: recommendation
@@ -963,13 +1797,17 @@ requirements:
     principle: 9
     principle_name: "Conduct appropriate testing and evaluation"
     phase: secure-development
-    locator: "§5.2.5"
+    locator: "§5.2.5, Provision 5.2.5-3, p. 14"
     short_title: "Share test findings with System Operators"
     text: "Developers should ensure that the findings from the testing and evaluation are shared with System Operators, to inform their own testing and evaluation."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.2.5-4
     designator: "5.2.5-4"
     normativity: recommendation
@@ -980,13 +1818,58 @@ requirements:
     principle: 9
     principle_name: "Conduct appropriate testing and evaluation"
     phase: secure-development
-    locator: "§5.2.5"
+    locator: "§5.2.5, Provision 5.2.5-4, p. 14"
     short_title: "Check outputs do not allow reverse engineering of the model or data"
     text: "Developers should evaluate model outputs to ensure they do not allow System Operators or End-users to reverse engineer non-public aspects of the model or the training data."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.031]
+        title: "NISTAML.031 Model Extraction"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "reverse engineer non-public aspects of the model"
+        rationale: "the provision names \"reverse engineer non-public aspects of the model\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.002]
+        title: "AML.T0024.002 Extract AI Model"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "reverse engineer non-public aspects of the model"
+        rationale: "the provision names \"reverse engineer non-public aspects of the model\""
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.032, NISTAML.038]
+        title: "NISTAML.032 Reconstruction; NISTAML.038 Data Extraction"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "or the training data"
+        rationale: "the provision names \"or the training data\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.001, AML.T0057]
+        title: "AML.T0024.001 Invert AI Model; AML.T0057 LLM Data Leakage"
+        attack_class: privacy
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "or the training data"
+        rationale: "the provision names \"or the training data\""
   - id: etsi-en-304-223#5.2.5-4.1
     designator: "5.2.5-4.1"
     parent: "5.2.5-4"
@@ -998,13 +1881,36 @@ requirements:
     principle: 9
     principle_name: "Conduct appropriate testing and evaluation"
     phase: secure-development
-    locator: "§5.2.5"
+    locator: "§5.2.5, Provision 5.2.5-4.1, p. 14"
     short_title: "Check outputs do not give unintended influence over the system"
     text: "Additionally, Developers should evaluate model outputs to ensure they do not provide System Operators or End-users with unintended influence over the system."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.018]
+        title: "NISTAML.018 Prompt Injection"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "outputs that give a user unintended influence over the system is what a successful direct prompt injection achieves"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.000]
+        title: "AML.T0051.000 Direct"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "outputs that give a user unintended influence over the system is what a successful direct prompt injection achieves"
   - id: etsi-en-304-223#5.3.1-1
     designator: "5.3.1-1"
     normativity: requirement
@@ -1015,13 +1921,17 @@ requirements:
     principle: 10
     principle_name: "Communication and processes associated with End-users and Affected Entities"
     phase: secure-deployment
-    locator: "§5.3.1"
+    locator: "§5.3.1, Provision 5.3.1-1, p. 14"
     short_title: "Tell End-users how their data is used, accessed and stored"
     text: "System Operators shall convey to End-users in an accessible way where and how their data will be used, accessed and stored (for example, if it is used for model retraining, or reviewed by employees or partners). If the Developer is an external entity, they shall provide this information to System Operators."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the end-user information on where and how data is used, accessed and stored"
+    bears_on: []
   - id: etsi-en-304-223#5.3.1-2
     designator: "5.3.1-2"
     normativity: requirement
@@ -1032,13 +1942,17 @@ requirements:
     principle: 10
     principle_name: "Communication and processes associated with End-users and Affected Entities"
     phase: secure-deployment
-    locator: "§5.3.1"
+    locator: "§5.3.1, Provision 5.3.1-2, p. 14"
     short_title: "Give End-users guidance on use and configuration"
     text: "System Operators shall provide End-users with accessible guidance to support their use, management, integration, and configuration of AI systems. If the Developer is an external entity, they shall provide all necessary information to help System Operators."
     nature: deliverable-producing
     expects_deliverables: ["End-user guidance on use, management, integration and configuration"]
     verification: "inspect: End-user guidance on use, management, integration and configuration"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: End-user guidance on use, management, integration and configuration"
+    bears_on: []
   - id: etsi-en-304-223#5.3.1-2.1
     designator: "5.3.1-2.1"
     parent: "5.3.1-2"
@@ -1050,13 +1964,17 @@ requirements:
     principle: 10
     principle_name: "Communication and processes associated with End-users and Affected Entities"
     phase: secure-deployment
-    locator: "§5.3.1"
+    locator: "§5.3.1, Provision 5.3.1-2.1, p. 14"
     short_title: "Cover appropriate use, limitations and failure modes in guidance"
     text: "System Operators shall include guidance on the appropriate use of the model or system, which includes highlighting limitations and potential failure modes."
     nature: deliverable-producing
     expects_deliverables: ["guidance on appropriate use, limitations and failure modes"]
     verification: "inspect: guidance on appropriate use, limitations and failure modes"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: guidance on appropriate use, limitations and failure modes"
+    bears_on: []
   - id: etsi-en-304-223#5.3.1-2.2
     designator: "5.3.1-2.2"
     parent: "5.3.1-2"
@@ -1068,13 +1986,17 @@ requirements:
     principle: 10
     principle_name: "Communication and processes associated with End-users and Affected Entities"
     phase: secure-deployment
-    locator: "§5.3.1"
+    locator: "§5.3.1, Provision 5.3.1-2.2, p. 14"
     short_title: "Proactively inform End-users of security-relevant updates"
     text: "System Operators shall proactively inform End-users of any security relevant updates and provide clear explanations in an accessible way."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.3.1-3
     designator: "5.3.1-3"
     normativity: recommendation
@@ -1085,13 +2007,17 @@ requirements:
     principle: 10
     principle_name: "Communication and processes associated with End-users and Affected Entities"
     phase: secure-deployment
-    locator: "§5.3.1"
+    locator: "§5.3.1, Provision 5.3.1-3, p. 14"
     short_title: "Support End-users and Affected Entities during incidents"
     text: "Developers and System Operators should support End-users and Affected Entities during and following a cyber security incident to contain and mitigate the impacts of an incident. The process for undertaking this should be documented and agreed in contracts with End-users."
     nature: deliverable-producing
     expects_deliverables: ["documented incident-support process agreed in contracts with End-users"]
     verification: "inspect: documented incident-support process agreed in contracts with End-users"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: documented incident-support process agreed in contracts with End-users"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.4.1-1
     designator: "5.4.1-1"
     normativity: requirement
@@ -1102,13 +2028,17 @@ requirements:
     principle: 11
     principle_name: "Maintain regular security updates, patches and mitigations"
     phase: secure-maintenance
-    locator: "§5.4.1"
+    locator: "§5.4.1, Provision 5.4.1-1, p. 14"
     short_title: "Provide security updates and deliver them to End-users"
     text: "Developers shall provide security updates and patches, where possible, and notify System Operators of the security updates. System Operators shall deliver these updates and patches to End-users."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009, DEC-008]
   - id: etsi-en-304-223#5.4.1-1.1
     designator: "5.4.1-1.1"
     parent: "5.4.1-1"
@@ -1120,13 +2050,17 @@ requirements:
     principle: 11
     principle_name: "Maintain regular security updates, patches and mitigations"
     phase: secure-maintenance
-    locator: "§5.4.1"
+    locator: "§5.4.1, Provision 5.4.1-1.1, p. 14"
     short_title: "Have contingency plans where updates cannot be provided"
     text: "Developers shall have mechanisms and contingency plans to mitigate security risks, particularly in instances where updates cannot be provided for AI systems."
     nature: deliverable-producing
     expects_deliverables: ["contingency plans for AI systems that cannot be updated"]
     verification: "inspect: contingency plans for AI systems that cannot be updated"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: contingency plans for AI systems that cannot be updated"
+    bears_on: [DEC-009, ADR-0006]
   - id: etsi-en-304-223#5.4.1-2
     designator: "5.4.1-2"
     normativity: recommendation
@@ -1137,13 +2071,17 @@ requirements:
     principle: 11
     principle_name: "Maintain regular security updates, patches and mitigations"
     phase: secure-maintenance
-    locator: "§5.4.1"
+    locator: "§5.4.1, Provision 5.4.1-2, p. 14"
     short_title: "Treat major updates as a new model and re-test"
     text: "Developers should treat major AI system updates as though a new version of a model has been developed and therefore undertake a new security testing and evaluation process to help protect users."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-001b, DEC-009]
   - id: etsi-en-304-223#5.4.1-3
     designator: "5.4.1-3"
     normativity: recommendation
@@ -1154,13 +2092,17 @@ requirements:
     principle: 11
     principle_name: "Maintain regular security updates, patches and mitigations"
     phase: secure-maintenance
-    locator: "§5.4.1"
+    locator: "§5.4.1, Provision 5.4.1-3, p. 14"
     short_title: "Help System Operators evaluate model changes"
     text: "Developers should support System Operators to evaluate and respond to model changes, (for example by providing preview access via beta-testing and versioned APIs)."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
   - id: etsi-en-304-223#5.4.2-1
     designator: "5.4.2-1"
     normativity: requirement
@@ -1171,13 +2113,36 @@ requirements:
     principle: 12
     principle_name: "Monitor the system's behaviour"
     phase: secure-maintenance
-    locator: "§5.4.2"
+    locator: "§5.4.2, Provision 5.4.2-1, p. 15"
     short_title: "Log system and user actions"
     text: "System Operators shall log system and user actions to support security compliance, incident investigations, and vulnerability remediation."
     nature: deliverable-producing
     expects_deliverables: ["logs of system and user actions"]
     verification: "inspect: logs of system and user actions"
     audit_status: not-reviewed
+    kind: stated
+    testable: "yes"
+    testable_reason: "inspect the work product: logs of system and user actions"
+    bears_on: [R-018]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.031]
+        title: "NISTAML.031 Model Extraction"
+        attack_class: privacy
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "logged user actions show the query patterns of model extraction"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0024.002]
+        title: "AML.T0024.002 Extract AI Model"
+        attack_class: privacy
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "logged user actions show the query patterns of model extraction"
   - id: etsi-en-304-223#5.4.2-2
     designator: "5.4.2-2"
     normativity: recommendation
@@ -1188,13 +2153,48 @@ requirements:
     principle: 12
     principle_name: "Monitor the system's behaviour"
     phase: secure-maintenance
-    locator: "§5.4.2"
+    locator: "§5.4.2, Provision 5.4.2-2, p. 15"
     short_title: "Analyse logs for anomalies, drift and poisoning"
     text: "System Operators should analyse their logs to ensure that AI models continue to produce desired outputs and to detect anomalies, security breaches, or unexpected behaviour over time (such as due to data drift or data poisoning)."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data poisoning"
+        rationale: "the provision names \"data poisoning\""
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0020]
+        title: "AML.T0020 Training Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data poisoning"
+        rationale: "the provision names \"data poisoning\""
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: []
+        title: "outside the NIST AI 100-2 E2025 attack taxonomy"
+        attack_class: non-adversarial
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "data drift"
+        rationale: "the provision names \"data drift\"; drift is not an attack in NIST AI 100-2"
   - id: etsi-en-304-223#5.4.2-3
     designator: "5.4.2-3"
     normativity: recommendation
@@ -1205,13 +2205,17 @@ requirements:
     principle: 12
     principle_name: "Monitor the system's behaviour"
     phase: secure-maintenance
-    locator: "§5.4.2"
+    locator: "§5.4.2, Provision 5.4.2-3, p. 15"
     short_title: "Monitor internal states of the AI system"
     text: "System Operators and Developers should monitor internal states of their AI systems where this could better enable them to address security threats, or to enable future security analytics."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: []
   - id: etsi-en-304-223#5.4.2-4
     designator: "5.4.2-4"
     normativity: recommendation
@@ -1222,13 +2226,36 @@ requirements:
     principle: 12
     principle_name: "Monitor the system's behaviour"
     phase: secure-maintenance
-    locator: "§5.4.2"
+    locator: "§5.4.2, Provision 5.4.2-4, p. 15"
     short_title: "Monitor model performance over time"
     text: "System Operators and Developers should monitor the performance of their models and system over time so that they can detect sudden or gradual changes in behaviour that could affect security."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.013]
+        title: "NISTAML.013 Data Poisoning"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "a gradual change in behaviour is how eroded model integrity shows up"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0031]
+        title: "AML.T0031 Erode AI Model Integrity"
+        attack_class: poisoning
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "a gradual change in behaviour is how eroded model integrity shows up"
   - id: etsi-en-304-223#5.5.1-1
     designator: "5.5.1-1"
     normativity: requirement
@@ -1239,13 +2266,36 @@ requirements:
     principle: 13
     principle_name: "Ensure proper data and model disposal"
     phase: secure-end-of-life
-    locator: "§5.5.1"
+    locator: "§5.5.1, Provision 5.5.1-1, p. 15"
     short_title: "Involve Data Custodians and dispose securely when transferring ownership"
     text: "If a Developer or System Operator decides to transfer or share ownership of training data and/or a model to another entity they shall involve Data Custodians and securely dispose of these assets. This will protect AI against security issues that can transfer from one AI system instantiation to another."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130, DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.038]
+        title: "NISTAML.038 Data Extraction"
+        attack_class: privacy
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "data or a model handed on without disposal can leak what it holds to the next owner"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0035]
+        title: "AML.T0035 AI Artifact Collection"
+        attack_class: privacy
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "data or a model handed on without disposal can leak what it holds to the next owner"
   - id: etsi-en-304-223#5.5.1-2
     designator: "5.5.1-2"
     normativity: requirement
@@ -1256,10 +2306,24 @@ requirements:
     principle: 13
     principle_name: "Ensure proper data and model disposal"
     phase: secure-end-of-life
-    locator: "§5.5.1"
+    locator: "§5.5.1, Provision 5.5.1-2, p. 15"
     short_title: "Involve Data Custodians and delete data when decommissioning"
     text: "If a Developer or System Operators decides to decommission a model and/or system, they shall involve Data Custodians and securely delete applicable data and configuration details."
     nature: process
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     audit_status: not-reviewed
+    kind: stated
+    testable: "partial"
+    testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
+    bears_on: [tmodel#130, DEC-009]
+    maps_to:
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0035, AML.T0083]
+        title: "AML.T0035 AI Artifact Collection; AML.T0083 Credentials from AI Agent Configuration"
+        attack_class: conventional
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "configuration left on a decommissioned system can expose artifacts and the credentials it holds"

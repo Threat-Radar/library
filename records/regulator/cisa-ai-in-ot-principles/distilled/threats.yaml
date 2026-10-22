@@ -1,0 +1,264 @@
+schema: "library-threats/v1"
+record: cisa-ai-in-ot-principles
+reviewed_by: ""
+extracted: "2026-10-21"
+extracted_by: "claude (main session, tmodel#39 part B)"
+note: >
+  The threats and weaknesses the source DESCRIBES, each quoted verbatim (description) with
+  its locator. kind: stated = the source describes it; inferred = our reading (a weakness
+  read as the negation of a recommendation). external_id holds our mapping as opaque
+  strings: NIST AI 100-2 E2025 index ids (NISTAML.*) and MITRE ATLAS 2026.09 technique ids
+  (AML.T*), the latter checked against the ATLAS data served by atlas.mitre.org. The source
+  prints neither. attack_class uses the NIST AI 100-2 E2025 classes plus three labels of
+  ours: non-adversarial (not an attack), conventional (an attack outside the AML taxonomy)
+  and general / unclear / out-of-scope. addressed_by lists the requirements whose maps_to
+  shares an id with the threat (derived; threats with no id list none). Nothing here is
+  instantiated against a product: no risk vector, no mitigation state (artifact.schema.yaml).
+threats:
+  - id: "T-01"
+    name: "Cybersecurity Risks (manipulation, guardrail bypass, prompt injection)"
+    description: "Cybersecurity Risks: AI data, models, and deployment software can be manipulated to cause incorrect outcomes or bypass security and functional safety measures or guardrails. Traditional cybersecurity risks remain within AI systems; as such, security measures like access control, auditing, and encryption still apply for securing AI and AI-enabled systems. In addition, AI-enabled systems are subject to AI-specific cybersecurity risks, such as prompt injection."
+    affected_asset: ["AI data", "models", "deployment software"]
+    impact: "Impacted system availability, functional safety risks, financial losses, reputational damage, network/OT compromise, cascading compromise."
+    external_id: ["NISTAML.013", "NISTAML.026", "NISTAML.04", "NISTAML.018", "NISTAML.015", "AML.T0020", "AML.T0018", "AML.T0054", "AML.T0051"]
+    external_id_names: ["NISTAML.013 Data Poisoning", "NISTAML.026 Model Poisoning", "NISTAML.04 Misuse Violations", "NISTAML.018 Prompt Injection", "NISTAML.015 Indirect Prompt Injection", "AML.T0020 Training Data Poisoning", "AML.T0018 Manipulate AI Model", "AML.T0054 LLM Jailbreak", "AML.T0051 LLM Prompt Injection"]
+    attack_class: ["poisoning", "misuse", "direct-prompt-injection", "indirect-prompt-injection"]
+    locator: "Table 2, p. 7"
+    kind: "stated"
+    addressed_by: ["R-0008", "R-0031", "R-0034", "R-0037", "R-0089", "R-0090", "R-0096", "R-0108"]
+  - id: "T-02"
+    name: "Data Quality (centralised operational data as a target)"
+    description: "Data Quality: AI models can only be as effective as the quality of their training data. Collecting high-quality, normalized sensor data can be difficult, especially in distributed OT environments. Centralizing this operational data creates its own risk as threat actors can use it to create a more targeted engineering impact."
+    actor: "threat actors"
+    affected_asset: ["centralised operational data"]
+    impact: "Reduced OT safety and system availability from poor data quality."
+    external_id: ["AML.T0036"]
+    external_id_names: ["AML.T0036 Data from Information Repositories"]
+    attack_class: ["non-adversarial", "conventional"]
+    locator: "Table 2, p. 7"
+    kind: "stated"
+    addressed_by: ["R-0038"]
+  - id: "T-03"
+    name: "AI Model Drift"
+    description: "AI Model Drift: AI models may become less accurate over time due to data being introduced to the model that is not represented by the model’s initial training data. Alterations to production processes can affect model performance."
+    impact: "Increased dependencies on changes, loss of productivity, reduced OT safety and system availability."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 8"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-04"
+    name: "Lack of Explainability"
+    description: "Lack of Explainability: Understanding an AI model’s decision-making process may be difficult; this makes it challenging to diagnose and correct errors or properly audit a system."
+    impact: "Increased recovery time, functional safety risks, reduced system availability, complexity in troubleshooting."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 8"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-05"
+    name: "Operator Cognitive Load and Unnecessary Downtime"
+    description: "Operator Cognitive Load and Unnecessary Downtime: AI may generate alarm errors that could cause unnecessary downtime or safety incidents. These alarm errors increase cognitive load, distract operators, and potentially lead to further human error."
+    impact: "Reduced system availability, functional safety risks, financial losses, reputational damage."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 8"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-06"
+    name: "Regulatory Compliance"
+    description: "Regulatory Compliance: Compliance with regulatory requirements, such as those related to OT safety or privacy, can be challenging due to the evolving nature of AI, technical standards, and regulatory frameworks. For example, while producing a robust audit trail of AI-driven decision-making may be difficult, it may be required for regulatory compliance."
+    impact: "Functional safety risks, financial losses, reputational damage."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 8"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-07"
+    name: "AI Dependency"
+    description: "AI Dependency: Overreliance on AI can lead to operators missing critical safety-related information if the AI misses it, and losing valuable skills for safely operating equipment manually or without the AI functionality."
+    impact: "Dependence on technology, complexity in troubleshooting."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 8"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-08"
+    name: "Interoperability Issues"
+    description: "Interoperability Issues: Integrating AI systems with existing OT infrastructure can be complicated by interoperability challenges, which may arise from differences in OT communication protocols or data formats."
+    impact: "Increased maintenance costs, recovery challenges."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 9"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-09"
+    name: "Complexity"
+    description: "Complexity: Incorporating AI usually requires increasing the complexity of the overall system to support process automation."
+    impact: "Functional safety risks, complexity in troubleshooting."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 9"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-10"
+    name: "Reliability (hallucination)"
+    description: "Reliability: AI may not be reliable enough to independently make critical decisions in industrial environments. AI can also hallucinate (i.e., fabricate a plausible, but false, response or data), which would provide operators with incorrect information for decision-making."
+    impact: "Decisions made by AI developers may pose OT safety and reliability risks, increased documentation costs, uncertainty due to changes in automated decision-making over time, increased risk of cascading failure due to tighter coupling of actions. False information provided to decision makers poses risks of unsafe operating conditions, equipment damage, production halts."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "Table 2, p. 9"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-11"
+    name: "Dependency Risks and Skill Erosion"
+    description: "Dependency Risks and Skill Erosion. Heavy reliance on AI may cause OT personnel to lose manual skills needed for managing systems during AI failures or system outages."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "§1.3, p. 10"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-12"
+    name: "Skill Gaps"
+    description: "Skill Gaps. OT personnel may misinterpret AI outputs, leading to incorrect actions; OT personnel may also lack expertise for managing or troubleshooting AI systems if they malfunction."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "§1.3, p. 10"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-13"
+    name: "foreign government control over AI vendors"
+    description: "Data Sovereignty. Be aware that businesses based in foreign countries are subject to foreign government control and laws and may have to comply with directions that may be contrary to your business’ interests."
+    actor: "foreign government (through a vendor)"
+    external_id: []
+    attack_class: ["conventional"]
+    locator: "§2.2, p. 12"
+    kind: "stated"
+    addressed_by: []
+    note: "A supply-chain trust threat with no ATLAS technique; legal, not technical."
+  - id: "T-14"
+    name: "data poisoning and access abuse of OT datasets"
+    description: "Data Privacy and Security. Protect proprietary and personal information within OT datasets, including by instituting protection from access abuse, intentional or inadvertent data poisoning, or dependency on synthetic, generated data."
+    affected_asset: ["OT datasets"]
+    external_id: ["NISTAML.013", "AML.T0020", "AML.T0012"]
+    external_id_names: ["NISTAML.013 Data Poisoning", "AML.T0020 Training Data Poisoning", "AML.T0012 Valid Accounts"]
+    attack_class: ["poisoning", "conventional"]
+    locator: "§2.2, p. 13"
+    kind: "stated"
+    addressed_by: ["R-0008", "R-0031", "R-0034", "R-0037", "R-0066", "R-0073", "R-0090", "R-0108"]
+  - id: "T-15"
+    name: "training data retained in the model"
+    description: "If that data is used to train or update an AI model, the data may become accessible or stored (statistically) for a longer period of time in the model."
+    affected_asset: ["ephemeral OT data"]
+    external_id: ["NISTAML.032", "NISTAML.038", "AML.T0024.001", "AML.T0057"]
+    external_id_names: ["NISTAML.032 Reconstruction", "NISTAML.038 Data Extraction", "AML.T0024.001 Invert AI Model", "AML.T0057 LLM Data Leakage"]
+    attack_class: ["privacy"]
+    locator: "§2.2, p. 13"
+    kind: "stated"
+    addressed_by: ["R-0033", "R-0038", "R-0043", "R-0075"]
+  - id: "T-16"
+    name: "theft of engineering configuration data"
+    description: "Engineering Configuration Data. These include network diagrams, asset inventories, documentation on operations sequences, safety-related information, logic diagrams, and schematics. These data points have enduring value and are highly valuable to cyber adversaries."
+    actor: "cyber adversaries"
+    affected_asset: ["engineering configuration data"]
+    external_id: ["AML.T0036"]
+    external_id_names: ["AML.T0036 Data from Information Repositories"]
+    attack_class: ["conventional"]
+    locator: "§2.2, p. 13"
+    kind: "stated"
+    addressed_by: ["R-0038"]
+  - id: "T-17"
+    name: "new attack surfaces and internet-exposed attack paths"
+    description: "Increased System Complexity and Vulnerabilities. AI integration adds complexity to OT systems, potentially creating new attack surfaces and vulnerabilities that malicious actors can exploit—this is a particularly important consideration when AI introduces new, remotely accessible, internet-exposed attack paths."
+    actor: "malicious actors"
+    external_id: ["AML.T0122", "AML.T0049"]
+    external_id_names: ["AML.T0122 Exploitation of Remote Services", "AML.T0049 Exploit Public-Facing Application"]
+    attack_class: ["conventional"]
+    locator: "§2.4, p. 14"
+    kind: "stated"
+    addressed_by: ["R-0016", "R-0044", "R-0054", "R-0057", "R-0113", "R-0114"]
+  - id: "T-18"
+    name: "Cloud Security Risks"
+    description: "Cloud Security Risks. Integrating AI into cloud supervisory control and data acquisition (SCADA) environments may introduce additional cybersecurity risks or cause data transmission latency."
+    external_id: []
+    attack_class: ["conventional"]
+    locator: "§2.4, p. 14"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-19"
+    name: "AI Vendor Transparency"
+    description: "AI Vendor Transparency. Lack of vendor transparency could prevent insight into functions that make external connections or modify standard engineering workflows."
+    external_id: ["NISTAML.05", "AML.T0010"]
+    external_id_names: ["NISTAML.05 Supply Chain Attacks", "AML.T0010 AI Supply Chain Compromise"]
+    attack_class: ["supply-chain"]
+    locator: "§2.4, p. 15"
+    kind: "stated"
+    addressed_by: ["R-0015", "R-0018", "R-0039", "R-0041"]
+  - id: "T-20"
+    name: "Latency and Real-Time Constraints"
+    description: "Latency and Real-Time Constraints. AI systems may not meet the strict timing requirements of OT environments; these requirements vary significantly by sector and matter more if the AI system is actively involved in the control process."
+    external_id: []
+    attack_class: ["non-adversarial"]
+    locator: "§2.4, p. 15"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-21"
+    name: "adversarial inputs and data poisoning"
+    description: "Regularly update threat models with AI-specific attack vectors (such as adversarial inputs or data poisoning) and monitor AI system performance for anomalies or manipulation attempts."
+    external_id: ["NISTAML.022", "NISTAML.013", "AML.T0015", "AML.T0043", "AML.T0020"]
+    external_id_names: ["NISTAML.022 Evasion", "NISTAML.013 Data Poisoning", "AML.T0015 Evade AI Model", "AML.T0043 Craft Adversarial Data", "AML.T0020 Training Data Poisoning"]
+    attack_class: ["evasion", "poisoning"]
+    locator: "§4.1, p. 20"
+    kind: "stated"
+    addressed_by: ["R-0008", "R-0022", "R-0031", "R-0034", "R-0037", "R-0090", "R-0094", "R-0108"]
+  - id: "T-22"
+    name: "AI system as a persistent attack path into OT"
+    description: "This method for implementing segmentation helps operators maintain existing segmentation best practices, such that the AI system is not a persistent attack path into OT."
+    external_id: ["AML.T0122"]
+    external_id_names: ["AML.T0122 Exploitation of Remote Services"]
+    attack_class: ["conventional"]
+    locator: "§4.1, p. 20"
+    kind: "stated"
+    addressed_by: ["R-0016", "R-0044", "R-0054", "R-0057", "R-0113", "R-0114"]
+  - id: "T-23"
+    name: "malicious activity against an AI system"
+    description: "To account for this, critical infrastructure owners and operators should update their incident response plans and functional safety procedures with steps for responding to malicious activity directed against an AI system and AI system failure."
+    external_id: []
+    attack_class: ["general"]
+    locator: "§4.2, p. 20"
+    kind: "stated"
+    addressed_by: []
+  - id: "T-24"
+    name: "AI-enabled attacks on IT and OT"
+    description: "As the number of deployed AI systems increases, so will the number of AI-enabled attacks on existing IT and OT systems."
+    external_id: []
+    attack_class: ["out-of-scope"]
+    locator: "§4.2, p. 20"
+    kind: "stated"
+    addressed_by: []
+    note: "Attacks that use AI as a tool, not attacks on AI; outside NIST AI 100-2, which taxonomises attacks on AI systems."
+weaknesses:
+  - id: "W-01"
+    name: "LLMs in safety decisions"
+    description: "As such, AI such as LLMs almost certainly should not be used to make safety decisions for OT environments."
+    locator: "Table 2, p. 9"
+    kind: "stated"
+  - id: "W-02"
+    name: "persistent inbound access from AI systems into OT"
+    description: "Prefer push-based or brokered architectures that move required features or summaries out of OT without granting persistent inbound access."
+    locator: "§4.1, p. 20"
+    kind: "inferred"
+    note: "The weakness is the negation of the recommendation; our reading."
+  - id: "W-03"
+    name: "AI identity indistinguishable in logs"
+    description: "Configure logging so AI decisions can be tracked for compliance and forensic analysis, and so the logged AI identity is distinct from any typical machine or user identifiers."
+    locator: "§4.1, p. 19"
+    kind: "inferred"
+    note: "The weakness is the negation of the recommendation; our reading."
+  - id: "W-04"
+    name: "active AI control without a human in the loop"
+    description: "Limit active control of OT infrastructure by AI without a human in the loop to account for safety concerns and latency limitations."
+    locator: "§2.4, p. 16"
+    kind: "inferred"
+    note: "The weakness is the negation of the recommendation; our reading."
+vulnerabilities: []   # the source names no product vulnerability (no CVE)

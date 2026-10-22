@@ -50,12 +50,20 @@ cites:
 relations:
   supersedes: []
   updates: []
-  see_also: []
+  # §3.4 lists ETSI TS 104 223 V1.1.1, the predecessor of EN 304 223 V2.1.1 held here.
+  see_also:
+    - etsi-en-304-223
   cited_by: []
   implements_concept: []
   contradicts: []
+# design-notes.md maps every statement. ADR-0010 accepts DEC-001a (DEC-001b open),
+# ADR-0007 accepts DEC-002, ADR-0006 accepts DEC-003.
 bears_on:
   - DEC-001
+  - DEC-002
+  - DEC-003
+  - DEC-008
+  - DEC-009
   - R-018
 applicability:
   security: core
@@ -74,6 +82,46 @@ tags:
   - regulation
   - ai-security
   - method
-status: summarized
+status: distilled
 confidence: high
 owner: Maimcghee
+distillation:
+  profile: full
+  standard: FX-1
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "Verbatim: regulatory status (Disclaimer), the Important Terminology and Appendix definitions the statements rely on, Table 1 and Table 2 cell by cell, and all 123 statements of requirements.yaml in source order with id, verb and page. Excludes descriptive prose, the challenge and consequence lists (carried in threats.yaml), navigation sentences, Resources, Acknowledgements, References."
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "123 entries in source order (108 recommendation, 5 principle, 4 permission, 3 requirement, 1 prohibition, 1 scope, 1 informative lead-in); list lead-ins are entries and list items carry parent. Every text machine-checked verbatim against the capture. BCP 14 0/0; own-form baseline reconciled: should 40->40, must 5->4, may 37->9, can 53->17, encourage* 2->2, recommend* 9->4, essential 4->4, critical (not 'critical infrastructure') 10->7, vital 3->2, crucial 2->1, necessary 2->1, plus 53 imperative entries; every exclusion itemised in verification.md. maps_to: frameworks the source names (provenance published) and our threat mapping (NIST AI 100-2 E2025, ATLAS 2026.09; stated or inferred). Derived fields need review."
+      reviewed_by: ""
+    - kind: threats
+      path: distilled/threats.yaml
+      coverage: "24 threats and risks the guidance describes (all 10 Table 2 rows, §1.3, §2.2, §2.4, §4.1, §4.2) and 4 weaknesses (1 stated, 3 read as the negation of a recommendation), each quoted verbatim with locator, NIST and ATLAS ids where a class fits, and the statements that address it. No vulnerabilities named."
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "Both worked examples as verbatim fixtures: the §2.1 business-case assessment (with our derived numeric checks, marked as ours) and the §4.1 monitoring setup (linked to R-0098..R-0104). The source states no expected result for either."
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Per statement: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision, incl. Table 2 impacts vs the ADR-0006 S/F/O/P vector and Purdue zones vs tmodel#130; 6 open questions."
+      reviewed_by: ""
+  not_applicable:
+    - kind: schema
+      reason: "No data format or field structure is defined. The SBOM it asks vendors for is specified elsewhere (footnote 6 defers to CISA's 2025 Minimum Elements, which have their own records); the data usage policy and cloud contract clauses name topics, not fields."
+    - kind: messages
+      reason: "No message format. Vendor notifications (§2.3), review sessions (§4.1) and incident communication (§4.2) are named without any content structure."
+    - kind: protocol
+      reason: "No defined exchange between roles. The architecture advice (push-based or brokered transfer, one-way transfer, audited staging buffers, DMZ or jump host; §2.4, §4.1) constrains data-flow direction and zones, not a message sequence; design-notes.md maps it to tmodel#130 DataFlow and TrustBoundary."
+    - kind: state-machine
+      reason: "No states or transitions. The fallback to non-AI operation (§2.4 failsafe, §3.4 thresholds, §4.2 failure states) is the nearest lifecycle, but the only trigger given is 'if AI system outputs fall below performance and safety thresholds', with no states or guards; a machine would be invented. Recorded as DEC-009 input in design-notes.md."
+  passes:
+    - pass: extract
+      by: "claude (main session, single agent)"
+      effort: max
+      date: "2026-10-21"
+      note: "Source read in full. PDF sha256 matches content.sha256. Capture .cache/cisa-ai-in-ot-principles.capture.txt built from PyMuPDF text blocks (scratchpad cisa_capture.py; rules in verification.md) because sorted-line text interleaves table columns. 123 statements written to a spec (cisa_spec.yaml) and built by cisa_build.py, which fails on any text not found verbatim, on overlapping spans, and on any ATLAS id not in ATLAS-2026.09.yaml from atlas.mitre.org; all passed first run. Own-form counts and itemised exclusions by script (cisa_forms.py)."
+
