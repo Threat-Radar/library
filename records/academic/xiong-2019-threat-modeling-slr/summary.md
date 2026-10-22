@@ -10,47 +10,23 @@ updated: "2026-10-22"
 
 |  |  |
 |---|---|
-| **Type** | paper |
-| **Maturity** | _unset — do not guess_ |
-| **Authors** | |
-| **Published** | |
-| **Identifier** | https://doi.org/10.1016/j.cose.2019.03.010 |
-| **Source** | https://doi.org/10.1016/j.cose.2019.03.010 |
-| **Digest** | `not fetched` |
+| **Type** | paper (journal article; systematic literature review) |
+| **Authors** | Wenjun Xiong, Robert Lagerström |
+| **Published** | Computers & Security 84, 53–69, July 2019, Elsevier |
+| **Identifier** | DOI 10.1016/j.cose.2019.03.010 |
+| **Source** | paywalled; only the abstract was read (Semantic Scholar API, 2026-10-22) |
 
 ## Overview
 
-_Two to five sentences. What this document is and what it claims — the
-argument, not the table of contents._
-
-## Applicability
-
-| Axis | Rating | Why |
-|---|---|---|
-| Security | | |
-| Cryptography | | |
-| This project | | |
-
-_Name the `DEC-*` or `R-*` it bears on, or say plainly that it bears on none
-yet and this is a stub._
-
-## Implementations
-
-_What exists that we could build on. Open source and commercial. Record
-"searched: none found on YYYY-MM-DD" — that is a result too._
-
-| Name | Kind | License | URL |
-|---|---|---|---|
+From the abstract only. A review of threat modeling based on systematic queries in four scientific databases: 176 articles assessed and 54 selected, grouped into three clusters (new contributions, uses of existing approaches, introductory work) and analysed on criteria such as graphical versus formal approach, attack type and application focus, and empirical versus theoretical validation. It observes that "most threat modeling work remains to be done manually, and there is limited assurance of their validations".
 
 ## Artifacts in this record
-
-_Everything else in this directory and what it is for._
 
 | File | What it is |
 |---|---|
 | `record.yaml` | metadata |
+| `summary.md` | this summary |
 
 ## Limits
 
-_What this document does not settle. If there is nothing here, it has not been
-read critically._
+- **Abstract only:** the methods covered, the time window and any detail beyond the abstract are not known; cite it only for what the abstract says.

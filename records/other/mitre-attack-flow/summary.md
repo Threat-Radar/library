@@ -97,10 +97,13 @@ Searched 2026-10-22.
   `schema` field) currently returns 404.
 - **Builder conventions outside the schema:** detections, mitigations,
   countermeasures and red-team tests are custom `x-` objects linked by generic
-  `related-to` relationships, and published flows carry an undefined
+  `related-to` relationships (the language page documents `x-detection` and
+  `x-mitigation` only), and published flows carry an undefined
   `ttp_frameworks` property; a STIX importer must allow custom objects, read
   `related-to` edges as well as `effect_refs`, and cannot learn the ATT&CK
   version from a flow.
-- **Confidence:** the Builder's scale adds "AI Generated" at 0, the documented
-  value for "Speculation", so exported STIX cannot tell AI-drafted content from
-  a human's what-if.
+- **Confidence:** the Builder's v4 scale adds "AI Generated" at 0 and moves
+  "Speculative" to 10 and "Very Doubtful" to 20, while the documented scale has
+  "Speculation" at 0 and "Very Doubtful" at 10; nothing in a flow says which scale
+  it used. The generation guide has analysts validate AI drafts by updating
+  confidence, so confidence carries review state.
