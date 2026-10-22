@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: lallie-2018-attack-graphs-fault-trees
+body: academic
+type: paper
+title: "An Empirical Evaluation of the Effectiveness of Attack Graphs and Fault Trees in Cyber-Attack Perception"
+publisher: "IEEE"
+authors:
+  - "Harjinder Singh Lallie"
+  - "Kurt Debattista"
+  - "Jay Bal"
+date: "2018-05"
+identifiers:
+  doi: "10.1109/TIFS.2017.2771238"
+  url: https://doi.org/10.1109/TIFS.2017.2771238
+content:
+  url: https://doi.org/10.1109/TIFS.2017.2771238
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - schneier-attack-trees-1999
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "IEEE Transactions on Information Forensics and Security 13(5), 1110-1122"
+media_type: ""
+pages: 
+tags:
+  - threat-modeling
+  - attack-graphs
+  - empirical
+status: stub
+confidence: low

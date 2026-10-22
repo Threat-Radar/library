@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: verreydt-2024-threat-modeling-practice
+body: academic
+type: paper
+title: "Threat modeling state of practice in Dutch organizations"
+publisher: "USENIX Association"
+authors:
+  - "Stef Verreydt"
+  - "Koen Yskout"
+  - "Laurens Sion"
+  - "Wouter Joosen"
+date: "2024-08"
+identifiers:
+  isbn: "978-1-939133-42-7"
+  url: https://www.usenix.org/conference/soups2024/presentation/verreydt
+content:
+  url: https://www.usenix.org/system/files/soups2024-verreydt.pdf
+  sha256: "2c1aba24e4a2a0bc4d4072fc3724e33c8e96fff9bc8294d359cef8b781927366"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - tuma-2018-threat-analysis-slr
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "Twentieth Symposium on Usable Privacy and Security (SOUPS 2024), USENIX"
+media_type: "application/pdf"
+pages: 
+tags:
+  - threat-modeling
+  - empirical
+  - practice
+status: summarized
+confidence: high

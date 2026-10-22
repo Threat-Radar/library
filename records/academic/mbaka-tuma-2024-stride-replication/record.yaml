@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: mbaka-tuma-2024-stride-replication
+body: academic
+type: paper
+title: "On the Measures of Success in Replication of Controlled Experiments with STRIDE"
+publisher: "World Scientific"
+version: "journal article; text read: the 2022 arXiv preprint titled A replication of a controlled experiment with two STRIDE variants, whose text may differ from the journal version"
+authors:
+  - "Winnie Mbaka"
+  - "Katja Tuma"
+date: "2024-04"
+identifiers:
+  doi: "10.1142/s0218194023500651"
+  arxiv: "2208.01524"
+  url: https://doi.org/10.1142/s0218194023500651
+content:
+  url: https://arxiv.org/pdf/2208.01524
+  sha256: "10d23f6041f1305b141e0174a42cfa26ffed0e4beffc4c3d104e755e3f499c86"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - scandariato-2015-stride-descriptive-study
+    - tuma-2018-threat-analysis-slr
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "International Journal of Software Engineering and Knowledge Engineering 34(04), 623-650"
+media_type: "application/pdf"
+pages: 
+tags:
+  - threat-modeling
+  - stride
+  - empirical
+  - replication
+status: summarized
+confidence: medium
