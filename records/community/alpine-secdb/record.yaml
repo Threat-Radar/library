@@ -1,0 +1,37 @@
+schema: "library-record/v1"
+id: alpine-secdb
+body: community
+type: dataset
+title: "Alpine Linux security database (secdb)"
+short_title: "Alpine secdb"
+authors: []
+date: "2026-10-18"
+publisher: "Alpine Linux"
+version: "v3.24 main"
+identifiers:
+  url: https://secdb.alpinelinux.org/
+content:
+  url: https://secdb.alpinelinux.org/v3.24/main.json
+  sha256: "de67bce768b8c3d10860f833a070baca8b38b55627422167240058090404dc99"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/json
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - apk-package-5
+    - osv-dev
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - evidence
+license: "CC-BY-SA-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

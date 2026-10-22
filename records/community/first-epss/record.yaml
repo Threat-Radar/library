@@ -1,0 +1,34 @@
+# Dataset: often unhashable in place — see R-M-11 'description' mode.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: first-epss
+body: community
+type: dataset
+title: "Exploit Prediction Scoring System (EPSS)"
+authors: []
+date: ""
+identifiers:
+  url: https://www.first.org/epss/
+content:
+  url: https://www.first.org/epss/
+  sha256: "ffb1500c72a5c658e011917aff1f3aab16f5b420714829fec52bd7efb60e0e58"
+  retrieved: "2026-10-05"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: 
+media_type: ""
+publisher: "FIRST (EPSS SIG)"
+tags:
+  - epss
+  - exploitation-evidence
+status: stub
+confidence: low
+owner: Maimcghee

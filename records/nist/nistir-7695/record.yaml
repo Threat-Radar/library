@@ -1,0 +1,47 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: nistir-7695
+body: nist
+type: spec
+title: "Common Platform Enumeration: Naming Specification Version 2.3"
+short_title: "NIST IR 7695 (CPE Naming 2.3)"
+authors:
+  - "Brant A. Cheikes"
+  - "David Waltermire"
+  - "Karen Scarfone"
+date: "2011-08"
+publisher: "National Institute of Standards and Technology (NIST), Computer Security Division"
+version: "2.3"
+identifiers:
+  url: https://csrc.nist.gov/pubs/ir/7695/final
+  doi: 10.6028/NIST.IR.7695
+  nist: "NIST IR 7695"
+content:
+  url: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf
+  sha256: "01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 49
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - nistir-7696
+    - nistir-7697
+    - nistir-7698
+    - nvd-cpe-apis
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - naming
+  - cpe
+  - prior-art
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

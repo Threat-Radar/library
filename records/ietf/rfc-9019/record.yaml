@@ -1,0 +1,44 @@
+schema: "library-record/v1"
+id: rfc-9019
+body: ietf
+type: rfc
+maturity: informational
+title: "A Firmware Update Architecture for Internet of Things"
+short_title: "RFC 9019 (SUIT architecture)"
+authors:
+  - "B. Moran"
+  - "H. Tschofenig"
+  - "D. Brown"
+  - "M. Meriac"
+date: "2021-04"
+publisher: "IETF"
+identifiers:
+  url: https://www.rfc-editor.org/rfc/rfc9019.html
+  doi: 10.17487/RFC9019
+  rfc: 9019
+content:
+  url: https://www.rfc-editor.org/rfc/rfc9019.txt
+  sha256: "b29e6c39ff2db10cb4c138c0c45bd47a478386a6b053b02129b3704efa1008e6"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/plain
+  pages: 24
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - rfc-9124
+    - draft-ietf-suit-manifest
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - firmware
+  - software-update
+  - background
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

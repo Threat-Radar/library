@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: imtiaz-2021-sca-comparison
+body: academic
+type: paper
+title: "A comparative study of vulnerability reporting by software composition analysis tools"
+short_title: "Vulnerability reporting by SCA tools"
+authors:
+  - "Nasif Imtiaz"
+  - "Seaver Thorn"
+  - "Laurie Williams"
+date: "2021-09-01"
+publisher: "arXiv; ACM (ESEM '21 version)"
+version: "v2"
+identifiers:
+  url: https://arxiv.org/abs/2108.12078v2
+  arxiv: 2108.12078v2
+  doi: 10.1145/3475716.3475769
+content:
+  url: https://arxiv.org/pdf/2108.12078v2
+  sha256: "2476ec2c35b95e5b452d89a9b5794d369d5d21e53a8d56322dfe867fb8bf6a29"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 11
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - supply-chain
+  - scanner
+  - evidence
+venue: "ESEM '21: Proceedings of the 15th ACM / IEEE International Symposium on Empirical Software Engineering and Measurement, pp. 1-11"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

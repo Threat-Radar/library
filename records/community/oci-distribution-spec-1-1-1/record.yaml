@@ -1,0 +1,39 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: oci-distribution-spec-1-1-1
+body: community
+type: spec
+title: "Open Container Initiative Distribution Specification"
+short_title: "OCI Distribution Spec v1.1.1"
+authors: []
+date: "2025-01-29"
+publisher: "Open Container Initiative (OCI)"
+version: "1.1.1"
+identifiers:
+  url: https://github.com/opencontainers/distribution-spec/blob/v1.1.1/spec.md
+  git: https://github.com/opencontainers/distribution-spec
+content:
+  url: https://raw.githubusercontent.com/opencontainers/distribution-spec/a139cc423184af6078077b9b7ee336eddbd03f8f/spec.md
+  sha256: "360b29820869bfaac5f73ebfa30669c9172c069ef619f8c6689acc3bcef6f719"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - oci-image-spec-1-1-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - naming
+  - containers
+  - prior-art
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

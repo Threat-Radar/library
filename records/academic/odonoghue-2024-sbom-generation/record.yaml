@@ -1,0 +1,47 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: odonoghue-2024-sbom-generation
+body: academic
+type: paper
+title: "Impacts of Software Bill of Materials (SBOM) Generation on Vulnerability Detection"
+short_title: "Impacts of SBOM generation on vulnerability detection"
+authors:
+  - "Eric O'Donoghue"
+  - "Brittany Boles"
+  - "Clemente Izurieta"
+  - "Ann Marie Reinhold"
+date: "2024-10-18"
+publisher: "ACM"
+version: "authors' final version"
+identifiers:
+  url: https://doi.org/10.1145/3689944.3696164
+  doi: 10.1145/3689944.3696164
+content:
+  url: https://fdn.montana.edu/cyber/products/Impacts%20of%20Software%20Bill%20of%20Materials%20-%20SBOM%20-%20Generation%20on%20Vulnerability%20Detection%20Final%20Version.pdf
+  sha256: "cb01909f3126bb46dde10488ec8fc2c1a6c4f423f4f6de43cc968a9eefa599de"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 10
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anchore-syft
+    - anchore-grype
+    - aquasecurity-trivy
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+  - DEC-008
+topic: product-composition
+tags:
+  - sbom
+  - scanner
+  - evidence
+venue: "SCORED '24: Proceedings of the 2024 Workshop on Software Supply Chain Offensive Research and Ecosystem Defenses (held with ACM CCS '24), pp. 67-76"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: dong-2019-viem
+body: academic
+type: paper
+title: "Towards the Detection of Inconsistencies in Public Security Vulnerability Reports"
+short_title: "Inconsistencies in public vulnerability reports (VIEM)"
+authors:
+  - "Ying Dong"
+  - "Wenbo Guo"
+  - "Yueqi Chen"
+  - "Xinyu Xing"
+  - "Yuqing Zhang"
+  - "Gang Wang"
+date: "2019-08"
+publisher: "USENIX Association"
+identifiers:
+  url: https://www.usenix.org/conference/usenixsecurity19/presentation/dong
+  isbn: 978-1-939133-06-9
+content:
+  url: https://www.usenix.org/system/files/sec19-dong.pdf
+  sha256: "31042ecf4de1676bc6c67ac354febec10a856708c733c5f9c5075127dfff5b5a"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 18
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - naming
+  - evidence
+venue: "28th USENIX Security Symposium (USENIX Security '19), Santa Clara, August 14-16, 2019, pp. 869-885"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

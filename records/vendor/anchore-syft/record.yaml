@@ -1,0 +1,45 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+schema: "library-record/v1"
+id: anchore-syft
+body: vendor
+type: repo
+maturity: implementation
+title: "Syft"
+short_title: "Syft"
+authors:
+  - "Anchore, Inc."
+date: "2026-10-06"
+publisher: "Anchore, Inc."
+version: "v1.54.1"
+identifiers:
+  url: https://github.com/anchore/syft/releases/tag/v1.54.1
+  git: https://github.com/anchore/syft
+content:
+  url: https://github.com/anchore/syft/releases/tag/v1.54.1
+  sha256: ""
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cyclonedx-1-7
+    - spdx-3-0-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-007
+topic: product-composition
+tags:
+  - sbom
+  - naming
+  - evidence
+commit: "b254e6d92f28c3868a755f62fb3ca8f26e9fee76"
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

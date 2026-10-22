@@ -1,0 +1,47 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: swhid-spec-1-2
+body: community
+type: spec
+maturity: standard
+title: "The SWHID Specification Version 1.2"
+short_title: "SWHID v1.2 (ISO/IEC 18670:2025)"
+authors:
+  - "SWHID Contributors"
+date: "2025-04-23"
+publisher: "SWHID Contributors (swhid.org); published by ISO/IEC JTC 1 as ISO/IEC 18670:2025"
+version: "1.2"
+identifiers:
+  url: https://www.swhid.org/specification/v1.2/
+  git: https://github.com/swhid/specification
+  iso: "ISO/IEC 18670:2025"
+  iso_url: https://www.iso.org/standard/89985.html
+content:
+  url: https://raw.githubusercontent.com/swhid/specification/a9fdba99fb63dd3191c18d1fadcc394d87e2a06b/Chapters/5.Core_identifiers.md
+  sha256: "2b4dc726ab2d5bc611af08f63798e109908f6caf4407e4641ab961d1dd105d0e"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/markdown
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - omnibor-spec
+    - iana-uri-schemes
+    - cyclonedx-1-7
+    - spdx-3-0-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+topic: product-composition
+tags:
+  - naming
+  - supply-chain
+  - prior-art
+license: "Community-Spec-1.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

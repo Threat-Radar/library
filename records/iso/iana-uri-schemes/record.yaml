@@ -1,0 +1,36 @@
+schema: "library-record/v1"
+id: iana-uri-schemes
+body: iso
+type: dataset
+title: "Uniform Resource Identifier (URI) Schemes"
+short_title: "IANA URI Schemes registry"
+authors: []
+date: "2026-10-15"
+publisher: "IANA"
+identifiers:
+  url: https://www.iana.org/assignments/uri-schemes
+content:
+  url: https://www.iana.org/assignments/uri-schemes/uri-schemes.xml
+  sha256: "edc6aa7593a010300b24533c23c61ee027ce3d90e91d6dfa54c14d727cdf7c0e"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/xml
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - omnibor-spec
+    - swhid-spec-1-2
+    - rfc-9393
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - naming
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

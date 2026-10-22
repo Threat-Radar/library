@@ -1,0 +1,41 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: dmtf-dsp0274-1-4-1
+body: other
+type: spec
+maturity: standard
+title: "Security Protocol and Data Model (SPDM) Specification"
+short_title: "DMTF SPDM 1.4.1 (DSP0274)"
+authors:
+  - "DMTF Security Protocols and Data Models (SPDM) Working Group"
+date: "2026-06-26"
+publisher: "DMTF"
+version: "1.4.1"
+identifiers:
+  url: https://www.dmtf.org/dsp/DSP0274
+  dmtf: DSP0274
+content:
+  url: https://www.dmtf.org/sites/default/files/standards/documents/DSP0274_1.4.1.pdf
+  sha256: "a5259037e0853913efc0efd07358669a4bcfc630d3a61eb1cf09e3758db057b6"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 313
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - dmtf-redfish-schema-2026-2
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: product-composition
+tags:
+  - attestation
+  - hardware
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

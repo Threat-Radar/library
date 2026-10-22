@@ -1,0 +1,46 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+schema: "library-record/v1"
+id: anchore-grype
+body: vendor
+type: repo
+maturity: implementation
+title: "Grype"
+short_title: "Grype"
+authors:
+  - "Anchore, Inc."
+date: "2026-10-06"
+publisher: "Anchore, Inc."
+version: "v0.120.1"
+identifiers:
+  url: https://github.com/anchore/grype/releases/tag/v0.120.1
+  git: https://github.com/anchore/grype
+content:
+  url: https://github.com/anchore/grype/releases/tag/v0.120.1
+  sha256: ""
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anchore-syft
+    - anchore-nvd-data-overrides
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-007
+  - DEC-008
+topic: product-composition
+tags:
+  - supply-chain
+  - scanner
+  - evidence
+commit: "6f8d854af29d3a3086b11a84afa51554a2a245fe"
+license: "Apache-2.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

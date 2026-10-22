@@ -1,0 +1,41 @@
+schema: "library-record/v1"
+id: iso-open-data-deliverables
+body: iso
+type: dataset
+title: "ISO Deliverables Metadata"
+short_title: "ISO Open Data iso_deliverables_metadata"
+authors: []
+date: "2026-10-14"
+publisher: "International Organization for Standardization (ISO)"
+version: "snapshot of 2026-10-14 (CSV Last-Modified Wed, 14 Oct 2026 00:40:17 GMT)"
+identifiers:
+  url: https://www.iso.org/open-data.html
+  dataset: iso_deliverables_metadata
+content:
+  url: https://isopublicstorageprod.blob.core.windows.net/opendata/_latest/iso_deliverables_metadata/csv/iso_deliverables_metadata.csv
+  sha256: "36aad5a43316f54fe327601a0ef032d131eea873597f64dc7866307219c0ad62"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/csv
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - iso-guide-69-1999
+    - iso-iec-5962-2021
+    - iso-iec-19770-2-2015
+    - iso-iec-19770-6-2024
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+topic: product-composition
+tags:
+  - standards-status
+  - evidence
+license: "ODC-By-1.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

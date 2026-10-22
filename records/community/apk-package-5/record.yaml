@@ -1,0 +1,39 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: apk-package-5
+body: community
+type: spec
+title: "apk-package(5): apk package metadata fields"
+short_title: "apk-package(5)"
+authors: []
+date: "2026-08-31"
+publisher: "Alpine Linux (apk-tools)"
+version: "3.0.8"
+identifiers:
+  url: https://gitlab.alpinelinux.org/alpine/apk-tools/-/blob/v3.0.8/doc/apk-package.5.scd
+  git: https://gitlab.alpinelinux.org/alpine/apk-tools
+content:
+  url: https://gitlab.alpinelinux.org/alpine/apk-tools/-/raw/v3.0.8/doc/apk-package.5.scd
+  sha256: "36d6b46a87064e41cc469eedaf7a90629473241a07275d0d030a18fe86e6c164"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: text/plain
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - vers-spec
+    - alpine-secdb
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-002
+topic: product-composition
+tags:
+  - versioning
+  - evidence
+license: "GPL-2.0-only"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

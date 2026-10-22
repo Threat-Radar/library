@@ -1,0 +1,47 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+schema: "library-record/v1"
+id: bsi-tr-03183-2
+body: regulator
+type: spec
+maturity: best-practice
+title: "Technical Guideline BSI TR-03183: Cyber Resilience Requirements for Manufacturers and Products, Part 2: Software Bill of Materials (SBOM)"
+short_title: "BSI TR-03183-2"
+authors:
+  - "Bundesamt für Sicherheit in der Informationstechnik (BSI)"
+date: "2025-08-20"
+publisher: "Bundesamt für Sicherheit in der Informationstechnik (BSI) / Federal Office for Information Security"
+version: "2.1.0"
+identifiers:
+  url: https://bsi.bund.de/dok/TR-03183-en
+  bsi: TR-03183-2
+content:
+  url: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03183/BSI-TR-03183-2_v2_1_0.pdf?__blob=publicationFile
+  sha256: "dda0ccd9b6148571d1d12241a1618b30027f22bc15e24248fdd21a011e62845c"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/pdf
+  pages: 37
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - bsi-tr-03183-1
+    - eu-cra-2024-2847
+    - cyclonedx-1-7
+    - spdx-3-0-1
+    - cyclonedx-property-taxonomy
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+topic: product-composition
+tags:
+  - sbom
+  - regulation
+  - supply-chain
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

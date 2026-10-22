@@ -1,0 +1,38 @@
+schema: "library-record/v1"
+id: github-advisory-database
+body: vendor
+type: dataset
+title: "GitHub Advisory Database (github/advisory-database)"
+short_title: "GitHub Advisory Database"
+authors: []
+date: "2026-10-08"
+publisher: "GitHub"
+identifiers:
+  url: https://github.com/advisories
+  git: https://github.com/github/advisory-database
+content:
+  url: https://codeload.github.com/github/advisory-database/tar.gz/0d77cdb5998b6b9c4c13738926d555c877e8e5af
+  sha256: "0c227c744d0593be639b7f121527e44ab181b58a58017c2e5156fa5ac6734a24"
+  retrieved: "2026-10-18"
+  local: false
+  media_type: application/gzip
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - osv-schema
+    - osv-dev
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - vulnerability-data
+  - naming
+  - evidence
+license: "CC-BY-4.0"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

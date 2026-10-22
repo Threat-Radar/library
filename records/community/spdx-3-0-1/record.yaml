@@ -53,8 +53,13 @@ usefulness:
   verdict: unassessed
   reason: ""
   assessed: ""
+# The implementations tmodel RPT-0004 cites that get no record of their own
+# (docs/scope.md section 3). Not a search: `searched` stays blank.
 implementations:
-  open_source: []
+  open_source:
+    - "spdx3-validate 0.0.7 (MIT): https://pypi.org/project/spdx3-validate/0.0.7/"
+    - "spdx/tools-golang v0.6.0-rc4, a pre-release with SPDX 3 code; SPDX 3.0.1 support on main since 2026-09-30, unreleased (Apache-2.0 OR GPL-2.0-or-later): https://github.com/spdx/tools-golang"
+    - "OpenEmbedded-Core create-spdx-3.0 classes, Yocto Project 6.0.3 (GPL-2.0-only AND MIT): https://git.openembedded.org/openembedded-core/tree/meta/classes/create-spdx-3.0.bbclass?h=yocto-6.0.3"
   commercial: []
   searched: ""
 topic: sbom
@@ -66,6 +71,10 @@ tags:
   - rdf
   - owl
   - shacl
-status: queued
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
 confidence: medium
-owner: Ndewedo-Newbury
+# Owned by tmodel RPT-0004 (tmodel#38) since 2026-10-18, at RPT-0005's
+# request (tmodel#39). Ingested by Ndewedo-Newbury for the upstream sbom
+# lane (m-of-n/library#25).
+owner: Clovier

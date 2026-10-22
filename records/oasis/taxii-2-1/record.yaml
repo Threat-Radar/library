@@ -1,0 +1,36 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: taxii-2-1
+body: oasis
+type: spec
+maturity: standard
+title: "TAXII Version 2.1 (OASIS Standard)"
+authors: []
+date: "2021-06-10"
+identifiers:
+  url: https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html
+content:
+  url: https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html
+  sha256: "d8cf08a9dd96e6ccee2be125eb379125a4141b8a30c63d14a7a040b8153ad1b0"
+  retrieved: "2026-10-05"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - stix-2-1
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: 
+publisher: "OASIS Open (CTI TC)"
+version: "2.1"
+tags:
+  - taxii
+  - cti
+status: stub
+confidence: low
+owner: Maimcghee

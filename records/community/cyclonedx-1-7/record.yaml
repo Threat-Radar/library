@@ -65,6 +65,10 @@ tags:
   - supply-chain
   - provenance
   - prior-art
-status: queued
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
 confidence: medium
-owner: Ndewedo-Newbury
+# Owned by tmodel RPT-0004 (tmodel#38) since 2026-10-18, at RPT-0005's
+# request (tmodel#39). Ingested by Ndewedo-Newbury for the upstream sbom
+# lane (m-of-n/library#25).
+owner: Clovier
