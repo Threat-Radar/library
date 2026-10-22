@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: tuma-2018-threat-analysis-slr
+body: academic
+type: paper
+title: "Threat analysis of software systems: A systematic literature review"
+publisher: "Elsevier"
+version: "journal article; text read as Paper A of the first author's PhD thesis (University of Gothenburg, 2021, ISBN 978-91-8009-155-8)"
+authors:
+  - "Katja Tuma"
+  - "Gul Calikli"
+  - "Riccardo Scandariato"
+date: "2018-10"
+identifiers:
+  doi: "10.1016/j.jss.2018.06.073"
+  url: https://doi.org/10.1016/j.jss.2018.06.073
+content:
+  url: https://research.chalmers.se/publication/520907/file/520907_Fulltext.pdf
+  sha256: "430fb7e7064e604da1abc79223bb08ccdc7eaae7e4e2da88e1bbbae6ea93fcdd"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - xiong-2019-threat-modeling-slr
+    - sei-threat-modeling-methods-2018
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "Journal of Systems and Software 144, 275-294"
+media_type: "application/pdf"
+pages: 
+tags:
+  - threat-modeling
+  - survey
+  - slr
+  - method
+status: summarized
+confidence: high

@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: shostack-2008-experiences-threat-modeling-microsoft
+body: academic
+type: paper
+title: "Experiences Threat Modeling at Microsoft"
+publisher: "CEUR-WS.org"
+authors:
+  - "Adam Shostack"
+date: "2008-11-03"
+identifiers:
+  ceur: "Vol-413/paper12"
+  url: https://ceur-ws.org/Vol-413/paper12.pdf
+content:
+  url: https://ceur-ws.org/Vol-413/paper12.pdf
+  sha256: "afc5f5cb642a28ddaa8af16f9e27f249ff61a7cf35fa918244194f278ad37fbf"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - kohnfelder-garg-1999-threats-to-our-products
+    - shostack-threat-modeling-2014
+    - sei-threat-modeling-methods-2018
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "Workshop on Modeling Security (MODSEC08) at MODELS 2008, CEUR Workshop Proceedings Vol-413"
+media_type: "application/pdf"
+pages: 
+tags:
+  - threat-modeling
+  - stride
+  - microsoft
+  - sdl
+  - method
+status: summarized
+confidence: high
