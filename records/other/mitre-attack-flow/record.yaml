@@ -32,7 +32,7 @@ bears_on:
   - DEC-005
 topic: 
 publisher: "MITRE Center for Threat-Informed Defense"
-version: "language 2.0.0 (STIX 2.1 extension, defined 2022-08-02); text read from the docs at release v4.1.0 (2026-10-14)"
+version: "extension labelled 2.0.0 (defined 2022-08-02, released 2022-10-27; schema widened in place since); read from the sources at tag v4.1.0 (2026-10-14)"
 media_type: "text/x-rst"
 tags:
   - threat-modeling
