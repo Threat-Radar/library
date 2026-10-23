@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: tcg-platform-certificate-profile-2-1
 record: tcg-platform-certificate-profile-2-1
 type: summary
-updated: "2026-10-18"
+updated: "2026-10-22"
 ---
 
 # TCG Platform Certificate Profile
@@ -28,7 +28,7 @@ A stub. `bears_on` (DEC-001, DEC-002, DEC-009) comes from RPT-0004's source log 
 
 ## Implementations
 
-Not searched. The implementations RPT-0004 cites are listed in `record.yaml`: NSA PACCOR v2.0r16; NSA HIRS v3.2.0, implementing Platform Certificate profile 1.1 r15 with 2.0 in development, not 2.1.
+Not searched. The implementations RPT-0004 cites are listed in `record.yaml`: NSA PACCOR v2.0r16; NSA HIRS v3.2.0, which validates version 1.1 platform certificates, with 2.0 in development and not 2.1 (HIRS README and documentation, checked 2026-10-22; neither says "r15", which an earlier version of this record did).
 
 ## Artifacts in this record
 
