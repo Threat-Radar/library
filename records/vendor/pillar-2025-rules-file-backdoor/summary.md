@@ -12,7 +12,7 @@ updated: "2026-10-13"
 |---|---|
 | **Type** | article (vendor security research blog) |
 | **Maturity** | _unset — do not guess_ |
-| **Authors** | Ziv Karliner and co-author (Pillar Security) |
+| **Authors** | Ziv Karliner (Pillar Security) |
 | **Published** | 2025-03-18, Pillar Security blog |
 | **Identifier** | Pillar Security research blog |
 | **Source** | https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents |

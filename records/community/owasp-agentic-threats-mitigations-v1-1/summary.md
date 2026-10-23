@@ -15,7 +15,7 @@ updated: "2026-10-13"
 | **Authors** | OWASP GenAI Security Project — Agentic Security Initiative (ASI) |
 | **Published** | Version 1.1, December 2025 (v1.0 February 2025) |
 | **Identifier** | OWASP ASI, Agentic AI - Threats and Mitigations v1.1 |
-| **Source** | https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/ |
+| **Source** | https://genai.owasp.org/download/45674/ (direct PDF download; landing page https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/) |
 | **Digest** | `65e3bd59f99c411b055c6caf2bac96ab361dff8c010e4bef532a593ce10345ff` (v1.1 PDF obtained through OWASP's download form; matches `pdf-manifest.tsv`) |
 
 ## Overview

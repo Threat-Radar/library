@@ -12,7 +12,7 @@ version: "1.1 (December 2025); v1.0 February 2025"
 identifiers:
   url: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/
 content:
-  url: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/
+  url: https://genai.owasp.org/download/45674/
   sha256: "65e3bd59f99c411b055c6caf2bac96ab361dff8c010e4bef532a593ce10345ff"
   retrieved: "2026-10-13"
   local: false
