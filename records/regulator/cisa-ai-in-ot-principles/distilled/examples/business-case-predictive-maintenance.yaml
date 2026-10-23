@@ -1,0 +1,39 @@
+record: cisa-ai-in-ot-principles
+example: business-case-predictive-maintenance
+locator: "§2.1 Consider the OT Business Case for AI Use, pp. 11–12"
+reviewed_by: ""
+# Verbatim from the source (capture blocks p11.b11-p12.b21). The source calls it fictional.
+source:
+  title: "Example Assessment of an AI in OT Business Use Case"
+  introduction: "The following example shows a fictional assessment by a critical infrastructure organization on the feasibility of using AI for supporting predictive maintenance for an industrial generator. The assessment includes performance thresholds and organizational safety and security requirements that technology must meet in order for critical infrastructure owners and operators to recommend using AI in the OT environment."
+  use_case: "Use an AI system for predictive maintenance for an industrial generator."
+  problem_statement: "High downtime and maintenance costs associated with industrial generator failures."
+  goal: "Implement an AI-powered predictive maintenance solution that detects potential generator failures 30 days in advance."
+  risk: "If AI does not perform predictive maintenance correctly, equipment could be replaced prematurely."
+  key_stakeholders:
+    - "Operations team responsible for scheduling generator maintenance."
+    - "Maintenance personnel who perform generator repairs and replacements."
+    - "Equipment owners who are impacted by generator downtime and maintenance costs."
+  requirements:
+    - "Historical data access on generator performance, including sensor readings and maintenance records."
+    - "Ability to process large OT datasets in near-real time."
+    - "Reliable predictive failure detection."
+  corresponding_safety_and_security_requirements:
+    - "Aggregated data is protected in transit and at rest, logging any access or changes."
+    - "Data aggregation does not exceed 80% network bandwidth threshold."
+    - "Erroneous alarms are rare and provide context, remaining actionable and preventing operator fatigue."
+  success_metrics:
+    - "Reduction in downtime by 25%."
+    - "Decrease in maintenance costs by 15%."
+    - "Improvement in overall equipment effectiveness by 10%."
+expected_result:
+  stated_by_source: false
+  note: "The source gives no verdict. It says the assessment includes thresholds that technology must meet before owners and operators recommend using AI; it does not say whether this one passes."
+derived_checks:   # OURS, not the source's: the numeric thresholds above as machine-checkable targets
+  - {measure: "failure detection lead time (days)", op: ">=", value: 30, from: "goal"}
+  - {measure: "share of network bandwidth used by data aggregation", op: "<=", value: 0.80, from: "corresponding_safety_and_security_requirements[1]"}
+  - {measure: "reduction in downtime", op: ">=", value: 0.25, from: "success_metrics[0]"}
+  - {measure: "decrease in maintenance costs", op: ">=", value: 0.15, from: "success_metrics[1]"}
+  - {measure: "improvement in overall equipment effectiveness", op: ">=", value: 0.10, from: "success_metrics[2]"}
+exercises: ["R-0032", "R-0035", "R-0036"]
+# A fixture for a concept-phase business-case record (DEC-001b) and for ADR-0006 impact and feasibility inputs.
