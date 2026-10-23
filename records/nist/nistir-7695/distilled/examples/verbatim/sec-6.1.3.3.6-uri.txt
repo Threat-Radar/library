@@ -1,0 +1,1 @@
+cpe:/a:foo%5cbar:big%24money_2010%07:::~~special~ipod_touch~80gb~

@@ -1,0 +1,2 @@
+set(wfn:[vendor="microsoft"],update,ANY) →
+wfn:[vendor="microsoft",update=ANY]

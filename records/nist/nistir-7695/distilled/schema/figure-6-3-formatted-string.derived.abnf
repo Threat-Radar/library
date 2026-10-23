@@ -1,0 +1,75 @@
+; =====================================================================
+; figure-6-3-formatted-string.derived.abnf
+;
+; DERIVED - not verbatim. Figure 6-3 of NISTIR 7695 (CPE Naming
+; Specification Version 2.3, August 2011), "ABNF for Formatted String
+; Binding", section 6.2.1, printed page 32, repaired so that it is
+; valid RFC 5234 ABNF. The verbatim figure is
+; figure-6-3-formatted-string.abnf beside this file.
+;
+; Root rule: formstring.
+;
+; Source PDF SHA-256
+; 01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6
+;
+; Role. Section 4, item 2: an implementation that produces CPE names
+; "MUST produce syntactically correct formatted string bindings";
+; item 4(a): one that consumes them "MUST consume syntactically correct
+; formatted string bindings". 6.2: "Note that all eleven (11)
+; attribute values MUST appear in the formatted string binding."
+;
+; The one repair, and nothing else (every other token is the figure's):
+;   R1  The rule names sw_edition, target_sw, target_hw and spec_chrs
+;       are written sw-edition, target-sw, target-hw and spec-chrs
+;       (rule names allow letters, digits and hyphens only, RFC 2234
+;       and RFC 5234 section 2.1).
+;
+; Readings kept from the figure, not repaired:
+;   - RFC 2234 quoted strings are case-insensitive, so "CPE:2.3:" and
+;     the part letters "A", "H", "O" match. The XML schema the
+;     specification calls authoritative does not accept them;
+;     run-fixtures.derived.py reports both readings.
+;   - avstring needs at least one character that is not special, so a
+;     lone "?" (allowed in a WFN by 5.3.2 item 4) cannot be written;
+;     "-" alone matches both a one-character avstring and logical, and
+;     6.2 settles it: used alone, the hyphen represents the logical
+;     value NA.
+;   - LANGTAG admits language ["-" region] only, a subset of RFC 5646
+;     tags, though 5.3.3.10 says "any valid language tag MAY be used".
+; =====================================================================
+
+formstring           = "cpe:2.3:" component-list
+
+component-list       = part ":" vendor ":" product ":" version ":" update ":"
+                       edition ":" lang ":" sw-edition ":" target-sw ":"
+                       target-hw ":" other
+
+part                 = "h" / "o" / "a" / logical
+vendor               = avstring
+product              = avstring
+version              = avstring
+update               = avstring
+edition              = avstring
+lang                 = LANGTAG / logical
+sw-edition           = avstring
+target-sw            = avstring
+target-hw            = avstring
+other                = avstring
+avstring             = *1spec-chrs 1*( unreserved / quoted ) *1spec-chrs / logical
+spec-chrs            = 1*spec1 / spec2
+logical              = "*" / "-"
+special              = spec1 / spec2
+spec1                = "?"
+spec2                = "*"
+unreserved           = ALPHA / DIGIT / "-" / "." / "_"
+quoted               = escape (escape / special / punc)
+escape               = "\"
+punc                 = "!" / DQUOTE / "#" / "$" / "%" / "&" / "'" / "(" / ")" /
+                       "+" / "," / "/" / ":" / ";" / "<" / "=" / ">" / "@" /
+                       "[" / "]" / "^" / "`" / "{" / "|" / "}" / "~"
+ALPHA                = %x41-5a / %x61-7A   ; a-z
+DIGIT                = %x30-39 ; 0-9
+DQUOTE               = %x22 ; double-quote
+LANGTAG              = language ["-" region] ; cf. [RFC5646]
+language             = 2*3ALPHA              ; shortest ISO 639 code
+region               = 2ALPHA / 3DIGIT       ; ISO 3166-1 code or UN M.49 code

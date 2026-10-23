@@ -1,0 +1,1 @@
+cpe:/a:microsoft:internet_explorer:8.0.6001:beta

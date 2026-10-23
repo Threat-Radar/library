@@ -1,0 +1,1 @@
+wfn:[PART="h",Vendor="lenovo",product="thinkpad_x61"]

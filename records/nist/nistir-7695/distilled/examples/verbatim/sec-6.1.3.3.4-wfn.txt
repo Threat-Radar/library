@@ -1,0 +1,4 @@
+wfn:[part="a",vendor="hp",product="insight_diagnostics",
+version="7\.4\.0\.1570",update=ANY,edition=ANY,
+sw_edition="online",target_sw="win2003",target_hw="x64",
+other=ANY,language=ANY]

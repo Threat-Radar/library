@@ -1,0 +1,1 @@
+cpe:/h:lenovo:thinkpad_x61

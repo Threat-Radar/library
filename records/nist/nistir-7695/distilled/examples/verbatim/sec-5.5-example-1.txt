@@ -1,0 +1,2 @@
+wfn:[part="a",vendor="microsoft",product="internet_explorer",
+version="8\.0\.6001",update="beta",edition=NA]

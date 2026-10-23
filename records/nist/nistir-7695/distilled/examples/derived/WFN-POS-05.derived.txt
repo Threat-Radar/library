@@ -1,0 +1,1 @@
+wfn:[part="a",vendor="foo",update="ANY"]
