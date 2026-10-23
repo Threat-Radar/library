@@ -1,0 +1,46 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: mandl-2026-ground-truth-vuln-detection
+body: academic
+type: paper
+title: "A Ground-Truth-Based Evaluation of Vulnerability Detection Across Multiple Ecosystems"
+short_title: "Ground-truth evaluation of vulnerability detection"
+authors:
+  - "Peter Mandl"
+  - "Paul Mandl"
+  - "Martin Häusl"
+  - "Maximilian Auch"
+date: "2026-04-22"
+publisher: "arXiv"
+version: "v1"
+identifiers:
+  url: https://arxiv.org/abs/2604.21111v1
+  arxiv: 2604.21111v1
+content:
+  url: https://arxiv.org/pdf/2604.21111v1
+  sha256: "a0c93a1c41137c88e613d975731c81801c837410bc0d6c745f4e22cdaa52ea0b"
+  retrieved: "2026-10-22"
+  local: false
+  media_type: application/pdf
+  pages: 23
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - aquasecurity-trivy
+    - anchore-grype
+    - google-osv-scanner
+    - osv-dev
+    - github-advisory-database
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - scanner
+  - evidence
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

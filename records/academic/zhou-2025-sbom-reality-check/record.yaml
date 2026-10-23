@@ -1,0 +1,46 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+schema: "library-record/v1"
+id: zhou-2025-sbom-reality-check
+body: academic
+type: paper
+title: "A Reality Check on SBOM-based Vulnerability Management: An Empirical Study and A Path Forward"
+short_title: "Reality check on SBOM vulnerability management"
+authors:
+  - "Li Zhou"
+  - "Marc Dacier"
+  - "Charalambos Konstantinou"
+date: "2026-04-17"
+publisher: "arXiv; ACM (CODASPY '26)"
+version: "v2"
+identifiers:
+  url: https://arxiv.org/abs/2511.20313v2
+  arxiv: 2511.20313v2
+  doi: 10.1145/3800506.3803490
+content:
+  url: https://arxiv.org/pdf/2511.20313v2
+  sha256: "b18cbc4f41190867f2330acd2e3b1b071b223dff2bd5bae9c70a07f0728dfc45"
+  retrieved: "2026-10-22"
+  local: false
+  media_type: application/pdf
+  pages: 14
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anchore-syft
+    - anchore-grype
+    - aquasecurity-trivy
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+topic: product-composition
+tags:
+  - scanner
+  - sbom
+  - evidence
+venue: "Proceedings of the 16th ACM Conference on Data and Application Security and Privacy (CODASPY '26), Frankfurt am Main, Germany, June 23-25, 2026"
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier
