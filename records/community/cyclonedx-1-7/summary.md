@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: cyclonedx-1-7
 record: cyclonedx-1-7
 type: summary
-updated: "2026-10-18"
+updated: "2026-10-22"
 ---
 
 # CycloneDX Bill of Materials Specification
@@ -44,6 +44,12 @@ nothing.
 Not searched for this record. tmodel RPT-0004 §3 covers four tools that write
 or read CycloneDX (Syft, Grype, Trivy, Dependency-Track). In Table 6's run on
 2026-10-18, Syft 1.52.0 wrote CycloneDX 1.7 JSON and Grype 0.119.0 read it.
+
+`record.yaml` lists two implementations RPT-0004 cites after its adversarial
+review (tmodel#152, 2026-10-22), which get no record of their own
+(docs/scope.md section 3): cdxgen v13.4.0, whose `--spec-version` accepts 1.6,
+1.7 and 2.0, and protobom v0.6.2, which reads and writes CycloneDX 1.4 to 1.7
+JSON. Both were read from their READMEs on 2026-10-22, not run.
 
 ## Artifacts in this record
 

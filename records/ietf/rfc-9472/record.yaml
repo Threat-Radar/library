@@ -1,0 +1,46 @@
+schema: "library-record/v1"
+id: rfc-9472
+body: ietf
+type: rfc
+maturity: standard
+title: "A YANG Data Model for Reporting Software Bills of Materials (SBOMs) and Vulnerability Information"
+short_title: "RFC 9472"
+authors:
+  - "E. Lear"
+  - "S. Rose"
+date: "2023-10"
+publisher: "IETF"
+identifiers:
+  url: https://www.rfc-editor.org/rfc/rfc9472.html
+  doi: 10.17487/RFC9472
+  rfc: 9472
+content:
+  url: https://www.rfc-editor.org/rfc/rfc9472.txt
+  sha256: "64a6b305c6fcb81a129fe0ac2d4658e70ec3bfc4e05d95d1edcf27bb98886bf3"
+  retrieved: "2026-10-22"
+  local: false
+  media_type: text/plain
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - rfc-8520
+    - iso-iec-5962-2021
+    - csaf-2-0
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-007
+topic: product-composition
+tags:
+  - sbom
+  - supply-chain
+  - prior-art
+implementations:
+  open_source: []
+  commercial: []
+  searched: ""
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier
