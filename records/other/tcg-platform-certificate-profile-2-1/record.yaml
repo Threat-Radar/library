@@ -39,7 +39,7 @@ tags:
 implementations:
   open_source:
     - "NSA PACCOR v2.0r16 (Apache-2.0): https://github.com/nsacyber/paccor/releases/tag/v2.0r16"
-    - "NSA HIRS v3.2.0, implementing Platform Certificate profile 1.1 r15 with 2.0 in development, not 2.1 (Apache-2.0): https://github.com/nsacyber/HIRS/releases/tag/v3.2.0"
+    - "NSA HIRS v3.2.0, which validates version 1.1 platform certificates, with 2.0 in development and not 2.1 (Apache-2.0): https://github.com/nsacyber/HIRS/releases/tag/v3.2.0"
   commercial: []
   searched: ""
 # stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
