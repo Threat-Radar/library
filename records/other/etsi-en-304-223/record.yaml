@@ -132,7 +132,7 @@ distillation:
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "73 entries: all 72 clause 5 provisions keyed by ETSI designator (49 shall, 23 should) + C4-1, the clause 4 'should note' sentence the 2026-10-01 pass missed. BCP 14 0/0; own-form baseline over the whole source reconciled form by form (shall 61->59, should 32->29, can 22->6, will 7->6, cannot 5->2, may 9->0, must 2->0, shall not 4->0, should not, will not, need not 1->0), every exclusion itemised. Every entry: page locator, kind, testable with reason; bears_on (tmodel decisions) on 60 entries (13 empty); maps_to (NIST AI 100-2 E2025 and MITRE ATLAS 2026.09 threat mapping, stated or inferred, with rationale) on the 33 with a nameable attack class or risk. Derived fields need review."
+      coverage: "73 entries: all 72 clause 5 provisions keyed by ETSI designator (49 shall, 23 should) + C4-1, the clause 4 'should note' sentence the 2026-10-01 pass missed. BCP 14 0/0; own-form baseline over the whole source reconciled form by form (shall 61->59, should 32->29, can 22->6, will 7->6, cannot 5->2, may 9->0, must 2->0, shall not 4->0, should not, will not, need not 1->0), every exclusion itemised. Every entry: page locator, kind, testable with reason; bears_on (tmodel decisions) on 60 entries (13 empty); maps_to (NIST AI 100-2 E2025 and MITRE ATLAS 2026.09 threat mapping, stated or inferred, with rationale) on the 35 with a nameable attack class or risk. Derived fields need review."
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.md
@@ -141,15 +141,15 @@ distillation:
       reviewed_by: ""
     - kind: threats
       path: distilled/threats.yaml
-      coverage: "14 threats and 4 weaknesses the EN describes, each quoted verbatim with locator and kind (stated/inferred); NIST AI 100-2 E2025 and ATLAS ids and the addressing provisions (derived from maps_to) on the 10 threats that map to a class or technique; T-03, T-11, T-12, T-13 and the weaknesses have none. No vulnerabilities: the EN names no product or CVE."
+      coverage: "14 threats and 3 weaknesses the EN describes (weaknesses with candidate CWE 4.20 ids, inferred), each quoted verbatim with locator and kind (stated/inferred); NIST AI 100-2 E2025 and ATLAS ids and the addressing provisions (derived from maps_to) on the 10 threats that map to a class or technique; T-03, T-11, T-12, T-13 and the weaknesses have none. No vulnerabilities: the EN names no product or CVE."
       reviewed_by: ""
     - kind: design-notes
       path: distilled/design-notes.md
-      coverage: "Per provision: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision; class summary; 5 open questions incl. source defects."
+      coverage: "Per provision: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision (incl. gaps in the accepted core: no role edges, single-valued catalog_ref); class summary; 8 open questions; source notes incl. 5 source defects."
       reviewed_by: ""
     - kind: verification
       path: distilled/verification.md
-      coverage: "Pass 1 self-checks and the stop point. Passes 2 (verify) and 3 (cross-check) started 2026-10-21 and were stopped by the account usage limit before reporting; to be finished."
+      coverage: "FX-1 passes 2 (verify) and 3 (cross-check): method, results, every defect found and how it was fixed, the one finding not applied and why, and the checks after the fixes."
       reviewed_by: ""
   not_applicable:
     - kind: schema
@@ -168,3 +168,13 @@ distillation:
       effort: max
       date: "2026-10-21"
       note: "Source re-read in full from .cache/etsi-en-304-223.txt (PyMuPDF, page-marked; PDF sha256 matches content.sha256). Script etsi_audit.py: all 72 existing provision texts equal the full source provision exactly; whole-document modal counts. Fixes: C4-1 added; 5.1.2-1.1 actor (was the Data Custodian, who is included, not obliged); locators gain pages; header counts and reconciliation. normative.md rewritten as verbatim text cut by anchors (the old one was a paraphrase; its tables kept as a labelled reading aid). Added threats.yaml, design-notes.md. ATLAS ids checked against ATLAS-2026.09.yaml from atlas.mitre.org; NIST ids against the E2025 index."
+    - pass: verify
+      by: "claude (independent verifier subagent)"
+      effort: max
+      date: "2026-10-22"
+      note: "Independent verifier (did not extract): re-derived the text twice from the PDF; recounted every ETSI verbal form (all equal the header); 73/73 verbatim, 72/72 complete provisions; 145/145 normative.md items verbatim. Found 4 must-fix (7 normative.md pages, 8 verbs lists, two places calling should provisions requirements) and 13 should-fix (incl. a missing stated threat, T-14); all applied 2026-10-22. Interrupted twice by the usage limit; resumed from saved transcripts. Details in distilled/verification.md."
+    - pass: cross-check
+      by: "claude (independent verifier subagent; independent threat-mapping reviewer subagent)"
+      effort: max
+      date: "2026-10-22"
+      note: "Same verifier: every id in the ten record files resolves; requirements.md matches the YAML row by row; addressed_by equals the derived set; all counts and source claims checked. Separate reviewer for the threat mapping and tmodel claims (both records): 240 id occurrences, 0 missing; 2 wrong + 21 weak + 11 notes, applied except one-class-per-id (reason in verification.md)."

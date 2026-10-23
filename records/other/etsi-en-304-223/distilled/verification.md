@@ -83,13 +83,52 @@ notes.
 
 ## Threat-mapping and design-notes review
 
-**Not finished.** The reviewer checked all 234 NIST and ATLAS ids in both records (0 missing; every
-name matches ATLAS 2026.09 or the NIST E2025 index) and was reading each ATLAS description for fit
-when the usage limit stopped it a third time (2026-10-22). Its findings are applied when it
-reports; until then `verify` and `cross-check` are not recorded in `record.yaml`.
+**Method.** An independent reviewer read every `provenance: ours` mapping in both records against
+the entry text, the NIST AI 100-2 E2025 definitions (`.cache/nist-ai-100-2e2025.txt`) and the
+ATLAS 2026.09 technique descriptions, using ATLAS's own mitigation relations (`AML.M*`) as a
+cross-check on fit; recomputed every design-notes table; and checked every claim about tmodel
+(`origin/main` = `e1ae8c3`, tmodel#130 = `f57386c`), the OTM schema (`c88c5a7`) and CWE 4.20.
+Across both records: 240 id occurrences (49 distinct: 34 ATLAS, 15 NIST), 0 missing, 0 name
+mismatches; 155 mappings read; 0 stated `source_text` outside its entry (the 10 found at pass 1
+had already been fixed by the verify pass). Findings: 2 wrong, 21 weak, 11 notes, all applied
+except where noted below.
+
+**Applied to this record.**
+
+| finding | change |
+|---|---|
+| wrong: 5.1.4-5 mapped to NISTAML.04 although informing users of prohibited uses is not an attack defence | now non-adversarial; the Misuse row is gone |
+| wrong: 5.4.2-4 paired AML.T0031 (adversarial inputs) with poisoning | AML.T0020 + AML.T0018.000 (ATLAS M0008), plus a non-adversarial drift mapping |
+| 5.2.1-4.1 is training-data hygiene (ATLAS M0007), not a prompt-injection control | prompt-injection mappings removed; CWE-1427 link dropped from the notes |
+| 5.2.1-4 names its risk | `inferred` → `stated` ("against unauthorized access") |
+| 5.5.1-1 → NISTAML.038 was a stretch | conventional, AML.T0035 only |
+| 5.2.2-2 parses two ways; AML.T0040 is the access route, not the attack; rate limits also counter DoS | extraction mapping `inferred` with the ambiguity stated; T0040 dropped; availability (NISTAML.01; AML.T0029, AML.T0034) added |
+| unmapped named risks: 5.2.1-3 "specific attacks aimed at AI systems"; 5.3.1-2.1 "failure modes" | `general` and non-adversarial, both stated |
+| W-04 (residual risk) is not a weakness | removed; three weaknesses, each with a candidate CWE id (inferred) |
+| 5.1.3-1.2, 5.1.2-6, 5.1.2-2, 5.4.2-1 missed direct prompt injection | added (inferred) |
+| 5.2.3-3 carried a poisoning id under supply chain | NISTAML.023 dropped (NISTAML.051 covers it) |
+| 5.2.5-4 `source_text` named no attack; 5.5.1-2 used an agent-only technique | wording fixed; AML.T0055 in place of AML.T0083 |
+| design notes: CWE "no entry"; C1 misread; CVE claim stated as the EN's; 5.4.1-1.1 called `accepted_risk`; roles "on the relation" (no such slot); `catalog_ref` single-valued; M5 conflated; permissions slot | each corrected; open questions split from source notes, three added (catalog_ref, CWE ids, ThreatInstances for non-adversarial items) plus library records for NIST and ATLAS |
+
+**Not applied, and why.** The reviewer asked for one class per ATLAS id across both records (e.g.
+AML.T0018 is supply-chain in one mapping, poisoning in another). The class here belongs to the
+mapping, not to the id: the same technique is a supply-chain attack when it arrives through a
+supplier and a poisoning attack when it happens in-house. Recorded as open question 7 (derive
+mappings from ATLAS mitigation relations) instead of forced.
+
+**Survived review** (selection): 5.1.3-1 (model inversion → NISTAML.032 per §2.4.1), 5.1.2-2
+evasion, 5.1.2-3, 5.1.2-4/-7, 5.2.1-2, 5.2.3-*, 5.2.4-*, 5.2.5-4.1, 5.4.2-2, and every claim about
+ADR-0006, ADR-0010, DEC-008, R-018, tmodel#130, OTM and the CWE entries.
 
 ## Checks after the fixes
 
-After the verifier fixes (2026-10-22): `bin/check-requirements` (with and without
-`--invariants`) 47/47 valid, no warnings for this record; `bin/check-artifacts` no warnings for
-this record; `bin/validate` reports only the two unrecorded passes.
+Run 2026-10-22 on the final state of this commit:
+
+| check | result |
+|---|---|
+| `bin/validate` | 0 errors; no warning names this record |
+| `bin/check-pr-extraction origin/main` | "FX-1: every record this PR extracts is complete" |
+| `bin/check-artifacts` | 0 parse failures, 0 structural errors; no warning names this record |
+| `bin/check-requirements` | 47 / 47 sets valid, 0 failures |
+| `bin/check-requirements --invariants` | 47 / 47 valid; no invariant warning names this record |
+

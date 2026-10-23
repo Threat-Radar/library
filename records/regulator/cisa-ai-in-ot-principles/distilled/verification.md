@@ -99,16 +99,50 @@ text, threats, examples and design notes.
 
 ## Threat-mapping and design-notes review
 
-**Not finished.** The reviewer checked all 234 NIST and ATLAS ids in both records (0 missing; every
-name matches ATLAS 2026.09 or the NIST E2025 index) and was reading each ATLAS description for fit
-when the usage limit stopped it a third time (2026-10-22). Its findings are applied when it
-reports; until then `verify` and `cross-check` are not recorded in `record.yaml`.
+**Method.** An independent reviewer read every `provenance: ours` mapping in both records against
+the entry text, the NIST AI 100-2 E2025 definitions (`.cache/nist-ai-100-2e2025.txt`) and the
+ATLAS 2026.09 technique descriptions, using ATLAS's own mitigation relations (`AML.M*`) as a
+cross-check on fit; recomputed every design-notes table; and checked every claim about tmodel
+(`origin/main` = `e1ae8c3`, tmodel#130 = `f57386c`), the OTM schema (`c88c5a7`) and CWE 4.20.
+Across both records: 240 id occurrences (49 distinct: 34 ATLAS, 15 NIST), 0 missing, 0 name
+mismatches; 155 mappings read; 0 stated `source_text` outside its entry (the 10 found at pass 1
+had already been fixed by the verify pass). Findings: 2 wrong, 21 weak, 11 notes, all applied
+except where noted below.
+
+**Applied to this record.**
+
+| finding | change |
+|---|---|
+| R-0011 (Table 2): NISTAML.04 conflicts with the guidance's own scope (it excludes misuse of AI) | guardrail bypass mapped as a jailbreak (NISTAML.018, AML.T0054); evasion (AML.T0015/T0043/T0041) and AI-software supply chain (AML.T0010.001) added for "AI data, models, and deployment software can be manipulated" |
+| named but unmapped: "safety-process bypasses" (R-0001), "AI system failure" (R-0133), "inadvertent data poisoning" and "dependency on synthetic, generated data" (R-0042) | mapped (general / non-adversarial, stated); a threat added for safety-process bypasses |
+| R-0041: NISTAML.036 is an indirect-injection technique, not this risk | dropped; stated privacy + conventional (disclosure to the host) |
+| R-0109: NISTAML.039 is a data leak, not attribution | NISTAML.015 |
+| R-0048, R-0053: "patterns of activity" is property inference; T0057 is LLM-only while OT data trains mostly predictive ML | NISTAML.034 / AML.T0024.000 (and T0024.001) added |
+| near-identical statements mapped inconsistently (audit trail vs log-and-monitor; strategy vs controls; two failsafe and three re-validation statements; monitoring tools; control-logic thresholds) | made consistent |
+| R-0052, R-0098 labelled non-adversarial but rationale says "whatever the cause"; R-0044 `source_text` named a goal | `general`; wording fixed |
+| AML.T0122 set: reuse of standing access is also AML.T0012; vendor connectivity is initial access through the supplier | T0012 added to three; R-0054 → AML.T0010 |
+| R-0120 adversarial inputs to LLMs are prompting attacks | direct prompt injection added (inferred) |
+| threats.yaml: T-14 (foreign government) is legal, not conventional; T-20 missing AML.T0132; AI Vendor Transparency is a weakness | `general`; T0132 added; moved to W-05 |
+| design notes: roles (no role slot), `catalog_ref` single-valued, `software_agent` "direct evidence" overstated, impacts with no S/F/O/P slot beyond reputational damage, phases tmodel has no code for (42 entries), `stored_in`, CWE-1426 GenAI-only | each corrected; open questions split from source notes, four added |
+
+**Not applied, and why.** One class per ATLAS id across records: see the same note in
+`etsi-en-304-223/distilled/verification.md`; recorded as open question 7.
+
+**Survived review** (selection): R-0001 drift, R-0029 and R-0106 evasion (ATLAS M0009), R-0042
+access abuse, R-0045, R-0047, R-0083, R-0085, R-0101 (M0024), R-0102, R-0108 (M0008), R-0115
+(M0035), R-0116, R-0120 stated, and every tmodel, OTM and CWE claim.
 
 ## Checks after the fixes
 
-After the verifier fixes (2026-10-22): `bin/check-requirements` (with and without
-`--invariants`) 47/47 valid, no warnings for this record; `bin/check-artifacts` no warnings for
-this record; `bin/validate` reports only the two unrecorded passes.
+Run 2026-10-22 on the final state of this commit:
+
+| check | result |
+|---|---|
+| `bin/validate` | 0 errors; no warning names this record |
+| `bin/check-pr-extraction origin/main` | "FX-1: every record this PR extracts is complete" |
+| `bin/check-artifacts` | 0 parse failures, 0 structural errors; no warning names this record |
+| `bin/check-requirements` | 47 / 47 sets valid, 0 failures |
+| `bin/check-requirements --invariants` | 47 / 47 valid; no invariant warning names this record |
 
 ## Every excluded occurrence of each normative form (after the fixes)
 

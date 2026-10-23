@@ -20,9 +20,11 @@ technique id. Evidence for RPT-0009, not a decision: nothing here accepts a `DEC
   words: the EN prints neither.
 - **inferred** — the provision names no attack; the link is our reading, with a one-line
   rationale in `requirements.yaml`.
-- Three labels of ours sit outside the NIST attack taxonomy: **non-adversarial** (drift, failure,
-  unexpected inputs), **conventional** (an attack on AI assets by ordinary cyber means, which NIST
-  AI 100-2 leaves out of scope; ATLAS still has ids for some), and **unclear** (named but undefined).
+- Labels of ours outside the NIST attack classes: **non-adversarial** (drift, failure, unexpected
+  inputs, misuse by legitimate users), **conventional** (an attack on AI assets by ordinary cyber
+  means, which NIST AI 100-2 leaves out of scope; ATLAS still has ids for some), **general**
+  (attacks on the AI system named without a class) and **unclear** (named but undefined).
+  **Availability** is a NIST attacker objective (NISTAML.01), used for denial of service.
 - **ATLAS ids.** Every id was checked against ATLAS release 2026.09 (2026-09-15), the data file
   that atlas.mitre.org itself loads (`/atlas-data/dist/v6/ATLAS-2026.09.yaml`, sha256
   `935efa93…6688`). The technique pages are a JavaScript app and return HTTP 404 to a plain
@@ -39,19 +41,20 @@ says so.
 
 ## Summary
 
-73 entries; 33 carry a threat mapping, 27 of them to a NIST AI 100-2 attack class. An entry is counted once per class (as stated if any of its mappings to that class is stated).
+73 entries; 35 carry a threat mapping, 25 of them to a NIST AI 100-2 attack class. An entry is counted once per class (as stated if any of its mappings to that class is stated).
 
 | attack class | entries | stated | inferred | NIST AI 100-2 E2025 ids | ATLAS ids |
 |---|---|---|---|---|---|
 | Evasion | 1 | 1 | 0 | NISTAML.022 Evasion | AML.T0015, AML.T0043 |
-| Poisoning | 10 | 5 | 5 | NISTAML.013 Data Poisoning, NISTAML.026 Model Poisoning | AML.T0010.002, AML.T0018.000, AML.T0020, AML.T0031 |
-| Privacy | 6 | 3 | 3 | NISTAML.031 Model Extraction, NISTAML.032 Reconstruction, NISTAML.033 Membership Inference, NISTAML.038 Data Extraction | AML.T0024.000, AML.T0024.001, AML.T0024.002, AML.T0035, AML.T0040, AML.T0057 |
-| Misuse | 1 | 0 | 1 | NISTAML.04 Misuse Violations | — |
-| Direct prompt injection | 2 | 0 | 2 | NISTAML.018 Prompt Injection | AML.T0051.000 |
-| Indirect prompt injection | 3 | 0 | 3 | NISTAML.015 Indirect Prompt Injection, NISTAML.039 Compromising connected resources | AML.T0051.001, AML.T0053, AML.T0129 |
-| Supply chain | 8 | 0 | 8 | NISTAML.023 Backdoor Poisoning, NISTAML.05 Supply Chain Attacks, NISTAML.051 Model Poisoning | AML.T0010, AML.T0010.001, AML.T0010.002, AML.T0010.003, AML.T0011.000, AML.T0018, AML.T0018.000 |
-| Conventional (outside NIST AI 100-2: access, theft, tampering, network paths) | 6 | 0 | 6 | — | AML.T0012, AML.T0018.003, AML.T0025, AML.T0035, AML.T0048.004, AML.T0081, AML.T0083 |
-| Non-adversarial (not an attack) | 2 | 2 | 0 | — | — |
+| Poisoning | 10 | 5 | 5 | NISTAML.013 Data Poisoning, NISTAML.026 Model Poisoning | AML.T0010.002, AML.T0018.000, AML.T0020 |
+| Privacy | 5 | 2 | 3 | NISTAML.031 Model Extraction, NISTAML.032 Reconstruction, NISTAML.033 Membership Inference, NISTAML.038 Data Extraction | AML.T0024.000, AML.T0024.001, AML.T0024.002, AML.T0057 |
+| Availability (denial of service) | 1 | 0 | 1 | NISTAML.01 Availability Violations | AML.T0029, AML.T0034 |
+| Direct prompt injection | 5 | 0 | 5 | NISTAML.018 Prompt Injection | AML.T0051.000, AML.T0054 |
+| Indirect prompt injection | 2 | 0 | 2 | NISTAML.015 Indirect Prompt Injection, NISTAML.027 Misaligned Outputs, NISTAML.039 Compromising connected resources | AML.T0051.001, AML.T0053, AML.T0129 |
+| Supply chain | 8 | 0 | 8 | NISTAML.05 Supply Chain Attacks, NISTAML.051 Model Poisoning | AML.T0010, AML.T0010.001, AML.T0010.002, AML.T0010.003, AML.T0011.000, AML.T0018, AML.T0018.000 |
+| Conventional (outside NIST AI 100-2: access, theft, tampering, network paths) | 7 | 1 | 6 | — | AML.T0012, AML.T0018.003, AML.T0025, AML.T0035, AML.T0048.004, AML.T0055, AML.T0081 |
+| Non-adversarial (not an attack) | 5 | 3 | 2 | — | — |
+| General (attacks on the AI system, no class) | 1 | 1 | 0 | — | — |
 
 The pattern: the EN names few attacks (data poisoning, model inversion, membership inference and
 reverse engineering in provisions; adversarial attacks via the clause 3.1 definition; indirect
@@ -65,12 +68,18 @@ in the table at the end have no threat mapping: it is a finding, not a gap in th
 
 **Adopt.**
 - **Parties.** Table 4-1's five stakeholder groups (Developer, System Operator, Data Custodian,
-  End-user, Affected entity) are roles, not kinds of party: one entity can hold several (§4). They
-  fit `Party` plus a role on the relation, not new `PartyKind` values (`organization`, `person`).
+  End-user, Affected entity) are roles, not kinds of party: one entity can hold several (§4), so
+  they are not new `PartyKind` values (`organization`, `person`). **Gap:** the accepted core has
+  no role slot. Its Party-ranged edges are `manufactured_by`, `supplied_by`, `owned_by`,
+  `reported_by`, `assigned_by`, `implementation_owner`, `for_stakeholder`, `reviewer` and
+  `owner`; Data Custodian, End-user and Affected entity have no edge. They would need new typed
+  edges, which means amending DEC-001a.
 - **AttackPattern.** ATLAS techniques are generic attack patterns, the same layer as CAPEC and
   ATT&CK. `AttackPattern.catalog_ref` ("CWE, CAPEC, ATT&CK, CVE, D3FEND"; scheme "not pinned")
   can carry an ATLAS id unchanged. 5.1.3-1 asks threat models to address named AI attacks, so a
-  model built to the EN needs ATLAS (or NIST) ids on AttackPattern.
+  model built to the EN needs ATLAS (or NIST) ids on AttackPattern. **Gap:** `catalog_ref` is
+  single-valued, while every mapping here pairs a NIST class (a taxonomy node, not a technique)
+  with one or more ATLAS techniques (open question 4).
 - **Mitigation.** Each provision is a candidate `Mitigation`; `applies_in_phase` takes the EN's
   phase. Phase mapping to `LifecyclePhaseCode`: secure design → `design`; secure development →
   `implementation`, `verification_validation`; secure deployment → `deployment`; secure
@@ -79,8 +88,9 @@ in the table at the end have no threat mapping: it is a finding, not a gap in th
   `identifiers` slot as a component digest, alongside purl/SBOM ids.
 
 **Gap.** 5.1.3-1.2 names a weakness the core can hold only loosely: *superfluous functionality*
-(a multimodal model used for one modality). `Weakness` is "catalogued as CWE"; CWE 4.20 has no
-entry for it.
+(a multimodal model used for one modality). `Weakness` is "catalogued as CWE"; the nearest CWE
+4.20 entry, CWE-1125 *Excessive Attack Surface*, is marked Mapping Usage: Prohibited, so it may
+not be used for mapping.
 
 ### tmodel#130 — Asset, TrustBoundary, DataFlow (proposed, not accepted)
 
@@ -93,7 +103,7 @@ missing, and these provisions are evidence for it:
 |---|---|---|
 | 5.2.1-1, 5.2.1-2 | asset inventory with dependencies and connectivity; version control | `Asset`; `Component` with `component_kind: machine_learning_model`, `data`; `DataFlow` |
 | 5.2.1-4, 5.2.1-4.2 | sensitive training/test data, confidential weights | `Asset.security_properties` (confidentiality) |
-| 5.1.2-6, 5.2.2-1, 5.2.2-3 | permissions on other systems; access control on APIs, models, data, pipelines; separated environments | `TrustBoundary` zones, `DataFlow.crosses_boundary` |
+| 5.1.2-6, 5.2.2-1, 5.2.2-3 | permissions on other systems; access control on APIs, models, data, pipelines; separated environments | `TrustBoundary` zones, `DataFlow.crosses_boundary` (no proposed slot for permissions) |
 | 5.5.1-1, 5.5.1-2 | disposal of data and models on transfer or decommissioning | `Asset` lifecycle (no proposed slot) |
 
 Open choice the EN does not settle: is a training dataset or a set of model weights an `Asset`,
@@ -151,17 +161,21 @@ LinkML extension (inferred).
   deployment (5.2.5-2); treat a major update as a new version and re-test (5.4.1-2); review the
   threat model regularly (5.1.3-1). These are inputs to `Gate`/`Checkpoint`, and the reason no
   state machine was extracted (record.yaml `not_applicable`).
-- **C1 (automatable conformance).** EN conformance is assessed under ETSI TS 104 216, which is
-  still a draft work item. C1 cannot be closed from this source.
-- **M5 (author/origin of AI-authored artifacts).** 5.1.2-3 requires an audit trail of prompts
-  (shall), and 5.2.4-3 recommends an audit log of changes to system prompts (should). Applied to tmodel itself (direction 2), the prompts
-  and configuration that produced an AI-proposed threat are provenance; tmodel#130's proposed
-  `Assertion.generated_by` and `evidence` are where they would go.
+- **C1 (automatable conformance)** is a schema gap in tmodel: conformance needs a
+  `Mitigation`→`Review` (approved and evidenced) edge. This source neither closes nor informs it;
+  how to assess conformance to the EN is the subject of ETSI TS 104 216, a draft work item.
+- **Provenance of AI-proposed content.** 5.1.2-3 requires an audit trail of prompts (shall), and
+  5.2.4-3 recommends an audit log of changes to system prompts (should). Applied to tmodel itself
+  (direction 2), the prompts and configuration that produced an AI-proposed threat are
+  provenance; tmodel#130's proposed `Assertion.generated_by` and `evidence` are where they would
+  go. That is related to, but not the same as, M5, which concerns the author or origin of
+  *governed* artifacts.
 
 ### DEC-008 — CWE/NVD integration (open)
 
-- AI **vulnerabilities** in products still arrive as CVEs (5.1.1-2 awareness, 5.2.2-4 disclosure
-  policy, 5.4.1-1 patches, 5.2.3-1 supply chain). AI **attack techniques** do not: they are in
+- AI **vulnerabilities** in products still arrive as CVEs. This is our inference: the EN never
+  mentions CVE or CWE, but its vulnerability provisions (5.1.1-2 awareness, 5.2.2-4 disclosure
+  policy, 5.4.1-1 patches, 5.2.3-1 supply chain) run through that pipeline. AI **attack techniques** do not: they are in
   ATLAS. AI **weaknesses** are partly in CWE: CWE 4.20 (2026-04-30) has CWE-1426 *Improper
   Validation of Generative AI Output*, CWE-1427 *Improper Neutralization of Input Used for LLM
   Prompting* and CWE-1434 *Insecure Setting of Generative AI/ML Model Inference Parameters*.
@@ -178,7 +192,8 @@ LinkML extension (inferred).
   propagation along composition does in the accepted core.
 - **Mitigation lifecycle events** the EN names: re-run evaluations on released models before use
   (5.2.3-3); tell End-users before a model update (5.2.3-4); provide patches (5.4.1-1); keep
-  contingency plans where updates cannot be provided (5.4.1-1.1, an `accepted_risk` case); a
+  contingency plans where updates cannot be provided (5.4.1-1.1: a compensating mitigation, not
+  risk acceptance); a
   major update is a new version (5.4.1-2); monitor for drift and poisoning (5.4.2-2, 5.4.2-4);
   dispose on transfer or decommissioning (5.5.1-1, 5.5.1-2).
 
@@ -199,36 +214,56 @@ LinkML extension (inferred).
 
 - **Threats.** `threats.yaml` lists the 14 threats the EN describes, each quoted with its
   locator and mapped to NIST and ATLAS ids, with the provisions that address it.
-- **Weaknesses.** The EN describes three directly (superfluous functionality, 5.1.3-1.2; models
-  or components that are not well documented or secured, 5.2.3-2; risk that remains after
-  controls, 5.1.3-4) and implies more; `threats.yaml` lists four. CWE-1427 is the weakness behind prompt injection, which 5.2.1-4.1 (sanitise inputs)
-  addresses; CWE-1426 is the weakness 5.2.5-4 and 5.2.5-4.1 (evaluate model outputs) address.
-  Both links are inferred.
+- **Weaknesses.** The EN describes two directly (superfluous functionality, 5.1.3-1.2; models or
+  components that are not well documented or secured, 5.2.3-2) and implies a third (excess
+  permissions, read from 5.1.2-6). `threats.yaml` gives each a candidate CWE 4.20 id, inferred:
+  CWE-1125 (mapping usage Prohibited, orientation only), CWE-1357 (Allowed-with-Review) and
+  CWE-250. CWE-1426 (GenAI only) is the weakness 5.2.5-4 and 5.2.5-4.1 (evaluate model outputs)
+  address; CWE-1427, the weakness behind prompt injection, has no provision that addresses it
+  directly (5.2.1-4.1 sanitises training data, not prompts). Both links are inferred. The residual
+  risk of 5.1.3-4 is not a weakness and is no longer listed as one.
 - **Vulnerabilities.** None: the EN names no product or CVE.
 
 ## Open questions for the sponsor
 
 1. **"Model obfuscation"** (Introduction) is named as an AI security risk and never defined. It
    matches no class in NIST AI 100-2 E2025 or ATLAS 2026.09, so it has no id here. Should
-   RPT-0009 read it as obfuscated malicious models (e.g. ATLAS AML.T0018.002 *Embed Malware*), as
-   prompt obfuscation (AML.T0068), or leave it open?
+   RPT-0009 read it as an obfuscated or corrupted malicious model (ATLAS AML.T0076 *Corrupt AI
+   Model*, AML.T0123 *Obfuscated Files or Information*), as prompt obfuscation (AML.T0068), or
+   leave it open? ATLAS also uses "obfuscation" for a defence (AML.M0002).
 2. **Where AI artifacts live** in the object model: training data, weights and system prompts as
    `Asset`, as `Component` (`component_kind: data`, `machine_learning_model`), or both
    (tmodel#130)?
-3. **ATLAS mitigations.** The EN cites ATLAS *Mitigations* ([i.12]). A provision → ATLAS
-   mitigation (`AML.M*`) map would feed `Mitigation.catalog_ref` directly. Not done here; worth a
-   follow-up?
-4. **Source defects to note** (kept as printed): Table 4-1 defines Affected entities as those
-   "that are not directly affected by AI systems", which reads as a drafting slip for "not
-   directly using"; and the End-users row refers to "the voluntary Code", a code the EN does not
-   cite (its origin is not stated in the EN). Also: 5.2.1-4 says "see clause 5.2.3 for details on
-   securing data", but 5.2.3 (supply chain) has no provision on securing data; 5.2.1-4.1 says "See
-   clause 5.2.2 for relevant provisions for open source", but 5.2.2 never mentions open source;
-   clause 4 says an indication of the primarily responsible stakeholders "is given for each
-   principle", but Principle 10 (5.3.1) has none; and the Introduction says standards are
-   "signposted at the start of each principle", but Principles 10 and 13 have no References line.
-5. **Predecessor.** ETSI TS 104 223 V1.1.1 (April 2025, History) is not a record, so there is no
-   `supersedes` link. CISA's AI-in-OT guidance cites the TS, not the EN.
+3. **Roles.** The EN's stakeholder roles (and CISA's integrator and managed service provider) have
+   no edge in the accepted core. Amend DEC-001a with typed edges, or keep roles out of MVP?
+4. **One attack, several ids.** `AttackPattern.catalog_ref` holds one id, but each mapping here is a
+   NIST class plus one or more ATLAS techniques. Multivalued `catalog_ref`, one AttackPattern per
+   ATLAS id with the NIST class as a classification, or something else?
+5. **CWE ids for AI weaknesses.** `threats.yaml` gives candidate CWE 4.20 ids (inferred, with each
+   id's mapping-usage value); CWE has nothing for predictive-ML weaknesses. Adopt them?
+6. **Non-adversarial and conventional items.** Should they become `ThreatInstance`s in a model
+   built to the EN, or stay outside it?
+7. **Mapping rule and ATLAS mitigations.** The EN cites ATLAS *Mitigations* ([i.12]). ATLAS
+   publishes which mitigations (`AML.M*`) address which techniques; should RPT-0009 derive or check
+   the inferred mappings from those relations, which would also feed `Mitigation.catalog_ref`?
+8. **Library records** for NIST AI 100-2 E2025 and ATLAS 2026.09 do not exist yet, so the ids here
+   resolve only by citation. Add them (tmodel RPT-0014 already lists both as sources)?
+
+## Source notes (kept as printed; not decisions)
+
+- Table 4-1 defines Affected entities as those "that are not directly affected by AI systems",
+  which reads as a drafting slip for "not directly using"; and the End-users row refers to "the
+  voluntary Code", a code the EN does not cite (its origin is not stated in the EN).
+- 5.2.1-4 says "see clause 5.2.3 for details on securing data", but 5.2.3 (supply chain) has no
+  provision on securing data; 5.2.1-4.1 says "See clause 5.2.2 for relevant provisions for open
+  source", but 5.2.2 never mentions open source.
+- Clause 4 says an indication of the primarily responsible stakeholders "is given for each
+  principle", but Principle 10 (5.3.1) has none; the Introduction says standards are
+  "signposted at the start of each principle", but Principles 10 and 13 have no References line.
+- 5.2.2-2 "limit an attacker's ability to reverse engineer or overwhelm defences to rapidly poison
+  a model" parses two ways; the extraction mapping is therefore inferred.
+- **Predecessor.** ETSI TS 104 223 V1.1.1 (April 2025, History) is not a record, so there is no
+  `supersedes` link. CISA's AI-in-OT guidance cites the TS, not the EN.
 
 ## Mapping, provision by provision
 
@@ -246,16 +281,16 @@ lifecycle control with no single attack class.
 | `5.1.1-2.2` | Train developers in secure AI coding and design | — | — | — | — |
 | `5.1.2-1` | Assess business need, AI security risks and mitigations before building | ADR-0006, DEC-001b | — | — | — |
 | `5.1.2-1.1` | Include the Data Custodian in requirements discussions | ADR-0010 | — | — | — |
-| `5.1.2-2` | Design AI systems to withstand adversarial attacks and failures | ADR-0010 | evasion (**s**); non-adversarial (**s**) | NISTAML.022 | AML.T0015, AML.T0043 |
+| `5.1.2-2` | Design AI systems to withstand adversarial attacks and failures | ADR-0010 | evasion (**s**); direct prompt injection (*i*); non-adversarial (**s**) | NISTAML.018, NISTAML.022 | AML.T0015, AML.T0043, AML.T0051.000, AML.T0054 |
 | `5.1.2-3` | Keep an audit trail of models, datasets and prompts | R-018, DEC-001b, ADR-0010 | poisoning (*i*) | NISTAML.013 | AML.T0020 |
 | `5.1.2-4` | Risk-assess external components for AI-specific risks | ADR-0006, DEC-009 | supply chain (*i*) | NISTAML.05 | AML.T0010, AML.T0010.001, AML.T0010.003 |
 | `5.1.2-5` | Match intended use to the sensitivity of training data | tmodel#130 | privacy (*i*) | NISTAML.032, NISTAML.033, NISTAML.038 | AML.T0024.000, AML.T0024.001, AML.T0057 |
 | `5.1.2-5.1` | Encourage staff to report AI security risks | — | — | — | — |
-| `5.1.2-6` | Give the AI system only the permissions it needs on other systems | tmodel#130, ADR-0010 | indirect prompt injection (*i*) | NISTAML.015, NISTAML.039 | AML.T0051.001, AML.T0053 |
+| `5.1.2-6` | Give the AI system only the permissions it needs on other systems | tmodel#130, ADR-0010 | direct prompt injection (*i*); indirect prompt injection (*i*) | NISTAML.015, NISTAML.018, NISTAML.027, NISTAML.039 | AML.T0051.000, AML.T0051.001, AML.T0053 |
 | `5.1.2-7` | Do due diligence on external providers | DEC-009 | supply chain (*i*) | NISTAML.05 | AML.T0010 |
 | `5.1.3-1` | Threat-model and manage risks, including AI-specific attacks | ADR-0010, ADR-0006, DEC-001b | poisoning (**s**); privacy (**s**) | NISTAML.013, NISTAML.032, NISTAML.033 | AML.T0020, AML.T0024.000, AML.T0024.001 |
 | `5.1.3-1.1` | Re-run threat modelling when settings or configuration change | DEC-001b | — | — | — |
-| `5.1.3-1.2` | Manage risks of superfluous model functionality | ADR-0010, ADR-0006 | indirect prompt injection (*i*) | NISTAML.015 | AML.T0129 |
+| `5.1.3-1.2` | Manage risks of superfluous model functionality | ADR-0010, ADR-0006 | direct prompt injection (*i*); indirect prompt injection (*i*) | NISTAML.015, NISTAML.018 | AML.T0051.000, AML.T0129 |
 | `5.1.3-1.3` | Apply controls in line with corporate risk tolerance | ADR-0006 | — | — | — |
 | `5.1.3-2` | Pass unresolved AI threats on to System Operators and End-users | DEC-009, ADR-0007 | — | — | — |
 | `5.1.3-3` | Get assurance from external parties responsible for AI risks | ADR-0006, DEC-009 | — | — | — |
@@ -264,16 +299,16 @@ lifecycle control with no single attack class.
 | `5.1.4-2` | Make outputs easy for humans to assess | R-018 | — | — | — |
 | `5.1.4-3` | Build technical measures where human oversight is a risk control | R-018, ADR-0006 | — | — | — |
 | `5.1.4-4` | Verify Data Custodian security controls are built in | R-018 | — | — | — |
-| `5.1.4-5` | Tell End-users about prohibited use cases | — | misuse (*i*) | NISTAML.04 | — |
+| `5.1.4-5` | Tell End-users about prohibited use cases | — | non-adversarial (*i*) | — | — |
 | `5.2.1-1` | Maintain an inventory of assets and their interdependencies | tmodel#130, ADR-0010, ADR-0007 | — | — | — |
 | `5.2.1-2` | Track, authenticate, version-control and secure AI assets | tmodel#130, ADR-0010 | supply chain (*i*) | NISTAML.051 | AML.T0010.003, AML.T0018 |
-| `5.2.1-3` | Tailor disaster recovery plans to attacks on AI systems | DEC-009 | — | — | — |
+| `5.2.1-3` | Tailor disaster recovery plans to attacks on AI systems | DEC-009 | general (**s**) | — | — |
 | `5.2.1-3.1` | Be able to restore a known good state | DEC-009 | poisoning (*i*) | NISTAML.013, NISTAML.026 | AML.T0018.000, AML.T0020 |
-| `5.2.1-4` | Protect sensitive data such as training and test data | tmodel#130 | conventional (*i*) | — | AML.T0025, AML.T0035 |
-| `5.2.1-4.1` | Check and sanitise data and inputs, and repeat on model revisions | — | poisoning (*i*); direct prompt injection (*i*); indirect prompt injection (*i*) | NISTAML.013, NISTAML.015, NISTAML.018 | AML.T0020, AML.T0051.000, AML.T0051.001 |
+| `5.2.1-4` | Protect sensitive data such as training and test data | tmodel#130 | conventional (**s**) | — | AML.T0025, AML.T0035 |
+| `5.2.1-4.1` | Check and sanitise data and inputs, and repeat on model revisions | — | poisoning (*i*) | NISTAML.013 | AML.T0020 |
 | `5.2.1-4.2` | Protect confidential training data and model weights | tmodel#130 | conventional (*i*) | — | AML.T0035, AML.T0048.004 |
 | `5.2.2-1` | Secure access to APIs, models, data and pipelines | tmodel#130 | conventional (*i*) | — | AML.T0012, AML.T0035 |
-| `5.2.2-2` | Protect externally offered APIs, e.g. with rate limits | ADR-0006 | poisoning (**s**); privacy (**s**) | NISTAML.013, NISTAML.031 | AML.T0020, AML.T0024.002, AML.T0040 |
+| `5.2.2-2` | Protect externally offered APIs, e.g. with rate limits | ADR-0006 | poisoning (**s**); privacy (*i*); availability (*i*) | NISTAML.01, NISTAML.013, NISTAML.031 | AML.T0020, AML.T0024.002, AML.T0029, AML.T0034 |
 | `5.2.2-3` | Use separate, least-privilege development and tuning environments | tmodel#130 | conventional (*i*) | — | AML.T0035 |
 | `5.2.2-4` | Publish a vulnerability disclosure policy | DEC-008 | — | — | — |
 | `5.2.2-5` | Maintain an AI incident management plan and recovery plan | DEC-009 | — | — | — |
@@ -282,7 +317,7 @@ lifecycle control with no single attack class.
 | `5.2.3-2` | Justify using poorly documented or unsecured models or components | DEC-008, DEC-009 | supply chain (*i*) | NISTAML.05 | AML.T0010.003, AML.T0011.000 |
 | `5.2.3-2.1` | Mitigate and risk-assess such models or components | ADR-0006 | supply chain (*i*) | NISTAML.05 | AML.T0010.003, AML.T0011.000 |
 | `5.2.3-2.2` | Share that justification with End-users | — | — | — | — |
-| `5.2.3-3` | Re-run evaluations on released models before using them | DEC-009 | supply chain (*i*) | NISTAML.023, NISTAML.051 | AML.T0010.003, AML.T0018.000 |
+| `5.2.3-3` | Re-run evaluations on released models before using them | DEC-009 | supply chain (*i*) | NISTAML.051 | AML.T0010.003, AML.T0018.000 |
 | `5.2.3-4` | Tell End-users before models are updated | DEC-009 | — | — | — |
 | `5.2.4-1` | Document an audit trail of design and maintenance plans | DEC-001b, R-018 | — | — | — |
 | `5.2.4-1.1` | Include security-relevant information in the documentation | ADR-0007 | poisoning (*i*) | NISTAML.013 | AML.T0020 |
@@ -298,19 +333,19 @@ lifecycle control with no single attack class.
 | `5.2.5-4.1` | Check outputs do not give unintended influence over the system | — | direct prompt injection (*i*) | NISTAML.018 | AML.T0051.000 |
 | `5.3.1-1` | Tell End-users how their data is used, accessed and stored | — | — | — | — |
 | `5.3.1-2` | Give End-users guidance on use and configuration | — | — | — | — |
-| `5.3.1-2.1` | Cover appropriate use, limitations and failure modes in guidance | — | — | — | — |
+| `5.3.1-2.1` | Cover appropriate use, limitations and failure modes in guidance | — | non-adversarial (**s**) | — | — |
 | `5.3.1-2.2` | Proactively inform End-users of security-relevant updates | DEC-009 | — | — | — |
 | `5.3.1-3` | Support End-users and Affected Entities during incidents | DEC-009 | — | — | — |
 | `5.4.1-1` | Provide security updates and deliver them to End-users | DEC-009, DEC-008 | — | — | — |
 | `5.4.1-1.1` | Have contingency plans where updates cannot be provided | DEC-009, ADR-0006 | — | — | — |
 | `5.4.1-2` | Treat major updates as a new model and re-test | DEC-001b, DEC-009 | — | — | — |
 | `5.4.1-3` | Help System Operators evaluate model changes | DEC-009 | — | — | — |
-| `5.4.2-1` | Log system and user actions | R-018 | privacy (*i*) | NISTAML.031 | AML.T0024.002 |
+| `5.4.2-1` | Log system and user actions | R-018 | privacy (*i*); direct prompt injection (*i*) | NISTAML.018, NISTAML.031 | AML.T0024.002, AML.T0051.000 |
 | `5.4.2-2` | Analyse logs for anomalies, drift and poisoning | DEC-009 | poisoning (**s**); non-adversarial (**s**) | NISTAML.013 | AML.T0020 |
 | `5.4.2-3` | Monitor internal states of the AI system | — | — | — | — |
-| `5.4.2-4` | Monitor model performance over time | DEC-009 | poisoning (*i*) | NISTAML.013 | AML.T0031 |
-| `5.5.1-1` | Involve Data Custodians and dispose securely when transferring ownership | tmodel#130, DEC-009 | privacy (*i*) | NISTAML.038 | AML.T0035 |
-| `5.5.1-2` | Involve Data Custodians and delete data when decommissioning | tmodel#130, DEC-009 | conventional (*i*) | — | AML.T0035, AML.T0083 |
+| `5.4.2-4` | Monitor model performance over time | DEC-009 | poisoning (*i*); non-adversarial (*i*) | NISTAML.013, NISTAML.026 | AML.T0018.000, AML.T0020 |
+| `5.5.1-1` | Involve Data Custodians and dispose securely when transferring ownership | tmodel#130, DEC-009 | conventional (*i*) | — | AML.T0035 |
+| `5.5.1-2` | Involve Data Custodians and delete data when decommissioning | tmodel#130, DEC-009 | conventional (*i*) | — | AML.T0035, AML.T0055 |
 
 ## ATLAS techniques used (all verified in ATLAS 2026.09)
 
@@ -324,22 +359,23 @@ lifecycle control with no single attack class.
 | AML.T0012 | Valid Accounts | 1 entries |
 | AML.T0015 | Evade AI Model | 1 entries |
 | AML.T0018 | Manipulate AI Model | 2 entries |
-| AML.T0018.000 | Poison AI Model | 2 entries |
+| AML.T0018.000 | Poison AI Model | 3 entries |
 | AML.T0018.003 | Modify Prompt Construction Logic | 1 entries |
-| AML.T0020 | Training Data Poisoning | 9 entries |
+| AML.T0020 | Training Data Poisoning | 10 entries |
 | AML.T0024.000 | Infer Training Data Membership | 2 entries |
 | AML.T0024.001 | Invert AI Model | 3 entries |
 | AML.T0024.002 | Extract AI Model | 3 entries |
 | AML.T0025 | Exfiltration via Cyber Means | 1 entries |
-| AML.T0031 | Erode AI Model Integrity | 1 entries |
+| AML.T0029 | Denial of AI Service | 1 entries |
+| AML.T0034 | Cost Harvesting | 1 entries |
 | AML.T0035 | AI Artifact Collection | 6 entries |
-| AML.T0040 | AI Model Inference API Access | 1 entries |
 | AML.T0043 | Craft Adversarial Data | 1 entries |
 | AML.T0048.004 | AI Intellectual Property Theft | 1 entries |
-| AML.T0051.000 | Direct | 2 entries |
-| AML.T0051.001 | Indirect | 2 entries |
+| AML.T0051.000 | Direct | 5 entries |
+| AML.T0051.001 | Indirect | 1 entries |
 | AML.T0053 | AI Agent Tool Invocation | 1 entries |
+| AML.T0054 | LLM Jailbreak | 1 entries |
+| AML.T0055 | Unsecured Credentials | 1 entries |
 | AML.T0057 | LLM Data Leakage | 2 entries |
 | AML.T0081 | Modify AI Agent Configuration | 1 entries |
-| AML.T0083 | Credentials from AI Agent Configuration | 1 entries |
 | AML.T0129 | Triggers in Multimodal Inputs | 1 entries |

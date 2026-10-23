@@ -34,20 +34,19 @@ guidance is (1); its human-in-the-loop and logging advice is also (2).
 
 ## Summary
 
-136 entries; 44 carry a threat mapping, 20 of them to a NIST AI 100-2 attack class. An entry is counted once per class (as stated if any of its mappings to that class is stated).
+136 entries; 50 carry a threat mapping, 22 of them to a NIST AI 100-2 attack class. An entry is counted once per class (as stated if any of its mappings to that class is stated).
 
 | attack class | entries | stated | inferred | NIST AI 100-2 E2025 ids | ATLAS ids |
 |---|---|---|---|---|---|
-| Evasion | 3 | 1 | 2 | NISTAML.022 Evasion | AML.T0015, AML.T0043 |
+| Evasion | 4 | 1 | 3 | NISTAML.022 Evasion | AML.T0015, AML.T0041, AML.T0043 |
 | Poisoning | 7 | 2 | 5 | NISTAML.013 Data Poisoning, NISTAML.026 Model Poisoning | AML.T0018, AML.T0018.000, AML.T0020, AML.T0059 |
-| Privacy | 6 | 1 | 5 | NISTAML.031 Model Extraction, NISTAML.032 Reconstruction, NISTAML.036 Leaking information from user interactions, NISTAML.038 Data Extraction | AML.T0024, AML.T0024.001, AML.T0024.002, AML.T0057 |
-| Misuse | 1 | 0 | 1 | NISTAML.04 Misuse Violations | AML.T0054 |
-| Direct prompt injection | 2 | 0 | 2 | NISTAML.018 Prompt Injection | AML.T0051.000 |
-| Indirect prompt injection | 3 | 0 | 3 | NISTAML.015 Indirect Prompt Injection, NISTAML.039 Compromising connected resources | AML.T0051.001, AML.T0053 |
-| Supply chain | 4 | 0 | 4 | NISTAML.05 Supply Chain Attacks | AML.T0010, AML.T0010.003 |
-| Conventional (outside NIST AI 100-2: access, theft, tampering, network paths) | 15 | 3 | 12 | — | AML.T0012, AML.T0025, AML.T0035, AML.T0036, AML.T0122 |
-| Non-adversarial (not an attack) | 13 | 8 | 5 | — | — |
-| General (attacks on the AI system, no class) | 2 | 1 | 1 | — | — |
+| Privacy | 7 | 2 | 5 | NISTAML.031 Model Extraction, NISTAML.032 Reconstruction, NISTAML.034 Property Inference, NISTAML.036 Leaking information from user interactions, NISTAML.038 Data Extraction | AML.T0024, AML.T0024.000, AML.T0024.001, AML.T0024.002, AML.T0057 |
+| Direct prompt injection | 4 | 0 | 4 | NISTAML.018 Prompt Injection | AML.T0051.000, AML.T0054 |
+| Indirect prompt injection | 4 | 0 | 4 | NISTAML.015 Indirect Prompt Injection | AML.T0051.001, AML.T0053 |
+| Supply chain | 6 | 0 | 6 | NISTAML.05 Supply Chain Attacks | AML.T0010, AML.T0010.001, AML.T0010.003 |
+| Conventional (outside NIST AI 100-2: access, theft, tampering, network paths) | 16 | 4 | 12 | — | AML.T0012, AML.T0025, AML.T0035, AML.T0036, AML.T0122 |
+| Non-adversarial (not an attack) | 18 | 8 | 10 | — | — |
+| General (attacks on the AI system, no class) | 5 | 4 | 1 | — | — |
 
 The pattern differs from the EN's. This guidance is mostly about **safety and reliability**: of its
 ten Table 2 risks, one is an attack class (Cybersecurity Risks) and one has an adversarial part
@@ -69,20 +68,28 @@ guardrail bypass (Table 2), data poisoning (§2.2, §4.1) and adversarial inputs
   `component_kind: machine_learning_model`.
 - **ATLAS alongside ATT&CK** (§3.2, stated): ATLAS techniques are generic attack patterns, so they
   fit `AttackPattern.catalog_ref` beside ATT&CK and CAPEC ids. Adopt: a threat model of an
-  AI-enabled OT system should carry both.
+  AI-enabled OT system should carry both. **Gap:** `catalog_ref` is single-valued, while every
+  mapping here pairs a NIST taxonomy class with one or more ATLAS techniques (open question 4).
 - **Roles** (§1.2 "must clearly define and communicate these roles and responsibilities with the AI
   system manufacturer, OT supplier, and any system integrator or managed service provider"; §3.1
-  roles list): `Party` with roles on relations, as for the EN's stakeholders.
+  roles list). **Gap:** the accepted core has no role slot. Its Party-ranged edges are
+  `manufactured_by`, `supplied_by`, `owned_by`, `reported_by`, `assigned_by`,
+  `implementation_owner`, `for_stakeholder`, `reviewer` and `owner`; system integrator and managed
+  service provider (and, from the EN, Data Custodian, End-user, Affected entity) have no edge.
+  They would need new typed edges, which means amending DEC-001a.
 - **SBOM for AI** (§2.3, footnote 6: the minimum elements of an SBOM for AI software are the same
   as for all software): AI components take the same opaque `identifiers` (purl, SBOM ids) as any
   component. No new identity scheme is needed for MVP.
 - **AI identity in logs** (§4.1, "so the logged AI identity is distinct from any typical machine
   or user identifiers"): the accepted `PartyKind` values are `organization` and `person`. An AI
-  acting in the system is neither; tmodel#130 proposes `software_agent`. This statement is direct
-  evidence for that value.
-- **Phases**: the sourcing and lifecycle advice maps to `LifecyclePhaseCode` (`concept` for the
-  §2.1 business case; `design`; `verification_validation` for §3.3; `deployment`; `operation`;
-  `maintenance`).
+  acting in the system is neither. tmodel#130 proposes `software_agent`, defined as "A tool or AI
+  agent that makes Assertions"; this statement is about an AI acting inside the modelled system,
+  so it is evidence for widening that proposed value, not for the value as written.
+- **Phases**: part of the advice maps to `LifecyclePhaseCode` (`concept` for the §2.1 business
+  case; `design`; `verification_validation` for §3.3; `deployment`; `operation`; `maintenance`).
+  **Gap:** `LifecyclePhaseCode` has no procurement, governance, training or response value, and
+  42 of the 136 entries here sit in those phases (`phase` in `requirements.yaml` uses the library's
+  own phase vocabulary, not tmodel's).
 
 ### tmodel#130 — Asset, TrustBoundary, DataFlow (proposed, not accepted)
 
@@ -94,9 +101,9 @@ zone-and-conduit security:
 | Table 1 (Purdue levels 0–5); §2.4 DMZ or jump host | zones that nest | `TrustBoundary` with `within_boundary`, `trust_level` |
 | §2.4 and §4.1 push-based or brokered architectures; one-way transfer; "not a persistent attack path into OT" | direction and boundary crossing of each flow | `DataFlow` (`flow_from`, `flow_to`, `bidirectional: false`, `crosses_boundary`) |
 | §2.2 Data Assurance, Exposure of Sensitive Information; Prioritizing OT Data Protection | data worth protecting, and where it is stored | `Asset` (`stored_in`, `processed_by`, `security_properties`) |
-| §2.2 "the data may become accessible or stored (statistically) … in the model" | training data that persists inside a model | `Asset` processed by a `machine_learning_model` component |
+| §2.2 "the data may become accessible or stored (statistically) … in the model" | training data that persists inside a model | `Asset.stored_in` a `machine_learning_model` component |
 | §4.1 inventory of AI components | kind of component | `component_kind: machine_learning_model`, `data` |
-| §4.1 distinct AI identity | an agent that is not a person or organization | `PartyKind: software_agent` |
+| §4.1 distinct AI identity | an agent that is not a person or organization | `PartyKind: software_agent`, widened (see ADR-0010 above) |
 
 ### ADR-0006 — risk composite vector (accepted)
 
@@ -104,9 +111,13 @@ zone-and-conduit security:
   "functional safety risks", "unsafe operating conditions" → safety; "financial losses",
   "increased maintenance costs" → financial; "impacted system availability", "production halts",
   "loss of productivity" → operational. Privacy appears only as a compliance concern (Regulatory
-  Compliance row) and in §2.2, not as an impact. One impact has **no slot**: "reputational
-  damage" (three rows: Cybersecurity Risks, Operator Cognitive Load, Regulatory Compliance). ADR-0006 keeps `business_impact` as a
-  post-MVP axis with no slot, so this is a known, deliberate gap, not a defect.
+  Compliance row) and in §2.2, not as an impact. Several impacts have **no slot**:
+  "reputational damage" (three rows: Cybersecurity Risks, Operator Cognitive Load, Regulatory
+  Compliance), and also "network/OT compromise", "cascading compromise", "complexity in
+  troubleshooting", "dependence on technology" and "increased documentation costs". ADR-0006
+  keeps `business_impact` as a post-MVP axis with no slot and does not say what it covers, so
+  filing reputational damage there is our inference; the others are consequences or costs the
+  S/F/O/P vector does not try to carry.
 - **Humans rate safety** (Table 2: LLMs "almost certainly should not be used to make safety
   decisions for OT environments"). ADR-0006 already makes impact human-supplied and feasibility
   human-rated at MVP. Adopt as stated support for that choice, and as a rule for tmodel itself
@@ -140,8 +151,9 @@ The guidance gives no states or transitions, so no state machine was extracted.
   in scope of the CVE/NVD pipeline like any software (footnote 6, SBOM).
 - §2.3 *Vendor Notifications* asks AI vendors to disclose when "the AI can provide improper advice
   or take inappropriate action": a behavioural defect that has no CVE form today.
-- AI weaknesses partly in CWE 4.20: CWE-1426 *Improper Validation of Generative AI Output* is the
-  weakness the "should not make safety decisions" and validate-AI-output statements address;
+- AI weaknesses partly in CWE 4.20: CWE-1426 *Improper Validation of Generative AI Output* (GenAI
+  only) is the weakness the "should not make safety decisions" and validate-AI-output statements
+  address for LLMs;
   CWE-1427 *Improper Neutralization of Input Used for LLM Prompting* is the weakness behind the
   prompt injection Table 2 names. Both links inferred.
 - Mirror ATLAS with CWE/NVD if DEC-008 picks a cached mirror (see the EN's notes).
@@ -173,9 +185,11 @@ The guidance gives no states or transitions, so no state machine was extracted.
   Table 2 rows, the §1.3 consequences, the §2.2 and §2.3 data and vendor risks, the §2.4 and §3.4
   challenges, the §4.1 attack vectors and the §4.2 failure and attack statements), in source order, each quoted, mapped where a class fits, with the
   statements that address it.
-- **Weaknesses.** One stated (an LLM in a safety decision path) and three read as the negation of a
-  recommendation (persistent inbound access into OT, an AI identity that logs cannot tell apart,
-  active AI control without a human in the loop).
+- **Weaknesses.** Two stated (an LLM in a safety decision path; lack of AI vendor transparency,
+  moved from the threats after review) and three read as the negation of a recommendation
+  (persistent inbound access into OT, an AI identity that logs cannot tell apart, active AI
+  control without a human in the loop). Candidate CWE 4.20 ids, all inferred: CWE-1426 (GenAI
+  only), CWE-653, CWE-778 and CWE-223; none fits vendor opacity or human-in-the-loop.
 - **Vulnerabilities.** None: no product or CVE is named.
 
 ## Open questions for the sponsor
@@ -189,12 +203,29 @@ The guidance gives no states or transitions, so no state machine was extracted.
    use of AI at all (e.g. ATLAS AML.T0102 *Generate Malicious Commands*), or only attacks on AI?
 3. **Continuous retraining on OT data** (§4.1) is also a poisoning exposure; the guidance does not
    say so. Flag it in RPT-0009 as a gap in the source?
-4. **Version.** The PDF file is the January 2026 revision (`508cV2`) but its Version History lists
-   only "December 3, 2025: Initial version." What changed between versions is not stated.
-5. **Principle 4 title** differs between the Introduction and Conclusion ("Embed Safety and
-   Security Practices") and the body and contents ("Embed Oversight and Failsafe Practices").
-   Kept as printed.
-6. The §3.2 ATLAS sentence ends with a comma at the end of the section (p. 17); kept as printed.
+4. **One attack, several ids.** `AttackPattern.catalog_ref` holds one id, but each mapping here is a
+   NIST class (a taxonomy node, not a technique) plus one or more ATLAS techniques. Multivalued
+   `catalog_ref`, one AttackPattern per ATLAS id with the NIST class as a classification, or
+   something else?
+5. **CWE ids for AI weaknesses.** `threats.yaml` gives candidate CWE 4.20 ids for the weaknesses
+   (inferred, with each id's mapping-usage value); there is no CWE entry for predictive-ML
+   weaknesses. Adopt these, or leave AI weaknesses without CWE?
+6. **AI defects with no CVE.** *Vendor Notifications* (§2.3) asks vendors to disclose when "the AI
+   can provide improper advice or take inappropriate action". Where does such a report live in
+   the object model if it has no CVE?
+7. **Mapping rule.** The inferred mappings follow our reading. ATLAS publishes which mitigations
+   (`AML.M*`) address which techniques; should RPT-0009 derive or check the inferred mappings from
+   those relations, which would also feed `Mitigation.catalog_ref`?
+8. **Library records** for NIST AI 100-2 E2025 and ATLAS 2026.09 do not exist yet, so the ids here
+   resolve only by citation. Add them (tmodel RPT-0014 already lists both as sources)?
+
+## Source notes (kept as printed; not decisions)
+
+- **Version.** The PDF file is the January 2026 revision (`508cV2`) but its Version History lists
+  only "December 3, 2025: Initial version." What changed between versions is not stated.
+- **Principle 4 title** differs between the Introduction and Conclusion ("Embed Safety and
+  Security Practices") and the body and contents ("Embed Oversight and Failsafe Practices").
+- The §3.2 ATLAS sentence ends with a comma at the end of the section (p. 17).
 
 ## Decision index
 
@@ -216,7 +247,7 @@ A dash means a governance or process statement with no single attack class.
 
 | id | provision | decisions | threat | NIST | ATLAS |
 |---|---|---|---|---|---|
-| `R-0001` | Despite the many benefits, integrating AI into operational technology … | ADR-0006 | non-adversarial (**s**) | — | — |
+| `R-0001` | Despite the many benefits, integrating AI into operational technology … | ADR-0006 | non-adversarial (**s**); general (**s**) | — | — |
 | `R-0002` | This guidance outlines four key principles critical infrastructure owners … | — | — | — | — |
 | `R-0003` | Understand AI. Understand the unique risks and potential impacts … | — | — | — | — |
 | `R-0004` | Consider AI Use in the OT Domain. Assess the … | — | — | — | — |
@@ -226,7 +257,7 @@ A dash means a governance or process statement with no single attack class.
 | `R-0008` | The scope of this guidance focuses on ML- and … | — | — | — | — |
 | `R-0009` | However, this guidance may also be applied to systems … | — | — | — | — |
 | `R-0010` | Implementing error-checking can improve AI agent’s performance by avoiding … | R-018 | — | — | — |
-| `R-0011` | Table 2 provides a broad overview of known AI … | ADR-0010, DEC-001b | poisoning (*i*); misuse (*i*); direct prompt injection (*i*); indirect prompt injection (*i*); non-adversarial (*i*) | NISTAML.013, NISTAML.015, NISTAML.018, NISTAML.026, NISTAML.04 | AML.T0018, AML.T0020, AML.T0051.000, AML.T0051.001, AML.T0054 |
+| `R-0011` | Table 2 provides a broad overview of known AI … | ADR-0010, DEC-001b | evasion (*i*); poisoning (*i*); direct prompt injection (*i*); indirect prompt injection (*i*); supply chain (*i*); non-adversarial (*i*) | NISTAML.013, NISTAML.015, NISTAML.018, NISTAML.022, NISTAML.026, NISTAML.05 | AML.T0010.001, AML.T0015, AML.T0018, AML.T0020, AML.T0041, AML.T0043, AML.T0051.000, AML.T0051.001, AML.T0054 |
 | `R-0012` | critical infrastructure owners and operators should investigate risks specific … | ADR-0006 | — | — | — |
 | `R-0013` | Table 2, row Cybersecurity Risks | ADR-0010 | conventional (**s**) | — | AML.T0012, AML.T0035 |
 | `R-0014` | Table 2, row Reliability | R-018, ADR-0006 | non-adversarial (*i*) | — | — |
@@ -256,32 +287,32 @@ A dash means a governance or process statement with no single attack class.
 | `R-0038` | When integrating AI into OT environments, critical infrastructure owners … | DEC-009 | — | — | — |
 | `R-0039` | Data Assurance | tmodel#130, ADR-0010 | poisoning (*i*); conventional (*i*) | NISTAML.013 | AML.T0020, AML.T0025, AML.T0035 |
 | `R-0040` | Data Sovereignty | DEC-009 | — | — | — |
-| `R-0041` | Exposure of Sensitive Information | tmodel#130 | privacy (*i*) | NISTAML.036, NISTAML.038 | AML.T0057 |
-| `R-0042` | Data Privacy and Security | tmodel#130 | poisoning (**s**); conventional (**s**) | NISTAML.013 | AML.T0012, AML.T0020 |
+| `R-0041` | Exposure of Sensitive Information | tmodel#130 | privacy (**s**); conventional (**s**) | NISTAML.038 | AML.T0057 |
+| `R-0042` | Data Privacy and Security | tmodel#130 | poisoning (**s**); conventional (**s**); non-adversarial (**s**) | NISTAML.013 | AML.T0012, AML.T0020 |
 | `R-0043` | Data Silos | ADR-0007 | — | — | — |
 | `R-0044` | Data Quality and Availability | — | non-adversarial (**s**) | — | — |
 | `R-0045` | Data Quality and Availability | DEC-009 | poisoning (*i*) | NISTAML.013 | AML.T0020, AML.T0059 |
 | `R-0046` | Prioritizing OT Data Protection | tmodel#130, ADR-0010 | — | — | — |
 | `R-0047` | Engineering Configuration Data | tmodel#130 | conventional (**s**) | — | AML.T0036 |
-| `R-0048` | Ephemeral OT Data | tmodel#130 | privacy (**s**) | NISTAML.032, NISTAML.038 | AML.T0024.001, AML.T0057 |
+| `R-0048` | Ephemeral OT Data | tmodel#130 | privacy (**s**) | NISTAML.032, NISTAML.034, NISTAML.038 | AML.T0024.000, AML.T0024.001, AML.T0057 |
 | `R-0049` | Critical infrastructure owners and operators should demand transparency and … | DEC-009 | supply chain (*i*) | NISTAML.05 | AML.T0010 |
 | `R-0050` | Contractual Agreements | DEC-009 | — | — | — |
 | `R-0051` | Software Supply Chain and Software Bill of Materials (SBOM) | ADR-0010, ADR-0007, DEC-008 | supply chain (*i*) | NISTAML.05 | AML.T0010, AML.T0010.003 |
-| `R-0052` | Vendor Notifications | DEC-008, DEC-009 | non-adversarial (**s**) | — | — |
-| `R-0053` | Explicit Data Usage Policy Review and Enforcement | tmodel#130 | privacy (*i*) | NISTAML.038 | AML.T0057 |
-| `R-0054` | Increased Connectivity | tmodel#130 | conventional (*i*) | — | AML.T0122 |
+| `R-0052` | Vendor Notifications | DEC-008, DEC-009 | general (**s**) | — | — |
+| `R-0053` | Explicit Data Usage Policy Review and Enforcement | tmodel#130 | privacy (*i*) | NISTAML.032, NISTAML.034, NISTAML.038 | AML.T0024.000, AML.T0024.001, AML.T0057 |
+| `R-0054` | Increased Connectivity | tmodel#130 | supply chain (*i*) | NISTAML.05 | AML.T0010 |
 | `R-0055` | Disabling AI Features | R-018 | — | — | — |
 | `R-0056` | When integrating AI into OT environments, critical infrastructure owners … | tmodel#130 | — | — | — |
 | `R-0057` | To mitigate these challenges, critical infrastructure owners and operators … | — | — | — | — |
 | `R-0058` | Integrate AI systems into their overall security and cybersecurity … | DEC-001b | — | — | — |
-| `R-0059` | Add AI security considerations to a comprehensive security strategy … | DEC-001b | — | — | — |
+| `R-0059` | Add AI security considerations to a comprehensive security strategy … | DEC-001b | conventional (*i*) | — | AML.T0012, AML.T0035 |
 | `R-0060` | Critical infrastructure owners and operators should define and validate … | DEC-009, ADR-0010 | — | — | — |
 | `R-0061` | Cloud providers should provide detailed documentation that outlines security … | DEC-009 | — | — | — |
 | `R-0062` | Consider existing OT infrastructure and assess and develop an … | tmodel#130 | — | — | — |
 | `R-0063` | Consider using test infrastructure before deployment to production systems, … | DEC-001b | — | — | — |
-| `R-0064` | Encourage push-based architectures where data is pushed out of … | tmodel#130 | conventional (*i*) | — | AML.T0122 |
+| `R-0064` | Encourage push-based architectures where data is pushed out of … | tmodel#130 | conventional (*i*) | — | AML.T0012, AML.T0122 |
 | `R-0065` | Prioritize the organization’s control over critical functions that AI … | R-018 | — | — | — |
-| `R-0066` | Ensure there are failsafe mechanisms that revert to traditional … | R-018, DEC-009 | — | — | — |
+| `R-0066` | Ensure there are failsafe mechanisms that revert to traditional … | R-018, DEC-009 | non-adversarial (*i*) | — | — |
 | `R-0067` | Integrate AI systems the same as any new OT … | tmodel#130, DEC-001b | conventional (*i*) | — | AML.T0122 |
 | `R-0068` | Limit active control of OT infrastructure by AI without … | R-018 | — | — | — |
 | `R-0069` | Regularly update and validate AI models for accuracy and … | DEC-009 | non-adversarial (*i*) | — | — |
@@ -294,7 +325,7 @@ A dash means a governance or process statement with no single attack class.
 | `R-0076` | Enforcing strict data governance policies that protect sensitive OT … | tmodel#130 | conventional (*i*) | — | AML.T0012, AML.T0035 |
 | `R-0077` | Establishing clear roles and responsibilities that ensure everyone involved … | ADR-0010, DEC-001b | — | — | — |
 | `R-0078` | Implementing regular audits and compliance testing to help identify … | DEC-001b | — | — | — |
-| `R-0079` | Continuously validate and verify the performance of AI systems … | DEC-009 | — | — | — |
+| `R-0079` | Continuously validate and verify the performance of AI systems … | DEC-009 | non-adversarial (*i*) | — | — |
 | `R-0080` | When integrating AI into OT environments, critical infrastructure owners … | ADR-0006, DEC-001b | — | — | — |
 | `R-0081` | This means that traditional cybersecurity requirements, vulnerability management, and … | DEC-008 | — | — | — |
 | `R-0082` | Regular Security Audits and Risk Assessments | ADR-0006, DEC-008 | — | — | — |
@@ -312,8 +343,8 @@ A dash means a governance or process statement with no single attack class.
 | `R-0094` | Virtualized controllers can speed up this testing process when … | — | — | — | — |
 | `R-0095` | Critical infrastructure owners and operators should also comply with … | tmodel#130 | conventional (*i*) | — | AML.T0035 |
 | `R-0096` | Critical infrastructure owners and operators should evaluate the applicability … | DEC-001b | — | — | — |
-| `R-0097` | Critical infrastructure owners and operators should continuously validate and … | DEC-009 | — | — | — |
-| `R-0098` | Critical infrastructure owners and operators should also identify and … | ADR-0006, R-018 | non-adversarial (**s**) | — | — |
+| `R-0097` | Critical infrastructure owners and operators should continuously validate and … | DEC-009 | non-adversarial (*i*) | — | — |
+| `R-0098` | Critical infrastructure owners and operators should also identify and … | ADR-0006, R-018 | general (**s**) | — | — |
 | `R-0099` | Ultimately, humans are responsible for functional safety. Humans make … | R-018 | — | — | — |
 | `R-0100` | Critical infrastructure owners and operators should implement oversight of … | tmodel#130, ADR-0010, ADR-0007 | — | — | — |
 | `R-0101` | Log and monitor inputs and outputs for these components. … | R-018 | privacy (*i*); direct prompt injection (*i*); indirect prompt injection (*i*) | NISTAML.015, NISTAML.018, NISTAML.031 | AML.T0024.002, AML.T0051.000, AML.T0051.001 |
@@ -321,34 +352,34 @@ A dash means a governance or process statement with no single attack class.
 | `R-0103` | Consider the following points when embedding safety processes into … | — | — | — | — |
 | `R-0104` | Human-in-the-Loop Decision-Making | R-018, DEC-001b | — | — | — |
 | `R-0105` | Human-in-the-Loop Decision-Making | R-018 | — | — | — |
-| `R-0106` | Human-in-the-Loop Decision-Making | R-018 | evasion (*i*) | NISTAML.022 | AML.T0015 |
+| `R-0106` | Human-in-the-Loop Decision-Making | R-018 | evasion (*i*); non-adversarial (*i*) | NISTAML.022 | AML.T0015 |
 | `R-0107` | Understand the correctness of AI system results to support … | ADR-0006, R-018 | non-adversarial (**s**) | — | — |
 | `R-0108` | Implement anomaly detection and behavioral analytics. Establish safe operating … | DEC-009 | poisoning (*i*); non-adversarial (**s**) | NISTAML.026 | AML.T0018 |
-| `R-0109` | Configure logging so AI decisions can be tracked for … | R-018, ADR-0010 | indirect prompt injection (*i*) | NISTAML.039 | AML.T0053 |
+| `R-0109` | Configure logging so AI decisions can be tracked for … | R-018, ADR-0010 | indirect prompt injection (*i*) | NISTAML.015 | AML.T0053 |
 | `R-0110` | The example below demonstrates how operators and engineers should … | — | — | — | — |
 | `R-0111` | AI System Output | — | — | — | — |
 | `R-0112` | Anomaly Detection Algorithm | DEC-009 | non-adversarial (*i*) | — | — |
-| `R-0113` | Monitoring Tools | R-018 | — | — | — |
-| `R-0114` | Audit Trail | R-018, DEC-001b | — | — | — |
+| `R-0113` | Monitoring Tools | R-018 | non-adversarial (*i*) | — | — |
+| `R-0114` | Audit Trail | R-018, DEC-001b | privacy (*i*); direct prompt injection (*i*); indirect prompt injection (*i*) | NISTAML.015, NISTAML.018, NISTAML.031 | AML.T0024.002, AML.T0051.000, AML.T0051.001 |
 | `R-0115` | Offensive Security Assessments/AI Red Teaming | DEC-008, R-018 | general (*i*) | — | — |
 | `R-0116` | Network and Egress Security | tmodel#130 | conventional (*i*) | — | AML.T0025 |
 | `R-0117` | Establish key performance indicators (KPIs) that measure AI effectiveness … | ADR-0006 | — | — | — |
 | `R-0118` | Critical infrastructure owners and operators should schedule regular review … | R-018, DEC-001b | — | — | — |
 | `R-0119` | Continuously validate and refine AI models in simulated environments … | DEC-001b | — | — | — |
-| `R-0120` | Regularly update threat models with AI-specific attack vectors (such … | ADR-0010, DEC-001b, ADR-0006 | evasion (**s**); poisoning (**s**) | NISTAML.013, NISTAML.022 | AML.T0015, AML.T0020, AML.T0043 |
+| `R-0120` | Regularly update threat models with AI-specific attack vectors (such … | ADR-0010, DEC-001b, ADR-0006 | evasion (**s**); poisoning (**s**); direct prompt injection (*i*) | NISTAML.013, NISTAML.018, NISTAML.022 | AML.T0015, AML.T0020, AML.T0043, AML.T0051.000, AML.T0054 |
 | `R-0121` | Continuously update and refine AI models with new OT … | DEC-009 | non-adversarial (**s**) | — | — |
 | `R-0122` | Explore new AI explainability and transparency tools. … | R-018 | — | — | — |
 | `R-0123` | Critical infrastructure owners and operators should, where possible, explore … | R-018 | — | — | — |
 | `R-0124` | Such transparency is critical for safety and regulatory compliance … | R-018 | — | — | — |
-| `R-0125` | Prefer push-based or brokered architectures that move required features … | tmodel#130 | conventional (*i*) | — | AML.T0122 |
-| `R-0126` | Where data must traverse to business networks, use one-way … | tmodel#130, R-018 | conventional (*i*) | — | AML.T0122 |
+| `R-0125` | Prefer push-based or brokered architectures that move required features … | tmodel#130 | conventional (*i*) | — | AML.T0012, AML.T0122 |
+| `R-0126` | Where data must traverse to business networks, use one-way … | tmodel#130, R-018 | conventional (*i*) | — | AML.T0012, AML.T0122 |
 | `R-0127` | Establish failsafe mechanisms that enable AI systems to fail … | DEC-009, R-018 | non-adversarial (*i*) | — | — |
 | `R-0128` | Incorporate new AI system failure states, including how to … | DEC-009 | — | — | — |
 | `R-0129` | Therefore, operators responsible for revising the existing functional safety … | DEC-009 | — | — | — |
 | `R-0130` | Design functional safety procedures that account for the AI … | — | — | — | — |
 | `R-0131` | Per Principle 2 – Consider AI Use in the … | — | — | — | — |
 | `R-0132` | Incorporate AI considerations into the cybersecurity incident response plan. … | DEC-009 | — | — | — |
-| `R-0133` | To account for this, critical infrastructure owners and operators … | DEC-009 | general (**s**) | — | — |
+| `R-0133` | To account for this, critical infrastructure owners and operators … | DEC-009 | non-adversarial (**s**); general (**s**) | — | — |
 | `R-0134` | While AI can enhance efficiency, productivity, and decision-making, it … | — | — | — | — |
 | `R-0135` | For successful mitigation of the risks of integrating AI … | — | — | — | — |
 | `R-0136` | However, as definitions of AI and OT may vary … | — | — | — | — |
@@ -357,24 +388,27 @@ A dash means a governance or process statement with no single attack class.
 
 | ATLAS id | name (2026.09) | used by |
 |---|---|---|
-| AML.T0010 | AI Supply Chain Compromise | 4 entries |
+| AML.T0010 | AI Supply Chain Compromise | 5 entries |
+| AML.T0010.001 | AI Software | 1 entries |
 | AML.T0010.003 | Model | 1 entries |
-| AML.T0012 | Valid Accounts | 4 entries |
-| AML.T0015 | Evade AI Model | 3 entries |
+| AML.T0012 | Valid Accounts | 8 entries |
+| AML.T0015 | Evade AI Model | 4 entries |
 | AML.T0018 | Manipulate AI Model | 2 entries |
 | AML.T0018.000 | Poison AI Model | 1 entries |
 | AML.T0020 | Training Data Poisoning | 6 entries |
 | AML.T0024 | Exfiltration via AI Inference API | 1 entries |
-| AML.T0024.001 | Invert AI Model | 1 entries |
-| AML.T0024.002 | Extract AI Model | 1 entries |
+| AML.T0024.000 | Infer Training Data Membership | 2 entries |
+| AML.T0024.001 | Invert AI Model | 2 entries |
+| AML.T0024.002 | Extract AI Model | 2 entries |
 | AML.T0025 | Exfiltration via Cyber Means | 3 entries |
-| AML.T0035 | AI Artifact Collection | 5 entries |
+| AML.T0035 | AI Artifact Collection | 6 entries |
 | AML.T0036 | Data from Information Repositories | 1 entries |
-| AML.T0043 | Craft Adversarial Data | 1 entries |
-| AML.T0051.000 | Direct | 2 entries |
-| AML.T0051.001 | Indirect | 2 entries |
+| AML.T0041 | Physical Environment Access | 1 entries |
+| AML.T0043 | Craft Adversarial Data | 2 entries |
+| AML.T0051.000 | Direct | 4 entries |
+| AML.T0051.001 | Indirect | 3 entries |
 | AML.T0053 | AI Agent Tool Invocation | 1 entries |
-| AML.T0054 | LLM Jailbreak | 1 entries |
+| AML.T0054 | LLM Jailbreak | 2 entries |
 | AML.T0057 | LLM Data Leakage | 4 entries |
 | AML.T0059 | Erode Dataset Integrity | 1 entries |
-| AML.T0122 | Exploitation of Remote Services | 6 entries |
+| AML.T0122 | Exploitation of Remote Services | 5 entries |

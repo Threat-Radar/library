@@ -62,7 +62,7 @@ belong in their own records.
 | `record.yaml` | metadata, including all 25 informative references as `cites` |
 | `summary.md` | this document |
 | `distilled/README.md` | index of the distillation, the checks run and their results |
-| `distilled/requirements.yaml` | **machine source:** all 72 provisions plus one clause 4 statement, verbatim, typed for audit, with the tmodel decisions each bears on (60 of 73) and the AI attack class it defends against (33 of 73) |
+| `distilled/requirements.yaml` | **machine source:** all 72 provisions plus one clause 4 statement, verbatim, typed for audit, with the tmodel decisions each bears on (60 of 73) and the AI attack class it defends against (35 of 73) |
 | `distilled/requirements.md` | human view of the provisions, generated from the YAML |
 | `distilled/normative.md` | every normative statement verbatim with clause and page |
 | `distilled/threats.yaml` | the AI threats and weaknesses the standard describes, with NIST AI 100-2 and MITRE ATLAS ids |

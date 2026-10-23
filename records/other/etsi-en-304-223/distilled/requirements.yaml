@@ -278,6 +278,24 @@ requirements:
         rationale: "the provision names \"adversarial AI attacks\"; clause 3.1 defines an adversarial attack as specially crafted inputs that make the model produce errors, which is evasion"
       - scheme: "NIST AI 100-2 E2025"
         edition: "E2025 (March 2025)"
+        ids: [NISTAML.018]
+        title: "NISTAML.018 Prompt Injection"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "the clause 3.1 definition (crafted inputs causing errors or unintended outcomes) also covers optimisation-based prompting of generative models, which NIST §3.3.1 likens to PredAI evasion"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.000, AML.T0054]
+        title: "AML.T0051.000 Direct; AML.T0054 LLM Jailbreak"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "the clause 3.1 definition (crafted inputs causing errors or unintended outcomes) also covers optimisation-based prompting of generative models, which NIST §3.3.1 likens to PredAI evasion"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
         ids: []
         title: "outside the NIST AI 100-2 E2025 attack taxonomy"
         attack_class: non-adversarial
@@ -452,8 +470,8 @@ requirements:
     maps_to:
       - scheme: "NIST AI 100-2 E2025"
         edition: "E2025 (March 2025)"
-        ids: [NISTAML.015, NISTAML.039]
-        title: "NISTAML.015 Indirect Prompt Injection; NISTAML.039 Compromising connected resources"
+        ids: [NISTAML.015, NISTAML.027, NISTAML.039]
+        title: "NISTAML.015 Indirect Prompt Injection; NISTAML.027 Misaligned Outputs; NISTAML.039 Compromising connected resources"
         attack_class: indirect-prompt-injection
         relation: mitigates
         kind: inferred
@@ -468,6 +486,24 @@ requirements:
         kind: inferred
         provenance: ours
         rationale: "least privilege on connected systems limits what an injected instruction can make the AI system do there"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.018]
+        title: "NISTAML.018 Prompt Injection"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "least privilege also limits what a user's own injected instructions can make the system do through its tools and APIs (NIST §3.3)"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.000]
+        title: "AML.T0051.000 Direct"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "least privilege also limits what a user's own injected instructions can make the system do through its tools and APIs (NIST §3.3)"
   - id: etsi-en-304-223#5.1.2-7
     designator: "5.1.2-7"
     normativity: requirement
@@ -653,6 +689,24 @@ requirements:
         kind: inferred
         provenance: ours
         rationale: "an unused modality is an input channel no control watches; ATLAS describes instructions hidden in one part of a multimodal input"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.018]
+        title: "NISTAML.018 Prompt Injection"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "the unused modality can carry a cross-modal injection from the user as well as from ingested content"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.000]
+        title: "AML.T0051.000 Direct"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "the unused modality can carry a cross-modal injection from the user as well as from ingested content"
   - id: etsi-en-304-223#5.1.3-1.3
     designator: "5.1.3-1.3"
     parent: "5.1.3-1"
@@ -846,13 +900,13 @@ requirements:
     maps_to:
       - scheme: "NIST AI 100-2 E2025"
         edition: "E2025 (March 2025)"
-        ids: [NISTAML.04]
-        title: "NISTAML.04 Misuse Violations"
-        attack_class: misuse
+        ids: []
+        title: "outside the NIST AI 100-2 E2025 attack taxonomy"
+        attack_class: non-adversarial
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "telling users which uses are prohibited addresses misuse; no ATLAS technique covers non-adversarial misuse by a legitimate user"
+        rationale: "telling users which uses are prohibited addresses misuse by legitimate users, which is not an attack; NIST misuse enablement (§3.1.2) is an attacker circumventing restrictions"
   - id: etsi-en-304-223#5.2.1-1
     designator: "5.2.1-1"
     normativity: requirement
@@ -935,6 +989,17 @@ requirements:
     testable: "yes"
     testable_reason: "inspect the work product: disaster recovery plan covering attacks on AI systems"
     bears_on: [DEC-009]
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: []
+        title: "no single attack class"
+        attack_class: general
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "specific attacks aimed at AI systems"
+        rationale: "the provision names \"specific attacks aimed at AI systems\"; names attacks on AI systems without a class"
   - id: etsi-en-304-223#5.2.1-3.1
     designator: "5.2.1-3.1"
     parent: "5.2.1-3"
@@ -1004,9 +1069,10 @@ requirements:
         title: "AML.T0035 AI Artifact Collection; AML.T0025 Exfiltration via Cyber Means"
         attack_class: conventional
         relation: mitigates
-        kind: inferred
+        kind: stated
         provenance: ours
-        rationale: "unauthorized access to training or test data is a conventional confidentiality attack on an AI artifact"
+        source_text: "against unauthorized access"
+        rationale: "the provision names \"against unauthorized access\"; unauthorized access to training or test data is a conventional confidentiality attack on an AI artifact"
   - id: etsi-en-304-223#5.2.1-4.1
     designator: "5.2.1-4.1"
     parent: "5.2.1-4"
@@ -1038,7 +1104,7 @@ requirements:
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "checking and sanitising data before training screens out poisoned samples"
+        rationale: "checking and sanitising data before training, and again on revisions from feedback or continuous learning, screens out poisoned samples (ATLAS M0007 Sanitize Training Data)"
       - scheme: "MITRE ATLAS"
         edition: "2026.09"
         ids: [AML.T0020]
@@ -1047,43 +1113,7 @@ requirements:
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "checking and sanitising data before training screens out poisoned samples"
-      - scheme: "NIST AI 100-2 E2025"
-        edition: "E2025 (March 2025)"
-        ids: [NISTAML.018]
-        title: "NISTAML.018 Prompt Injection"
-        attack_class: direct-prompt-injection
-        relation: mitigates
-        kind: inferred
-        provenance: ours
-        rationale: "sanitising inputs is a first filter against injected instructions"
-      - scheme: "MITRE ATLAS"
-        edition: "2026.09"
-        ids: [AML.T0051.000]
-        title: "AML.T0051.000 Direct"
-        attack_class: direct-prompt-injection
-        relation: mitigates
-        kind: inferred
-        provenance: ours
-        rationale: "sanitising inputs is a first filter against injected instructions"
-      - scheme: "NIST AI 100-2 E2025"
-        edition: "E2025 (March 2025)"
-        ids: [NISTAML.015]
-        title: "NISTAML.015 Indirect Prompt Injection"
-        attack_class: indirect-prompt-injection
-        relation: mitigates
-        kind: inferred
-        provenance: ours
-        rationale: "the same input checks apply to content the system ingests from third parties"
-      - scheme: "MITRE ATLAS"
-        edition: "2026.09"
-        ids: [AML.T0051.001]
-        title: "AML.T0051.001 Indirect"
-        attack_class: indirect-prompt-injection
-        relation: mitigates
-        kind: inferred
-        provenance: ours
-        rationale: "the same input checks apply to content the system ingests from third parties"
+        rationale: "checking and sanitising data before training, and again on revisions from feedback or continuous learning, screens out poisoned samples (ATLAS M0007 Sanitize Training Data)"
   - id: etsi-en-304-223#5.2.1-4.2
     designator: "5.2.1-4.2"
     parent: "5.2.1-4"
@@ -1175,20 +1205,18 @@ requirements:
         title: "NISTAML.031 Model Extraction"
         attack_class: privacy
         relation: mitigates
-        kind: stated
+        kind: inferred
         provenance: ours
-        source_text: "reverse engineer"
-        rationale: "the provision names \"reverse engineer\"; rate limits on model access slow extraction of a model through its API"
+        rationale: "'limit an attacker's ability to reverse engineer or overwhelm defences to rapidly poison a model' parses two ways; on the reading 'reverse engineer [the model]' it names model extraction, which rate limits slow (ATLAS M0004)"
       - scheme: "MITRE ATLAS"
         edition: "2026.09"
-        ids: [AML.T0024.002, AML.T0040]
-        title: "AML.T0024.002 Extract AI Model; AML.T0040 AI Model Inference API Access"
+        ids: [AML.T0024.002]
+        title: "AML.T0024.002 Extract AI Model"
         attack_class: privacy
         relation: mitigates
-        kind: stated
+        kind: inferred
         provenance: ours
-        source_text: "reverse engineer"
-        rationale: "the provision names \"reverse engineer\"; rate limits on model access slow extraction of a model through its API"
+        rationale: "'limit an attacker's ability to reverse engineer or overwhelm defences to rapidly poison a model' parses two ways; on the reading 'reverse engineer [the model]' it names model extraction, which rate limits slow (ATLAS M0004)"
       - scheme: "NIST AI 100-2 E2025"
         edition: "E2025 (March 2025)"
         ids: [NISTAML.013]
@@ -1209,6 +1237,24 @@ requirements:
         provenance: ours
         source_text: "rapidly poison a model"
         rationale: "the provision names \"rapidly poison a model\""
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.01]
+        title: "NISTAML.01 Availability Violations"
+        attack_class: availability
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "rate limits on model access also counter denial of service and cost harvesting (ATLAS M0004 mitigates both)"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0029, AML.T0034]
+        title: "AML.T0029 Denial of AI Service; AML.T0034 Cost Harvesting"
+        attack_class: availability
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "rate limits on model access also counter denial of service and cost harvesting (ATLAS M0004 mitigates both)"
   - id: etsi-en-304-223#5.2.2-3
     designator: "5.2.2-3"
     normativity: requirement
@@ -1470,8 +1516,8 @@ requirements:
     maps_to:
       - scheme: "NIST AI 100-2 E2025"
         edition: "E2025 (March 2025)"
-        ids: [NISTAML.051, NISTAML.023]
-        title: "NISTAML.051 Model Poisoning; NISTAML.023 Backdoor Poisoning"
+        ids: [NISTAML.051]
+        title: "NISTAML.051 Model Poisoning"
         attack_class: supply-chain
         relation: mitigates
         kind: inferred
@@ -1861,8 +1907,8 @@ requirements:
         relation: mitigates
         kind: stated
         provenance: ours
-        source_text: "or the training data"
-        rationale: "the provision names \"or the training data\""
+        source_text: "reverse engineer non-public aspects of the model or the training data"
+        rationale: "the provision names \"reverse engineer non-public aspects of the model or the training data\"; NIST §2.4 describes data reconstruction as attacks that seek to reverse-engineer private information"
       - scheme: "MITRE ATLAS"
         edition: "2026.09"
         ids: [AML.T0024.001, AML.T0057]
@@ -1871,8 +1917,8 @@ requirements:
         relation: mitigates
         kind: stated
         provenance: ours
-        source_text: "or the training data"
-        rationale: "the provision names \"or the training data\""
+        source_text: "reverse engineer non-public aspects of the model or the training data"
+        rationale: "the provision names \"reverse engineer non-public aspects of the model or the training data\"; NIST §2.4 describes data reconstruction as attacks that seek to reverse-engineer private information"
   - id: etsi-en-304-223#5.2.5-4.1
     designator: "5.2.5-4.1"
     parent: "5.2.5-4"
@@ -1978,6 +2024,17 @@ requirements:
     testable: "yes"
     testable_reason: "inspect the work product: guidance on appropriate use, limitations and failure modes"
     bears_on: []
+    maps_to:
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: []
+        title: "outside the NIST AI 100-2 E2025 attack taxonomy"
+        attack_class: non-adversarial
+        relation: mitigates
+        kind: stated
+        provenance: ours
+        source_text: "potential failure modes"
+        rationale: "the provision names \"potential failure modes\"; failure modes, not attacks"
   - id: etsi-en-304-223#5.3.1-2.2
     designator: "5.3.1-2.2"
     parent: "5.3.1-2"
@@ -2146,6 +2203,24 @@ requirements:
         kind: inferred
         provenance: ours
         rationale: "logged user actions show the query patterns of model extraction"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: [NISTAML.018]
+        title: "NISTAML.018 Prompt Injection"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "logged user actions show injection attempts"
+      - scheme: "MITRE ATLAS"
+        edition: "2026.09"
+        ids: [AML.T0051.000]
+        title: "AML.T0051.000 Direct"
+        attack_class: direct-prompt-injection
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "logged user actions show injection attempts"
   - id: etsi-en-304-223#5.4.2-2
     designator: "5.4.2-2"
     normativity: recommendation
@@ -2243,22 +2318,31 @@ requirements:
     maps_to:
       - scheme: "NIST AI 100-2 E2025"
         edition: "E2025 (March 2025)"
-        ids: [NISTAML.013]
-        title: "NISTAML.013 Data Poisoning"
+        ids: [NISTAML.013, NISTAML.026]
+        title: "NISTAML.013 Data Poisoning; NISTAML.026 Model Poisoning"
         attack_class: poisoning
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "a gradual change in behaviour is how eroded model integrity shows up"
+        rationale: "a gradual change in behaviour can show a poisoned dataset or model; ATLAS M0008 (monitor for concept drift) mitigates both techniques"
       - scheme: "MITRE ATLAS"
         edition: "2026.09"
-        ids: [AML.T0031]
-        title: "AML.T0031 Erode AI Model Integrity"
+        ids: [AML.T0020, AML.T0018.000]
+        title: "AML.T0020 Training Data Poisoning; AML.T0018.000 Poison AI Model"
         attack_class: poisoning
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "a gradual change in behaviour is how eroded model integrity shows up"
+        rationale: "a gradual change in behaviour can show a poisoned dataset or model; ATLAS M0008 (monitor for concept drift) mitigates both techniques"
+      - scheme: "NIST AI 100-2 E2025"
+        edition: "E2025 (March 2025)"
+        ids: []
+        title: "outside the NIST AI 100-2 E2025 attack taxonomy"
+        attack_class: non-adversarial
+        relation: mitigates
+        kind: inferred
+        provenance: ours
+        rationale: "sudden or gradual change in behaviour is mostly drift, not an attack"
   - id: etsi-en-304-223#5.5.1-1
     designator: "5.5.1-1"
     normativity: requirement
@@ -2281,24 +2365,15 @@ requirements:
     testable_reason: "evidence that the activity took place can be checked; whether it is adequate is a judgement — the EN gives no acceptance criteria and its conformance companion, TS 104 216, is unpublished"
     bears_on: [tmodel#130, DEC-009]
     maps_to:
-      - scheme: "NIST AI 100-2 E2025"
-        edition: "E2025 (March 2025)"
-        ids: [NISTAML.038]
-        title: "NISTAML.038 Data Extraction"
-        attack_class: privacy
-        relation: mitigates
-        kind: inferred
-        provenance: ours
-        rationale: "data or a model handed on without disposal can leak what it holds to the next owner"
       - scheme: "MITRE ATLAS"
         edition: "2026.09"
         ids: [AML.T0035]
         title: "AML.T0035 AI Artifact Collection"
-        attack_class: privacy
+        attack_class: conventional
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "data or a model handed on without disposal can leak what it holds to the next owner"
+        rationale: "data or a model handed on without disposal can be collected by the next holder; the provision names no attack ('security issues that can transfer')"
   - id: etsi-en-304-223#5.5.1-2
     designator: "5.5.1-2"
     normativity: requirement
@@ -2323,10 +2398,10 @@ requirements:
     maps_to:
       - scheme: "MITRE ATLAS"
         edition: "2026.09"
-        ids: [AML.T0035, AML.T0083]
-        title: "AML.T0035 AI Artifact Collection; AML.T0083 Credentials from AI Agent Configuration"
+        ids: [AML.T0035, AML.T0055]
+        title: "AML.T0035 AI Artifact Collection; AML.T0055 Unsecured Credentials"
         attack_class: conventional
         relation: mitigates
         kind: inferred
         provenance: ours
-        rationale: "configuration left on a decommissioned system can expose artifacts and the credentials it holds"
+        rationale: "configuration left on a decommissioned system can expose artifacts and insecurely stored credentials"

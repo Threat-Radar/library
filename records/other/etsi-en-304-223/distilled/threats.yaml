@@ -10,9 +10,11 @@ note: >
   the source names; each inferred item says which in its note). external_id holds our mapping as opaque
   strings: NIST AI 100-2 E2025 index ids (NISTAML.*) and MITRE ATLAS 2026.09 technique ids
   (AML.T*), the latter checked against the ATLAS data served by atlas.mitre.org. The source
-  prints neither. attack_class uses the NIST AI 100-2 E2025 classes plus three labels of
-  ours: non-adversarial (not an attack), conventional (an attack outside the AML taxonomy)
-  and general / unclear / out-of-scope. addressed_by lists the requirements whose maps_to
+  prints neither. Weaknesses carry candidate CWE 4.20 ids the same way (inferred; see
+  each note for the CWE mapping-usage value). attack_class uses the NIST AI 100-2 E2025
+  classes plus five labels of ours: non-adversarial (not an attack), conventional (an attack
+  outside the AML taxonomy), general (attacks named without a class), unclear (named, not
+  defined) and out-of-scope (attacks that use AI). addressed_by lists the requirements whose maps_to
   shares an id with the threat (derived; threats with no id list none). Nothing here is
   instantiated against a product: no risk vector, no mitigation state (artifact.schema.yaml).
 threats:
@@ -53,7 +55,7 @@ threats:
     attack_class: ["indirect-prompt-injection"]
     locator: "Introduction, p. 5"
     kind: "stated"
-    addressed_by: ["5.1.2-6", "5.1.3-1.2", "5.2.1-4.1"]
+    addressed_by: ["5.1.2-6", "5.1.3-1.2"]
     note: "Named in the Introduction only; no provision names it. The provisions that address it are our reading (5.1.2-6, 5.1.3-1.2, 5.2.1-4.1)."
   - id: "T-05"
     name: "adversarial attack"
@@ -99,7 +101,7 @@ threats:
     attack_class: ["privacy"]
     locator: "5.2.5-4, p. 14; also 5.2.2-2 ('reverse engineer', via an API)"
     kind: "stated"
-    addressed_by: ["5.1.2-5", "5.1.3-1", "5.2.2-2", "5.2.5-4", "5.4.2-1", "5.5.1-1"]
+    addressed_by: ["5.1.2-5", "5.1.3-1", "5.2.2-2", "5.2.5-4", "5.4.2-1"]
   - id: "T-09"
     name: "API abuse to overwhelm defences and poison a model"
     description: "For example, placing limits on model access rate to limit an attacker's ability to reverse engineer or overwhelm defences to rapidly poison a model."
@@ -119,7 +121,7 @@ threats:
     attack_class: ["direct-prompt-injection"]
     locator: "5.2.5-4.1, p. 14"
     kind: "inferred"
-    addressed_by: ["5.2.1-4.1", "5.2.5-4.1"]
+    addressed_by: ["5.1.2-2", "5.1.2-6", "5.1.3-1.2", "5.2.5-4.1", "5.4.2-1"]
     note: "The source names the effect, not the attack; the class is our reading."
   - id: "T-11"
     name: "data drift"
@@ -163,20 +165,20 @@ weaknesses:
     description: "Developers shall manage the security risks associated with AI models that provide superfluous functionalities, where increased functionality leads to increased risk. For example, where a multi-modal model is being used but only single modality is used for system function."
     locator: "5.1.3-1.2, p. 11"
     kind: "stated"
+    external_id: ["CWE-1125"]
+    note: "Nearest CWE 4.20 entry is CWE-1125 Excessive Attack Surface, whose mapping usage is Prohibited; given for orientation only (inferred)."
   - id: "W-02"
     name: "models or components that are not well-documented or secured"
     description: "System Operators that choose to use or adapt any models, or components, which are not well-documented or secured shall be able to justify their decision"
     locator: "5.2.3-2, p. 13"
     kind: "stated"
+    external_id: ["CWE-1357"]
+    note: "CWE-1357 Reliance on Insufficiently Trustworthy Component (mapping usage Allowed-with-Review); inferred."
   - id: "W-03"
     name: "excess permissions granted to the AI system on other systems"
     description: "Developers and System Operators shall ensure that the permissions granted to the AI system on other systems are only provided as required for functionality and are risk assessed."
     locator: "5.1.2-6, p. 11"
     kind: "inferred"
-    note: "The weakness is the negation of the provision; our reading."
-  - id: "W-04"
-    name: "risk that remains after controls"
-    description: "It is important to recognize that a higher level of risk will remain in AI systems despite the application of controls to mitigate against them."
-    locator: "5.1.3-4, p. 11"
-    kind: "stated"
+    external_id: ["CWE-250"]
+    note: "The weakness is the negation of the provision; our reading. CWE-250 Execution with Unnecessary Privileges (Allowed); inferred."
 vulnerabilities: []   # the source names no product vulnerability (no CVE)
