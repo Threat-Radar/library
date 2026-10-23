@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: memgraph-lab
 record: memgraph-lab
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # Memgraph Lab documentation
@@ -26,7 +26,7 @@ generated-query context and response feedback.
 ## Applicability
 
 Product precedent for Issue #10 query/graph views, visual weighting, expansion, and
-LLM-assisted querying. It bears on no accepted decision in this record.
+LLM-assisted querying. It informs DEC-006, R-014, and R-018 without accepting a decision.
 
 ## Limits
 

@@ -1,6 +1,4 @@
 # Repo: pin the commit. An unpinned repo is not a citable source.
-# Base template. Every adapter is this shape; types differ only in defaults
-# and in which fields they leave for a human. Placeholders: {{...}}
 schema: "library-record/v1"
 id: kuzu
 body: community
@@ -8,7 +6,8 @@ type: repo
 title: "Kùzu graph database"
 authors: []
 date: ""
-version: "0.11.3"
+version: "archived-state snapshot 2025-10-10 (latest release: 0.11.3)"
+publisher: "Kùzu project"
 identifiers:
   git: https://github.com/kuzudb/kuzu
 content:
@@ -22,7 +21,8 @@ relations:
   see_also: []
   cited_by: []
   implements_concept: []
-bears_on: []
+bears_on:
+  - DEC-006
 topic: rpt-0006-knowledge-graph-visualization
 commit: "89f0263cc7a1fd9c396d2c4953747a013556a7f9"
 license: "MIT"
