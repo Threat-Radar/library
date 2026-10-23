@@ -1,0 +1,7 @@
+{
+	"severity": [ {
+		"type": string,
+		"score": string,
+		"source": string
+	} ]
+}

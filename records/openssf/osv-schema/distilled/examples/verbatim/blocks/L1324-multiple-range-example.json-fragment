@@ -1,0 +1,9 @@
+"ranges": [ {
+    "type": "SEMVER",
+    "events": [
+      { "introduced": "1.0.0" },
+      { "fixed": "1.0.2" },
+      { "introduced": "3.0.0" },
+      { "fixed": "3.2.5" }
+    ]
+} ]

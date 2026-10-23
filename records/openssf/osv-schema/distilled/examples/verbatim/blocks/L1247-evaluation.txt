@@ -1,0 +1,44 @@
+func IsVulnerable(pkg, v, osv)
+  for affected in osv.affected
+    if affected.package == pkg
+      if IncludedInVersions(v, affected.versions) ||
+           IncludedInRanges(v, affected.ranges)
+        return true
+
+  return false
+
+func IncludedInVersions(v, versions)
+  for version in versions
+    if v == version
+      return true
+
+  return false
+
+func IncludedInRanges(v, ranges)
+  for range in ranges
+    if BeforeLimits(v, range)
+      vulnerable = false
+      for evt in sorted(range.events)
+        if evt.introduced is present && v >= evt.introduced
+           vulnerable = true
+        else if evt.fixed is present && v >= evt.fixed
+           vulnerable = false
+        else if evt.last_affected is present && v > evt.last_affected
+           vulnerable = false
+
+      if vulnerable
+        return true
+
+  return false
+
+func BeforeLimits(v, range)
+  if no limit events in range.events
+    # implicit "*" entry is assumed
+    return true
+
+  for evt in range.events
+    if evt.limit is present and v < evt.limit
+      return true
+
+  return false
+

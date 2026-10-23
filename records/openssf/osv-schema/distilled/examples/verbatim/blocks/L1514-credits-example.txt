@@ -1,0 +1,10 @@
+{
+	"credits": [ {
+		"name": "Janina Kowalska",
+		"contact": [
+			"https://twitter.com/JaninaKowalska01",
+			"mailto:nina@kowalska-family.net"
+		],
+		"type": "REMEDIATION_DEVELOPER",
+	} ]
+}
