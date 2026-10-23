@@ -35,5 +35,5 @@ derived_checks:   # OURS, not the source's: the numeric thresholds above as mach
   - {measure: "reduction in downtime", op: ">=", value: 0.25, from: "success_metrics[0]"}
   - {measure: "decrease in maintenance costs", op: ">=", value: 0.15, from: "success_metrics[1]"}
   - {measure: "improvement in overall equipment effectiveness", op: ">=", value: 0.10, from: "success_metrics[2]"}
-exercises: ["R-0025", "R-0027", "R-0028"]
+exercises: ["R-0032", "R-0035", "R-0036"]
 # A fixture for a concept-phase business-case record (DEC-001b) and for ADR-0006 impact and feasibility inputs.

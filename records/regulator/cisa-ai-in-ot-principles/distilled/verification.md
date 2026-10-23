@@ -8,49 +8,109 @@ updated: "2026-10-22"
 
 # Verification — cisa-ai-in-ot-principles
 
-## Where this stopped (read first)
+FX-1 passes 2 (verify) and 3 (cross-check), run 2026-10-21/22 by independent subagents at maximum
+effort that did not extract: one verifier for this record, and one reviewer for the threat
+mapping and the tmodel-decision claims (shared with `etsi-en-304-223`). The account usage limit
+interrupted them twice; they resumed from their saved transcripts. Every finding was applied by
+the main session, and the checks were rerun after the fixes. The fixes renumbered entries (123 →
+136) and threats (24 → 32); none of these ids had been published.
 
-**Pass 1 (extract) is complete and committed** (`d6aa69b`, 2026-10-21).
-**Passes 2 (verify) and 3 (cross-check) are started, not finished.** They ran as three independent
-subagents at maximum effort (one verifier per record, one reviewer for the threat mapping and the
-tmodel-decision claims in both records). The account usage limit stopped all three twice
-(2026-10-21 ~20:50 and ~22:00 PT); their transcripts are saved and they resume where they stopped.
-No defect had been reported when they stopped. Partial results seen:
+## The capture
 
-- threat-mapping reviewer: 234 NIST and ATLAS ids across both records checked; 0 missing; every
-  name matches ATLAS 2026.09 or the NIST E2025 index. It had moved on to reading each ATLAS
-  description for fit.
-- CISA verifier: `bin/bcp14-count` is 0 on every rendering of the PDF; it had started the
-  word-by-word comparison of the capture against independent renderings.
-- ETSI verifier: had re-derived the source text and was checking headings and pages.
-
-Because passes 2 and 3 are not recorded in `record.yaml`, `bin/validate` reports exactly two
-errors for this record ("pass 'verify' / 'cross-check' not recorded"). That is the true state.
-
-**To finish:** resume the three verifiers, apply their must-fix findings, fill in the two pass
-sections below, record `verify` and `cross-check` in `distillation.passes`, rerun
-`bin/validate`, `bin/check-pr-extraction origin/main`, `bin/check-artifacts` and
-`bin/check-requirements` (with and without `--invariants`), commit with `-s`.
+All text comes from `.cache/cisa-ai-in-ot-principles.capture.txt` (gitignored), built from
+PyMuPDF text blocks because sorted-line text interleaves table columns. Rules: page header and
+footer dropped; footnote bodies moved to the end; superscript footnote markers removed from
+inside text (including the one inline marker, footnote 11 on p. 24) — three markers PyMuPDF
+emits as their own blocks (fn 2 and 3 on p. 5, fn 6 on p. 14) stay as one-character lines and
+touch no extracted text; bullet glyphs and the "o" sub-bullet glyph dropped; line breaks joined
+with one space, except a hyphen that joins a compound across a break ("AI-driven",
+"non-production"), and a suspended hyphen before "and"/"or" keeps its space ("machine- and");
+whitespace collapsed; quotes and dashes kept as printed.
 
 ## Pass 1 self-checks (extractor, 2026-10-21)
 
-All scripted; scripts are in the session scratchpad, not the repo.
+The source PDF sha256 equals `content.sha256`; every text found verbatim in the capture with no
+overlapping spans (build script); `normative.md`, `threats.yaml` and the example fixtures cut from
+the capture by block id or checked verbatim; ATLAS ids checked against ATLAS-2026.09.yaml from
+atlas.mitre.org and NIST ids against the E2025 index.
 
-- Source PDF sha256 equals `content.sha256`.
-- **Capture.** `.cache/cisa-ai-in-ot-principles.capture.txt` is built from PyMuPDF text blocks
-  (`cisa_capture.py`), because sorted-line text interleaves table columns. Rules: page header and
-  footer dropped; footnote bodies moved to the end; superscript footnote markers removed (including
-  the one inline marker, footnote 11 on p. 24); bullet glyphs and the "o" sub-bullet glyph dropped;
-  line breaks joined with one space, except a hyphen that joins a compound across a break
-  ("AI-driven", "non-production"), and a suspended hyphen before "and"/"or" keeps its space
-  ("machine- and"); whitespace collapsed; quotes and dashes kept as printed.
-- 123 / 123 texts found verbatim in the capture, no overlapping spans (`cisa_build.py`).
-- `normative.md`, `threats.yaml` and the example fixtures are cut from the capture by block id or
-  checked verbatim by script.
-- ATLAS ids checked against ATLAS-2026.09.yaml from atlas.mitre.org; NIST ids against the E2025 index.
-- `bin/check-requirements` (LinkML) passes; `bin/check-artifacts` reports nothing for this record.
+## Pass 2 — verify
 
-### Every excluded occurrence of each normative form (pass 1)
+**Method.** The verifier rebuilt the capture (byte-identical) and compared it with four
+independent renderings (PyMuPDF `text`, `sort=True`, `words`, `dict`; pypdf): word multisets per
+page are identical on all 25 pages apart from footnote markers and the "o" glyphs, so the capture
+lost, added or altered nothing; the 7 hyphen joins are real compounds. It then checked every
+entry exactly against its own rendering and whitespace-free against the others, recounted every
+form, printed every stretch of source outside an extracted text and read all of it, rebuilt
+Tables 1 and 2 from the ruling lines, and used font colour and indentation to recover the list
+structure.
+
+**Results (on the 123 pass-1 entries).**
+
+| check | result |
+|---|---|
+| `bin/bcp14-count` | 0 on three renderings and the capture |
+| forms, source / extracted | should 40/40 · must 5/4 · may 37/9 · can 53/17 · encourage* 2/2 · recommend* 9/4 · essential 4/4 · critical 10/7 · vital 3/2 · crucial 2/1 · necessary 2/1, all equal to the header; itemised exclusions identical to the verifier's own list |
+| verbatim / order / overlap | 123/123 exact and unique; strictly in source order; 0 overlaps |
+| locator page, section | 123/123 |
+| Table 1 / Table 2 cells | 15/15 and 30/30 match the PDF's rows and columns |
+| examples, threats | all strings verbatim; `addressed_by` equal to the derived set |
+| published `maps_to` | 14/14 name a framework the source names at that statement |
+| stated `source_text` | 19 right, 10 wrong (fixed, below) |
+
+**Defects found and fixed.**
+
+| # | defect | fix |
+|---|---|---|
+| 1 | 10 threat mappings on old R-0008 and R-0010 marked `stated` with words that are in Table 2, not in the entry's own text (one was a splice of three row labels) | now `inferred`, rationale names the Table 2 row and page |
+| 2 | 4 described risks missing from `threats.yaml` (Forward and Reverse Compatibility, §2.4; the three §3.4 challenges) | added; 4 more described risks the verifier listed also added (overreliance on automation §1.3, built-in AI needing internet connectivity §2.3, vendors training on operational data §2.3, new failure states §4.2); ids renumbered into source order; 32 threats |
+| 3 | `reconciliation` claimed every imperative was extracted unless navigation; three are not (two in the §2.1 example, the §2.3 "expect …" forecast) | claim amended and the three named |
+| 4 | imperative count 53 should be 57 (four lower-case imperatives missed) | counting rule fixed; 60 after the fixes below (57 + the three sourcing options now split out) |
+| 5 | summary said "twelve subsections"; there are thirteen | fixed |
+| 6 | `normative.md` and the `cites` comment claimed all bibliography is held in `cites` | reworded: `cites` is a selection |
+| 7 | state-machine `not_applicable` reason said no states are named; the source names several | reason rewritten (states and triggers named, no transitions or guards); conclusion unchanged |
+| 8 | schema reason claimed CISA's 2025 SBOM Minimum Elements is held; it is not | reworded, held SBOM records named; the three log-content items acknowledged |
+| 9 | §4.1: points 4–7 of the "Consider the following points" list had no parent | parent added to all eleven entries under those points |
+| 10 | §3.2 lead-in "These processes include:" in no entry | appended to its sentence's entry (contiguous) |
+| 11 | three lists merged lead-in and items, against the record's own rule | split: Introduction lead-in added as an entry; sourcing options and the two OT data types are now items |
+| 12 | the anomaly-detection item dropped its middle sentence | sentence kept (contiguous) |
+| 13 | six "may (…)" list items typed `recommendation` | `permission` |
+| 14 | `normative.md` flattened six sub-bullets | indented to their depth |
+| 15 | actors: the six monitoring-example items, the cloud-contract clause and the vendor-transparency lead-in | corrected |
+| 16 | `testable_reason` missing on the four lifecycle stages; two lead-ins had a placeholder reason | reasons written |
+| 17 | seven candidate dropped statements (scope focus, error-checking, Table 2 "security measures … still apply", "requires continuous evaluation of risks", low-fidelity testing, virtualized controllers, the Conclusion's "require careful management") | all seven extracted (statement, scope or consideration) |
+| 18 | header note omitted Secure by Design and Secure by Demand from the published frameworks; design-notes left Data Quality out of the adversarial rows; examples README ids | fixed; Secure by Demand linked to `cisa-secure-by-demand-ot-2025` |
+
+**Checked and found correct** (things a reader might doubt): R-texts that run across a page
+break have no footnote spliced in; the Table 2 AI Dependency row, which PyMuPDF merges into one
+block, is split correctly; a sentence that starts in lower case is a contiguous clause of a
+"(Note: …)" sentence, not a splice; the §3.2 ATLAS sentence ends with a comma in the source; the
+Principle 4 title really differs between pages 2/18 and 3/21; both example fixtures' derived
+checks are labelled as ours.
+
+## Pass 3 — cross-check
+
+Every id cited anywhere in the record resolves; every count quoted in `README.md`, `summary.md`,
+`record.yaml`, `normative.md` and `design-notes.md` matches the files after the fixes; the
+generated design-notes tables recompute exactly; the monitoring fixture's ids point at the right
+entries; `addressed_by` equals the derived set. Schema, messages, protocol and state machine are
+not applicable (reasons in `record.yaml`), so the cross-check is between requirements, normative
+text, threats, examples and design notes.
+
+## Threat-mapping and design-notes review
+
+**Not finished.** The reviewer checked all 234 NIST and ATLAS ids in both records (0 missing; every
+name matches ATLAS 2026.09 or the NIST E2025 index) and was reading each ATLAS description for fit
+when the usage limit stopped it a third time (2026-10-22). Its findings are applied when it
+reports; until then `verify` and `cross-check` are not recorded in `record.yaml`.
+
+## Checks after the fixes
+
+After the verifier fixes (2026-10-22): `bin/check-requirements` (with and without
+`--invariants`) 47/47 valid, no warnings for this record; `bin/check-artifacts` no warnings for
+this record; `bin/validate` reports only the two unrecorded passes.
+
+## Every excluded occurrence of each normative form (after the fixes)
 
 Block ids are `p<page>.b<block>` in the capture. Counts are by inclusion in an extracted text.
 
@@ -92,10 +152,9 @@ Block ids are `p<page>.b<block>` in the capture. Counts are by inclusion in an e
 - footnote: …ion from 15 U.S.C. 9401(3); however, definitions of AI may vary among groups and jurisdiction…
 - footnote: …ecurity also uses this definition. Other jurisdictions may use their own definition for AI. S…
 
-### can: source 53 → extracted 17 (36 excluded)
+### can: source 53 → extracted 23 (30 excluded)
 
 - p3.b3: …. For critical infrastructure owners and operators, AI can potentially be used to increase ef…
-- p3.b4: …rinciples critical infrastructure owners and operators can follow to leverage the benefits of…
 - p3.b11: …overs how critical infrastructure owners and operators can help ensure the safety and securit…
 - p4.b3: … environment. OT systems control physical systems that can harm people or property, such as s…
 - p4.b9: …utions and that the relationships are either linear or can be approximated by linear models. …
@@ -104,7 +163,6 @@ Block ids are `p<page>.b<block>` in the capture. Counts are by inclusion in an e
 - p5.b3: …ays produce the same response to the same inputs. LLMs can power generative AI applications t…
 - p5.b5: …in operations. 2 AI agents are a type of software that can process data, perform decision-mak…
 - p5.b5: …s, and autonomous action capabilities. Like LLMs, they can enhance decision-making, automate …
-- p5.b5: …infrastructure operations. Implementing error-checking can improve AI agent’s performance by …
 - p5.b13: …T data source: Field devices may generate OT data that can be used for training AI models (pr…
 - p6.b16: …havioral analytics and profiling of OT and IT data: AI can be used for analyzing OT data in c…
 - p7.b8: …curity Risks: AI data, models, and deployment software can be manipulated to cause incorrect …
@@ -120,12 +178,8 @@ Block ids are `p<page>.b<block>` in the capture. Counts are by inclusion in an e
 - p10.b13: …educed human oversight and situational awareness. This can have significant consequences, inc…
 - p14.b10: … vendors, critical infrastructure owners and operators can better manage the risks associated…
 - p14.b15: …ack surfaces and vulnerabilities that malicious actors can exploit—this is a particularly imp…
-- p17.b10: …pecifically designed for testing. Low fidelity testing can allow for faster iterations of tes…
-- p17.b11: … a non-production environment. Virtualized controllers can speed up this testing process when…
 - p18.b5: …ents. Auditability. Tracing or explaining AI decisions can be difficult, which can complicate…
 - p18.b5: …ing or explaining AI decisions can be difficult, which can complicate regulatory audits. Safe…
-- p19.b8: … operator processes mature, software safety thresholds can shift from setpoints to anomaly de…
-- p21.b3: …critical infrastructure owners and operators. While AI can enhance efficiency, productivity, …
 - p21.b3: …I models, critical infrastructure owners and operators can achieve a balanced integration of …
 - p23.b4: …ble to this guidance. Artificial Intelligence (AI). AI can be defined as: A machine-based sys…
 - p23.b5: …AI). AI can be defined as: A machine-based system that can, for a given set of human-defined …
@@ -162,11 +216,3 @@ Block ids are `p<page>.b<block>` in the capture. Counts are by inclusion in an e
 ### necessary: source 2 → extracted 1 (1 excluded)
 
 - p15.b2: …verse Compatibility. OT system design evolution may be necessary to accommodate the secure integrat…
-
-## Pass 2 — verify
-
-Not finished; see above.
-
-## Pass 3 — cross-check
-
-Not finished; see above.

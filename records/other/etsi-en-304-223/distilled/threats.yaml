@@ -6,7 +6,8 @@ extracted_by: "claude (main session, tmodel#39 part B)"
 note: >
   The threats and weaknesses the source DESCRIBES, each quoted verbatim (description) with
   its locator. kind: stated = the source describes it; inferred = our reading (a weakness
-  read as the negation of a recommendation). external_id holds our mapping as opaque
+  read as the negation of a requirement or recommendation, or the attack behind an effect
+  the source names; each inferred item says which in its note). external_id holds our mapping as opaque
   strings: NIST AI 100-2 E2025 index ids (NISTAML.*) and MITRE ATLAS 2026.09 technique ids
   (AML.T*), the latter checked against the ATLAS data served by atlas.mitre.org. The source
   prints neither. attack_class uses the NIST AI 100-2 E2025 classes plus three labels of
@@ -145,6 +146,17 @@ threats:
     kind: "stated"
     addressed_by: []
     note: "Unspecified; design-notes.md maps 5.5.1-1 to data extraction as our reading."
+  - id: "T-14"
+    name: "unauthorized access to sensitive data (training or test data)"
+    description: "Developers, System Operators, Data Custodians and End-users shall protect sensitive data, such as training or test data, against unauthorized access"
+    affected_asset: ["training data", "test data"]
+    external_id: ["AML.T0035", "AML.T0025"]
+    external_id_names: ["AML.T0035 AI Artifact Collection", "AML.T0025 Exfiltration via Cyber Means"]
+    attack_class: ["conventional"]
+    locator: "5.2.1-4, p. 12"
+    kind: "stated"
+    addressed_by: ["5.2.1-4", "5.2.1-4.2", "5.2.2-1", "5.2.2-3", "5.5.1-1", "5.5.1-2"]
+    note: "Added in the verify pass (2026-10-22)."
 weaknesses:
   - id: "W-01"
     name: "superfluous functionality"

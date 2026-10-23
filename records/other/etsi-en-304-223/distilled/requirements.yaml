@@ -40,8 +40,11 @@ note: >
   plus one clause 4 statement keyed C4-1 (not an ETSI designator; assigned by this library).
   Sub-provisions (5.1.2-1.1) carry `parent`. normativity follows the strongest modal verb
   (shall -> requirement, should -> recommendation); `verbs` lists every modal in order.
-  `text` is verbatim. DERIVED fields need human review: actor (stakeholders named before
-  each modal verb; '(implied)' = taken from the principle's 'Primarily applies to'),
+  `text` is verbatim. `verbs` lists every ETSI verbal form in the text (shall, should, can,
+  cannot, will) in order. DERIVED fields need human review: actor (stakeholders named before
+  each modal verb; '(implied)' = no obliged party named, taken from the parent provision
+  (5.1.1-1.1, 5.1.1-2.1), the sentence (5.1.2-1.1) or the principle's 'Primarily applies to'
+  (5.1.3-1.1, 5.2.4-2.1)),
   short_title, nature, expects_deliverables, verification, testable. EN 304 223 names no work
   products, so expects_deliverables are descriptions, not designators. The standard says
   nothing about tailoring, so no `tailorable` field. bears_on names the tmodel decisions a
@@ -148,7 +151,7 @@ requirements:
     parent: "5.1.1-2"
     normativity: recommendation
     verb: should
-    verbs: [should]
+    verbs: [should, will]
     actor: ["Organization (implied)"]
     primarily_applies_to: "System Operators, Developers, and Data Custodians"
     principle: 1
@@ -429,7 +432,7 @@ requirements:
     designator: "5.1.2-6"
     normativity: requirement
     verb: shall
-    verbs: [shall]
+    verbs: [will, shall]
     actor: ["Developer", "System Operator"]
     primarily_applies_to: "System Operators and Developers"
     principle: 2
@@ -676,7 +679,7 @@ requirements:
     designator: "5.1.3-2"
     normativity: requirement
     verb: shall
-    verbs: [shall, can, shall, should]
+    verbs: [cannot, shall, can, shall, should]
     actor: ["Developer", "System Operator"]
     primarily_applies_to: "Developers and System Operators"
     principle: 3
@@ -718,7 +721,7 @@ requirements:
     designator: "5.1.3-4"
     normativity: recommendation
     verb: should
-    verbs: [should]
+    verbs: [should, will]
     actor: ["Developer", "System Operator"]
     primarily_applies_to: "Developers and System Operators"
     principle: 3
@@ -1277,7 +1280,7 @@ requirements:
     audit_status: not-reviewed
     kind: stated
     testable: "yes"
-    testable_reason: "inspect the work product: AI system incident management plan"
+    testable_reason: "inspect the work products: AI system incident management plan; AI system recovery plan"
     bears_on: [DEC-009]
   - id: etsi-en-304-223#5.2.2-6
     designator: "5.2.2-6"
@@ -1654,7 +1657,7 @@ requirements:
     parent: "5.2.4-2"
     normativity: recommendation
     verb: should
-    verbs: [should]
+    verbs: [should, will]
     actor: ["Developer (implied)"]
     primarily_applies_to: "Developers"
     principle: 8
@@ -1915,7 +1918,7 @@ requirements:
     designator: "5.3.1-1"
     normativity: requirement
     verb: shall
-    verbs: [shall, shall]
+    verbs: [shall, will, shall]
     actor: ["System Operator", "Developer"]
     primarily_applies_to: "not stated"
     principle: 10
@@ -2044,7 +2047,7 @@ requirements:
     parent: "5.4.1-1"
     normativity: requirement
     verb: shall
-    verbs: [shall]
+    verbs: [shall, cannot]
     actor: ["Developer"]
     primarily_applies_to: "Developers and System Operators"
     principle: 11
@@ -2260,7 +2263,7 @@ requirements:
     designator: "5.5.1-1"
     normativity: requirement
     verb: shall
-    verbs: [shall, can]
+    verbs: [shall, will, can]
     actor: ["Developer", "System Operator"]
     primarily_applies_to: "Developers and System Operators"
     principle: 13

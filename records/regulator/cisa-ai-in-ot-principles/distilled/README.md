@@ -18,23 +18,24 @@ Nothing here is reviewed line by line yet (`reviewed_by` is empty on each artifa
 
 | artifact | kind | coverage |
 |---|---|---|
-| `requirements.yaml` | requirements | **machine source.** 123 statements in source order, ids `R-0001`…`R-0123`. Verbatim text, page locator, verb, actor, `kind`, `testable`, `bears_on` (tmodel decisions), `maps_to` (frameworks the source names, and our threat mapping to NIST AI 100-2 E2025 and MITRE ATLAS ids, stated or inferred). Header reconciles every normative form in the source. |
-| `normative.md` | normative | the regulatory status, the definitions the statements rely on, Tables 1 and 2 cell by cell, and all 123 statements under their section headings |
-| `threats.yaml` | threats | 24 threats and risks (all of Table 2 plus §1.3, §2.2, §2.4, §4.1, §4.2) and 4 weaknesses, quoted, with NIST and ATLAS ids and the statements that address each |
+| `requirements.yaml` | requirements | **machine source.** 136 statements in source order, ids `R-0001`…`R-0136`. Verbatim text, page locator, verb, actor, `kind`, `testable`, `bears_on` (tmodel decisions), `maps_to` (frameworks the source names, and our threat mapping to NIST AI 100-2 E2025 and MITRE ATLAS ids, stated or inferred). Header reconciles every normative form in the source. |
+| `normative.md` | normative | the regulatory status, the definitions the statements rely on, Tables 1 and 2 cell by cell, and all 136 statements under their section headings |
+| `threats.yaml` | threats | 32 threats and risks (all of Table 2 plus §1.3, §2.2, §2.3, §2.4, §3.4, §4.1, §4.2) and 4 weaknesses, quoted, with NIST and ATLAS ids and the statements that address each |
 | `examples/` | examples | the §2.1 business-case assessment and the §4.1 monitoring setup as verbatim fixtures |
 | `design-notes.md` | design-notes | how each statement bears on tmodel (ADR-0006, ADR-0007, ADR-0010, tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and which AI attack class it defends against |
 | `verification.md` | verification | FX-1 passes 2 (verify) and 3 (cross-check), the capture rules, and every excluded occurrence of every normative form |
 
 Not applicable, with reasons in `record.yaml` `distillation.not_applicable`: schema, messages,
-protocol, state machine. The guidance is prose: it defines no format, exchange or lifecycle states.
+protocol, state machine. The guidance is prose: it defines no format, no exchange, and no transitions
+between the states it names.
 
-## Checks (pass 1, 2026-10-21)
+## Checks (after the verify pass, 2026-10-22)
 
 | check | result |
 |---|---|
 | `bin/bcp14-count` | 0 (lower-case recommendation forms and imperatives) |
-| verbatim | 123 / 123 texts found in the capture by the build script; no overlapping spans |
-| own-form baseline vs extracted | should 40 → 40 · must 5 → 4 · may 37 → 9 · can 53 → 17 · encourage* 2 → 2 · recommend* 9 → 4 · essential 4 → 4 · critical 10 → 7 · vital 3 → 2 · crucial 2 → 1 · necessary 2 → 1 · imperative entries 53 |
+| verbatim | 136 / 136 texts found in the capture by the build script; no overlapping spans. The verify pass re-checked the 123 pass-1 texts against three independent renderings and found the capture lossless; the 13 entries added in that pass are checked against the same capture |
+| own-form baseline vs extracted | should 40 → 40 · must 5 → 4 · may 37 → 9 · can 53 → 23 · encourage* 2 → 2 · recommend* 9 → 4 · essential 4 → 4 · critical 10 → 7 · vital 3 → 2 · crucial 2 → 1 · necessary 2 → 1 · imperative entries 60 |
 | ATLAS ids | all present in ATLAS 2026.09 (the data file atlas.mitre.org loads) |
 | `bin/check-requirements` (LinkML) | passes |
 

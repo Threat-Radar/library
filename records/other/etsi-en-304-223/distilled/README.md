@@ -21,7 +21,7 @@ Nothing here is reviewed line by line yet (`reviewed_by` is empty on each artifa
 | `requirements.yaml` | requirements | **machine source.** 73 entries: the 72 clause 5 provisions keyed by ETSI's designator (`#5.1.2-3`) and C4-1 (clause 4). Verbatim text, page locator, verbs, actor, `kind`, `testable`, `bears_on` (tmodel decisions) and `maps_to` (threat mapping to NIST AI 100-2 E2025 and MITRE ATLAS ids, stated or inferred). Header reconciles every modal verb in the source. |
 | `requirements.md` | requirements (generated) | **human view** of the YAML: one table per principle |
 | `normative.md` | normative | every normative statement verbatim with clause and page: verbal forms, scope, terms, clause 4 and Table 4-1, all 72 provisions with their headings |
-| `threats.yaml` | threats | the 13 threats and 4 weaknesses the EN describes, quoted, with NIST and ATLAS ids and the provisions that address each |
+| `threats.yaml` | threats | the 14 threats and 4 weaknesses the EN describes, quoted, with NIST and ATLAS ids and the provisions that address each |
 | `design-notes.md` | design-notes | how each provision bears on tmodel (ADR-0006, ADR-0007, ADR-0010, tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and which AI attack class it defends against |
 | `verification.md` | verification | FX-1 passes 2 (verify) and 3 (cross-check): method, results, defects found and fixed |
 
@@ -39,6 +39,6 @@ format, exchange, lifecycle states or worked example.
 | ATLAS ids | all present in ATLAS 2026.09 (the data file atlas.mitre.org loads) |
 | `bin/check-requirements` (LinkML) | passes |
 
-Derived fields to review: `actor` (four `(implied)`; 5.1.2-1.1 fixed in this pass), `short_title`,
+Derived fields to review: `actor` (five `(implied)`, incl. 5.1.2-1.1 fixed in this pass), `short_title`,
 `nature`, `expects_deliverables`, `verification`, `testable`, `bears_on`, and every `maps_to`
 entry with `provenance: ours`.

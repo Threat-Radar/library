@@ -10,11 +10,11 @@ reviewed_by: ""
 
 # ETSI EN 304 223 V2.1.1 — normative text
 
-Everything under §0–§6 is **verbatim** from the source (`content.sha256` `1ef542ac…d21a`), cut
+Quoted text under §0–§5 is **verbatim** from the source (`content.sha256` `1ef542ac…d21a`), cut
 out of the text by script so it cannot drift: page headers and footers dropped, line breaks
 joined with one space, bullet glyphs removed. Each quote ends with its clause and PDF page.
 Provision ids resolve in `requirements.yaml` as `etsi-en-304-223#<designator>`. §7 is a
-reading aid we wrote; it is not part of the standard.
+reading aid we wrote and §6 lists what is left out; neither is part of the standard.
 
 The EN has **no normative references** (§2.1), so this text is the whole normative content.
 
@@ -91,7 +91,7 @@ History (p. 16), as printed:
 
 > All stakeholders included in Table 4-1 should note that they can have data protection obligations. Additionally, senior leaders in an organization also have responsibilities to help protect their staff and infrastructure. Some provisions for Developers in the present document are less applicable to AI systems involving open-source models. Further information and guidance about different types of AI systems can be found in ETSI TR 104 128 [i.1].
 >
-> — §4 (first sentence = requirement C4-1), p. 9
+> — §4 (first sentence = entry C4-1, a recommendation), p. 9
 
 **Table 4-1: Stakeholder definition** (pp. 9–10). Cells verbatim; the row split is ours.
 
@@ -183,7 +183,7 @@ References: [i.11], [i.25], [i.19], [i.20], [i.15], [i.16], [i.21], [i.24] (p. 1
 
 #### 5.2.2 Principle 6: Secure the infrastructure (p. 12)
 
-Primarily applies to: Developers and System Operators (p. 11)
+Primarily applies to: Developers and System Operators (p. 12)
 
 References: [i.11], [i.12], [i.10], [i.19], [i.24] (p. 12)
 
@@ -196,7 +196,7 @@ References: [i.11], [i.12], [i.10], [i.19], [i.24] (p. 12)
 
 #### 5.2.3 Principle 7: Secure the supply chain (p. 13)
 
-Primarily applies to: Developers, System Operators and Data Custodians (p. 12)
+Primarily applies to: Developers, System Operators and Data Custodians (p. 13)
 
 References: [i.6], [i.11], [i.19], [i.9] (p. 13)
 
@@ -209,7 +209,7 @@ References: [i.6], [i.11], [i.19], [i.9] (p. 13)
 
 #### 5.2.4 Principle 8: Document data, models and prompts (p. 13)
 
-Primarily applies to: Developers (p. 11)
+Primarily applies to: Developers (p. 13)
 
 References: [i.11], [i.10], [i.19], [i.15], [i.24] (p. 13)
 
@@ -222,7 +222,7 @@ References: [i.11], [i.10], [i.19], [i.15], [i.24] (p. 13)
 
 #### 5.2.5 Principle 9: Conduct appropriate testing and evaluation (p. 13)
 
-Primarily applies to: Developers and System Operators (p. 11)
+Primarily applies to: Developers and System Operators (p. 13)
 
 References: [i.11], [i.10], [i.25], [i.19], [i.18], [i.13], [i.21] (p. 13)
 
@@ -249,7 +249,7 @@ NOTE: As part of an organization's wider deployment practices, pre-deployment te
 
 #### 5.4.1 Principle 11: Maintain regular security updates, patches and mitigations (p. 14)
 
-Primarily applies to: Developers and System Operators (p. 11)
+Primarily applies to: Developers and System Operators (p. 14)
 
 References: [i.24] (p. 14)
 
@@ -260,7 +260,7 @@ References: [i.24] (p. 14)
 
 #### 5.4.2 Principle 12: Monitor the system's behaviour (p. 15)
 
-Primarily applies to: Developers and System Operators (p. 11)
+Primarily applies to: Developers and System Operators (p. 15)
 
 References: [i.11], [i.10], [i.25], [i.18], [i.20], [i.15], [i.16], [i.21], [i.24] (p. 15)
 
@@ -273,7 +273,7 @@ References: [i.11], [i.10], [i.25], [i.18], [i.20], [i.15], [i.16], [i.21], [i.2
 
 #### 5.5.1 Principle 13: Ensure proper data and model disposal (p. 15)
 
-Primarily applies to: Developers and System Operators (p. 11)
+Primarily applies to: Developers and System Operators (p. 15)
 
 - **5.5.1-1** (p. 15) — If a Developer or System Operator decides to transfer or share ownership of training data and/or a model to another entity they shall involve Data Custodians and securely dispose of these assets. This will protect AI against security issues that can transfer from one AI system instantiation to another.
 - **5.5.1-2** (p. 15) — If a Developer or System Operators decides to decommission a model and/or system, they shall involve Data Custodians and securely delete applicable data and configuration details. 

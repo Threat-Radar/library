@@ -132,7 +132,7 @@ distillation:
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "73 entries: all 72 clause 5 provisions keyed by ETSI designator (49 shall, 23 should) + C4-1, the clause 4 'should note' sentence the 2026-10-01 pass missed. BCP 14 0/0; own-form baseline over the whole source reconciled form by form (shall 61->59, should 32->29, can 22->6, will 7->6, cannot 5->2, may 9->0, must 2->0, shall not 4->0, should not, will not, need not 1->0), every exclusion itemised. Every entry: page locator, kind, testable with reason, bears_on (tmodel decisions), maps_to (NIST AI 100-2 E2025 and MITRE ATLAS 2026.09 threat mapping, stated or inferred, with rationale). Derived fields need review."
+      coverage: "73 entries: all 72 clause 5 provisions keyed by ETSI designator (49 shall, 23 should) + C4-1, the clause 4 'should note' sentence the 2026-10-01 pass missed. BCP 14 0/0; own-form baseline over the whole source reconciled form by form (shall 61->59, should 32->29, can 22->6, will 7->6, cannot 5->2, may 9->0, must 2->0, shall not 4->0, should not, will not, need not 1->0), every exclusion itemised. Every entry: page locator, kind, testable with reason; bears_on (tmodel decisions) on 60 entries (13 empty); maps_to (NIST AI 100-2 E2025 and MITRE ATLAS 2026.09 threat mapping, stated or inferred, with rationale) on the 33 with a nameable attack class or risk. Derived fields need review."
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.md
@@ -141,7 +141,7 @@ distillation:
       reviewed_by: ""
     - kind: threats
       path: distilled/threats.yaml
-      coverage: "13 threats and 4 weaknesses the EN describes, each quoted verbatim with locator, kind (stated/inferred), NIST AI 100-2 E2025 and ATLAS ids, and the provisions that address it (derived from maps_to). No vulnerabilities: the EN names no product or CVE."
+      coverage: "14 threats and 4 weaknesses the EN describes, each quoted verbatim with locator and kind (stated/inferred); NIST AI 100-2 E2025 and ATLAS ids and the addressing provisions (derived from maps_to) on the 10 threats that map to a class or technique; T-03, T-11, T-12, T-13 and the weaknesses have none. No vulnerabilities: the EN names no product or CVE."
       reviewed_by: ""
     - kind: design-notes
       path: distilled/design-notes.md
@@ -161,7 +161,7 @@ distillation:
     - kind: state-machine
       reason: "No lifecycle with states and transitions. The five phases (secure design to secure end of life) order the principles and map to ISO/IEC 22989 stages (Introduction NOTE) with no triggers or guards. The EN gives triggers without states (re-threat-model on a configuration change, 5.1.3-1.1; a major update is a new version, 5.4.1-2; dispose on transfer, 5.5.1-1); these are DEC-001b input in design-notes.md."
     - kind: examples
-      reason: "No worked examples or test vectors. The clause 4 EXAMPLE (data protection roles) and the 'For example' clauses inside provisions (5.1.3-1.2 multimodal model, 5.2.2-2 rate limits, 5.2.3-2 sole supplier, 5.3.1-1 retraining) are prose illustrations with no expected result; they stay verbatim in normative.md and requirements.yaml."
+      reason: "No worked examples or test vectors. The clause 4 EXAMPLE (data protection roles) and the 'For example' clauses inside provisions (5.1.3-1.2 multimodal model, 5.2.2-2 rate limits, 5.2.3-2 sole supplier, 5.3.1-1 retraining, 5.4.1-3 preview access via beta-testing and versioned APIs) are prose illustrations with no expected result; they stay verbatim in normative.md and requirements.yaml."
   passes:
     - pass: extract
       by: "claude (main session, single agent; library#8 lane did the 2026-10-01 partial pass)"

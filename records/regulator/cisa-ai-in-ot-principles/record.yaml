@@ -28,7 +28,8 @@ content:
   local: false
   media_type: application/pdf
   pages: 25
-# What the document itself references (Resources list, §3.2, §3.4, References).
+# A selection of what the document references (from the Resources list, §3.2, §3.4 and References);
+# most Resources entries and footnote sources are not listed. See distilled/normative.md §5.
 cites:
   - mitre-attack
   - title: "MITRE ATLAS"
@@ -91,19 +92,19 @@ distillation:
   artifacts:
     - kind: normative
       path: distilled/normative.md
-      coverage: "Verbatim: regulatory status (Disclaimer), the Important Terminology and Appendix definitions the statements rely on, Table 1 and Table 2 cell by cell, and all 123 statements of requirements.yaml in source order with id, verb and page. Excludes descriptive prose, the challenge and consequence lists (carried in threats.yaml), navigation sentences, Resources, Acknowledgements, References."
+      coverage: "Verbatim: regulatory status (Disclaimer), the Important Terminology and Appendix definitions the statements rely on, Table 1 and Table 2 cell by cell, and all 136 statements of requirements.yaml in source order with id, verb and page, list items and sub-items indented. Excludes descriptive prose, the challenge and consequence lists (carried in threats.yaml), navigation sentences, Resources, Acknowledgements, References."
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "123 entries in source order (108 recommendation, 5 principle, 4 permission, 3 requirement, 1 prohibition, 1 scope, 1 informative lead-in); list lead-ins are entries and list items carry parent. Every text machine-checked verbatim against the capture. BCP 14 0/0; own-form baseline reconciled: should 40->40, must 5->4, may 37->9, can 53->17, encourage* 2->2, recommend* 9->4, essential 4->4, critical (not 'critical infrastructure') 10->7, vital 3->2, crucial 2->1, necessary 2->1, plus 53 imperative entries; every exclusion itemised in verification.md. maps_to: frameworks the source names (provenance published) and our threat mapping (NIST AI 100-2 E2025, ATLAS 2026.09; stated or inferred). Derived fields need review."
+      coverage: "136 entries in source order (104 recommendation, 10 permission, 6 consideration, 5 principle, 3 requirement, 3 statement, 2 scope, 2 informative lead-in, 1 prohibition); every list lead-in is an entry and its items carry parent. Every text machine-checked verbatim against the capture. BCP 14 0/0; own-form baseline reconciled: should 40->40, must 5->4, may 37->9, can 53->23, encourage* 2->2, recommend* 9->4, essential 4->4, critical (not 'critical infrastructure') 10->7, vital 3->2, crucial 2->1, necessary 2->1, plus 60 imperative entries; every exclusion itemised in verification.md. maps_to: frameworks the source names (provenance published) and our threat mapping (NIST AI 100-2 E2025, ATLAS 2026.09; stated or inferred). Derived fields need review."
       reviewed_by: ""
     - kind: threats
       path: distilled/threats.yaml
-      coverage: "24 threats and risks the guidance describes (all 10 Table 2 rows, §1.3, §2.2, §2.4, §4.1, §4.2) and 4 weaknesses (1 stated, 3 read as the negation of a recommendation), each quoted verbatim with locator, NIST and ATLAS ids where a class fits, and the statements that address it. No vulnerabilities named."
+      coverage: "32 threats and risks the guidance describes (all 10 Table 2 rows, §1.3, §2.2, §2.3, §2.4, §3.4, §4.1, §4.2), ids in source order and 4 weaknesses (1 stated, 3 read as the negation of a recommendation), each quoted verbatim with locator, NIST and ATLAS ids where a class fits, and the statements that address it. No vulnerabilities named."
       reviewed_by: ""
     - kind: examples
       path: distilled/examples
-      coverage: "Both worked examples as verbatim fixtures: the §2.1 business-case assessment (with our derived numeric checks, marked as ours) and the §4.1 monitoring setup (linked to R-0098..R-0104). The source states no expected result for either."
+      coverage: "Both worked examples as verbatim fixtures: the §2.1 business-case assessment (with our derived numeric checks, marked as ours) and the §4.1 monitoring setup (linked to R-0110..R-0116). The source states no expected result for either."
       reviewed_by: ""
     - kind: design-notes
       path: distilled/design-notes.md
@@ -115,13 +116,13 @@ distillation:
       reviewed_by: ""
   not_applicable:
     - kind: schema
-      reason: "No data format or field structure is defined. The SBOM it asks vendors for is specified elsewhere (footnote 6 defers to CISA's 2025 Minimum Elements, which have their own records); the data usage policy and cloud contract clauses name topics, not fields."
+      reason: "No data format or field structure is defined. The SBOM it asks vendors for is specified elsewhere (footnote 6 defers to CISA's 2025 Minimum Elements, a public-comment draft not held here; the SBOM minimum elements are held as ntia-2021-sbom-minimum and cisa-2026-sbom-minimum). The nearest thing to fields are three log contents (timestamps, inputs and outputs, R-0114; an AI identity distinct from machine and user identifiers, R-0109; egress by asset and identity, R-0084): items, not a format, kept as requirements. The data usage policy and cloud contract clauses name topics, not fields."
     - kind: messages
       reason: "No message format. Vendor notifications (§2.3), review sessions (§4.1) and incident communication (§4.2) are named without any content structure."
     - kind: protocol
       reason: "No defined exchange between roles. The architecture advice (push-based or brokered transfer, one-way transfer, audited staging buffers, DMZ or jump host; §2.4, §4.1) constrains data-flow direction and zones, not a message sequence; design-notes.md maps it to tmodel#130 DataFlow and TrustBoundary."
     - kind: state-machine
-      reason: "No states or transitions. The fallback to non-AI operation (§2.4 failsafe, §3.4 thresholds, §4.2 failure states) is the nearest lifecycle, but the only trigger given is 'if AI system outputs fall below performance and safety thresholds', with no states or guards; a machine would be invented. Recorded as DEC-009 input in design-notes.md."
+      reason: "No transitions or guards. The source names states (a 'known good state', R-0102; 'new AI system failure states', R-0128; sectors' 'own safety states', §4.2 p. 20; 'state changes', R-0106) and triggers (§3.4 thresholds for defaulting back to non-AI systems; §4.1 thresholds for restoration from a backup; safe operating bounds, R-0108), but never a state set or the transitions between them; a machine would be invented. Recorded as DEC-009 input in design-notes.md."
   passes:
     - pass: extract
       by: "claude (main session, single agent)"

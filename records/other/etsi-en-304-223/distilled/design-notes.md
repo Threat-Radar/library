@@ -107,8 +107,9 @@ incorporated into the system").
 no method or metric, so it does not conflict with the composite vector.
 
 **Adapt.** AI attacks need feasibility inputs ISO/SAE 21434 Table 1 does not name, and the EN
-gives one: 5.2.2-2 rate-limits model access to slow reverse engineering and rapid poisoning.
-That control lowers **feasibility** (model extraction needs many queries), not impact. The
+gives one: 5.2.2-2 requires controls against attacks via an API and gives model-access rate
+limits as its example against reverse engineering and rapid poisoning. That control lowers
+**feasibility** (model extraction needs many queries), not impact. The
 NIST E2025 attacker-knowledge levels (white-, grey-, black-box, §2.1.4) read naturally as the
 21434 "knowledge of the item" factor. Both are inferred; feasibility stays human-rated at MVP.
 
@@ -152,8 +153,8 @@ LinkML extension (inferred).
   state machine was extracted (record.yaml `not_applicable`).
 - **C1 (automatable conformance).** EN conformance is assessed under ETSI TS 104 216, which is
   still a draft work item. C1 cannot be closed from this source.
-- **M5 (author/origin of AI-authored artifacts).** 5.1.2-3 and 5.2.4-3 require an audit trail of
-  prompts and of changes to system prompts. Applied to tmodel itself (direction 2), the prompts
+- **M5 (author/origin of AI-authored artifacts).** 5.1.2-3 requires an audit trail of prompts
+  (shall), and 5.2.4-3 recommends an audit log of changes to system prompts (should). Applied to tmodel itself (direction 2), the prompts
   and configuration that produced an AI-proposed threat are provenance; tmodel#130's proposed
   `Assertion.generated_by` and `evidence` are where they would go.
 
@@ -183,8 +184,9 @@ LinkML extension (inferred).
 
 ### R-018 — human review (draft requirement)
 
-- **Content (1).** Principle 4 (5.1.4-1…5.1.4-5) is human oversight as a control in the user's
-  AI system. It maps to `Mitigation`, with oversight as the kind of control.
+- **Content (1).** 5.1.4-1 to 5.1.4-3 make human oversight a control in the user's AI system
+  (5.1.4-4 and 5.1.4-5, also in Principle 4, are about Data Custodian controls and prohibited
+  uses). Oversight maps to `Mitigation`, with oversight as the kind of control.
 - **tmodel itself (2).** 5.1.4-3: "Where human oversight is a risk control, Developers and/or
   System Operators shall design, develop, verify and maintain technical measures to reduce the
   risk through such oversight." R-018 is exactly that for tmodel: human review is the control on
@@ -195,11 +197,11 @@ LinkML extension (inferred).
 
 ## Weaknesses, threats and vulnerabilities (the sponsor's framing)
 
-- **Threats.** `threats.yaml` lists the 13 threats the EN describes, each quoted with its
+- **Threats.** `threats.yaml` lists the 14 threats the EN describes, each quoted with its
   locator and mapped to NIST and ATLAS ids, with the provisions that address it.
-- **Weaknesses.** The EN describes two directly (superfluous functionality, 5.1.3-1.2; models or
-  components that are not well documented or secured, 5.2.3-2) and implies more; `threats.yaml`
-  lists four. CWE-1427 is the weakness behind prompt injection, which 5.2.1-4.1 (sanitise inputs)
+- **Weaknesses.** The EN describes three directly (superfluous functionality, 5.1.3-1.2; models
+  or components that are not well documented or secured, 5.2.3-2; risk that remains after
+  controls, 5.1.3-4) and implies more; `threats.yaml` lists four. CWE-1427 is the weakness behind prompt injection, which 5.2.1-4.1 (sanitise inputs)
   addresses; CWE-1426 is the weakness 5.2.5-4 and 5.2.5-4.1 (evaluate model outputs) address.
   Both links are inferred.
 - **Vulnerabilities.** None: the EN names no product or CVE.
@@ -219,7 +221,12 @@ LinkML extension (inferred).
 4. **Source defects to note** (kept as printed): Table 4-1 defines Affected entities as those
    "that are not directly affected by AI systems", which reads as a drafting slip for "not
    directly using"; and the End-users row refers to "the voluntary Code", a code the EN does not
-   cite (its origin is not stated in the EN).
+   cite (its origin is not stated in the EN). Also: 5.2.1-4 says "see clause 5.2.3 for details on
+   securing data", but 5.2.3 (supply chain) has no provision on securing data; 5.2.1-4.1 says "See
+   clause 5.2.2 for relevant provisions for open source", but 5.2.2 never mentions open source;
+   clause 4 says an indication of the primarily responsible stakeholders "is given for each
+   principle", but Principle 10 (5.3.1) has none; and the Introduction says standards are
+   "signposted at the start of each principle", but Principles 10 and 13 have no References line.
 5. **Predecessor.** ETSI TS 104 223 V1.1.1 (April 2025, History) is not a record, so there is no
    `supersedes` link. CISA's AI-in-OT guidance cites the TS, not the EN.
 

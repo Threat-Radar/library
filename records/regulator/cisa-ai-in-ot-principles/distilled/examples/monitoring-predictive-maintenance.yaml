@@ -8,23 +8,23 @@ source:
   components:
     - name: "AI System Output"
       text: "Predictive maintenance recommendations for equipment downtime."
-      requirement: "R-0099"
+      requirement: "R-0111"
     - name: "Anomaly Detection Algorithm"
       text: "Statistical process control that detects outliers in predicted downtime values."
-      requirement: "R-0100"
+      requirement: "R-0112"
     - name: "Monitoring Tools"
       text: "Real-time dashboards, charts, or metrics that track AI system performance and detect anomalies—ideally, these are integrated into existing human-machine interface (HMI) views for consolidated monitoring."
-      requirement: "R-0101"
+      requirement: "R-0113"
     - name: "Audit Trail"
       text: "Logging of all AI system operating data (including timestamps, inputs, and outputs) for auditing and analysis of AI system behavior."
-      requirement: "R-0102"
+      requirement: "R-0114"
     - name: "Offensive Security Assessments/AI Red Teaming"
       text: "Regularly evaluate AI system functions, identifying vulnerabilities and testing resilience."
-      requirement: "R-0103"
+      requirement: "R-0115"
     - name: "Network and Egress Security"
       text: "Define and enforce network controls; see CISA’s Cybersecurity Performance Goals (CPGs) 2.F."
-      requirement: "R-0104"
+      requirement: "R-0116"
 expected_result:
   stated_by_source: false
   note: "A reference monitoring setup, not a test with an outcome. Use it as a fixture: a model of this system should hold one ML component with read-only access to OT data output in the data zone, and these six monitoring elements as mitigations."
-exercises: ["R-0098"]
+exercises: ["R-0110"]
