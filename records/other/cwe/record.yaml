@@ -4,21 +4,32 @@ body: other
 type: dataset
 maturity: best-practice
 title: "MITRE CWE — Common Weakness Enumeration"
+version: "4.20 (XML schema 7.3)"
+date: "2026-04-30"
+publisher: "The MITRE Corporation"
 identifiers:
   url: https://cwe.mitre.org/
+  xsd: https://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd
 content:
-  url: https://cwe.mitre.org/
-  sha256: ""
-  retrieved: "2026-09-26"
+  url: https://cwe.mitre.org/data/xml/cwec_v4.20.xml.zip
+  sha256: "3976f599e5e5200219a3108bb896d06e2a88fbb293369e1883cb423a5e9d7d50"
+  retrieved: "2026-10-08"
+  media_type: application/zip
   local: false
 relations:
   supersedes: []
   superseded_by: []
   cited_by: []
-  see_also: []
+  see_also:
+    - cve-json-5
+    - capec
+    - open-threat-model
   implements_concept: []
 bears_on:
   - DEC-001
+  - DEC-002
+  - DEC-008
+  - R-010
 applicability:
   security: core
   cryptography: adjacent
@@ -26,12 +37,64 @@ applicability:
 usefulness:
   verdict: useful
   reason: "Source for tmodel's Weakness nodes and their hierarchy; XSD validates ingestion. Ties to ARCH-0001 §3."
-  assessed: "2026-09-26"
-topic: ""
+  assessed: "2026-10-08"
+topic: schema-representations
 tags:
   - cwe
   - weakness
   - mitre
   - graph
-status: summarized
+  - xml-schema
+  - catalog
+status: distilled
 confidence: medium
+distillation:
+  standard: FX-1
+  profile: full
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "All 111 xs:documentation texts and the xs:appinfo (incl. terms_of_use) verbatim with line locators, in schema file order; every declaration with type and cardinality; all enumeration values. Source inconsistencies D-01..D-16. Covers the XSD only, not the CWE website or mapping guidance."
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "198 requirements: 85 prose (76 stated, 9 inferred) + 113 structural (every use=required, every required particle incl. default minOccurs, both required choices, 5 xs:unique, 2 xs:any). BCP 14: source 0 = extracted 0; all 197 lower-case keyword occurrences accounted one by one in keyword_accounting. R-0198 added by the verify pass."
+      reviewed_by: ""
+    - kind: schema
+      path: distilled/schema
+      coverage: "cwe_schema_v7.3.xsd byte-identical with MITRE's licence header; offline validation commands (W3C XHTML import via a local catalog, not committed). Full cwec_v4.20.xml validates. No derived schema: the source is machine-checkable."
+      reviewed_by: ""
+    - kind: messages
+      path: distilled/messages.yaml
+      coverage: "60 structures (root, 4 containers, 31 named + 24 anonymous complexTypes), 203 fields with type, cardinality, XSD line and 4.20 occurrence counts; 35 enumerations; 5 identity constraints; unresolved cross-references. constrained_by links 191 of 198 requirements; 7 unlinked with reasons."
+      reviewed_by: ""
+    - kind: state-machine
+      path: distilled/state-machine.yaml
+      coverage: "M1 entry Status lifecycle, M2 Mapping_Notes/Usage guard, M3 Content_History event log; 13 events. Stated / inferred / observed marked; the XML keeps no status history, so most M1 transitions are inferred."
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "20 fixtures (13 cut verbatim from 4.20, 1 derived positive control, 6 negatives) with digests and actual xmllint results; 12 vectors for documented string formats; whole-catalog figures and 32 invariants (catalog-stats.yaml). CWE content reproduced under the CWE terms of use."
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Adopt / adapt / reject against ARCH-0001 §3/§6, ADR-0004, DEC-001/002/003/008/009, R-010/018/021/022; mapping table; 5 open questions incl. source-vs-data departures."
+      reviewed_by: ""
+  not_applicable:
+    - kind: protocol
+      reason: "Pure data format: the XSD defines a catalog document and no exchange between parties. MITRE's content-submission process is described on the CWE website, not in the pinned source."
+  passes:
+    - pass: extract
+      by: "claude (2 parallel agents + coordinator)"
+      effort: max
+      date: "2026-10-08"
+      note: "Agent A: normative, requirements. Agent B: schema, messages, state machine, examples. Coordinator: design notes, record, summary. Each read the XSD and the 4.20 catalog, never the summary or pilot notes."
+    - pass: verify
+      by: "claude (independent verifier)"
+      effort: max
+      date: "2026-10-09"
+      note: "Interrupted by an API rate limit on 2026-10-08 and resumed from its transcript; see distilled/verification.md."
+    - pass: cross-check
+      by: "claude (independent verifier)"
+      effort: max
+      date: "2026-10-09"

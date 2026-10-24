@@ -23,7 +23,7 @@ relations:
   implements_concept: []
 bears_on:
   - DEC-002
-topic: 
+topic: schema-representations
 publisher: "OpenVEX project"
 version: "0.2.0"
 tags:

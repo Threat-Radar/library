@@ -1,0 +1,21 @@
+threats:
+  - name: Attackers gain unauthorized access to the control of the environment
+    id: LOSS-CONTROL_ENV
+    description: Attackers could potentially gain unauthorized access to the control of the environment, due to user accounts - or role groups - not being well defined and configured. As a consequence, attackers may be able to make changes without root approval.
+    categories:
+      - Spoofing
+      - Tampering
+    cwes:
+      - CWE-79
+      - CWE-787
+    risk:
+      likelihood: 50
+      likelihoodComment: It is reasonable to think this might happen but it requires for the attaketr to have a deep cyprografy knowledge
+      impact: 100
+      impactComment: If this threat becomes a rallity company will strruggle to keep customers and the monetory loss would jeopardise the whole company
+    attributes:
+      expirationDate: 2021-05-17
+      cmdbId: MyApp123
+    tags:
+      - loss-control
+      - environment

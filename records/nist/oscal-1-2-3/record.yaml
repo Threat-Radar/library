@@ -24,7 +24,7 @@ relations:
 bears_on:
   - DEC-001
   - DEC-002
-topic: 
+topic: schema-representations
 publisher: "National Institute of Standards and Technology (NIST)"
 version: "1.2.3"
 tags:

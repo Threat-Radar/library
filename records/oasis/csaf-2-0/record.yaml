@@ -24,7 +24,7 @@ relations:
   implements_concept: []
 bears_on:
   - DEC-002
-topic: 
+topic: schema-representations
 publisher: "OASIS Open (CSAF TC)"
 version: "2.0"
 tags:

@@ -1,0 +1,1881 @@
+schema: "library-messages/v1"
+record: "cwe"
+reviewed_by: ""
+source:
+  file: "cwe_schema_v7.3.xsd"
+  url: "https://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd"
+  schema_version: "7.3"
+  schema_date: "December 11, 2025"
+  sha256: "690dedeed4e12eb8ba7244bbab90176afac549cfd6403de37000de7481e45f98"
+  target_namespace: "http://cwe.mitre.org/cwe-7"
+  imports: ["http://www.w3.org/1999/xhtml from http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd (L3)"]
+  element_form_default: "qualified"
+  attribute_form_default: "unqualified"
+  verbatim_copy: "schema/cwe_schema_v7.3.xsd (byte-identical; line numbers below refer to it)"
+  observed_against: "cwec_v4.20.xml (CWE List 4.20, Date 2026-04-30), sha256 1f5a78bd62e00f86436b4fe32d5034a57e8f0da88e4063b2072b664ae510912e"
+note: >-
+  The CWE XML Schema defines one data format and no exchange, so every structure it declares is a 'message': the
+  root element, its four containers, all 31 named complexTypes and all 24 element-local anonymous complexTypes
+  (60 entries, in file order of their declaration). Each field is one XSD declaration (element, attribute,
+  wildcard, or simpleContent value) with its own line number. Element and attribute names are exactly as in the
+  XSD; all elements are namespace-qualified, attributes unqualified. No default or fixed value is declared
+  anywhere in the schema. Enumerations are listed by name under enumerations (34 named simpleTypes with 342
+  values, plus the one anonymous simpleType on Contribution/@Type with 2 values: 344 xs:enumeration facets in
+  all).
+conventions:
+  locator: "cwe_schema_v7.3.xsd L<line> › <path>; <line> is the xs:complexType line for a named type and the xs:element line for an element-local structure (its xs:complexType line is complex_type_line)"
+  cardinality: "declared minOccurs..maxOccurs, an omitted minOccurs or maxOccurs being 1; attributes are 1..1 when use=\"required\", else 0..1 (use defaults to optional)"
+  effective: "present only where a choice or repeating group changes the declared cardinality; derived from the content model"
+  required: "true iff the effective minimum is at least 1 (elements) or use=\"required\" (attributes)"
+  group: "the xs:choice a declaration sits in, with its branch"
+  documented_at: "derived: lines of xs:documentation in the structure's own annotation or its owning named type's (or root element's) annotation whose text names the field as a whole word, case-sensitive; a pointer for the cross-check, not a claim of completeness"
+  documentation_lines: "every xs:documentation line that describes the structure (own annotation, plus the owning named type's for element-local structures)"
+  observed_4_20: "kind: observed — number of occurrences of that declaration in cwec_v4.20.xml, counted by a type-directed walk of the whole catalog (0 anomalies: every element and attribute resolved to exactly one declaration)"
+  constrained_by: "filled by pass 3 (cross-check, agent C, 2026-10-08). An xsd requirement links to the field whose line is its locator line (cwe#R-0194 also to the xs:any that NotesType/Note inherits). A prose requirement links to the field(s) its object and field name. A required xs:choice (cwe#R-0096, cwe#R-0169) links to every field of its branches; an xs:unique to the ID, Name or Reference_ID fields it constrains; a rule on an enumeration value to every field typed by that enumeration. 191 of 198 requirements are linked (215 links on 128 of the 203 fields); no requirement names the other 75 fields (74 optional declarations and the simpleContent value of Previous_Entry_Name, L349). The 7 requirements that constrain no single field are listed under constrained_by_unlinked."
+counts:
+  messages: 60
+  named_complex_types: 31
+  anonymous_complex_types: 29
+  fields: 203
+  element_declarations: 145
+  attribute_declarations: 55
+  wildcards: 2
+  named_simple_types: 34
+  named_enumeration_values: 342
+  anonymous_enumeration_values: 2
+  identity_constraints: 5
+messages:
+  - name: "Weakness_Catalog"
+    kind: "root element (global xs:element with anonymous complexType)"
+    locator: "cwe_schema_v7.3.xsd L16 › Weakness_Catalog"
+    line: 16
+    complex_type_line: 20
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog (L16)"]
+    content: "sequence"
+    documentation_lines: [18]
+    instances_4_20: 1
+    notes: >-
+      The only global element declaration in the schema, so the root of every valid instance. The four containers
+      are each optional but, when present, hold at least one entry, in the fixed order Weaknesses, Categories,
+      Views, External_References. Five xs:unique constraints hang off this element (identity_constraints below);
+      there is no xs:key / xs:keyref, so no cross-reference (CWE_ID, View_ID, Chain_ID, External_Reference_ID) is
+      checked by the schema. The 4.20 root also carries xsi:schemaLocation, which XSD allows on any element without
+      a declaration.
+    fields:
+      - {name: "Weaknesses", node: "element", type: "(anonymous complexType) → Weakness_Catalog/Weaknesses", required: false, cardinality: "0..1", line: 22, documented_at: [], observed_4_20: 1, constrained_by: []}
+      - {name: "Categories", node: "element", type: "(anonymous complexType) → Weakness_Catalog/Categories", required: false, cardinality: "0..1", line: 29, documented_at: [18], observed_4_20: 1, constrained_by: []}
+      - {name: "Views", node: "element", type: "(anonymous complexType) → Weakness_Catalog/Views", required: false, cardinality: "0..1", line: 36, documented_at: [18], observed_4_20: 1, constrained_by: []}
+      - {name: "External_References", node: "element", type: "(anonymous complexType) → Weakness_Catalog/External_References", required: false, cardinality: "0..1", line: 43, documented_at: [18], observed_4_20: 1, constrained_by: []}
+      - {name: "Name", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 51, documented_at: [18], observed_4_20: 1, constrained_by: ["cwe#R-0006", "cwe#R-0011"]}
+      - {name: "Version", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 52, documented_at: [18], observed_4_20: 1, constrained_by: ["cwe#R-0006", "cwe#R-0012"]}
+      - {name: "Date", node: "attribute", type: "xs:date", required: true, cardinality: "1..1", line: 53, documented_at: [18], observed_4_20: 1, constrained_by: ["cwe#R-0013"]}
+  - name: "Weakness_Catalog/Weaknesses"
+    kind: "container element (anonymous complexType)"
+    locator: "cwe_schema_v7.3.xsd L22 › Weakness_Catalog › Weaknesses"
+    line: 22
+    complex_type_line: 23
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/Weaknesses (L22)"]
+    content: "sequence"
+    documentation_lines: [18]
+    instances_4_20: 1
+    fields:
+      - {name: "Weakness", node: "element", type: "cwe:WeaknessType", required: true, cardinality: "1..unbounded", line: 25, documented_at: [], observed_4_20: 969, constrained_by: ["cwe#R-0007"]}
+  - name: "Weakness_Catalog/Categories"
+    kind: "container element (anonymous complexType)"
+    locator: "cwe_schema_v7.3.xsd L29 › Weakness_Catalog › Categories"
+    line: 29
+    complex_type_line: 30
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/Categories (L29)"]
+    content: "sequence"
+    documentation_lines: [18]
+    instances_4_20: 1
+    fields:
+      - {name: "Category", node: "element", type: "cwe:CategoryType", required: true, cardinality: "1..unbounded", line: 32, documented_at: [], observed_4_20: 422, constrained_by: ["cwe#R-0008", "cwe#R-0040"]}
+  - name: "Weakness_Catalog/Views"
+    kind: "container element (anonymous complexType)"
+    locator: "cwe_schema_v7.3.xsd L36 › Weakness_Catalog › Views"
+    line: 36
+    complex_type_line: 37
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/Views (L36)"]
+    content: "sequence"
+    documentation_lines: [18]
+    instances_4_20: 1
+    fields:
+      - {name: "View", node: "element", type: "cwe:ViewType", required: true, cardinality: "1..unbounded", line: 39, documented_at: [], observed_4_20: 59, constrained_by: ["cwe#R-0009", "cwe#R-0054"]}
+  - name: "Weakness_Catalog/External_References"
+    kind: "container element (anonymous complexType)"
+    locator: "cwe_schema_v7.3.xsd L43 › Weakness_Catalog › External_References"
+    line: 43
+    complex_type_line: 44
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/External_References (L43)"]
+    content: "sequence"
+    documentation_lines: [18]
+    instances_4_20: 1
+    fields:
+      - {name: "External_Reference", node: "element", type: "cwe:ExternalReferenceType", required: true, cardinality: "1..unbounded", line: 46, documented_at: [], observed_4_20: 1026, constrained_by: ["cwe#R-0010"]}
+  - name: "WeaknessType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L79 › WeaknessType"
+    line: 79
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/Weaknesses/Weakness (L25)"]
+    content: "sequence"
+    documentation_lines: [81, 82, 83]
+    instances_4_20: 969
+    notes: >-
+      Description is xs:string (plain text, no XHTML) while Extended_Description and most other prose children are
+      cwe:StructuredTextType. Mapping_Notes (L106) and Content_History (L108) are required. The Diagram attribute
+      (L115) has no documentation in the XSD; in 4.20 it holds a site-relative image path of the form
+      /data/images/CWE-<ID>-Diagram.png (84 weaknesses).
+    fields:
+      - {name: "Description", node: "element", type: "xs:string", required: true, cardinality: "1..1", line: 86, documented_at: [82], observed_4_20: 969, constrained_by: ["cwe#R-0019", "cwe#R-0027"]}
+      - {name: "Extended_Description", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "0..1", line: 87, documented_at: [82], observed_4_20: 582, constrained_by: []}
+      - {name: "Related_Weaknesses", node: "element", type: "cwe:RelatedWeaknessesType", required: false, cardinality: "0..1", line: 88, documented_at: [], observed_4_20: 935, constrained_by: []}
+      - {name: "Weakness_Ordinalities", node: "element", type: "cwe:WeaknessOrdinalitiesType", required: false, cardinality: "0..1", line: 89, documented_at: [], observed_4_20: 944, constrained_by: []}
+      - {name: "Applicable_Platforms", node: "element", type: "cwe:ApplicablePlatformsType", required: false, cardinality: "0..1", line: 90, documented_at: [], observed_4_20: 944, constrained_by: []}
+      - {name: "Background_Details", node: "element", type: "cwe:BackgroundDetailsType", required: false, cardinality: "0..1", line: 91, documented_at: [], observed_4_20: 58, constrained_by: []}
+      - {name: "Alternate_Terms", node: "element", type: "cwe:AlternateTermsType", required: false, cardinality: "0..1", line: 92, documented_at: [], observed_4_20: 106, constrained_by: []}
+      - {name: "Modes_Of_Introduction", node: "element", type: "cwe:ModesOfIntroductionType", required: false, cardinality: "0..1", line: 93, documented_at: [], observed_4_20: 944, constrained_by: []}
+      - {name: "Exploitation_Factors", node: "element", type: "cwe:ExploitationFactorsType", required: false, cardinality: "0..1", line: 94, documented_at: [], observed_4_20: 0, constrained_by: []}
+      - {name: "Likelihood_Of_Exploit", node: "element", type: "cwe:LikelihoodEnumeration", required: false, cardinality: "0..1", line: 95, documented_at: [], observed_4_20: 185, constrained_by: ["cwe#R-0182"]}
+      - {name: "Common_Consequences", node: "element", type: "cwe:CommonConsequencesType", required: false, cardinality: "0..1", line: 96, documented_at: [], observed_4_20: 944, constrained_by: []}
+      - {name: "Detection_Methods", node: "element", type: "cwe:DetectionMethodsType", required: false, cardinality: "0..1", line: 97, documented_at: [], observed_4_20: 499, constrained_by: []}
+      - {name: "Potential_Mitigations", node: "element", type: "cwe:PotentialMitigationsType", required: false, cardinality: "0..1", line: 98, documented_at: [], observed_4_20: 671, constrained_by: []}
+      - {name: "Demonstrative_Examples", node: "element", type: "cwe:DemonstrativeExamplesType", required: false, cardinality: "0..1", line: 99, documented_at: [], observed_4_20: 597, constrained_by: []}
+      - {name: "Observed_Examples", node: "element", type: "cwe:ObservedExampleType", required: false, cardinality: "0..1", line: 100, documented_at: [], observed_4_20: 582, constrained_by: []}
+      - {name: "Functional_Areas", node: "element", type: "cwe:FunctionalAreasType", required: false, cardinality: "0..1", line: 101, documented_at: [], observed_4_20: 113, constrained_by: []}
+      - {name: "Affected_Resources", node: "element", type: "cwe:AffectedResourcesType", required: false, cardinality: "0..1", line: 102, documented_at: [], observed_4_20: 115, constrained_by: []}
+      - {name: "Taxonomy_Mappings", node: "element", type: "cwe:TaxonomyMappingsType", required: false, cardinality: "0..1", line: 103, documented_at: [], observed_4_20: 638, constrained_by: []}
+      - {name: "Related_Attack_Patterns", node: "element", type: "cwe:RelatedAttackPatternsType", required: false, cardinality: "0..1", line: 104, documented_at: [], observed_4_20: 336, constrained_by: []}
+      - {name: "References", node: "element", type: "cwe:ReferencesType", required: false, cardinality: "0..1", line: 105, documented_at: [], observed_4_20: 590, constrained_by: []}
+      - {name: "Mapping_Notes", node: "element", type: "cwe:MappingNotesType", required: true, cardinality: "1..1", line: 106, documented_at: [], observed_4_20: 969, constrained_by: ["cwe#R-0028"]}
+      - {name: "Notes", node: "element", type: "cwe:NotesType", required: false, cardinality: "0..1", line: 107, documented_at: [], observed_4_20: 345, constrained_by: []}
+      - {name: "Content_History", node: "element", type: "cwe:ContentHistoryType", required: true, cardinality: "1..1", line: 108, documented_at: [], observed_4_20: 969, constrained_by: ["cwe#R-0029"]}
+      - {name: "ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 110, documented_at: [83], observed_4_20: 969, constrained_by: ["cwe#R-0014", "cwe#R-0020", "cwe#R-0021", "cwe#R-0022", "cwe#R-0030"]}
+      - {name: "Name", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 111, documented_at: [83], observed_4_20: 969, constrained_by: ["cwe#R-0015", "cwe#R-0023", "cwe#R-0024", "cwe#R-0025", "cwe#R-0026", "cwe#R-0031"]}
+      - {name: "Abstraction", node: "attribute", type: "cwe:AbstractionEnumeration", required: true, cardinality: "1..1", line: 112, documented_at: [83], observed_4_20: 969, constrained_by: ["cwe#R-0032", "cwe#R-0198"]}
+      - {name: "Structure", node: "attribute", type: "cwe:StructureEnumeration", required: true, cardinality: "1..1", line: 113, documented_at: [83], observed_4_20: 969, constrained_by: ["cwe#R-0033", "cwe#R-0188", "cwe#R-0189", "cwe#R-0198"]}
+      - {name: "Status", node: "attribute", type: "cwe:StatusEnumeration", required: true, cardinality: "1..1", line: 114, documented_at: [83], observed_4_20: 969, constrained_by: ["cwe#R-0034", "cwe#R-0186", "cwe#R-0187"]}
+      - {name: "Diagram", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 115, documented_at: [], observed_4_20: 84, constrained_by: []}
+  - name: "CategoryType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L120 › CategoryType"
+    line: 120
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/Categories/Category (L32)"]
+    content: "sequence"
+    documentation_lines: [122, 123, 124]
+    instances_4_20: 422
+    notes: >-
+      Relationships reuses RelationshipsType (Member_Of / Has_Member). In 4.20 every category membership is
+      Has_Member; Member_Of never occurs.
+    fields:
+      - {name: "Summary", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 127, documented_at: [123], observed_4_20: 422, constrained_by: ["cwe#R-0042"]}
+      - {name: "Relationships", node: "element", type: "cwe:RelationshipsType", required: false, cardinality: "0..1", line: 128, documented_at: [123], observed_4_20: 368, constrained_by: []}
+      - {name: "Taxonomy_Mappings", node: "element", type: "cwe:TaxonomyMappingsType", required: false, cardinality: "0..1", line: 129, documented_at: [123], observed_4_20: 19, constrained_by: []}
+      - {name: "References", node: "element", type: "cwe:ReferencesType", required: false, cardinality: "0..1", line: 130, documented_at: [123], observed_4_20: 259, constrained_by: ["cwe#R-0036"]}
+      - {name: "Mapping_Notes", node: "element", type: "cwe:MappingNotesType", required: true, cardinality: "1..1", line: 131, documented_at: [], observed_4_20: 422, constrained_by: ["cwe#R-0043"]}
+      - {name: "Notes", node: "element", type: "cwe:NotesType", required: false, cardinality: "0..1", line: 132, documented_at: [123], observed_4_20: 69, constrained_by: []}
+      - {name: "Content_History", node: "element", type: "cwe:ContentHistoryType", required: true, cardinality: "1..1", line: 133, documented_at: [123], observed_4_20: 422, constrained_by: ["cwe#R-0044"]}
+      - {name: "ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 135, documented_at: [124], observed_4_20: 422, constrained_by: ["cwe#R-0016", "cwe#R-0037", "cwe#R-0038", "cwe#R-0039", "cwe#R-0045"]}
+      - {name: "Name", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 136, documented_at: [124], observed_4_20: 422, constrained_by: ["cwe#R-0015", "cwe#R-0041", "cwe#R-0046"]}
+      - {name: "Status", node: "attribute", type: "cwe:StatusEnumeration", required: true, cardinality: "1..1", line: 137, documented_at: [124], observed_4_20: 422, constrained_by: ["cwe#R-0047", "cwe#R-0186", "cwe#R-0187"]}
+  - name: "ViewType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L142 › ViewType"
+    line: 142
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/Views/View (L39)"]
+    content: "sequence"
+    documentation_lines: [144, 145, 146]
+    instances_4_20: 59
+    notes: >-
+      Members (RelationshipsType) and Filter (xs:string holding an XPath expression) are both optional and the XSD
+      does not tie either to @Type. Observed in 4.20: Graph 37/38 and Explicit 3/4 carry Members; Implicit 17/17
+      carry Filter; the two views with neither are the Deprecated views CWE-630 (Explicit) and CWE-631 (Graph).
+      Filter expressions are written without namespace prefixes (e.g.
+      /Weakness_Catalog/Weaknesses/Weakness[@Structure='Chain']); evaluated as XPath 1.0 against the namespaced
+      document they select nothing, so a consumer must evaluate them namespace-agnostically (checked:
+      examples/expected.yaml, view fixture).
+    fields:
+      - {name: "Objective", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 149, documented_at: [145], observed_4_20: 59, constrained_by: ["cwe#R-0056"]}
+      - {name: "Audience", node: "element", type: "cwe:AudienceType", required: false, cardinality: "0..1", line: 150, documented_at: [145], observed_4_20: 39, constrained_by: []}
+      - {name: "Members", node: "element", type: "cwe:RelationshipsType", required: false, cardinality: "0..1", line: 151, documented_at: [145], observed_4_20: 40, constrained_by: ["cwe#R-0048"]}
+      - {name: "Filter", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 152, documented_at: [145], observed_4_20: 17, constrained_by: ["cwe#R-0048", "cwe#R-0049"]}
+      - {name: "References", node: "element", type: "cwe:ReferencesType", required: false, cardinality: "0..1", line: 153, documented_at: [145], observed_4_20: 35, constrained_by: ["cwe#R-0050"]}
+      - {name: "Mapping_Notes", node: "element", type: "cwe:MappingNotesType", required: true, cardinality: "1..1", line: 154, documented_at: [], observed_4_20: 59, constrained_by: ["cwe#R-0057"]}
+      - {name: "Notes", node: "element", type: "cwe:NotesType", required: false, cardinality: "0..1", line: 155, documented_at: [145], observed_4_20: 23, constrained_by: []}
+      - {name: "Content_History", node: "element", type: "cwe:ContentHistoryType", required: true, cardinality: "1..1", line: 156, documented_at: [145], observed_4_20: 59, constrained_by: ["cwe#R-0058"]}
+      - {name: "ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 158, documented_at: [146], observed_4_20: 59, constrained_by: ["cwe#R-0017", "cwe#R-0051", "cwe#R-0052", "cwe#R-0053", "cwe#R-0059"]}
+      - {name: "Name", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 159, documented_at: [146], observed_4_20: 59, constrained_by: ["cwe#R-0015", "cwe#R-0055", "cwe#R-0060"]}
+      - {name: "Type", node: "attribute", type: "cwe:ViewTypeEnumeration", required: true, cardinality: "1..1", line: 160, documented_at: [145, 146], observed_4_20: 59, constrained_by: ["cwe#R-0048", "cwe#R-0049", "cwe#R-0061"]}
+      - {name: "Status", node: "attribute", type: "cwe:StatusEnumeration", required: true, cardinality: "1..1", line: 161, documented_at: [146], observed_4_20: 59, constrained_by: ["cwe#R-0062", "cwe#R-0186", "cwe#R-0187"]}
+  - name: "ExternalReferenceType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L166 › ExternalReferenceType"
+    line: 166
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["Weakness_Catalog/External_References/External_Reference (L46)"]
+    content: "sequence"
+    documentation_lines: [168, 169, 170]
+    instances_4_20: 1026
+    notes: >-
+      Publication_Year / Publication_Month / Publication_Day are the XSD built-ins xs:gYear / xs:gMonth / xs:gDay,
+      whose lexical forms are YYYY / --MM / ---DD (documented at L169). Reference_ID is xs:string; its REF-<n> shape
+      is a convention (L170), not a pattern facet. Every 4.20 External_Reference entry is serialised with CRLF line
+      ends (CRLF-only, all 1,026; CRLF occurs nowhere else in the file).
+    fields:
+      - {name: "Author", node: "element", type: "xs:string", required: false, cardinality: "0..unbounded", line: 173, documented_at: [169], observed_4_20: 1416, constrained_by: ["cwe#R-0063"]}
+      - {name: "Title", node: "element", type: "xs:string", required: true, cardinality: "1..1", line: 174, documented_at: [169], observed_4_20: 1026, constrained_by: ["cwe#R-0063", "cwe#R-0064", "cwe#R-0071"]}
+      - {name: "Edition", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 175, documented_at: [169], observed_4_20: 9, constrained_by: []}
+      - {name: "Publication", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 176, documented_at: [169], observed_4_20: 54, constrained_by: ["cwe#R-0065"]}
+      - {name: "Publication_Year", node: "element", type: "xs:gYear", required: false, cardinality: "0..1", line: 177, documented_at: [169], observed_4_20: 680, constrained_by: ["cwe#R-0066", "cwe#R-0067"]}
+      - {name: "Publication_Month", node: "element", type: "xs:gMonth", required: false, cardinality: "0..1", line: 178, documented_at: [169], observed_4_20: 532, constrained_by: ["cwe#R-0066", "cwe#R-0068"]}
+      - {name: "Publication_Day", node: "element", type: "xs:gDay", required: false, cardinality: "0..1", line: 179, documented_at: [169], observed_4_20: 458, constrained_by: ["cwe#R-0066", "cwe#R-0069"]}
+      - {name: "Publisher", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 180, documented_at: [169], observed_4_20: 100, constrained_by: ["cwe#R-0066"]}
+      - {name: "URL", node: "element", type: "xs:anyURI", required: false, cardinality: "0..1", line: 181, documented_at: [169], observed_4_20: 1005, constrained_by: []}
+      - {name: "URL_Date", node: "element", type: "xs:date", required: false, cardinality: "0..1", line: 182, documented_at: [169], observed_4_20: 600, constrained_by: []}
+      - {name: "Reference_ID", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 184, documented_at: [170], observed_4_20: 1026, constrained_by: ["cwe#R-0018", "cwe#R-0070", "cwe#R-0072"]}
+  - name: "AffectedResourcesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L189 › AffectedResourcesType"
+    line: 189
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Affected_Resources (L102)"]
+    content: "sequence"
+    documentation_lines: [191]
+    instances_4_20: 115
+    fields:
+      - {name: "Affected_Resource", node: "element", type: "cwe:ResourceEnumeration", required: true, cardinality: "1..unbounded", line: 194, documented_at: [191], observed_4_20: 118, constrained_by: ["cwe#R-0073", "cwe#R-0074"]}
+  - name: "AlternateTermsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L197 › AlternateTermsType"
+    line: 197
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Alternate_Terms (L92)"]
+    content: "sequence"
+    documentation_lines: [199]
+    instances_4_20: 106
+    fields:
+      - {name: "Alternate_Term", node: "element", type: "(anonymous complexType) → AlternateTermsType/Alternate_Term", required: true, cardinality: "1..unbounded", line: 202, documented_at: [], observed_4_20: 189, constrained_by: ["cwe#R-0075"]}
+  - name: "AlternateTermsType/Alternate_Term"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L202 › AlternateTermsType › Alternate_Term"
+    line: 202
+    complex_type_line: 203
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["AlternateTermsType/Alternate_Term (L202)"]
+    content: "sequence"
+    documentation_lines: [199]
+    instances_4_20: 189
+    fields:
+      - {name: "Term", node: "element", type: "xs:string", required: true, cardinality: "1..1", line: 205, documented_at: [199], observed_4_20: 189, constrained_by: ["cwe#R-0076"]}
+      - {name: "Description", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "0..1", line: 206, documented_at: [199], observed_4_20: 105, constrained_by: []}
+  - name: "ApplicablePlatformsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L212 › ApplicablePlatformsType"
+    line: 212
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Applicable_Platforms (L90)"]
+    content: "sequence"
+    documentation_lines: [214]
+    instances_4_20: 944
+    fields:
+      - {name: "Language", node: "element", type: "(anonymous complexType) → ApplicablePlatformsType/Language", required: false, cardinality: "0..unbounded", line: 217, documented_at: [], observed_4_20: 1236, constrained_by: []}
+      - {name: "Operating_System", node: "element", type: "(anonymous complexType) → ApplicablePlatformsType/Operating_System", required: false, cardinality: "0..unbounded", line: 224, documented_at: [], observed_4_20: 146, constrained_by: []}
+      - {name: "Architecture", node: "element", type: "(anonymous complexType) → ApplicablePlatformsType/Architecture", required: false, cardinality: "0..unbounded", line: 233, documented_at: [], observed_4_20: 119, constrained_by: []}
+      - {name: "Technology", node: "element", type: "(anonymous complexType) → ApplicablePlatformsType/Technology", required: false, cardinality: "0..unbounded", line: 240, documented_at: [], observed_4_20: 571, constrained_by: []}
+  - name: "ApplicablePlatformsType/Language"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L217 › ApplicablePlatformsType › Language"
+    line: 217
+    complex_type_line: 218
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ApplicablePlatformsType/Language (L217)"]
+    content: "empty (attributes only)"
+    documentation_lines: [214]
+    instances_4_20: 1236
+    notes: >-
+      Name and Class are both optional; nothing in the XSD requires either (only Prevalence is required). Same shape
+      for Operating_System, Architecture and Technology.
+    fields:
+      - {name: "Name", node: "attribute", type: "cwe:LanguageNameEnumeration", required: false, cardinality: "0..1", line: 219, documented_at: [], observed_4_20: 417, constrained_by: []}
+      - {name: "Class", node: "attribute", type: "cwe:LanguageClassEnumeration", required: false, cardinality: "0..1", line: 220, documented_at: [], observed_4_20: 819, constrained_by: []}
+      - {name: "Prevalence", node: "attribute", type: "cwe:PrevalenceEnumeration", required: true, cardinality: "1..1", line: 221, documented_at: [214], observed_4_20: 1236, constrained_by: ["cwe#R-0077"]}
+  - name: "ApplicablePlatformsType/Operating_System"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L224 › ApplicablePlatformsType › Operating_System"
+    line: 224
+    complex_type_line: 225
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ApplicablePlatformsType/Operating_System (L224)"]
+    content: "empty (attributes only)"
+    documentation_lines: [214]
+    instances_4_20: 146
+    fields:
+      - {name: "Name", node: "attribute", type: "cwe:OperatingSystemNameEnumeration", required: false, cardinality: "0..1", line: 226, documented_at: [], observed_4_20: 3, constrained_by: []}
+      - {name: "Version", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 227, documented_at: [], observed_4_20: 0, constrained_by: []}
+      - {name: "CPE_ID", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 228, documented_at: [], observed_4_20: 0, constrained_by: []}
+      - {name: "Class", node: "attribute", type: "cwe:OperatingSystemClassEnumeration", required: false, cardinality: "0..1", line: 229, documented_at: [], observed_4_20: 143, constrained_by: []}
+      - {name: "Prevalence", node: "attribute", type: "cwe:PrevalenceEnumeration", required: true, cardinality: "1..1", line: 230, documented_at: [214], observed_4_20: 146, constrained_by: ["cwe#R-0078"]}
+  - name: "ApplicablePlatformsType/Architecture"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L233 › ApplicablePlatformsType › Architecture"
+    line: 233
+    complex_type_line: 234
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ApplicablePlatformsType/Architecture (L233)"]
+    content: "empty (attributes only)"
+    documentation_lines: [214]
+    instances_4_20: 119
+    fields:
+      - {name: "Name", node: "attribute", type: "cwe:ArchitectureNameEnumeration", required: false, cardinality: "0..1", line: 235, documented_at: [], observed_4_20: 5, constrained_by: []}
+      - {name: "Class", node: "attribute", type: "cwe:ArchitectureClassEnumeration", required: false, cardinality: "0..1", line: 236, documented_at: [], observed_4_20: 114, constrained_by: []}
+      - {name: "Prevalence", node: "attribute", type: "cwe:PrevalenceEnumeration", required: true, cardinality: "1..1", line: 237, documented_at: [214], observed_4_20: 119, constrained_by: ["cwe#R-0079"]}
+  - name: "ApplicablePlatformsType/Technology"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L240 › ApplicablePlatformsType › Technology"
+    line: 240
+    complex_type_line: 241
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ApplicablePlatformsType/Technology (L240)"]
+    content: "empty (attributes only)"
+    documentation_lines: [214]
+    instances_4_20: 571
+    fields:
+      - {name: "Name", node: "attribute", type: "cwe:TechnologyNameEnumeration", required: false, cardinality: "0..1", line: 242, documented_at: [], observed_4_20: 158, constrained_by: []}
+      - {name: "Class", node: "attribute", type: "cwe:TechnologyClassEnumeration", required: false, cardinality: "0..1", line: 243, documented_at: [], observed_4_20: 414, constrained_by: []}
+      - {name: "Prevalence", node: "attribute", type: "cwe:PrevalenceEnumeration", required: true, cardinality: "1..1", line: 244, documented_at: [214], observed_4_20: 571, constrained_by: ["cwe#R-0080"]}
+  - name: "AudienceType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L249 › AudienceType"
+    line: 249
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ViewType/Audience (L150)"]
+    content: "sequence"
+    documentation_lines: [251]
+    instances_4_20: 39
+    fields:
+      - {name: "Stakeholder", node: "element", type: "(anonymous complexType) → AudienceType/Stakeholder", required: true, cardinality: "1..unbounded", line: 254, documented_at: [], observed_4_20: 114, constrained_by: ["cwe#R-0081"]}
+  - name: "AudienceType/Stakeholder"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L254 › AudienceType › Stakeholder"
+    line: 254
+    complex_type_line: 255
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["AudienceType/Stakeholder (L254)"]
+    content: "sequence"
+    documentation_lines: [251]
+    instances_4_20: 114
+    fields:
+      - {name: "Type", node: "element", type: "cwe:StakeholderEnumeration", required: true, cardinality: "1..1", line: 257, documented_at: [251], observed_4_20: 114, constrained_by: ["cwe#R-0082"]}
+      - {name: "Description", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 258, documented_at: [251], observed_4_20: 111, constrained_by: []}
+  - name: "BackgroundDetailsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L264 › BackgroundDetailsType"
+    line: 264
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Background_Details (L91)"]
+    content: "sequence"
+    documentation_lines: [266]
+    instances_4_20: 58
+    fields:
+      - {name: "Background_Detail", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..unbounded", line: 269, documented_at: [266], observed_4_20: 60, constrained_by: ["cwe#R-0083"]}
+  - name: "CommonConsequencesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L272 › CommonConsequencesType"
+    line: 272
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Common_Consequences (L96)"]
+    content: "sequence"
+    documentation_lines: [274, 275]
+    instances_4_20: 944
+    fields:
+      - {name: "Consequence", node: "element", type: "(anonymous complexType) → CommonConsequencesType/Consequence", required: true, cardinality: "1..unbounded", line: 278, documented_at: [], observed_4_20: 1237, constrained_by: ["cwe#R-0086"]}
+  - name: "CommonConsequencesType/Consequence"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L278 › CommonConsequencesType › Consequence"
+    line: 278
+    complex_type_line: 279
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["CommonConsequencesType/Consequence (L278)"]
+    content: "sequence"
+    documentation_lines: [274, 275]
+    instances_4_20: 1237
+    fields:
+      - {name: "Scope", node: "element", type: "cwe:ScopeEnumeration", required: true, cardinality: "1..unbounded", line: 281, documented_at: [274], observed_4_20: 2033, constrained_by: ["cwe#R-0087"]}
+      - {name: "Impact", node: "element", type: "cwe:TechnicalImpactEnumeration", required: true, cardinality: "1..unbounded", line: 282, documented_at: [274], observed_4_20: 2120, constrained_by: ["cwe#R-0088"]}
+      - {name: "Likelihood", node: "element", type: "cwe:LikelihoodEnumeration", required: false, cardinality: "0..1", line: 283, documented_at: [274], observed_4_20: 78, constrained_by: ["cwe#R-0089", "cwe#R-0182"]}
+      - {name: "Note", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "0..1", line: 284, documented_at: [274], observed_4_20: 758, constrained_by: ["cwe#R-0090"]}
+      - {name: "Consequence_ID", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 286, documented_at: [275], observed_4_20: 0, constrained_by: ["cwe#R-0084", "cwe#R-0085"]}
+  - name: "ContentHistoryType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L291 › ContentHistoryType"
+    line: 291
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Content_History (L108)", "CategoryType/Content_History (L133)", "ViewType/Content_History (L156)"]
+    content: "sequence"
+    documentation_lines: [293]
+    instances_4_20: 1450
+    notes: >-
+      Document order is by event kind (Submission, then every Modification, then every Contribution, then every
+      Previous_Entry_Name), not chronological. state-machine.yaml M3 models these as an event log.
+    fields:
+      - {name: "Submission", node: "element", type: "(anonymous complexType) → ContentHistoryType/Submission", required: true, cardinality: "1..1", line: 296, documented_at: [293], observed_4_20: 1450, constrained_by: ["cwe#R-0095"]}
+      - {name: "Modification", node: "element", type: "(anonymous complexType) → ContentHistoryType/Modification", required: false, cardinality: "0..unbounded", line: 313, documented_at: [293], observed_4_20: 16575, constrained_by: ["cwe#R-0091"]}
+      - {name: "Contribution", node: "element", type: "(anonymous complexType) → ContentHistoryType/Contribution", required: false, cardinality: "0..unbounded", line: 326, documented_at: [293], observed_4_20: 283, constrained_by: []}
+      - {name: "Previous_Entry_Name", node: "element", type: "(anonymous complexType) → ContentHistoryType/Previous_Entry_Name", required: false, cardinality: "0..unbounded", line: 346, documented_at: [293], observed_4_20: 925, constrained_by: ["cwe#R-0093", "cwe#R-0094"]}
+  - name: "ContentHistoryType/Submission"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L296 › ContentHistoryType › Submission"
+    line: 296
+    complex_type_line: 297
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ContentHistoryType/Submission (L296)"]
+    content: "sequence"
+    documentation_lines: [293]
+    instances_4_20: 1450
+    notes: >-
+      Choice L299: exactly one of branch 1 = Submission_Name (1..1) then optional Submission_Organization (L302), or
+      branch 2 = Submission_Organization alone (L304). Net effect: at least one of Submission_Name /
+      Submission_Organization, Name first when both. 4.20: 1435 with Submission_Name (796 also with Organization),
+      15 with Organization only.
+    fields:
+      - {name: "Submission_Name", node: "element", type: "xs:string", required: false, cardinality: "1..1", effective: "0..1", group: "choice L299 (1..1), branch 1 of 2 (L300)", line: 301, documented_at: [], observed_4_20: 1435, constrained_by: ["cwe#R-0096", "cwe#R-0097"]}
+      - {name: "Submission_Organization", node: "element", type: "xs:string", required: false, cardinality: "0..1", group: "choice L299 (1..1), branch 1 of 2 (L300)", line: 302, documented_at: [], observed_4_20: 796, constrained_by: ["cwe#R-0096"]}
+      - {name: "Submission_Organization", node: "element", type: "xs:string", required: false, cardinality: "1..1", effective: "0..1", group: "choice L299 (1..1), branch 2 of 2 (L304)", line: 304, documented_at: [], observed_4_20: 15, constrained_by: ["cwe#R-0096", "cwe#R-0098"]}
+      - {name: "Submission_Date", node: "element", type: "xs:date", required: true, cardinality: "1..1", line: 306, documented_at: [], observed_4_20: 1450, constrained_by: ["cwe#R-0099"]}
+      - {name: "Submission_Version", node: "element", type: "xs:string", required: true, cardinality: "1..1", line: 307, documented_at: [], observed_4_20: 1450, constrained_by: ["cwe#R-0100"]}
+      - {name: "Submission_ReleaseDate", node: "element", type: "xs:date", required: true, cardinality: "1..1", line: 308, documented_at: [], observed_4_20: 1450, constrained_by: ["cwe#R-0101"]}
+      - {name: "Submission_Comment", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 309, documented_at: [], observed_4_20: 209, constrained_by: []}
+  - name: "ContentHistoryType/Modification"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L313 › ContentHistoryType › Modification"
+    line: 313
+    complex_type_line: 314
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ContentHistoryType/Modification (L313)"]
+    content: "sequence"
+    documentation_lines: [293]
+    instances_4_20: 16575
+    notes: >-
+      Only Modification_Date is required. In 4.20 Modification_Version and Modification_ReleaseDate are present on
+      every one of 16,575 modifications; Modification_Importance appears 23 times, always Critical.
+    fields:
+      - {name: "Modification_Name", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 316, documented_at: [], observed_4_20: 16498, constrained_by: []}
+      - {name: "Modification_Organization", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 317, documented_at: [], observed_4_20: 16558, constrained_by: []}
+      - {name: "Modification_Date", node: "element", type: "xs:date", required: true, cardinality: "1..1", line: 318, documented_at: [], observed_4_20: 16575, constrained_by: ["cwe#R-0102"]}
+      - {name: "Modification_Version", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 319, documented_at: [], observed_4_20: 16575, constrained_by: []}
+      - {name: "Modification_ReleaseDate", node: "element", type: "xs:date", required: false, cardinality: "0..1", line: 320, documented_at: [], observed_4_20: 16575, constrained_by: []}
+      - {name: "Modification_Importance", node: "element", type: "cwe:ImportanceEnumeration", required: false, cardinality: "0..1", line: 321, documented_at: [], observed_4_20: 23, constrained_by: ["cwe#R-0092"]}
+      - {name: "Modification_Comment", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 322, documented_at: [], observed_4_20: 16574, constrained_by: []}
+  - name: "ContentHistoryType/Contribution"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L326 › ContentHistoryType › Contribution"
+    line: 326
+    complex_type_line: 327
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ContentHistoryType/Contribution (L326)"]
+    content: "sequence"
+    documentation_lines: [293]
+    instances_4_20: 283
+    fields:
+      - {name: "Contribution_Name", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 329, documented_at: [], observed_4_20: 277, constrained_by: []}
+      - {name: "Contribution_Organization", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 330, documented_at: [], observed_4_20: 203, constrained_by: []}
+      - {name: "Contribution_Date", node: "element", type: "xs:date", required: true, cardinality: "1..1", line: 331, documented_at: [], observed_4_20: 283, constrained_by: ["cwe#R-0103"]}
+      - {name: "Contribution_Version", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 332, documented_at: [], observed_4_20: 116, constrained_by: []}
+      - {name: "Contribution_ReleaseDate", node: "element", type: "xs:date", required: false, cardinality: "0..1", line: 333, documented_at: [], observed_4_20: 116, constrained_by: []}
+      - {name: "Contribution_Comment", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 334, documented_at: [], observed_4_20: 282, constrained_by: []}
+      - {name: "Type", node: "attribute", type: "(anonymous xs:string enumeration L337: Content | Feedback)", required: true, cardinality: "1..1", line: 336, documented_at: [293], observed_4_20: 283, constrained_by: ["cwe#R-0104"]}
+  - name: "ContentHistoryType/Previous_Entry_Name"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L346 › ContentHistoryType › Previous_Entry_Name"
+    line: 346
+    complex_type_line: 347
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ContentHistoryType/Previous_Entry_Name (L346)"]
+    content: "simpleContent extension of xs:string"
+    documentation_lines: [293]
+    instances_4_20: 925
+    notes: >-
+      simpleContent: the element value is the former name. 4.20: 925 occurrences, @Version on only 4.
+    fields:
+      - {name: "(value)", node: "text", type: "xs:string", required: true, cardinality: "1..1", line: 349, documented_at: [], observed_4_20: 925, constrained_by: []}
+      - {name: "Date", node: "attribute", type: "xs:date", required: true, cardinality: "1..1", line: 350, documented_at: [293], observed_4_20: 925, constrained_by: ["cwe#R-0105"]}
+      - {name: "Version", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 351, documented_at: [], observed_4_20: 4, constrained_by: []}
+  - name: "DemonstrativeExamplesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L358 › DemonstrativeExamplesType"
+    line: 358
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Demonstrative_Examples (L99)"]
+    content: "sequence"
+    documentation_lines: [360, 361]
+    instances_4_20: 597
+    fields:
+      - {name: "Demonstrative_Example", node: "element", type: "(anonymous complexType) → DemonstrativeExamplesType/Demonstrative_Example", required: true, cardinality: "1..unbounded", line: 364, documented_at: [360], observed_4_20: 1109, constrained_by: ["cwe#R-0108"]}
+  - name: "DemonstrativeExamplesType/Demonstrative_Example"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L364 › DemonstrativeExamplesType › Demonstrative_Example"
+    line: 364
+    complex_type_line: 365
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["DemonstrativeExamplesType/Demonstrative_Example (L364)"]
+    content: "sequence"
+    documentation_lines: [360, 361]
+    instances_4_20: 1109
+    notes: >-
+      Choice L369 (0..unbounded): Body_Text and Example_Code interleave freely, in any order and number, between
+      Intro_Text and References.
+    fields:
+      - {name: "Title_Text", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 367, documented_at: [360], observed_4_20: 0, constrained_by: []}
+      - {name: "Intro_Text", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 368, documented_at: [360], observed_4_20: 1109, constrained_by: ["cwe#R-0109"]}
+      - {name: "Body_Text", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "1..1", effective: "0..unbounded", group: "choice L369 (0..unbounded), branch 1 of 2 (L370)", line: 370, documented_at: [360], observed_4_20: 1605, constrained_by: []}
+      - {name: "Example_Code", node: "element", type: "cwe:StructuredCodeType", required: false, cardinality: "1..1", effective: "0..unbounded", group: "choice L369 (0..unbounded), branch 2 of 2 (L371)", line: 371, documented_at: [360], observed_4_20: 1584, constrained_by: []}
+      - {name: "References", node: "element", type: "cwe:ReferencesType", required: false, cardinality: "0..1", line: 373, documented_at: [360], observed_4_20: 9, constrained_by: []}
+      - {name: "Demonstrative_Example_ID", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 375, documented_at: [361], observed_4_20: 602, constrained_by: ["cwe#R-0106", "cwe#R-0107"]}
+  - name: "DetectionMethodsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L380 › DetectionMethodsType"
+    line: 380
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Detection_Methods (L97)"]
+    content: "sequence"
+    documentation_lines: [382, 383]
+    instances_4_20: 499
+    fields:
+      - {name: "Detection_Method", node: "element", type: "(anonymous complexType) → DetectionMethodsType/Detection_Method", required: true, cardinality: "1..unbounded", line: 386, documented_at: [383], observed_4_20: 959, constrained_by: ["cwe#R-0112"]}
+  - name: "DetectionMethodsType/Detection_Method"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L386 › DetectionMethodsType › Detection_Method"
+    line: 386
+    complex_type_line: 387
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["DetectionMethodsType/Detection_Method (L386)"]
+    content: "sequence"
+    documentation_lines: [382, 383]
+    instances_4_20: 959
+    fields:
+      - {name: "Method", node: "element", type: "cwe:DetectionMethodEnumeration", required: true, cardinality: "1..1", line: 389, documented_at: [382], observed_4_20: 959, constrained_by: ["cwe#R-0113"]}
+      - {name: "Description", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 390, documented_at: [382], observed_4_20: 959, constrained_by: ["cwe#R-0114"]}
+      - {name: "Effectiveness", node: "element", type: "cwe:DetectionEffectivenessEnumeration", required: false, cardinality: "0..1", line: 391, documented_at: [382], observed_4_20: 737, constrained_by: ["cwe#R-0181"]}
+      - {name: "Effectiveness_Notes", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "0..1", line: 392, documented_at: [382], observed_4_20: 93, constrained_by: []}
+      - {name: "Detection_Method_ID", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 394, documented_at: [383], observed_4_20: 483, constrained_by: ["cwe#R-0110", "cwe#R-0111"]}
+  - name: "ExploitationFactorsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L399 › ExploitationFactorsType"
+    line: 399
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Exploitation_Factors (L94)"]
+    content: "sequence"
+    documentation_lines: [401]
+    instances_4_20: 0
+    fields:
+      - {name: "Exploitation_Factor", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..unbounded", line: 404, documented_at: [], observed_4_20: 0, constrained_by: ["cwe#R-0115"]}
+  - name: "FunctionalAreasType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L407 › FunctionalAreasType"
+    line: 407
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Functional_Areas (L101)"]
+    content: "sequence"
+    documentation_lines: [409]
+    instances_4_20: 113
+    fields:
+      - {name: "Functional_Area", node: "element", type: "cwe:FunctionalAreaEnumeration", required: true, cardinality: "1..unbounded", line: 412, documented_at: [409], observed_4_20: 127, constrained_by: ["cwe#R-0116", "cwe#R-0117", "cwe#R-0118"]}
+  - name: "MappingNotesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L415 › MappingNotesType"
+    line: 415
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Mapping_Notes (L106)", "CategoryType/Mapping_Notes (L131)", "ViewType/Mapping_Notes (L154)"]
+    content: "sequence"
+    documentation_lines: [417]
+    instances_4_20: 1450
+    notes: >-
+      Required on Weakness (L106), Category (L131) and View (L154). Usage carries the mapping guard modelled in
+      state-machine.yaml M2.
+    fields:
+      - {name: "Usage", node: "element", type: "cwe:UsageEnumeration", required: true, cardinality: "1..1", line: 420, documented_at: [417], observed_4_20: 1450, constrained_by: ["cwe#R-0120", "cwe#R-0190", "cwe#R-0191", "cwe#R-0192", "cwe#R-0193"]}
+      - {name: "Rationale", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 421, documented_at: [417], observed_4_20: 1450, constrained_by: ["cwe#R-0121"]}
+      - {name: "Comments", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 422, documented_at: [417], observed_4_20: 1450, constrained_by: ["cwe#R-0122"]}
+      - {name: "Reasons", node: "element", type: "cwe:ReasonsType", required: true, cardinality: "1..1", line: 423, documented_at: [417], observed_4_20: 1450, constrained_by: ["cwe#R-0119", "cwe#R-0123"]}
+      - {name: "Suggestions", node: "element", type: "cwe:SuggestionsType", required: false, cardinality: "0..1", line: 424, documented_at: [417], observed_4_20: 20, constrained_by: []}
+  - name: "MemberType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L427 › MemberType"
+    line: 427
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["RelationshipsType/Member_Of (L560)", "RelationshipsType/Has_Member (L561)", "RelationshipsType/Has_Member (L563)"]
+    content: "empty (attributes only)"
+    documentation_lines: [429]
+    instances_4_20: 5024
+    notes: >-
+      CWE_ID and View_ID are xs:integer references that the schema does not resolve. In 4.20 every reference
+      resolves (Has_Member CWE_ID to a Weakness or Category, View_ID to a View).
+    fields:
+      - {name: "CWE_ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 431, documented_at: [429], observed_4_20: 5024, constrained_by: ["cwe#R-0124", "cwe#R-0167"]}
+      - {name: "View_ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 432, documented_at: [429], observed_4_20: 5024, constrained_by: ["cwe#R-0125", "cwe#R-0168"]}
+  - name: "ModesOfIntroductionType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L434 › ModesOfIntroductionType"
+    line: 434
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Modes_Of_Introduction (L93)"]
+    content: "sequence"
+    documentation_lines: [436]
+    instances_4_20: 944
+    fields:
+      - {name: "Introduction", node: "element", type: "(anonymous complexType) → ModesOfIntroductionType/Introduction", required: true, cardinality: "1..unbounded", line: 439, documented_at: [436], observed_4_20: 1398, constrained_by: ["cwe#R-0126", "cwe#R-0127"]}
+  - name: "ModesOfIntroductionType/Introduction"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L439 › ModesOfIntroductionType › Introduction"
+    line: 439
+    complex_type_line: 440
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ModesOfIntroductionType/Introduction (L439)"]
+    content: "sequence"
+    documentation_lines: [436]
+    instances_4_20: 1398
+    fields:
+      - {name: "Phase", node: "element", type: "cwe:PhaseEnumeration", required: true, cardinality: "1..1", line: 442, documented_at: [436], observed_4_20: 1398, constrained_by: ["cwe#R-0128"]}
+      - {name: "Note", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "0..1", line: 443, documented_at: [436], observed_4_20: 433, constrained_by: ["cwe#R-0129"]}
+  - name: "NotesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L449 › NotesType"
+    line: 449
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Notes (L107)", "CategoryType/Notes (L132)", "ViewType/Notes (L155)"]
+    content: "sequence"
+    documentation_lines: [451]
+    instances_4_20: 437
+    fields:
+      - {name: "Note", node: "element", type: "(anonymous complexType) → NotesType/Note", required: true, cardinality: "1..unbounded", line: 454, documented_at: [451], observed_4_20: 605, constrained_by: ["cwe#R-0130"]}
+  - name: "NotesType/Note"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L454 › NotesType › Note"
+    line: 454
+    complex_type_line: 455
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["NotesType/Note (L454)"]
+    content: "complexContent extension of cwe:StructuredTextType"
+    mixed: true
+    documentation_lines: [451]
+    instances_4_20: 605
+    notes: >-
+      complexContent extension of cwe:StructuredTextType: inherits mixed content and the strict XHTML wildcard
+      (L1332) and adds the required Type attribute.
+    fields:
+      - {name: "xs:any", node: "any", type: "wildcard namespace=http://www.w3.org/1999/xhtml processContents=strict", required: false, cardinality: "0..unbounded", inherited_from: "StructuredTextType", line: 1332, documented_at: [], observed_4_20: 151, constrained_by: ["cwe#R-0194"]}
+      - {name: "Type", node: "attribute", type: "cwe:NoteTypeEnumeration", required: true, cardinality: "1..1", line: 458, documented_at: [], observed_4_20: 605, constrained_by: ["cwe#R-0131", "cwe#R-0183"]}
+  - name: "ObservedExampleType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L465 › ObservedExampleType"
+    line: 465
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Observed_Examples (L100)"]
+    content: "sequence"
+    documentation_lines: [467]
+    instances_4_20: 582
+    fields:
+      - {name: "Observed_Example", node: "element", type: "(anonymous complexType) → ObservedExampleType/Observed_Example", required: true, cardinality: "1..unbounded", line: 470, documented_at: [467], observed_4_20: 3134, constrained_by: ["cwe#R-0132", "cwe#R-0139"]}
+  - name: "ObservedExampleType/Observed_Example"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L470 › ObservedExampleType › Observed_Example"
+    line: 470
+    complex_type_line: 471
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ObservedExampleType/Observed_Example (L470)"]
+    content: "sequence"
+    documentation_lines: [467]
+    instances_4_20: 3134
+    fields:
+      - {name: "Reference", node: "element", type: "xs:string", required: true, cardinality: "1..1", line: 473, documented_at: [467], observed_4_20: 3134, constrained_by: ["cwe#R-0133", "cwe#R-0134", "cwe#R-0140"]}
+      - {name: "Description", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 474, documented_at: [467], observed_4_20: 3134, constrained_by: ["cwe#R-0135", "cwe#R-0136", "cwe#R-0137", "cwe#R-0141"]}
+      - {name: "Link", node: "element", type: "xs:anyURI", required: true, cardinality: "1..1", line: 475, documented_at: [467], observed_4_20: 3134, constrained_by: ["cwe#R-0138", "cwe#R-0142"]}
+  - name: "PotentialMitigationsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L481 › PotentialMitigationsType"
+    line: 481
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Potential_Mitigations (L98)"]
+    content: "sequence"
+    documentation_lines: [483, 484]
+    instances_4_20: 671
+    fields:
+      - {name: "Mitigation", node: "element", type: "(anonymous complexType) → PotentialMitigationsType/Mitigation", required: true, cardinality: "1..unbounded", line: 487, documented_at: [483], observed_4_20: 1710, constrained_by: ["cwe#R-0143", "cwe#R-0146"]}
+  - name: "PotentialMitigationsType/Mitigation"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L487 › PotentialMitigationsType › Mitigation"
+    line: 487
+    complex_type_line: 488
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["PotentialMitigationsType/Mitigation (L487)"]
+    content: "sequence"
+    documentation_lines: [483, 484]
+    instances_4_20: 1710
+    fields:
+      - {name: "Phase", node: "element", type: "cwe:PhaseEnumeration", required: false, cardinality: "0..unbounded", line: 490, documented_at: [483], observed_4_20: 1940, constrained_by: []}
+      - {name: "Strategy", node: "element", type: "cwe:MitigationStrategyEnumeration", required: false, cardinality: "0..1", line: 491, documented_at: [483], observed_4_20: 530, constrained_by: ["cwe#R-0147"]}
+      - {name: "Description", node: "element", type: "cwe:StructuredTextType", required: true, cardinality: "1..1", line: 492, documented_at: [483], observed_4_20: 1710, constrained_by: ["cwe#R-0148"]}
+      - {name: "Effectiveness", node: "element", type: "cwe:EffectivenessEnumeration", required: false, cardinality: "0..1", line: 493, documented_at: [483], observed_4_20: 236, constrained_by: ["cwe#R-0149"]}
+      - {name: "Effectiveness_Notes", node: "element", type: "cwe:StructuredTextType", required: false, cardinality: "0..1", line: 494, documented_at: [], observed_4_20: 134, constrained_by: []}
+      - {name: "Mitigation_ID", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 496, documented_at: [484], observed_4_20: 527, constrained_by: ["cwe#R-0144", "cwe#R-0145"]}
+  - name: "ReasonsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L501 › ReasonsType"
+    line: 501
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["MappingNotesType/Reasons (L423)"]
+    content: "sequence"
+    documentation_lines: [503]
+    instances_4_20: 1450
+    fields:
+      - {name: "Reason", node: "element", type: "(anonymous complexType) → ReasonsType/Reason", required: true, cardinality: "1..unbounded", line: 506, documented_at: [], observed_4_20: 1533, constrained_by: ["cwe#R-0150"]}
+  - name: "ReasonsType/Reason"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L506 › ReasonsType › Reason"
+    line: 506
+    complex_type_line: 507
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ReasonsType/Reason (L506)"]
+    content: "empty (attributes only)"
+    documentation_lines: [503]
+    instances_4_20: 1533
+    fields:
+      - {name: "Type", node: "attribute", type: "cwe:ReasonEnumeration", required: true, cardinality: "1..1", line: 508, documented_at: [], observed_4_20: 1533, constrained_by: ["cwe#R-0119", "cwe#R-0151"]}
+  - name: "ReferencesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L513 › ReferencesType"
+    line: 513
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/References (L105)", "CategoryType/References (L130)", "ViewType/References (L153)", "DemonstrativeExamplesType/Demonstrative_Example/References (L373)"]
+    content: "sequence"
+    documentation_lines: [515]
+    instances_4_20: 893
+    fields:
+      - {name: "Reference", node: "element", type: "(anonymous complexType) → ReferencesType/Reference", required: true, cardinality: "1..unbounded", line: 518, documented_at: [], observed_4_20: 2245, constrained_by: ["cwe#R-0154"]}
+  - name: "ReferencesType/Reference"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L518 › ReferencesType › Reference"
+    line: 518
+    complex_type_line: 519
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["ReferencesType/Reference (L518)"]
+    content: "empty (attributes only)"
+    documentation_lines: [515]
+    instances_4_20: 2245
+    fields:
+      - {name: "External_Reference_ID", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 520, documented_at: [515], observed_4_20: 2245, constrained_by: ["cwe#R-0152", "cwe#R-0155"]}
+      - {name: "Section", node: "attribute", type: "xs:string", required: false, cardinality: "0..1", line: 521, documented_at: [515], observed_4_20: 480, constrained_by: []}
+  - name: "RelatedAttackPatternsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L526 › RelatedAttackPatternsType"
+    line: 526
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Related_Attack_Patterns (L104)"]
+    content: "sequence"
+    documentation_lines: [528]
+    instances_4_20: 336
+    fields:
+      - {name: "Related_Attack_Pattern", node: "element", type: "(anonymous complexType) → RelatedAttackPatternsType/Related_Attack_Pattern", required: true, cardinality: "1..unbounded", line: 531, documented_at: [], observed_4_20: 1212, constrained_by: ["cwe#R-0156"]}
+  - name: "RelatedAttackPatternsType/Related_Attack_Pattern"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L531 › RelatedAttackPatternsType › Related_Attack_Pattern"
+    line: 531
+    complex_type_line: 532
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["RelatedAttackPatternsType/Related_Attack_Pattern (L531)"]
+    content: "empty (attributes only)"
+    documentation_lines: [528]
+    instances_4_20: 1212
+    fields:
+      - {name: "CAPEC_ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 533, documented_at: [], observed_4_20: 1212, constrained_by: ["cwe#R-0157"]}
+  - name: "RelatedWeaknessesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L538 › RelatedWeaknessesType"
+    line: 538
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Related_Weaknesses (L88)"]
+    content: "sequence"
+    documentation_lines: [540]
+    instances_4_20: 935
+    fields:
+      - {name: "Related_Weakness", node: "element", type: "(anonymous complexType) → RelatedWeaknessesType/Related_Weakness", required: true, cardinality: "1..unbounded", line: 543, documented_at: [540], observed_4_20: 1602, constrained_by: ["cwe#R-0163"]}
+  - name: "RelatedWeaknessesType/Related_Weakness"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L543 › RelatedWeaknessesType › Related_Weakness"
+    line: 543
+    complex_type_line: 544
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["RelatedWeaknessesType/Related_Weakness (L543)"]
+    content: "empty (attributes only)"
+    documentation_lines: [540]
+    instances_4_20: 1602
+    notes: >-
+      CWE_ID, View_ID and Chain_ID are unresolved xs:integer references; in 4.20 all 1,602 CWE_ID values resolve to
+      Weakness entries and all View_ID values to View entries; Chain_ID occurs 6 times, always naming a
+      Structure="Chain" weakness. Ordinal's only value is Primary.
+    fields:
+      - {name: "Nature", node: "attribute", type: "cwe:RelatedNatureEnumeration", required: true, cardinality: "1..1", line: 545, documented_at: [540], observed_4_20: 1602, constrained_by: ["cwe#R-0159", "cwe#R-0161", "cwe#R-0164", "cwe#R-0185"]}
+      - {name: "CWE_ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 546, documented_at: [540], observed_4_20: 1602, constrained_by: ["cwe#R-0158", "cwe#R-0165"]}
+      - {name: "View_ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 547, documented_at: [540], observed_4_20: 1602, constrained_by: ["cwe#R-0166"]}
+      - {name: "Chain_ID", node: "attribute", type: "xs:integer", required: false, cardinality: "0..1", line: 548, documented_at: [540], observed_4_20: 6, constrained_by: ["cwe#R-0159"]}
+      - {name: "Ordinal", node: "attribute", type: "cwe:OrdinalEnumeration", required: false, cardinality: "0..1", line: 549, documented_at: [540], observed_4_20: 1193, constrained_by: ["cwe#R-0160", "cwe#R-0161", "cwe#R-0162", "cwe#R-0184"]}
+  - name: "RelationshipsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L554 › RelationshipsType"
+    line: 554
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["CategoryType/Relationships (L128)", "ViewType/Members (L151)"]
+    content: "choice"
+    documentation_lines: [556]
+    instances_4_20: 408
+    notes: >-
+      Choice L558: exactly one of branch 1 = Member_Of (1..unbounded) then Has_Member (0..unbounded), or branch 2 =
+      Has_Member (1..unbounded). Net effect: non-empty, and every Member_Of precedes every Has_Member. 4.20 uses
+      branch 2 only (5,024 Has_Member, 0 Member_Of).
+    fields:
+      - {name: "Member_Of", node: "element", type: "cwe:MemberType", required: false, cardinality: "1..unbounded", effective: "0..unbounded", group: "choice L558 (1..1), branch 1 of 2 (L559)", line: 560, documented_at: [556], observed_4_20: 0, constrained_by: ["cwe#R-0169", "cwe#R-0170"]}
+      - {name: "Has_Member", node: "element", type: "cwe:MemberType", required: false, cardinality: "0..unbounded", group: "choice L558 (1..1), branch 1 of 2 (L559)", line: 561, documented_at: [556], observed_4_20: 0, constrained_by: ["cwe#R-0169"]}
+      - {name: "Has_Member", node: "element", type: "cwe:MemberType", required: false, cardinality: "1..unbounded", effective: "0..unbounded", group: "choice L558 (1..1), branch 2 of 2 (L563)", line: 563, documented_at: [556], observed_4_20: 5024, constrained_by: ["cwe#R-0169", "cwe#R-0171"]}
+  - name: "SuggestionsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L566 › SuggestionsType"
+    line: 566
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["MappingNotesType/Suggestions (L424)"]
+    content: "sequence"
+    documentation_lines: [568]
+    instances_4_20: 20
+    fields:
+      - {name: "Suggestion", node: "element", type: "(anonymous complexType) → SuggestionsType/Suggestion", required: true, cardinality: "1..unbounded", line: 571, documented_at: [], observed_4_20: 63, constrained_by: ["cwe#R-0173"]}
+  - name: "SuggestionsType/Suggestion"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L571 › SuggestionsType › Suggestion"
+    line: 571
+    complex_type_line: 572
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["SuggestionsType/Suggestion (L571)"]
+    content: "empty (attributes only)"
+    documentation_lines: [568]
+    instances_4_20: 63
+    notes: >-
+      Both attributes required. 4.20: 63 suggestions, all on Weakness entries, all resolving to Weakness entries.
+    fields:
+      - {name: "CWE_ID", node: "attribute", type: "xs:integer", required: true, cardinality: "1..1", line: 573, documented_at: [], observed_4_20: 63, constrained_by: ["cwe#R-0172", "cwe#R-0174"]}
+      - {name: "Comment", node: "attribute", type: "xs:string", required: true, cardinality: "1..1", line: 574, documented_at: [], observed_4_20: 63, constrained_by: ["cwe#R-0175"]}
+  - name: "TaxonomyMappingsType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L579 › TaxonomyMappingsType"
+    line: 579
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Taxonomy_Mappings (L103)", "CategoryType/Taxonomy_Mappings (L129)"]
+    content: "sequence"
+    documentation_lines: [581]
+    instances_4_20: 657
+    fields:
+      - {name: "Taxonomy_Mapping", node: "element", type: "(anonymous complexType) → TaxonomyMappingsType/Taxonomy_Mapping", required: true, cardinality: "1..unbounded", line: 584, documented_at: [], observed_4_20: 1660, constrained_by: ["cwe#R-0176"]}
+  - name: "TaxonomyMappingsType/Taxonomy_Mapping"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L584 › TaxonomyMappingsType › Taxonomy_Mapping"
+    line: 584
+    complex_type_line: 585
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["TaxonomyMappingsType/Taxonomy_Mapping (L584)"]
+    content: "sequence"
+    documentation_lines: [581]
+    instances_4_20: 1660
+    notes: >-
+      Only Taxonomy_Name is required; Entry_ID, Entry_Name and Mapping_Fit are all optional. 4.20: 1,660 mappings;
+      Mapping_Fit absent on 1,375, Entry_ID absent on 503.
+    fields:
+      - {name: "Entry_ID", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 587, documented_at: [581], observed_4_20: 1157, constrained_by: []}
+      - {name: "Entry_Name", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 588, documented_at: [581], observed_4_20: 1574, constrained_by: []}
+      - {name: "Mapping_Fit", node: "element", type: "cwe:TaxonomyMappingFitEnumeration", required: false, cardinality: "0..1", line: 589, documented_at: [581], observed_4_20: 285, constrained_by: []}
+      - {name: "Taxonomy_Name", node: "attribute", type: "cwe:TaxonomyNameEnumeration", required: true, cardinality: "1..1", line: 591, documented_at: [581], observed_4_20: 1660, constrained_by: ["cwe#R-0177"]}
+  - name: "WeaknessOrdinalitiesType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L596 › WeaknessOrdinalitiesType"
+    line: 596
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Weakness_Ordinalities (L89)"]
+    content: "sequence"
+    documentation_lines: [598]
+    instances_4_20: 944
+    fields:
+      - {name: "Weakness_Ordinality", node: "element", type: "(anonymous complexType) → WeaknessOrdinalitiesType/Weakness_Ordinality", required: true, cardinality: "1..unbounded", line: 601, documented_at: [], observed_4_20: 1155, constrained_by: ["cwe#R-0179"]}
+  - name: "WeaknessOrdinalitiesType/Weakness_Ordinality"
+    kind: "anonymous complexType (element-local)"
+    locator: "cwe_schema_v7.3.xsd L601 › WeaknessOrdinalitiesType › Weakness_Ordinality"
+    line: 601
+    complex_type_line: 602
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessOrdinalitiesType/Weakness_Ordinality (L601)"]
+    content: "sequence"
+    documentation_lines: [598]
+    instances_4_20: 1155
+    fields:
+      - {name: "Ordinality", node: "element", type: "cwe:OrdinalityEnumeration", required: true, cardinality: "1..1", line: 604, documented_at: [598], observed_4_20: 1155, constrained_by: ["cwe#R-0178", "cwe#R-0180"]}
+      - {name: "Description", node: "element", type: "xs:string", required: false, cardinality: "0..1", line: 605, documented_at: [598], observed_4_20: 23, constrained_by: []}
+  - name: "StructuredTextType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L1327 › StructuredTextType"
+    line: 1327
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["WeaknessType/Extended_Description (L87)", "CategoryType/Summary (L127)", "ViewType/Objective (L149)", "AlternateTermsType/Alternate_Term/Description (L206)", "BackgroundDetailsType/Background_Detail (L269)", "CommonConsequencesType/Consequence/Note (L284)", "DemonstrativeExamplesType/Demonstrative_Example/Intro_Text (L368)", "DemonstrativeExamplesType/Demonstrative_Example/Body_Text (L370)", "DetectionMethodsType/Detection_Method/Description (L390)", "DetectionMethodsType/Detection_Method/Effectiveness_Notes (L392)", "ExploitationFactorsType/Exploitation_Factor (L404)", "MappingNotesType/Rationale (L421)", "MappingNotesType/Comments (L422)", "ModesOfIntroductionType/Introduction/Note (L443)", "NotesType/Note (complexContent extension base) (L457)", "ObservedExampleType/Observed_Example/Description (L474)", "PotentialMitigationsType/Mitigation/Description (L492)", "PotentialMitigationsType/Mitigation/Effectiveness_Notes (L494)"]
+    content: "sequence"
+    mixed: true
+    documentation_lines: [1329]
+    instances_4_20: 14063
+    notes: >-
+      mixed="true": character data may interleave with XHTML elements. The wildcard is namespace-restricted to
+      http://www.w3.org/1999/xhtml with processContents="strict", so every XHTML element must validate against
+      xhtml1-strict.xsd (imported at L3) and no other element (CWE namespace or none) is allowed inside. 4.20 XHTML
+      elements used: br, div, p, li, i, ul, td, b, tr, th, table, ol, img, tbody, sup.
+    fields:
+      - {name: "xs:any", node: "any", type: "wildcard namespace=http://www.w3.org/1999/xhtml processContents=strict", required: false, cardinality: "0..unbounded", line: 1332, documented_at: [], observed_4_20: 2751, constrained_by: ["cwe#R-0194"]}
+  - name: "StructuredCodeType"
+    kind: "named complexType"
+    locator: "cwe_schema_v7.3.xsd L1335 › StructuredCodeType"
+    line: 1335
+    encoding: "XML, namespace http://cwe.mitre.org/cwe-7"
+    appears_as: ["DemonstrativeExamplesType/Demonstrative_Example/Example_Code (L371)"]
+    content: "sequence"
+    mixed: true
+    documentation_lines: [1337]
+    instances_4_20: 1584
+    notes: >-
+      Same mixed content and strict XHTML wildcard as StructuredTextType, plus the code-specific Language and Nature
+      attributes. Used only by Demonstrative_Example/Example_Code (L371).
+    fields:
+      - {name: "xs:any", node: "any", type: "wildcard namespace=http://www.w3.org/1999/xhtml processContents=strict", required: false, cardinality: "0..unbounded", line: 1340, documented_at: [], observed_4_20: 2555, constrained_by: ["cwe#R-0196"]}
+      - {name: "Language", node: "attribute", type: "cwe:LanguageNameEnumeration", required: false, cardinality: "0..1", line: 1342, documented_at: [1337], observed_4_20: 1409, constrained_by: ["cwe#R-0195"]}
+      - {name: "Nature", node: "attribute", type: "cwe:StructuredCodeNatureEnumeration", required: true, cardinality: "1..1", line: 1343, documented_at: [1337], observed_4_20: 1584, constrained_by: ["cwe#R-0197"]}
+enumerations:
+  - name: "AbstractionEnumeration"
+    line: 614
+    base: "xs:string"
+    value_count: 5
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "WeaknessType/@Abstraction", line: 112, observed_4_20: 969}
+    values_used_in_4_20: 5
+    documentation_lines: [616]
+    documentation:
+      - "The AbstractionEnumeration simple type defines the different abstraction levels that apply to a weakness. A \"Pillar\" is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things. A \"Class\" is a weakness also described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource. A \"Base\" is a more specific type of weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource. A \"Variant\" is a weakness  that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource. A \"Compound\" weakness is a meaningful aggregation of several weaknesses, currently known as either a Chain or Composite."
+    values:
+      - {value: "Pillar", line: 619, observed_4_20: 10}
+      - {value: "Class", line: 620, observed_4_20: 114}
+      - {value: "Base", line: 621, observed_4_20: 539}
+      - {value: "Variant", line: 622, observed_4_20: 299}
+      - {value: "Compound", line: 623, observed_4_20: 7}
+  - name: "ArchitectureClassEnumeration"
+    line: 626
+    base: "xs:string"
+    value_count: 4
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Architecture/@Class", line: 236, observed_4_20: 114}
+    values_used_in_4_20: 4
+    documentation_lines: [628]
+    documentation:
+      - "The ArchitectureClassEnumeration simple type contains a list of values corresponding to known classes of architectures. The value \"Not Architecture-Specific\" is used to indicate that the entry is not limited to a small set of architectures, i.e., it can appear in many different architectures."
+    values:
+      - {value: "Embedded", line: 631, observed_4_20: 2}
+      - {value: "Microcomputer", line: 632, observed_4_20: 1}
+      - {value: "Workstation", line: 633, observed_4_20: 1}
+      - {value: "Not Architecture-Specific", line: 634, observed_4_20: 110, doc: "Used to indicate that the entry is not limited to a small set of architectures, i.e., it can appear in many different architectures"}
+  - name: "ArchitectureNameEnumeration"
+    line: 641
+    base: "xs:string"
+    value_count: 7
+    has_other_value: true
+    closed_external_list: true
+    closed_external_list_kind: "inferred"
+    closed_external_list_note: "names of hardware architectures (external); has an Other value"
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Architecture/@Name", line: 235, observed_4_20: 5}
+    values_used_in_4_20: 3
+    documentation_lines: [643]
+    documentation:
+      - "The ArchitectureNameEnumeration simple type contains a list of values corresponding to known architectures."
+    values:
+      - {value: "Alpha", line: 646, observed_4_20: 0}
+      - {value: "ARM", line: 647, observed_4_20: 2}
+      - {value: "Itanium", line: 648, observed_4_20: 0}
+      - {value: "Power Architecture", line: 649, observed_4_20: 0}
+      - {value: "SPARC", line: 650, observed_4_20: 0}
+      - {value: "x86", line: 651, observed_4_20: 2}
+      - {value: "Other", line: 652, observed_4_20: 1}
+  - name: "DetectionMethodEnumeration"
+    line: 655
+    base: "xs:string"
+    value_count: 19
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "DetectionMethodsType/Detection_Method/Method", line: 389, observed_4_20: 959}
+    values_used_in_4_20: 19
+    documentation_lines: [657]
+    documentation:
+      - "The DetectionMethodEnumeration simple type defines the different methods used to detect a weakness."
+    values:
+      - {value: "Automated Analysis", line: 660, observed_4_20: 18}
+      - {value: "Automated Dynamic Analysis", line: 661, observed_4_20: 65}
+      - {value: "Automated Static Analysis", line: 662, observed_4_20: 414}
+      - {value: "Automated Static Analysis - Source Code", line: 663, observed_4_20: 49}
+      - {value: "Automated Static Analysis - Binary or Bytecode", line: 664, observed_4_20: 34}
+      - {value: "Fuzzing", line: 665, observed_4_20: 35}
+      - {value: "Manual Analysis", line: 666, observed_4_20: 48}
+      - {value: "Manual Dynamic Analysis", line: 667, observed_4_20: 12}
+      - {value: "Manual Static Analysis", line: 668, observed_4_20: 16}
+      - {value: "Manual Static Analysis - Source Code", line: 669, observed_4_20: 47}
+      - {value: "Manual Static Analysis - Binary or Bytecode", line: 670, observed_4_20: 31}
+      - {value: "White Box", line: 671, observed_4_20: 7}
+      - {value: "Black Box", line: 672, observed_4_20: 21}
+      - {value: "Architecture or Design Review", line: 673, observed_4_20: 64}
+      - {value: "Dynamic Analysis with Manual Results Interpretation", line: 674, observed_4_20: 55}
+      - {value: "Dynamic Analysis with Automated Results Interpretation", line: 675, observed_4_20: 32}
+      - {value: "Formal Verification", line: 676, observed_4_20: 3}
+      - {value: "Simulation / Emulation", line: 677, observed_4_20: 4}
+      - {value: "Other", line: 678, observed_4_20: 4}
+  - name: "DetectionEffectivenessEnumeration"
+    line: 681
+    base: "xs:string"
+    value_count: 6
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "DetectionMethodsType/Detection_Method/Effectiveness", line: 391, observed_4_20: 737}
+    values_used_in_4_20: 5
+    documentation_lines: [683]
+    documentation:
+      - "The DetectionEffectivenessEnumeration simple type defines the different levels of effectiveness that a detection method may have in detecting an associated weakness. The value \"High\" is used to describe a method that succeeds frequently and does not result in many false reports. The value \"Moderate\" is used to describe a method that is applicable to multiple circumstances, but it may not have complete coverage of the weakness, or it may result in a number of incorrect reports. The \"SOAR Partial\" value means that according to SOAR this method can be cost-effective for partial coverage of the objective. The value \"Opportunistic\" is used to describe a method that does not directly target the weakness but may still succeed by chance, rather than in a reliable manner. The value \"Limited\" is used to describe a method that may be useful in limited circumstances, only applicable to a subset of potential instances of a given weakness type, requires training/customization, or gives limited visibility. Even in its limited capacity, this may be part of a good defense in depth strategy. The value \"None\" is used to describe a method that is highly unlikely to work. However, it may be included in an entry to emphasize common, yet incorrect, methods that developers might introduce."
+    values:
+      - {value: "High", line: 686, observed_4_20: 475}
+      - {value: "Moderate", line: 687, observed_4_20: 93}
+      - {value: "SOAR Partial", line: 688, observed_4_20: 150, doc: "Used to indicate that according to the IATAC State Of the Art Report (SOAR), the detection method is partially effective."}
+      - {value: "Opportunistic", line: 693, observed_4_20: 8}
+      - {value: "Limited", line: 694, observed_4_20: 11}
+      - {value: "None", line: 695, observed_4_20: 0}
+  - name: "EffectivenessEnumeration"
+    line: 698
+    base: "xs:string"
+    value_count: 7
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "PotentialMitigationsType/Mitigation/Effectiveness", line: 493, observed_4_20: 236}
+    values_used_in_4_20: 7
+    documentation_lines: [700]
+    documentation:
+      - "The EffectivenessEnumeration simple type defines the different values related to how effective a mitigation may be in preventing the weakness. A value of \"High\" means the mitigation is frequently successful in eliminating the weakness entirely. A value of \"Moderate\" means the mitigation will prevent the weakness in multiple forms, but it does not have complete coverage of the weakness. A value of \"Limited\" means the mitigation may be useful in limited circumstances, or it is only applicable to a subset of potential errors of this weakness type. A value of \"Incidental\" means the mitigation is generally not effective and will only provide protection by chance, rather than in a reliable manner. A value of \"Defense in Depth\" means the mitigation may not necessarily prevent the weakness, but it may help to minimize the potential impact of an attacker exploiting the weakness. A value of \"Discouraged Common Practice\" is used to indicate mitigations that are commonly attempted but known to be ineffective or highly risky."
+    values:
+      - {value: "High", line: 703, observed_4_20: 82}
+      - {value: "Moderate", line: 704, observed_4_20: 51}
+      - {value: "Limited", line: 705, observed_4_20: 38}
+      - {value: "Incidental", line: 706, observed_4_20: 4}
+      - {value: "Discouraged Common Practice", line: 707, observed_4_20: 10}
+      - {value: "Defense in Depth", line: 708, observed_4_20: 50}
+      - {value: "None", line: 709, observed_4_20: 1}
+  - name: "FunctionalAreaEnumeration"
+    line: 712
+    base: "xs:string"
+    value_count: 20
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "FunctionalAreasType/Functional_Area", line: 412, observed_4_20: 127}
+    values_used_in_4_20: 18
+    documentation_lines: [714]
+    documentation:
+      - "The FunctionalAreaEnumeration simple type defines the different functional areas in which the weakness may appear. The value \"Functional-Area-Independent\" is used to indicate that the entry is not limited to a small set of functional areas, i.e., it can appear in many different functional areas"
+    values:
+      - {value: "Authentication", line: 717, observed_4_20: 3}
+      - {value: "Authorization", line: 718, observed_4_20: 0}
+      - {value: "Code Libraries", line: 719, observed_4_20: 2}
+      - {value: "Counters", line: 720, observed_4_20: 1}
+      - {value: "Cryptography", line: 721, observed_4_20: 6}
+      - {value: "Error Handling", line: 722, observed_4_20: 2}
+      - {value: "Interprocess Communication", line: 723, observed_4_20: 1}
+      - {value: "File Processing", line: 724, observed_4_20: 49}
+      - {value: "Logging", line: 725, observed_4_20: 1}
+      - {value: "Memory Management", line: 726, observed_4_20: 38}
+      - {value: "Networking", line: 727, observed_4_20: 1}
+      - {value: "Number Processing", line: 728, observed_4_20: 1}
+      - {value: "Program Invocation", line: 729, observed_4_20: 9}
+      - {value: "Protection Mechanism", line: 730, observed_4_20: 1}
+      - {value: "Session Management", line: 731, observed_4_20: 1}
+      - {value: "Signals", line: 732, observed_4_20: 1}
+      - {value: "String Processing", line: 733, observed_4_20: 1}
+      - {value: "Not Functional-Area-Specific", line: 734, observed_4_20: 0, doc: "Used to indicate that the entry is not limited to a small set of functional areas, i.e., it can appear in many different functional areas"}
+      - {value: "Power", line: 739, observed_4_20: 7}
+      - {value: "Clock", line: 740, observed_4_20: 2}
+  - name: "ImportanceEnumeration"
+    line: 743
+    base: "xs:string"
+    value_count: 2
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ContentHistoryType/Modification/Modification_Importance", line: 321, observed_4_20: 23}
+    values_used_in_4_20: 1
+    documentation_lines: [745]
+    documentation:
+      - "The ImportanceEnumeration simple type lists different values for importance."
+    values:
+      - {value: "Normal", line: 748, observed_4_20: 0}
+      - {value: "Critical", line: 749, observed_4_20: 23}
+  - name: "LanguageClassEnumeration"
+    line: 752
+    base: "xs:string"
+    value_count: 7
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Language/@Class", line: 220, observed_4_20: 819}
+    values_used_in_4_20: 7
+    documentation_lines: [754]
+    documentation:
+      - "The LanguageClassEnumeration simple type contains a list of values corresponding to different classes of source code languages. The same language could belong to multiple language classes, such as 'Object-Oriented' and 'Memory-Unsafe'. The value \"Not Language-Specific\" is used to indicate that the entry is not limited to a small set of languages."
+    values:
+      - {value: "Assembly", line: 757, observed_4_20: 5}
+      - {value: "Compiled", line: 758, observed_4_20: 5}
+      - {value: "Hardware Description Language", line: 759, observed_4_20: 2}
+      - {value: "Interpreted", line: 760, observed_4_20: 7}
+      - {value: "Object-Oriented", line: 761, observed_4_20: 10}
+      - {value: "Memory-Unsafe", line: 762, observed_4_20: 31}
+      - {value: "Not Language-Specific", line: 763, observed_4_20: 759, doc: "Used to indicate that the entry is not limited to a small set of language classes, i.e., it can appear in many different language classes."}
+  - name: "LanguageNameEnumeration"
+    line: 770
+    base: "xs:string"
+    value_count: 34
+    has_other_value: true
+    closed_external_list: true
+    closed_external_list_kind: "inferred"
+    closed_external_list_note: "names of programming languages and data formats (external); has an Other value"
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Language/@Name", line: 219, observed_4_20: 417}
+      - {declaration: "StructuredCodeType/@Language", line: 1342, observed_4_20: 1409}
+    values_used_in_4_20: 25
+    documentation_lines: [772]
+    documentation:
+      - "The LanguageNameEnumeration simple type contains a list of values corresponding to different source code languages or data formats."
+    values:
+      - {value: "Ada", line: 775, observed_4_20: 0}
+      - {value: "ARM Assembly", line: 776, observed_4_20: 0}
+      - {value: "ASP", line: 777, observed_4_20: 0}
+      - {value: "ASP.NET", line: 778, observed_4_20: 28}
+      - {value: "Basic", line: 779, observed_4_20: 0}
+      - {value: "C", line: 780, observed_4_20: 484}
+      - {value: "C++", line: 781, observed_4_20: 130}
+      - {value: "C#", line: 782, observed_4_20: 47}
+      - {value: "COBOL", line: 783, observed_4_20: 0}
+      - {value: "Fortran", line: 784, observed_4_20: 0}
+      - {value: "F#", line: 785, observed_4_20: 0}
+      - {value: "Go", line: 786, observed_4_20: 6}
+      - {value: "HTML", line: 787, observed_4_20: 19}
+      - {value: "Java", line: 788, observed_4_20: 489}
+      - {value: "JavaScript", line: 789, observed_4_20: 40}
+      - {value: "JSON", line: 790, observed_4_20: 6}
+      - {value: "JSP", line: 791, observed_4_20: 12}
+      - {value: "Objective-C", line: 792, observed_4_20: 6}
+      - {value: "Pascal", line: 793, observed_4_20: 0}
+      - {value: "Perl", line: 794, observed_4_20: 65}
+      - {value: "PHP", line: 795, observed_4_20: 124}
+      - {value: "Pseudocode", line: 796, observed_4_20: 4}
+      - {value: "Python", line: 797, observed_4_20: 57}
+      - {value: "Ruby", line: 798, observed_4_20: 3}
+      - {value: "Rust", line: 799, observed_4_20: 4}
+      - {value: "Shell", line: 800, observed_4_20: 16}
+      - {value: "SQL", line: 801, observed_4_20: 10}
+      - {value: "Swift", line: 802, observed_4_20: 0}
+      - {value: "VB.NET", line: 803, observed_4_20: 1}
+      - {value: "Verilog", line: 804, observed_4_20: 111}
+      - {value: "VHDL", line: 805, observed_4_20: 14}
+      - {value: "XML", line: 806, observed_4_20: 34}
+      - {value: "x86 Assembly", line: 807, observed_4_20: 4}
+      - {value: "Other", line: 808, observed_4_20: 112}
+  - name: "LikelihoodEnumeration"
+    line: 811
+    base: "xs:string"
+    value_count: 4
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "WeaknessType/Likelihood_Of_Exploit", line: 95, observed_4_20: 185}
+      - {declaration: "CommonConsequencesType/Consequence/Likelihood", line: 283, observed_4_20: 78}
+    values_used_in_4_20: 4
+    documentation_lines: [813]
+    documentation:
+      - "The LikelihoodEnumeration simple type contains a list of values corresponding to different likelihoods. The value \"Unknown\" should be used when the actual likelihood of something occurring is not known."
+    values:
+      - {value: "High", line: 816, observed_4_20: 141}
+      - {value: "Medium", line: 817, observed_4_20: 82}
+      - {value: "Low", line: 818, observed_4_20: 35}
+      - {value: "Unknown", line: 819, observed_4_20: 5}
+  - name: "MitigationStrategyEnumeration"
+    line: 822
+    base: "xs:string"
+    value_count: 14
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "PotentialMitigationsType/Mitigation/Strategy", line: 491, observed_4_20: 530}
+    values_used_in_4_20: 14
+    documentation_lines: [824]
+    documentation:
+      - "The MitigationStrategyEnumeration simple type lists general strategies for protecting a system to which a mitigation contributes."
+    values:
+      - {value: "Attack Surface Reduction", line: 827, observed_4_20: 41}
+      - {value: "Compilation or Build Hardening", line: 828, observed_4_20: 10}
+      - {value: "Enforcement by Conversion", line: 829, observed_4_20: 11}
+      - {value: "Environment Hardening", line: 830, observed_4_20: 58}
+      - {value: "Firewall", line: 831, observed_4_20: 12}
+      - {value: "Input Validation", line: 832, observed_4_20: 204}
+      - {value: "Language Selection", line: 833, observed_4_20: 18}
+      - {value: "Libraries or Frameworks", line: 834, observed_4_20: 51}
+      - {value: "Resource Limitation", line: 835, observed_4_20: 6}
+      - {value: "Output Encoding", line: 836, observed_4_20: 49}
+      - {value: "Parameterization", line: 837, observed_4_20: 5}
+      - {value: "Refactoring", line: 838, observed_4_20: 15}
+      - {value: "Sandbox or Jail", line: 839, observed_4_20: 12}
+      - {value: "Separation of Privilege", line: 840, observed_4_20: 38}
+  - name: "NoteTypeEnumeration"
+    line: 843
+    base: "xs:string"
+    value_count: 7
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "NotesType/Note/@Type", line: 458, observed_4_20: 605}
+    values_used_in_4_20: 7
+    documentation_lines: [845]
+    documentation:
+      - "The NoteTypeEnumeration simple type defines the different types of notes that can be associated with a weakness. An \"Applicable Platform\" note provides additional information about the list of applicable platforms for a given weakness. A \"Maintenance\" note contains significant maintenance tasks within this entry that still need to be addressed, such as clarifying the concepts involved or improving relationships. A \"Relationship\" note provides clarifying details regarding the relationships between entities. A \"Research Gap\" note identifies potential opportunities for the vulnerability research community to conduct further exploration of issues related to this weakness. It is intended to highlight parts of CWE that have not received sufficient attention from researchers. A \"Terminology\" note contains a discussion of terminology issues related to this weakness, or clarifications when there is no established terminology, or if there are multiple uses of the same key term. It is different from the Alternate_Terms element, which is focused on specific terms that are commonly used. A \"Theoretical\" note describes the weakness using vulnerability theory concepts. It should be provided as needed, especially in cases where the application of vulnerability theory is not necessarily obvious for the weakness."
+    values:
+      - {value: "Applicable Platform", line: 848, observed_4_20: 12}
+      - {value: "Maintenance", line: 849, observed_4_20: 208}
+      - {value: "Relationship", line: 850, observed_4_20: 193}
+      - {value: "Research Gap", line: 851, observed_4_20: 72}
+      - {value: "Terminology", line: 852, observed_4_20: 37}
+      - {value: "Theoretical", line: 853, observed_4_20: 33}
+      - {value: "Other", line: 854, observed_4_20: 50}
+  - name: "OrdinalEnumeration"
+    line: 857
+    base: "xs:string"
+    value_count: 1
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "RelatedWeaknessesType/Related_Weakness/@Ordinal", line: 549, observed_4_20: 1193}
+    values_used_in_4_20: 1
+    documentation_lines: [859]
+    documentation:
+      - "The OrdinalEnumeration simple type contains a list of values used to determine if a relationship is the primary relationship for a given weakness entry within a given view. Currently, this attribute can only have the value \"Primary\"."
+    values:
+      - {value: "Primary", line: 862, observed_4_20: 1193}
+  - name: "OrdinalityEnumeration"
+    line: 865
+    base: "xs:string"
+    value_count: 3
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "WeaknessOrdinalitiesType/Weakness_Ordinality/Ordinality", line: 604, observed_4_20: 1155}
+    values_used_in_4_20: 3
+    documentation_lines: [867]
+    documentation:
+      - "The OrdinalityEnumeration simple type contains a list of values used to indicates potential ordering relationships with other weaknesses. A primary relationship means the weakness exists independent of other weaknesses, while a resultant relationship is when a weakness exists only in the presence of some other weaknesses. An indirect relationship means the weakness does not directly lead to security-relevant weaknesses but is a quality issue that might indirectly make it easier to introduce security-relevant weaknesses or make them more difficult to detect."
+    values:
+      - {value: "Indirect", line: 870, observed_4_20: 114}
+      - {value: "Primary", line: 871, observed_4_20: 761}
+      - {value: "Resultant", line: 872, observed_4_20: 280}
+  - name: "OperatingSystemClassEnumeration"
+    line: 875
+    base: "xs:string"
+    value_count: 5
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Operating_System/@Class", line: 229, observed_4_20: 143}
+    values_used_in_4_20: 4
+    documentation_lines: [877]
+    documentation:
+      - "The OperatingSystemClassEnumeration simple type contains a list of values corresponding to different classes of operating systems. The value \"Not OS-Specific\" is used to indicate that the entry is not limited to a small set of operating system classes, i.e., it can appear in many different operating system classes."
+    values:
+      - {value: "Linux", line: 880, observed_4_20: 0}
+      - {value: "macOS", line: 881, observed_4_20: 3}
+      - {value: "Unix", line: 882, observed_4_20: 6}
+      - {value: "Windows", line: 883, observed_4_20: 18}
+      - {value: "Not OS-Specific", line: 884, observed_4_20: 116, doc: "Used to indicate that the entry is not limited to a small set of operating system classes, i.e., it can appear in many different operating system classes."}
+  - name: "OperatingSystemNameEnumeration"
+    line: 891
+    base: "xs:string"
+    value_count: 19
+    has_other_value: false
+    closed_external_list: true
+    closed_external_list_kind: "inferred"
+    closed_external_list_note: "names of operating systems / distributions (external); no Other value — an unlisted OS can only be expressed through the optional Class attribute or CPE_ID"
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Operating_System/@Name", line: 226, observed_4_20: 3}
+    values_used_in_4_20: 2
+    documentation_lines: [893]
+    documentation:
+      - "The OperatingSystemNameEnumeration simple type contains a list of values corresponding to different operating systems."
+    values:
+      - {value: "AIX", line: 896, observed_4_20: 0}
+      - {value: "Android", line: 897, observed_4_20: 0}
+      - {value: "BlackBerry OS", line: 898, observed_4_20: 0}
+      - {value: "Chrome OS", line: 899, observed_4_20: 0}
+      - {value: "Darwin", line: 900, observed_4_20: 0}
+      - {value: "FreeBSD", line: 901, observed_4_20: 0}
+      - {value: "iOS", line: 902, observed_4_20: 0}
+      - {value: "macOS", line: 903, observed_4_20: 1}
+      - {value: "NetBSD", line: 904, observed_4_20: 0}
+      - {value: "OpenBSD", line: 905, observed_4_20: 0}
+      - {value: "Red Hat", line: 906, observed_4_20: 0}
+      - {value: "Solaris", line: 907, observed_4_20: 0}
+      - {value: "SUSE", line: 908, observed_4_20: 0}
+      - {value: "tvOS", line: 909, observed_4_20: 0}
+      - {value: "Ubuntu", line: 910, observed_4_20: 0}
+      - {value: "watchOS", line: 911, observed_4_20: 0}
+      - {value: "Windows 9x", line: 912, observed_4_20: 0}
+      - {value: "Windows Embedded", line: 913, observed_4_20: 0}
+      - {value: "Windows NT", line: 914, observed_4_20: 2}
+  - name: "PhaseEnumeration"
+    line: 917
+    base: "xs:string"
+    value_count: 17
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ModesOfIntroductionType/Introduction/Phase", line: 442, observed_4_20: 1398}
+      - {declaration: "PotentialMitigationsType/Mitigation/Phase", line: 490, observed_4_20: 1940}
+    values_used_in_4_20: 16
+    documentation_lines: [919]
+    documentation:
+      - "The PhaseEnumeration simple type lists different phases in the product life cycle."
+    values:
+      - {value: "Policy", line: 922, observed_4_20: 9}
+      - {value: "Requirements", line: 923, observed_4_20: 80}
+      - {value: "Architecture and Design", line: 924, observed_4_20: 1012}
+      - {value: "Implementation", line: 925, observed_4_20: 1703}
+      - {value: "Build and Compilation", line: 926, observed_4_20: 69}
+      - {value: "Testing", line: 927, observed_4_20: 30}
+      - {value: "Documentation", line: 928, observed_4_20: 18}
+      - {value: "Bundling", line: 929, observed_4_20: 2}
+      - {value: "Distribution", line: 930, observed_4_20: 9}
+      - {value: "Installation", line: 931, observed_4_20: 27}
+      - {value: "System Configuration", line: 932, observed_4_20: 68}
+      - {value: "Operation", line: 933, observed_4_20: 265}
+      - {value: "Patching and Maintenance", line: 934, observed_4_20: 10}
+      - {value: "Porting", line: 935, observed_4_20: 4}
+      - {value: "Integration", line: 936, observed_4_20: 20}
+      - {value: "Manufacturing", line: 937, observed_4_20: 12}
+      - {value: "Decommissioning and End-of-Life", line: 938, observed_4_20: 0}
+  - name: "PrevalenceEnumeration"
+    line: 941
+    base: "xs:string"
+    value_count: 4
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Language/@Prevalence", line: 221, observed_4_20: 1236}
+      - {declaration: "ApplicablePlatformsType/Operating_System/@Prevalence", line: 230, observed_4_20: 146}
+      - {declaration: "ApplicablePlatformsType/Architecture/@Prevalence", line: 237, observed_4_20: 119}
+      - {declaration: "ApplicablePlatformsType/Technology/@Prevalence", line: 244, observed_4_20: 571}
+    values_used_in_4_20: 4
+    documentation_lines: [943]
+    documentation:
+      - "The PrevalenceEnumeration simple type defines the different regularities that guide the applicability of platforms."
+    values:
+      - {value: "Often", line: 946, observed_4_20: 132}
+      - {value: "Sometimes", line: 947, observed_4_20: 37}
+      - {value: "Rarely", line: 948, observed_4_20: 6}
+      - {value: "Undetermined", line: 949, observed_4_20: 1897}
+  - name: "ReasonEnumeration"
+    line: 952
+    base: "xs:string"
+    value_count: 12
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "ReasonsType/Reason/@Type", line: 508, observed_4_20: 1533}
+    values_used_in_4_20: 12
+    documentation_lines: [954]
+    documentation:
+      - "The ReasonEnumeration simple type holds all the different types of reasons to why a CWE might not be considered for mapping."
+    values:
+      - {value: "Abstraction", line: 957, observed_4_20: 117}
+      - {value: "Category", line: 958, observed_4_20: 422}
+      - {value: "View", line: 959, observed_4_20: 55}
+      - {value: "Deprecated", line: 960, observed_4_20: 64}
+      - {value: "Potential Deprecation", line: 961, observed_4_20: 10}
+      - {value: "Frequent Misuse", line: 962, observed_4_20: 26}
+      - {value: "Frequent Misinterpretation", line: 963, observed_4_20: 12}
+      - {value: "Multiple Use", line: 964, observed_4_20: 1}
+      - {value: "CWE Overlap", line: 965, observed_4_20: 2}
+      - {value: "Acceptable-Use", line: 966, observed_4_20: 748}
+      - {value: "Potential Major Changes", line: 967, observed_4_20: 2}
+      - {value: "Other", line: 968, observed_4_20: 74}
+  - name: "RelatedNatureEnumeration"
+    line: 971
+    base: "xs:string"
+    value_count: 9
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "RelatedWeaknessesType/Related_Weakness/@Nature", line: 545, observed_4_20: 1602}
+    values_used_in_4_20: 6
+    documentation_lines: [973]
+    documentation:
+      - "The RelatedNatureEnumeration simple type defines the different values that can be used to define the nature of a related weakness. A ChildOf nature denotes a related weakness at a higher level of abstraction. A ParentOf nature denotes a related weakness at a lower level of abstraction. The StartsWith, CanPrecede, and CanFollow relationships are used to denote weaknesses that are part of a chaining structure. The RequiredBy and Requires relationships are used to denote a weakness that is part of a composite weakness structure. The CanAlsoBe relationship denotes a weakness that, in the proper environment and context, can also be perceived as the target weakness. Note that the CanAlsoBe relationship is not necessarily reciprocal. The PeerOf relationship is used to show some similarity with the target weakness that does not fit any of the other type of relationships."
+    values:
+      - {value: "ChildOf", line: 976, observed_4_20: 1318}
+      - {value: "ParentOf", line: 977, observed_4_20: 0}
+      - {value: "StartsWith", line: 978, observed_4_20: 3}
+      - {value: "CanFollow", line: 979, observed_4_20: 0}
+      - {value: "CanPrecede", line: 980, observed_4_20: 143}
+      - {value: "RequiredBy", line: 981, observed_4_20: 0}
+      - {value: "Requires", line: 982, observed_4_20: 13}
+      - {value: "CanAlsoBe", line: 983, observed_4_20: 27}
+      - {value: "PeerOf", line: 984, observed_4_20: 98}
+  - name: "ResourceEnumeration"
+    line: 987
+    base: "xs:string"
+    value_count: 5
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "AffectedResourcesType/Affected_Resource", line: 194, observed_4_20: 118}
+    values_used_in_4_20: 4
+    documentation_lines: [989]
+    documentation:
+      - "The ResourceEnumeration simple type defines different resources of a system."
+    values:
+      - {value: "CPU", line: 992, observed_4_20: 1}
+      - {value: "File or Directory", line: 993, observed_4_20: 59}
+      - {value: "Memory", line: 994, observed_4_20: 41}
+      - {value: "System Process", line: 995, observed_4_20: 17}
+      - {value: "Other", line: 996, observed_4_20: 0}
+  - name: "ScopeEnumeration"
+    line: 999
+    base: "xs:string"
+    value_count: 9
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "CommonConsequencesType/Consequence/Scope", line: 281, observed_4_20: 2033}
+    values_used_in_4_20: 9
+    documentation_lines: [1001]
+    documentation:
+      - "The ScopeEnumeration simple type defines the different areas of security that can be affected by exploiting a weakness."
+    values:
+      - {value: "Confidentiality", line: 1004, observed_4_20: 472}
+      - {value: "Integrity", line: 1005, observed_4_20: 505}
+      - {value: "Availability", line: 1006, observed_4_20: 320}
+      - {value: "Access Control", line: 1007, observed_4_20: 289}
+      - {value: "Accountability", line: 1008, observed_4_20: 14}
+      - {value: "Authentication", line: 1009, observed_4_20: 25}
+      - {value: "Authorization", line: 1010, observed_4_20: 25}
+      - {value: "Non-Repudiation", line: 1011, observed_4_20: 48}
+      - {value: "Other", line: 1012, observed_4_20: 335}
+  - name: "StatusEnumeration"
+    line: 1015
+    base: "xs:string"
+    value_count: 6
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "WeaknessType/@Status", line: 114, observed_4_20: 969}
+      - {declaration: "CategoryType/@Status", line: 137, observed_4_20: 422}
+      - {declaration: "ViewType/@Status", line: 161, observed_4_20: 59}
+    values_used_in_4_20: 5
+    documentation_lines: [1017]
+    documentation:
+      - "The StatusEnumeration simple type defines the different status values that an entity (view, category, weakness) can have. A value of Deprecated refers to an entity that has been removed from CWE, likely because it was a duplicate or was created in error. A value of Obsolete is used when an entity is still valid but no longer is relevant, likely because it has been superseded by a more recent entity.  A value of Incomplete means that the entity does not have all important elements filled, and there is no guarantee of quality.  A value of Draft refers to an entity that has all important elements filled, and critical elements such as Name and Description are reasonably well-written; the entity may still have important problems or gaps.  A value of Usable refers to an entity that has received close, extensive review, with critical elements verified.  A value of Stable indicates that all important elements have been verified, and the entry is unlikely to change significantly in the future. Note that the quality requirements for Draft and Usable status are very resource-intensive to accomplish, while some Incomplete and Draft entries are actively used by the general public; so, this status enumeration might change in the future."
+    values:
+      - {value: "Deprecated", line: 1020, observed_4_20: 64}
+      - {value: "Draft", line: 1021, observed_4_20: 520}
+      - {value: "Incomplete", line: 1022, observed_4_20: 689}
+      - {value: "Obsolete", line: 1023, observed_4_20: 97}
+      - {value: "Stable", line: 1024, observed_4_20: 80}
+      - {value: "Usable", line: 1025, observed_4_20: 0}
+  - name: "StakeholderEnumeration"
+    line: 1028
+    base: "xs:string"
+    value_count: 13
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "AudienceType/Stakeholder/Type", line: 257, observed_4_20: 114}
+    values_used_in_4_20: 10
+    documentation_lines: [1030]
+    documentation:
+      - "The StakeholderEnumeration simple type defines the different types of users within the CWE community."
+    values:
+      - {value: "Academic Researchers", line: 1033, observed_4_20: 6}
+      - {value: "Applied Researchers", line: 1034, observed_4_20: 2}
+      - {value: "Assessment Teams", line: 1035, observed_4_20: 1}
+      - {value: "Assessment Tool Vendors", line: 1036, observed_4_20: 8}
+      - {value: "CWE Team", line: 1037, observed_4_20: 0}
+      - {value: "Educators", line: 1038, observed_4_20: 29}
+      - {value: "Hardware Designers", line: 1039, observed_4_20: 4}
+      - {value: "Information Providers", line: 1040, observed_4_20: 0}
+      - {value: "Product Customers", line: 1041, observed_4_20: 26}
+      - {value: "Product Vendors", line: 1042, observed_4_20: 6}
+      - {value: "Software Developers", line: 1043, observed_4_20: 31}
+      - {value: "Vulnerability Analysts", line: 1044, observed_4_20: 1}
+      - {value: "Other", line: 1045, observed_4_20: 0}
+  - name: "StructureEnumeration"
+    line: 1048
+    base: "xs:string"
+    value_count: 3
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "WeaknessType/@Structure", line: 113, observed_4_20: 969}
+    values_used_in_4_20: 3
+    documentation_lines: [1050]
+    documentation:
+      - "The StructureEnumeration simple type lists the different structural natures of a weakness. A Simple structure represents a single weakness whose exploitation is not dependent on the presence of another weakness. A Composite is a set of weaknesses that must all be present simultaneously in order to produce an exploitable vulnerability, while a Chain is a set of weaknesses that must be reachable consecutively in order to produce an exploitable vulnerability."
+    values:
+      - {value: "Chain", line: 1053, observed_4_20: 3}
+      - {value: "Composite", line: 1054, observed_4_20: 4}
+      - {value: "Simple", line: 1055, observed_4_20: 962}
+  - name: "StructuredCodeNatureEnumeration"
+    line: 1058
+    base: "xs:string"
+    value_count: 6
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "StructuredCodeType/@Nature", line: 1343, observed_4_20: 1584}
+    values_used_in_4_20: 5
+    documentation_lines: [1060]
+    documentation:
+      - "The StructuredCodeNatureEnumeration sinple type defines the different values that state what type of code is being shown in an eample."
+    values:
+      - {value: "Attack", line: 1063, observed_4_20: 129}
+      - {value: "Bad", line: 1064, observed_4_20: 1065}
+      - {value: "Good", line: 1065, observed_4_20: 300}
+      - {value: "Informative", line: 1066, observed_4_20: 21}
+      - {value: "Mitigation", line: 1067, observed_4_20: 0}
+      - {value: "Result", line: 1068, observed_4_20: 69}
+  - name: "TaxonomyMappingFitEnumeration"
+    line: 1071
+    base: "xs:string"
+    value_count: 5
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "TaxonomyMappingsType/Taxonomy_Mapping/Mapping_Fit", line: 589, observed_4_20: 285}
+    values_used_in_4_20: 4
+    documentation_lines: [1073]
+    documentation:
+      - "The TaxonomyMappingFitEnumeration simple type defines the different values used to describe how close a certain mapping to CWE is."
+    values:
+      - {value: "Exact", line: 1076, observed_4_20: 38}
+      - {value: "CWE More Abstract", line: 1077, observed_4_20: 81}
+      - {value: "CWE More Specific", line: 1078, observed_4_20: 120}
+      - {value: "Imprecise", line: 1079, observed_4_20: 46}
+      - {value: "Perspective", line: 1080, observed_4_20: 0}
+  - name: "TaxonomyNameEnumeration"
+    line: 1083
+    base: "xs:string"
+    value_count: 27
+    has_other_value: false
+    closed_external_list: true
+    closed_external_list_kind: "inferred"
+    closed_external_list_note: "names of external taxonomies and coding standards that Taxonomy_Mapping may target; no Other value — mapping to an unlisted taxonomy needs a new schema version"
+    used_by:
+      - {declaration: "TaxonomyMappingsType/Taxonomy_Mapping/@Taxonomy_Name", line: 591, observed_4_20: 1660}
+    values_used_in_4_20: 17
+    documentation_lines: [1085]
+    documentation:
+      - "The TaxonomyNameEnumeration simple type lists the different known taxomomies that can be mapped to CWE."
+    values:
+      - {value: "7 Pernicious Kingdoms", line: 1088, observed_4_20: 89}
+      - {value: "19 Deadly Sins", line: 1089, observed_4_20: 0}
+      - {value: "Aslam", line: 1090, observed_4_20: 0}
+      - {value: "Bishop", line: 1091, observed_4_20: 0}
+      - {value: "CERT C Secure Coding", line: 1092, observed_4_20: 228}
+      - {value: "CERT C++ Secure Coding", line: 1093, observed_4_20: 0}
+      - {value: "The CERT Oracle Secure Coding Standard for Java (2011)", line: 1094, observed_4_20: 139}
+      - {value: "CLASP", line: 1095, observed_4_20: 105}
+      - {value: "ISA/IEC 62443", line: 1096, observed_4_20: 199}
+      - {value: "Landwehr", line: 1097, observed_4_20: 9}
+      - {value: "OMG ASCSM", line: 1098, observed_4_20: 22}
+      - {value: "OMG ASCRM", line: 1099, observed_4_20: 29}
+      - {value: "OMG ASCMM", line: 1100, observed_4_20: 20}
+      - {value: "OMG ASCPEM", line: 1101, observed_4_20: 15}
+      - {value: "OWASP Top Ten 2004", line: 1102, observed_4_20: 71}
+      - {value: "OWASP Top Ten 2007", line: 1103, observed_4_20: 31}
+      - {value: "OWASP Top Ten", line: 1104, observed_4_20: 0}
+      - {value: "PLOVER", line: 1105, observed_4_20: 304}
+      - {value: "Protection Analysis", line: 1106, observed_4_20: 0}
+      - {value: "RISOS", line: 1107, observed_4_20: 0}
+      - {value: "SEI CERT C Coding Standard", line: 1108, observed_4_20: 0}
+      - {value: "SEI CERT C++ Coding Standard", line: 1109, observed_4_20: 0}
+      - {value: "SEI CERT Oracle Coding Standard for Java", line: 1110, observed_4_20: 8}
+      - {value: "SEI CERT Perl Coding Standard", line: 1111, observed_4_20: 30}
+      - {value: "Software Fault Patterns", line: 1112, observed_4_20: 305}
+      - {value: "Weber, Karger, Paradkar", line: 1113, observed_4_20: 0}
+      - {value: "WASC", line: 1114, observed_4_20: 56}
+  - name: "TechnicalImpactEnumeration"
+    line: 1117
+    base: "xs:string"
+    value_count: 25
+    has_other_value: true
+    closed_external_list: false
+    used_by:
+      - {declaration: "CommonConsequencesType/Consequence/Impact", line: 282, observed_4_20: 2120}
+    values_used_in_4_20: 25
+    documentation_lines: [1119]
+    documentation:
+      - "The TechnicalImpactEnumeration simple type describes the technical impacts that can arise if an adversary successfully exploits a weakness."
+    values:
+      - {value: "Modify Memory", line: 1122, observed_4_20: 112}
+      - {value: "Read Memory", line: 1123, observed_4_20: 98}
+      - {value: "Modify Files or Directories", line: 1124, observed_4_20: 71}
+      - {value: "Read Files or Directories", line: 1125, observed_4_20: 81}
+      - {value: "Modify Application Data", line: 1126, observed_4_20: 110}
+      - {value: "Read Application Data", line: 1127, observed_4_20: 203}
+      - {value: "DoS: Crash, Exit, or Restart", line: 1128, observed_4_20: 130}
+      - {value: "DoS: Amplification", line: 1129, observed_4_20: 7}
+      - {value: "DoS: Instability", line: 1130, observed_4_20: 22}
+      - {value: "DoS: Resource Consumption (CPU)", line: 1131, observed_4_20: 47}
+      - {value: "DoS: Resource Consumption (Memory)", line: 1132, observed_4_20: 36}
+      - {value: "DoS: Resource Consumption (Other)", line: 1133, observed_4_20: 41}
+      - {value: "Execute Unauthorized Code or Commands", line: 1134, observed_4_20: 173}
+      - {value: "Gain Privileges or Assume Identity", line: 1135, observed_4_20: 162}
+      - {value: "Bypass Protection Mechanism", line: 1136, observed_4_20: 202}
+      - {value: "Hide Activities", line: 1137, observed_4_20: 38}
+      - {value: "Alter Execution Logic", line: 1138, observed_4_20: 54}
+      - {value: "Quality Degradation", line: 1139, observed_4_20: 53}
+      - {value: "Unexpected State", line: 1140, observed_4_20: 120}
+      - {value: "Varies by Context", line: 1141, observed_4_20: 122}
+      - {value: "Increase Analytical Complexity", line: 1142, observed_4_20: 30, doc: "It is more difficult for humans or\n\t\t\t\ttools to analyze the product's code, documentation,\n\t\t\t\tand other artifacts understand how the product works\n\t\t\t\tor is intended to work, which can make it more\n\t\t\t\tdifficult to find and fix\n\t\t\t\tvulnerabilities."}
+      - {value: "Reduce Maintainability", line: 1152, observed_4_20: 62}
+      - {value: "Reduce Performance", line: 1153, observed_4_20: 23}
+      - {value: "Reduce Reliability", line: 1154, observed_4_20: 28}
+      - {value: "Other", line: 1155, observed_4_20: 95}
+  - name: "TechnologyClassEnumeration"
+    line: 1158
+    base: "xs:string"
+    value_count: 10
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Technology/@Class", line: 243, observed_4_20: 414}
+    values_used_in_4_20: 7
+    documentation_lines: [1160]
+    documentation:
+      - "The TechnologyClassEnumeration simple type contains a list of values corresponding to different classes of technologies. The value \"Not Technology-Specific\" is used to indicate that the entry is not limited to a small set of technologies, i.e., it can appear in many different technologies."
+    values:
+      - {value: "Client Server", line: 1163, observed_4_20: 3, doc: "Represents technology involving a distributed application but for the purposes of CWE does not leverage a web browser."}
+      - {value: "Cloud Computing", line: 1168, observed_4_20: 8, doc: "Represents technology that involves data storage and computing power being made available to multiple users via the internet instead of using local systems, without the need for users to perform all system management themselves."}
+      - {value: "ICS/OT", line: 1173, observed_4_20: 41, doc: "Represents technology related to Industrial Control Systems (ICS) and Operational Techology (OT), which are often considered to be distinct from Information Technology (IT) systems."}
+      - {value: "Mainframe", line: 1178, observed_4_20: 0}
+      - {value: "Mobile", line: 1179, observed_4_20: 21}
+      - {value: "N-Tier", line: 1180, observed_4_20: 0}
+      - {value: "SOA", line: 1181, observed_4_20: 0, doc: "Represents technology related to Service-oriented architecture (SOA)."}
+      - {value: "System on Chip", line: 1186, observed_4_20: 31, doc: "Represents technology that integrates all components of a computer within a single integrated circuit, to include FPGA and ASIC."}
+      - {value: "Web Based", line: 1191, observed_4_20: 81, doc: "Represents technology that involves applications or single-page sites that leverage a web browser to support client interactions."}
+      - {value: "Not Technology-Specific", line: 1196, observed_4_20: 229, doc: "Used to indicate that the entry is not limited to a small set of technologies, i.e., it can appear in many different technologies."}
+  - name: "TechnologyNameEnumeration"
+    line: 1203
+    base: "xs:string"
+    value_count: 20
+    has_other_value: true
+    closed_external_list: true
+    closed_external_list_kind: "inferred"
+    closed_external_list_note: "names of technologies, including hardware IP block kinds (external); has an Other value"
+    used_by:
+      - {declaration: "ApplicablePlatformsType/Technology/@Name", line: 242, observed_4_20: 158}
+    values_used_in_4_20: 15
+    documentation_lines: [1205, 1206]
+    documentation:
+      - "The TechnologyNameEnumeration simple type contains a list of values corresponding to different technologies. A technology represents a generally accepted feature of a system and often refers to a high-level functional component within a system."
+      - "Within this context, \"IP\" stands for \"Intellectual Property\" and is the term used to distinguish unique blocks within a System on Chip, with each block potentially coming from a different source."
+    values:
+      - {value: "AI/ML", line: 1209, observed_4_20: 22, doc: "Represents technology related to Artificial Intelligence (AI) and Machine Learning (ML) systems. Note: terminology in this space is inconsistently used, but the AI WG agreed on this usage for CWE 4.15."}
+      - {value: "Web Server", line: 1214, observed_4_20: 65}
+      - {value: "Database Server", line: 1215, observed_4_20: 10}
+      - {value: "Accelerator Hardware", line: 1216, observed_4_20: 0, doc: "hardware Intellectual Property (IP) dedicated to offload a specific workload to enhance performance: DSP, packet processing, mathematical, compression, etc."}
+      - {value: "Analog and Mixed Signal Hardware", line: 1221, observed_4_20: 0, doc: "hardware Intellectual Property (IP) that controls/senses the electricals for communication which receives/transmits signals conditioned outside of a system’s digital domain."}
+      - {value: "Audio/Video Hardware", line: 1226, observed_4_20: 0, doc: "hardware Intellectual Property (IP) designed to manipulate audio/video data: coders/decoders, speech recognition, format converters, etc."}
+      - {value: "Bus/Interface Hardware", line: 1231, observed_4_20: 5, doc: "hardware Intellectual Property (IP) implementing an interconnect among elements in a computing system: I2C, PCIe, DDR, MMC, USB, GPIO, NoC, etc."}
+      - {value: "Clock/Counter Hardware", line: 1236, observed_4_20: 2, doc: "hardware Intellectual Property (IP) reflecting the passage of time in oscillations or human units: Real Time Clock, Watchdog, Monotonic Counter, etc."}
+      - {value: "Communication Hardware", line: 1241, observed_4_20: 0, doc: "hardware Intellectual Property (IP) designed to transmit/receive information: Modulator/Demodulator, GPS, 802.11, Bluetooth, CDMA/DSM, etc."}
+      - {value: "Controller Hardware", line: 1246, observed_4_20: 0, doc: "hardware Intellectual Property (IP) circuit hard-wired (e.g., an FSM) to react in a closed-loop control system or other limited context, to control another entity: Arbiter, APIC, USB, Peripheral, Memory, Storage, etc."}
+      - {value: "Memory Hardware", line: 1251, observed_4_20: 7, doc: "hardware Intellectual Property (IP) implementing volatile (transient) data storage: DRAM, SRAM, etc."}
+      - {value: "Microcontroller Hardware", line: 1256, observed_4_20: 7, doc: "hardware Intellectual Property (IP) implementing a specialized processor acting as a programmable controller."}
+      - {value: "Network on Chip Hardware", line: 1261, observed_4_20: 1}
+      - {value: "Power Management Hardware", line: 1262, observed_4_20: 5, doc: "hardware Intellectual Property (IP) that controls and/or monitors the power state of a system: voltage regulators, power controllers, power monitors, etc."}
+      - {value: "Processor Hardware", line: 1267, observed_4_20: 17, doc: "hardware Intellectual Property (IP) implementing a general-purpose computing engine: CPU, GPU, RISC, CISC, etc."}
+      - {value: "Security Hardware", line: 1272, observed_4_20: 6, doc: "hardware Intellectual Property (IP), including hardware security modules (HSM), designed to protect assets: cryptography, auth, tamper detection, etc."}
+      - {value: "Sensor Hardware", line: 1277, observed_4_20: 4}
+      - {value: "Storage Hardware", line: 1278, observed_4_20: 1}
+      - {value: "Test/Debug Hardware", line: 1279, observed_4_20: 3, doc: "hardware Intellectual Property (IP) designed to verify functionality and identify root cause of defects: JTAG, BIST, boundary scan, pattern generator, etc."}
+      - {value: "Other", line: 1284, observed_4_20: 3}
+  - name: "UsageEnumeration"
+    line: 1287
+    base: "xs:string"
+    value_count: 4
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "MappingNotesType/Usage", line: 420, observed_4_20: 1450}
+    values_used_in_4_20: 4
+    documentation_lines: [1289]
+    documentation:
+      - "The UsageEnumeration simple type is used for whether this CWE entry is supported for mapping."
+    values:
+      - {value: "Discouraged", line: 1292, observed_4_20: 44, doc: "this CWE ID should not be used to map to real-world vulnerabilities"}
+      - {value: "Prohibited", line: 1297, observed_4_20: 564, doc: "this CWE ID must not be used to map to real-world vulnerabilities"}
+      - {value: "Allowed", line: 1302, observed_4_20: 749, doc: "this CWE ID may be used to map to real-world vulnerabilities"}
+      - {value: "Allowed-with-Review", line: 1307, observed_4_20: 93, doc: "this CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review"}
+  - name: "ViewTypeEnumeration"
+    line: 1314
+    base: "xs:string"
+    value_count: 3
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ViewType/@Type", line: 160, observed_4_20: 59}
+    values_used_in_4_20: 3
+    documentation_lines: [1316]
+    documentation:
+      - "The ViewTypeEnumeration simple type defines the different types of views that can be found within CWE. A graph is a hierarchical representation of weaknesses based on a specific vantage point that a user may take. The hierarchy often starts with a category, followed by a class/base weakness, and ends with a variant weakness. In addition to graphs, a view can be a slice, which is a flat list of entries that does not specify any relationships between those entries. An explicit slice is a subset of weaknesses that are related through some external factor. For example, an explicit slice may be used to represent mappings to external groupings like a Top-N list. An implicit slice is a subset of weaknesses that are related through a specific attribute, as indicated by the Filter element of the View. For example, an implicit slice may refer to all weaknesses in draft status, or all class level weaknesses."
+    values:
+      - {value: "Implicit", line: 1319, observed_4_20: 17}
+      - {value: "Explicit", line: 1320, observed_4_20: 4}
+      - {value: "Graph", line: 1321, observed_4_20: 38}
+  - name: "ContentHistoryType/Contribution/@Type"
+    anonymous: true
+    line: 337
+    base: "xs:string"
+    value_count: 2
+    has_other_value: false
+    closed_external_list: false
+    used_by:
+      - {declaration: "ContentHistoryType/Contribution/@Type", line: 336, observed_4_20: 283}
+    values_used_in_4_20: 2
+    documentation_lines: [293]
+    documentation_note: "No annotation of its own; described in the ContentHistoryType documentation (L293)."
+    values:
+      - {value: "Content", line: 339, observed_4_20: 235}
+      - {value: "Feedback", line: 340, observed_4_20: 48}
+identity_constraints:
+  - name: "uniqueWeaknessID"
+    kind: "xs:unique"
+    line: 55
+    declared_on: "Weakness_Catalog (L16)"
+    selector: "./cwe:Weaknesses/cwe:Weakness"
+    selector_line: 56
+    field: "@ID"
+    field_line: 57
+    scope_note: >-
+      ID unique among Weakness entries only.
+  - name: "uniqueWeaknessName"
+    kind: "xs:unique"
+    line: 59
+    declared_on: "Weakness_Catalog (L16)"
+    selector: "./cwe:*/cwe:*"
+    selector_line: 60
+    field: "@Name"
+    field_line: 61
+    scope_note: >-
+      Despite its name, the selector ./cwe:*/cwe:* reaches every grandchild of the root: Weakness, Category, View
+      and External_Reference. External_Reference has no Name attribute and xs:unique skips nodes whose field is
+      absent, so the effective scope is Name unique across Weakness + Category + View together (demonstrated by
+      examples/neg-duplicate-name-across-kinds.xml).
+  - name: "uniqueCategoryID"
+    kind: "xs:unique"
+    line: 63
+    declared_on: "Weakness_Catalog (L16)"
+    selector: "./cwe:Categories/cwe:Category"
+    selector_line: 64
+    field: "@ID"
+    field_line: 65
+    scope_note: >-
+      ID unique among Category entries only.
+  - name: "uniqueViewID"
+    kind: "xs:unique"
+    line: 67
+    declared_on: "Weakness_Catalog (L16)"
+    selector: "./cwe:Views/cwe:View"
+    selector_line: 68
+    field: "@ID"
+    field_line: 69
+    scope_note: >-
+      ID unique among View entries only.
+  - name: "uniqueReferenceID"
+    kind: "xs:unique"
+    line: 71
+    declared_on: "Weakness_Catalog (L16)"
+    selector: "./cwe:External_References/cwe:External_Reference"
+    selector_line: 72
+    field: "@Reference_ID"
+    field_line: 73
+    scope_note: >-
+      Reference_ID unique among External_Reference entries.
+unchecked_references:
+  note: >-
+    The schema declares no xs:key or xs:keyref, so these reference-bearing declarations are type-checked
+    (xs:integer or xs:string) but never resolved by validation. A consumer must resolve them itself; 4.20
+    resolution results are in examples/catalog-stats.yaml.
+  declarations:
+    - {field: "RelatedWeaknessesType/Related_Weakness/@CWE_ID", line: 546, target: "Weakness/@ID (by usage)"}
+    - {field: "RelatedWeaknessesType/Related_Weakness/@View_ID", line: 547, target: "View/@ID"}
+    - {field: "RelatedWeaknessesType/Related_Weakness/@Chain_ID", line: 548, target: "Weakness/@ID with Structure=Chain (by usage)"}
+    - {field: "MemberType/@CWE_ID", line: 431, target: "Weakness, Category or View @ID"}
+    - {field: "MemberType/@View_ID", line: 432, target: "View/@ID"}
+    - {field: "SuggestionsType/Suggestion/@CWE_ID", line: 573, target: "Weakness/@ID (by usage)"}
+    - {field: "ReferencesType/Reference/@External_Reference_ID", line: 520, target: "External_Reference/@Reference_ID"}
+    - {field: "RelatedAttackPatternsType/Related_Attack_Pattern/@CAPEC_ID", line: 533, target: "CAPEC attack pattern id (external catalogue)"}
+wildcards:
+  - line: 1332
+    in: "StructuredTextType"
+    namespace: "http://www.w3.org/1999/xhtml"
+    processContents: "strict"
+    cardinality: "0..unbounded"
+    mixed: true
+    note: >-
+      Every element typed cwe:StructuredTextType (listed under that message's appears_as) and NotesType/Note (by
+      extension) accepts mixed text plus XHTML elements that must validate against the imported xhtml1-strict.xsd.
+      If the import cannot be loaded, libxml2 skips it with a warning and then rejects every XHTML element as 'No
+      matching global element declaration available, but demanded by the strict wildcard' — the xhtml schema is
+      load-bearing (see schema/README.md).
+  - line: 1340
+    in: "StructuredCodeType"
+    namespace: "http://www.w3.org/1999/xhtml"
+    processContents: "strict"
+    cardinality: "0..unbounded"
+    mixed: true
+    note: >-
+      Same wildcard for Demonstrative_Example/Example_Code. 4.20: 15,025 of the catalog's 20,246 XHTML elements sit
+      inside Example_Code (2,555 of them as direct children), used to lay out code; StructuredText-typed elements
+      hold the other 5,221 (2,902 direct children, 151 of those under Note).
+constrained_by_unlinked:
+  note: >-
+    Requirements of requirements.yaml that constrain no single field of these structures, so they appear in no
+    constrained_by list (pass 3, agent C, 2026-10-08).
+  requirements:
+    - {id: "cwe#R-0001", reason: "schema-level: every element of an instance is in the target namespace; no single field"}
+    - {id: "cwe#R-0002", reason: "schema-level: qualification of every local element and attribute; no single field"}
+    - {id: "cwe#R-0003", reason: "licence of the schema file itself; constrains no instance field"}
+    - {id: "cwe#R-0004", reason: "licence header of distributed copies of the schema file; constrains no instance field"}
+    - {id: "cwe#R-0005", reason: "the document element: the Weakness_Catalog message as a whole, not one of its fields"}
+    - {id: "cwe#R-0035", reason: "constrains external mapping data (a mapper's choice of a Category ID), not a field of the catalog"}
+    - {id: "cwe#R-0153", reason: "the [REF-n] citation format inside structured-text character data; mixed content has no field entry"}

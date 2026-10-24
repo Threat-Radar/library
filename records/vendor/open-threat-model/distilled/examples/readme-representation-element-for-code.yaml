@@ -1,0 +1,17 @@
+representations:
+  representation: code-repository
+  id: org.example.class
+  name: Example Class
+  file: path/to/class.java
+  line: 324
+  codeSnippet: |
+    public void createOTM(String[] args) {
+      Scanner reader = new Scanner(System.in);
+      System.out.print("Enter a number: ");
+      
+      int number = reader.nextInt()
+      System.out.println("You entered: " + number);
+    }
+  attributes:
+    source: sonar
+    author: John Doe

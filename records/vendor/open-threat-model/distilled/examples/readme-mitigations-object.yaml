@@ -1,0 +1,13 @@
+mitigations:
+  - name: This is the name of mitigation 1
+    id: fd6136f4-e2ff-11eb-ba80-0242ac130004
+    description: Description for mitigation 1
+    riskReduction: 50
+    attributes:
+       standard: OWASP-ASVS
+       cmdbId: MyApp123
+
+  - name: Mitigation 2
+    id: 3b837730-e300-11eb-ba80-0242ac130004
+    description: Description for mitigation 2
+    riskReduction: 100

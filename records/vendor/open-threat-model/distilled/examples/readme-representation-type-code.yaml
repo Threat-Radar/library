@@ -1,0 +1,9 @@
+representations:
+  - name: Application Code
+    id: application-code
+    type: code
+    repository:
+      url: https://github.com/my-project
+    attributes:
+      language: java
+      framework: spring
