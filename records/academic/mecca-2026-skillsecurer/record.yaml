@@ -1,0 +1,50 @@
+schema: "library-record/v1"
+id: mecca-2026-skillsecurer
+body: academic
+type: paper
+title: "SkillSecurer: Detecting and Patching Prompt-Injection Vulnerabilities in AI Agent Skills"
+short_title: "SkillSecurer"
+authors:
+  - "Donato Mecca"
+  - "Alberto Verna"
+  - "Youness Bouchari"
+  - "Nikhil Jha"
+  - "Marco Mellia"
+date: "2026-09-12"
+publisher: "arXiv"
+version: "arXiv v1"
+identifiers:
+  arxiv: "2609.14079"
+  url: https://arxiv.org/abs/2609.14079
+content:
+  url: https://arxiv.org/pdf/2609.14079
+  sha256: "3dc4816c0d01ae70a136377c5c89c4b47e32e99851031c14e96b515939400107"
+  retrieved: "2026-10-13"
+  local: false
+  media_type: application/pdf
+  pages: 18
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "Measures prompt-injection risk in agent skills (reusable instruction/script packages) with a red/blue agent framework; finds latent vulnerabilities in over 17% of popular public skills."
+  assessed: "2026-10-13"
+topic: ai-threat-model-agentic-mcp
+tags:
+  - academic
+  - evidence
+  - prompt-injection
+  - agent-security
+  - ai-supply-chain
+status: summarized
+confidence: medium
