@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: scandariato-2015-stride-descriptive-study
+body: academic
+type: paper
+title: "A descriptive study of Microsoft's threat modeling technique"
+publisher: "Springer"
+version: "journal article (online 2013-12-03, issue June 2015); text read: the authors' manuscript in the KU Leuven repository (Lirias)"
+authors:
+  - "Riccardo Scandariato"
+  - "Kim Wuyts"
+  - "Wouter Joosen"
+date: "2015-06"
+identifiers:
+  doi: "10.1007/s00766-013-0195-2"
+  url: https://doi.org/10.1007/s00766-013-0195-2
+content:
+  url: https://lirias.kuleuven.be/retrieve/245643
+  sha256: "a24e2856c088aa6649ce419858ee15d1b356ccbc9483369345b26343800dc9f1"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - mbaka-tuma-2024-stride-replication
+    - shostack-2008-experiences-threat-modeling-microsoft
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "Requirements Engineering 20(2), 163-180"
+media_type: "application/pdf"
+pages: 
+tags:
+  - threat-modeling
+  - stride
+  - empirical
+  - method
+status: summarized
+confidence: high
