@@ -7,6 +7,7 @@ title: "Gephi desktop documentation and project"
 authors: []
 date: ""
 version: "0.11.3"
+publisher: "Gephi Consortium"
 identifiers:
   git: https://github.com/gephi/gephi
 content:
@@ -20,7 +21,9 @@ relations:
   see_also: []
   cited_by: []
   implements_concept: []
-bears_on: []
+bears_on:
+  - DEC-006
+  - R-014
 topic: rpt-0006-knowledge-graph-visualization
 commit: "a4c957bd825a03ac071914185996c700fe76c7e6"
 license: "CDDL 1.0 or GPLv3"

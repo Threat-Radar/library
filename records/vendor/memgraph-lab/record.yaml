@@ -1,6 +1,4 @@
 # Web page: content drifts. The digest + retrieved date is the whole point.
-# Base template. Every adapter is this shape; types differ only in defaults
-# and in which fields they leave for a human. Placeholders: {{...}}
 schema: "library-record/v1"
 id: memgraph-lab
 body: vendor
@@ -9,6 +7,7 @@ title: "Memgraph Lab documentation"
 authors: []
 date: ""
 version: "3.x"
+publisher: "Memgraph Ltd."
 identifiers:
   url: https://memgraph.com/lab
 content:
@@ -22,7 +21,10 @@ relations:
   see_also: []
   cited_by: []
   implements_concept: []
-bears_on: []
+bears_on:
+  - DEC-006
+  - R-014
+  - R-018
 topic: rpt-0006-knowledge-graph-visualization
 applicability:
   security: adjacent

@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: yfiles-html
 record: yfiles-html
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # yFiles for HTML developer documentation
@@ -27,8 +27,8 @@ families. Threat semantics and human review remain application behavior.
 
 ## Applicability
 
-Primary documentation for the commercial SDK option in Issue #10. It bears on no accepted
-decision in this record.
+Primary documentation for the commercial SDK option in Issue #10. It informs DEC-006,
+R-014, and R-018 without accepting a decision.
 
 ## Limits
 

@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: d3-js
 record: d3-js
 type: summary
-updated: "2026-10-05"
+updated: "2026-10-14"
 ---
 
 # D3.js documentation and project
@@ -26,7 +26,8 @@ graph editor, review workflow, or ready-made large-graph application.
 ## Applicability
 
 Evidence for the low-level custom-visualization path in Issue #10, including possible
-coordination of graph and non-graph views. It bears on no accepted decision in this record.
+coordination of graph and non-graph views. It informs DEC-006 and R-014 without accepting
+a decision.
 
 ## Limits
 
