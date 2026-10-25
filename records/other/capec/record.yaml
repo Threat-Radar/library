@@ -4,21 +4,32 @@ body: other
 type: dataset
 maturity: best-practice
 title: "MITRE CAPEC — Common Attack Pattern Enumeration and Classification"
+version: "3.9"
+date: "2023-01-24"
+publisher: "The MITRE Corporation"
 identifiers:
   url: https://capec.mitre.org/
 content:
-  url: https://capec.mitre.org/
-  sha256: ""
-  retrieved: "2026-09-26"
+  url: https://capec.mitre.org/data/xml/capec_v3.9.xml
+  sha256: "70279a2dff0cb0ad79e546adb07828335a704ad5210e047e09e986172fc9e34d"
+  retrieved: "2026-10-25"
   local: false
+  media_type: application/xml
 relations:
   supersedes: []
   superseded_by: []
   cited_by: []
-  see_also: []
+  see_also:
+    - cwe
+    - mitre-attack
+    - bron
+    - stix-2-1
+    - d3fend
   implements_concept: []
 bears_on:
   - DEC-001
+  - DEC-008
+  - DEC-009
 applicability:
   security: core
   cryptography: adjacent
@@ -26,7 +37,7 @@ applicability:
 usefulness:
   verdict: useful
   reason: "Supplies tmodel's weakness→attack-pattern→technique edges."
-  assessed: "2026-09-26"
+  assessed: "2026-10-25"
 topic: ""
 tags:
   - capec
@@ -35,3 +46,4 @@ tags:
   - graph
 status: summarized
 confidence: medium
+owner: nymble
