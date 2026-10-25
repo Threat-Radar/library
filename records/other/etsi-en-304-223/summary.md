@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: etsi-en-304-223
 record: etsi-en-304-223
 type: summary
-updated: "2026-10-01"
+updated: "2026-10-21"
 ---
 
 # Securing Artificial Intelligence (SAI); Baseline Cyber Security Requirements for AI Models and Systems
@@ -26,9 +26,12 @@ maintenance and end of life — and **72 numbered provisions** (49 *shall*, 23 *
 assigned to stakeholders: Developers, System Operators, Data Custodians and End-users (§4,
 §5). It treats AI as different from ordinary software because of risks such as data
 poisoning, model obfuscation and indirect prompt injection (Introduction), and requires
-threat modelling that covers AI-specific attacks (5.1.3-1), human oversight (5.1.4), audit
-trails of models, datasets and prompts (5.1.2-3, 5.2.4-1, 5.2.4-3), and published hashes of
-shared model components (5.2.4-1.2). It was first published as ETSI TS 104 223 V1.1.1
+threat analysis and risk management (5.1.3-1), recommending that threat modelling address
+AI-specific attacks; technical measures where human oversight is a risk control (5.1.4-3;
+oversight capabilities themselves are recommended, 5.1.4-1); an audit trail of models,
+datasets and prompts (5.1.2-3) and of system design and maintenance plans (5.2.4-1), with an
+audit log of system-prompt changes recommended (5.2.4-3); and published hashes of shared model
+components (5.2.4-1.2). It was first published as ETSI TS 104 223 V1.1.1
 (April 2025) and became this EN in December 2025 (History).
 
 ## Applicability
@@ -40,9 +43,10 @@ shared model components (5.2.4-1.2). It was first published as ETSI TS 104 223 V
 | This project | `core` | The testable requirement set behind tmodel #13; names AI threats the object model must express |
 
 `bears_on: DEC-001` — 5.1.3-1 asks threat models to address data poisoning, model inversion
-and membership inference; `distilled/normative.md` §4 lists every AI threat the standard
+and membership inference; `distilled/threats.yaml` lists every AI threat the standard
 names. `bears_on: R-018` — Principle 4 asks for human oversight and outputs humans can
-assess, matching ARCH-0001 §7.
+assess, matching ARCH-0001 §7. DEC-002, DEC-003, DEC-008 and DEC-009 are mapped provision by
+provision in `distilled/design-notes.md`.
 
 ## Implementations
 
@@ -58,17 +62,22 @@ belong in their own records.
 | `record.yaml` | metadata, including all 25 informative references as `cites` |
 | `summary.md` | this document |
 | `distilled/README.md` | index of the distillation, the checks run and their results |
-| `distilled/requirements.yaml` | **machine source:** all 72 provisions, verbatim, typed for audit |
+| `distilled/requirements.yaml` | **machine source:** all 72 provisions plus one clause 4 statement, verbatim, typed for audit, with the tmodel decisions each bears on (60 of 73) and the AI attack class it defends against (35 of 73) |
 | `distilled/requirements.md` | human view of the provisions, generated from the YAML |
-| `distilled/normative.md` | stakeholders, the 13 principles by phase, AI threats named, bearing on tmodel |
+| `distilled/normative.md` | every normative statement verbatim with clause and page |
+| `distilled/threats.yaml` | the AI threats and weaknesses the standard describes, with NIST AI 100-2 and MITRE ATLAS ids |
+| `distilled/design-notes.md` | how each provision bears on tmodel's decisions, and the threat mapping |
+| `distilled/verification.md` | how the extraction was checked (FX-1 passes 2 and 3) |
 
 ## Limits
 
 - **No way to check conformance yet.** The provisions are high-level ("shall analyse threats
   and manage security risks"), and the companion that would say how to assess them,
   TS 104 216, is unpublished.
-- **Who is obliged is sometimes unclear.** Four provisions name no stakeholder (marked
-  `(implied)` in the YAML), and several bind "Developers and/or System Operators" jointly.
+- **Who is obliged is sometimes unclear.** Five entries have an actor marked `(implied)`:
+  5.1.1-1.1, 5.1.1-2.1 and 5.1.3-1.1 name no stakeholder; 5.1.2-1.1 is passive; 5.2.4-2.1
+  names Developers only as beneficiaries. Several bind "Developers and/or System Operators"
+  jointly.
 - **Generic on threats.** It names AI attack classes but offers no taxonomy or catalogue;
   pair it with MITRE ATLAS or NIST AI 100-2 (both cited informatively) for that.
 - **Predecessor not held.** TS 104 223 V1.1.1 is not yet a record, so no `supersedes` link.

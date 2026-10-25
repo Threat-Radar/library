@@ -88,11 +88,19 @@ cites:
 relations:
   supersedes: []
   superseded_by: []
-  see_also: []
+  # CISA's AI-in-OT guidance (§3.4) lists this document's predecessor, TS 104 223 V1.1.1.
+  see_also:
+    - cisa-ai-in-ot-principles
   cited_by: []
   implements_concept: []
+# design-notes.md maps every provision. ADR-0010 accepts DEC-001a (DEC-001b open),
+# ADR-0007 accepts DEC-002, ADR-0006 accepts DEC-003.
 bears_on:
   - DEC-001
+  - DEC-002
+  - DEC-003
+  - DEC-008
+  - DEC-009
   - R-018
 applicability:
   security: core
@@ -115,18 +123,58 @@ status: distilled
 confidence: medium
 owner: Maimcghee
 distillation:
+  profile: full
+  standard: FX-1
   artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "Verbatim, cut from the source by script: modal verbs clause, transposition dates, History, Introduction phase statement and ISO/IEC 22989 NOTE, §1 scope, §2.1, all 19 clause 3.1 terms, all of clause 4 incl. Table 4-1, all 72 clause 5 provisions with every principle heading, 'Primarily applies to' and References line, and the 5.3.1 NOTE; each with clause and page. Excludes front-matter notices, IPR, trademarks, the §2.2 reference list (in cites) and §3.3 abbreviations. A reading-aid table at the end is ours."
+      reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "All 72 provisions of clause 5 (49 requirements, 23 recommendations), keyed `#5.x.y-n`, verbatim text. Verb baseline 59 shall / 28 should / 5 can matched; verbatim, coverage and verb checks pass. Derived fields (actor, short_title, nature, expects_deliverables, verification) NOT yet human-reviewed."
-      generated_from: "pypdf text of the ETSI PDF + extraction script"
+      coverage: "73 entries: all 72 clause 5 provisions keyed by ETSI designator (49 shall, 23 should) + C4-1, the clause 4 'should note' sentence the 2026-10-01 pass missed. BCP 14 0/0; own-form baseline over the whole source reconciled form by form (shall 61->59, should 32->29, can 22->6, will 7->6, cannot 5->2, may 9->0, must 2->0, shall not 4->0, should not, will not, need not 1->0), every exclusion itemised. Every entry: page locator, kind, testable with reason; bears_on (tmodel decisions) on 60 entries (13 empty); maps_to (NIST AI 100-2 E2025 and MITRE ATLAS 2026.09 threat mapping, stated or inferred, with rationale) on the 35 with a nameable attack class or risk. Derived fields need review."
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.md
-      coverage: "Human view generated from requirements.yaml: one table per principle, all 72 provisions."
+      coverage: "Human view, one table per principle plus clause 4: all 73 entries with testable."
       generated_from: distilled/requirements.yaml
       reviewed_by: ""
-    - kind: normative
-      path: distilled/normative.md
-      coverage: "Scope, stakeholders, the 13 principles by phase, AI threats named, bearing on tmodel."
+    - kind: threats
+      path: distilled/threats.yaml
+      coverage: "14 threats and 3 weaknesses the EN describes (weaknesses with candidate CWE 4.20 ids, inferred), each quoted verbatim with locator and kind (stated/inferred); NIST AI 100-2 E2025 and ATLAS ids and the addressing provisions (derived from maps_to) on the 10 threats that map to a class or technique; T-03, T-11, T-12, T-13 and the weaknesses have none. No vulnerabilities: the EN names no product or CVE."
       reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Per provision: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision (incl. gaps in the accepted core: no role edges, single-valued catalog_ref); class summary; 8 open questions; source notes incl. 5 source defects."
+      reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "FX-1 passes 2 (verify) and 3 (cross-check): method, results, every defect found and how it was fixed, the one finding not applied and why, and the checks after the fixes."
+      reviewed_by: ""
+  not_applicable:
+    - kind: schema
+      reason: "The EN defines no data format, schema or field-level structure. The nearest is the documentation list in 5.2.4-1.1 and 5.2.4-2.1 (training-data sources incl. URL and date/time, scope and limitations, guardrails, retention time, review frequency, failure modes): topics, not typed fields. A schema from it would be invention; design-notes.md records it as a candidate LinkML extension."
+    - kind: messages
+      reason: "No message, envelope or structured exchange is defined. The EN requires communications (unresolved threats Developer -> System Operator -> End-user, 5.1.3-2; data use, 5.3.1-1; security updates, 5.3.1-2.2 and 5.4.1-1; model updates, 5.2.3-4; component hashes, 5.2.4-1.2) but gives only their subject, never fields or encoding."
+    - kind: protocol
+      reason: "No roles exchanging messages in a defined sequence. The communications above have a direction but no steps, ordering, responses or error paths; a protocol would invent them. The direction is DEC-009 input in design-notes.md."
+    - kind: state-machine
+      reason: "No lifecycle with states and transitions. The five phases (secure design to secure end of life) order the principles and map to ISO/IEC 22989 stages (Introduction NOTE) with no triggers or guards. The EN gives triggers without states (re-threat-model on a configuration change, 5.1.3-1.1; a major update is a new version, 5.4.1-2; dispose on transfer, 5.5.1-1); these are DEC-001b input in design-notes.md."
+    - kind: examples
+      reason: "No worked examples or test vectors. The clause 4 EXAMPLE (data protection roles) and the 'For example' clauses inside provisions (5.1.3-1.2 multimodal model, 5.2.2-2 rate limits, 5.2.3-2 sole supplier, 5.3.1-1 retraining, 5.4.1-3 preview access via beta-testing and versioned APIs) are prose illustrations with no expected result; they stay verbatim in normative.md and requirements.yaml."
+  passes:
+    - pass: extract
+      by: "claude (main session, single agent; library#8 lane did the 2026-10-01 partial pass)"
+      effort: max
+      date: "2026-10-21"
+      note: "Source re-read in full from .cache/etsi-en-304-223.txt (PyMuPDF, page-marked; PDF sha256 matches content.sha256). Script etsi_audit.py: all 72 existing provision texts equal the full source provision exactly; whole-document modal counts. Fixes: C4-1 added; 5.1.2-1.1 actor (was the Data Custodian, who is included, not obliged); locators gain pages; header counts and reconciliation. normative.md rewritten as verbatim text cut by anchors (the old one was a paraphrase; its tables kept as a labelled reading aid). Added threats.yaml, design-notes.md. ATLAS ids checked against ATLAS-2026.09.yaml from atlas.mitre.org; NIST ids against the E2025 index."
+    - pass: verify
+      by: "claude (independent verifier subagent)"
+      effort: max
+      date: "2026-10-22"
+      note: "Independent verifier (did not extract): re-derived the text twice from the PDF; recounted every ETSI verbal form (all equal the header); 73/73 verbatim, 72/72 complete provisions; 145/145 normative.md items verbatim. Found 4 must-fix (7 normative.md pages, 8 verbs lists, two places calling should provisions requirements) and 13 should-fix (incl. a missing stated threat, T-14); all applied 2026-10-22. Interrupted twice by the usage limit; resumed from saved transcripts. Details in distilled/verification.md."
+    - pass: cross-check
+      by: "claude (independent verifier subagent; independent threat-mapping reviewer subagent)"
+      effort: max
+      date: "2026-10-22"
+      note: "Same verifier: every id in the ten record files resolves; requirements.md matches the YAML row by row; addressed_by equals the derived set; all counts and source claims checked. Separate reviewer for the threat mapping and tmodel claims (both records): 240 id occurrences, 0 missing; 2 wrong + 21 weak + 11 notes, applied except one-class-per-id (reason in verification.md)."

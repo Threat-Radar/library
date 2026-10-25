@@ -28,7 +28,8 @@ content:
   local: false
   media_type: application/pdf
   pages: 25
-# What the document itself references (Resources list, §3.2, §3.4, References).
+# A selection of what the document references (from the Resources list, §3.2, §3.4 and References);
+# most Resources entries and footnote sources are not listed. See distilled/normative.md §5.
 cites:
   - mitre-attack
   - title: "MITRE ATLAS"
@@ -50,12 +51,20 @@ cites:
 relations:
   supersedes: []
   updates: []
-  see_also: []
+  # §3.4 lists ETSI TS 104 223 V1.1.1, the predecessor of EN 304 223 V2.1.1 held here.
+  see_also:
+    - etsi-en-304-223
   cited_by: []
   implements_concept: []
   contradicts: []
+# design-notes.md maps every statement. ADR-0010 accepts DEC-001a (DEC-001b open),
+# ADR-0007 accepts DEC-002, ADR-0006 accepts DEC-003.
 bears_on:
   - DEC-001
+  - DEC-002
+  - DEC-003
+  - DEC-008
+  - DEC-009
   - R-018
 applicability:
   security: core
@@ -74,6 +83,59 @@ tags:
   - regulation
   - ai-security
   - method
-status: summarized
+status: distilled
 confidence: high
 owner: Maimcghee
+distillation:
+  profile: full
+  standard: FX-1
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "Verbatim: regulatory status (Disclaimer), the Important Terminology and Appendix definitions the statements rely on, Table 1 and Table 2 cell by cell, and all 136 statements of requirements.yaml in source order with id, verb and page, list items and sub-items indented. Excludes descriptive prose, the challenge and consequence lists (carried in threats.yaml), navigation sentences, Resources, Acknowledgements, References."
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "136 entries in source order (104 recommendation, 10 permission, 6 consideration, 5 principle, 3 requirement, 3 statement, 2 scope, 2 informative lead-in, 1 prohibition); every list lead-in is an entry and its items carry parent. Every text machine-checked verbatim against the capture. BCP 14 0/0; own-form baseline reconciled: should 40->40, must 5->4, may 37->9, can 53->23, encourage* 2->2, recommend* 9->4, essential 4->4, critical (not 'critical infrastructure') 10->7, vital 3->2, crucial 2->1, necessary 2->1, plus 60 imperative entries; every exclusion itemised in verification.md. maps_to: frameworks the source names (provenance published) and our threat mapping (NIST AI 100-2 E2025, ATLAS 2026.09; stated or inferred). Derived fields need review."
+      reviewed_by: ""
+    - kind: threats
+      path: distilled/threats.yaml
+      coverage: "32 threats and risks the guidance describes (all 10 Table 2 rows, §1.3, §2.2, §2.3, §2.4, §3.4, §4.1, §4.2), ids in source order, and 5 weaknesses (2 stated, 3 read as the negation of a recommendation; candidate CWE 4.20 ids, inferred), each quoted verbatim with locator, NIST and ATLAS ids where a class fits, and the statements that address it. No vulnerabilities named."
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "Both worked examples as verbatim fixtures: the §2.1 business-case assessment (with our derived numeric checks, marked as ours) and the §4.1 monitoring setup (linked to R-0110..R-0116). The source states no expected result for either."
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Per statement: tmodel decisions (ADR-0006, ADR-0007, ADR-0010 + tmodel#130, DEC-001b, DEC-008, DEC-009, R-018) and the AI attack class it defends against (NIST AI 100-2 E2025 ids, ATLAS ids, stated/inferred), generated from requirements.yaml; adopt/adapt/gap per decision, incl. Table 2 impacts vs the ADR-0006 S/F/O/P vector and Purdue zones vs tmodel#130; gaps in the accepted core (no role edges, single-valued catalog_ref, phases); 8 open questions; source notes."
+      reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "FX-1 passes 2 (verify) and 3 (cross-check): method, results, every defect found and how it was fixed, the one finding not applied and why, and the checks after the fixes."
+      reviewed_by: ""
+  not_applicable:
+    - kind: schema
+      reason: "No data format or field structure is defined. The SBOM it asks vendors for is specified elsewhere (footnote 6 defers to CISA's 2025 Minimum Elements, a public-comment draft not held here; the SBOM minimum elements are held as ntia-2021-sbom-minimum and cisa-2026-sbom-minimum). The nearest thing to fields are three log contents (timestamps, inputs and outputs, R-0114; an AI identity distinct from machine and user identifiers, R-0109; egress by asset and identity, R-0084): items, not a format, kept as requirements. The data usage policy and cloud contract clauses name topics, not fields."
+    - kind: messages
+      reason: "No message format. Vendor notifications (§2.3), review sessions (§4.1) and incident communication (§4.2) are named without any content structure."
+    - kind: protocol
+      reason: "No defined exchange between roles. The architecture advice (push-based or brokered transfer, one-way transfer, audited staging buffers, DMZ or jump host; §2.4, §4.1) constrains data-flow direction and zones, not a message sequence; design-notes.md maps it to tmodel#130 DataFlow and TrustBoundary."
+    - kind: state-machine
+      reason: "No transitions or guards. The source names states (a 'known good state', R-0102; 'new AI system failure states', R-0128; sectors' 'own safety states', §4.2 p. 20; 'state changes', R-0106) and triggers (§3.4 thresholds for defaulting back to non-AI systems; §4.1 thresholds for restoration from a backup; safe operating bounds, R-0108), but never a state set or the transitions between them; a machine would be invented. Recorded as DEC-009 input in design-notes.md."
+  passes:
+    - pass: extract
+      by: "claude (main session, single agent)"
+      effort: max
+      date: "2026-10-21"
+      note: "Source read in full. PDF sha256 matches content.sha256. Capture .cache/cisa-ai-in-ot-principles.capture.txt built from PyMuPDF text blocks (scratchpad cisa_capture.py; rules in verification.md) because sorted-line text interleaves table columns. 123 statements written to a spec (cisa_spec.yaml) and built by cisa_build.py, which fails on any text not found verbatim, on overlapping spans, and on any ATLAS id not in ATLAS-2026.09.yaml from atlas.mitre.org; all passed first run. Own-form counts and itemised exclusions by script (cisa_forms.py)."
+    - pass: verify
+      by: "claude (independent verifier subagent)"
+      effort: max
+      date: "2026-10-22"
+      note: "Independent verifier (did not extract): rebuilt the capture byte-identically and compared it with four other renderings (identical word multisets on all 25 pages); recounted every form (all equal the header); 123/123 pass-1 texts exact; Tables 1 and 2 rebuilt from ruling lines. Found 8 must-fix (10 stated mappings quoting Table 2, 4 missing threats, an imperative claim and count, false claims in summary, normative.md and two not_applicable reasons) and 11 should-fix (list structure, 7 dropped statements, normativity, actors); all applied 2026-10-22 (123 -> 136 entries, 24 -> 32 threats). Details in distilled/verification.md."
+    - pass: cross-check
+      by: "claude (independent verifier subagent; independent threat-mapping reviewer subagent)"
+      effort: max
+      date: "2026-10-22"
+      note: "Same verifier: every id resolves; every quoted count matches; design-notes tables recompute exactly; fixture ids right. Separate reviewer for the threat mapping and tmodel claims (both records): 240 id occurrences, 0 missing; findings applied except one-class-per-id (reason in verification.md)."

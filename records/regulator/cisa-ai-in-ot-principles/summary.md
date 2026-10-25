@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: cisa-ai-in-ot-principles
 record: cisa-ai-in-ot-principles
 type: summary
-updated: "2026-10-01"
+updated: "2026-10-21"
 ---
 
 # Principles for the Secure Integration of Artificial Intelligence in Operational Technology
@@ -21,7 +21,7 @@ updated: "2026-10-01"
 ## Overview
 
 Guidance from nine agencies for critical-infrastructure operators putting AI into
-operational technology, as four principles in twelve subsections: **understand AI** (a
+operational technology, as four principles in thirteen subsections: **understand AI** (a
 risk table including prompt injection, drift, explainability and reliability — LLMs
 "almost certainly should not be used to make safety decisions for OT environments",
 §1.1); **consider AI use in the OT domain** (decide first whether AI is the right tool,
@@ -56,6 +56,13 @@ Nothing to list. This document is a set of recommended practices, not a file for
 |---|---|
 | `record.yaml` | metadata |
 | `summary.md` | this document |
+| `distilled/README.md` | index of the distillation, the checks run and their results |
+| `distilled/requirements.yaml` | **machine source:** all 136 normative statements, verbatim, with the tmodel decisions each bears on and the AI attack class it defends against |
+| `distilled/normative.md` | the statements, Tables 1 and 2 and the definitions, verbatim with page |
+| `distilled/threats.yaml` | the risks and threats the guidance describes, with NIST AI 100-2 and MITRE ATLAS ids |
+| `distilled/examples/` | the two worked examples as fixtures |
+| `distilled/design-notes.md` | how each statement bears on tmodel's decisions, and the threat mapping |
+| `distilled/verification.md` | how the extraction was checked (FX-1 passes 2 and 3) |
 
 ## Limits
 
