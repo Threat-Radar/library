@@ -1,32 +1,54 @@
 # Spec: version is load-bearing. New version = new record, linked by supersedes.
-# Base template. Every adapter is this shape; types differ only in defaults
-# and in which fields they leave for a human. Placeholders: {{...}}
 schema: "library-record/v1"
 id: iso-iec-15408
 body: iso
 type: spec
-title: "ISO/IEC 15408 (all parts), Evaluation criteria for IT security (Common Criteria)"
+title: "ISO/IEC 15408:2022 (all parts), Evaluation criteria for IT security (Common Criteria, CC:2022)"
+short_title: "ISO/IEC 15408 / CC:2022"
 authors: []
-date: ""
+date: "2022-11"
+publisher: "ISO/IEC JTC 1/SC 27 (ISO/IEC 15408-1..5:2022); republished free by the CCRA as CC:2022 Release 1"
+version: "2022 (CC:2022 Release 1)"
 identifiers:
-  url: https://www.iso.org/
+  url: https://www.commoncriteriaportal.org/cc/index.cfm
+  iso: "ISO/IEC 15408-1:2022 to 15408-5:2022"
+  ccra: "CC:2022 Release 1, CCMB-2022-11-001 (Part 1)"
 content:
-  url: https://www.iso.org/
-  sha256: ""
-  retrieved: ""
+  url: https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf
+  sha256: "62cccce618919ea3458fa4bf701cbff5ecf908a6f89f43f9c87cfbf2563452f2"
+  retrieved: "2026-10-25"
   local: false
+  media_type: application/pdf
+  pages: 167
 relations:
   supersedes: []
   superseded_by: []
-  see_also: []
+  see_also:
+    - iso-iec-18045
+    - etsi-ts-102-165-1
   cited_by: []
   implements_concept: []
+  contradicts: []
 bears_on:
   - DEC-003
   - R-011
-topic: 
-publisher: ""
-version: ""
-tags: []
-status: queued
-confidence: low
+  - R-013
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: ""
+usefulness:
+  verdict: useful
+  reason: "Defines the threat/asset/threat-agent vocabulary and the attack-potential concept that R-013 displays; the scoring itself is in iso-iec-18045."
+  assessed: "2026-10-25"
+topic: ""
+tags:
+  - evidence
+  - normative
+status: summarized
+confidence: medium
+owner: nymble
