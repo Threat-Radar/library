@@ -1,0 +1,3395 @@
+# ECMA-427 Package-URL (PURL) specification, 1st edition (December 2025):
+# every example the standard prints, the library's derived fixtures, and for
+# each one the expected result (derived by hand from the text) and the actual
+# result of jsonschema and packageurl-python.
+#
+# Contains text from ECMA-427 1st edition, © Ecma International 2025,
+# reproduced under the Ecma copyright notice; full notice in distilled/README.md
+#
+# Reproduce every actual result from the repository root:
+#   python3 -I records/other/ecma-427/distilled/examples/run-fixtures.derived.py
+# (README.md in this directory gives the tool versions and the setup.)
+#
+# Every scalar in this file is a quoted string or a block scalar, and there
+# are no flow mappings, so bin/_yaml.py and PyYAML read it identically.
+
+schema: 'library-examples/v1'
+record: 'ecma-427'
+kind: 'examples'
+title: 'ECMA-427 1st edition: source examples, derived fixtures and expected results'
+source_version: '1st edition, December 2025'
+source_digest: '037180df99e7d7c26d910dc3adb3fa07c4fb787cc4bd29e43634de3802313825'
+source_file: '.cache/ecma-427.bin (PDF, 40 pages); text rendering .cache/ecma-427.txt (pdftotext -layout, 1771 lines)'
+validation_schema: '.cache/purl-spec/schema-1.0-at-v1.0.0.json (the Annex A schema as published at purl-spec tag v1.0.0)'
+extracted: '2026-10-15'
+pass: '1'
+reviewed_by: ''
+attribution: 'Contains text from ECMA-427 1st edition, © Ecma International 2025, reproduced under the Ecma copyright notice; full notice in distilled/README.md'
+fixture_count: '54'
+counts:
+  source_examples: '10'
+  purl_derived_positive: '9'
+  purl_negative: '10'
+  purl_edge: '2'
+  type_definition_positive: '1'
+  type_definition_negative: '13'
+  type_definition_format: '4'
+  type_definition_pattern: '1'
+  type_definition_gap: '4'
+tools:
+  python: '3.13.9'
+  jsonschema: '4.26.0'
+  packageurl_python: '0.17.6'
+  pyyaml: '6.0.3'
+  referencing: '0.37.0'
+  rfc3987: '1.3.8'
+  node: 'v22.23.2'
+schema_checks:
+  sha256: 'b8988773ac628fe97a33fccabaf19bb45262bb4bd56002fa3d0ab3be72dae983'
+  draft7_check_schema: 'ok'
+  ecma262_patterns:
+    - pointer: '/properties/$id/pattern'
+      no_flags: 'compiles'
+      u_flag: 'compiles'
+    - pointer: '/properties/type/pattern'
+      no_flags: 'compiles'
+      u_flag: 'compiles'
+    - pointer: '/properties/examples/items/pattern'
+      no_flags: 'compiles'
+      u_flag: 'compiles'
+conventions:
+  - >-
+    source: verbatim marks an example printed in the standard; file holds its bytes plus one
+    LF. source: derived marks a fixture the library made.
+  - >-
+    expected is what the 1st edition requires, derived by hand with the procedure P1 to P9
+    below, because the standard gives no parsing algorithm. Every rule id cited resolves in
+    rules.
+  - >-
+    Purl results: accept, reject, or unspecified (the text does not decide). Clause 2 is the
+    reason a non-conforming string is rejected (reject_rule).
+  - >-
+    components: an empty string means absent. The 1st edition writes a component's separator
+    only when the component is not empty (5.6.4 to 5.6.7), so an empty and an absent
+    namespace, version, qualifiers or subpath give the same string. qualifiers is a mapping
+    of percent-decoded values. type is given in canonical (lowercase) form.
+  - >-
+    canonical is the canonical string where the text fixes it, or empty where it does not;
+    canonical_status says which.
+  - >-
+    Type-definition results: valid or invalid under Annex A, read with ECMA-262 regular
+    expressions and with format asserted, which is what the prose describes. annex_a quotes
+    Annex A as published electronically (purl-spec tag v1.0.0); the printed Annex A has the
+    same lines apart from display wraps of long strings.
+  - >-
+    actual is tool output and comparison is computed from it; run-fixtures.derived.py
+    recomputes both and fails on any difference. Never edit them by hand.
+  - >-
+    finding explains every case where a tool differs from expected, and some where it agrees
+    for a reason worth knowing.
+  - >-
+    JSON Pointers follow RFC 6901, so the empty pointer is the whole document. Locators give
+    the clause, subclause, table or pointer, with the printed page in parentheses.
+  - >-
+    requirements (on each rule and on reject_rule) and breaks (beside a rule that a fixture
+    breaks: in violates, also_breaks or prose) hold ids from requirements.yaml; pass 3
+    (cross-check) added them. breaks names the requirement whose constraint the fixture's
+    one change breaks; a gap fixture carries breaks beside the prose rule that Annex A does
+    not enforce. Where the cited constraint has no requirement entry of its own (a property
+    type), breaks names the requirement the same change breaks instead, and breaks_note
+    says so.
+reject_rule:
+  rule: |-
+    Invalid PURLs that fail to conform to the specification shall be identified and rejected by any conforming implementation.
+  locator: 'Clause 2, fifth paragraph (p. 1)'
+  requirements:
+    - 'ecma-427#R-0008'
+rules:
+  - id: 'c1-no-type-definitions'
+    locator: 'Clause 1, second paragraph (p. 1)'
+    requirements: []
+    requirements_note: 'Clause 1 holds no requirement entry (normative.md S5).'
+    text: |-
+      This Standard specifies the syntax for PURLs and the schema for defining PURL types, but it does not include any specific PURL type definitions, such as maven, pypi or npm.
+  - id: 'c2-required-components'
+    locator: 'Clause 2, third paragraph (p. 1)'
+    requirements:
+      - 'ecma-427#R-0004'
+    text: |-
+      All required components of a PURL, such as the scheme, type, and name, shall be present and validated according to the rules defined in this Standard.
+  - id: 'c2-canonical'
+    locator: 'Clause 2, fourth paragraph (p. 1)'
+    requirements:
+      - 'ecma-427#R-0006'
+    text: |-
+      Implementations shall ensure that equivalent PURLs are consistently resolved to the same canonical representation.
+  - id: 'c2-equivalence'
+    locator: 'Clause 2, fourth paragraph (p. 1)'
+    requirements:
+      - 'ecma-427#R-0006'
+    text: |-
+      This includes strict adherence to normalisation and equivalence rules.
+  - id: 'c2-reject'
+    locator: 'Clause 2, fifth paragraph (p. 1)'
+    requirements:
+      - 'ecma-427#R-0008'
+    text: |-
+      Invalid PURLs that fail to conform to the specification shall be identified and rejected by any conforming implementation.
+  - id: 'c5-separators'
+    locator: 'Clause 5 (p. 2)'
+    requirements: []
+    requirements_note: 'A descriptive sentence that requirements.yaml does not extract (R-0015 notes; normative.md statement 21).'
+    text: |-
+      Components are separated by a specific character for unambiguous parsing.
+  - id: 's5.1-valid-uri'
+    locator: '5.1, first bullet (p. 3)'
+    requirements:
+      - 'ecma-427#R-0025'
+    text: |-
+      A PURL is a valid URL and URI that conforms to the URL definitions or specifications at:
+  - id: 's5.2-punctuation'
+    locator: '5.2, second bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0032'
+    text: |-
+      the Punctuation Characters: .-_~ (period '.', dash '-', underscore '_' and tilde '~')
+  - id: 's5.3-colon'
+    locator: '5.3, first bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      ':' (colon) is the separator between scheme and type
+  - id: 's5.3-slash'
+    locator: '5.3, second bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '/' (slash) is the separator between type, namespace and name
+  - id: 's5.3-slash-subpath'
+    locator: '5.3, third bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '/' (slash) is the separator between subpath segments
+  - id: 's5.3-at'
+    locator: '5.3, fourth bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '@' (at sign) is the separator between name and version
+  - id: 's5.3-question'
+    locator: '5.3, fifth bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '?' (question mark) is the separator before qualifiers
+  - id: 's5.3-equals'
+    locator: '5.3, sixth bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '=' (equals) is the separator between a key and a value of a qualifier
+  - id: 's5.3-ampersand'
+    locator: '5.3, seventh bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '&' (ampersand) is the separator between qualifiers (each being a key=value pair)
+  - id: 's5.3-hash'
+    locator: '5.3, eighth bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0033'
+    text: |-
+      '#' (hash sign) is the separator before subpath
+  - id: 's5.4-data-octet'
+    locator: '5.4, third bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0035'
+    text: |-
+      In the component string, each "data octet" shall be replaced by the percent-encoded "character triplet" applying the percent-encoding mechanism defined in RFC 3986 section 2.1, including the RFC definition of "data octet" and "character triplet", and using these definitions for RFC's "allowed set" and "delimiters":
+  - id: 's5.4-allowed-set'
+    locator: '5.4, third bullet, first sub-bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0035'
+    text: |-
+      "allowed set" is composed of the Alphanumeric Characters and the Punctuation Characters
+  - id: 's5.4-delimiters'
+    locator: '5.4, third bullet, second sub-bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0035'
+    text: |-
+      "delimiters" is composed of the Separator Characters
+  - id: 's5.4-not-encoded-separators'
+    locator: '5.4, fourth bullet, third sub-bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0036'
+    lead: |-
+      The following characters shall not be percent-encoded:
+    item: |-
+      the Separator Characters when being used as PURL separators
+  - id: 's5.4-not-encoded-colon'
+    locator: '5.4, fourth bullet, fourth sub-bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0036'
+    lead: |-
+      The following characters shall not be percent-encoded:
+    item: |-
+      the colon ':', whether used as a Separator Character or otherwise
+  - id: 's5.4-standard-alone'
+    locator: '5.4, sixth bullet (p. 4)'
+    requirements:
+      - 'ecma-427#R-0038'
+    text: |-
+      With the exception of the percent-encoding mechanism, the rules regarding percent-encoding are defined by this Standard alone.
+  - id: 's5.5-ascii-lowercase'
+    locator: '5.5, second paragraph (p. 4)'
+    requirements:
+      - 'ecma-427#R-0040'
+    text: |-
+      When applied to the ASCII character set, this operation converts uppercase Latin letters (A to Z) to their corresponding lowercase forms (a to z).
+  - id: 's5.6.1-constant'
+    locator: '5.6.1, first bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0044'
+    text: |-
+      The scheme is a constant with the value "pkg".
+  - id: 's5.6.1-colon'
+    locator: '5.6.1, second bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0045'
+    text: |-
+      The scheme shall be followed by an unencoded colon ':'.
+  - id: 's5.6.1-slashes'
+    locator: '5.6.1, third bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0046'
+      - 'ecma-427#R-0047'
+    text: |-
+      PURL parsers shall accept URLs where the scheme and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
+  - id: 's5.6.2-characters'
+    locator: '5.6.2, first bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0048'
+    text: |-
+      The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+  - id: 's5.6.2-start'
+    locator: '5.6.2, second bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0049'
+    text: |-
+      The type shall start with an ASCII letter.
+  - id: 's5.6.2-not-encoded'
+    locator: '5.6.2, third bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0050'
+    text: |-
+      The type shall not be percent-encoded.
+  - id: 's5.6.2-case'
+    locator: '5.6.2, fourth bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0051'
+      - 'ecma-427#R-0052'
+    text: |-
+      The type is case insensitive. The canonical form is lowercase.
+  - id: 's5.6.3-optional'
+    locator: '5.6.3, first bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0053'
+    text: |-
+      The namespace is optional, unless required by the package's type definition.
+  - id: 's5.6.3-segments'
+    locator: '5.6.3, second bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0054'
+    text: |-
+      If present, the namespace may contain one or more segments, separated by a single unencoded slash '/' character.
+  - id: 's5.6.3-slashes'
+    locator: '5.6.3, third bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0055'
+      - 'ecma-427#R-0056'
+    text: |-
+      All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the namespace.
+  - id: 's5.6.3-encoded'
+    locator: '5.6.3, fourth bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0057'
+    text: |-
+      Each namespace segment shall be a percent-encoded string.
+  - id: 's5.6.3-no-slash'
+    locator: '5.6.3, fifth bullet, first sub-bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0058'
+    lead: |-
+      When percent-decoded, a segment:
+    item: |-
+      shall not contain any slash '/' characters
+  - id: 's5.6.3-not-empty'
+    locator: '5.6.3, fifth bullet, second sub-bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0059'
+    lead: |-
+      When percent-decoded, a segment:
+    item: |-
+      shall not be empty
+  - id: 's5.6.3-repository-url'
+    locator: '5.6.3, sixth bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0062'
+    text: |-
+      Use instead a repository_url qualifier.
+  - id: 's5.6.4-prefix'
+    locator: '5.6.4, first bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0064'
+    text: |-
+      The name is prefixed by a single slash '/' separator when the namespace is not empty.
+  - id: 's5.6.4-slashes'
+    locator: '5.6.4, second bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0065'
+      - 'ecma-427#R-0066'
+    text: |-
+      All leading and trailing slashes '/' are not significant and should be stripped in the canonical form. They are not part of the name.
+  - id: 's5.6.4-encoded'
+    locator: '5.6.4, third bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0067'
+    text: |-
+      A name shall be a percent-encoded string.
+  - id: 's5.6.4-any-character'
+    locator: '5.6.4, fourth bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0068'
+    text: |-
+      When percent-decoded, a name may contain any Unicode character unless the package's type definition provides otherwise.
+  - id: 's5.6.5-prefix'
+    locator: '5.6.5, first bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0069'
+    text: |-
+      The version is prefixed by a '@' separator when not empty.
+  - id: 's5.6.5-not-part'
+    locator: '5.6.5, second bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0070'
+    text: |-
+      This '@' is not part of the version.
+  - id: 's5.6.5-encoded'
+    locator: '5.6.5, third bullet (p. 5)'
+    requirements:
+      - 'ecma-427#R-0071'
+    text: |-
+      A version shall be a percent-encoded string.
+  - id: 's5.6.5-opaque'
+    locator: '5.6.5, fifth bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0073'
+    text: |-
+      A version is a plain and opaque string.
+  - id: 's5.6.6-prefix'
+    locator: '5.6.6, first bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0074'
+    text: |-
+      The qualifiers component shall be prefixed by an unencoded question mark '?' separator when not empty.
+  - id: 's5.6.6-ampersand'
+    locator: '5.6.6, second bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0077'
+    text: |-
+      Multiple key=value pairs shall be separated by an unencoded ampersand '&'.
+  - id: 's5.6.6-equals'
+    locator: '5.6.6, third bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0079'
+    text: |-
+      A key and value shall be separated by the unencoded equal sign '=' character.
+  - id: 's5.6.6-empty-value'
+    locator: '5.6.6, fourth bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0081'
+      - 'ecma-427#R-0082'
+    text: |-
+      A value shall not be an empty string: a key=value pair with an empty value is the same as if no key=value pair exists for this key.
+  - id: 's5.6.6-key-characters'
+    locator: '5.6.6, fifth bullet, first sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0083'
+    lead: |-
+      For each key=value pair:
+    item: |-
+      The key shall be composed only of lowercase ASCII letters and numbers, period '.', dash '-' and underscore '_'.
+  - id: 's5.6.6-key-start'
+    locator: '5.6.6, fifth bullet, second sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0084'
+    lead: |-
+      For each key=value pair:
+    item: |-
+      A key shall start with an ASCII letter.
+  - id: 's5.6.6-key-not-encoded'
+    locator: '5.6.6, fifth bullet, third sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0085'
+    lead: |-
+      For each key=value pair:
+    item: |-
+      A key shall not be percent-encoded.
+  - id: 's5.6.6-key-unique'
+    locator: '5.6.6, fifth bullet, fourth sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0086'
+    lead: |-
+      For each key=value pair:
+    item: |-
+      Each key shall be unique among all the keys of the qualifiers component.
+  - id: 's5.6.6-value-encoding'
+    locator: '5.6.6, fifth bullet, fifth sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0087'
+      - 'ecma-427#R-0088'
+    lead: |-
+      For each key=value pair:
+    item: |-
+      A value may contain any Unicode character and all characters shall be encoded as described in the Character encoding clause.
+  - id: 's5.6.7-prefix'
+    locator: '5.6.7, first bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0089'
+    text: |-
+      The subpath string is prefixed by a '#' separator when not empty.
+  - id: 's5.6.7-not-part'
+    locator: '5.6.7, second bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0090'
+    text: |-
+      The '#' is not part of the subpath.
+  - id: 's5.6.7-segments'
+    locator: '5.6.7, third bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0091'
+    text: |-
+      The subpath contains zero or more segments, separated by slash '/'.
+  - id: 's5.6.7-slashes'
+    locator: '5.6.7, fourth bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0092'
+    text: |-
+      Leading and trailing slashes '/' are not significant and should be stripped in the canonical form.
+  - id: 's5.6.7-encoded'
+    locator: '5.6.7, fifth bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0093'
+    text: |-
+      Each subpath segment shall be a percent-encoded string.
+  - id: 's5.6.7-no-slash'
+    locator: '5.6.7, sixth bullet, first sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0094'
+    lead: |-
+      When percent-decoded, a segment:
+    item: |-
+      shall not contain any slash '/' characters
+  - id: 's5.6.7-not-empty'
+    locator: '5.6.7, sixth bullet, second sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0095'
+    lead: |-
+      When percent-decoded, a segment:
+    item: |-
+      shall not be empty
+  - id: 's5.6.7-no-dots'
+    locator: '5.6.7, sixth bullet, third sub-bullet (p. 6)'
+    requirements:
+      - 'ecma-427#R-0096'
+    lead: |-
+      When percent-decoded, a segment:
+    item: |-
+      shall not be any of '..' or '.'
+  - id: 's6.6.4-default'
+    locator: '6.6.4 (p. 12)'
+    requirements:
+      - 'ecma-427#R-0130'
+    text: |-
+      Location: /name_definition/case_sensitive Property: case_sensitive (Optional) Type: Boolean Default Value: true
+procedure_note: >-
+  The 1st edition defines the seven components and their separators but gives no parsing
+  algorithm and no procedure for building the canonical string. The steps below are the
+  library's own ordering of the stated rules. The order is safe because 5.4 requires a
+  separator character used as data to be percent-encoded, so every unencoded separator is a
+  real separator. The one exception is the colon, which 5.4 never encodes; only the colon
+  after the scheme is a separator, and a type may not contain a colon (5.6.2). Where a
+  string carries more than one unencoded at sign (only non-conforming strings do), P4 takes
+  the last one; taking the first instead changes no expected result in this file.
+procedure:
+  - step: 'P1'
+    what: >-
+      Scheme. The string must start with pkg followed by an unencoded colon. Every slash
+      directly after that colon is ignored and removed.
+    rules:
+      - 's5.6.1-constant'
+      - 's5.6.1-colon'
+      - 's5.3-colon'
+      - 's5.6.1-slashes'
+  - step: 'P2'
+    what: >-
+      Subpath. If an unencoded hash sign is present, the text after it is the subpath. Split
+      it on slashes, drop leading and trailing slashes, percent-decode each segment, and
+      check that no decoded segment is empty, contains a slash, or is . or ..
+    rules:
+      - 's5.3-hash'
+      - 's5.6.7-prefix'
+      - 's5.6.7-not-part'
+      - 's5.3-slash-subpath'
+      - 's5.6.7-segments'
+      - 's5.6.7-slashes'
+      - 's5.6.7-encoded'
+      - 's5.6.7-no-slash'
+      - 's5.6.7-not-empty'
+      - 's5.6.7-no-dots'
+  - step: 'P3'
+    what: >-
+      Qualifiers. If an unencoded question mark is present, the text after it (up to any
+      hash sign) is the qualifiers component. Split it on ampersands into key=value pairs
+      and each pair on its equal sign. A pair with an empty value is the same as no pair.
+      Each key must be lowercase ASCII letters, digits, period, dash or underscore, start
+      with a letter, not be percent-encoded, and be unique. Each value is percent-decoded.
+    rules:
+      - 's5.3-question'
+      - 's5.6.6-prefix'
+      - 's5.3-ampersand'
+      - 's5.6.6-ampersand'
+      - 's5.3-equals'
+      - 's5.6.6-equals'
+      - 's5.6.6-empty-value'
+      - 's5.6.6-key-characters'
+      - 's5.6.6-key-start'
+      - 's5.6.6-key-not-encoded'
+      - 's5.6.6-key-unique'
+      - 's5.6.6-value-encoding'
+  - step: 'P4'
+    what: >-
+      Version. If an unencoded at sign remains, the text after it is the version,
+      percent-decoded.
+    rules:
+      - 's5.3-at'
+      - 's5.6.5-prefix'
+      - 's5.6.5-not-part'
+      - 's5.6.5-encoded'
+      - 's5.6.5-opaque'
+  - step: 'P5'
+    what: >-
+      Type. What remains is type, namespace and name separated by slashes. The type is the
+      text before the first slash: ASCII letters, digits, period and dash only, starting
+      with a letter, never percent-encoded, compared without regard to case, canonical in
+      lowercase.
+    rules:
+      - 'c5-separators'
+      - 's5.3-slash'
+      - 's5.6.2-characters'
+      - 's5.6.2-start'
+      - 's5.6.2-not-encoded'
+      - 's5.6.2-case'
+  - step: 'P6'
+    what: >-
+      Name. Drop trailing slashes from the rest; the name is the text after the last slash
+      that remains (or all of it when there is none), percent-decoded.
+    rules:
+      - 's5.6.4-prefix'
+      - 's5.6.4-slashes'
+      - 's5.6.4-encoded'
+      - 's5.6.4-any-character'
+  - step: 'P7'
+    what: >-
+      Namespace. Whatever lies between the type and the name, with leading and trailing
+      slashes dropped, is the namespace. Split it on slashes and percent-decode each
+      segment; no decoded segment may be empty or contain a slash.
+    rules:
+      - 's5.6.3-optional'
+      - 's5.6.3-segments'
+      - 's5.6.3-slashes'
+      - 's5.6.3-encoded'
+      - 's5.6.3-no-slash'
+      - 's5.6.3-not-empty'
+  - step: 'P8'
+    what: >-
+      Required components and rejection. Scheme, type and name must be present. A string
+      that fails any step is rejected.
+    rules:
+      - 'c2-required-components'
+      - 'c2-reject'
+  - step: 'P9'
+    what: >-
+      Canonical form. Write the components back with the type in lowercase, no leading or
+      trailing slashes, and each component encoded as 5.4 says: separators used as
+      separators and every colon stay unencoded, alphanumerics and punctuation stay
+      unencoded, and every other character is percent-encoded. The 1st edition states no
+      qualifier order and no equivalence rules, so it does not fix the canonical string of a
+      PURL with two or more qualifiers.
+    rules:
+      - 's5.6.2-case'
+      - 's5.6.3-slashes'
+      - 's5.6.4-slashes'
+      - 's5.6.7-slashes'
+      - 's5.4-data-octet'
+      - 's5.4-allowed-set'
+      - 's5.4-delimiters'
+      - 's5.4-not-encoded-separators'
+      - 's5.4-not-encoded-colon'
+      - 's5.4-standard-alone'
+      - 'c2-canonical'
+      - 'c2-equivalence'
+fixtures:
+  - id: 'SRC-C5-EX1'
+    kind: 'purl'
+    source: 'verbatim'
+    file: 'verbatim/clause-5-example-1.txt'
+    string: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie'
+    locator: 'Clause 5, Example 1 (p. 3)'
+    label: 'Example 1 (Informative): Debian'
+    informative: 'yes'
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'deb'
+        namespace: 'debian'
+        name: 'curl'
+        version: '7.50.3-1'
+        qualifiers:
+          arch: 'i386'
+          distro: 'jessie'
+        subpath: ''
+      canonical: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie'
+      canonical_status: 'defined, except qualifier order'
+      canonical_note: >-
+        Every stated canonical rule leaves the string as it is: the type is lowercase, there
+        are no leading or trailing slashes, and nothing needs percent-encoding. The 1st
+        edition states no qualifier order, so it does not say whether the same PURL written
+        with distro first has this canonical string too (see PURL-POS-04); the keys here
+        happen to be in ascending order already. Type-specific normalization would come from
+        a deb type definition, which this edition does not contain.
+      canonical_rules:
+        - 'c2-canonical'
+        - 'c2-equivalence'
+        - 'c1-no-type-definitions'
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            pkg, then an unencoded colon. No slash follows the colon, so nothing is removed.
+          rules:
+            - 's5.6.1-constant'
+            - 's5.6.1-colon'
+            - 's5.6.1-slashes'
+        - step: 'P2'
+          outcome: 'No hash sign in the string: no subpath.'
+          rules:
+            - 's5.3-hash'
+            - 's5.6.7-prefix'
+        - step: 'P3'
+          outcome: >-
+            After the question mark: arch=i386&distro=jessie. Two pairs, arch=i386 and
+            distro=jessie. Both keys are lowercase letters, start with a letter, are not
+            percent-encoded and differ; both values are non-empty and hold no percent sign,
+            so decoding changes nothing.
+          rules:
+            - 's5.6.6-prefix'
+            - 's5.6.6-ampersand'
+            - 's5.6.6-equals'
+            - 's5.6.6-key-characters'
+            - 's5.6.6-key-start'
+            - 's5.6.6-key-not-encoded'
+            - 's5.6.6-key-unique'
+            - 's5.6.6-empty-value'
+        - step: 'P4'
+          outcome: 'After the at sign: 7.50.3-1, with no percent sign to decode.'
+          rules:
+            - 's5.6.5-prefix'
+            - 's5.6.5-encoded'
+        - step: 'P5'
+          outcome: >-
+            deb/debian/curl remains. The type is deb: letters only, starts with a letter,
+            not encoded, already lowercase.
+          rules:
+            - 's5.3-slash'
+            - 's5.6.2-characters'
+            - 's5.6.2-start'
+            - 's5.6.2-not-encoded'
+            - 's5.6.2-case'
+        - step: 'P6'
+          outcome: 'The name is curl.'
+          rules:
+            - 's5.6.4-prefix'
+            - 's5.6.4-encoded'
+        - step: 'P7'
+          outcome: 'The namespace is debian: one segment, not empty.'
+          rules:
+            - 's5.6.3-segments'
+            - 's5.6.3-not-empty'
+        - step: 'P8'
+          outcome: 'Scheme, type and name are present.'
+          rules:
+            - 'c2-required-components'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '7.50.3-1'
+          qualifiers:
+            arch: 'i386'
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'SRC-C5-EX2'
+    kind: 'purl'
+    source: 'verbatim'
+    file: 'verbatim/clause-5-example-2.txt'
+    string: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources'
+    locator: 'Clause 5, Example 2 (p. 3)'
+    label: 'Example 2 (Informative): Maven'
+    informative: 'yes'
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'maven'
+        namespace: 'org.apache.xmlgraphics'
+        name: 'batik-anim'
+        version: '1.9.1'
+        qualifiers:
+          packaging: 'sources'
+        subpath: ''
+      canonical: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources'
+      canonical_status: 'defined'
+      canonical_note: >-
+        One qualifier, so order does not arise, and there is nothing to lowercase, strip or
+        encode. Type-specific rules (a maven type definition) are outside this edition.
+      canonical_rules:
+        - 'c2-canonical'
+        - 'c1-no-type-definitions'
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            pkg, then an unencoded colon. No slash follows the colon, so nothing is removed.
+          rules:
+            - 's5.6.1-constant'
+            - 's5.6.1-colon'
+            - 's5.6.1-slashes'
+        - step: 'P2'
+          outcome: 'No hash sign: no subpath.'
+          rules:
+            - 's5.6.7-prefix'
+        - step: 'P3'
+          outcome: >-
+            After the question mark: packaging=sources, one pair. The key is lowercase
+            letters and starts with a letter; the value is non-empty.
+          rules:
+            - 's5.6.6-prefix'
+            - 's5.6.6-equals'
+            - 's5.6.6-key-characters'
+            - 's5.6.6-key-start'
+            - 's5.6.6-empty-value'
+        - step: 'P4'
+          outcome: 'After the at sign: 1.9.1.'
+          rules:
+            - 's5.6.5-prefix'
+            - 's5.6.5-encoded'
+        - step: 'P5'
+          outcome: 'maven/org.apache.xmlgraphics/batik-anim remains. The type is maven.'
+          rules:
+            - 's5.3-slash'
+            - 's5.6.2-characters'
+            - 's5.6.2-start'
+            - 's5.6.2-case'
+        - step: 'P6'
+          outcome: >-
+            The name is batik-anim. The dash is a Punctuation Character, so it is data and
+            stays unencoded.
+          rules:
+            - 's5.6.4-prefix'
+            - 's5.2-punctuation'
+            - 's5.4-allowed-set'
+        - step: 'P7'
+          outcome: >-
+            The namespace is org.apache.xmlgraphics, a single segment: the periods are
+            Punctuation Characters, not separators.
+          rules:
+            - 's5.6.3-segments'
+            - 's5.2-punctuation'
+            - 's5.6.3-not-empty'
+        - step: 'P8'
+          outcome: 'Scheme, type and name are present.'
+          rules:
+            - 'c2-required-components'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'maven'
+          namespace: 'org.apache.xmlgraphics'
+          name: 'batik-anim'
+          version: '1.9.1'
+          qualifiers:
+            packaging: 'sources'
+          subpath: ''
+        to_string: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'SRC-C5-EX3'
+    kind: 'purl'
+    source: 'verbatim'
+    file: 'verbatim/clause-5-example-3.txt'
+    string: 'pkg:npm/foobar@12.3.1'
+    locator: 'Clause 5, Example 3 (p. 3)'
+    label: 'Example 3 (Informative): Node Package Manager (NPM)'
+    informative: 'yes'
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'npm'
+        namespace: ''
+        name: 'foobar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: ''
+      canonical: 'pkg:npm/foobar@12.3.1'
+      canonical_status: 'defined'
+      canonical_note: 'No qualifiers, nothing to lowercase, strip or encode.'
+      canonical_rules:
+        - 'c2-canonical'
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            pkg, then an unencoded colon. No slash follows the colon, so nothing is removed.
+          rules:
+            - 's5.6.1-constant'
+            - 's5.6.1-colon'
+            - 's5.6.1-slashes'
+        - step: 'P2'
+          outcome: 'No hash sign: no subpath.'
+          rules:
+            - 's5.6.7-prefix'
+        - step: 'P3'
+          outcome: 'No question mark: no qualifiers.'
+          rules:
+            - 's5.6.6-prefix'
+        - step: 'P4'
+          outcome: 'After the at sign: 12.3.1.'
+          rules:
+            - 's5.6.5-prefix'
+            - 's5.6.5-encoded'
+        - step: 'P5'
+          outcome: 'npm/foobar remains. The type is npm.'
+          rules:
+            - 's5.3-slash'
+            - 's5.6.2-characters'
+            - 's5.6.2-start'
+            - 's5.6.2-case'
+        - step: 'P6'
+          outcome: 'Only foobar follows the type, so the name is foobar.'
+          rules:
+            - 's5.6.4-prefix'
+        - step: 'P7'
+          outcome: 'Nothing lies between the type and the name: no namespace.'
+          rules:
+            - 's5.6.3-optional'
+        - step: 'P8'
+          outcome: 'Scheme, type and name are present.'
+          rules:
+            - 'c2-required-components'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:npm/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'SRC-6.1-EX1'
+    kind: 'type-string'
+    source: 'verbatim'
+    file: 'verbatim/clause-6.1-example-1.txt'
+    string: 'maven'
+    locator: '6.1, Example 1 (p. 7)'
+    label: 'Example 1 (Informative)'
+    informative: 'yes'
+    expected:
+      result: 'valid'
+      basis:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+          locator: '5.6.2, first bullet (p. 5)'
+        - rule: |-
+            The type shall start with an ASCII letter.
+          locator: '5.6.2, second bullet (p. 5)'
+      note: >-
+        Lowercase letters only, starting with a letter and at least two characters long, so
+        it meets both 5.6.2 and the 6.1 pattern.
+    actual:
+      jsonschema:
+        subschema: '/properties/type'
+        result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'SRC-6.1-EX2'
+    kind: 'type-string'
+    source: 'verbatim'
+    file: 'verbatim/clause-6.1-example-2.txt'
+    string: 'npm'
+    locator: '6.1, Example 2 (p. 7)'
+    label: 'Example 2 (Informative)'
+    informative: 'yes'
+    expected:
+      result: 'valid'
+      basis:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+          locator: '5.6.2, first bullet (p. 5)'
+        - rule: |-
+            The type shall start with an ASCII letter.
+          locator: '5.6.2, second bullet (p. 5)'
+      note: >-
+        Lowercase letters only, starting with a letter and at least two characters long, so
+        it meets both 5.6.2 and the 6.1 pattern.
+    actual:
+      jsonschema:
+        subschema: '/properties/type'
+        result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'SRC-6.1-EX3'
+    kind: 'type-string'
+    source: 'verbatim'
+    file: 'verbatim/clause-6.1-example-3.txt'
+    string: 'pypi'
+    locator: '6.1, Example 3 (p. 7)'
+    label: 'Example 3 (Informative)'
+    informative: 'yes'
+    expected:
+      result: 'valid'
+      basis:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+          locator: '5.6.2, first bullet (p. 5)'
+        - rule: |-
+            The type shall start with an ASCII letter.
+          locator: '5.6.2, second bullet (p. 5)'
+      note: >-
+        Lowercase letters only, starting with a letter and at least two characters long, so
+        it meets both 5.6.2 and the 6.1 pattern.
+    actual:
+      jsonschema:
+        subschema: '/properties/type'
+        result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'SRC-6.2-EX1'
+    kind: 'type-name'
+    source: 'verbatim'
+    file: 'verbatim/clause-6.2-example-1.txt'
+    string: 'Apache Maven'
+    locator: '6.2, Example 1 (p. 8)'
+    label: 'Example 1 (Informative)'
+    informative: 'yes'
+    expected:
+      result: 'valid'
+      basis:
+        - rule: |-
+            Location: /type_name Property: type_name (Required) Type: String
+          locator: '6.2 (p. 8)'
+      note: 'type_name is constrained only to be a string.'
+    actual:
+      jsonschema:
+        subschema: '/properties/type_name'
+        result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'SRC-6.2-EX2'
+    kind: 'type-name'
+    source: 'verbatim'
+    file: 'verbatim/clause-6.2-example-2.txt'
+    string: 'Python Package'
+    locator: '6.2, Example 2 (p. 8)'
+    label: 'Example 2 (Informative)'
+    informative: 'yes'
+    expected:
+      result: 'valid'
+      basis:
+        - rule: |-
+            Location: /type_name Property: type_name (Required) Type: String
+          locator: '6.2 (p. 8)'
+      note: 'type_name is constrained only to be a string.'
+    actual:
+      jsonschema:
+        subschema: '/properties/type_name'
+        result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'SRC-A-TYPE-EXAMPLES'
+    kind: 'annex-a-examples-array'
+    source: 'verbatim'
+    file: 'verbatim/annex-a-type-examples.json-fragment'
+    schema_pointer: '/properties/type/examples'
+    locator: 'Annex A (normative), /properties/type/examples (p. 21)'
+    expected:
+      result: 'valid'
+      same_values_as:
+        - 'SRC-6.1-EX1'
+        - 'SRC-6.1-EX2'
+        - 'SRC-6.1-EX3'
+      note: >-
+        Printed as a member of a property schema in Annex A; the file holds the printed
+        lines with their uniform indentation removed, and the electronic schema has the same
+        lines. In JSON Schema Draft-07 examples is an annotation, so a validator never
+        checks these values; the script checks each one against the property schema that
+        contains it.
+    actual:
+      equals_schema_value: 'yes'
+      jsonschema_items:
+        - value: 'maven'
+          result: 'valid'
+        - value: 'npm'
+          result: 'valid'
+        - value: 'pypi'
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'SRC-A-TYPE-NAME-EXAMPLES'
+    kind: 'annex-a-examples-array'
+    source: 'verbatim'
+    file: 'verbatim/annex-a-type-name-examples.json-fragment'
+    schema_pointer: '/properties/type_name/examples'
+    locator: 'Annex A (normative), /properties/type_name/examples (p. 21)'
+    expected:
+      result: 'valid'
+      same_values_as:
+        - 'SRC-6.2-EX1'
+        - 'SRC-6.2-EX2'
+      note: >-
+        Printed as a member of a property schema in Annex A; the file holds the printed
+        lines with their uniform indentation removed, and the electronic schema has the same
+        lines. In JSON Schema Draft-07 examples is an annotation, so a validator never
+        checks these values; the script checks each one against the property schema that
+        contains it.
+    actual:
+      equals_schema_value: 'yes'
+      jsonschema_items:
+        - value: 'Apache Maven'
+          result: 'valid'
+        - value: 'Python Package'
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      jsonschema: 'agrees'
+  - id: 'PURL-POS-01'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg://npm/foobar@12.3.1'
+    derived_from: >-
+      SRC-C5-EX3 with two slashes after the colon, the pkg:// form that 5.6.1 names.
+    purpose: >-
+      The leniency 5.6.1 requires of parsers: slashes after pkg: are ignored and removed.
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'npm'
+        namespace: ''
+        name: 'foobar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: ''
+      canonical: 'pkg:npm/foobar@12.3.1'
+      canonical_status: 'defined'
+      canonical_note: >-
+        The components equal those of SRC-C5-EX3, so the canonical representation is the
+        same.
+      canonical_rules:
+        - 's5.6.1-slashes'
+        - 'c2-canonical'
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            pkg, an unencoded colon, then two slashes. Both slashes are ignored and removed,
+            leaving pkg:npm/foobar@12.3.1.
+          rules:
+            - 's5.6.1-constant'
+            - 's5.6.1-colon'
+            - 's5.6.1-slashes'
+        - step: 'P2 to P8'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg://npm/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:npm/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-POS-02'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:///npm/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with three slashes after the colon.'
+    purpose: '5.6.1 says one or more slashes; this checks that all of them go.'
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'npm'
+        namespace: ''
+        name: 'foobar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: ''
+      canonical: 'pkg:npm/foobar@12.3.1'
+      canonical_status: 'defined'
+      canonical_note: 'Same components as SRC-C5-EX3, so the same canonical representation.'
+      canonical_rules:
+        - 's5.6.1-slashes'
+        - 'c2-canonical'
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            pkg, an unencoded colon, then three slashes. All of them are ignored and
+            removed, leaving pkg:npm/foobar@12.3.1.
+          rules:
+            - 's5.6.1-slashes'
+        - step: 'P2 to P8'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg:///npm/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:npm/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-POS-03'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:NPM/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with the type in capitals.'
+    purpose: >-
+      Type case: an uppercase type is valid, and its canonical form is lowercase.
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'npm'
+        namespace: ''
+        name: 'foobar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: ''
+      canonical: 'pkg:npm/foobar@12.3.1'
+      canonical_status: 'defined'
+      canonical_note: '5.6.2 fixes the canonical type as lowercase; nothing else changes.'
+      canonical_rules:
+        - 's5.6.2-case'
+        - 's5.5-ascii-lowercase'
+      derivation:
+        - step: 'P1 to P4'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+        - step: 'P5'
+          outcome: >-
+            NPM/foobar remains. The type NPM is ASCII letters only and starts with a letter,
+            so it is a valid type. The type is case insensitive and its canonical form is
+            lowercase: npm.
+          rules:
+            - 's5.6.2-characters'
+            - 's5.6.2-start'
+            - 's5.6.2-case'
+            - 's5.5-ascii-lowercase'
+        - step: 'P6 to P8'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg:NPM/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:npm/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-POS-04'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:deb/debian/curl@7.50.3-1?distro=jessie&arch=i386'
+    derived_from: 'SRC-C5-EX1 with its two qualifiers swapped.'
+    purpose: 'Qualifier order, which the 1st edition leaves open.'
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'deb'
+        namespace: 'debian'
+        name: 'curl'
+        version: '7.50.3-1'
+        qualifiers:
+          arch: 'i386'
+          distro: 'jessie'
+        subpath: ''
+      canonical: ''
+      canonical_status: 'not defined'
+      canonical_note: >-
+        The 1st edition states no qualifier order, and although Clause 2 requires
+        normalisation and equivalence rules, no clause states them. The text therefore does
+        not decide whether this string and SRC-C5-EX1 share one canonical string, or which
+        string that is. Sorting the keys gives the SRC-C5-EX1 string; keeping the given
+        order gives this one.
+      canonical_rules:
+        - 'c2-canonical'
+        - 'c2-equivalence'
+      derivation:
+        - step: 'P1, P2'
+          outcome: 'As SRC-C5-EX1.'
+          rules: []
+        - step: 'P3'
+          outcome: >-
+            After the question mark: distro=jessie&arch=i386. The same two pairs as
+            SRC-C5-EX1 in the other order; every key and value check passes.
+          rules:
+            - 's5.6.6-ampersand'
+            - 's5.6.6-equals'
+            - 's5.6.6-key-characters'
+            - 's5.6.6-key-unique'
+        - step: 'P4 to P8'
+          outcome: 'As SRC-C5-EX1.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '7.50.3-1'
+          qualifiers:
+            arch: 'i386'
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie'
+    comparison:
+      packageurl_python: 'agrees'
+    finding: >-
+      packageurl-python sorts qualifier keys, so its to_string gives the SRC-C5-EX1 string.
+      That is one possible canonical form; the 1st edition does not choose it. A consumer
+      that compares PURLs as plain strings (tmodel keeps them as opaque strings) sees two
+      different identifiers for one package unless it normalizes first.
+  - id: 'PURL-POS-05'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:deb/debian/curl@1:7.50.3-1?arch=i386&distro=jessie'
+    derived_from: 'SRC-C5-EX1 with a version that contains a colon.'
+    purpose: >-
+      A colon inside a component stays unencoded (5.4). Pairs with PURL-NEG-10.
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'deb'
+        namespace: 'debian'
+        name: 'curl'
+        version: '1:7.50.3-1'
+        qualifiers:
+          arch: 'i386'
+          distro: 'jessie'
+        subpath: ''
+      canonical: 'pkg:deb/debian/curl@1:7.50.3-1?arch=i386&distro=jessie'
+      canonical_status: 'defined, except qualifier order'
+      canonical_note: 'As SRC-C5-EX1; the colon in the version is written unencoded.'
+      canonical_rules:
+        - 's5.4-not-encoded-colon'
+        - 'c2-equivalence'
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            The scheme is pkg and the first colon is the scheme separator. The second colon
+            is data inside the version.
+          rules:
+            - 's5.6.1-colon'
+            - 's5.3-colon'
+        - step: 'P2, P3'
+          outcome: 'As SRC-C5-EX1.'
+          rules: []
+        - step: 'P4'
+          outcome: >-
+            After the at sign: 1:7.50.3-1. The colon is data and is not percent-encoded, as
+            5.4 requires.
+          rules:
+            - 's5.6.5-prefix'
+            - 's5.4-not-encoded-colon'
+        - step: 'P5 to P8'
+          outcome: 'As SRC-C5-EX1.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '1:7.50.3-1'
+          qualifiers:
+            arch: 'i386'
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@1:7.50.3-1?arch=i386&distro=jessie'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-POS-06'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:npm/foobar@12.3.1#lib/index.js'
+    derived_from: 'SRC-C5-EX3 with a subpath.'
+    purpose: >-
+      A subpath of two ordinary segments (no source example has a subpath). Pairs with
+      PURL-NEG-07.
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'npm'
+        namespace: ''
+        name: 'foobar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: 'lib/index.js'
+      canonical: 'pkg:npm/foobar@12.3.1#lib/index.js'
+      canonical_status: 'defined'
+      canonical_note: 'No qualifiers; nothing to lowercase, strip or encode.'
+      canonical_rules:
+        - 'c2-canonical'
+      derivation:
+        - step: 'P1'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+        - step: 'P2'
+          outcome: >-
+            After the hash sign: lib/index.js. Two segments, lib and index.js. Neither is
+            empty, neither is . or .., and neither holds a percent sign.
+          rules:
+            - 's5.6.7-prefix'
+            - 's5.6.7-segments'
+            - 's5.6.7-not-empty'
+            - 's5.6.7-no-dots'
+        - step: 'P3 to P8'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: 'lib/index.js'
+        to_string: 'pkg:npm/foobar@12.3.1#lib/index.js'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-POS-07'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:maven/org.apache.xmlgraphics//batik-anim@1.9.1?packaging=sources'
+    derived_from: 'SRC-C5-EX2 with the slash between namespace and name doubled.'
+    purpose: >-
+      A slash that is leading or trailing, and therefore not significant. Pairs with
+      PURL-NEG-08, where the doubled slash is inside the namespace.
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'maven'
+        namespace: 'org.apache.xmlgraphics'
+        name: 'batik-anim'
+        version: '1.9.1'
+        qualifiers:
+          packaging: 'sources'
+        subpath: ''
+      canonical: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources'
+      canonical_status: 'recommended only (should)'
+      canonical_note: >-
+        5.6.3 and 5.6.4 say such slashes should be stripped in the canonical form. That is a
+        recommendation, so the canonical string given here rests on a should.
+      canonical_rules:
+        - 's5.6.3-slashes'
+        - 's5.6.4-slashes'
+      derivation:
+        - step: 'P1 to P5'
+          outcome: 'As SRC-C5-EX2.'
+          rules: []
+        - step: 'P6'
+          outcome: >-
+            After the type, org.apache.xmlgraphics//batik-anim remains. It has no trailing
+            slash; the name, after the last slash, is batik-anim.
+          rules:
+            - 's5.6.4-prefix'
+        - step: 'P7'
+          outcome: >-
+            Between type and name lies org.apache.xmlgraphics/ with a trailing slash.
+            Trailing slashes are not significant and not part of the namespace, so the
+            namespace is org.apache.xmlgraphics. Reading the extra slash as a leading slash
+            of the name gives the same result under 5.6.4.
+          rules:
+            - 's5.6.3-slashes'
+            - 's5.6.4-slashes'
+        - step: 'P8'
+          outcome: 'As SRC-C5-EX2.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'maven'
+          namespace: 'org.apache.xmlgraphics'
+          name: 'batik-anim'
+          version: '1.9.1'
+          qualifiers:
+            packaging: 'sources'
+          subpath: ''
+        to_string: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?packaging=sources'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-POS-08'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=https:%2F%2Frepo.example.com%2Fmaven2'
+    derived_from: >-
+      SRC-C5-EX2 with its qualifier replaced by repository_url, the qualifier 5.6.3 names,
+      holding a URL.
+    purpose: >-
+      Encoding inside a qualifier value: the slashes are data, so they are percent-encoded;
+      the colon is never percent-encoded.
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'maven'
+        namespace: 'org.apache.xmlgraphics'
+        name: 'batik-anim'
+        version: '1.9.1'
+        qualifiers:
+          repository_url: 'https://repo.example.com/maven2'
+        subpath: ''
+      canonical: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=https:%2F%2Frepo.example.com%2Fmaven2'
+      canonical_status: 'defined, except the case of hex digits'
+      canonical_note: >-
+        Which characters are encoded is fixed by 5.4: in a qualifier value a slash is not
+        used as a PURL separator and lies outside the allowed set, so it becomes %2F, while
+        the colon stays as it is. The 1st edition does not state the case of the hex digits;
+        uppercase is used here, as RFC 3986 section 2.1 recommends for producers (not
+        quoted: RFC 3986 is not held in this library).
+      canonical_rules:
+        - 's5.4-data-octet'
+        - 's5.4-allowed-set'
+        - 's5.4-delimiters'
+        - 's5.4-not-encoded-separators'
+        - 's5.4-not-encoded-colon'
+        - 's5.6.6-value-encoding'
+      derivation:
+        - step: 'P1, P2'
+          outcome: 'As SRC-C5-EX2.'
+          rules: []
+        - step: 'P3'
+          outcome: >-
+            After the question mark: one pair. The key repository_url is lowercase letters
+            and an underscore and starts with a letter. The value
+            https:%2F%2Frepo.example.com%2Fmaven2 percent-decodes to
+            https://repo.example.com/maven2.
+          rules:
+            - 's5.6.6-key-characters'
+            - 's5.6.6-key-start'
+            - 's5.6.6-value-encoding'
+            - 's5.6.3-repository-url'
+        - step: 'P4 to P8'
+          outcome: 'As SRC-C5-EX2.'
+          rules: []
+        - step: 'P9'
+          outcome: >-
+            The string is already in the 5.4 form: slashes in the value encoded, colon
+            unencoded, letters, digits and periods as they are.
+          rules:
+            - 's5.4-data-octet'
+            - 's5.4-allowed-set'
+            - 's5.4-not-encoded-separators'
+            - 's5.4-not-encoded-colon'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'maven'
+          namespace: 'org.apache.xmlgraphics'
+          name: 'batik-anim'
+          version: '1.9.1'
+          qualifiers:
+            repository_url: 'https://repo.example.com/maven2'
+          subpath: ''
+        to_string: 'pkg:maven/org.apache.xmlgraphics/batik-anim@1.9.1?repository_url=https://repo.example.com/maven2'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python decodes the value correctly, but its to_string writes the slashes
+      unencoded (repository_url=https://repo.example.com/maven2) because its quoting treats
+      the slash as safe everywhere. Under 5.4 the slash in a qualifier value is encoded, so
+      the two canonical strings differ for every URL-valued qualifier.
+  - id: 'PURL-POS-09'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:npm/FooBar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with capitals in the name.'
+    purpose: 'Name case: Clause 5 makes only the type case insensitive.'
+    expected:
+      result: 'accept'
+      components:
+        scheme: 'pkg'
+        type: 'npm'
+        namespace: ''
+        name: 'FooBar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: ''
+      canonical: 'pkg:npm/FooBar@12.3.1'
+      canonical_status: 'defined by Clause 5 alone; a type definition may change it'
+      canonical_note: >-
+        Clause 5 never lowercases a name. A type definition may (case_sensitive false), but
+        this edition contains none, and case_sensitive defaults to true.
+      canonical_rules:
+        - 's5.6.4-any-character'
+        - 'c1-no-type-definitions'
+        - 's6.6.4-default'
+      derivation:
+        - step: 'P1 to P5'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+        - step: 'P6'
+          outcome: >-
+            The name is FooBar. A name may contain any character unless the type definition
+            provides otherwise; no clause folds its case.
+          rules:
+            - 's5.6.4-any-character'
+            - 'c1-no-type-definitions'
+        - step: 'P7, P8'
+          outcome: 'As SRC-C5-EX3.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:npm/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python lowercases npm names, a rule from the npm type definition in the
+      purl-spec repository rather than from this edition, and returns pkg:npm/foobar@12.3.1.
+      Under the 1st edition alone the name keeps its case. Whether two npm PURLs compare
+      equal therefore depends on whether type definitions are applied.
+  - id: 'PURL-NEG-01'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:1npm/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with a digit put in front of the type.'
+    expected:
+      result: 'reject'
+      violates:
+        rule: |-
+          The type shall start with an ASCII letter.
+        locator: '5.6.2, second bullet (p. 5)'
+        breaks:
+          - 'ecma-427#R-0049'
+      fails_at: 'P5'
+      reason: 'The type 1npm starts with a digit.'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg:1npm/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ValueError'
+        error: |-
+          purl type cannot start with a number: '1npm'.
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-NEG-02'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:n%70m/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with the p of npm written as %70.'
+    expected:
+      result: 'reject'
+      violates:
+        rule: |-
+          The type shall not be percent-encoded.
+        locator: '5.6.2, third bullet (p. 5)'
+        breaks:
+          - 'ecma-427#R-0050'
+      also_breaks:
+        - rule: |-
+            The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+          locator: '5.6.2, first bullet (p. 5)'
+          breaks:
+            - 'ecma-427#R-0048'
+        - lead: |-
+            The following characters shall not be percent-encoded:
+          item: |-
+            the Alphanumeric Characters
+          locator: '5.4, fourth bullet, first sub-bullet (p. 4)'
+          breaks:
+            - 'ecma-427#R-0036'
+      note: >-
+        No percent-encoded type can break only one rule: a type may hold only letters,
+        digits, period and dash, 5.4 forbids encoding any of them, and the percent sign
+        itself is not a type character. All three rules give the same answer.
+      fails_at: 'P5'
+      reason: 'The type n%70m is percent-encoded, so it also contains a percent sign.'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg:n%70m/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ValueError'
+        error: |-
+          purl type must be composed only of ASCII letters and numbers, period, dash and underscore: 'n%70m'.
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-NEG-03'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:my_type/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with a type that contains an underscore.'
+    purpose: >-
+      The underscore is allowed in qualifier keys (5.6.6) but is not among the type
+      characters (5.6.2).
+    expected:
+      result: 'reject'
+      violates:
+        rule: |-
+          The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+        locator: '5.6.2, first bullet (p. 5)'
+        breaks:
+          - 'ecma-427#R-0048'
+      fails_at: 'P5'
+      reason: 'The type my_type contains an underscore.'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg:my_type/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'my_type'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:my_type/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python accepts the string and returns it unchanged: its type check allows
+      the underscore, which 5.6.2 does not list.
+  - id: 'PURL-NEG-04'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:deb/debian/curl@7.50.3-1?Arch=i386&distro=jessie'
+    derived_from: 'SRC-C5-EX1 with the first qualifier key capitalised.'
+    expected:
+      result: 'reject'
+      violates:
+        lead: |-
+          For each key=value pair:
+        item: |-
+          The key shall be composed only of lowercase ASCII letters and numbers, period '.', dash '-' and underscore '_'.
+        locator: '5.6.6, fifth bullet, first sub-bullet (p. 6)'
+        breaks:
+          - 'ecma-427#R-0083'
+      fails_at: 'P3'
+      reason: 'The key Arch contains an uppercase letter.'
+      lenient_reading: >-
+        The 1st edition grants no case leniency for keys; its only explicit leniencies are
+        the slashes after pkg: (5.6.1) and the empty value (5.6.6). So Clause 2 requires
+        rejection. A lenient parser would lowercase the key and arrive at SRC-C5-EX1.
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '7.50.3-1'
+          qualifiers:
+            arch: 'i386'
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python lowercases qualifier keys and accepts the string, returning the
+      SRC-C5-EX1 string.
+  - id: 'PURL-NEG-05'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie&arch=amd64'
+    derived_from: 'SRC-C5-EX1 with a second arch pair.'
+    expected:
+      result: 'reject'
+      violates:
+        lead: |-
+          For each key=value pair:
+        item: |-
+          Each key shall be unique among all the keys of the qualifiers component.
+        locator: '5.6.6, fifth bullet, fourth sub-bullet (p. 6)'
+        breaks:
+          - 'ecma-427#R-0086'
+      fails_at: 'P3'
+      reason: 'The key arch occurs twice.'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '7.50.3-1'
+          qualifiers:
+            arch: 'amd64'
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@7.50.3-1?arch=amd64&distro=jessie'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python accepts the string and keeps the last value (arch=amd64), silently
+      dropping arch=i386; its to_string is
+      pkg:deb/debian/curl@7.50.3-1?arch=amd64&distro=jessie.
+  - id: 'PURL-NEG-06'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:deb/debian/curl@7.50.3-1?arch=&distro=jessie'
+    derived_from: 'SRC-C5-EX1 with the arch value removed.'
+    expected:
+      result: 'accept'
+      result_note: >-
+        Not a rejection: the sentence that forbids the empty value (R-0081) also says what
+        the pair means (R-0082). The pair is treated as absent.
+      violates:
+        rule: |-
+          A value shall not be an empty string: a key=value pair with an empty value is the same as if no key=value pair exists for this key.
+        locator: '5.6.6, fourth bullet (p. 6)'
+        breaks:
+          - 'ecma-427#R-0081'
+      components:
+        scheme: 'pkg'
+        type: 'deb'
+        namespace: 'debian'
+        name: 'curl'
+        version: '7.50.3-1'
+        qualifiers:
+          distro: 'jessie'
+        subpath: ''
+      canonical: 'pkg:deb/debian/curl@7.50.3-1?distro=jessie'
+      canonical_status: 'defined'
+      canonical_note: >-
+        The empty pair is the same as no pair, and equivalent PURLs share one canonical
+        representation; one qualifier remains, so order does not arise.
+      canonical_rules:
+        - 's5.6.6-empty-value'
+        - 'c2-canonical'
+      derivation:
+        - step: 'P1, P2'
+          outcome: 'As SRC-C5-EX1.'
+          rules: []
+        - step: 'P3'
+          outcome: >-
+            After the question mark: arch=&distro=jessie. The pair arch= has an empty value,
+            so it is the same as if no arch pair existed; distro=jessie remains.
+          rules:
+            - 's5.6.6-empty-value'
+        - step: 'P4 to P8'
+          outcome: 'As SRC-C5-EX1.'
+          rules: []
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '7.50.3-1'
+          qualifiers:
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@7.50.3-1?distro=jessie'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-NEG-07'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:npm/foobar@12.3.1#lib/../index.js'
+    derived_from: 'PURL-POS-06 with a .. segment in the subpath.'
+    expected:
+      result: 'reject'
+      violates:
+        lead: |-
+          When percent-decoded, a segment:
+        item: |-
+          shall not be any of '..' or '.'
+        locator: '5.6.7, sixth bullet, third sub-bullet (p. 6)'
+        breaks:
+          - 'ecma-427#R-0096'
+      see_also:
+        - rule: |-
+            The subpath shall be interpreted as relative to the root of the package.
+          locator: '5.6.7, seventh bullet (p. 6)'
+      fails_at: 'P2'
+      reason: 'The second subpath segment is ..'
+      lenient_reading: >-
+        The 1st edition does not say to drop or resolve such a segment, so Clause 2 requires
+        rejection.
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'npm'
+          namespace: ''
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: 'lib/index.js'
+        to_string: 'pkg:npm/foobar@12.3.1#lib/index.js'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python accepts the string and drops the .. segment, giving #lib/index.js.
+      That is not what resolving .. would give either (index.js): the subpath silently
+      changes meaning.
+  - id: 'PURL-NEG-08'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:maven/org.apache//xmlgraphics/batik-anim@1.9.1?packaging=sources'
+    derived_from: 'SRC-C5-EX2 with an empty segment inside the namespace.'
+    expected:
+      result: 'reject'
+      violates:
+        lead: |-
+          When percent-decoded, a segment:
+        item: |-
+          shall not be empty
+        locator: '5.6.3, fifth bullet, second sub-bullet (p. 5)'
+        breaks:
+          - 'ecma-427#R-0059'
+      see_also:
+        - rule: |-
+            If present, the namespace may contain one or more segments, separated by a single unencoded slash '/' character.
+          locator: '5.6.3, second bullet (p. 5)'
+      fails_at: 'P7'
+      reason: >-
+        The namespace org.apache//xmlgraphics splits into org.apache, an empty segment and
+        xmlgraphics. The empty segment is inside the namespace, so the rule that leading and
+        trailing slashes are not significant does not reach it (contrast PURL-POS-07).
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'maven'
+          namespace: 'org.apache/xmlgraphics'
+          name: 'batik-anim'
+          version: '1.9.1'
+          qualifiers:
+            packaging: 'sources'
+          subpath: ''
+        to_string: 'pkg:maven/org.apache/xmlgraphics/batik-anim@1.9.1?packaging=sources'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python drops the empty segment and accepts the string with the two-segment
+      namespace org.apache/xmlgraphics.
+  - id: 'PURL-NEG-09'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg://user@example.com/npm/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 behind a URL authority that carries a user name.'
+    purpose: 'A URL authority, which Clause 5 and 5.1 rule out.'
+    expected:
+      result: 'reject'
+      violates:
+        rule: |-
+          The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+        locator: '5.6.2, first bullet (p. 5)'
+        breaks:
+          - 'ecma-427#R-0048'
+      context:
+        - rule: |-
+            A PURL shall not contain a URL Authority, i.e. there is no support for username, password, host and port components.
+          locator: 'Clause 5, after Table 1 (p. 3)'
+        - rule: |-
+            PURL parsers shall accept URLs where the scheme and colon ':' are followed by one or more slash '/' characters, such as 'pkg://', and shall ignore and remove all such '/' characters.
+          locator: '5.6.1, third bullet (p. 5)'
+      context_note: >-
+        This is the case Clause 5 prohibits, but a parser cannot apply that prohibition
+        directly: 5.6.1 has it remove the slashes after pkg: first, which leaves
+        pkg:user@example.com/npm/foobar@12.3.1 with user@example.com in the type position.
+        The rule that rejects the string is the type character rule.
+      fails_at: 'P5'
+      reason: >-
+        After P1 removes the slashes and P4 takes the version 12.3.1, the type is
+        user@example.com, which contains an at sign.
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg://user@example.com/npm/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ValueError'
+        error: |-
+          purl type must be composed only of ASCII letters and numbers, period, dash and underscore: 'user@example.com'.
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-NEG-10'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg:deb/debian/curl@1%3A7.50.3-1?arch=i386&distro=jessie'
+    derived_from: 'PURL-POS-05 with the colon written as %3A.'
+    expected:
+      result: 'reject'
+      violates:
+        lead: |-
+          The following characters shall not be percent-encoded:
+        item: |-
+          the colon ':', whether used as a Separator Character or otherwise
+        locator: '5.4, fourth bullet, fourth sub-bullet (p. 4)'
+        breaks:
+          - 'ecma-427#R-0036'
+      see_also:
+        - lead: |-
+            Except as expressly stated otherwise in this Clause, each component:
+          item: |-
+            shall be encoded as defined in the Character encoding clause
+          locator: '5.6, first paragraph, second bullet (p. 5)'
+      fails_at: 'P4'
+      reason: >-
+        The version 1%3A7.50.3-1 percent-encodes a colon, so it is not encoded as 5.4
+        defines.
+      lenient_reading: >-
+        Decoding %3A is well defined and gives the PURL-POS-05 components, so a lenient
+        parser could accept the string and write the colon unencoded. The 1st edition grants
+        no such leniency, so Clause 2 requires rejection.
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'valid'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'deb'
+          namespace: 'debian'
+          name: 'curl'
+          version: '1:7.50.3-1'
+          qualifiers:
+            arch: 'i386'
+            distro: 'jessie'
+          subpath: ''
+        to_string: 'pkg:deb/debian/curl@1:7.50.3-1?arch=i386&distro=jessie'
+    comparison:
+      packageurl_python: 'differs'
+    finding: >-
+      packageurl-python decodes %3A and accepts the string, returning the PURL-POS-05
+      string.
+  - id: 'PURL-EDGE-01'
+    kind: 'purl'
+    source: 'derived'
+    string: 'pkg://example.com/npm/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 behind a URL authority that is a bare host name.'
+    purpose: 'Tests the authority prohibition against the pkg:// leniency.'
+    expected:
+      result: 'accept'
+      result_note: >-
+        Judgement call: the stated rules accept the string, with example.com as the type.
+      components:
+        scheme: 'pkg'
+        type: 'example.com'
+        namespace: 'npm'
+        name: 'foobar'
+        version: '12.3.1'
+        qualifiers: {}
+        subpath: ''
+      canonical: 'pkg:example.com/npm/foobar@12.3.1'
+      canonical_status: 'defined'
+      canonical_note: 'The slashes after pkg: are removed (5.6.1); nothing else changes.'
+      canonical_rules:
+        - 's5.6.1-slashes'
+        - 'c2-canonical'
+      context:
+        - rule: |-
+            A PURL shall not contain a URL Authority, i.e. there is no support for username, password, host and port components.
+          locator: 'Clause 5, after Table 1 (p. 3)'
+        - rule: |-
+            In a PURL, there is no support for a URL Authority (e.g. no username, password, host and port components).
+          locator: '5.1, third bullet (p. 3)'
+        - rule: |-
+            A URL host or Authority shall not be used as a namespace.
+          locator: '5.6.3, sixth bullet (p. 5)'
+        - rule: |-
+            A namespace segment may sometimes look like a host, but its interpretation is specific to a type.
+          locator: 'Clause 5, after Table 1 (p. 3)'
+      context_note: >-
+        Read as an RFC 3986 URI, this string has the authority example.com, which Clause 5
+        and 5.1 prohibit. But 5.6.1 has the parser remove the slashes first, after which no
+        authority is left and example.com sits in the type position. Nothing in Clause 5
+        lets a generic parser tell this from a type named example.com, and this edition
+        defines no types to check against, so the prohibition cannot be enforced on this
+        string. The 5.6.3 rule against a host as namespace does not reach it either: the
+        host lands in the type, and Clause 5 allows that a namespace segment may look like a
+        host.
+      derivation:
+        - step: 'P1'
+          outcome: >-
+            pkg, an unencoded colon, two slashes. The slashes are ignored and removed,
+            leaving pkg:example.com/npm/foobar@12.3.1.
+          rules:
+            - 's5.6.1-slashes'
+        - step: 'P2, P3'
+          outcome: 'No hash sign and no question mark.'
+          rules:
+            - 's5.6.7-prefix'
+            - 's5.6.6-prefix'
+        - step: 'P4'
+          outcome: 'After the at sign: 12.3.1.'
+          rules:
+            - 's5.6.5-prefix'
+        - step: 'P5'
+          outcome: >-
+            example.com/npm/foobar remains. The type is example.com: letters and a period,
+            starting with a letter, so a valid type.
+          rules:
+            - 's5.6.2-characters'
+            - 's5.6.2-start'
+        - step: 'P6'
+          outcome: 'The name is foobar.'
+          rules:
+            - 's5.6.4-prefix'
+        - step: 'P7'
+          outcome: 'The namespace is npm.'
+          rules:
+            - 's5.6.3-segments'
+            - 's5.6.3-not-empty'
+        - step: 'P8'
+          outcome: 'Scheme, type and name are present.'
+          rules:
+            - 'c2-required-components'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'pkg://example.com/npm/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ok'
+        components:
+          type: 'example.com'
+          namespace: 'npm'
+          name: 'foobar'
+          version: '12.3.1'
+          qualifiers: {}
+          subpath: ''
+        to_string: 'pkg:example.com/npm/foobar@12.3.1'
+    comparison:
+      packageurl_python: 'agrees'
+  - id: 'PURL-EDGE-02'
+    kind: 'purl'
+    source: 'derived'
+    string: 'PKG:npm/foobar@12.3.1'
+    derived_from: 'SRC-C5-EX3 with the scheme in capitals.'
+    purpose: 'Scheme case, which the text leaves open.'
+    expected:
+      result: 'unspecified'
+      result_note: 'Two readings; the text does not choose between them.'
+      readings:
+        - reading: >-
+            Reject: 5.6.1 makes the scheme the constant pkg, and PKG is not that constant.
+          rules:
+            - 's5.6.1-constant'
+        - reading: >-
+            Accept as pkg:npm/foobar@12.3.1: 5.1 makes a PURL a valid URI, and URI scheme
+            names compare without regard to case (RFC 3986 section 3.1; not quoted, as RFC
+            3986 is not held in this library). 5.5 defines lowercase but no clause applies
+            it to the scheme.
+          rules:
+            - 's5.1-valid-uri'
+            - 's5.5-ascii-lowercase'
+    actual:
+      jsonschema:
+        subschema: '/properties/examples/items'
+        result: 'invalid'
+        errors:
+          - instance_path: ''
+            schema_path: '/pattern'
+            keyword: 'pattern'
+            message: |-
+              'PKG:npm/foobar@12.3.1' does not match '^pkg:[a-z][a-z0-9-\\.]+/.*$'
+      packageurl_python:
+        from_string: 'ValueError'
+        error: |-
+          purl is missing the required "pkg" scheme component: 'PKG:npm/foobar@12.3.1'.
+    comparison:
+      packageurl_python: 'n/a'
+    finding: >-
+      packageurl-python rejects the string (its scheme check is case-sensitive), which is
+      the first reading.
+  - id: 'TD-POS-01'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/minimal-valid.derived.json'
+    derived_from: >-
+      Annex A only: the eight properties in its root required list, each given a value that
+      meets its constraints.
+    expected:
+      result: 'valid'
+      built_from:
+        - '/required'
+        - '/properties/$id/pattern'
+        - '/properties/type/pattern'
+        - '/properties/repository/required'
+        - '/properties/namespace_definition/properties/requirement/oneOf'
+        - '/properties/name_definition/properties/requirement/oneOf'
+        - '/properties/examples/items/pattern'
+      note: >-
+        fixture is a made-up type, chosen so the file cannot be mistaken for a real type
+        definition (this edition contains none). The $id pattern forces the packageurl.org
+        host. Every other negative and gap fixture is this file with exactly one change.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-01'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/missing-id.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/$id'
+    change: 'the $id member removed'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "required": [
+            "$id",
+            "type",
+            "type_name",
+            "description",
+            "repository",
+            "namespace_definition",
+            "name_definition",
+            "examples"
+          ],
+        annex_a_pointer: '/required'
+        locator: 'Annex A (normative), root required list (p. 20)'
+        breaks:
+          - 'ecma-427#R-0163'
+      prose_agrees: 'no'
+      prose_note: >-
+        Table 2 lists every root property with its requirement but has no row for $id (or
+        $schema), and Clause 6 never mentions $id. A definition written from Clause 6 alone
+        fails here.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: ''
+              schema_path: '/required'
+              keyword: 'required'
+              message: |-
+                '$id' is a required property
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: ''
+              schema_path: '/required'
+              keyword: 'required'
+              message: |-
+                '$id' is a required property
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-02'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/missing-examples.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/examples'
+    change: 'the examples member removed'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "required": [
+            "$id",
+            "type",
+            "type_name",
+            "description",
+            "repository",
+            "namespace_definition",
+            "name_definition",
+            "examples"
+          ],
+        annex_a_pointer: '/required'
+        locator: 'Annex A (normative), root required list (p. 20)'
+        breaks:
+          - 'ecma-427#R-0109'
+      prose:
+        - rule: |-
+            Property: examples (Required)
+          locator: '6.10 (p. 18)'
+      prose_agrees: 'yes'
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: ''
+              schema_path: '/required'
+              keyword: 'required'
+              message: |-
+                'examples' is a required property
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: ''
+              schema_path: '/required'
+              keyword: 'required'
+              message: |-
+                'examples' is a required property
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-03'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/name-requirement-optional.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/name_definition/requirement'
+    change: 'name_definition requirement set to optional'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "oneOf": [
+            {
+              "$ref": "#/definitions/required_requirement"
+            }
+          ]
+        annex_a_pointer: '/properties/name_definition/properties/requirement/oneOf/0/$ref'
+        locator: 'Annex A (normative), /properties/name_definition/properties/requirement (p. 22), referring to /definitions/required_requirement (p. 19)'
+        breaks:
+          - 'ecma-427#R-0135'
+          - 'ecma-427#R-0137'
+      prose:
+        - prose_lead: |-
+            Shall be one of:
+          prose_item: |-
+            Component required requirement
+          locator: '6.6.1 (p. 12)'
+        - rule: |-
+            Constant: required
+          locator: '6.6.2 (p. 12)'
+      prose_agrees: 'yes'
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/name_definition/requirement'
+              schema_path: '/properties/name_definition/properties/requirement/oneOf'
+              keyword: 'oneOf'
+              message: |-
+                'optional' is not valid under any of the given schemas
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/name_definition/requirement'
+              schema_path: '/properties/name_definition/properties/requirement/oneOf'
+              keyword: 'oneOf'
+              message: |-
+                'optional' is not valid under any of the given schemas
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-04'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/schema-member-draft-07.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/$schema'
+    change: 'a $schema member naming the Draft-07 meta-schema added'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "const": "https://packageurl.org/schemas/purl-type-definition.schema-1.0.json",
+        annex_a_pointer: '/properties/$schema/const'
+        locator: 'Annex A (normative), /properties/$schema (p. 20)'
+        breaks:
+          - 'ecma-427#R-0164'
+      prose_agrees: 'n/a'
+      prose_note: >-
+        Clause 6 does not mention a $schema member. Annex A allows one, but only with this
+        single value, so a definition that names the Draft-07 meta-schema, as JSON Schema
+        authors habitually do, is invalid.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/$schema'
+              schema_path: '/properties/$schema/const'
+              keyword: 'const'
+              message: |-
+                'https://packageurl.org/schemas/purl-type-definition.schema-1.0.json' was expected
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/$schema'
+              schema_path: '/properties/$schema/const'
+              keyword: 'const'
+              message: |-
+                'https://packageurl.org/schemas/purl-type-definition.schema-1.0.json' was expected
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-05'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/type-starts-with-digit.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/type'
+    change: 'type set to 1fixture'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "pattern": "^[a-z][a-z0-9-\\.]+$",
+        annex_a_pointer: '/properties/type/pattern'
+        locator: 'Annex A (normative), /properties/type (p. 21)'
+        breaks:
+          - 'ecma-427#R-0112'
+      prose:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The type shall start with an ASCII letter.
+          locator: '5.6.2, second bullet (p. 5)'
+      prose_agrees: 'yes'
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/type'
+              schema_path: '/properties/type/pattern'
+              keyword: 'pattern'
+              message: |-
+                '1fixture' does not match '^[a-z][a-z0-9-\\.]+$'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/type'
+              schema_path: '/properties/type/pattern'
+              keyword: 'pattern'
+              message: |-
+                '1fixture' does not match '^[a-z][a-z0-9-\\.]+$'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-06'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/type-uppercase.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/type'
+    change: 'type set to Fixture'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "pattern": "^[a-z][a-z0-9-\\.]+$",
+        annex_a_pointer: '/properties/type/pattern'
+        locator: 'Annex A (normative), /properties/type (p. 21)'
+        breaks:
+          - 'ecma-427#R-0112'
+      prose:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The type is case insensitive. The canonical form is lowercase.
+          locator: '5.6.2, fourth bullet (p. 5)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        5.6.2 accepts an uppercase type in a PURL but makes lowercase canonical; a type
+        definition must state the canonical form.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/type'
+              schema_path: '/properties/type/pattern'
+              keyword: 'pattern'
+              message: |-
+                'Fixture' does not match '^[a-z][a-z0-9-\\.]+$'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/type'
+              schema_path: '/properties/type/pattern'
+              keyword: 'pattern'
+              message: |-
+                'Fixture' does not match '^[a-z][a-z0-9-\\.]+$'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-07'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/type-one-character.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/type'
+    change: 'type set to x'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "pattern": "^[a-z][a-z0-9-\\.]+$",
+        annex_a_pointer: '/properties/type/pattern'
+        locator: 'Annex A (normative), /properties/type (p. 21)'
+        breaks:
+          - 'ecma-427#R-0112'
+      prose:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+          locator: '5.6.2, first bullet (p. 5)'
+        - rule: |-
+            The type shall start with an ASCII letter.
+          locator: '5.6.2, second bullet (p. 5)'
+      prose_agrees: 'no (5.6.2 against 6.1 and Annex A)'
+      prose_note: >-
+        The pattern needs at least two characters: [a-z], then one or more of [a-z0-9-.].
+        5.6.2 sets no minimum length, so a one-letter type is a valid PURL type that cannot
+        be given a type definition passing Annex A. The examples pattern
+        ^pkg:[a-z][a-z0-9-\.]+/.*$ has the same two-character floor, so a coherent
+        one-letter definition would also fail on its examples (this fixture keeps the
+        minimal examples to isolate the type).
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/type'
+              schema_path: '/properties/type/pattern'
+              keyword: 'pattern'
+              message: |-
+                'x' does not match '^[a-z][a-z0-9-\\.]+$'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/type'
+              schema_path: '/properties/type/pattern'
+              keyword: 'pattern'
+              message: |-
+                'x' does not match '^[a-z][a-z0-9-\\.]+$'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-08'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/id-with-period.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/$id'
+    change: '$id set to https://packageurl.org/types/my.fixture-definition.json'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "pattern": "^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$"
+        annex_a_pointer: '/properties/$id/pattern'
+        locator: 'Annex A (normative), /properties/$id (p. 20)'
+        breaks:
+          - 'ecma-427#R-0165'
+      prose_agrees: 'n/a'
+      prose_note: >-
+        Clause 6 says nothing about $id. Its pattern allows only [a-z0-9-] before
+        -definition.json, while 5.6.2 and the type pattern allow a period in a type. Nothing
+        requires the $id to contain the type, so this is an observation, not a rule: a type
+        such as my.fixture cannot use the obvious $id.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/$id'
+              schema_path: '/properties/$id/pattern'
+              keyword: 'pattern'
+              message: |-
+                'https://packageurl.org/types/my.fixture-definition.json' does not match '^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/$id'
+              schema_path: '/properties/$id/pattern'
+              keyword: 'pattern'
+              message: |-
+                'https://packageurl.org/types/my.fixture-definition.json' does not match '^https:\\/\\/packageurl\\.org/types/[a-z0-9-]+-definition\\.json$'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-09'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/examples-duplicate.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/examples'
+    change: 'examples set to the same PURL twice'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+        annex_a_pointer: '/properties/examples/uniqueItems'
+        locator: 'Annex A (normative), /properties/examples (p. 24)'
+        breaks:
+          - 'ecma-427#R-0157'
+      prose:
+        - rule: |-
+            All items shall be unique.
+          locator: '6.10 (p. 18)'
+      prose_agrees: 'yes'
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/examples'
+              schema_path: '/properties/examples/uniqueItems'
+              keyword: 'uniqueItems'
+              message: |-
+                ['pkg:fixture/name', 'pkg:fixture/name'] has non-unique elements
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/examples'
+              schema_path: '/properties/examples/uniqueItems'
+              keyword: 'uniqueItems'
+              message: |-
+                ['pkg:fixture/name', 'pkg:fixture/name'] has non-unique elements
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-10'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/additional-property.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/homepage'
+    change: 'a homepage member added at the root'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "type": "object",
+          "additionalProperties": false,
+          "definitions": {
+        annex_a_pointer: '/additionalProperties'
+        locator: 'Annex A (normative), root object (p. 19)'
+        breaks:
+          - 'ecma-427#R-0162'
+      prose_agrees: 'n/a'
+      prose_note: >-
+        Table 2 lists the root properties, but no sentence of Clause 6 forbids others; the
+        prohibition exists only in Annex A.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: ''
+              schema_path: '/additionalProperties'
+              keyword: 'additionalProperties'
+              message: |-
+                Additional properties are not allowed ('homepage' was unexpected)
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: ''
+              schema_path: '/additionalProperties'
+              keyword: 'additionalProperties'
+              message: |-
+                Additional properties are not allowed ('homepage' was unexpected)
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-11'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/namespace-definition-as-array.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/namespace_definition'
+    change: 'namespace_definition written as an array holding the object'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "type": "object",
+          "required": [
+            "requirement"
+          ],
+        annex_a_pointer: '/properties/namespace_definition/type'
+        locator: 'Annex A (normative), /properties/namespace_definition (p. 21)'
+        breaks:
+          - 'ecma-427#R-0099'
+        breaks_note: 'The cited constraint, a property type (§6.5 Type: Object; Annex A /properties/namespace_definition/type), has no requirement entry of its own; R-0099 is broken because the document no longer matches the schema.'
+      prose:
+        - rule: |-
+            Location: /namespace_definition Property: namespace_definition (Required) Type: Object
+          locator: '6.5 (p. 9)'
+        - rule: |-
+            namespace_definition Array Required
+          locator: 'Table 2, row namespace_definition, columns Property, Type and Requirement (p. 7)'
+      prose_agrees: 'no (Table 2 against 6.5 and Annex A)'
+      prose_note: >-
+        Table 2 gives the type of namespace_definition, name_definition, version_definition
+        and subpath_definition as Array; 6.5, 6.6, 6.7 and 6.9 and Annex A make each an
+        object. A definition built from Table 2 fails.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/namespace_definition'
+              schema_path: '/properties/namespace_definition/allOf/0/type'
+              keyword: 'type'
+              message: |-
+                [{'requirement': 'optional'}] is not of type 'object'
+            - instance_path: '/namespace_definition'
+              schema_path: '/properties/namespace_definition/type'
+              keyword: 'type'
+              message: |-
+                [{'requirement': 'optional'}] is not of type 'object'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/namespace_definition'
+              schema_path: '/properties/namespace_definition/allOf/0/type'
+              keyword: 'type'
+              message: |-
+                [{'requirement': 'optional'}] is not of type 'object'
+            - instance_path: '/namespace_definition'
+              schema_path: '/properties/namespace_definition/type'
+              keyword: 'type'
+              message: |-
+                [{'requirement': 'optional'}] is not of type 'object'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-12'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/requirement-as-array.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/namespace_definition/requirement'
+    change: 'namespace_definition requirement written as an array'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "title": "Namespace requirement",
+          "description": "States that the PURL namespace component is optional, required or prohibited for a PURL type.",
+          "type": "string",
+        annex_a_pointer: '/properties/namespace_definition/properties/requirement/type'
+        locator: 'Annex A (normative), /properties/namespace_definition/properties/requirement (p. 22)'
+        breaks:
+          - 'ecma-427#R-0124'
+        breaks_note: 'The cited constraint, a property type (§6.5.1 Type: String), has no requirement entry of its own; the same change also fails the oneOf of R-0124, which is the requirement it breaks.'
+      prose:
+        - rule: |-
+            Location: /namespace_definition/requirement Property: requirement (Required) Type: String
+          locator: '6.5.1 (p. 9)'
+        - rule: |-
+            requirement Array Required States that the PURL namespace component is optional, required or prohibited for a PURL type.
+          locator: 'Table 4, row requirement (p. 9)'
+      prose_agrees: 'no (Tables 4 to 8 against 6.5.1 and Annex A)'
+      prose_note: >-
+        Tables 4, 5, 6 and 8 give requirement the type Array, and Table 7 does the same for
+        the qualifier requirement; the subclauses and Annex A make it a string. The
+        validator reports two errors for the one change: the type keyword and the oneOf.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/namespace_definition/requirement'
+              schema_path: '/properties/namespace_definition/properties/requirement/oneOf'
+              keyword: 'oneOf'
+              message: |-
+                ['optional'] is not valid under any of the given schemas
+            - instance_path: '/namespace_definition/requirement'
+              schema_path: '/properties/namespace_definition/properties/requirement/type'
+              keyword: 'type'
+              message: |-
+                ['optional'] is not of type 'string'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/namespace_definition/requirement'
+              schema_path: '/properties/namespace_definition/properties/requirement/oneOf'
+              keyword: 'oneOf'
+              message: |-
+                ['optional'] is not valid under any of the given schemas
+            - instance_path: '/namespace_definition/requirement'
+              schema_path: '/properties/namespace_definition/properties/requirement/type'
+              keyword: 'type'
+              message: |-
+                ['optional'] is not of type 'string'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-NEG-13'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/qualifiers-duplicate-items.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/qualifiers_definition'
+    change: 'a qualifiers_definition of two identical items added'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "type": "array",
+          "additionalItems": false,
+          "uniqueItems": true,
+        annex_a_pointer: '/properties/qualifiers_definition/uniqueItems'
+        locator: 'Annex A (normative), /properties/qualifiers_definition (p. 23)'
+        breaks:
+          - 'ecma-427#R-0150'
+      prose:
+        - rule: |-
+            Location: /qualifiers_definition/[]/native_name Type: String The equivalent native name for this qualifier key. All items shall be unique.
+          locator: '6.8.1.7 (p. 16)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        The uniqueness sentence for the qualifiers_definition array is printed under 6.8.1.7
+        Native name, a string property, rather than under 6.8; read with Annex A it means
+        the array items. Annex A also sets additionalItems false next to a single-schema
+        items, where Draft-07 ignores additionalItems.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/qualifiers_definition'
+              schema_path: '/properties/qualifiers_definition/uniqueItems'
+              keyword: 'uniqueItems'
+              message: |-
+                [{'key': 'arch', 'description': 'Architecture.'}, {'key': 'arch', 'description': 'Architecture.'}] has non-unique elements
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/qualifiers_definition'
+              schema_path: '/properties/qualifiers_definition/uniqueItems'
+              keyword: 'uniqueItems'
+              message: |-
+                [{'key': 'arch', 'description': 'Architecture.'}, {'key': 'arch', 'description': 'Architecture.'}] has non-unique elements
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-FMT-01'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/default-repository-url-not-uri.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/repository/default_repository_url'
+    change: 'repository default_repository_url set to repo.example.com/maven2'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "default_repository_url": {
+            "title": "Default repository URL",
+            "description": "The default public repository URL for this PURL type",
+            "type": "string",
+            "format": "uri"
+          },
+        annex_a_pointer: '/properties/repository/properties/default_repository_url/format'
+        locator: 'Annex A (normative), /properties/repository/properties/default_repository_url (p. 21)'
+        breaks:
+          - 'ecma-427#R-0116'
+      prose:
+        - rule: |-
+            Format: URI as specified in RFC 3986
+          locator: '6.4.2 (p. 8)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        repo.example.com/maven2 has no scheme, so it is a relative reference, not a URI.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/repository/default_repository_url'
+              schema_path: '/properties/repository/properties/default_repository_url/format'
+              keyword: 'format'
+              message: |-
+                'repo.example.com/maven2' is not a 'uri'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'differs'
+      with_format_checker: 'agrees'
+    finding: >-
+      Draft7Validator asserts format only when it is given a format checker. Without one the
+      fixture passes; with Draft7Validator.FORMAT_CHECKER, jsonschema checks uri through
+      rfc3987 1.3.8 (installed) and rejects it.
+  - id: 'TD-FMT-02'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/permitted-characters-unterminated-class.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/name_definition/permitted_characters'
+    change: 'name_definition permitted_characters set to [a-z'
+    ecma262_check:
+      pattern_from: 'instance:/name_definition/permitted_characters'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "permitted_characters": {
+            "title": "Permitted characters in this PURL component",
+            "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification.",
+            "type": "string",
+            "format": "regex"
+          },
+        annex_a_pointer: '/definitions/purl_component_definition/properties/permitted_characters/format'
+        locator: 'Annex A (normative), /definitions/purl_component_definition/properties/permitted_characters (p. 19), reached from /properties/name_definition through allOf'
+        breaks:
+          - 'ecma-427#R-0128'
+      prose:
+        - rule: |-
+            Format: A regular expression dialect defined by ECMA-262
+          locator: '6.6.3 (p. 12)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        An unterminated character class is a syntax error in ECMA-262 and in Python alike.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/name_definition/permitted_characters'
+              schema_path: '/properties/name_definition/allOf/0/properties/permitted_characters/format'
+              keyword: 'format'
+              message: |-
+                '[a-z' is not a 'regex'
+      packageurl_python: 'n/a (not a purl)'
+      ecma262_node:
+        pattern_from: 'instance:/name_definition/permitted_characters'
+        no_flags: 'SyntaxError'
+        u_flag: 'SyntaxError'
+    comparison:
+      without_format_checker: 'differs'
+      with_format_checker: 'agrees'
+    finding: >-
+      Without a format checker the fixture passes; with one, Python re.compile rejects it,
+      as ECMA-262 does.
+  - id: 'TD-FMT-03'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/permitted-characters-named-group.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/name_definition/permitted_characters'
+    change: 'name_definition permitted_characters set to (?<name>[a-z]+)'
+    ecma262_check:
+      pattern_from: 'instance:/name_definition/permitted_characters'
+    expected:
+      result: 'valid'
+      constraint:
+        annex_a: |-
+          "permitted_characters": {
+            "title": "Permitted characters in this PURL component",
+            "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification.",
+            "type": "string",
+            "format": "regex"
+          },
+        annex_a_pointer: '/definitions/purl_component_definition/properties/permitted_characters/format'
+        locator: 'Annex A (normative), /definitions/purl_component_definition/properties/permitted_characters (p. 19), reached from /properties/name_definition through allOf'
+      prose:
+        - rule: |-
+            Format: A regular expression dialect defined by ECMA-262
+          locator: '6.6.3 (p. 12)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        A named group, (?<name>...), is ECMA-262 syntax; Node compiles it with and without
+        the u flag.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'invalid'
+          errors:
+            - instance_path: '/name_definition/permitted_characters'
+              schema_path: '/properties/name_definition/allOf/0/properties/permitted_characters/format'
+              keyword: 'format'
+              message: |-
+                '(?<name>[a-z]+)' is not a 'regex'
+      packageurl_python: 'n/a (not a purl)'
+      ecma262_node:
+        pattern_from: 'instance:/name_definition/permitted_characters'
+        no_flags: 'compiles'
+        u_flag: 'compiles'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'differs'
+    finding: >-
+      jsonschema checks the regex format with Python re.compile, which does not know this
+      syntax, so with a format checker it rejects a pattern that the declared dialect
+      (ECMA-262) accepts.
+  - id: 'TD-FMT-04'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/permitted-characters-inline-flag.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/name_definition/permitted_characters'
+    change: 'name_definition permitted_characters set to (?i)^[a-z0-9.-]+$'
+    ecma262_check:
+      pattern_from: 'instance:/name_definition/permitted_characters'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "permitted_characters": {
+            "title": "Permitted characters in this PURL component",
+            "description": "A regular expression (ECMA-262 dialect) defining the 'Permitted characters' for this component of this Package-URL type. If provided, this shall be a subset of the 'Permitted characters' defined in the PURL specification.",
+            "type": "string",
+            "format": "regex"
+          },
+        annex_a_pointer: '/definitions/purl_component_definition/properties/permitted_characters/format'
+        locator: 'Annex A (normative), /definitions/purl_component_definition/properties/permitted_characters (p. 19), reached from /properties/name_definition through allOf'
+        breaks:
+          - 'ecma-427#R-0128'
+      prose:
+        - rule: |-
+            Format: A regular expression dialect defined by ECMA-262
+          locator: '6.6.3 (p. 12)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        (?i) is Python inline-flag syntax, not ECMA-262 syntax; Node reports Invalid group.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+      ecma262_node:
+        pattern_from: 'instance:/name_definition/permitted_characters'
+        no_flags: 'SyntaxError'
+        u_flag: 'SyntaxError'
+    comparison:
+      without_format_checker: 'differs'
+      with_format_checker: 'differs'
+    finding: >-
+      Python re.compile accepts (?i), so jsonschema passes this fixture with or without a
+      format checker although it is not an ECMA-262 regular expression.
+  - id: 'TD-PAT-01'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/type-trailing-newline.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/type'
+    change: 'type set to fixture followed by a newline'
+    ecma262_check:
+      pattern_from: 'schema:/properties/type/pattern'
+      test_value_from: 'instance:/type'
+    expected:
+      result: 'invalid'
+      violates:
+        annex_a: |-
+          "pattern": "^[a-z][a-z0-9-\\.]+$",
+        annex_a_pointer: '/properties/type/pattern'
+        locator: 'Annex A (normative), /properties/type (p. 21)'
+        breaks:
+          - 'ecma-427#R-0112'
+      prose:
+        - rule: |-
+            Pattern Constraint: ^[a-z][a-z0-9-\.]+$
+          locator: '6.1 (p. 7)'
+        - rule: |-
+            The package type shall be composed only of ASCII letters and numbers, period '.', and dash '-'.
+          locator: '5.6.2, first bullet (p. 5)'
+      prose_agrees: 'yes'
+      prose_note: >-
+        JSON Schema Draft-07 evaluates pattern in the ECMA-262 dialect (the validation
+        specification in the Bibliography; not quoted here), where $ without the m flag
+        matches only at the end of the input; Node reports no match. A newline is also not a
+        type character under 5.6.2.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+      ecma262_node:
+        pattern_from: 'schema:/properties/type/pattern'
+        test_value_from: 'instance:/type'
+        no_flags: 'does not match'
+        u_flag: 'does not match'
+    comparison:
+      without_format_checker: 'differs'
+      with_format_checker: 'differs'
+    finding: >-
+      jsonschema evaluates pattern with Python re.search, where $ also matches just before a
+      final newline, so it accepts fixture followed by a newline as a type, with or without
+      a format checker. The same gap affects every pattern in the schema.
+  - id: 'TD-GAP-01'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/qualifier-key-uppercase.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/qualifiers_definition'
+    change: 'a qualifiers_definition with the key Arch added'
+    expected:
+      result: 'valid'
+      constraint:
+        annex_a: |-
+          "key": {
+            "title": "Qualifier key",
+            "description": "The key for the qualifier.",
+            "type": "string"
+          },
+        annex_a_pointer: '/properties/qualifiers_definition/items/properties/key/type'
+        locator: 'Annex A (normative), /properties/qualifiers_definition/items/properties/key (p. 23)'
+      prose:
+        - prose_lead: |-
+            For each key=value pair:
+          prose_item: |-
+            The key shall be composed only of lowercase ASCII letters and numbers, period '.', dash '-' and underscore '_'.
+          locator: '5.6.6, fifth bullet, first sub-bullet (p. 6)'
+          breaks:
+            - 'ecma-427#R-0148'
+      prose_agrees: 'no (inference)'
+      prose_note: >-
+        Annex A accepts any string as a qualifier key. 5.6.6 limits keys in a PURL to
+        lowercase letters, digits, period, dash and underscore, so this definition declares
+        a key that no conforming PURL can carry. That the definition is therefore defective
+        is our inference; Clause 6 does not say so.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-GAP-02'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/qualifier-key-repeated.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/qualifiers_definition'
+    change: >-
+      a qualifiers_definition defining the key arch twice, with different descriptions
+    expected:
+      result: 'valid'
+      constraint:
+        annex_a: |-
+          "type": "array",
+          "additionalItems": false,
+          "uniqueItems": true,
+        annex_a_pointer: '/properties/qualifiers_definition/uniqueItems'
+        locator: 'Annex A (normative), /properties/qualifiers_definition (p. 23)'
+      prose:
+        - prose_lead: |-
+            For each key=value pair:
+          prose_item: |-
+            Each key shall be unique among all the keys of the qualifiers component.
+          locator: '5.6.6, fifth bullet, fourth sub-bullet (p. 6)'
+          breaks:
+            - 'ecma-427#R-0148'
+      prose_agrees: 'unclear (inference)'
+      prose_note: >-
+        uniqueItems compares whole items; these two differ in their description, so they are
+        unique as items while defining one key twice. The 5.6.6 rule governs a PURL, not a
+        definition, and Clause 6 has no rule against this; calling it a defect is our
+        inference.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-GAP-03'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/examples-without-name.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/examples'
+    change: 'examples set to pkg:fixture/ (no name)'
+    expected:
+      result: 'valid'
+      constraint:
+        annex_a: |-
+          "items": {
+            "type": "string",
+            "pattern": "^pkg:[a-z][a-z0-9-\\.]+/.*$"
+          }
+        annex_a_pointer: '/properties/examples/items/pattern'
+        locator: 'Annex A (normative), /properties/examples/items (p. 24)'
+      prose:
+        - rule: |-
+            Example of valid, canonical PURLs for this package type. Each item of this array shall be a string.
+          locator: '6.10 (p. 18)'
+          breaks:
+            - 'ecma-427#R-0155'
+        - rule: |-
+            All required components of a PURL, such as the scheme, type, and name, shall be present and validated according to the rules defined in this Standard.
+          locator: 'Clause 2, third paragraph (p. 1)'
+          breaks:
+            - 'ecma-427#R-0004'
+      prose_agrees: 'no'
+      prose_note: >-
+        The items pattern checks only the scheme and the type, so pkg:fixture/ passes though
+        it has no name. 6.10 asks for valid, canonical PURLs, which the schema cannot check.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'
+  - id: 'TD-GAP-04'
+    kind: 'type-definition'
+    source: 'derived'
+    file: 'type-definitions/examples-other-type.derived.json'
+    derived_from: 'TD-POS-01 (minimal-valid) with one change.'
+    mutation: '/examples'
+    change: 'examples set to pkg:npm/foobar@12.3.1 (Clause 5 Example 3)'
+    expected:
+      result: 'valid'
+      constraint:
+        annex_a: |-
+          "items": {
+            "type": "string",
+            "pattern": "^pkg:[a-z][a-z0-9-\\.]+/.*$"
+          }
+        annex_a_pointer: '/properties/examples/items/pattern'
+        locator: 'Annex A (normative), /properties/examples/items (p. 24)'
+      prose:
+        - rule: |-
+            Example of valid, canonical PURLs for this package type. Each item of this array shall be a string.
+          locator: '6.10 (p. 18)'
+          breaks:
+            - 'ecma-427#R-0155'
+      prose_agrees: 'no (inference)'
+      prose_note: >-
+        The schema does not tie the examples to the type being defined; 6.10 says they are
+        for this package type. Reading an npm PURL as not an example of the fixture type is
+        our inference.
+    actual:
+      jsonschema:
+        without_format_checker:
+          result: 'valid'
+        with_format_checker:
+          result: 'valid'
+      packageurl_python: 'n/a (not a purl)'
+    comparison:
+      without_format_checker: 'agrees'
+      with_format_checker: 'agrees'

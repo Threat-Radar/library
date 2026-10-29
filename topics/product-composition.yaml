@@ -1,0 +1,12 @@
+schema: "library-topic/v1"
+id: product-composition
+question: "How is a product's composition (software, hardware and firmware) identified and recorded, and how does it map onto tmodel's components, weaknesses and vulnerabilities? (tmodel RPT-0004, issue #38)"
+owner: Clovier
+status: open
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-008
+records:
+  - ecma-427
+answer: ""

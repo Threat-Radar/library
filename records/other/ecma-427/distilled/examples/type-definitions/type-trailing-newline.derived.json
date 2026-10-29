@@ -1,0 +1,18 @@
+{
+  "$id": "https://packageurl.org/types/fixture-definition.json",
+  "type": "fixture\n",
+  "type_name": "Fixture",
+  "description": "Library-made fixture built only from ECMA-427 Annex A: the required properties and nothing else.",
+  "repository": {
+    "use_repository": false
+  },
+  "namespace_definition": {
+    "requirement": "optional"
+  },
+  "name_definition": {
+    "requirement": "required"
+  },
+  "examples": [
+    "pkg:fixture/name"
+  ]
+}

@@ -1,0 +1,372 @@
+; =====================================================================
+; purl.derived.abnf
+;
+; DERIVED - not verbatim; ECMA-427 1st edition defines no grammar
+; for the PURL string. Every rule in this file was written for this
+; library from the prose of ECMA-427 Clause 5 (5 and 5.1 to 5.6.7),
+; and it must never be cited as the standard's own grammar.
+;
+; Contains text from ECMA-427 1st edition, (c) Ecma International
+; 2025, reproduced under the Ecma copyright notice; full notice in
+; distilled/README.md. ("(c)" stands for the copyright sign: RFC 5234
+; admits only ASCII in comments, so this file is ASCII throughout.)
+; =====================================================================
+;
+; Source: ECMA-427, Package-URL (PURL) specification, 1st edition,
+; December 2025, Ecma International TC54.
+; <https://ecma-international.org/wp-content/uploads/ECMA-427_1st_edition_december_2025.pdf>
+; PDF SHA-256 037180df99e7d7c26d910dc3adb3fa07c4fb787cc4bd29e43634de3802313825
+;
+; The 1st edition states the PURL syntax only as prose bullets in
+; Clause 5. It contains no ABNF, BNF or regular expression for a PURL
+; string. Its one formal artifact is the Annex A JSON Schema, which
+; governs PURL type definition documents, not PURL strings; that
+; schema is held verbatim beside this file as
+; purl-type-definition.schema-1.0.json.
+;
+; Conventions. Numbers such as 5.6.3 are ECMA-427 clause numbers. A
+; passage in double quotes that a comment attributes to a clause
+; ("5.6.2 says: ...") is verbatim from the standard; the only change
+; is that a sentence the PDF wrapped across lines is joined. Everything
+; else in this file is ours. The language is ABNF (RFC 5234). The core
+; rules ALPHA, DIGIT and HEXDIG (RFC 5234 Appendix B.1) are used and
+; none is redefined. RFC 5234 quoted strings are case-insensitive, so
+; every terminal whose case matters is written as a %x value. Checked
+; with the Python package abnf 2.2.0; the commands and results are in
+; README.md beside this file.
+
+; =====================================================================
+; ROOT RULES
+;
+; purl               A PURL string. Enforces every Clause 5 rule that a
+;                    context-free grammar can enforce (under readings
+;                    R1 to R5 below), and admits what Clause 5 calls
+;                    non-canonical rather than invalid: upper-case
+;                    letters in the type (5.6.2), and leading or
+;                    trailing slashes around the namespace, the name
+;                    and the subpath (5.6.3, 5.6.4, 5.6.7).
+;
+; canonical-shape    The strings of purl that have the canonical
+;                    shape: the type in lower case and no
+;                    insignificant slash. NECESSARY, NOT SUFFICIENT
+;                    for canonical form; see GAPS, item G1.
+;
+; purl-parser-input  purl, plus the 'pkg:/' and 'pkg://' forms that
+;                    5.6.1 obliges every parser to accept.
+;
+; Every canonical-shape string is a purl string, and every purl string
+; is a purl-parser-input string.
+; =====================================================================
+
+purl              = scheme ":" purl-remainder               ; 5, 5.3
+
+purl-remainder    = type purl-path [ "@" version ]
+                    [ "?" qualifiers ] [ "#" subpath ]       ; 5, 5.3
+
+canonical-shape   = scheme ":" canonical-type "/" [ namespace "/" ]
+                    name [ "@" version ] [ "?" qualifiers ]
+                    [ "#" canonical-subpath ]                ; 5, 5.3
+
+purl-parser-input = scheme ":" *"/" purl-remainder          ; 5.6.1
+
+; Clause 5 gives the component order as
+; scheme:type/namespace/name@version?qualifiers#subpath and 5.3 says
+; which separator stands between which components. Clause 5 also says:
+; "A PURL shall not contain a URL Authority, i.e. there is no support
+; for username, password, host and port components." No rule here has
+; an authority part.
+
+; =====================================================================
+; READINGS (judgement calls; README.md lists them as well)
+;
+; R1 Strict percent-encoding. 5.6 says each component "shall be
+;    encoded as defined in the Character encoding clause", and 5.4
+;    says "The following characters shall not be percent-encoded",
+;    listing "the Alphanumeric Characters", "the Punctuation
+;    Characters" and "the colon ':', whether used as a Separator
+;    Character or otherwise". A triplet for one of those characters
+;    (%41 for A, %2E for a period, %3A for a colon) cannot come out of
+;    that encoding, so this file rejects it. A reader who takes 5.4 as
+;    a canonical-form rule only would accept every triplet; to get
+;    that reading, define pct-octet-no-slash as 2HEXDIG.
+;
+; R2 Nothing empty after a separator. 5.6.5 says "The version is
+;    prefixed by a '@' separator when not empty." 5.6.6 and 5.6.7 say
+;    the same of '?' and '#'. This file also applies the converse (no
+;    '@', '?' or '#' unless a non-empty component follows it), which
+;    the text implies but does not state.
+;
+; R3 A name has at least one character. Table 1 marks name
+;    "Required", and Clause 2 says "All required components of a PURL,
+;    such as the scheme, type, and name, shall be present".
+;
+; R4 Lower-case scheme only. 5.6.1 says "The scheme is a constant with
+;    the value "pkg"." and, unlike 5.6.2 for the type, never calls the
+;    scheme case insensitive. RFC 3986 section 3.1, which 5.1 invokes,
+;    does call schemes case-insensitive; a reader who imports that
+;    rule would replace %x70.6B.67 by "pkg", which ABNF matches in any
+;    case.
+;
+; R5 Where an insignificant slash may stand. 5.6.3, 5.6.4 and 5.6.7 say
+;    leading and trailing slashes "are not significant". purl admits a
+;    run of slashes after the type, at the namespace and name boundary,
+;    after the name (so also just before '@', '?' or '#') and at both
+;    ends of the subpath, but never inside the namespace or the
+;    subpath, where a run would make an empty segment. So
+;    pkg:npm/foobar/@1.0 has the name foobar. The purl-spec v1.0.0 test
+;    suite, which is not part of ECMA-427, reads the slash before '@'
+;    as a separator with an empty name after it: it expects
+;    pkg:swift/github.com/Alamofire/@5.4.3 to fail. The 1st edition
+;    text does not decide between the two readings.
+; =====================================================================
+
+; ---------------------------------------------------------------------
+; SCHEME - 5.6.1
+; 5.6.1 says: "The scheme is a constant with the value "pkg"." and "The
+; scheme shall be followed by an unencoded colon ':'." The colon is the
+; ":" of the root rules. For the case of the scheme, see R4.
+
+scheme            = %x70.6B.67                ; pkg, lower case only
+
+; ---------------------------------------------------------------------
+; TYPE - 5.6.2
+; 5.6.2 says: "The package type shall be composed only of ASCII
+; letters and numbers, period '.', and dash '-'.", "The type shall
+; start with an ASCII letter.", "The type shall not be
+; percent-encoded." and "The type is case insensitive. The canonical
+; form is lowercase."
+;
+; 5.6.2 sets no minimum length, so a one-letter type (pkg:a/name) is
+; admitted here. The pattern that 6.1 and the Annex A schema give for
+; the type of a type definition, ^[a-z][a-z0-9-\.]+$, needs at least
+; two characters. README.md records this as a source defect.
+
+type              = ALPHA *( ALPHA / DIGIT / "." / "-" )      ; 5.6.2
+
+canonical-type    = %x61-7A *( %x61-7A / DIGIT / "." / "-" )  ; 5.6.2
+
+; ---------------------------------------------------------------------
+; THE PATH: TYPE, NAMESPACE, NAME - 5.3, 5.6.3, 5.6.4
+; 5.3 says "'/' (slash) is the separator between type, namespace and
+; name". 5.6.4 says "The name is prefixed by a single slash '/'
+; separator when the namespace is not empty." 5.6.3 and 5.6.4 each say
+; "All leading and trailing slashes '/' are not significant and should
+; be stripped in the canonical form." So purl admits a run of slashes
+; before and after the namespace and after the name (see R5);
+; canonical-shape admits exactly one slash at each separator and none
+; after the name.
+
+purl-path         = 1*"/" [ namespace 1*"/" ] name *"/"
+                                              ; 5.3, 5.6.3, 5.6.4
+
+; ---------------------------------------------------------------------
+; NAMESPACE - 5.6.3
+; 5.6.3 says: "If present, the namespace may contain one or more
+; segments, separated by a single unencoded slash '/' character." and
+; "Each namespace segment shall be a percent-encoded string." When
+; percent-decoded, a segment "shall not contain any slash '/'
+; characters" and "shall not be empty". Under R1 both decoded-value
+; rules can be decided on the encoded form: segment-char admits no
+; %2F, and a segment has at least one character, each of which
+; decodes to at least one octet. Whether a namespace must, may or must
+; not be present is for the type definition (5.6.3: "The namespace is
+; optional, unless required by the package's type definition."); see
+; GAPS, item G3.
+
+namespace         = namespace-segment *( "/" namespace-segment )
+                                              ; 5.6.3
+namespace-segment = 1*segment-char            ; 5.6.3
+
+; ---------------------------------------------------------------------
+; NAME - 5.6.4
+; 5.6.4 says: "A name shall be a percent-encoded string." and "When
+; percent-decoded, a name may contain any Unicode character unless the
+; package's type definition provides otherwise." Unlike a segment, a
+; name may therefore hold an encoded slash, %2F. For why a name is
+; never empty, see R3.
+
+name              = 1*pchar                   ; 5.6.4, R3
+
+; ---------------------------------------------------------------------
+; VERSION - 5.6.5
+; 5.6.5 says: "The version is prefixed by a '@' separator when not
+; empty.", "This '@' is not part of the version.", "A version shall be
+; a percent-encoded string." and "A version is a plain and opaque
+; string." See R2.
+
+version           = 1*pchar                   ; 5.6.5, R2
+
+; ---------------------------------------------------------------------
+; QUALIFIERS - 5.6.6
+; 5.6.6 says: "The qualifiers component shall be prefixed by an
+; unencoded question mark '?' separator when not empty.", "The
+; qualifiers component is composed of one or more key=value pairs.
+; Multiple key=value pairs shall be separated by an unencoded
+; ampersand '&'." and "A key and value shall be separated by the
+; unencoded equal sign '=' character."
+
+qualifiers        = qualifier *( "&" qualifier )              ; 5.6.6
+
+qualifier         = qualifier-key "=" qualifier-value         ; 5.6.6
+
+; 5.6.6 says: "The key shall be composed only of lowercase ASCII
+; letters and numbers, period '.', dash '-' and underscore '_'.", "A
+; key shall start with an ASCII letter." and "A key shall not be
+; percent-encoded." An upper-case letter in a key is therefore
+; invalid, not merely non-canonical. For uniqueness of keys, see GAPS,
+; item G4.
+
+qualifier-key     = %x61-7A *( %x61-7A / DIGIT / "." / "-" / "_" )
+                                              ; 5.6.6
+
+; 5.6.6 says: "A value shall not be an empty string" and "A value may
+; contain any Unicode character and all characters shall be encoded as
+; described in the Character encoding clause." See GAPS, item G7.
+
+qualifier-value   = 1*pchar                   ; 5.6.6, 5.4
+
+; ---------------------------------------------------------------------
+; SUBPATH - 5.6.7
+; 5.6.7 says: "The subpath string is prefixed by a '#' separator when
+; not empty.", "The subpath contains zero or more segments, separated
+; by slash '/'.", "Leading and trailing slashes '/' are not
+; significant and should be stripped in the canonical form." and
+; "Each subpath segment shall be a percent-encoded string." When
+; percent-decoded, a segment "shall not contain any slash '/'
+; characters", "shall not be empty" and "shall not be any of '..' or
+; '.'". The three alternatives of subpath-segment admit every
+; non-empty segment except one that is exactly a period or exactly two
+; periods; under R1 a period is never percent-encoded, so testing the
+; written form is enough.
+
+subpath           = *"/" canonical-subpath *"/"               ; 5.6.7
+
+canonical-subpath = subpath-segment *( "/" subpath-segment )  ; 5.6.7
+
+subpath-segment   = segment-char-no-dot *segment-char         ; 5.6.7
+                  / "." segment-char-no-dot *segment-char
+                  / ".." 1*segment-char
+
+; ---------------------------------------------------------------------
+; CHARACTERS AND PERCENT-ENCODING - 5.2, 5.4, 5.6
+; 5.6 says each component "may be composed of any of the characters
+; defined in the Permitted characters clause" and "shall be encoded as
+; defined in the Character encoding clause". 5.2 lists "the
+; Alphanumeric Characters: A to Z, a to z, 0 to 9", "the Punctuation
+; Characters: .-_~", "the Percent Character: %" and "the Separator
+; Characters :/@?=&#". 5.4 makes the "allowed set" the Alphanumeric
+; and the Punctuation Characters, and says "The following characters
+; shall not be percent-encoded": the Alphanumeric Characters, the
+; Punctuation Characters, "the Separator Characters when being used as
+; PURL separators", "the colon ':', whether used as a Separator
+; Character or otherwise" and "the percent sign '%' when used to
+; represent a percent-encoded character". It adds: "Where the space
+; ' ' is permitted, it shall be percent-encoded as '%20'."
+;
+; So inside a component the only characters written as themselves are
+; the allowed set and the colon. Every other character of component
+; data (the six other separators, the space, '+', any non-ASCII
+; character) is written as triplets, one per UTF-8 octet.
+
+allowed-char        = ALPHA / DIGIT / "-" / "." / "_" / "~"   ; 5.2, 5.4
+
+pchar               = allowed-char / ":" / pct-encoded        ; 5.4
+
+segment-char        = allowed-char / ":" / segment-pct-encoded
+                                              ; 5.4, 5.6.3, 5.6.7
+
+segment-char-no-dot = ALPHA / DIGIT / "-" / "_" / "~" / ":"
+                    / segment-pct-encoded     ; 5.6.7
+
+; Triplets. 5.4 applies "the percent-encoding mechanism defined in RFC
+; 3986 section 2.1", which writes an octet as a percent sign and two
+; hexadecimal digits. Under R1 a triplet for a character that 5.4 says
+; "shall not be percent-encoded" is excluded: %30-39 (digits), %41-5A
+; and %61-7A (letters), %2D, %2E, %5F and %7E (the punctuation) and
+; %3A (the colon). A namespace or subpath segment also excludes %2F
+; (5.6.3, 5.6.7). HEXDIG matches a-f as well as A-F: the 1st edition
+; does not fix the case of hex digits, and RFC 3986 section 2.1 only
+; recommends upper case to producers.
+
+pct-encoded         = segment-pct-encoded / pct-slash         ; 5.4
+
+pct-slash           = "%" "2" "F"             ; %2F, an encoded slash
+
+segment-pct-encoded = "%" pct-octet-no-slash  ; 5.4, R1
+
+pct-octet-no-slash  = ( "0" / "1" ) HEXDIG                ; %00-1F
+                    / "2" ( DIGIT / "A" / "B" / "C" )     ; %20-2C
+                    / "3" ( "B" / "C" / "D" / "E" / "F" ) ; %3B-3F
+                    / "4" "0"                             ; %40
+                    / "5" ( "B" / "C" / "D" / "E" )       ; %5B-5E
+                    / "6" "0"                             ; %60
+                    / "7" ( "B" / "C" / "D" / "F" )       ; %7B-7D, %7F
+                    / ( "8" / "9" / "A" / "B" / "C" / "D" / "E" / "F" )
+                      HEXDIG                              ; %80-FF
+
+; =====================================================================
+; GAPS: WHAT THIS GRAMMAR CANNOT SAY
+;
+; Stated gaps, not omissions. README.md beside this file repeats them.
+;
+; G1 Canonical form. canonical-shape checks only the case of the type
+;    and the insignificant slashes. It cannot check the type-specific
+;    case rule (a type definition with case_sensitive false means "the
+;    canonical form shall be lowercased", 6.5.6, 6.6.4, 6.7.4, 6.9.4)
+;    or a type's normalization_rules (6.5.7, 6.6.5, 6.7.5, 6.9.5),
+;    which 6.5.7 calls "plain text, unstructured rules". Two things a
+;    canonical form needs are not defined by the 1st edition at all:
+;    an order for the qualifiers (no clause orders them) and the case
+;    of the hex digits in a triplet. Clause 2 nevertheless says
+;    "Implementations shall ensure that equivalent PURLs are
+;    consistently resolved to the same canonical representation."
+;
+; G2 Case folding. 5.5 says "References to "lowercase" in this
+;    Standard refer to the culture-invariant full case mapping defined
+;    in Section 3.13.2 of the Unicode Standard." A grammar does not
+;    fold case; it only admits or refuses upper-case letters.
+;
+; G3 Type-specific rules. A type definition can require or prohibit
+;    the namespace (5.6.3, 6.5.1), require qualifier keys (6.8.1.2) and
+;    narrow the characters of a component ("unless the package's type
+;    definition provides otherwise", 5.6.3, 5.6.4, 5.6.5, 5.6.7; and
+;    permitted_characters, 6.5.5). None of that is visible to a
+;    grammar for every type. See purl-type-definition.schema-1.0.json.
+;
+; G4 Unique qualifier keys. 5.6.6 says "Each key shall be unique among
+;    all the keys of the qualifiers component." Not context-free:
+;    pkg:npm/foobar?arch=x&arch=y matches every rule in this file.
+;
+; G5 The 'pkg://' leniency. 5.6.1 says "PURL parsers shall accept URLs
+;    where the scheme and colon ':' are followed by one or more slash
+;    '/' characters, such as 'pkg://', and shall ignore and remove all
+;    such '/' characters." purl-parser-input states which strings a
+;    parser accepts; the duty to "ignore and remove" the slashes is a
+;    transformation, and no grammar expresses one.
+;
+; G6 Decoded values. Under R1 the segment rules "shall not contain any
+;    slash '/' characters" and "shall not be empty" (5.6.3, 5.6.7) are
+;    decided on the encoded form (see NAMESPACE and SUBPATH). What no
+;    rule here checks is that the octets of a component, once decoded,
+;    are well-formed UTF-8 (5.4 says "the component string shall first
+;    be encoded as UTF-8"). Without R1 a period could be written %2E,
+;    and the subpath rule against '.' and '..' would escape the grammar
+;    as well.
+;
+; G7 Empty qualifier values. 5.6.6 says "A value shall not be an empty
+;    string: a key=value pair with an empty value is the same as if no
+;    key=value pair exists for this key." purl and canonical-shape
+;    enforce the first half. The second half is an equivalence that a
+;    parser applies; purl-parser-input does not model it, so it
+;    refuses key= as purl does.
+;
+; G8 Meaning, not syntax. 5.6.3: "A URL host or Authority shall not be
+;    used as a namespace." 5.6.5: "A version is a plain and opaque
+;    string." 5.6.7: "The subpath shall be interpreted as relative to
+;    the root of the package."
+;
+; G9 Type names. 5.1 says special URL schemes "such as file://,
+;    https://, http:// and ftp://" and VCS URLs "such git://, svn://,
+;    hg://" (sic) "are not valid PURL types". Both lists are
+;    open-ended, so no type name is excluded here.
+; =====================================================================
