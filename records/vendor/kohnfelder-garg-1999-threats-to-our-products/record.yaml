@@ -1,0 +1,42 @@
+# Article.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: kohnfelder-garg-1999-threats-to-our-products
+body: vendor
+type: article
+title: "The threats to our products"
+publisher: "Microsoft"
+version: "internal Microsoft article of 1999-04-01, released publicly by Microsoft on its SDL blog on 2009-08-27; copy hosted by Adam Shostack (identical bytes to the archived Microsoft attachment)"
+authors:
+  - "Loren Kohnfelder"
+  - "Praerit Garg"
+date: "1999-04-01"
+identifiers:
+  archived: https://web.archive.org/web/20140424003912/http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-components-postattachments/00-09-88-74-86/The-threats-to-our-products.docx
+  url: https://shostack.org/files/microsoft/The-Threats-To-Our-Products.docx
+content:
+  url: https://shostack.org/files/microsoft/The-Threats-To-Our-Products.docx
+  sha256: "7004b8bfdeb52683c75329be9d41b877466393d37b64641cee99d9d07c4cfea8"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - shostack-2008-experiences-threat-modeling-microsoft
+    - shostack-threat-modeling-2014
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: ""
+media_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+tags:
+  - threat-modeling
+  - stride
+  - microsoft
+  - method
+status: summarized
+confidence: high

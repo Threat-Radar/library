@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: karpati-2014-attack-trees-misuse-cases
+body: academic
+type: paper
+title: "Comparing attack trees and misuse cases in an industrial setting"
+publisher: "Elsevier"
+authors:
+  - "Peter Karpati"
+  - "Yonathan Redda"
+  - "Andreas L. Opdahl"
+  - "Guttorm Sindre"
+date: "2014-03"
+identifiers:
+  doi: "10.1016/j.infsof.2013.10.004"
+  url: https://doi.org/10.1016/j.infsof.2013.10.004
+content:
+  url: https://doi.org/10.1016/j.infsof.2013.10.004
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - schneier-attack-trees-1999
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "Information and Software Technology 56(3), 294-308"
+media_type: ""
+pages: 
+tags:
+  - threat-modeling
+  - attack-trees
+  - empirical
+status: stub
+confidence: low

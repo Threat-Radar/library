@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: xiong-2019-threat-modeling-slr
+body: academic
+type: paper
+title: "Threat modeling – A systematic literature review"
+publisher: "Elsevier"
+authors:
+  - "Wenjun Xiong"
+  - "Robert Lagerström"
+date: "2019-07"
+identifiers:
+  doi: "10.1016/j.cose.2019.03.010"
+  url: https://doi.org/10.1016/j.cose.2019.03.010
+content:
+  url: https://doi.org/10.1016/j.cose.2019.03.010
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - tuma-2018-threat-analysis-slr
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+venue: "Computers & Security 84, 53-69"
+media_type: ""
+pages: 
+tags:
+  - threat-modeling
+  - survey
+  - slr
+status: stub
+confidence: low

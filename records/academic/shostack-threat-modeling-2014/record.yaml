@@ -1,0 +1,40 @@
+# Book: identifiers.isbn. A work, not a file — see R-M-11 'locator'.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: shostack-threat-modeling-2014
+body: academic
+type: book
+title: "Threat Modeling: Designing for Security"
+publisher: "Wiley"
+authors:
+  - "Adam Shostack"
+date: "2014-02"
+identifiers:
+  isbn: "978-1-118-80999-0"
+  isbn_ebook: "978-1-118-81005-7"
+  lccn: "2013954095"
+  url: https://www.wiley.com/en-us/Threat+Modeling%3A+Designing+for+Security-p-9781118809990
+content:
+  url: https://www.wiley.com/en-us/Threat+Modeling%3A+Designing+for+Security-p-9781118809990
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - shostack-2008-experiences-threat-modeling-microsoft
+    - kohnfelder-garg-1999-threats-to-our-products
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+topic: 
+edition: ""
+tags:
+  - threat-modeling
+  - stride
+  - book
+status: stub
+confidence: low

@@ -1,0 +1,45 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Base template. Every adapter is this shape; types differ only in defaults
+# and in which fields they leave for a human. Placeholders: {{...}}
+schema: "library-record/v1"
+id: mitre-attack-flow
+body: other
+type: spec
+title: "Attack Flow — Language (STIX 2.1 extension 2.0.0)"
+short_title: "Attack Flow"
+authors:
+  - "MITRE Center for Threat-Informed Defense"
+date: "2022-08-02"
+identifiers:
+  url: https://center-for-threat-informed-defense.github.io/attack-flow/language/
+  repo: https://github.com/center-for-threat-informed-defense/attack-flow
+content:
+  url: https://raw.githubusercontent.com/center-for-threat-informed-defense/attack-flow/v4.1.0/docs/language.rst
+  sha256: "85ae7b7f367b57c935328276a412e5b2f051e4d48f2ab622276359d49615fa49"
+  retrieved: "2026-10-22"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - mitre-attack
+    - mitre-attack-design-philosophy
+    - schneier-attack-trees-1999
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-005
+topic: 
+publisher: "MITRE Center for Threat-Informed Defense"
+version: "extension labelled 2.0.0 (defined 2022-08-02, released 2022-10-27; schema widened in place since); read from the sources at tag v4.1.0 (2026-10-14)"
+media_type: "text/x-rst"
+tags:
+  - threat-modeling
+  - mitre
+  - attack
+  - attack-path
+  - stix
+  - method
+status: summarized
+confidence: high
