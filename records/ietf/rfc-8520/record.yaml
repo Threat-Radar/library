@@ -1,0 +1,42 @@
+schema: "library-record/v1"
+id: rfc-8520
+body: ietf
+type: rfc
+maturity: standard
+title: "Manufacturer Usage Description Specification"
+short_title: "RFC 8520"
+authors:
+  - "E. Lear"
+  - "R. Droms"
+  - "D. Romascanu"
+date: "2019-03"
+publisher: "IETF"
+identifiers:
+  url: https://www.rfc-editor.org/rfc/rfc8520.html
+  doi: 10.17487/RFC8520
+  rfc: 8520
+content:
+  url: https://www.rfc-editor.org/rfc/rfc8520.txt
+  sha256: "71b163203172fc40168f047fb9a7548a4140d5759eb9f508f575ff0da0797802"
+  retrieved: "2026-10-22"
+  local: false
+  media_type: text/plain
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - rfc-9472
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: product-composition
+tags:
+  - background
+implementations:
+  open_source: []
+  commercial: []
+  searched: ""
+# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
+status: stub
+confidence: low
+owner: Clovier

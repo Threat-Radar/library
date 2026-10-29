@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: spdx-3-0-1
 record: spdx-3-0-1
 type: summary
-updated: "2026-10-18"
+updated: "2026-10-22"
 ---
 
 # System Package Data Exchange (SPDX) Specification Version 3.0.1
@@ -52,6 +52,13 @@ spdx/tools-golang (SPDX 3 code only in the v0.6.0-rc4 pre-release; SPDX 3.0.1
 support on its main branch, unreleased) and the OpenEmbedded-Core SPDX 3.0
 classes of Yocto Project 6.0.3. Zephyr's `west spdx` is cited too, but its
 v4.4.2 release writes only SPDX 2.2 and 2.3, so it is not listed here.
+
+Two more were added after RPT-0004's adversarial review (tmodel#152,
+2026-10-22), from release notes, READMEs and test files, not runs:
+Microsoft's sbom-tool, which writes and validates SPDX 3.0 on request since
+v4.0.2, and cdxgen, which converts its CycloneDX output to SPDX 3.0.1 JSON-LD
+since v12.3.0. protobom v0.6.2 lists SPDX 3.0 and 3.1 as planned, so it is
+listed under `cyclonedx-1-7` instead.
 
 ## Artifacts in this record
 
