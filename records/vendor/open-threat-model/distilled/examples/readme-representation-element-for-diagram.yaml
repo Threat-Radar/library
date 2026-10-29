@@ -1,0 +1,13 @@
+representations:
+  representation: architecture-diagram
+  name: Private Box
+  id: private-box-shape
+  position:
+    x: 0
+    y: 0
+  size:
+    with: 100
+    height: 100
+attributes:
+  color: red
+  shape: square

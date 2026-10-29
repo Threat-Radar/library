@@ -1,0 +1,1303 @@
+schema: "library-examples/v1"
+record: "open-threat-model"
+reviewed_by: ""
+note: >-
+  Every snippet in the Examples column of the README field tables, one vector per table row that has one (86 of
+  the 109 rows; the other 23 cells are empty). text is the snippet exactly: for an HTML table cell, the lines of
+  its indented code block with the 4-space code-block indentation removed and a final newline; for the one
+  markdown table cell (OTM object otmVersion), the inline code without its backticks. readme_lines are the first
+  and last README.md line of the snippet. Each snippet is parsed as YAML with PyYAML SafeLoader, YAML 1.1
+  timestamps disabled (scalars map onto JSON types, as README L23 requires of an OTM document); the value of the
+  field (instance, a JSON pointer into the parsed snippet) is validated against the field's property subschema
+  (schema_pointer) of schema/otm_schema.json and of schema/otm-0.2.0.derived-strict.schema.json with jsonschema
+  Draft7Validator. Results are actual runs (2026-10-14, python 3.14.3, jsonschema 4.26.0, PyYAML 6.0.3). The
+  snippets are quoted from README.md of the Open Threat Model (CC BY-SA 4.0); see README.md here.
+summary:
+  vectors: 86
+  parsed: 85
+  not_valid_yaml: ["FE-023"]
+  not_validated:
+    - "FE-023 Representation element for code codeSnippet: not validated: the snippet is not valid YAML"
+    - >-
+      FE-073 Threat instance object threat: not validated: the parsed snippet has no key 'threat'; its keys are
+      ['<U+00A0>threat']
+  valid_under_source_schema: 84
+  valid_under_strict_schema: 84
+  invalid_under_either: []
+  stock_yaml_1_1_differs: []
+vectors:
+  - id: "FE-001"
+    structure: "OTM object"
+    field: "otmVersion"
+    readme_lines: [55, 55]
+    cell: "markdown table cell, inline code"
+    text: |
+      otmVersion: 0.1.0
+    text_sha256: "5d368c215fa85dcfce06c7d2de1719dd5381eb42c85f8b3f1cb7f28333b7cf29"
+    parse: "ok"
+    parsed: {otmVersion: "0.1.0"}
+    instance: "/otmVersion"
+    schema_pointer: "/properties/otmVersion"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: >-
+      Written as inline code in the markdown table. The value 0.1.0 is not the current version 0.2.0 (L18); the
+      0.2.0 schema accepts any string here.
+  - id: "FE-002"
+    structure: "Project object"
+    field: "name"
+    readme_lines: [84, 84]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Project name
+    text_sha256: "c7689d7cdf21d1d21acf3c9ac6f7e99ad14fb97f815f154b9974b0063e31694d"
+    parse: "ok"
+    parsed: {name: "Project name"}
+    instance: "/name"
+    schema_pointer: "/properties/project/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-003"
+    structure: "Project object"
+    field: "id"
+    readme_lines: [96, 96]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: project-example-id
+    text_sha256: "9c419665b59ea5534fc0991fc91e60b23292cf0f170b416d4586044bcad47f52"
+    parse: "ok"
+    parsed: {id: "project-example-id"}
+    instance: "/id"
+    schema_pointer: "/properties/project/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-004"
+    structure: "Project object"
+    field: "description"
+    readme_lines: [108, 108]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: This is the threat model for the app 'MuCustomApp123
+    text_sha256: "68fcd076562361c8d8c0a4469361309512a98654f541c008e22a4ad584c9de49"
+    parse: "ok"
+    parsed: {description: "This is the threat model for the app 'MuCustomApp123"}
+    instance: "/description"
+    schema_pointer: "/properties/project/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: "The value contains an unmatched apostrophe ('MuCustomApp123), which YAML keeps as part of a plain scalar."
+  - id: "FE-005"
+    structure: "Project object"
+    field: "owner"
+    readme_lines: [120, 120]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      owner: John Doe
+    text_sha256: "594679e80aeef7ed21ddd6e78cbc4a6f3615cc99ef53d4adb7d1dff2a4ed6a64"
+    parse: "ok"
+    parsed: {owner: "John Doe"}
+    instance: "/owner"
+    schema_pointer: "/properties/project/properties/owner"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-006"
+    structure: "Project object"
+    field: "ownerContact"
+    readme_lines: [132, 132]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      ownerContact: email@email.com
+    text_sha256: "2b718c675d0738ca887238e2e1b0b0a866fb28c58359062fecaabeb5e7b77a63"
+    parse: "ok"
+    parsed: {ownerContact: "email@email.com"}
+    instance: "/ownerContact"
+    schema_pointer: "/properties/project/properties/ownerContact"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-007"
+    structure: "Project object"
+    field: "tags"
+    readme_lines: [145, 147]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      tags:
+          - microservice
+          - spring
+    text_sha256: "2b2c474a41746a5e00a19addd80fc377c230301682c29cee30398e4c81fade11"
+    parse: "ok"
+    parsed: {tags: ["microservice", "spring"]}
+    instance: "/tags"
+    schema_pointer: "/properties/project/properties/tags"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-008"
+    structure: "Project object"
+    field: "attributes"
+    readme_lines: [159, 161]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+          filePath: “file.xml”
+          cmdbId: MyApp123
+    text_sha256: "804aca37b87bc7300ca9dfef08024d58689c330c9b66aba4a4080264ca50a838"
+    parse: "ok"
+    parsed: {attributes: {filePath: "“file.xml”", cmdbId: "MyApp123"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/project/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: >-
+      The value of filePath is the string “file.xml” including the U+201C and U+201D quotation marks: typographic
+      quotes are not YAML quotes.
+  - id: "FE-009"
+    structure: "Representations object"
+    field: "name"
+    readme_lines: [212, 212]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Architecture diagram
+    text_sha256: "5b1195b36ba406263c76fd2006c9b17acb47844ca04dc1300ddffb563a8c34a7"
+    parse: "ok"
+    parsed: {name: "Architecture diagram"}
+    instance: "/name"
+    schema_pointer: "/properties/representations/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-010"
+    structure: "Representations object"
+    field: "id"
+    readme_lines: [224, 224]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: architecture-diagram-id
+    text_sha256: "0f87ee7041918579c2d25613086996b39c9cdf24b787d2110b12b8e049a75dc2"
+    parse: "ok"
+    parsed: {id: "architecture-diagram-id"}
+    instance: "/id"
+    schema_pointer: "/properties/representations/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-011"
+    structure: "Representations object"
+    field: "type"
+    readme_lines: [236, 236]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      type: diagram
+    text_sha256: "d7383844acac1b62b7deb36704e7c140c5baf2acefa29febe6db249451ac3bd6"
+    parse: "ok"
+    parsed: {type: "diagram"}
+    instance: "/type"
+    schema_pointer: "/properties/representations/items/properties/type"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-012"
+    structure: "Representations object"
+    field: "description"
+    readme_lines: [247, 247]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: This is a diagram of the project's architecture
+    text_sha256: "2e03a7be9e4d4998e2e2046de3be444b36f5d0130277c6bd8fd0686a7d49fa9d"
+    parse: "ok"
+    parsed: {description: "This is a diagram of the project's architecture"}
+    instance: "/description"
+    schema_pointer: "/properties/representations/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-013"
+    structure: "Representations object"
+    field: "attributes"
+    readme_lines: [260, 263]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+          language: java
+          platform: github
+          vcs: git
+    text_sha256: "f39bad3f011d56b510edc370f8f0a269a87ee748118339233a2a1e6c4e9cf96c"
+    parse: "ok"
+    parsed: {attributes: {language: "java", platform: "github", vcs: "git"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/representations/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-014"
+    structure: "Representation element for diagram"
+    field: "representation"
+    readme_lines: [399, 399]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      representation: architecture-diagram
+    text_sha256: "f26701e0252a363c3dde065264b1b7b146b27fcf774a0cdc52866d183712e80d"
+    parse: "ok"
+    parsed: {representation: "architecture-diagram"}
+    instance: "/representation"
+    schema_pointer: "/definitions/representationElement/properties/representation"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-015"
+    structure: "Representation element for diagram"
+    field: "name"
+    readme_lines: [411, 411]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Component Box
+    text_sha256: "0033f90af71dcad2ef89eed23bacb1d7df4eb66fbc257ce8759a79b8ad8a2860"
+    parse: "ok"
+    parsed: {name: "Component Box"}
+    instance: "/name"
+    schema_pointer: "/definitions/representationElement/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-016"
+    structure: "Representation element for diagram"
+    field: "id"
+    readme_lines: [423, 423]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: component-box-id
+    text_sha256: "c9b38ba4b518d339e00b73223d999de6a6a7c62378009cc687661492ba933a69"
+    parse: "ok"
+    parsed: {id: "component-box-id"}
+    instance: "/id"
+    schema_pointer: "/definitions/representationElement/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-017"
+    structure: "Representation element for diagram"
+    field: "attributes"
+    readme_lines: [451, 453]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        color: red
+        shape: square
+    text_sha256: "b33eabe5929fbbae79a9f7c3bf874f0f3f547eebd19b36be6d3c1934db28a3c3"
+    parse: "ok"
+    parsed: {attributes: {color: "red", shape: "square"}}
+    instance: "/attributes"
+    schema_pointer: "/definitions/representationElement/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-018"
+    structure: "Representation element for code"
+    field: "representation"
+    readme_lines: [497, 497]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      representation: code-repository
+    text_sha256: "9b16c9506675a34cc7dfe6e99a901d5bb0370dbaf96fec3206c94a7c19fcf2d0"
+    parse: "ok"
+    parsed: {representation: "code-repository"}
+    instance: "/representation"
+    schema_pointer: "/definitions/representationElement/properties/representation"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-019"
+    structure: "Representation element for code"
+    field: "name"
+    readme_lines: [509, 509]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Example Class
+    text_sha256: "0dcc51932dbcce0dbbdb69e3fdb14e7274bff81f62582d403896081539c06464"
+    parse: "ok"
+    parsed: {name: "Example Class"}
+    instance: "/name"
+    schema_pointer: "/definitions/representationElement/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-020"
+    structure: "Representation element for code"
+    field: "id"
+    readme_lines: [521, 521]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: org.example.class
+    text_sha256: "ae9ada30ac2eb0743b6653d974ec85e1eee8c05a0bf7fed62c99241998f1165e"
+    parse: "ok"
+    parsed: {id: "org.example.class"}
+    instance: "/id"
+    schema_pointer: "/definitions/representationElement/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-021"
+    structure: "Representation element for code"
+    field: "file"
+    readme_lines: [533, 533]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      file: path/to/class.java
+    text_sha256: "8dd0e30eb2c3f5c166a8b93908030d62564e3cc86871d4ff75a19cab2b473c14"
+    parse: "ok"
+    parsed: {file: "path/to/class.java"}
+    instance: "/file"
+    schema_pointer: "/definitions/representationElement/properties/file"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-022"
+    structure: "Representation element for code"
+    field: "line"
+    readme_lines: [545, 545]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      line: 324
+    text_sha256: "2598504221f2e876950e90066c39bb7a7ac7459ac5db7a3e858d780f841301b9"
+    parse: "ok"
+    parsed: {line: 324}
+    instance: "/line"
+    schema_pointer: "/definitions/representationElement/properties/line"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-023"
+    structure: "Representation element for code"
+    field: "codeSnippet"
+    readme_lines: [557, 564]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      codeSnippet: |
+        public void createOTM(String[] args) {
+          Scanner reader = new Scanner(System.in);
+          System.out.print("Enter a number: ");
+
+          int number = reader.nextInt()
+          System.out.println("You entered: " + number);
+      }
+    text_sha256: "867a1c9c889c6b4620fe2cad685001c89fbf3a3c7bcdafa059ff86de2f06d4ea"
+    parse: "error"
+    parse_error: >-
+      while parsing a block mapping in "<unicode string>", line 1, column 1: codeSnippet: | ^ expected <block end>,
+      but found '}' in "<unicode string>", line 8, column 1: } ^
+    result: "not validated: the snippet is not valid YAML"
+    notes: "Not valid YAML as written: the last line of the cell, \"    }\", loses the 4-space code-block indentation and lands in column 0, which ends the literal block and leaves a stray \"}\". The #### Example of the same section (L595-602) indents it correctly."
+  - id: "FE-024"
+    structure: "Representation element for code"
+    field: "attributes"
+    readme_lines: [576, 578]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        source: sonar
+        author: John Doe
+    text_sha256: "747f2c2e7d855dd024e61f4942b4d73d9906db6ac7f7fcf5e6f1b9a2f889d0e9"
+    parse: "ok"
+    parsed: {attributes: {source: "sonar", author: "John Doe"}}
+    instance: "/attributes"
+    schema_pointer: "/definitions/representationElement/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-025"
+    structure: "Representation element for threat-model"
+    field: "representation"
+    readme_lines: [627, 627]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      representation: architecture-threat-model
+    text_sha256: "5ca28009af91b6d51a7e06e200084f64f9728e0fafae14ad2ef4cf9c661612bc"
+    parse: "ok"
+    parsed: {representation: "architecture-threat-model"}
+    instance: "/representation"
+    schema_pointer: "/definitions/representationElement/properties/representation"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-026"
+    structure: "Representation element for threat-model"
+    field: "name"
+    readme_lines: [639, 639]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Threat model representation
+    text_sha256: "ca5d773777b4d52caa8b9e71888f96c8961808546a2b3b6c7311ef08b82c9e03"
+    parse: "ok"
+    parsed: {name: "Threat model representation"}
+    instance: "/name"
+    schema_pointer: "/definitions/representationElement/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-027"
+    structure: "Representation element for threat-model"
+    field: "id"
+    readme_lines: [651, 651]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: threat-model-representation-id
+    text_sha256: "2be861638bea71483d8de4e6b3a6bda123cc3a0d91a08828d3b94c459e7f6f61"
+    parse: "ok"
+    parsed: {id: "threat-model-representation-id"}
+    instance: "/id"
+    schema_pointer: "/definitions/representationElement/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-028"
+    structure: "Representation element for threat-model"
+    field: "attributes"
+    readme_lines: [663, 664]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        author: John Doe
+    text_sha256: "17c9c141b7171714f966d4071b60844ac67876115342d5f24e4b276a23f0bb7c"
+    parse: "ok"
+    parsed: {attributes: {author: "John Doe"}}
+    instance: "/attributes"
+    schema_pointer: "/definitions/representationElement/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-029"
+    structure: "Assets object"
+    field: "id"
+    readme_lines: [700, 700]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: cc-data
+    text_sha256: "4f8fb19438da64377f9732e348815e9aa1399e2345d862eeb1fd384d99439e2a"
+    parse: "ok"
+    parsed: {id: "cc-data"}
+    instance: "/id"
+    schema_pointer: "/properties/assets/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-030"
+    structure: "Assets object"
+    field: "name"
+    readme_lines: [712, 712]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Credit card data
+    text_sha256: "ca63eb41826bcd14dbf9fc6de7c6df033dc053e1f964bd00c710c546b9258862"
+    parse: "ok"
+    parsed: {name: "Credit card data"}
+    instance: "/name"
+    schema_pointer: "/properties/assets/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-031"
+    structure: "Assets object"
+    field: "description"
+    readme_lines: [724, 724]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: This is our customer’s credit card numbers
+    text_sha256: "7d51e3ce2d6bf952be1edefd56d3d8b4f74d12e6e28bd999f2695807733a17a8"
+    parse: "ok"
+    parsed: {description: "This is our customer’s credit card numbers"}
+    instance: "/description"
+    schema_pointer: "/properties/assets/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-032"
+    structure: "Assets object"
+    field: "attributes"
+    readme_lines: [744, 746]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        attr1: value1
+        attr2: value2
+    text_sha256: "a36b482de928796076eca89faad2db4123f4b72536c04155cc55375958e77d5f"
+    parse: "ok"
+    parsed: {attributes: {attr1: "value1", attr2: "value2"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/assets/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-033"
+    structure: "AssetRisk object"
+    field: "confidentiality"
+    readme_lines: [804, 804]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      confidentiality: 50
+    text_sha256: "e12ec85e68037117629d887af1ffa333934643d18c2c7a5a013b095646bee3e9"
+    parse: "ok"
+    parsed: {confidentiality: 50}
+    instance: "/confidentiality"
+    schema_pointer: "/properties/assets/items/properties/risk/properties/confidentiality"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-034"
+    structure: "AssetRisk object"
+    field: "integrity"
+    readme_lines: [816, 816]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      integrity: 50
+    text_sha256: "6ae3ec2f1052702d597fc0689b39b5aee8d45692fba48bd2598d49056135c92b"
+    parse: "ok"
+    parsed: {integrity: 50}
+    instance: "/integrity"
+    schema_pointer: "/properties/assets/items/properties/risk/properties/integrity"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-035"
+    structure: "AssetRisk object"
+    field: "availability"
+    readme_lines: [829, 829]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      availability: 50
+    text_sha256: "0964c2c5d21cc2b22da76360dda9ab838d2b1da3a254f1b42e9a2457004011e5"
+    parse: "ok"
+    parsed: {availability: 50}
+    instance: "/availability"
+    schema_pointer: "/properties/assets/items/properties/risk/properties/availability"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-036"
+    structure: "AssetRisk object"
+    field: "comment"
+    readme_lines: [841, 841]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      comment: We have decided that the values are a 100 for all values since this highly-sensitive information
+    text_sha256: "f21005666c0fa8d60c006617ea9ad5c12c946d55272d93c6a9f90d1873f6868a"
+    parse: "ok"
+    parsed: {comment: "We have decided that the values are a 100 for all values since this highly-sensitive information"}
+    instance: "/comment"
+    schema_pointer: "/properties/assets/items/properties/risk/properties/comment"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-037"
+    structure: "Asset Instance object"
+    field: "processed"
+    readme_lines: [868, 871]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      assets:
+        processed:
+          - asset1
+          - asset2
+    text_sha256: "88b1238dc3aa1a563a801030cc7a303985888f171ad1f4bc9583053be8d31ac4"
+    parse: "ok"
+    parsed: {assets: {processed: ["asset1", "asset2"]}}
+    instance: "/assets/processed"
+    schema_pointer: "/definitions/assetInstance/properties/processed"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: "Nested under an assets key, as it appears inside a component; the value at /assets/processed is validated."
+  - id: "FE-038"
+    structure: "Asset Instance object"
+    field: "stored"
+    readme_lines: [883, 886]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      assets:
+        stored:
+          - asset1
+          - asset2
+    text_sha256: "c7caa99ce5ac2d9302b5e01c43838f5a25e28af72cb8796c27df0304950a3550"
+    parse: "ok"
+    parsed: {assets: {stored: ["asset1", "asset2"]}}
+    instance: "/assets/stored"
+    schema_pointer: "/definitions/assetInstance/properties/stored"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: "Nested under an assets key, as it appears inside a component; the value at /assets/stored is validated."
+  - id: "FE-039"
+    structure: "Components object"
+    field: "name"
+    readme_lines: [925, 925]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Payments service
+    text_sha256: "0b561d87d59e1382786b5a0205a08572922851d3a1b308a263e144840167f2a8"
+    parse: "ok"
+    parsed: {name: "Payments service"}
+    instance: "/name"
+    schema_pointer: "/properties/components/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-040"
+    structure: "Components object"
+    field: "id"
+    readme_lines: [937, 937]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: payment-service
+    text_sha256: "1bfbc6581dbdf2bc977891dcc0db611000dcac16414a37622b0f665dadfccef9"
+    parse: "ok"
+    parsed: {id: "payment-service"}
+    instance: "/id"
+    schema_pointer: "/properties/components/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-041"
+    structure: "Components object"
+    field: "type"
+    readme_lines: [949, 949]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      type: ec2-instance
+    text_sha256: "c8f902eae36c9a01c0f544f2536f27640a15e116ca8bbd27e3b4b9ce00f38f53"
+    parse: "ok"
+    parsed: {type: "ec2-instance"}
+    instance: "/type"
+    schema_pointer: "/properties/components/items/properties/type"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-042"
+    structure: "Components object"
+    field: "tags"
+    readme_lines: [961, 963]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      tags:
+        - web
+        - server
+    text_sha256: "de6191c5f996e4e827525bd70bb829eed54c1be94f5811e9aecab5f737dfd74f"
+    parse: "ok"
+    parsed: {tags: ["web", "server"]}
+    instance: "/tags"
+    schema_pointer: "/properties/components/items/properties/tags"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-043"
+    structure: "Components object"
+    field: "description"
+    readme_lines: [975, 975]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: This is the server in charge of processing the payments in the platform
+    text_sha256: "2f937604b7a4bef6e8120b23cc32e801578ccb4e71d4d82cf4aa315b0bbc2d69"
+    parse: "ok"
+    parsed: {description: "This is the server in charge of processing the payments in the platform"}
+    instance: "/description"
+    schema_pointer: "/properties/components/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-044"
+    structure: "Components object"
+    field: "attributes"
+    readme_lines: [1022, 1024]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        attr1: value1
+        attr2: value2
+    text_sha256: "a36b482de928796076eca89faad2db4123f4b72536c04155cc55375958e77d5f"
+    parse: "ok"
+    parsed: {attributes: {attr1: "value1", attr2: "value2"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/components/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-045"
+    structure: "TrustZones object"
+    field: "name"
+    readme_lines: [1118, 1118]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Internet
+    text_sha256: "404937bbffb93a65fcfaa00034032c85ef8d39d7404a9bb637463cd95f271844"
+    parse: "ok"
+    parsed: {name: "Internet"}
+    instance: "/name"
+    schema_pointer: "/properties/trustZones/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-046"
+    structure: "TrustZones object"
+    field: "id"
+    readme_lines: [1130, 1130]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: 730df42e-69a4-11ed-bd69-9b318e4f98c5
+    text_sha256: "a89df008d7d0bbaf72962833164245fc7454825e0e378b61e204645bb348586c"
+    parse: "ok"
+    parsed: {id: "730df42e-69a4-11ed-bd69-9b318e4f98c5"}
+    instance: "/id"
+    schema_pointer: "/properties/trustZones/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-047"
+    structure: "TrustZones object"
+    field: "type"
+    readme_lines: [1142, 1142]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      type: internet
+    text_sha256: "1cfc79cdbf121b4f8f117d57e4452a392d3814ea9250e71dd76bcd5151be7c81"
+    parse: "ok"
+    parsed: {type: "internet"}
+    instance: "/type"
+    schema_pointer: "/properties/trustZones/items/properties/type"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-048"
+    structure: "TrustZones object"
+    field: "description"
+    readme_lines: [1154, 1159]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: >
+        This is the world
+        wide web accesible
+        for every one with
+        an internet
+        connection
+    text_sha256: "7c79569aa65dd876c0b69630e2f4345a7ae0eb3d8c1e8b155b95723d53299e74"
+    parse: "ok"
+    parsed: {description: "This is the world wide web accesible for every one with an internet connection\n"}
+    instance: "/description"
+    schema_pointer: "/properties/trustZones/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: "A folded block scalar (>): the five lines join with single spaces and the value ends with one newline."
+  - id: "FE-049"
+    structure: "TrustZones object"
+    field: "attributes"
+    readme_lines: [1198, 1200]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        attr1: value1
+        attr2: value2
+    text_sha256: "a36b482de928796076eca89faad2db4123f4b72536c04155cc55375958e77d5f"
+    parse: "ok"
+    parsed: {attributes: {attr1: "value1", attr2: "value2"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/trustZones/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-050"
+    structure: "TrustZoneRisk object"
+    field: "trustRating"
+    readme_lines: [1269, 1269]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      trustRating: 10
+    text_sha256: "e95ddcc2fe17b761560b7291388d51b41ad0355c5a6137d042bd96f893cd70b9"
+    parse: "ok"
+    parsed: {trustRating: 10}
+    instance: "/trustRating"
+    schema_pointer: "/properties/trustZones/items/properties/risk/properties/trustRating"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-051"
+    structure: "Parent object"
+    field: "trustZone"
+    readme_lines: [1305, 1305]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      trustZone: private
+    text_sha256: "95cff7927b4d422e14cce87d9f17924e438cb86a2e29d79c03c0a2500083cb1d"
+    parse: "ok"
+    parsed: {trustZone: "private"}
+    instance: "/trustZone"
+    schema_pointer: "/definitions/parent/properties/trustZone"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-052"
+    structure: "Parent object"
+    field: "component"
+    readme_lines: [1317, 1317]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      component: web-server
+    text_sha256: "f9c907ba943913af854fdb2dd31fa87f386fae6635631cde497c8dabe26ffbcd"
+    parse: "ok"
+    parsed: {component: "web-server"}
+    instance: "/component"
+    schema_pointer: "/definitions/parent/properties/component"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-053"
+    structure: "Dataflows object"
+    field: "name"
+    readme_lines: [1355, 1355]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Credit card reporting
+    text_sha256: "f8ffd9be5028f4c342c6aa23333f8368adf98af1e67b72867c95b0adab6b8a4b"
+    parse: "ok"
+    parsed: {name: "Credit card reporting"}
+    instance: "/name"
+    schema_pointer: "/properties/dataflows/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-054"
+    structure: "Dataflows object"
+    field: "id"
+    readme_lines: [1367, 1367]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: credit-card-reporting
+    text_sha256: "f24e9c496e9c6f5aad9670c171d9dd31bc6da0d8f54c6e611809885b4e1697ee"
+    parse: "ok"
+    parsed: {id: "credit-card-reporting"}
+    instance: "/id"
+    schema_pointer: "/properties/dataflows/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-055"
+    structure: "Dataflows object"
+    field: "description"
+    readme_lines: [1379, 1379]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: Credit card information being exchanged in between the web app and the database
+    text_sha256: "70ecbc59fba2007519168024fa731cb941e9adcd810b2385dc25a7c5fb78824d"
+    parse: "ok"
+    parsed: {description: "Credit card information being exchanged in between the web app and the database"}
+    instance: "/description"
+    schema_pointer: "/properties/dataflows/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-056"
+    structure: "Dataflows object"
+    field: "tags"
+    readme_lines: [1391, 1393]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      tags:
+        - http
+        - https
+    text_sha256: "929c663cdeef798c8129ecf7d294761d2d72877307ffb565a1d63622bb1c58f5"
+    parse: "ok"
+    parsed: {tags: ["http", "https"]}
+    instance: "/tags"
+    schema_pointer: "/properties/dataflows/items/properties/tags"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-057"
+    structure: "Dataflows object"
+    field: "bidirectional"
+    readme_lines: [1408, 1408]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      bidirectional: true
+    text_sha256: "89f2396e91c0088626b73c866b3284c219ffd0adfdd840c8edb7d4a539d6924e"
+    parse: "ok"
+    parsed: {bidirectional: true}
+    instance: "/bidirectional"
+    schema_pointer: "/properties/dataflows/items/properties/bidirectional"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-058"
+    structure: "Dataflows object"
+    field: "source"
+    readme_lines: [1420, 1420]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      source: web-service
+    text_sha256: "4e20cf2affd884ad3fdd0371573252dc5ebe87d9a3e26eed8ba8590980c68367"
+    parse: "ok"
+    parsed: {source: "web-service"}
+    instance: "/source"
+    schema_pointer: "/properties/dataflows/items/properties/source"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-059"
+    structure: "Dataflows object"
+    field: "destination"
+    readme_lines: [1432, 1432]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      destination: psotgress-db
+    text_sha256: "4cc1b7ab859483f4d6a0bd91437637ca626773fb6f9013c5f01758c7db551569"
+    parse: "ok"
+    parsed: {destination: "psotgress-db"}
+    instance: "/destination"
+    schema_pointer: "/properties/dataflows/items/properties/destination"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: "The value psotgress-db is a misspelling of postgres; it names no component of any README example."
+  - id: "FE-060"
+    structure: "Dataflows object"
+    field: "assets"
+    readme_lines: [1444, 1446]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      assets:
+        - cc-data
+        - public-info
+    text_sha256: "1528eba0c962d86cae5e2f6aed7b8df00326b443b19369e6bb088617523b351c"
+    parse: "ok"
+    parsed: {assets: ["cc-data", "public-info"]}
+    instance: "/assets"
+    schema_pointer: "/properties/dataflows/items/properties/assets"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-061"
+    structure: "Dataflows object"
+    field: "attributes"
+    readme_lines: [1466, 1468]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        attr1: value1
+        attr2: value2
+    text_sha256: "a36b482de928796076eca89faad2db4123f4b72536c04155cc55375958e77d5f"
+    parse: "ok"
+    parsed: {attributes: {attr1: "value1", attr2: "value2"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/dataflows/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-062"
+    structure: "Threats object"
+    field: "name"
+    readme_lines: [1520, 1520]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Attackers gain unauthorized access to the control of the environment
+    text_sha256: "912ec3d7245cbb7a913b0a119b9aa6cac5927b37b6e505caa040e3a049bc2ecf"
+    parse: "ok"
+    parsed: {name: "Attackers gain unauthorized access to the control of the environment"}
+    instance: "/name"
+    schema_pointer: "/properties/threats/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-063"
+    structure: "Threats object"
+    field: "id"
+    readme_lines: [1532, 1532]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: LOSS-CONTROL_ENV
+    text_sha256: "b20ae0e633d6b76abe7b27d6e24004ba99f4be43d7ded24d8aa9541b335a2dad"
+    parse: "ok"
+    parsed: {id: "LOSS-CONTROL_ENV"}
+    instance: "/id"
+    schema_pointer: "/properties/threats/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-064"
+    structure: "Threats object"
+    field: "description"
+    readme_lines: [1544, 1544]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: Attackers could potentially gain unauthorized access to the control of the environment, due to user accounts - or role groups - not being well-defined and configured. As a consequence, attackers may be able to make changes without root approval.
+    text_sha256: "a69277bf0ec134e3d7217a7d7d79c5b0866294a67cdef20cb9ce9627a80cb83f"
+    parse: "ok"
+    parsed: {description: "Attackers could potentially gain unauthorized access to the control of the environment, due to user accounts - or role groups - not being well-defined and configured. As a consequence, attackers may be able to make changes without root approval."}
+    instance: "/description"
+    schema_pointer: "/properties/threats/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-065"
+    structure: "Threats object"
+    field: "categories"
+    readme_lines: [1556, 1558]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      categories:
+        - Spoofing
+        - Authentication
+    text_sha256: "05b2b0b7ced62df4aa1cb43652583c1d89149c0fa255443a572fd4ff72e259bb"
+    parse: "ok"
+    parsed: {categories: ["Spoofing", "Authentication"]}
+    instance: "/categories"
+    schema_pointer: "/properties/threats/items/properties/categories"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-066"
+    structure: "Threats object"
+    field: "cwes"
+    readme_lines: [1570, 1572]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      cwes:
+        - CWE-79
+        - CWE-787
+    text_sha256: "0756911b453f667cd03a089963cfee4132393327cc2c411a145f2458eeb2e401"
+    parse: "ok"
+    parsed: {cwes: ["CWE-79", "CWE-787"]}
+    instance: "/cwes"
+    schema_pointer: "/properties/threats/items/properties/cwes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-067"
+    structure: "Threats object"
+    field: "tags"
+    readme_lines: [1592, 1594]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      tags:
+        - unauthorized-access
+        - loss-control
+    text_sha256: "4fb66e339e41a79117baf0d45b54d7cbdaf5e0a9b5461be44cb45f1222fce4f0"
+    parse: "ok"
+    parsed: {tags: ["unauthorized-access", "loss-control"]}
+    instance: "/tags"
+    schema_pointer: "/properties/threats/items/properties/tags"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-068"
+    structure: "Threats object"
+    field: "attributes"
+    readme_lines: [1606, 1608]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        expirationDate: “2021-05-17”
+        cmdbId: MyApp123
+    text_sha256: "b9f5280bddc59c957913d192fa16e4011060a4f5a01dd69fff7f7ff83ad5a685"
+    parse: "ok"
+    parsed: {attributes: {expirationDate: "“2021-05-17”", cmdbId: "MyApp123"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/threats/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: >-
+      The value of expirationDate is the string “2021-05-17” including the typographic quotation marks, so it is a
+      string (not a YAML 1.1 timestamp).
+  - id: "FE-069"
+    structure: "ThreatRisk object"
+    field: "likelihood"
+    readme_lines: [1661, 1661]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      likelihood: 50
+    text_sha256: "3b1db840539a240434ae2c142e3c7df10cc15a7053dd077c01ee346153228523"
+    parse: "ok"
+    parsed: {likelihood: 50}
+    instance: "/likelihood"
+    schema_pointer: "/properties/threats/items/properties/risk/properties/likelihood"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-070"
+    structure: "ThreatRisk object"
+    field: "likelihoodComment"
+    readme_lines: [1673, 1673]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      likelihoodComment: It is reasonable to think that this might happen, but it requires that the attacker has a deep knowledge of cryptography
+    text_sha256: "ddf14213ca77456658a3916b4e65627a32570c8ac44443d827d1cefda5eb93d7"
+    parse: "ok"
+    parsed: {likelihoodComment: "It is reasonable to think that this might happen, but it requires that the attacker has a deep knowledge of cryptography"}
+    instance: "/likelihoodComment"
+    schema_pointer: "/properties/threats/items/properties/risk/properties/likelihoodComment"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-071"
+    structure: "ThreatRisk object"
+    field: "impact"
+    readme_lines: [1685, 1685]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      impact: 100
+    text_sha256: "e036288a07c8f4fae2641581d30cfeec301bd168f6780e2df731f8f7cdf072a3"
+    parse: "ok"
+    parsed: {impact: 100}
+    instance: "/impact"
+    schema_pointer: "/properties/threats/items/properties/risk/properties/impact"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-072"
+    structure: "ThreatRisk object"
+    field: "impactComment"
+    readme_lines: [1697, 1697]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      impactComment: If this threat becomes a reality, the company will struggle to keep customers and the monetary loss would jeopardize the business
+    text_sha256: "a0ac0e14c6417e08b4fbd05084778f21104b508fa75396caaca6b1875be3e8a9"
+    parse: "ok"
+    parsed: {impactComment: "If this threat becomes a reality, the company will struggle to keep customers and the monetary loss would jeopardize the business"}
+    instance: "/impactComment"
+    schema_pointer: "/properties/threats/items/properties/risk/properties/impactComment"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-073"
+    structure: "Threat instance object"
+    field: "threat"
+    readme_lines: [1735, 1735]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+       threat: 22724267-be7e-44c0-8b1f-d7d33e9a34ec
+    text_sha256: "6100823758e07a5aed8d08586951d668b9ce0d1bca000cae5645df57060387f4"
+    parse: "ok"
+    parsed: {" threat": "22724267-be7e-44c0-8b1f-d7d33e9a34ec"}
+    instance: null
+    result: "not validated: the parsed snippet has no key 'threat'; its keys are ['<U+00A0>threat']"
+    notes: >-
+      The line is indented with four spaces and a U+00A0 NO-BREAK SPACE, so after the code-block indentation is
+      removed the key is "\u00a0threat", not "threat". YAML does not treat U+00A0 as indentation, so the field
+      threat is absent from the parsed snippet.
+  - id: "FE-074"
+    structure: "Threat instance object"
+    field: "state"
+    readme_lines: [1747, 1747]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      state: mitigated
+    text_sha256: "f19e449d13593a9b78a6befe33e7e3f4d5be655dc88ae96d2a3febd9393e41c7"
+    parse: "ok"
+    parsed: {state: "mitigated"}
+    instance: "/state"
+    schema_pointer: "/definitions/threat/properties/state"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-075"
+    structure: "Mitigations object"
+    field: "name"
+    readme_lines: [1791, 1791]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      name: Use strong passwords
+    text_sha256: "ee45b5298f9c6ddf7bdb17fa1113acbfafbeb7a96f99137e086612807f696833"
+    parse: "ok"
+    parsed: {name: "Use strong passwords"}
+    instance: "/name"
+    schema_pointer: "/properties/mitigations/items/properties/name"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-076"
+    structure: "Mitigations object"
+    field: "id"
+    readme_lines: [1803, 1803]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      id: use-strong-passwords
+    text_sha256: "c0c2caddeda8bcd2332ad1b295e52a3a2f7ba924b2f66e1e2aa71ed0d0fe698d"
+    parse: "ok"
+    parsed: {id: "use-strong-passwords"}
+    instance: "/id"
+    schema_pointer: "/properties/mitigations/items/properties/id"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-077"
+    structure: "Mitigations object"
+    field: "description"
+    readme_lines: [1815, 1815]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      description: Force users to use passwords over 10 characters, containing letters numbers and symbols
+    text_sha256: "8441be5cb1952d241b95e98afd58e269b99c6f78a86a7bb88c44748696204049"
+    parse: "ok"
+    parsed: {description: "Force users to use passwords over 10 characters, containing letters numbers and symbols"}
+    instance: "/description"
+    schema_pointer: "/properties/mitigations/items/properties/description"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-078"
+    structure: "Mitigations object"
+    field: "riskReduction"
+    readme_lines: [1827, 1827]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      riskReduction: 75
+    text_sha256: "9d513e052ee6f6f7b5303592cae35f46175ff6d1314b6f27950bdc6480bd0e32"
+    parse: "ok"
+    parsed: {riskReduction: 75}
+    instance: "/riskReduction"
+    schema_pointer: "/properties/mitigations/items/properties/riskReduction"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-079"
+    structure: "Mitigations object"
+    field: "attributes"
+    readme_lines: [1841, 1843]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      attributes:
+        standard: OWASP-ASVS
+        cmdbId: MyApp123
+    text_sha256: "be214b5aa2c436adc347b76cef5213dac4121461b2accbc9cf4cf0d9a5320c5c"
+    parse: "ok"
+    parsed: {attributes: {standard: "OWASP-ASVS", cmdbId: "MyApp123"}}
+    instance: "/attributes"
+    schema_pointer: "/properties/mitigations/items/properties/attributes"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-080"
+    structure: "Mitigation instance object"
+    field: "mitigation"
+    readme_lines: [1888, 1888]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      mitigation: fd6136f4-e2ff-11eb-ba80-0242ac130004
+    text_sha256: "28e33024ee2131a8f29d8ce1ac57c9f6c71efa6fc3ec0ee02d756ff244f88217"
+    parse: "ok"
+    parsed: {mitigation: "fd6136f4-e2ff-11eb-ba80-0242ac130004"}
+    instance: "/mitigation"
+    schema_pointer: "/definitions/threat/properties/mitigations/items/properties/mitigation"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-081"
+    structure: "Mitigation instance object"
+    field: "state"
+    readme_lines: [1900, 1900]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      state: implemented
+    text_sha256: "488d439424b38874147c96a2ee115f8f1c0a29bf2fdf8a70f80a828359a10257"
+    parse: "ok"
+    parsed: {state: "implemented"}
+    instance: "/state"
+    schema_pointer: "/definitions/threat/properties/mitigations/items/properties/state"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-082"
+    structure: "Repository object"
+    field: "url"
+    readme_lines: [1935, 1935]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      https://github.com/my-project
+    text_sha256: "9c716693c2c88686b2f78266810d6e1b1d4fe434cbdb90a6ae397b6c51730576"
+    parse: "ok"
+    parsed: "https://github.com/my-project"
+    instance: ""
+    schema_pointer: "/properties/representations/items/properties/repository/properties/url"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+    notes: "The snippet is a bare URL with no key; it parses as a string, which is validated as the value of url."
+  - id: "FE-083"
+    structure: "Size object"
+    field: "width"
+    readme_lines: [1968, 1968]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      width: 400
+    text_sha256: "7a75c4e25cd0bca52bf63d1d2ec2a6dbfaba158ba05456cbf908d16144d81bd0"
+    parse: "ok"
+    parsed: {width: 400}
+    instance: "/width"
+    schema_pointer: "/definitions/size/properties/width"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-084"
+    structure: "Size object"
+    field: "height"
+    readme_lines: [1980, 1980]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      height: 300
+    text_sha256: "fc8b37ab0d58693c68727060204b47efcc60497ec6d44b762852bd924c519d10"
+    parse: "ok"
+    parsed: {height: 300}
+    instance: "/height"
+    schema_pointer: "/definitions/size/properties/height"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-085"
+    structure: "Position object"
+    field: "x"
+    readme_lines: [2005, 2005]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      x: 200
+    text_sha256: "03fbc753fddaabcb3acfded7790cbcb7c001d1b20d50dd84ebd79658de6893ef"
+    parse: "ok"
+    parsed: {x: 200}
+    instance: "/x"
+    schema_pointer: "/definitions/position/properties/x"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}
+  - id: "FE-086"
+    structure: "Position object"
+    field: "y"
+    readme_lines: [2017, 2017]
+    cell: "HTML table cell, indented code block (4-space indentation removed)"
+    text: |
+      y: 100
+    text_sha256: "62e89a01b96d5b9d95471c70821732e9f3fda8613930125e7bca807761aa4013"
+    parse: "ok"
+    parsed: {"y": 100}
+    instance: "/y"
+    schema_pointer: "/definitions/position/properties/y"
+    source_schema: {valid: true, errors: []}
+    strict_schema: {valid: true, errors: []}

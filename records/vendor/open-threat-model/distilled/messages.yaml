@@ -1,0 +1,1205 @@
+schema: "library-messages/v1"
+record: "open-threat-model"
+reviewed_by: ""
+source:
+  specification:
+    file: "README.md"
+    url: "https://github.com/iriusrisk/OpenThreatModel/blob/c88c5a7b4115f0f025e28d5682a2b0d790b389e4/README.md"
+    sha256: "4acfb48b04423a6abecf805673890e38edf4df6340dc1269d6ac2e1ef78cf8c0"
+    lines: 2034
+    last_changed: "355287f5a4283328189faaaa9d4c55dd667f954a (2023-08-29)"
+    licence: "CC BY-SA 4.0 (README L2032-2034; LICENSE)"
+  schema:
+    file: "otm_schema.json"
+    url: "https://github.com/iriusrisk/OpenThreatModel/blob/c88c5a7b4115f0f025e28d5682a2b0d790b389e4/otm_schema.json"
+    sha256: "81e7f5a52a0a7d66b44cc4e0c15f21b5d60e1ca945c810e39622a730545eef0c"
+    lines: 308
+    id: "https://iriusrisk.com/schema/otm-0.2.0.schema.json"
+    dialect: "http://json-schema.org/draft-07/schema#"
+    last_changed: "06288a0d4d9d242a7bc80e138ed7417fccd60a5d (2024-01-31, after the 0.2.0 tag; see schema/README.md)"
+    licence: "Apache-2.0 (its own $comment, L5)"
+    verbatim_copy: "schema/otm_schema.json (byte-identical; schema lines below refer to it)"
+  examples:
+    EXAMPLE.json:
+      sha256: "045667cd46ff8755a877f0af6104362bd438da3ca68e961ca9e3e1b969a5387b"
+      lines: 320
+    EXAMPLE.yaml:
+      sha256: "d78f42824cc7eec1a1f767aba29d8c0bc3081af6c05149130bb9f7df492a2761"
+      lines: 232
+    copies: "examples/EXAMPLE.json, examples/EXAMPLE.yaml (verbatim)"
+  repository: "https://github.com/iriusrisk/OpenThreatModel"
+  commit: "c88c5a7b4115f0f025e28d5682a2b0d790b389e4 (2025-12-11)"
+  otm_version: "0.2.0 (README L18 \"Current schema version: 0.2.0\")"
+note: >-
+  The Open Threat Model (OTM) defines a data format and no exchange, so every structure is a message here: the
+  root OTM object and each structure that README.md describes under a heading of its own (26 headings: 19 "##
+  ... object" sections, the three representation types under "## Representation supported types", the three
+  representation element variants and "### Position object"). Each entry is named exactly as its README heading.
+  A field is listed once per structure that names it: the README rows of that heading plus, for non-variant
+  structures, every property the schema declares at that location. 109 README field rows and 101 schema property
+  declarations give 120 field entries: the 19 extra entries are the variants repeating the shared properties of
+  representations (size, repository) and of representationElement (6 + 7 + 4). Field names are exactly as
+  spelled in both sources (case sensitive, README L25). The source schema declares no enum, const, pattern,
+  format, minimum, maximum, additionalProperties, uniqueItems, default or if/then; its only constraints are
+  type, required, items, $ref and one oneOf.
+conventions:
+  name: "structure: README heading text exactly; field: property name exactly"
+  readme_type: "the README Type cell as rendered: link markup reduced to its text, HTML entities decoded"
+  readme_required: >-
+    yes = the README description starts with REQUIRED in bold; recommended = RECOMMENDED; no = neither; null = the
+    README has no row for this field at this heading (see readme_defined_in)
+  readme_line: >-
+    README.md line of the field name cell; readme_required_line = line holding the REQUIRED / RECOMMENDED marker;
+    readme_description_lines = first and last line of the description cell
+  schema_pointer: "RFC 6901 JSON pointer into schema/otm_schema.json of the property subschema; schema_line = line of its key"
+  schema_type: >-
+    type of the property after following $ref (schema_ref gives the target); a list, "null" included where the
+    schema allows null
+  schema_required: "yes = in the enclosing object's required list; oneOf = required only by one branch of a oneOf; no = optional"
+  schema_constraints: "what the source schema enforces beyond type (there is no enum, range, pattern or format anywhere)"
+  strict: >-
+    ids of the additions in schema/otm-0.2.0.derived-strict.schema.json that constrain this field
+    (strict_additions below)
+  xref: >-
+    ids of the derived cross-reference checks that cover this field (derived_checks below); no JSON Schema here
+    can express them
+  references: >-
+    what an id-valued field points at; checked_by_schema is false for every one. kind: stated = the README names
+    the target (e.g. "Id of the representation"); inferred = the target is read from the key or the example
+    values. That the id must resolve to an object declared in the same document is never stated:
+    requirements.yaml marks those resolution rules inferred (R-0029, R-0036, R-0040, R-0053, R-0054, R-0072,
+    R-0074, R-0081, R-0083, R-0084, R-0088) and the should rules R-0095, R-0103 stated
+  field_examples: "ids of this field's README Examples-column snippets in examples/readme-field-examples.yaml"
+  example_json: >-
+    EXAMPLE.json: of = instances of the structure, present = instances carrying the field, null = of those, how
+    many are null, lines = line of each occurrence of the key. EXAMPLE.yaml parses to identical data
+    (examples/expected.yaml X-01)
+  constrained_by: >-
+    ids of the requirements in requirements.yaml that constrain this structure or field; filled by the coordinator
+    and checked in pass 3 (see constrained_by_linking)
+counts:
+  structures: 26
+  fields: 120
+  readme_field_rows: 109
+  schema_property_declarations: 101
+  schema_ref_sites: 10
+  schema_nullable_type_declarations: 61
+  schema_oneOf: 1
+  schema_enums: 0
+  readme_field_examples: 86
+  example_json_null_values: 22
+encodings:
+  document:
+    statement: "An OTM document is itself a JSON object, which may be represented either in JSON or YAML format."
+    line: 23
+  field_names:
+    statement: >-
+      All field names in the specification are **case sensitive**. This includes all fields that are used as keys in
+      a map.
+    line: 25
+  approach:
+    statement: >-
+      The specification follows the same approach to JSON formats as the OpenAPI specification. See
+      https://swagger.io/specification/ for more information.
+    line: 27
+  json: >-
+    No JSON RFC, media type, file extension or character encoding is named. The complete example is EXAMPLE.json
+    (README L11): UTF-8 with only ASCII characters, LF line ends, 2-space indentation; json.dumps(indent=2)
+    reproduces it byte for byte.
+  yaml: >-
+    The YAML version is not stated. A YAML document is an OTM document only through the JSON data model (L23), so
+    its scalars must resolve to JSON types. A YAML 1.1 loader (PyYAML SafeLoader as shipped, SnakeYAML) turns
+    unquoted dates such as expirationDate: 2021-05-17 in the README Threats example (L1635) into timestamps, which
+    are not JSON values; examples/ therefore loads YAML with the timestamp resolver disabled and reports the stock
+    YAML 1.1 result separately where it differs (one fixture). A key with no value (attributes: in EXAMPLE.yaml)
+    is null. EXAMPLE.yaml parses to data identical to EXAMPLE.json, key order included.
+  layout: >-
+    Text only: no binary encoding, framing, canonical form, member ordering, signature or digest is defined.
+    Member order carries no meaning in either encoding.
+identifier_scheme:
+  type: >-
+    JSON string on every id field (schema type "string"); no pattern, length, character set or case rule in either
+    source
+  uniqueness: >-
+    The README calls each id a "Unique identifier" (Project L93, representation L221, representation elements L420
+    / L518 / L648, asset L697, component L934, trust zone L1127, dataflow L1364, threat L1529, mitigation L1800)
+    without saying unique within what. The schema checks no uniqueness; draft-07 cannot express uniqueness of one
+    property across array items. Derived check XR-01 checks it per collection.
+  cross_collection: >-
+    The Parent object names its target collection by key (trustZone or component) "to avoid ambiguity" (L985,
+    L1302, L1314). Disambiguating by key suggests that an id is not assumed unique across collections; XR-01
+    reports cross-collection reuse as info only.
+  references: >-
+    By id value only: a string field holding the id of another object of the same document (see references). There
+    is no URI form, namespace or versioned id, and no reference to another OTM document.
+  example_styles:
+    - {value: "project-example-id", where: "README L96", style: "kebab-case slug"}
+    - {value: "cc-data", where: "README L700", style: "kebab-case slug"}
+    - {value: "org.example.class", where: "README L521", style: "dotted name"}
+    - {value: "LOSS-CONTROL_ENV", where: "README L1532", style: "upper case with - and _"}
+    - {value: "730df42e-69a4-11ed-bd69-9b318e4f98c5", where: "README L1130", style: "UUID (version 1)"}
+    - {value: "22724267-be7e-44c0-8b1f-d7d33e9a34ec", where: "EXAMPLE.json L281", style: "UUID (version 4)"}
+    - {value: "database class", where: "EXAMPLE.json L176", style: "contains a space"}
+    - {value: "box-for-postgress-DB", where: "EXAMPLE.json L152", style: "mixed case"}
+data_types:
+  statement: >-
+    Primitive data types in the OTM are based on the types supported by the [JSON Schema Specification Wright
+    Draft 00](https://datatracker.ietf.org/doc/html/draft-wright-json-schema-00#section-4.2). Note that `integer`
+    as a type is also supported and is defined as a JSON number without a fraction or exponent part. `null` is not
+    supported as a type (see `nullable` for an alternative solution).
+  line: 31
+  table_lines: [35, 45]
+  types:
+    - {type: "integer", comment: "signed 32 bits", line: 37, readme_field_rows: 12}
+    - {type: "long", comment: "signed 64 bits (a.k.a long)", line: 38, readme_field_rows: 0}
+    - {type: "float", comment: "", line: 39, readme_field_rows: 0}
+    - {type: "double", comment: "", line: 40, readme_field_rows: 0}
+    - {type: "string", comment: "", line: 41, readme_field_rows: 41}
+    - {type: "richText", comment: "Rich text fields are noted as supporting CommonMark markdown formatting.", line: 42, readme_field_rows: 12}
+    - {type: "boolean", comment: "", line: 43, readme_field_rows: 1}
+    - {type: "date", comment: "As defined by full-date - [RFC3339](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)", line: 44, readme_field_rows: 0}
+    - {type: "datetime", comment: "As defined by date-time - [RFC3339](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14)", line: 45, readme_field_rows: 0}
+  other_readme_types: >-
+    README Type cells also use object types (a link to a structure), "array of strings", "array of <structure>",
+    "Map [string, string]" and "Map <string, string>". boolean is used once (Dataflows bidirectional); long,
+    float, double, date and datetime by no field.
+messages:
+  - name: "OTM object"
+    readme_heading: "## OTM object"
+    readme_heading_line: 51
+    readme_section_lines: [51, 63]
+    readme_prose_lines: []
+    kind: "root object (the document)"
+    schema_pointer: ""
+    schema_line: 1
+    schema_type: ["object"]
+    schema_required: ["otmVersion", "project"]
+    document_paths: [""]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "", line: 1}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0002", "open-threat-model#R-0003", "open-threat-model#R-0004", "open-threat-model#R-0005", "open-threat-model#R-0110", "open-threat-model#R-0112"]
+    notes: >-
+      The document itself. The README describes no root-level attributes map, and the schema declares none.
+      trustZones and dataflows are the only root collections the schema does not allow to be null (M-10).
+    fields:
+      - {name: "otmVersion", readme_type: "string", readme_required: "yes", readme_line: 55, readme_required_line: 55, readme_description_lines: [55, 55], schema_pointer: "/properties/otmVersion", schema_line: 9, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: ["S-01"], xref: [], field_examples: ["FE-001"], example_json: {of: 1, present: 1, "null": 0, lines: [2]}, constrained_by: ["open-threat-model#R-0015", "open-threat-model#R-0016", "open-threat-model#R-0113", "open-threat-model#R-0115"]}
+      - {name: "project", readme_type: "Project object", readme_required: "yes", readme_line: 56, readme_required_line: 56, readme_description_lines: [56, 56], schema_pointer: "/properties/project", schema_line: 12, schema_type: ["object"], schema_required: "yes", schema_constraints: ["value requires ['name', 'id'] (L14)"], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [3]}, constrained_by: ["open-threat-model#R-0017", "open-threat-model#R-0114", "open-threat-model#R-0116"]}
+      - {name: "representations", readme_type: "Representations object", readme_required: "no", readme_line: 57, readme_description_lines: [57, 57], schema_pointer: "/properties/representations", schema_line: 30, schema_type: ["array", "null"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [13]}, constrained_by: ["open-threat-model#R-0127", "open-threat-model#R-0128"]}
+      - {name: "assets", readme_type: "Assets object", readme_required: "no", readme_line: 58, readme_description_lines: [58, 58], schema_pointer: "/properties/assets", schema_line: 52, schema_type: ["array", "null"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [34]}, constrained_by: ["open-threat-model#R-0141", "open-threat-model#R-0142"]}
+      - {name: "components", readme_type: "Components object", readme_required: "no", readme_line: 59, readme_description_lines: [59, 59], schema_pointer: "/properties/components", schema_line: 101, schema_type: ["array", "null"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [60]}, constrained_by: ["open-threat-model#R-0174", "open-threat-model#R-0175"]}
+      - {name: "dataflows", readme_type: "DataFlows object", readme_required: "no", readme_line: 60, readme_description_lines: [60, 60], schema_pointer: "/properties/dataflows", schema_line: 131, schema_type: ["array"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [186]}, constrained_by: ["open-threat-model#R-0193", "open-threat-model#R-0194"]}
+      - {name: "trustZones", readme_type: "TrustZones object", readme_required: "no", readme_line: 61, readme_description_lines: [61, 61], schema_pointer: "/properties/trustZones", schema_line: 75, schema_type: ["array"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [228]}, constrained_by: ["open-threat-model#R-0158", "open-threat-model#R-0159"]}
+      - {name: "threats", readme_type: "Threats object", readme_required: "no", readme_line: 62, readme_description_lines: [62, 62], schema_pointer: "/properties/threats", schema_line: 161, schema_type: ["array", "null"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [278]}, constrained_by: ["open-threat-model#R-0212", "open-threat-model#R-0213"]}
+      - {name: "mitigations", readme_type: "Mitigations object", readme_required: "no", readme_line: 63, readme_description_lines: [63, 63], schema_pointer: "/properties/mitigations", schema_line: 198, schema_type: ["array", "null"], schema_items: {type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [304]}, constrained_by: ["open-threat-model#R-0234", "open-threat-model#R-0235"]}
+  - name: "Project object"
+    readme_heading: "## Project object"
+    readme_heading_line: 65
+    readme_section_lines: [65, 181]
+    readme_prose_lines: [67]
+    readme_links:
+      - {line: 56, text: "Project object", anchor: "#project-object", resolves_to: "Project object"}
+    kind: "object"
+    schema_pointer: "/properties/project"
+    schema_line: 12
+    schema_type: ["object"]
+    schema_required: ["name", "id"]
+    document_paths: ["/project"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/project", line: 3}]}
+    strict: []
+    constrained_by: []
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 79, readme_required_line: 81, readme_description_lines: [81, 81], schema_pointer: "/properties/project/properties/name", schema_line: 16, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-002"], example_json: {of: 1, present: 1, "null": 0, lines: [4]}, constrained_by: ["open-threat-model#R-0018", "open-threat-model#R-0117", "open-threat-model#R-0119"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 91, readme_required_line: 93, readme_description_lines: [93, 93], schema_pointer: "/properties/project/properties/id", schema_line: 17, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-003"], example_json: {of: 1, present: 1, "null": 0, lines: [5]}, constrained_by: ["open-threat-model#R-0019", "open-threat-model#R-0020", "open-threat-model#R-0118", "open-threat-model#R-0120"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 103, readme_description_lines: [105, 105], schema_pointer: "/properties/project/properties/description", schema_line: 18, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-004"], example_json: {of: 1, present: 1, "null": 0, lines: [6]}, constrained_by: ["open-threat-model#R-0121"]}
+      - {name: "owner", readme_type: "string", readme_required: "no", readme_line: 115, readme_description_lines: [117, 117], schema_pointer: "/properties/project/properties/owner", schema_line: 19, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-005"], example_json: {of: 1, present: 1, "null": 0, lines: [7]}, constrained_by: ["open-threat-model#R-0122"]}
+      - {name: "ownerContact", readme_type: "string", readme_required: "no", readme_line: 127, readme_description_lines: [129, 129], schema_pointer: "/properties/project/properties/ownerContact", schema_line: 20, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-006"], example_json: {of: 1, present: 1, "null": 0, lines: [8]}, constrained_by: ["open-threat-model#R-0123"]}
+      - {name: "tags", readme_type: "array of strings", readme_required: "no", readme_line: 139, readme_description_lines: [141, 142], schema_pointer: "/properties/project/properties/tags", schema_line: 21, schema_type: ["array", "null"], schema_items: {type: ["string"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-007"], example_json: {of: 1, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0124", "open-threat-model#R-0125"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 154, readme_description_lines: [156, 156], schema_pointer: "/properties/project/properties/attributes", schema_line: 27, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-27"], xref: [], field_examples: ["FE-008"], example_json: {of: 1, present: 1, "null": 0, lines: [9]}, constrained_by: ["open-threat-model#R-0126"]}
+  - name: "Representations object"
+    readme_heading: "## Representations object"
+    readme_heading_line: 183
+    readme_section_lines: [183, 294]
+    readme_prose_lines: [185, 187, 189, 191, 192, 193, 195]
+    readme_links:
+      - {line: 57, text: "Representations object", anchor: "#representations-object", resolves_to: "Representations object"}
+      - {line: 372, text: "OTM version 0.1.0 | Representations-object", anchor: "#representations-object", resolves_to: "Representations object"}
+      - {line: 994, text: "Representation Element object", anchor: "#representations-object", resolves_to: "Representations object"}
+    kind: "array item (the README section describes one representation: \"Each representation has these fields\")"
+    schema_pointer: "/properties/representations/items"
+    schema_line: 32
+    schema_collection_pointer: "/properties/representations"
+    schema_collection_line: 30
+    schema_collection_type: ["array", "null"]
+    schema_type: ["object"]
+    schema_required: ["name", "id", "type"]
+    document_paths: ["/representations/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/representations/0", line: 14}, {pointer: "/representations/1", line: 24}]}
+    strict: ["S-03"]
+    constrained_by: ["open-threat-model#R-0026"]
+    notes: >-
+      The README section describes one representation ("Each representation has these fields", L195); the root field
+      representations is an array of them. size and repository are declared on every representation in the schema;
+      the README defines them per type under "Representation supported types" (Diagram, Code), see M-04.
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 207, readme_required_line: 209, readme_description_lines: [209, 209], schema_pointer: "/properties/representations/items/properties/name", schema_line: 36, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-009"], example_json: {of: 2, present: 2, "null": 0, lines: [15, 25]}, constrained_by: ["open-threat-model#R-0022", "open-threat-model#R-0129", "open-threat-model#R-0132"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 219, readme_required_line: 221, readme_description_lines: [221, 221], schema_pointer: "/properties/representations/items/properties/id", schema_line: 37, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-010"], example_json: {of: 2, present: 2, "null": 0, lines: [16, 26]}, constrained_by: ["open-threat-model#R-0023", "open-threat-model#R-0024", "open-threat-model#R-0130", "open-threat-model#R-0133"]}
+      - {name: "type", readme_type: "string", readme_required: "yes", readme_line: 231, readme_required_line: 233, readme_description_lines: [233, 233], schema_pointer: "/properties/representations/items/properties/type", schema_line: 38, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: ["S-02"], xref: [], field_examples: ["FE-011"], example_json: {of: 2, present: 2, "null": 0, lines: [17, 27]}, constrained_by: ["open-threat-model#R-0021", "open-threat-model#R-0025", "open-threat-model#R-0131", "open-threat-model#R-0134"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 242, readme_description_lines: [244, 244], schema_pointer: "/properties/representations/items/properties/description", schema_line: 39, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-012"], example_json: {of: 2, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0135"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 254, readme_description_lines: [256, 257], schema_pointer: "/properties/representations/items/properties/attributes", schema_line: 48, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-28"], xref: [], field_examples: ["FE-013"], example_json: {of: 2, present: 2, "null": 2, lines: [22, 31]}, constrained_by: ["open-threat-model#R-0140"]}
+      - {name: "size", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/properties/representations/items/properties/size", schema_line: 40, schema_ref: "#/definitions/size", schema_ref_line: 214, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['width', 'height'] (L216)"], strict: ["S-03"], xref: [], example_json: {of: 2, present: 1, "null": 0, lines: [18]}, constrained_by: ["open-threat-model#R-0027", "open-threat-model#R-0136"], readme_defined_in: "README: Diagram, L308 (REQUIRED for type diagram)"}
+      - {name: "repository", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/properties/representations/items/properties/repository", schema_line: 41, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['url'] (L43)"], strict: [], xref: [], example_json: {of: 2, present: 1, "null": 0, lines: [28]}, constrained_by: ["open-threat-model#R-0137"], readme_defined_in: "README: Code, L334"}
+  - name: "Diagram"
+    readme_heading: "### Diagram"
+    readme_heading_line: 300
+    readme_section_lines: [300, 324]
+    readme_parent_heading: "Representation supported types"
+    readme_prose_lines: [302, 304]
+    kind: "variant of a representation, selected by type == \"diagram\""
+    variant_of: "Representations object"
+    schema_pointer: "/properties/representations/items"
+    schema_line: 32
+    schema_type: ["object"]
+    schema_required: ["name", "id", "type"]
+    document_paths: ["/representations/*  (selected by type == \"diagram\")"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/representations/0", line: 14}]}
+    strict: ["S-03"]
+    constrained_by: []
+    notes: >-
+      Not a separate schema object: a representation whose type is "diagram". The README makes size REQUIRED for it
+      (L308); the source schema does not (M-04); the strict profile does (S-03).
+    fields:
+      - {name: "size", readme_type: "Size object", readme_required: "yes", readme_line: 308, readme_required_line: 308, readme_description_lines: [308, 308], schema_pointer: "/properties/representations/items/properties/size", schema_line: 40, schema_ref: "#/definitions/size", schema_ref_line: 214, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['width', 'height'] (L216)"], strict: ["S-03"], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [18]}, constrained_by: ["open-threat-model#R-0027", "open-threat-model#R-0136"]}
+  - name: "Code"
+    readme_heading: "### Code"
+    readme_heading_line: 326
+    readme_section_lines: [326, 348]
+    readme_parent_heading: "Representation supported types"
+    readme_prose_lines: [328, 330]
+    kind: "variant of a representation, selected by type == \"code\""
+    variant_of: "Representations object"
+    schema_pointer: "/properties/representations/items"
+    schema_line: 32
+    schema_type: ["object"]
+    schema_required: ["name", "id", "type"]
+    document_paths: ["/representations/*  (selected by type == \"code\")"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/representations/1", line: 24}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      Not a separate schema object: a representation whose type is "code". repository is optional for it (L334). The
+      schema requires url inside repository although the README does not (M-07).
+    fields:
+      - {name: "repository", readme_type: "Repository object", readme_required: "no", readme_line: 334, readme_description_lines: [334, 334], schema_pointer: "/properties/representations/items/properties/repository", schema_line: 41, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['url'] (L43)"], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [28]}, constrained_by: ["open-threat-model#R-0137"]}
+  - name: "Threat-Model"
+    readme_heading: "### Threat-Model"
+    readme_heading_line: 350
+    readme_section_lines: [350, 366]
+    readme_parent_heading: "Representation supported types"
+    readme_prose_lines: [352, 354]
+    kind: "variant of a representation, selected by type == \"threat-model\""
+    variant_of: "Representations object"
+    schema_pointer: "/properties/representations/items"
+    schema_line: 32
+    schema_type: ["object"]
+    schema_required: ["name", "id", "type"]
+    document_paths: ["/representations/*  (selected by type == \"threat-model\")"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 0, at: []}
+    strict: []
+    constrained_by: []
+    notes: >-
+      Not a separate schema object: a representation whose type is "threat-model". "Under the type “threat-model“ we
+      have no extra fields." (L354). No field rows.
+    fields: []
+  - name: "RepresentationElement object"
+    readme_heading: "## RepresentationElement object"
+    readme_heading_line: 368
+    readme_section_lines: [368, 378]
+    readme_prose_lines: [370, 372, 374, 375, 376, 378]
+    readme_links:
+      - {line: 1186, text: "Representation Element object", anchor: "#representationelement-object", resolves_to: "RepresentationElement object"}
+    kind: "array item (definitions/representationElement)"
+    schema_pointer: "/definitions/representationElement"
+    schema_line: 241
+    schema_type: ["object"]
+    schema_required: ["representation", "id"]
+    schema_referenced_from:
+      - {pointer: "/properties/trustZones/items/properties/representations/items", line: 95}
+      - {pointer: "/properties/components/items/properties/representations/items", line: 114}
+    document_paths: ["/components/*/representations/*", "/trustZones/*/representations/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 6, at: [{pointer: "/components/0/representations/0", line: 73}, {pointer: "/components/1/representations/0", line: 102}, {pointer: "/components/2/representations/0", line: 150}, {pointer: "/components/3/representations/0", line: 174}, {pointer: "/trustZones/0/representations/0", line: 238}, {pointer: "/trustZones/1/representations/0", line: 262}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0034", "open-threat-model#R-0260"]
+    notes: >-
+      The README has no field table at this heading; it splits the element into three variants (L372-378) whose
+      field sets differ. The schema has one definition holding the union of all their fields, every one optional
+      except representation and id (L243). The variant of an element is known only by resolving its representation
+      id to a representation and reading that representation's type (XR-04, XR-10). Field rows here are the schema
+      declarations; README rows are under the variants.
+    fields:
+      - {name: "representation", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/representation", schema_line: 245, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-04"], references: {target: "Representations object.id", checked_by_schema: false, kind: "stated"}, example_json: {of: 6, present: 6, "null": 0, lines: [74, 103, 151, 175, 239, 263]}, constrained_by: ["open-threat-model#R-0028", "open-threat-model#R-0029", "open-threat-model#R-0035", "open-threat-model#R-0036", "open-threat-model#R-0039", "open-threat-model#R-0040", "open-threat-model#R-0261", "open-threat-model#R-0263"], readme_defined_in: "README: all three element variants (diagram L394, code L492, threat-model L622)"}
+      - {name: "name", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/name", schema_line: 246, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 6, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0264"], readme_defined_in: "README: all three element variants (diagram L406, code L504, threat-model L634)"}
+      - {name: "id", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/id", schema_line: 247, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], example_json: {of: 6, present: 6, "null": 0, lines: [75, 104, 152, 176, 240, 264]}, constrained_by: ["open-threat-model#R-0030", "open-threat-model#R-0031", "open-threat-model#R-0037", "open-threat-model#R-0038", "open-threat-model#R-0041", "open-threat-model#R-0042", "open-threat-model#R-0262", "open-threat-model#R-0265"], readme_defined_in: "README: all three element variants (diagram L418, code L516, threat-model L646)"}
+      - {name: "position", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/position", schema_line: 248, schema_ref: "#/definitions/position", schema_ref_line: 233, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['x', 'y'] (L235)"], strict: [], xref: ["XR-10"], example_json: {of: 6, present: 5, "null": 0, lines: [76, 105, 153, 241, 265]}, constrained_by: ["open-threat-model#R-0032", "open-threat-model#R-0266"], readme_defined_in: "README: Representation element for diagram, L430 (REQUIRED there)"}
+      - {name: "size", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/size", schema_line: 249, schema_ref: "#/definitions/size", schema_ref_line: 214, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['width', 'height'] (L216)"], strict: [], xref: ["XR-10"], example_json: {of: 6, present: 5, "null": 0, lines: [80, 109, 157, 245, 269]}, constrained_by: ["open-threat-model#R-0033", "open-threat-model#R-0267"], readme_defined_in: "README: Representation element for diagram, L438 (REQUIRED there)"}
+      - {name: "file", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/file", schema_line: 250, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 6, present: 1, "null": 0, lines: [178]}, constrained_by: ["open-threat-model#R-0268"], readme_defined_in: "README: Representation element for code, L528"}
+      - {name: "line", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/line", schema_line: 251, schema_type: ["number", "null"], schema_required: "no", schema_constraints: [], strict: ["S-11"], xref: [], example_json: {of: 6, present: 1, "null": 0, lines: [179]}, constrained_by: ["open-threat-model#R-0269"], readme_defined_in: "README: Representation element for code, L540"}
+      - {name: "codeSnippet", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/codeSnippet", schema_line: 252, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 6, present: 1, "null": 0, lines: [180]}, constrained_by: ["open-threat-model#R-0270"], readme_defined_in: "README: Representation element for code, L552"}
+      - {name: "attributes", readme_type: null, readme_required: null, readme_line: null, schema_pointer: "/definitions/representationElement/properties/attributes", schema_line: 253, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-35"], xref: [], example_json: {of: 6, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0271"], readme_defined_in: "README: all three element variants (diagram L446, code L571, threat-model L658)"}
+  - name: "Representation element for diagram"
+    readme_heading: "### Representation element for diagram"
+    readme_heading_line: 380
+    readme_section_lines: [380, 476]
+    readme_parent_heading: "RepresentationElement object"
+    readme_prose_lines: [382]
+    kind: >-
+      variant of a representation element, selected by the type of the representation its `representation` names
+      (diagram)
+    variant_of: "RepresentationElement object"
+    schema_pointer: "/definitions/representationElement"
+    schema_line: 241
+    schema_type: ["object"]
+    schema_required: ["representation", "id"]
+    schema_referenced_from:
+      - {pointer: "/properties/trustZones/items/properties/representations/items", line: 95}
+      - {pointer: "/properties/components/items/properties/representations/items", line: 114}
+    document_paths:
+      - "/components/*/representations/*  (selected by the type of the representation its `representation` names (diagram))"
+      - "/trustZones/*/representations/*  (selected by the type of the representation its `representation` names (diagram))"
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 5, at: [{pointer: "/components/0/representations/0", line: 73}, {pointer: "/components/1/representations/0", line: 102}, {pointer: "/components/2/representations/0", line: 150}, {pointer: "/trustZones/0/representations/0", line: 238}, {pointer: "/trustZones/1/representations/0", line: 262}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0260"]
+    notes: >-
+      position and size are REQUIRED in the README (L432, L440) but optional in the schema; checking them needs the
+      representation's type, so neither the source nor the strict schema can (XR-10, M-05).
+    fields:
+      - {name: "representation", readme_type: "string", readme_required: "yes", readme_line: 394, readme_required_line: 396, readme_description_lines: [396, 396], schema_pointer: "/definitions/representationElement/properties/representation", schema_line: 245, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-04"], references: {target: "Representations object.id (of a diagram representation)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-014"], example_json: {of: 5, present: 5, "null": 0, lines: [74, 103, 151, 239, 263]}, constrained_by: ["open-threat-model#R-0028", "open-threat-model#R-0029", "open-threat-model#R-0261", "open-threat-model#R-0263"]}
+      - {name: "name", readme_type: "string", readme_required: "no", readme_line: 406, readme_description_lines: [408, 408], schema_pointer: "/definitions/representationElement/properties/name", schema_line: 246, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-015"], example_json: {of: 5, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0264"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 418, readme_required_line: 420, readme_description_lines: [420, 420], schema_pointer: "/definitions/representationElement/properties/id", schema_line: 247, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-016"], example_json: {of: 5, present: 5, "null": 0, lines: [75, 104, 152, 240, 264]}, constrained_by: ["open-threat-model#R-0030", "open-threat-model#R-0031", "open-threat-model#R-0262", "open-threat-model#R-0265"]}
+      - {name: "position", readme_type: "Position object", readme_required: "yes", readme_line: 430, readme_required_line: 432, readme_description_lines: [432, 432], schema_pointer: "/definitions/representationElement/properties/position", schema_line: 248, schema_ref: "#/definitions/position", schema_ref_line: 233, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['x', 'y'] (L235)"], strict: [], xref: ["XR-10"], example_json: {of: 5, present: 5, "null": 0, lines: [76, 105, 153, 241, 265]}, constrained_by: ["open-threat-model#R-0032", "open-threat-model#R-0266"]}
+      - {name: "size", readme_type: "Size object", readme_required: "yes", readme_line: 438, readme_required_line: 440, readme_description_lines: [440, 440], schema_pointer: "/definitions/representationElement/properties/size", schema_line: 249, schema_ref: "#/definitions/size", schema_ref_line: 214, schema_type: ["object", "null"], schema_required: "no", schema_constraints: ["value requires ['width', 'height'] (L216)"], strict: [], xref: ["XR-10"], example_json: {of: 5, present: 5, "null": 0, lines: [80, 109, 157, 245, 269]}, constrained_by: ["open-threat-model#R-0033", "open-threat-model#R-0267"]}
+      - {name: "attributes", readme_type: "Map <string, string>", readme_required: "no", readme_line: 446, readme_description_lines: [448, 448], schema_pointer: "/definitions/representationElement/properties/attributes", schema_line: 253, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-35"], xref: [], field_examples: ["FE-017"], example_json: {of: 5, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0271"]}
+  - name: "Representation element for code"
+    readme_heading: "### Representation element for code"
+    readme_heading_line: 478
+    readme_section_lines: [478, 606]
+    readme_parent_heading: "RepresentationElement object"
+    readme_prose_lines: [480]
+    kind: >-
+      variant of a representation element, selected by the type of the representation its `representation` names
+      (code)
+    variant_of: "RepresentationElement object"
+    schema_pointer: "/definitions/representationElement"
+    schema_line: 241
+    schema_type: ["object"]
+    schema_required: ["representation", "id"]
+    schema_referenced_from:
+      - {pointer: "/properties/trustZones/items/properties/representations/items", line: 95}
+      - {pointer: "/properties/components/items/properties/representations/items", line: 114}
+    document_paths:
+      - "/components/*/representations/*  (selected by the type of the representation its `representation` names (code))"
+      - "/trustZones/*/representations/*  (selected by the type of the representation its `representation` names (code))"
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/components/3/representations/0", line: 174}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0034", "open-threat-model#R-0260"]
+    notes: >-
+      L480 "Despite all fields being optional, at least one of them is required." Which fields count is not said;
+      read literally it contradicts the REQUIRED markers on representation (L494) and id (L518). Not implemented by
+      the strict profile or the XR checks (M-06).
+    fields:
+      - {name: "representation", readme_type: "string", readme_required: "yes", readme_line: 492, readme_required_line: 494, readme_description_lines: [494, 494], schema_pointer: "/definitions/representationElement/properties/representation", schema_line: 245, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-04"], references: {target: "Representations object.id (of a code representation)", checked_by_schema: false, kind: "stated"}, readme_only: "L480 \"Despite all fields being optional, at least one of them is required.\" contradicts the REQUIRED marker on this field (M-06)", field_examples: ["FE-018"], example_json: {of: 1, present: 1, "null": 0, lines: [175]}, constrained_by: ["open-threat-model#R-0035", "open-threat-model#R-0036", "open-threat-model#R-0261", "open-threat-model#R-0263"]}
+      - {name: "name", readme_type: "string", readme_required: "no", readme_line: 504, readme_description_lines: [506, 506], schema_pointer: "/definitions/representationElement/properties/name", schema_line: 246, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-019"], example_json: {of: 1, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0264"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 516, readme_required_line: 518, readme_description_lines: [518, 518], schema_pointer: "/definitions/representationElement/properties/id", schema_line: 247, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], readme_only: "L480 \"Despite all fields being optional, at least one of them is required.\" contradicts the REQUIRED marker on this field (M-06)", field_examples: ["FE-020"], example_json: {of: 1, present: 1, "null": 0, lines: [176]}, constrained_by: ["open-threat-model#R-0037", "open-threat-model#R-0038", "open-threat-model#R-0262", "open-threat-model#R-0265"]}
+      - {name: "file", readme_type: "string", readme_required: "no", readme_line: 528, readme_description_lines: [530, 530], schema_pointer: "/definitions/representationElement/properties/file", schema_line: 250, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-021"], example_json: {of: 1, present: 1, "null": 0, lines: [178]}, constrained_by: ["open-threat-model#R-0268"]}
+      - {name: "line", readme_type: "integer", readme_required: "no", readme_line: 540, readme_description_lines: [542, 542], schema_pointer: "/definitions/representationElement/properties/line", schema_line: 251, schema_type: ["number", "null"], schema_required: "no", schema_constraints: [], strict: ["S-11"], xref: [], field_examples: ["FE-022"], example_json: {of: 1, present: 1, "null": 0, lines: [179]}, constrained_by: ["open-threat-model#R-0269"]}
+      - {name: "codeSnippet", readme_type: "richText", readme_required: "no", readme_line: 552, readme_description_lines: [554, 554], schema_pointer: "/definitions/representationElement/properties/codeSnippet", schema_line: 252, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-023"], example_json: {of: 1, present: 1, "null": 0, lines: [180]}, constrained_by: ["open-threat-model#R-0270"]}
+      - {name: "attributes", readme_type: "Map <string, string>", readme_required: "no", readme_line: 571, readme_description_lines: [573, 573], schema_pointer: "/definitions/representationElement/properties/attributes", schema_line: 253, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-35"], xref: [], field_examples: ["FE-024"], example_json: {of: 1, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0271"]}
+  - name: "Representation element for threat-model"
+    readme_heading: "### Representation element for threat-model"
+    readme_heading_line: 608
+    readme_section_lines: [608, 681]
+    readme_parent_heading: "RepresentationElement object"
+    readme_prose_lines: [610]
+    kind: >-
+      variant of a representation element, selected by the type of the representation its `representation` names
+      (threat-model)
+    variant_of: "RepresentationElement object"
+    schema_pointer: "/definitions/representationElement"
+    schema_line: 241
+    schema_type: ["object"]
+    schema_required: ["representation", "id"]
+    schema_referenced_from:
+      - {pointer: "/properties/trustZones/items/properties/representations/items", line: 95}
+      - {pointer: "/properties/components/items/properties/representations/items", line: 114}
+    document_paths:
+      - "/components/*/representations/*  (selected by the type of the representation its `representation` names (threat-model))"
+      - "/trustZones/*/representations/*  (selected by the type of the representation its `representation` names (threat-model))"
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 0, at: []}
+    strict: []
+    constrained_by: ["open-threat-model#R-0260"]
+    notes: "Only the common element fields; no extras."
+    fields:
+      - {name: "representation", readme_type: "string", readme_required: "yes", readme_line: 622, readme_required_line: 624, readme_description_lines: [624, 624], schema_pointer: "/definitions/representationElement/properties/representation", schema_line: 245, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-04"], references: {target: "Representations object.id (of a threat-model representation)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-025"], example_json: {of: 0, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0039", "open-threat-model#R-0040", "open-threat-model#R-0261", "open-threat-model#R-0263"]}
+      - {name: "name", readme_type: "string", readme_required: "no", readme_line: 634, readme_description_lines: [636, 636], schema_pointer: "/definitions/representationElement/properties/name", schema_line: 246, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-026"], example_json: {of: 0, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0264"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 646, readme_required_line: 648, readme_description_lines: [648, 648], schema_pointer: "/definitions/representationElement/properties/id", schema_line: 247, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-027"], example_json: {of: 0, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0041", "open-threat-model#R-0042", "open-threat-model#R-0262", "open-threat-model#R-0265"]}
+      - {name: "attributes", readme_type: "Map <string, string>", readme_required: "no", readme_line: 658, readme_description_lines: [660, 660], schema_pointer: "/definitions/representationElement/properties/attributes", schema_line: 253, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-35"], xref: [], field_examples: ["FE-028"], example_json: {of: 0, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0271"]}
+  - name: "Assets object"
+    readme_heading: "## Assets object"
+    readme_heading_line: 683
+    readme_section_lines: [683, 778]
+    readme_prose_lines: [685]
+    readme_links:
+      - {line: 58, text: "Assets object", anchor: "#assets-object", resolves_to: "Assets object"}
+    kind: "array item (one asset)"
+    schema_pointer: "/properties/assets/items"
+    schema_line: 54
+    schema_collection_pointer: "/properties/assets"
+    schema_collection_line: 52
+    schema_collection_type: ["array", "null"]
+    schema_type: ["object"]
+    schema_required: ["name", "id", "risk"]
+    document_paths: ["/assets/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/assets/0", line: 35}, {pointer: "/assets/1", line: 47}]}
+    strict: []
+    constrained_by: []
+    fields:
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 695, readme_required_line: 697, readme_description_lines: [697, 697], schema_pointer: "/properties/assets/items/properties/id", schema_line: 59, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-029"], example_json: {of: 2, present: 2, "null": 0, lines: [37, 49]}, constrained_by: ["open-threat-model#R-0043", "open-threat-model#R-0044", "open-threat-model#R-0144", "open-threat-model#R-0147"]}
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 707, readme_required_line: 709, readme_description_lines: [709, 709], schema_pointer: "/properties/assets/items/properties/name", schema_line: 58, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-030"], example_json: {of: 2, present: 2, "null": 0, lines: [36, 48]}, constrained_by: ["open-threat-model#R-0045", "open-threat-model#R-0143", "open-threat-model#R-0146"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 719, readme_description_lines: [721, 721], schema_pointer: "/properties/assets/items/properties/description", schema_line: 60, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-031"], example_json: {of: 2, present: 2, "null": 0, lines: [38, 50]}, constrained_by: ["open-threat-model#R-0148"]}
+      - {name: "risk", readme_type: "AssetRisk object", readme_required: "yes", readme_line: 731, readme_required_line: 733, readme_description_lines: [733, 733], schema_pointer: "/properties/assets/items/properties/risk", schema_line: 61, schema_type: ["object"], schema_required: "yes", schema_constraints: ["value requires ['confidentiality', 'integrity', 'availability'] (L63)"], strict: [], xref: [], example_json: {of: 2, present: 2, "null": 0, lines: [39, 51]}, constrained_by: ["open-threat-model#R-0046", "open-threat-model#R-0145", "open-threat-model#R-0149"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 739, readme_description_lines: [741, 741], schema_pointer: "/properties/assets/items/properties/attributes", schema_line: 71, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-29"], xref: [], field_examples: ["FE-032"], example_json: {of: 2, present: 2, "null": 2, lines: [45, 57]}, constrained_by: ["open-threat-model#R-0157"]}
+  - name: "AssetRisk object"
+    readme_heading: "## AssetRisk object"
+    readme_heading_line: 780
+    readme_section_lines: [780, 846]
+    readme_prose_lines: [782, 784, 786]
+    readme_links:
+      - {line: 732, text: "AssetRisk object", anchor: "#assetrisk-object", resolves_to: "AssetRisk object"}
+    kind: "object"
+    schema_pointer: "/properties/assets/items/properties/risk"
+    schema_line: 61
+    schema_type: ["object"]
+    schema_required: ["confidentiality", "integrity", "availability"]
+    document_paths: ["/assets/*/risk"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/assets/0/risk", line: 39}, {pointer: "/assets/1/risk", line: 51}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      The README says the values are passed "into the IR rules engine which performs the calculation for inherent
+      risk" (L784) and links an IriusRisk support article (L786); the calculation itself is not part of OTM.
+    fields:
+      - {name: "confidentiality", readme_type: "integer", readme_required: "yes", readme_line: 799, readme_required_line: 801, readme_description_lines: [801, 801], schema_pointer: "/properties/assets/items/properties/risk/properties/confidentiality", schema_line: 65, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-04"], xref: [], field_examples: ["FE-033"], example_json: {of: 2, present: 2, "null": 0, lines: [40, 52]}, constrained_by: ["open-threat-model#R-0047", "open-threat-model#R-0048", "open-threat-model#R-0150", "open-threat-model#R-0153"]}
+      - {name: "integrity", readme_type: "integer", readme_required: "yes", readme_line: 811, readme_required_line: 813, readme_description_lines: [813, 813], schema_pointer: "/properties/assets/items/properties/risk/properties/integrity", schema_line: 66, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-05"], xref: [], field_examples: ["FE-034"], example_json: {of: 2, present: 2, "null": 0, lines: [41, 53]}, constrained_by: ["open-threat-model#R-0049", "open-threat-model#R-0050", "open-threat-model#R-0151", "open-threat-model#R-0154"]}
+      - {name: "availability", readme_type: "integer", readme_required: "yes", readme_line: 823, readme_required_line: 825, readme_description_lines: [825, 826], schema_pointer: "/properties/assets/items/properties/risk/properties/availability", schema_line: 67, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-06"], xref: [], field_examples: ["FE-035"], example_json: {of: 2, present: 2, "null": 0, lines: [42, 54]}, constrained_by: ["open-threat-model#R-0051", "open-threat-model#R-0052", "open-threat-model#R-0152", "open-threat-model#R-0155"]}
+      - {name: "comment", readme_type: "richText", readme_required: "no", readme_line: 836, readme_description_lines: [838, 838], schema_pointer: "/properties/assets/items/properties/risk/properties/comment", schema_line: 68, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-036"], example_json: {of: 2, present: 2, "null": 0, lines: [43, 55]}, constrained_by: ["open-threat-model#R-0156"]}
+  - name: "Asset Instance object"
+    readme_heading: "## Asset Instance object"
+    readme_heading_line: 848
+    readme_section_lines: [848, 903]
+    readme_prose_lines: [850]
+    readme_links:
+      - {line: 1002, text: "Asset instance object", anchor: "#asset-instance-object", resolves_to: "Asset Instance object"}
+    kind: "object (definitions/assetInstance)"
+    schema_pointer: "/definitions/assetInstance"
+    schema_line: 275
+    schema_type: ["object", "null"]
+    schema_required: []
+    schema_referenced_from:
+      - {pointer: "/properties/components/items/properties/assets", line: 116}
+    document_paths: ["/components/*/assets"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/components/1/assets", line: 115}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0283"]
+    notes: >-
+      Both fields are arrays of asset ids (XR-06). The schema allows the whole object to be null (L276-279), as
+      EXAMPLE.json does on /components/0/assets.
+    fields:
+      - {name: "processed", readme_type: "array of strings", readme_required: "no", readme_line: 863, readme_description_lines: [865, 865], schema_pointer: "/definitions/assetInstance/properties/processed", schema_line: 281, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-25"], xref: ["XR-06"], references: {target: "Assets object.id (each item)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-037"], example_json: {of: 1, present: 1, "null": 0, lines: [116]}, constrained_by: ["open-threat-model#R-0053", "open-threat-model#R-0284", "open-threat-model#R-0285"]}
+      - {name: "stored", readme_type: "array of strings", readme_required: "no", readme_line: 878, readme_description_lines: [880, 880], schema_pointer: "/definitions/assetInstance/properties/stored", schema_line: 293, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-26"], xref: ["XR-06"], references: {target: "Assets object.id (each item)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-038"], example_json: {of: 1, present: 1, "null": 0, lines: [120]}, constrained_by: ["open-threat-model#R-0054", "open-threat-model#R-0286", "open-threat-model#R-0287"]}
+  - name: "Components object"
+    readme_heading: "## Components object"
+    readme_heading_line: 905
+    readme_section_lines: [905, 1097]
+    readme_prose_lines: [907]
+    readme_links:
+      - {line: 59, text: "Components object", anchor: "#components-object", resolves_to: "Components object"}
+    kind: "array item (one component)"
+    schema_pointer: "/properties/components/items"
+    schema_line: 103
+    schema_collection_pointer: "/properties/components"
+    schema_collection_line: 101
+    schema_collection_type: ["array", "null"]
+    schema_type: ["object"]
+    schema_required: ["id", "name", "type", "parent"]
+    document_paths: ["/components/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 4, at: [{pointer: "/components/0", line: 61}, {pointer: "/components/1", line: 90}, {pointer: "/components/2", line: 138}, {pointer: "/components/3", line: 165}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      parent is required and must hold exactly one of trustZone / component (oneOf). The README Components example
+      writes attributes as a list (L1065-1067) and misspells representation as represetation (L1077); both fail the
+      schema (examples/expected.yaml). The README Type cell of representations (L994) links its text "Representation
+      Element object" to #representations-object, not to #representationelement-object as the TrustZones row does
+      (L1186).
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 920, readme_required_line: 922, readme_description_lines: [922, 922], schema_pointer: "/properties/components/items/properties/name", schema_line: 108, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-039"], example_json: {of: 4, present: 4, "null": 0, lines: [62, 91, 139, 166]}, constrained_by: ["open-threat-model#R-0055", "open-threat-model#R-0177", "open-threat-model#R-0181"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 932, readme_required_line: 934, readme_description_lines: [934, 934], schema_pointer: "/properties/components/items/properties/id", schema_line: 107, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-040"], example_json: {of: 4, present: 4, "null": 0, lines: [63, 92, 140, 167]}, constrained_by: ["open-threat-model#R-0056", "open-threat-model#R-0057", "open-threat-model#R-0176", "open-threat-model#R-0180"]}
+      - {name: "type", readme_type: "string", readme_required: "yes", readme_line: 944, readme_required_line: 946, readme_description_lines: [946, 946], schema_pointer: "/properties/components/items/properties/type", schema_line: 109, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-041"], example_json: {of: 4, present: 4, "null": 0, lines: [68, 97, 145, 169]}, constrained_by: ["open-threat-model#R-0058", "open-threat-model#R-0178", "open-threat-model#R-0182"]}
+      - {name: "tags", readme_type: "array of strings", readme_required: "no", readme_line: 956, readme_description_lines: [958, 958], schema_pointer: "/properties/components/items/properties/tags", schema_line: 121, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-19"], xref: [], field_examples: ["FE-042"], example_json: {of: 4, present: 3, "null": 0, lines: [69, 98, 146]}, constrained_by: ["open-threat-model#R-0190", "open-threat-model#R-0191"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 970, readme_description_lines: [972, 972], schema_pointer: "/properties/components/items/properties/description", schema_line: 110, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-043"], example_json: {of: 4, present: 4, "null": 0, lines: [64, 93, 141, 168]}, constrained_by: ["open-threat-model#R-0183"]}
+      - {name: "parent", readme_type: "Parent object", readme_required: "yes", readme_line: 982, readme_required_line: 984, readme_description_lines: [984, 987], schema_pointer: "/properties/components/items/properties/parent", schema_line: 111, schema_ref: "#/definitions/parent", schema_ref_line: 222, schema_type: ["object"], schema_required: "yes", schema_constraints: ["value: Parent object (oneOf trustZone / component, L224-227)"], strict: [], xref: [], readme_only: "L985 \"It should contain an attribute name stating the component type to avoid ambiguity\" (met by the trustZone / component key of the Parent object); L986 \"A component must have just one parent\" (met by the oneOf)", example_json: {of: 4, present: 4, "null": 0, lines: [65, 94, 142, 170]}, constrained_by: ["open-threat-model#R-0059", "open-threat-model#R-0060", "open-threat-model#R-0061", "open-threat-model#R-0179", "open-threat-model#R-0184"]}
+      - {name: "representations", readme_type: "array of Representation Element object", readme_required: "no", readme_line: 993, readme_description_lines: [995, 995], schema_pointer: "/properties/components/items/properties/representations", schema_line: 112, schema_type: ["array", "null"], schema_items: {ref: "#/definitions/representationElement", type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 4, present: 4, "null": 0, lines: [72, 101, 149, 173]}, constrained_by: ["open-threat-model#R-0185", "open-threat-model#R-0186"]}
+      - {name: "assets", readme_type: "Asset instance object", readme_required: "no", readme_line: 1001, readme_description_lines: [1003, 1003], schema_pointer: "/properties/components/items/properties/assets", schema_line: 116, schema_ref: "#/definitions/assetInstance", schema_ref_line: 275, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 4, present: 2, "null": 1, lines: [86, 115]}, constrained_by: ["open-threat-model#R-0187"]}
+      - {name: "threats", readme_type: "array of Threat instance object", readme_required: "no", readme_line: 1009, readme_description_lines: [1011, 1011], schema_pointer: "/properties/components/items/properties/threats", schema_line: 117, schema_type: ["array", "null"], schema_items: {ref: "#/definitions/threat", type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 4, present: 2, "null": 1, lines: [87, 124]}, constrained_by: ["open-threat-model#R-0188", "open-threat-model#R-0189"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 1017, readme_description_lines: [1019, 1019], schema_pointer: "/properties/components/items/properties/attributes", schema_line: 127, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-31"], xref: [], field_examples: ["FE-044"], example_json: {of: 4, present: 4, "null": 4, lines: [88, 136, 163, 183]}, constrained_by: ["open-threat-model#R-0192"]}
+  - name: "TrustZones object"
+    readme_heading: "## TrustZones object"
+    readme_heading_line: 1099
+    readme_section_lines: [1099, 1248]
+    readme_prose_lines: [1101]
+    readme_links:
+      - {line: 61, text: "TrustZones object", anchor: "#trustzones-object", resolves_to: "TrustZones object"}
+    kind: "array item (one trust zone)"
+    schema_pointer: "/properties/trustZones/items"
+    schema_line: 77
+    schema_collection_pointer: "/properties/trustZones"
+    schema_collection_line: 75
+    schema_collection_type: ["array"]
+    schema_type: ["object"]
+    schema_required: ["id", "name", "risk"]
+    document_paths: ["/trustZones/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/trustZones/0", line: 229}, {pointer: "/trustZones/1", line: 253}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      type is RECOMMENDED in 0.2.0 and announced as required in the next major version (L1139; state-machine.yaml
+      M3). The README TrustZones example uses the key trustzones (L1211), which is not the case-sensitive field
+      trustZones (L25).
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 1113, readme_required_line: 1115, readme_description_lines: [1115, 1115], schema_pointer: "/properties/trustZones/items/properties/name", schema_line: 82, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-045"], example_json: {of: 2, present: 2, "null": 0, lines: [230, 254]}, constrained_by: ["open-threat-model#R-0062", "open-threat-model#R-0161", "open-threat-model#R-0164"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 1125, readme_required_line: 1127, readme_description_lines: [1127, 1127], schema_pointer: "/properties/trustZones/items/properties/id", schema_line: 81, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-046"], example_json: {of: 2, present: 2, "null": 0, lines: [231, 255]}, constrained_by: ["open-threat-model#R-0063", "open-threat-model#R-0064", "open-threat-model#R-0160", "open-threat-model#R-0163"]}
+      - {name: "type", readme_type: "string", readme_required: "recommended", readme_line: 1137, readme_required_line: 1139, readme_description_lines: [1139, 1139], schema_pointer: "/properties/trustZones/items/properties/type", schema_line: 83, schema_type: ["string"], schema_required: "no", schema_constraints: [], strict: [], xref: [], readme_only: "L1139 \"RECOMMENDED (required in the next major version)\": optional in 0.2.0", field_examples: ["FE-047"], example_json: {of: 2, present: 2, "null": 0, lines: [232, 256]}, constrained_by: ["open-threat-model#R-0065", "open-threat-model#R-0165"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 1149, readme_description_lines: [1151, 1151], schema_pointer: "/properties/trustZones/items/properties/description", schema_line: 84, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-048"], example_json: {of: 2, present: 2, "null": 0, lines: [233, 257]}, constrained_by: ["open-threat-model#R-0166"]}
+      - {name: "risk", readme_type: "TrustZoneRisk object", readme_required: "yes", readme_line: 1166, readme_required_line: 1168, readme_description_lines: [1168, 1168], schema_pointer: "/properties/trustZones/items/properties/risk", schema_line: 85, schema_type: ["object"], schema_required: "yes", schema_constraints: ["value requires ['trustRating'] (L87)"], strict: [], xref: [], example_json: {of: 2, present: 2, "null": 0, lines: [234, 258]}, constrained_by: ["open-threat-model#R-0066", "open-threat-model#R-0162", "open-threat-model#R-0167"]}
+      - {name: "parent", readme_type: "Parent object", readme_required: "no", readme_line: 1174, readme_description_lines: [1176, 1179], schema_pointer: "/properties/trustZones/items/properties/parent", schema_line: 92, schema_ref: "#/definitions/parent", schema_ref_line: 222, schema_type: ["object"], schema_required: "no", schema_constraints: ["value: Parent object (oneOf trustZone / component, L224-227)"], strict: [], xref: [], readme_only: "L1177 \"It should contain an attribute name stating the element type.\"; L1178 \"A trust zone can have zero or one parent\" (met: optional, and the oneOf allows one key)", example_json: {of: 2, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0067", "open-threat-model#R-0068", "open-threat-model#R-0170"]}
+      - {name: "representations", readme_type: "array of Representation Element object", readme_required: "no", readme_line: 1185, readme_description_lines: [1187, 1187], schema_pointer: "/properties/trustZones/items/properties/representations", schema_line: 93, schema_type: ["array", "null"], schema_items: {ref: "#/definitions/representationElement", type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 2, present: 2, "null": 0, lines: [237, 261]}, constrained_by: ["open-threat-model#R-0171", "open-threat-model#R-0172"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 1193, readme_description_lines: [1195, 1195], schema_pointer: "/properties/trustZones/items/properties/attributes", schema_line: 97, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-30"], xref: [], field_examples: ["FE-049"], example_json: {of: 2, present: 2, "null": 2, lines: [251, 275]}, constrained_by: ["open-threat-model#R-0173"]}
+  - name: "TrustZoneRisk object"
+    readme_heading: "## TrustZoneRisk object"
+    readme_heading_line: 1250
+    readme_section_lines: [1250, 1280]
+    readme_prose_lines: [1252]
+    readme_links:
+      - {line: 1167, text: "TrustZoneRisk object", anchor: "#trustzonerisk-object", resolves_to: "TrustZoneRisk object"}
+    kind: "object"
+    schema_pointer: "/properties/trustZones/items/properties/risk"
+    schema_line: 85
+    schema_type: ["object"]
+    schema_required: ["trustRating"]
+    document_paths: ["/trustZones/*/risk"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/trustZones/0/risk", line: 234}, {pointer: "/trustZones/1/risk", line: 258}]}
+    strict: []
+    constrained_by: []
+    fields:
+      - {name: "trustRating", readme_type: "integer", readme_required: "yes", readme_line: 1264, readme_required_line: 1266, readme_description_lines: [1266, 1266], schema_pointer: "/properties/trustZones/items/properties/risk/properties/trustRating", schema_line: 89, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-07"], xref: [], field_examples: ["FE-050"], example_json: {of: 2, present: 2, "null": 0, lines: [235, 259]}, constrained_by: ["open-threat-model#R-0069", "open-threat-model#R-0070", "open-threat-model#R-0168", "open-threat-model#R-0169"]}
+  - name: "Parent object"
+    readme_heading: "## Parent object"
+    readme_heading_line: 1282
+    readme_section_lines: [1282, 1334]
+    readme_prose_lines: [1284, 1286, 1287]
+    readme_links:
+      - {line: 983, text: "Parent object", anchor: "#parent-object", resolves_to: "Parent object"}
+      - {line: 1175, text: "Parent object", anchor: "#parent-object", resolves_to: "Parent object"}
+    kind: "object (definitions/parent)"
+    schema_pointer: "/definitions/parent"
+    schema_line: 222
+    schema_type: ["object"]
+    schema_required: []
+    schema_oneOf:
+      - {required: ["trustZone"]}
+      - {required: ["component"]}
+    schema_referenced_from:
+      - {pointer: "/properties/trustZones/items/properties/parent", line: 92}
+      - {pointer: "/properties/components/items/properties/parent", line: 111}
+    document_paths: ["/components/*/parent", "/trustZones/*/parent"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 4, at: [{pointer: "/components/0/parent", line: 65}, {pointer: "/components/1/parent", line: 94}, {pointer: "/components/2/parent", line: 142}, {pointer: "/components/3/parent", line: 170}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0071", "open-threat-model#R-0249", "open-threat-model#R-0250"]
+    notes: >-
+      Two keys, exactly one present (oneOf, L224-227). Each names the id of the enclosing element; the key name says
+      which collection the id is in. Note: oneOf with two required-only branches accepts nothing but objects only
+      because of "type": "object" (L223); a non-object value fails both "type" and "oneOf" (both branches match
+      vacuously), see readme-trustzones-object.yaml.
+    fields:
+      - {name: "trustZone", readme_type: "string", readme_required: "no", readme_line: 1299, readme_description_lines: [1301, 1302], schema_pointer: "/definitions/parent/properties/trustZone", schema_line: 229, schema_type: ["string"], schema_required: "oneOf", schema_constraints: ["oneOf: exactly one of trustZone / component is present (definitions/parent L224-227)"], strict: [], xref: ["XR-02"], references: {target: "TrustZones object.id", checked_by_schema: false, kind: "inferred"}, field_examples: ["FE-051"], example_json: {of: 4, present: 4, "null": 0, lines: [66, 95, 143, 171]}, constrained_by: ["open-threat-model#R-0072", "open-threat-model#R-0073", "open-threat-model#R-0251", "open-threat-model#R-0253"]}
+      - {name: "component", readme_type: "string", readme_required: "no", readme_line: 1312, readme_description_lines: [1314, 1314], schema_pointer: "/definitions/parent/properties/component", schema_line: 230, schema_type: ["string"], schema_required: "oneOf", schema_constraints: ["oneOf: exactly one of trustZone / component is present (definitions/parent L224-227)"], strict: [], xref: ["XR-03"], references: {target: "Components object.id", checked_by_schema: false, kind: "inferred"}, field_examples: ["FE-052"], example_json: {of: 4, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0074", "open-threat-model#R-0075", "open-threat-model#R-0252", "open-threat-model#R-0254"]}
+  - name: "Dataflows object"
+    readme_heading: "## Dataflows object"
+    readme_heading_line: 1336
+    readme_section_lines: [1336, 1499]
+    readme_prose_lines: [1338]
+    readme_links:
+      - {line: 60, text: "DataFlows object", anchor: "#dataflows-object", resolves_to: "Dataflows object"}
+    kind: "array item (one dataflow)"
+    schema_pointer: "/properties/dataflows/items"
+    schema_line: 133
+    schema_collection_pointer: "/properties/dataflows"
+    schema_collection_line: 131
+    schema_collection_type: ["array"]
+    schema_type: ["object"]
+    schema_required: ["id", "name", "source", "destination"]
+    document_paths: ["/dataflows/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/dataflows/0", line: 187}, {pointer: "/dataflows/1", line: 199}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      source and destination name component ids (XR-05). bidirectional "By default, it is false." (L1404). The
+      README Dataflows example writes target instead of destination (L1484). EXAMPLE.json carries an undeclared
+      representations key on both dataflows (L195, L212), accepted because no object is closed.
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 1350, readme_required_line: 1352, readme_description_lines: [1352, 1352], schema_pointer: "/properties/dataflows/items/properties/name", schema_line: 138, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-053"], example_json: {of: 2, present: 2, "null": 0, lines: [188, 200]}, constrained_by: ["open-threat-model#R-0076", "open-threat-model#R-0196", "open-threat-model#R-0200"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 1362, readme_required_line: 1364, readme_description_lines: [1364, 1364], schema_pointer: "/properties/dataflows/items/properties/id", schema_line: 137, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-054"], example_json: {of: 2, present: 2, "null": 0, lines: [189, 201]}, constrained_by: ["open-threat-model#R-0077", "open-threat-model#R-0078", "open-threat-model#R-0195", "open-threat-model#R-0199"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 1374, readme_description_lines: [1376, 1376], schema_pointer: "/properties/dataflows/items/properties/description", schema_line: 139, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-055"], example_json: {of: 2, present: 0, "null": 0, lines: []}, constrained_by: ["open-threat-model#R-0201"]}
+      - {name: "tags", readme_type: "array of strings", readme_required: "no", readme_line: 1386, readme_description_lines: [1388, 1388], schema_pointer: "/properties/dataflows/items/properties/tags", schema_line: 151, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-20"], xref: [], field_examples: ["FE-056"], example_json: {of: 2, present: 2, "null": 1, lines: [193, 205]}, constrained_by: ["open-threat-model#R-0209", "open-threat-model#R-0210"]}
+      - {name: "bidirectional", readme_type: "boolean", readme_required: "no", readme_line: 1400, readme_description_lines: [1402, 1404], schema_pointer: "/properties/dataflows/items/properties/bidirectional", schema_line: 140, schema_type: ["boolean", "null"], schema_required: "no", schema_constraints: [], strict: ["S-36"], xref: [], field_examples: ["FE-057"], example_json: {of: 2, present: 2, "null": 0, lines: [190, 202]}, constrained_by: ["open-threat-model#R-0079", "open-threat-model#R-0202"]}
+      - {name: "source", readme_type: "string", readme_required: "yes", readme_line: 1415, readme_required_line: 1417, readme_description_lines: [1417, 1417], schema_pointer: "/properties/dataflows/items/properties/source", schema_line: 141, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-05"], references: {target: "Components object.id", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-058"], example_json: {of: 2, present: 2, "null": 0, lines: [191, 203]}, constrained_by: ["open-threat-model#R-0080", "open-threat-model#R-0081", "open-threat-model#R-0197", "open-threat-model#R-0203"]}
+      - {name: "destination", readme_type: "string", readme_required: "yes", readme_line: 1427, readme_required_line: 1429, readme_description_lines: [1429, 1429], schema_pointer: "/properties/dataflows/items/properties/destination", schema_line: 142, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-05"], references: {target: "Components object.id", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-059"], example_json: {of: 2, present: 2, "null": 0, lines: [192, 204]}, constrained_by: ["open-threat-model#R-0082", "open-threat-model#R-0083", "open-threat-model#R-0198", "open-threat-model#R-0204"]}
+      - {name: "assets", readme_type: "array of strings", readme_required: "no", readme_line: 1439, readme_description_lines: [1441, 1441], schema_pointer: "/properties/dataflows/items/properties/assets", schema_line: 143, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-21"], xref: ["XR-07"], references: {target: "Assets object.id (each item)", checked_by_schema: false, kind: "inferred"}, field_examples: ["FE-060"], example_json: {of: 2, present: 2, "null": 1, lines: [194, 209]}, constrained_by: ["open-threat-model#R-0084", "open-threat-model#R-0205", "open-threat-model#R-0206"]}
+      - {name: "threats", readme_type: "array of Threat instance object", readme_required: "no", readme_line: 1453, readme_description_lines: [1455, 1455], schema_pointer: "/properties/dataflows/items/properties/threats", schema_line: 147, schema_type: ["array", "null"], schema_items: {ref: "#/definitions/threat", type: ["object"]}, schema_required: "no", schema_constraints: [], strict: [], xref: [], example_json: {of: 2, present: 2, "null": 1, lines: [196, 213]}, constrained_by: ["open-threat-model#R-0207", "open-threat-model#R-0208"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 1461, readme_description_lines: [1463, 1463], schema_pointer: "/properties/dataflows/items/properties/attributes", schema_line: 157, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-32"], xref: [], field_examples: ["FE-061"], example_json: {of: 2, present: 2, "null": 2, lines: [197, 225]}, constrained_by: ["open-threat-model#R-0211"]}
+  - name: "Threats object"
+    readme_heading: "## Threats object"
+    readme_heading_line: 1501
+    readme_section_lines: [1501, 1640]
+    readme_prose_lines: [1503]
+    readme_links:
+      - {line: 62, text: "Threats object", anchor: "#threats-object", resolves_to: "Threats object"}
+    kind: "array item (one threat)"
+    schema_pointer: "/properties/threats/items"
+    schema_line: 163
+    schema_collection_pointer: "/properties/threats"
+    schema_collection_line: 161
+    schema_collection_type: ["array", "null"]
+    schema_type: ["object"]
+    schema_required: ["id", "name", "risk"]
+    document_paths: ["/threats/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/threats/0", line: 279}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      The README Threats example's attributes value expirationDate: 2021-05-17 (L1635) is a YAML 1.1 timestamp, not
+      a string, for a YAML 1.1 loader.
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 1515, readme_required_line: 1517, readme_description_lines: [1517, 1517], schema_pointer: "/properties/threats/items/properties/name", schema_line: 168, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-062"], example_json: {of: 1, present: 1, "null": 0, lines: [280]}, constrained_by: ["open-threat-model#R-0085", "open-threat-model#R-0215", "open-threat-model#R-0218"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 1527, readme_required_line: 1529, readme_description_lines: [1529, 1529], schema_pointer: "/properties/threats/items/properties/id", schema_line: 167, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-063"], example_json: {of: 1, present: 1, "null": 0, lines: [281]}, constrained_by: ["open-threat-model#R-0086", "open-threat-model#R-0087", "open-threat-model#R-0214", "open-threat-model#R-0217"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 1539, readme_description_lines: [1541, 1541], schema_pointer: "/properties/threats/items/properties/description", schema_line: 169, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-064"], example_json: {of: 1, present: 1, "null": 0, lines: [282]}, constrained_by: ["open-threat-model#R-0219"]}
+      - {name: "categories", readme_type: "array of strings", readme_required: "no", readme_line: 1551, readme_description_lines: [1553, 1553], schema_pointer: "/properties/threats/items/properties/categories", schema_line: 170, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-22"], xref: [], field_examples: ["FE-065"], example_json: {of: 1, present: 1, "null": 0, lines: [283]}, constrained_by: ["open-threat-model#R-0220", "open-threat-model#R-0221"]}
+      - {name: "cwes", readme_type: "array of strings", readme_required: "no", readme_line: 1565, readme_description_lines: [1567, 1567], schema_pointer: "/properties/threats/items/properties/cwes", schema_line: 174, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-23"], xref: [], references: {target: "external: CWE identifiers (README example values CWE-79, CWE-787)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-066"], example_json: {of: 1, present: 1, "null": 0, lines: [287]}, constrained_by: ["open-threat-model#R-0088", "open-threat-model#R-0222", "open-threat-model#R-0223"]}
+      - {name: "risk", readme_type: "ThreatRisk object", readme_required: "yes", readme_line: 1579, readme_required_line: 1581, readme_description_lines: [1581, 1581], schema_pointer: "/properties/threats/items/properties/risk", schema_line: 178, schema_type: ["object"], schema_required: "yes", schema_constraints: ["value requires ['likelihood', 'impact'] (L180)"], strict: [], xref: [], example_json: {of: 1, present: 1, "null": 0, lines: [291]}, constrained_by: ["open-threat-model#R-0089", "open-threat-model#R-0216", "open-threat-model#R-0224"]}
+      - {name: "tags", readme_type: "array of strings", readme_required: "no", readme_line: 1587, readme_description_lines: [1589, 1589], schema_pointer: "/properties/threats/items/properties/tags", schema_line: 188, schema_type: ["array", "null"], schema_items: {type: ["string", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-24"], xref: [], field_examples: ["FE-067"], example_json: {of: 1, present: 1, "null": 0, lines: [298]}, constrained_by: ["open-threat-model#R-0231", "open-threat-model#R-0232"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 1601, readme_description_lines: [1603, 1603], schema_pointer: "/properties/threats/items/properties/attributes", schema_line: 194, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-33"], xref: [], field_examples: ["FE-068"], example_json: {of: 1, present: 1, "null": 1, lines: [297]}, constrained_by: ["open-threat-model#R-0233"]}
+  - name: "ThreatRisk object"
+    readme_heading: "## ThreatRisk object"
+    readme_heading_line: 1642
+    readme_section_lines: [1642, 1713]
+    readme_prose_lines: [1644]
+    readme_links:
+      - {line: 1580, text: "ThreatRisk object", anchor: "#threatrisk-object", resolves_to: "ThreatRisk object"}
+    kind: "object"
+    schema_pointer: "/properties/threats/items/properties/risk"
+    schema_line: 178
+    schema_type: ["object"]
+    schema_required: ["likelihood", "impact"]
+    document_paths: ["/threats/*/risk"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/threats/0/risk", line: 291}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      likelihood is nullable in the schema and impact is not; impactComment is not nullable while likelihoodComment
+      is (M-09, M-10).
+    fields:
+      - {name: "likelihood", readme_type: "integer", readme_required: "yes", readme_line: 1656, readme_required_line: 1658, readme_description_lines: [1658, 1658], schema_pointer: "/properties/threats/items/properties/risk/properties/likelihood", schema_line: 182, schema_type: ["number", "null"], schema_required: "yes", schema_constraints: [], strict: ["S-08"], xref: [], field_examples: ["FE-069"], example_json: {of: 1, present: 1, "null": 0, lines: [292]}, constrained_by: ["open-threat-model#R-0090", "open-threat-model#R-0091", "open-threat-model#R-0225", "open-threat-model#R-0227"]}
+      - {name: "likelihoodComment", readme_type: "richText", readme_required: "no", readme_line: 1668, readme_description_lines: [1670, 1670], schema_pointer: "/properties/threats/items/properties/risk/properties/likelihoodComment", schema_line: 183, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-070"], example_json: {of: 1, present: 1, "null": 0, lines: [293]}, constrained_by: ["open-threat-model#R-0228"]}
+      - {name: "impact", readme_type: "integer", readme_required: "yes", readme_line: 1680, readme_required_line: 1682, readme_description_lines: [1682, 1682], schema_pointer: "/properties/threats/items/properties/risk/properties/impact", schema_line: 184, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-09"], xref: [], field_examples: ["FE-071"], example_json: {of: 1, present: 1, "null": 0, lines: [294]}, constrained_by: ["open-threat-model#R-0092", "open-threat-model#R-0093", "open-threat-model#R-0226", "open-threat-model#R-0229"]}
+      - {name: "impactComment", readme_type: "richText", readme_required: "no", readme_line: 1692, readme_description_lines: [1694, 1694], schema_pointer: "/properties/threats/items/properties/risk/properties/impactComment", schema_line: 185, schema_type: ["string"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-072"], example_json: {of: 1, present: 1, "null": 0, lines: [295]}, constrained_by: ["open-threat-model#R-0230"]}
+  - name: "Threat instance object"
+    readme_heading: "## Threat instance object"
+    readme_heading_line: 1715
+    readme_section_lines: [1715, 1770]
+    readme_prose_lines: [1717]
+    readme_links:
+      - {line: 1010, text: "Threat instance object", anchor: "#threat-instance-object", resolves_to: "Threat instance object"}
+      - {line: 1454, text: "Threat instance object", anchor: "#threat-instance-object", resolves_to: "Threat instance object"}
+    kind: "array item (definitions/threat)"
+    schema_pointer: "/definitions/threat"
+    schema_line: 256
+    schema_type: ["object"]
+    schema_required: ["threat", "state"]
+    schema_referenced_from:
+      - {pointer: "/properties/components/items/properties/threats/items", line: 119}
+      - {pointer: "/properties/dataflows/items/properties/threats/items", line: 149}
+    document_paths: ["/components/*/threats/*", "/dataflows/*/threats/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/components/1/threats/0", line: 125}, {pointer: "/dataflows/1/threats/0", line: 214}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0272"]
+    notes: >-
+      Used by both components and dataflows (definitions/threat, $ref at L119 and L149). The threat instance scopes
+      a root threat to one element; its state and its mitigation instances belong to that element (EXAMPLE.json: the
+      same threat and mitigation are implemented on /components/1 and required on /dataflows/1).
+    fields:
+      - {name: "threat", readme_type: "string", readme_required: "yes", readme_line: 1729, readme_required_line: 1731, readme_description_lines: [1731, 1732], schema_pointer: "/definitions/threat/properties/threat", schema_line: 260, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-08"], references: {target: "Threats object.id (root threats)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-073"], example_json: {of: 2, present: 2, "null": 0, lines: [126, 215]}, constrained_by: ["open-threat-model#R-0094", "open-threat-model#R-0095", "open-threat-model#R-0273", "open-threat-model#R-0275"]}
+      - {name: "state", readme_type: "string", readme_required: "yes", readme_line: 1742, readme_required_line: 1744, readme_description_lines: [1744, 1744], schema_pointer: "/definitions/threat/properties/state", schema_line: 261, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], readme_only: "free string: the README names no state values (see state-machine.yaml M1)", field_examples: ["FE-074"], example_json: {of: 2, present: 2, "null": 0, lines: [127, 216]}, constrained_by: ["open-threat-model#R-0096", "open-threat-model#R-0274", "open-threat-model#R-0276"]}
+      - {name: "mitigations", readme_type: "array of Mitigation instance object", readme_required: "no", readme_line: 1754, readme_description_lines: [1756, 1756], schema_pointer: "/definitions/threat/properties/mitigations", schema_line: 262, schema_type: ["array"], schema_items: {type: ["object", "null"]}, schema_required: "no", schema_constraints: [], strict: ["S-16"], xref: [], example_json: {of: 2, present: 2, "null": 0, lines: [128, 217]}, constrained_by: ["open-threat-model#R-0277", "open-threat-model#R-0278"]}
+  - name: "Mitigations object"
+    readme_heading: "## Mitigations object"
+    readme_heading_line: 1772
+    readme_section_lines: [1772, 1867]
+    readme_prose_lines: [1774]
+    readme_links:
+      - {line: 63, text: "Mitigations object", anchor: "#mitigations-object", resolves_to: "Mitigations object"}
+    kind: "array item (one mitigation)"
+    schema_pointer: "/properties/mitigations/items"
+    schema_line: 200
+    schema_collection_pointer: "/properties/mitigations"
+    schema_collection_line: 198
+    schema_collection_type: ["array", "null"]
+    schema_type: ["object"]
+    schema_required: ["id", "name", "riskReduction"]
+    document_paths: ["/mitigations/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/mitigations/0", line: 305}, {pointer: "/mitigations/1", line: 312}]}
+    strict: []
+    constrained_by: []
+    fields:
+      - {name: "name", readme_type: "string", readme_required: "yes", readme_line: 1786, readme_required_line: 1788, readme_description_lines: [1788, 1788], schema_pointer: "/properties/mitigations/items/properties/name", schema_line: 205, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-075"], example_json: {of: 2, present: 2, "null": 0, lines: [306, 313]}, constrained_by: ["open-threat-model#R-0097", "open-threat-model#R-0237", "open-threat-model#R-0240"]}
+      - {name: "id", readme_type: "string", readme_required: "yes", readme_line: 1798, readme_required_line: 1800, readme_description_lines: [1800, 1800], schema_pointer: "/properties/mitigations/items/properties/id", schema_line: 204, schema_type: ["string"], schema_required: "yes", schema_constraints: [], strict: [], xref: ["XR-01"], field_examples: ["FE-076"], example_json: {of: 2, present: 2, "null": 0, lines: [307, 314]}, constrained_by: ["open-threat-model#R-0098", "open-threat-model#R-0099", "open-threat-model#R-0236", "open-threat-model#R-0239"]}
+      - {name: "description", readme_type: "richText", readme_required: "no", readme_line: 1810, readme_description_lines: [1812, 1812], schema_pointer: "/properties/mitigations/items/properties/description", schema_line: 206, schema_type: ["string", "null"], schema_required: "no", schema_constraints: [], strict: [], xref: [], field_examples: ["FE-077"], example_json: {of: 2, present: 2, "null": 0, lines: [308, 315]}, constrained_by: ["open-threat-model#R-0241"]}
+      - {name: "riskReduction", readme_type: "integer", readme_required: "yes", readme_line: 1822, readme_required_line: 1824, readme_description_lines: [1824, 1824], schema_pointer: "/properties/mitigations/items/properties/riskReduction", schema_line: 207, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-10"], xref: [], field_examples: ["FE-078"], example_json: {of: 2, present: 2, "null": 0, lines: [309, 316]}, constrained_by: ["open-threat-model#R-0100", "open-threat-model#R-0101", "open-threat-model#R-0238", "open-threat-model#R-0242"]}
+      - {name: "attributes", readme_type: "Map [string, string]", readme_required: "no", readme_line: 1834, readme_description_lines: [1837, 1838], schema_pointer: "/properties/mitigations/items/properties/attributes", schema_line: 208, schema_type: ["object", "null"], schema_required: "no", schema_constraints: [], strict: ["S-34"], xref: [], field_examples: ["FE-079"], example_json: {of: 2, present: 2, "null": 2, lines: [310, 317]}, constrained_by: ["open-threat-model#R-0243"]}
+  - name: "Mitigation instance object"
+    readme_heading: "## Mitigation instance object"
+    readme_heading_line: 1869
+    readme_section_lines: [1869, 1914]
+    readme_prose_lines: [1871]
+    readme_links:
+      - {line: 1755, text: "Mitigation instance object", anchor: "#mitigation-instance-object", resolves_to: "Mitigation instance object"}
+    kind: "array item (inline in definitions/threat)"
+    schema_pointer: "/definitions/threat/properties/mitigations/items"
+    schema_line: 264
+    schema_type: ["object", "null"]
+    schema_required: ["mitigation", "state"]
+    document_paths: ["/components/*/threats/*/mitigations/*", "/dataflows/*/threats/*/mitigations/*"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 2, at: [{pointer: "/components/1/threats/0/mitigations/0", line: 129}, {pointer: "/dataflows/1/threats/0/mitigations/0", line: 218}]}
+    strict: ["S-16"]
+    constrained_by: []
+    notes: >-
+      Inline in definitions/threat. Both fields are REQUIRED in the README but nullable in the schema; the array
+      items themselves may be null in the schema (M-09).
+    fields:
+      - {name: "mitigation", readme_type: "string", readme_required: "yes", readme_line: 1883, readme_required_line: 1885, readme_description_lines: [1885, 1885], schema_pointer: "/definitions/threat/properties/mitigations/items/properties/mitigation", schema_line: 268, schema_type: ["string", "null"], schema_required: "yes", schema_constraints: [], strict: ["S-17"], xref: ["XR-09"], references: {target: "Mitigations object.id (root mitigations)", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-080"], example_json: {of: 2, present: 2, "null": 0, lines: [130, 219]}, constrained_by: ["open-threat-model#R-0102", "open-threat-model#R-0103", "open-threat-model#R-0279", "open-threat-model#R-0281"]}
+      - {name: "state", readme_type: "string", readme_required: "yes", readme_line: 1895, readme_required_line: 1897, readme_description_lines: [1897, 1897], schema_pointer: "/definitions/threat/properties/mitigations/items/properties/state", schema_line: 269, schema_type: ["string", "null"], schema_required: "yes", schema_constraints: [], strict: ["S-18"], xref: [], readme_only: "free string: the README names no state values (see state-machine.yaml M2)", field_examples: ["FE-081"], example_json: {of: 2, present: 2, "null": 0, lines: [131, 220]}, constrained_by: ["open-threat-model#R-0104", "open-threat-model#R-0280", "open-threat-model#R-0282"]}
+  - name: "Repository object"
+    readme_heading: "## Repository object"
+    readme_heading_line: 1916
+    readme_section_lines: [1916, 1947]
+    readme_prose_lines: [1918]
+    readme_links:
+      - {line: 334, text: "Repository object", anchor: "#repository-object", resolves_to: "Repository object"}
+    kind: "object (inline in a representation)"
+    schema_pointer: "/properties/representations/items/properties/repository"
+    schema_line: 41
+    schema_type: ["object", "null"]
+    schema_required: ["url"]
+    document_paths: ["/representations/*/repository"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 1, at: [{pointer: "/representations/1/repository", line: 28}]}
+    strict: []
+    constrained_by: []
+    notes: >-
+      The schema requires url (L43) but allows it to be null (L45); the README does not mark url REQUIRED (M-07).
+      Its README field example (L1935) is a bare URL with no key.
+    fields:
+      - {name: "url", readme_type: "string", readme_required: "no", readme_line: 1930, readme_description_lines: [1932, 1932], schema_pointer: "/properties/representations/items/properties/repository/properties/url", schema_line: 45, schema_type: ["string", "null"], schema_required: "yes", schema_constraints: [], strict: [], xref: [], references: {target: "external: repository connection URL", checked_by_schema: false, kind: "stated"}, field_examples: ["FE-082"], example_json: {of: 1, present: 1, "null": 0, lines: [29]}, constrained_by: ["open-threat-model#R-0138", "open-threat-model#R-0139"]}
+  - name: "Size object"
+    readme_heading: "## Size object"
+    readme_heading_line: 1949
+    readme_section_lines: [1949, 1984]
+    readme_prose_lines: [1951]
+    readme_links:
+      - {line: 308, text: "Size object", anchor: "#size-object", resolves_to: "Size object"}
+      - {line: 439, text: "Size object", anchor: "#size-object", resolves_to: "Size object"}
+    kind: "object (definitions/size)"
+    schema_pointer: "/definitions/size"
+    schema_line: 214
+    schema_type: ["object", "null"]
+    schema_required: ["width", "height"]
+    schema_referenced_from:
+      - {pointer: "/properties/representations/items/properties/size", line: 40}
+      - {pointer: "/definitions/representationElement/properties/size", line: 249}
+    document_paths: ["/representations/*/size", "/components/*/representations/*/size", "/trustZones/*/representations/*/size"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 6, at: [{pointer: "/representations/0/size", line: 18}, {pointer: "/components/0/representations/0/size", line: 80}, {pointer: "/components/1/representations/0/size", line: 109}, {pointer: "/components/2/representations/0/size", line: 157}, {pointer: "/trustZones/0/representations/0/size", line: 245}, {pointer: "/trustZones/1/representations/0/size", line: 269}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0244"]
+    notes: >-
+      Used by representations (L40) and representation elements (L249). Units: pixels (L1965, L1977). Nullable as a
+      whole (L215).
+    fields:
+      - {name: "width", readme_type: "integer", readme_required: "yes", readme_line: 1963, readme_required_line: 1965, readme_description_lines: [1965, 1965], schema_pointer: "/definitions/size/properties/width", schema_line: 218, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-12"], xref: [], field_examples: ["FE-083"], example_json: {of: 6, present: 6, "null": 0, lines: [19, 81, 110, 158, 246, 270]}, constrained_by: ["open-threat-model#R-0105", "open-threat-model#R-0245", "open-threat-model#R-0247"]}
+      - {name: "height", readme_type: "integer", readme_required: "yes", readme_line: 1975, readme_required_line: 1977, readme_description_lines: [1977, 1977], schema_pointer: "/definitions/size/properties/height", schema_line: 219, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-13"], xref: [], field_examples: ["FE-084"], example_json: {of: 6, present: 6, "null": 0, lines: [20, 82, 111, 159, 247, 271]}, constrained_by: ["open-threat-model#R-0106", "open-threat-model#R-0246", "open-threat-model#R-0248"]}
+  - name: "Position object"
+    readme_heading: "### Position object"
+    readme_heading_line: 1986
+    readme_section_lines: [1986, 2030]
+    readme_parent_heading: "Size object"
+    readme_prose_lines: [1988]
+    readme_links:
+      - {line: 431, text: "Position object", anchor: "#position-object", resolves_to: "Position object"}
+    kind: "object (definitions/position)"
+    schema_pointer: "/definitions/position"
+    schema_line: 233
+    schema_type: ["object", "null"]
+    schema_required: ["x", "y"]
+    schema_referenced_from:
+      - {pointer: "/definitions/representationElement/properties/position", line: 248}
+    document_paths: ["/components/*/representations/*/position", "/trustZones/*/representations/*/position"]
+    encoding: "JSON or YAML (README L23)"
+    example_json: {instances: 5, at: [{pointer: "/components/0/representations/0/position", line: 76}, {pointer: "/components/1/representations/0/position", line: 105}, {pointer: "/components/2/representations/0/position", line: 153}, {pointer: "/trustZones/0/representations/0/position", line: 241}, {pointer: "/trustZones/1/representations/0/position", line: 265}]}
+    strict: []
+    constrained_by: ["open-threat-model#R-0255"]
+    notes: >-
+      README heading level 3, nested under "## Size object" (L1986); every other structure is level 2 or a variant.
+      Units: "in units" (L2002, L2014), unspecified.
+    fields:
+      - {name: "x", readme_type: "integer", readme_required: "yes", readme_line: 2000, readme_required_line: 2002, readme_description_lines: [2002, 2002], schema_pointer: "/definitions/position/properties/x", schema_line: 237, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-14"], xref: [], field_examples: ["FE-085"], example_json: {of: 5, present: 5, "null": 0, lines: [77, 106, 154, 242, 266]}, constrained_by: ["open-threat-model#R-0107", "open-threat-model#R-0256", "open-threat-model#R-0258"]}
+      - {name: "y", readme_type: "integer", readme_required: "yes", readme_line: 2012, readme_required_line: 2014, readme_description_lines: [2014, 2014], schema_pointer: "/definitions/position/properties/y", schema_line: 238, schema_type: ["number"], schema_required: "yes", schema_constraints: [], strict: ["S-15"], xref: [], field_examples: ["FE-086"], example_json: {of: 5, present: 5, "null": 0, lines: [78, 107, 155, 243, 267]}, constrained_by: ["open-threat-model#R-0108", "open-threat-model#R-0257", "open-threat-model#R-0259"]}
+constrained_by_linking:
+  method: >-
+    Filled by the coordinator after pass 1 (scratch script, not committed), from requirements.yaml: a schema-form
+    requirement links to the field or structure whose schema_pointer it constrains (a required/N entry to the named
+    field of that object; items/type and items/$ref to the array field; a Parent oneOf branch to its key); a
+    README-form requirement links to the field of the same name in the structure whose README section holds its
+    locator line, or to the structure itself, and also to the same field (or structure) of the structure its
+    object names: a variant row (Diagram, or a Representation element variant) thus also links to the shared field
+    of Representations object or RepresentationElement object, where the requirement's condition or variant says
+    when it applies. R-0026 (L298, under Representation supported types) links to Representations object.
+    R-0002..R-0005 and R-0110 bind the whole document and link to the OTM object structure. Pass 3 recomputed
+    every link from this rule: R-0034 lacked its variant link (Representation element for code), now added.
+  linked: 275
+  unlinked:
+    - {ids: ["open-threat-model#R-0001"], reason: "Versioning of the specification itself; binds the spec maintainer, not a document field (otmVersion carries R-0016)."}
+    - {ids: ["open-threat-model#R-0006", "open-threat-model#R-0007", "open-threat-model#R-0008", "open-threat-model#R-0009", "open-threat-model#R-0010", "open-threat-model#R-0011", "open-threat-model#R-0012", "open-threat-model#R-0013", "open-threat-model#R-0014"], reason: "Data Types rules apply to every field of the named README type, not to one field; see data_types above."}
+    - {ids: ["open-threat-model#R-0109", "open-threat-model#R-0111"], reason: "Licence statements (README footer, schema $comment); they bind users of the files, not document content."}
+unchecked_references:
+  note: >-
+    Every id-valued field. The schema types each one as a string and resolves none; a consumer resolves them
+    itself. The XR checks (derived_checks) do it for whole documents; results in examples/expected.yaml.
+  fields:
+    - {field: "Parent object.trustZone", schema_pointer: "/definitions/parent/properties/trustZone", schema_line: 229, readme_line: 1301, target: "TrustZones object.id", kind: "inferred", check: "XR-02"}
+    - {field: "Parent object.component", schema_pointer: "/definitions/parent/properties/component", schema_line: 230, readme_line: 1314, target: "Components object.id", kind: "inferred", check: "XR-03"}
+    - {field: "RepresentationElement object.representation", schema_pointer: "/definitions/representationElement/properties/representation", schema_line: 245, readme_line: 396, target: "Representations object.id", kind: "stated", check: "XR-04"}
+    - {field: "Dataflows object.source", schema_pointer: "/properties/dataflows/items/properties/source", schema_line: 141, readme_line: 1417, target: "Components object.id", kind: "stated", check: "XR-05"}
+    - {field: "Dataflows object.destination", schema_pointer: "/properties/dataflows/items/properties/destination", schema_line: 142, readme_line: 1429, target: "Components object.id", kind: "stated", check: "XR-05"}
+    - {field: "Dataflows object.assets", schema_pointer: "/properties/dataflows/items/properties/assets", schema_line: 143, readme_line: 1441, target: "Assets object.id (each item)", kind: "inferred", check: "XR-07"}
+    - {field: "Asset Instance object.processed", schema_pointer: "/definitions/assetInstance/properties/processed", schema_line: 281, readme_line: 865, target: "Assets object.id (each item)", kind: "stated", check: "XR-06"}
+    - {field: "Asset Instance object.stored", schema_pointer: "/definitions/assetInstance/properties/stored", schema_line: 293, readme_line: 880, target: "Assets object.id (each item)", kind: "stated", check: "XR-06"}
+    - {field: "Threat instance object.threat", schema_pointer: "/definitions/threat/properties/threat", schema_line: 260, readme_line: 1731, target: "Threats object.id (root threats)", kind: "stated", check: "XR-08"}
+    - {field: "Mitigation instance object.mitigation", schema_pointer: "/definitions/threat/properties/mitigations/items/properties/mitigation", schema_line: 268, readme_line: 1885, target: "Mitigations object.id (root mitigations)", kind: "stated", check: "XR-09"}
+    - {field: "Threats object.cwes", schema_pointer: "/properties/threats/items/properties/cwes", schema_line: 174, readme_line: 1567, target: "external: CWE identifiers (README example values CWE-79, CWE-787)", kind: "stated", check: "external, not checked"}
+    - {field: "Repository object.url", schema_pointer: "/properties/representations/items/properties/repository/properties/url", schema_line: 45, readme_line: 1932, target: "external: repository connection URL", kind: "stated", check: "external, not checked"}
+derived_checks:
+  note: >-
+    Ours, not the source's: checks for README rules that no draft-07 schema can express. kind stated = the README
+    says it; inferred = read from the README with the evidence given. For XR-02 to XR-09, kind is about the
+    target the README names, as in references (conventions); that the target is declared in the same document is
+    inferred for every one except XR-08 and XR-09 (requirements.yaml).
+  checks:
+    - {id: "XR-01", kind: "stated", readme_lines: [93, 221, 420, 518, 648, 697, 934, 1127, 1364, 1529, 1800], check: "ids are unique within each collection: representations, assets, components, trustZones, dataflows, threats, mitigations, and the representation elements of the whole document (\"Unique identifier for the ...\"). The README does not say whether ids must also be unique across collections; collisions across collections are reported as info, not as a failure"}
+    - {id: "XR-02", kind: "inferred", readme_lines: [1284, 1286, 1302, 1305], check: "Parent object trustZone names the id of a trust zone of the document. Inferred from the key: the two keys are the \"two supported types of parents\" (L1284-1287), but the README gives both the same description, \"Id of the element in which this component is currently enclosed. It can be either a trust zone or another component.\" (L1302, L1314)"}
+    - {id: "XR-03", kind: "inferred", readme_lines: [1284, 1287, 1314, 1317], check: "Parent object component names the id of a component of the document. Inferred from the key, as for XR-02"}
+    - {id: "XR-04", kind: "stated", readme_lines: [396, 494, 624], check: "a representation element's representation names the id of a representation of the document (\"Id of the representation on which this element is represented\")"}
+    - {id: "XR-05", kind: "stated", readme_lines: [1417, 1429], check: "a dataflow's source and destination name the id of a component of the document (\"Unique identifier for the source/destination component of the dataflow\")"}
+    - {id: "XR-06", kind: "stated", readme_lines: [865, 880], check: "Asset Instance processed and stored items name ids of assets of the document (\"Array of ids that represent the assets\")"}
+    - {id: "XR-07", kind: "inferred", readme_lines: [1441], check: "a dataflow's assets items name ids of assets of the document (the README says \"Array of assets that are transported by the dataflow\", not explicitly ids; its example values are asset ids)"}
+    - {id: "XR-08", kind: "stated", readme_lines: [1731, 1732], check: "a threat instance's threat names the id of a threat in the root threats (\"It should be one of the threats described in the root node threats.\")"}
+    - {id: "XR-09", kind: "stated", readme_lines: [1885], check: "a mitigation instance's mitigation names the id of a mitigation in the root mitigations (\"It should be declared in the root node mitigation.\")"}
+    - {id: "XR-10", kind: "stated", readme_lines: [432, 440], check: "a representation element whose representation is of type diagram has a position and a size (both \"**REQUIRED**\" for a diagram element); the variant is known only by resolving XR-04"}
+strict_additions:
+  note: >-
+    The additions of schema/otm-0.2.0.derived-strict.schema.json, each also written as a $comment at its pointer.
+    Ours, derived from README lines; the source schema enforces none of them.
+  additions:
+    - {id: "S-01", pointer: "/properties/otmVersion", rule: "pattern: a Semantic Versioning 2.0.0 version string (the regular expression published on semver.org)", readme_lines: [15, 55], kind: "inferred", basis: "L15 \"The Open Threat Model specification is versioned using Semantic Versioning 2.0.0 (semver)\"; L55 otmVersion \"states the OTM version used in the current file\""}
+    - {id: "S-02", pointer: "/properties/representations/items/properties/type", rule: "enum: diagram, code, threat-model", readme_lines: [189, 191, 192, 193, 298], kind: "stated", basis: "L189-193 \"These are the currently supported representation types: diagram, code, threat-model\""}
+    - {id: "S-03", pointer: "/properties/representations/items", rule: "if type is \"diagram\" then size is required and is an object (not null)", readme_lines: [298, 308], kind: "stated", basis: "L298 \"Depending on the type selected, some extra fields must be included in the representation.\"; L308 Diagram size \"**REQUIRED**\""}
+    - {id: "S-04", pointer: "/properties/assets/items/properties/risk/properties/confidentiality", rule: "type integer (was number); minimum 0; maximum 100", readme_lines: [800, 801], kind: "stated", basis: "AssetRisk object confidentiality: type \"integer\" (L800); \"From 0 to 100\" (L801)"}
+    - {id: "S-05", pointer: "/properties/assets/items/properties/risk/properties/integrity", rule: "type integer (was number); minimum 0; maximum 100", readme_lines: [812, 813], kind: "stated", basis: "AssetRisk object integrity: type \"integer\" (L812); \"From 0 to 100\" (L813)"}
+    - {id: "S-06", pointer: "/properties/assets/items/properties/risk/properties/availability", rule: "type integer (was number); minimum 0; maximum 100", readme_lines: [824, 825], kind: "stated", basis: "AssetRisk object availability: type \"integer\" (L824); \"From 0 to a 100\" (L825)"}
+    - {id: "S-07", pointer: "/properties/trustZones/items/properties/risk/properties/trustRating", rule: "type integer (was number); minimum 0; maximum 100", readme_lines: [1265, 1266], kind: "stated", basis: "TrustZoneRisk object trustRating: type \"integer\" (L1265); \"From 0 and 100\" (L1266)"}
+    - {id: "S-08", pointer: "/properties/threats/items/properties/risk/properties/likelihood", rule: "type integer (was [\"number\",\"null\"]: null removed because the field is REQUIRED and its README type is integer); minimum 0; maximum 100", readme_lines: [1657, 1658, 31], kind: "inferred", basis: "ThreatRisk object likelihood: type \"integer\" (L1657); \"**REQUIRED** From 0 to 100\" (L1658); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-09", pointer: "/properties/threats/items/properties/risk/properties/impact", rule: "type integer (was number); minimum 0; maximum 100", readme_lines: [1681, 1682], kind: "stated", basis: "ThreatRisk object impact: type \"integer\" (L1681); \"From 0 to 100\" (L1682)"}
+    - {id: "S-10", pointer: "/properties/mitigations/items/properties/riskReduction", rule: "type integer (was number); minimum 0; maximum 100", readme_lines: [1823, 1824], kind: "stated", basis: "Mitigations object riskReduction: type \"integer\" (L1823); \"From 0 to 100\" (L1824)"}
+    - {id: "S-11", pointer: "/definitions/representationElement/properties/line", rule: "type [\"integer\",\"null\"] (was [\"number\",\"null\"]; null kept, the field is optional); int32 bounds", readme_lines: [541, 37], kind: "stated", basis: "Representation element for code line: type \"integer\" (L541); integer is \"signed 32 bits\" (L37)"}
+    - {id: "S-12", pointer: "/definitions/size/properties/width", rule: "type integer (was number); int32 bounds", readme_lines: [1964, 37], kind: "stated", basis: "Size object width: type \"integer\" (L1964); integer is \"signed 32 bits\" (L37)"}
+    - {id: "S-13", pointer: "/definitions/size/properties/height", rule: "type integer (was number); int32 bounds", readme_lines: [1976, 37], kind: "stated", basis: "Size object height: type \"integer\" (L1976); integer is \"signed 32 bits\" (L37)"}
+    - {id: "S-14", pointer: "/definitions/position/properties/x", rule: "type integer (was number); int32 bounds", readme_lines: [2001, 37], kind: "stated", basis: "Position object x: type \"integer\" (L2001); integer is \"signed 32 bits\" (L37)"}
+    - {id: "S-15", pointer: "/definitions/position/properties/y", rule: "type integer (was number); int32 bounds", readme_lines: [2013, 37], kind: "stated", basis: "Position object y: type \"integer\" (L2013); integer is \"signed 32 bits\" (L37)"}
+    - {id: "S-16", pointer: "/definitions/threat/properties/mitigations/items", rule: "item type object (was [\"object\",\"null\"])", readme_lines: [1755, 31], kind: "inferred", basis: "Threat instance object mitigations: \"array of Mitigation instance object\" (L1755); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-17", pointer: "/definitions/threat/properties/mitigations/items/properties/mitigation", rule: "type string (was [\"string\",\"null\"])", readme_lines: [1884, 1885, 31], kind: "inferred", basis: "Mitigation instance object mitigation: type \"string\" (L1884), \"**REQUIRED**\" (L1885); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-18", pointer: "/definitions/threat/properties/mitigations/items/properties/state", rule: "type string (was [\"string\",\"null\"])", readme_lines: [1896, 1897, 31], kind: "inferred", basis: "Mitigation instance object state: type \"string\" (L1896), \"**REQUIRED**\" (L1897); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-19", pointer: "/properties/components/items/properties/tags/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [957, 31], kind: "inferred", basis: "Components object tags: \"array of strings\" (L957); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-20", pointer: "/properties/dataflows/items/properties/tags/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [1387, 31], kind: "inferred", basis: "Dataflows object tags: \"array of strings\" (L1387); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-21", pointer: "/properties/dataflows/items/properties/assets/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [1440, 31], kind: "inferred", basis: "Dataflows object assets: \"array of strings\" (L1440); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-22", pointer: "/properties/threats/items/properties/categories/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [1552, 31], kind: "inferred", basis: "Threats object categories: \"array of strings\" (L1552); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-23", pointer: "/properties/threats/items/properties/cwes/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [1566, 31], kind: "inferred", basis: "Threats object cwes: \"array of strings\" (L1566); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-24", pointer: "/properties/threats/items/properties/tags/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [1588, 31], kind: "inferred", basis: "Threats object tags: \"array of strings\" (L1588); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-25", pointer: "/definitions/assetInstance/properties/processed/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [864, 31], kind: "inferred", basis: "Asset Instance object processed: \"array of strings\" (L864); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-26", pointer: "/definitions/assetInstance/properties/stored/items", rule: "item type string (was [\"string\",\"null\"])", readme_lines: [879, 31], kind: "inferred", basis: "Asset Instance object stored: \"array of strings\" (L879); \"`null` is not supported as a type\" (L31)"}
+    - {id: "S-27", pointer: "/properties/project/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [155], kind: "stated", basis: "Project object attributes: \"Map [string, string]\" (L155)"}
+    - {id: "S-28", pointer: "/properties/representations/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [255], kind: "stated", basis: "Representations object attributes: \"Map [string, string]\" (L255)"}
+    - {id: "S-29", pointer: "/properties/assets/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [740], kind: "stated", basis: "Assets object attributes: \"Map [string, string]\" (L740)"}
+    - {id: "S-30", pointer: "/properties/trustZones/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [1194], kind: "stated", basis: "TrustZones object attributes: \"Map [string, string]\" (L1194)"}
+    - {id: "S-31", pointer: "/properties/components/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [1018], kind: "stated", basis: "Components object attributes: \"Map [string, string]\" (L1018)"}
+    - {id: "S-32", pointer: "/properties/dataflows/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [1462], kind: "stated", basis: "Dataflows object attributes: \"Map [string, string]\" (L1462)"}
+    - {id: "S-33", pointer: "/properties/threats/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [1602], kind: "stated", basis: "Threats object attributes: \"Map [string, string]\" (L1602)"}
+    - {id: "S-34", pointer: "/properties/mitigations/items/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [1836], kind: "stated", basis: "Mitigations object attributes: \"Map [string, string]\" (L1836)"}
+    - {id: "S-35", pointer: "/definitions/representationElement/properties/attributes", rule: "additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"])", readme_lines: [447, 572, 659], kind: "stated", basis: "Representation element (diagram, code, threat-model) attributes: \"Map <string, string>\" (L447, L572, L659)"}
+    - {id: "S-36", pointer: "/properties/dataflows/items/properties/bidirectional", rule: "default false (an annotation: validation results do not change)", readme_lines: [1404], kind: "stated", basis: "Dataflows object bidirectional: \"By default, it is false.\" (L1404)"}
+extension_points:
+  attributes_maps:
+    description: >-
+      A free-form map on 9 structures. The README types it "Map [string, string]" (or "Map <string, string>" on the
+      element variants) and calls it "a free-form map of attributes that complete the description of" the object.
+      The schema declares ["object", "null"] with no constraint on keys or values (M-11).
+    at:
+      - {schema_pointer: "/properties/project/properties/attributes", schema_line: 27, strict: "S-27"}
+      - {schema_pointer: "/properties/representations/items/properties/attributes", schema_line: 48, strict: "S-28"}
+      - {schema_pointer: "/properties/assets/items/properties/attributes", schema_line: 71, strict: "S-29"}
+      - {schema_pointer: "/properties/trustZones/items/properties/attributes", schema_line: 97, strict: "S-30"}
+      - {schema_pointer: "/properties/components/items/properties/attributes", schema_line: 127, strict: "S-31"}
+      - {schema_pointer: "/properties/dataflows/items/properties/attributes", schema_line: 157, strict: "S-32"}
+      - {schema_pointer: "/properties/threats/items/properties/attributes", schema_line: 194, strict: "S-33"}
+      - {schema_pointer: "/properties/mitigations/items/properties/attributes", schema_line: 208, strict: "S-34"}
+      - {schema_pointer: "/definitions/representationElement/properties/attributes", schema_line: 253, strict: "S-35"}
+    absent_from:
+      - "OTM object"
+      - "AssetRisk object"
+      - "Asset Instance object"
+      - "TrustZoneRisk object"
+      - "Parent object"
+      - "ThreatRisk object"
+      - "Threat instance object"
+      - "Mitigation instance object"
+      - "Repository object"
+      - "Size object"
+      - "Position object"
+  open_objects: >-
+    No subschema sets additionalProperties, so every object accepts undeclared keys and ignores them. EXAMPLE.json
+    relies on this: /components/3/representations/0/package (L177) and /dataflows/0/representations,
+    /dataflows/1/representations (L195, L212) are declared nowhere. The same openness lets misspelt optional keys
+    pass silently (README examples: postion L1241, trustzones L1211); a misspelt required key is caught only
+    through the missing required key (represetation L1077, target L1484, with L471).
+  open_vocabularies:
+    - {field: "Representations object.type", readme: "closed list diagram | code | threat-model (L189-193)", schema: "free string (L38)", strict: "S-02"}
+    - {field: "Components object.type", readme: "\"The kind of the described component\" (L946); example ec2-instance (L949)", schema: "free string (L109)", observed: "README: web-service, database, code-class; EXAMPLE.json: CD-V2-WEB-CLIENT, CD-V2-WEB-SERVICE, CD-V2-POSTGRESQL, CD-V2-CODE-SNIPPET-SHARING"}
+    - {field: "TrustZones object.type", readme: "\"Type for the trust zone\", RECOMMENDED (L1139); example internet (L1142)", schema: "free string (L83)", observed: "README: internet, private; EXAMPLE.json: two UUIDs (f0ba7722-..., 2ab4effa-...)"}
+    - {field: "Threats object.categories", readme: "\"Array of categories that are applicable to the threat\" (L1553)", schema: "array of free strings (L170)", observed: "Spoofing, Authentication, Tampering"}
+    - {field: "Threats object.cwes", readme: "\"Array of CWE identifiers of weaknesses associated with the threat\" (L1567)", schema: "array of free strings (L174)", observed: "CWE-79, CWE-787"}
+    - {field: "Threat instance object.state", readme: "\"Describes the state in which the threat currently is.\" (L1744)", schema: "free string (L261)", observed: "mitigated, exposed (state-machine.yaml M1)"}
+    - {field: "Mitigation instance object.state", readme: "\"State of the mitigation\" (L1897)", schema: "free string or null (L269)", observed: "implemented, required (state-machine.yaml M2)"}
+  representation_types: >-
+    "Representation is an abstract concept and there might be several implementations." (L187) The README lists
+    three "currently supported" types (L189-193) and defines no registration or naming rule for others.
+mismatches:
+  note: >-
+    README.md versus otm_schema.json, as found by this extraction (agent A numbers source defects separately).
+    fixtures name the examples/ files that demonstrate each one.
+  items:
+    - id: "M-01"
+      title: "integer in the README, number in the schema"
+      readme: >-
+        integer for AssetRisk confidentiality / integrity / availability (L800, L812, L824), TrustZoneRisk trustRating
+        (L1265), ThreatRisk likelihood / impact (L1657, L1681), Mitigations riskReduction (L1823), Representation
+        element for code line (L541), Size width / height (L1964, L1976), Position x / y (L2001, L2013); integer is
+        "signed 32 bits" (L37)
+      schema: "number at L65-67, L89, L182, L184, L207, L251, L218-219, L237-238"
+      effect: "fractions (50.5) and values outside 32 bits pass the source schema"
+      strict: ["S-04", "S-05", "S-06", "S-07", "S-08", "S-09", "S-10", "S-11", "S-12", "S-13", "S-14", "S-15"]
+      fixtures: ["neg-strict-likelihood-fraction.json"]
+    - id: "M-02"
+      title: "ranges stated, not enforced"
+      readme: >-
+        "From 0 to 100" for confidentiality (L801), integrity (L813), availability (L825, "From 0 to a 100"),
+        trustRating (L1266, "From 0 and 100"), likelihood (L1658), impact (L1682), riskReduction (L1824)
+      schema: "no minimum or maximum anywhere"
+      effect: "negative and >100 values pass the source schema"
+      strict: ["S-04", "S-05", "S-06", "S-07", "S-08", "S-09", "S-10"]
+      fixtures: ["neg-strict-asset-risk-out-of-range.json", "neg-strict-trustrating-negative.json"]
+    - id: "M-03"
+      title: "representation type is a closed list in the README, a free string in the schema"
+      readme: >-
+        "These are the currently supported representation types: diagram, code, threat-model" (L189-193); "The
+        supported representation types are:" (L298)
+      schema: "type: string (L38)"
+      effect: "any type string passes"
+      strict: ["S-02"]
+      fixtures: ["neg-strict-representation-type-unknown.json"]
+    - id: "M-04"
+      title: "type-specific representation fields are unconditional in the schema"
+      readme: >-
+        "Depending on the type selected, some extra fields must be included in the representation." (L298): size is
+        REQUIRED for diagram (L308); repository belongs to code (L334); threat-model has no extra fields (L354). The
+        Representations object table (L197-268) does not list size or repository.
+      schema: "size (L40) and repository (L41-47) are optional properties of every representation, whatever its type"
+      effect: >-
+        a diagram representation without size passes; a code representation may carry size and a diagram one
+        repository
+      strict: ["S-03"]
+      fixtures: ["neg-strict-diagram-without-size.json"]
+    - id: "M-05"
+      title: "representation element variants collapse into one definition"
+      readme: >-
+        three variants with different field sets (L380, L478, L608); for diagram elements position and size are
+        REQUIRED (L432, L440)
+      schema: >-
+        one definition representationElement (L241-255) with the union of all fields, required only representation and
+        id (L243)
+      effect: >-
+        a diagram element without position or size passes; any element may carry any variant's fields. The variant is
+        known only by resolving representation to a representation and reading its type, which JSON Schema cannot do.
+      xref: ["XR-04", "XR-10"]
+      fixtures: ["neg-xref-diagram-element-without-position.json"]
+    - id: "M-06"
+      title: "code element: \"at least one\" rule, unexpressed and self-contradictory"
+      readme: >-
+        "Despite all fields being optional, at least one of them is required." (L480), in a table that marks
+        representation (L494) and id (L518) REQUIRED
+      schema: "no at-least-one rule (L241-255)"
+      effect: "which fields the rule counts is undetermined; neither the strict profile nor the XR checks implement it"
+    - id: "M-07"
+      title: "Repository url: optional in the README, required (but nullable) in the schema"
+      readme: "url has no REQUIRED marker (L1930-1932); repository itself is optional for code (L334)"
+      schema: "required [\"url\"] (L43) with url [\"string\", \"null\"] (L45)"
+      effect: "repository: {} fails the source schema although the README allows it; repository: {url: null} passes"
+    - id: "M-08"
+      title: "null: \"not supported as a type\" in the README, used throughout the schema"
+      readme: >-
+        "`null` is not supported as a type (see `nullable` for an alternative solution)." (L31); no `nullable` is
+        defined anywhere in the README
+      schema: "61 type declarations include \"null\"; EXAMPLE.json carries 22 null values"
+      effect: >-
+        whether null may stand for an absent optional field is decided only by the schema and the examples. The strict
+        profile keeps every null of the source except on README-REQUIRED fields and array items (M-09, S-08,
+        S-16..S-26).
+    - id: "M-09"
+      title: "REQUIRED fields the schema lets be null"
+      readme: >-
+        ThreatRisk likelihood REQUIRED (L1658); Mitigation instance mitigation and state REQUIRED (L1885, L1897);
+        Threat instance mitigations is an "array of Mitigation instance object" (L1755)
+      schema: >-
+        likelihood ["number", "null"] (L182); mitigation, state ["string", "null"] (L268, L269); mitigation items
+        ["object", "null"] (L264-265)
+      effect: "a required key with a null value, or a null mitigation instance, passes"
+      strict: ["S-08", "S-16", "S-17", "S-18"]
+      fixtures: ["neg-strict-mitigation-state-null.json"]
+    - id: "M-10"
+      title: "nullability asymmetries with no README basis"
+      readme: >-
+        uniform types: likelihoodComment and impactComment are both richText (L1669, L1693); every root collection is
+        optional (L57-63); every tags field is "array of strings" (L140, L957, L1387, L1588)
+      schema: >-
+        impactComment "string" (L185) but likelihoodComment ["string", "null"] (L183) and AssetRisk comment ["string",
+        "null"] (L68); impact "number" (L184) but likelihood nullable (L182); root trustZones (L76) and dataflows
+        (L132) "array" but representations, assets, components, threats, mitigations nullable (L31, L53, L102, L162,
+        L199); Project tags items "string" (L24) but Components / Dataflows / Threats tags items nullable (L124, L154,
+        L191); Threat instance mitigations "array" (L263) while components / dataflows threats are nullable (L118,
+        L148); trust zone type "string" (L83) and the Parent object's trustZone and component "string" (L229, L230)
+        while other optional strings are nullable; trust zone parent refs the Parent object, "object" (L92, L223),
+        while component assets refs a nullable assetInstance (L116, L276)
+      effect: >-
+        trustZones: null, dataflows: null, impactComment: null, a trust zone's type: null or parent: null, and null for
+        the absent key of a Parent object fail; the parallel fields accept null
+      fixtures: ["neg-trustzones-null.json", "neg-threat-risk-impact-null.json"]
+    - id: "M-11"
+      title: "attributes typed Map [string, string] in the README, any object in the schema"
+      readme: >-
+        "Map [string, string]" / "Map <string, string>" (L155, L255, L447, L572, L659, L740, L1018, L1194, L1462,
+        L1602, L1836)
+      schema: "[\"object\", \"null\"] with no value constraint (L27, L48, L71, L97, L127, L157, L194, L208, L253)"
+      effect: "non-string values pass; the README's own Diagram example has transparent: 40 (L323)"
+      strict: ["S-27", "S-28", "S-29", "S-30", "S-31", "S-32", "S-33", "S-34", "S-35"]
+      fixtures: ["neg-strict-attributes-non-string-value.json", "readme-representation-type-diagram.yaml"]
+    - id: "M-12"
+      title: "bidirectional default stated, not declared"
+      readme: "\"By default, it is false.\" (L1404)"
+      schema: "no default (L140)"
+      effect: "annotation only: a consumer must treat an absent or null bidirectional as false itself"
+      strict: ["S-36"]
+    - id: "M-13"
+      title: "otmVersion is unconstrained"
+      readme: >-
+        the specification is versioned with Semantic Versioning 2.0.0 (L15); otmVersion "states the OTM version used
+        in the current file" (L55); current version 0.2.0 (L18)
+      schema: "type string (L9-11): no pattern, enum or const"
+      effect: >-
+        the 0.2.0 schema accepts any otmVersion string, "0.1.0" and "v0.2.0" included; nothing ties a document to the
+        schema that validates it
+      strict: ["S-01"]
+      fixtures: ["neg-strict-otmversion-not-semver.yaml"]
+    - id: "M-14"
+      title: "which JSON Schema"
+      readme: >-
+        data types "based on the types supported by the JSON Schema Specification Wright Draft 00" (L31); integer
+        "defined as a JSON number without a fraction or exponent part" (L31)
+      schema: "draft-07 (L2); a draft-07 integer is any number with a zero fractional part, so 1.0 and 1e2 are integers"
+      effect: >-
+        the README's lexical integer and draft-07's mathematical integer disagree on values such as 100.0; the strict
+        profile follows draft-07
+    - id: "M-15"
+      title: "README format vocabulary has no schema counterpart"
+      readme: "formats integer, long, float, double, string, richText (CommonMark), boolean, date, datetime (L35-45)"
+      schema: "no format, contentMediaType or integer keyword at all; richText fields are plain strings"
+      effect: "minor: no field uses long, float, double, date or datetime; richText cannot be validated beyond string"
+    - id: "M-16"
+      title: "identifier uniqueness and references are prose only"
+      readme: >-
+        "Unique identifier" on 11 id fields; 10 fields that name another object of the document by id, plus the
+        external cwes and Repository url (unchecked_references, 12 entries)
+      schema: "none of either; draft-07 cannot express them"
+      effect: "duplicate ids and dangling references pass both schemas"
+      xref: ["XR-01", "XR-02", "XR-03", "XR-04", "XR-05", "XR-06", "XR-07", "XR-08", "XR-09"]
+      fixtures: ["neg-xref-duplicate-component-id.json", "neg-xref-dangling-dataflow-destination.json", "neg-xref-dangling-threat-reference.json"]
+readme_link_notes:
+  - line: 60
+    text: "DataFlows object"
+    note: "link text differs in case from the heading \"Dataflows object\" (L1336)"
+  - line: 372
+    text: "OTM version 0.1.0 | Representations-object"
+    note: "cites version 0.1.0 inside the 0.2.0 text"
+  - line: 994
+    text: "Representation Element object"
+    note: "points at #representations-object; the same type in TrustZones (L1186) points at #representationelement-object"
+  - line: 1002
+    text: "Asset instance object"
+    note: "heading is \"Asset Instance object\" (L848)"

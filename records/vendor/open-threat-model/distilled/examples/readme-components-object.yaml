@@ -1,0 +1,63 @@
+components:
+  - name: Web Service
+    id: web-service
+    type: web-service
+    description: Runs our web application
+    parent:
+      trustZone: private
+    tags:
+      - tomcat
+    representations:
+      - representation: architecture-diagram
+        id: web-service-box
+        name: Web Service
+        position:
+          x: 100
+          y: 100
+        size:
+          width: 50
+          height: 50
+    assets:
+      processed:
+        - 441b01ca-2653-4707-8be8-fd6addce9df6
+        - 4136bb34-e2ff-11eb-ba80-0242ac130004
+      stored:
+        - 441b01ca-2653-4707-8be8-fd6addce9df6
+    threats:
+      - threat: 22724267-be7e-44c0-8b1f-d7d33e9a34ec
+        state: exposed
+        mitigations:
+          - mitigation: fd6136f4-e2ff-11eb-ba80-0242ac130004
+            state: implemented
+    attributes:
+      - owner: John Doe
+      - department: IT
+  - name: Customer Database
+    id: customer-database
+    description: Postgres database
+    parent:
+      trustZone: private
+    type: database
+    tags:
+      - postgres
+    representations:
+      - represetation: architecture-diagram
+        id: box-for-postgress-DB
+        position:
+          x: 200
+          y: 100
+        size:
+          width: 50
+          height: 50
+  - name: Class CustomerDatabase
+    id: class-customerdatabase
+    description: Managages customer database
+    type: code-class
+    parent:
+      trustZone: private
+    representations:
+      - representation: application-code
+        id: source-to-go-class
+        name: source.go
+        file: path/to/source.go
+        line: 644

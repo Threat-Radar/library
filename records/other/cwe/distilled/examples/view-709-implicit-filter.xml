@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><Weakness_Catalog Name="CWE" Version="4.20" Date="2026-04-30" xmlns="http://cwe.mitre.org/cwe-7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cwe.mitre.org/cwe-7 http://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<Views>
+      <View ID="709" Name="Named Chains" Type="Implicit" Status="Incomplete">
+         <Objective>This view displays Named Chains and their components.</Objective>
+         <Filter>/Weakness_Catalog/Weaknesses/Weakness[@Structure='Chain']</Filter>
+         <Mapping_Notes>
+            <Usage>Prohibited</Usage>
+            <Rationale>This entry is a View. Views are not weaknesses and therefore inappropriate to describe the root causes of vulnerabilities.</Rationale>
+            <Comments>Use this View or other Views to search and navigate for the appropriate weakness.</Comments>
+            <Reasons>
+               <Reason Type="View"/>
+            </Reasons>
+         </Mapping_Notes>
+		   <Content_History>
+            <Submission>
+               <Submission_Name>CWE Content Team</Submission_Name>
+               <Submission_Organization>MITRE</Submission_Organization>
+               <Submission_Date>2008-09-09</Submission_Date>
+               <Submission_Version>1.0</Submission_Version>
+               <Submission_ReleaseDate>2008-09-09</Submission_ReleaseDate>
+            </Submission>
+            <Modification>
+               <Modification_Name>CWE Content Team</Modification_Name>
+               <Modification_Organization>MITRE</Modification_Organization>
+               <Modification_Date>2017-11-08</Modification_Date>
+               <Modification_Version>3.0</Modification_Version>
+               <Modification_ReleaseDate>2017-11-08</Modification_ReleaseDate>
+               <Modification_Comment>updated Description, View_Structure</Modification_Comment>
+            </Modification>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2023-06-29</Modification_Date>
+					<Modification_Version>4.12</Modification_Version>
+					<Modification_ReleaseDate>2023-06-29</Modification_ReleaseDate>
+					<Modification_Comment>updated Mapping_Notes</Modification_Comment>
+				</Modification>
+         </Content_History>
+      </View>
+	</Views>
+</Weakness_Catalog>

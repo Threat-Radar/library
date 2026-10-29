@@ -1,0 +1,403 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "DERIVED SCHEMA - NOT THE OPEN THREAT MODEL SOURCE SCHEMA. A stricter profile of otm_schema.json (Open Threat Model 0.2.0, https://github.com/iriusrisk/OpenThreatModel at commit c88c5a7b4115f0f025e28d5682a2b0d790b389e4, sha256 81e7f5a52a0a7d66b44cc4e0c15f21b5d60e1ca945c810e39622a730545eef0c) written by the m-of-n library on 2026-10-14. It adds constraints that README.md at the same commit (sha256 4acfb48b04423a6abecf805673890e38edf4df6340dc1269d6ac2e1ef78cf8c0) states but the source schema does not enforce; each addition carries its own $comment naming the README lines (ids S-01..S-36, listed in schema/README.md). Nothing the source schema enforces is relaxed and no JSON pointer of the source schema moves. $id is removed so that this file cannot be mistaken for the source. The source schema's notice reads: 'Open Threat Model JSON schema is published under the terms of the Apache License 2.0.' This file is a modified version of that schema; the added comments cite and quote README.md of the Open Threat Model (published by IriusRisk and contributors at https://github.com/iriusrisk/OpenThreatModel), which is licensed CC BY-SA 4.0.",
+    "title": "Open Threat Model Specification 0.2.0 - derived strict profile (not the source schema)",
+    "type": "object",
+    "required": ["otmVersion", "project"],
+    "properties": {
+        "otmVersion": {
+            "$comment": "DERIVED S-01 (README L15, L55): pattern: a Semantic Versioning 2.0.0 version string (the regular expression published on semver.org). Inferred, not literally stated.",
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+        },
+        "project": {
+            "type": "object",
+            "required": ["name", "id"],
+            "properties": {
+                "name": {"type": "string"},
+                "id": {"type": "string"},
+                "description": {"type": ["string", "null"]},
+                "owner": {"type": ["string", "null"]},
+                "ownerContact": {"type": ["string", "null"]},
+                "tags": {"type": ["array", "null"], "items": {"type": "string"}},
+                "attributes": {
+                    "$comment": "DERIVED S-27 (README L155): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                    "type": ["object", "null"],
+                    "additionalProperties": {"type": "string"}
+                }
+            }
+        },
+        "representations": {
+            "type": ["array", "null"],
+            "items": {
+                "$comment": "DERIVED S-03 (README L298, L308): if type is \"diagram\" then size is required and is an object (not null).",
+                "type": "object",
+                "required": ["name", "id", "type"],
+                "properties": {
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "type": {
+                        "$comment": "DERIVED S-02 (README L189, L191, L192, L193, L298): enum: diagram, code, threat-model.",
+                        "type": "string",
+                        "enum": ["diagram", "code", "threat-model"]
+                    },
+                    "description": {"type": ["string", "null"]},
+                    "size": {"$ref": "#/definitions/size"},
+                    "repository": {
+                        "type": ["object", "null"],
+                        "required": ["url"],
+                        "properties": {"url": {"type": ["string", "null"]}}
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-28 (README L255): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                },
+                "if": {"properties": {"type": {"const": "diagram"}}, "required": ["type"]},
+                "then": {"required": ["size"], "properties": {"size": {"type": "object"}}}
+            }
+        },
+        "assets": {
+            "type": ["array", "null"],
+            "items": {
+                "type": "object",
+                "required": ["name", "id", "risk"],
+                "properties": {
+                    "name": {"type": "string"},
+                    "id": {"type": "string"},
+                    "description": {"type": ["string", "null"]},
+                    "risk": {
+                        "type": "object",
+                        "required": ["confidentiality", "integrity", "availability"],
+                        "properties": {
+                            "confidentiality": {
+                                "$comment": "DERIVED S-04 (README L800, L801): type integer (was number); minimum 0; maximum 100.",
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100
+                            },
+                            "integrity": {
+                                "$comment": "DERIVED S-05 (README L812, L813): type integer (was number); minimum 0; maximum 100.",
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100
+                            },
+                            "availability": {
+                                "$comment": "DERIVED S-06 (README L824, L825): type integer (was number); minimum 0; maximum 100.",
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100
+                            },
+                            "comment": {"type": ["string", "null"]}
+                        }
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-29 (README L740): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                }
+            }
+        },
+        "trustZones": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "name", "risk"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "type": {"type": "string"},
+                    "description": {"type": ["string", "null"]},
+                    "risk": {
+                        "type": "object",
+                        "required": ["trustRating"],
+                        "properties": {
+                            "trustRating": {
+                                "$comment": "DERIVED S-07 (README L1265, L1266): type integer (was number); minimum 0; maximum 100.",
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100
+                            }
+                        }
+                    },
+                    "parent": {"$ref": "#/definitions/parent"},
+                    "representations": {
+                        "type": ["array", "null"],
+                        "items": {"$ref": "#/definitions/representationElement"}
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-30 (README L1194): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                }
+            }
+        },
+        "components": {
+            "type": ["array", "null"],
+            "items": {
+                "type": "object",
+                "required": ["id", "name", "type", "parent"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "type": {"type": "string"},
+                    "description": {"type": ["string", "null"]},
+                    "parent": {"$ref": "#/definitions/parent"},
+                    "representations": {
+                        "type": ["array", "null"],
+                        "items": {"$ref": "#/definitions/representationElement"}
+                    },
+                    "assets": {"$ref": "#/definitions/assetInstance"},
+                    "threats": {"type": ["array", "null"], "items": {"$ref": "#/definitions/threat"}},
+                    "tags": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "$comment": "DERIVED S-19 (README L957, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                            "type": "string"
+                        }
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-31 (README L1018): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                }
+            }
+        },
+        "dataflows": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "name", "source", "destination"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "description": {"type": ["string", "null"]},
+                    "bidirectional": {
+                        "$comment": "DERIVED S-36 (README L1404): default false (an annotation: validation results do not change).",
+                        "type": ["boolean", "null"],
+                        "default": false
+                    },
+                    "source": {"type": "string"},
+                    "destination": {"type": "string"},
+                    "assets": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "$comment": "DERIVED S-21 (README L1440, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                            "type": "string"
+                        }
+                    },
+                    "threats": {"type": ["array", "null"], "items": {"$ref": "#/definitions/threat"}},
+                    "tags": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "$comment": "DERIVED S-20 (README L1387, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                            "type": "string"
+                        }
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-32 (README L1462): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                }
+            }
+        },
+        "threats": {
+            "type": ["array", "null"],
+            "items": {
+                "type": "object",
+                "required": ["id", "name", "risk"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "description": {"type": ["string", "null"]},
+                    "categories": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "$comment": "DERIVED S-22 (README L1552, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                            "type": "string"
+                        }
+                    },
+                    "cwes": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "$comment": "DERIVED S-23 (README L1566, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                            "type": "string"
+                        }
+                    },
+                    "risk": {
+                        "type": "object",
+                        "required": ["likelihood", "impact"],
+                        "properties": {
+                            "likelihood": {
+                                "$comment": "DERIVED S-08 (README L1657, L1658, L31): type integer (was [\"number\",\"null\"]: null removed because the field is REQUIRED and its README type is integer); minimum 0; maximum 100. Inferred, not literally stated.",
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100
+                            },
+                            "likelihoodComment": {"type": ["string", "null"]},
+                            "impact": {
+                                "$comment": "DERIVED S-09 (README L1681, L1682): type integer (was number); minimum 0; maximum 100.",
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 100
+                            },
+                            "impactComment": {"type": "string"}
+                        }
+                    },
+                    "tags": {
+                        "type": ["array", "null"],
+                        "items": {
+                            "$comment": "DERIVED S-24 (README L1588, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                            "type": "string"
+                        }
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-33 (README L1602): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                }
+            }
+        },
+        "mitigations": {
+            "type": ["array", "null"],
+            "items": {
+                "type": "object",
+                "required": ["id", "name", "riskReduction"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "name": {"type": "string"},
+                    "description": {"type": ["string", "null"]},
+                    "riskReduction": {
+                        "$comment": "DERIVED S-10 (README L1823, L1824): type integer (was number); minimum 0; maximum 100.",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 100
+                    },
+                    "attributes": {
+                        "$comment": "DERIVED S-34 (README L1836): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                        "type": ["object", "null"],
+                        "additionalProperties": {"type": "string"}
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "size": {
+            "type": ["object", "null"],
+            "required": ["width", "height"],
+            "properties": {
+                "width": {
+                    "$comment": "DERIVED S-12 (README L1964, L37): type integer (was number); int32 bounds.",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                },
+                "height": {
+                    "$comment": "DERIVED S-13 (README L1976, L37): type integer (was number); int32 bounds.",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                }
+            }
+        },
+        "parent": {
+            "type": "object",
+            "oneOf": [{"required": ["trustZone"]}, {"required": ["component"]}],
+            "properties": {"trustZone": {"type": "string"}, "component": {"type": "string"}}
+        },
+        "position": {
+            "type": ["object", "null"],
+            "required": ["x", "y"],
+            "properties": {
+                "x": {
+                    "$comment": "DERIVED S-14 (README L2001, L37): type integer (was number); int32 bounds.",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                },
+                "y": {
+                    "$comment": "DERIVED S-15 (README L2013, L37): type integer (was number); int32 bounds.",
+                    "type": "integer",
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                }
+            }
+        },
+        "representationElement": {
+            "type": "object",
+            "required": ["representation", "id"],
+            "properties": {
+                "representation": {"type": "string"},
+                "name": {"type": ["string", "null"]},
+                "id": {"type": "string"},
+                "position": {"$ref": "#/definitions/position"},
+                "size": {"$ref": "#/definitions/size"},
+                "file": {"type": ["string", "null"]},
+                "line": {
+                    "$comment": "DERIVED S-11 (README L541, L37): type [\"integer\",\"null\"] (was [\"number\",\"null\"]; null kept, the field is optional); int32 bounds.",
+                    "type": ["integer", "null"],
+                    "minimum": -2147483648,
+                    "maximum": 2147483647
+                },
+                "codeSnippet": {"type": ["string", "null"]},
+                "attributes": {
+                    "$comment": "DERIVED S-35 (README L447, L572, L659): additionalProperties {type: string}: every value of the map is a string (the map itself stays [\"object\",\"null\"]).",
+                    "type": ["object", "null"],
+                    "additionalProperties": {"type": "string"}
+                }
+            }
+        },
+        "threat": {
+            "type": "object",
+            "required": ["threat", "state"],
+            "properties": {
+                "threat": {"type": "string"},
+                "state": {"type": "string"},
+                "mitigations": {
+                    "type": "array",
+                    "items": {
+                        "$comment": "DERIVED S-16 (README L1755, L31): item type object (was [\"object\",\"null\"]). Inferred, not literally stated.",
+                        "type": "object",
+                        "required": ["mitigation", "state"],
+                        "properties": {
+                            "mitigation": {
+                                "$comment": "DERIVED S-17 (README L1884, L1885, L31): type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                                "type": "string"
+                            },
+                            "state": {
+                                "$comment": "DERIVED S-18 (README L1896, L1897, L31): type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "assetInstance": {
+            "type": ["object", "null"],
+            "properties": {
+                "processed": {
+                    "type": ["array", "null"],
+                    "items": {
+                        "$comment": "DERIVED S-25 (README L864, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                        "type": "string"
+                    }
+                },
+                "stored": {
+                    "type": ["array", "null"],
+                    "items": {
+                        "$comment": "DERIVED S-26 (README L879, L31): item type string (was [\"string\",\"null\"]). Inferred, not literally stated.",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+representations:
+  - name: Architecture Threat Model
+    id: architecture-threat-model
+    type: threat-model
+    attributes:
+      source: Microsoft Threat Model
+      template: custom

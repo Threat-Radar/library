@@ -1,0 +1,110 @@
+schema: "library-examples/v1"
+record: "cwe"
+reviewed_by: ""
+note: >-
+  The XSD's documentation gives its own examples of identifier and content formats. Each is a vector here: the
+  example verbatim with its line, the rule it implies (kind: stated when the documentation states it, derived
+  when we read a pattern off an example), and how CWE 4.20 conforms (kind: observed). Only D09 is enforced by
+  validation; the others are xs:string conventions a consumer may check itself. The schema has no other examples
+  or test vectors.
+vectors:
+  - id: "D01"
+    field: "External_Reference/@Reference_ID (L184, xs:string)"
+    quote: "The required Reference_ID attribute exists to provide a globally unique identifier for the reference (e.g., REF-1)."
+    locator: "cwe_schema_v7.3.xsd L170"
+    example: "REF-1"
+    rule: "REF-<n> (^REF-[0-9]+$) — derived from the example; the schema has no pattern facet, so validation does not enforce it"
+    kind: "derived"
+    observed_4_20: {values: 1026, conform: 1025, nonconforming: ["1300 (catalog L285297; never cited; no REF-1300 exists)"]}
+  - id: "D02"
+    field: "ReferencesType/Reference/@External_Reference_ID (L520)"
+    quote: "The required External_Reference_ID attribute represents the external reference entry being linked to (e.g., REF-1)."
+    locator: "cwe_schema_v7.3.xsd L515"
+    example: "REF-1"
+    rule: "REF-<n>; must equal some External_Reference/@Reference_ID (unchecked by the schema: no xs:keyref)"
+    kind: "derived"
+    observed_4_20: {values: 2245, distinct: 1015, conform: 2245, unresolved: 0}
+  - id: "D03"
+    field: "footnote citations in entry text"
+    quote: "Text or quotes within the same CWE entity can cite this External_Reference_ID similar to how a footnote is used, and should use the format [REF-1]."
+    locator: "cwe_schema_v7.3.xsd L515"
+    example: "[REF-1]"
+    rule: "\\[REF-<n>\\] inside the decoded text of an entry; the cited id should appear in the same entry's References"
+    kind: "derived"
+    observed_4_20: {occurrences: 931, distinct: 268, unresolved: 0, not_listed_in_the_entrys_References: 0, not_listed_in_the_entry_level_References_element: 15, note: "the entry's References here means every Reference inside the entry, including Demonstrative_Example/References; counting only the entry-level References element, 15 citations (e.g. 7 of REF-1479 in CWE-287) are listed only in a Demonstrative_Example's References"}
+  - id: "D04"
+    field: "CommonConsequencesType/Consequence/@Consequence_ID (L286)"
+    quote: "The identifier is a string and should match the following format: CC-1."
+    locator: "cwe_schema_v7.3.xsd L275"
+    example: "CC-1"
+    rule: "CC-<n>"
+    kind: "derived"
+    observed_4_20: {consequences: 1237, with_Consequence_ID: 0, note: "attribute never used in 4.20"}
+  - id: "D05"
+    field: "DemonstrativeExamplesType/Demonstrative_Example/@Demonstrative_Example_ID (L375)"
+    quote: "The identifier is a string and should match the following format: DX-1."
+    locator: "cwe_schema_v7.3.xsd L361"
+    example: "DX-1"
+    rule: "DX-<n>"
+    kind: "derived"
+    observed_4_20: {examples: 1109, with_id: 602, distinct: 235, conform: 602}
+  - id: "D06"
+    field: "DetectionMethodsType/Detection_Method/@Detection_Method_ID (L394)"
+    quote: "The identifier is a string and should match the following format: DM-1."
+    locator: "cwe_schema_v7.3.xsd L383"
+    example: "DM-1"
+    rule: "DM-<n>"
+    kind: "derived"
+    observed_4_20: {methods: 959, with_id: 483, distinct: 23, conform: 476, nonconforming: "7 occurrences of a dotted sub-form DM-<n>.<m>: DM-11.1, DM-11.4, DM-11.6, DM-11.7, DM-6.1, DM-7.2, DM-7.4"}
+  - id: "D07"
+    field: "PotentialMitigationsType/Mitigation/@Mitigation_ID (L496)"
+    quote: "The identifier is a string and should match the following format: MIT-1."
+    locator: "cwe_schema_v7.3.xsd L484"
+    example: "MIT-1"
+    rule: "MIT-<n>"
+    kind: "derived"
+    observed_4_20: {mitigations: 1710, with_id: 527, distinct: 70, conform: 468, nonconforming: "59 occurrences (13 distinct) of a dotted sub-form MIT-<n>.<m>, e.g. MIT-4.1, MIT-20.1"}
+  - id: "D08"
+    field: "ObservedExampleType/Observed_Example/Reference (L473, xs:string)"
+    quote: "For example, if a CVE is being cited, it should be of the standard CVE identifier format, such as CVE-2005-1951 or CVE-1999-0046."
+    locator: "cwe_schema_v7.3.xsd L467"
+    example: ["CVE-2005-1951", "CVE-1999-0046"]
+    rule: "CVE-<yyyy>-<nnnn+> when the example is a CVE (^CVE-[0-9]{4}-[0-9]{4,}$)"
+    kind: "derived"
+    observed_4_20: {references: 3134, cve_form: 3125, other: "8 cite an External_Reference in footnote form instead ([REF-1100] in CWE-1260, [REF-1095] in CWE-1277, [REF-1374] in CWE-1391, -332, -392, -703, -755, [REF-1468] in CWE-1429); 1 malformed CVE id, CVE-2002-216 in CWE-837 (catalog L231639: a 3-digit sequence number)"}
+  - id: "D09"
+    field: "ExternalReferenceType Publication_Year / Publication_Month / Publication_Day (L177-179: xs:gYear, xs:gMonth, xs:gDay)"
+    quote: "The year must follow the YYYY format while the month must follow the --MM format and the day must follow the ---DD format."
+    locator: "cwe_schema_v7.3.xsd L169"
+    example: ["YYYY", "--MM", "---DD"]
+    rule: "enforced by the XSD built-in types"
+    kind: "stated"
+    observed_4_20: {years: 680, months: 532, days: 458, all_conform: true}
+    fixture: "external-references-REF-7-44-726.xml (REF-7: 2002, --12, ---04)"
+  - id: "D10"
+    field: "StructuredTextType mixed XHTML content (L1327-1334)"
+    quote: "Some common elements are: <BR/> to insert a line break, <UL><LI/></UL> to create a bulleted list, <OL><LI/></OL> to create a numbered list, and <DIV style=\"margin-left: 40px\"></DIV> to create a new indented section."
+    locator: "cwe_schema_v7.3.xsd L1329"
+    example: ["<BR/>", "<UL><LI/></UL>", "<OL><LI/></OL>", "<DIV style=\"margin-left: 40px\"></DIV>"]
+    rule: "as XML in the XHTML namespace these upper-case names match no declaration in xhtml1-strict.xsd, which declares lower-case names; the strict wildcard (L1332) rejects them"
+    kind: "stated (example) / tested (verdict)"
+    expected: {as_written: "invalid — 4 errors (BR, UL, OL, DIV): neg-doc-example-xhtml-uppercase.xml", lower_case: "valid: doc-example-xhtml-lowercase.xml"}
+    observed_4_20: {upper_case_xhtml_elements: 0, note: "4.20 writes br, ul, li, ol, div (see catalog-stats.yaml xhtml)"}
+    source_defect: "the documentation's examples are HTML spellings that are not valid content for the schema's own strict XHTML wildcard"
+  - id: "D11"
+    field: "StructuredCodeType/@Nature (L1343, StructuredCodeNatureEnumeration L1058-1070)"
+    quote: "This is mostly appropriate when the Nature is \"good\" or \"bad\"."
+    locator: "cwe_schema_v7.3.xsd L1337"
+    example: ["good", "bad"]
+    rule: "the enumeration values are Good and Bad; XSD enumeration facets compare exactly, so the lower-case spellings are not valid values"
+    kind: "derived"
+    observed_4_20: {Example_Code: 1584, Bad: 1065, Attack: 129, Good: 300, Result: 69, Informative: 21, Mitigation: 0}
+    source_defect: "documentation spells the values in lower case"
+  - id: "D12"
+    field: "FunctionalAreasType/Functional_Area (L412)"
+    quote: "For example, CWE-23: Relative Path Traversal may occur in functional areas of software related to file processing."
+    locator: "cwe_schema_v7.3.xsd L409"
+    example: "CWE-23 -> File Processing"
+    rule: "illustration"
+    kind: "stated"
+    observed_4_20: {CWE-23: "Name 'Relative Path Traversal', Status Draft, Functional_Area ['File Processing'] (catalog L80389)"}

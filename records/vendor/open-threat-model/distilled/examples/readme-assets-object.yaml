@@ -1,0 +1,21 @@
+assets:
+  - name: Credit Card Data
+    id: cc-data
+    description: Credit card numbers used for payments in the platform
+    risk:
+      confidentiality: 100
+      integrity: 100
+      availability: 100
+      comment: We have decided that the values are a 100 for all values since this highly sensitive information
+    attributes:
+      attr1: value1
+      attr2: value2
+  - name: Public Info
+    id: public-info
+    description: Public information meant to be seen by any interested customer
+    risk:
+      confidentiality: 0
+      integrity: 100
+      availability: 50
+      comment: Public information has no confidentiality at all but it is quite important for it to be available and to not be changed by attakers
+    attributes:

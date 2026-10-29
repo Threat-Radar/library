@@ -1,0 +1,11 @@
+representations:
+  - name: Architecture Diagram
+    id: architecture-diagram
+    description: This is a diagram of the project's architecture
+    type: diagram
+    size:
+      width: 1000
+      height: 1000
+    attributes:
+      background-color: blue
+      transparent: 40

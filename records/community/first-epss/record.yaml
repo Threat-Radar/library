@@ -23,7 +23,7 @@ relations:
   implements_concept: []
 bears_on:
   []
-topic: 
+topic: schema-representations
 media_type: ""
 publisher: "FIRST (EPSS SIG)"
 tags:

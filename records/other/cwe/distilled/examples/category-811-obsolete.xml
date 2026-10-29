@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><Weakness_Catalog Name="CWE" Version="4.20" Date="2026-04-30" xmlns="http://cwe.mitre.org/cwe-7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cwe.mitre.org/cwe-7 http://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<Categories>
+      <Category ID="811" Name="OWASP Top Ten 2010 Category A2 - Cross-Site Scripting (XSS)" Status="Obsolete">
+         <Summary>Weaknesses in this category are related to the A2 category in the OWASP Top Ten 2010.</Summary>
+         <Relationships>
+            <Has_Member CWE_ID="79" View_ID="809"/>
+         </Relationships>
+         <References>
+            <Reference External_Reference_ID="REF-762"/>
+         </References>
+         <Mapping_Notes>
+            <Usage>Prohibited</Usage>
+            <Rationale>This entry is a Category. Using categories for mapping has been discouraged since 2019. Categories are informal organizational groupings of weaknesses that can help CWE users with data aggregation, navigation, and browsing. However, they are not weaknesses in themselves.</Rationale>
+            <Comments>See member weaknesses of this category.</Comments>
+            <Reasons>
+               <Reason Type="Category"/>
+            </Reasons>
+         </Mapping_Notes>
+         <Content_History>
+            <Submission>
+               <Submission_Name>CWE Content Team</Submission_Name>
+               <Submission_Organization>MITRE</Submission_Organization>
+               <Submission_Date>2010-06-17</Submission_Date>
+               <Submission_Version>1.9</Submission_Version>
+               <Submission_ReleaseDate>2010-06-21</Submission_ReleaseDate>
+            </Submission>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2023-04-27</Modification_Date>
+					<Modification_Version>4.11</Modification_Version>
+					<Modification_ReleaseDate>2023-04-27</Modification_ReleaseDate>
+					<Modification_Comment>updated Mapping_Notes</Modification_Comment>
+				</Modification>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2023-06-29</Modification_Date>
+					<Modification_Version>4.12</Modification_Version>
+					<Modification_ReleaseDate>2023-06-29</Modification_ReleaseDate>
+					<Modification_Comment>updated Mapping_Notes</Modification_Comment>
+				</Modification>
+				<Modification>
+					<Modification_Name>CWE Content Team</Modification_Name>
+					<Modification_Organization>MITRE</Modification_Organization>
+					<Modification_Date>2025-09-09</Modification_Date>
+					<Modification_Version>4.18</Modification_Version>
+					<Modification_ReleaseDate>2025-09-09</Modification_ReleaseDate>
+					<Modification_Comment>updated References</Modification_Comment>
+				</Modification>
+         </Content_History>
+      </Category>
+	</Categories>
+</Weakness_Catalog>
