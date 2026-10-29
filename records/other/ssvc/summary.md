@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: ssvc
 record: ssvc
 type: summary
-updated: "2026-10-21"
+updated: "2026-10-29"
 ---
 
 # Stakeholder-Specific Vulnerability Categorization (SSVC), SelectionList 2.0.0 schema
@@ -15,7 +15,7 @@ updated: "2026-10-21"
 | **Authors** | |
 | **Published** | |
 | **Identifier** | https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json |
-| **Source** | https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json |
+| **Source** | https://raw.githubusercontent.com/CERTCC/SSVC/8b2f8269e09dcacecca2cb4a1114d261f6d8779c/data/schema/v2/SelectionList_2_0_0.schema.json (CERTCC/SSVC commit `8b2f8269`, 2025-09-29; the hosted URL now serves a later revision under the same name) |
 | **Digest** | `f7afb00c84a2b58341dd7fb0d856266abc9bc50ae02718f1285fb8f9a247a7fc` |
 
 ## Overview

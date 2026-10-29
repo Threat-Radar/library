@@ -10,8 +10,12 @@ authors: []
 date: ""
 identifiers:
   url: https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json
+  git: https://github.com/CERTCC/SSVC
+# content.url pins CERTCC/SSVC commit 8b2f8269 (2025-09-29), the file whose bytes match the digest
+# retrieved 2026-10-06. The hosted URL above later served other bytes under the same name
+# (commits 44cc49e3, 2026-09-17, and d677210c, 2026-10-20) with no SelectionList version bump.
 content:
-  url: https://certcc.github.io/SSVC/data/schema/v2/SelectionList_2_0_0.schema.json
+  url: https://raw.githubusercontent.com/CERTCC/SSVC/8b2f8269e09dcacecca2cb4a1114d261f6d8779c/data/schema/v2/SelectionList_2_0_0.schema.json
   sha256: "f7afb00c84a2b58341dd7fb0d856266abc9bc50ae02718f1285fb8f9a247a7fc"
   retrieved: "2026-10-06"
   local: false

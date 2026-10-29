@@ -25,9 +25,11 @@ implement CWE" but "how do we import it, cite it, and keep citations honest".
    id is an integer shared by weaknesses, categories and views, and it is stable:
    "It is considered static for the lifetime of the entry. If this entry becomes
    deprecated, the identifier will not be reused." (L83). A tmodel Weakness
-   stores `cwe_id` as an integer plus the catalog version it was read from
-   (`Weakness_Catalog/@Version`, `@Date`), never the name, which changes
-   (`Previous_Entry_Name`, L293).
+   carries it in ADR-0010's `catalog_ref`, a string such as `CWE-79` (the
+   accepted schema does not pin the scheme), never the name, which changes
+   (`Previous_Entry_Name`, L293). The accepted `Weakness` has no slot for the
+   catalog version, so the import records the version it was read from
+   (`Weakness_Catalog/@Version`, `@Date`) in its provenance.
 2. **`Mapping_Notes/Usage` as an import gate** (R-010, R-018). Every weakness,
    category and view must carry `Mapping_Notes` (L106, L131, L154; minOccurs 1)
    with a `Usage` of
