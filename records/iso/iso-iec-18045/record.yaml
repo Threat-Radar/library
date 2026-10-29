@@ -1,32 +1,56 @@
 # Spec: version is load-bearing. New version = new record, linked by supersedes.
-# Base template. Every adapter is this shape; types differ only in defaults
-# and in which fields they leave for a human. Placeholders: {{...}}
 schema: "library-record/v1"
 id: iso-iec-18045
 body: iso
 type: spec
-title: "ISO/IEC 18045, Methodology for IT security evaluation (attack potential)"
+title: "ISO/IEC 18045:2022, Information security, cybersecurity and privacy protection — Evaluation criteria for IT security — Methodology for IT security evaluation (CEM:2022)"
+short_title: "ISO/IEC 18045 / CEM:2022 (attack potential)"
 authors: []
-date: ""
+date: "2022-11"
+publisher: "ISO/IEC JTC 1/SC 27 (ISO/IEC 18045:2022); republished free by the CCRA as CEM:2022 Release 1"
+version: "2022 (CEM:2022 Release 1)"
 identifiers:
-  url: https://www.iso.org/
+  url: https://www.commoncriteriaportal.org/cc/index.cfm
+  iso: "ISO/IEC 18045:2022"
+  ccra: "CEM:2022 Release 1, CCMB-2022-11-006"
 content:
-  url: https://www.iso.org/
-  sha256: ""
-  retrieved: ""
+  url: https://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf
+  sha256: "da5b991a457eb32040a15849bfe6d8da1870aef91f6b7255f767f0b186e89a83"
+  retrieved: "2026-10-25"
   local: false
+  media_type: application/pdf
+  pages: 471
 relations:
   supersedes: []
   superseded_by: []
-  see_also: []
+  see_also:
+    - iso-iec-15408
+    - etsi-ts-102-165-1
+    - iso-sae-21434-2021
+    - first-cvss
   cited_by: []
   implements_concept: []
+  contradicts: []
 bears_on:
   - DEC-003
   - R-011
-topic: 
-publisher: ""
-version: ""
-tags: []
-status: queued
-confidence: low
+  - R-013
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: core
+implementations:
+  open_source: []
+  commercial: []
+  searched: ""
+usefulness:
+  verdict: useful
+  reason: "Source of the attack-potential factor tables that ISO/SAE 21434 Annex G and ETSI TVRA reuse; the method behind R-013 display."
+  assessed: "2026-10-25"
+topic: ""
+tags:
+  - evidence
+  - normative
+status: summarized
+confidence: medium
+owner: nymble
