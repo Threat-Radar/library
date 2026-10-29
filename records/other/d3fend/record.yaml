@@ -4,18 +4,24 @@ body: other
 type: spec
 maturity: recommendation
 title: "MITRE D3FEND — defensive countermeasures knowledge graph (OWL)"
+version: "1.6.0"
+date: "2026-08-31"
+publisher: "The MITRE Corporation"
 identifiers:
   url: https://d3fend.mitre.org/
 content:
-  url: https://d3fend.mitre.org/
-  sha256: ""
-  retrieved: "2026-09-26"
+  url: https://d3fend.mitre.org/ontologies/d3fend.ttl
+  sha256: "4909a5bb66b75d2c359624398848936fb56a6b246bcd5cfcd277977a1277753a"
+  retrieved: "2026-10-25"
   local: false
+  media_type: text/turtle
 relations:
   supersedes: []
   superseded_by: []
   cited_by: []
-  see_also: []
+  see_also:
+    - mitre-attack
+    - stix-2-1
   implements_concept: []
 bears_on:
   - DEC-001
@@ -27,7 +33,7 @@ applicability:
 usefulness:
   verdict: useful
   reason: "Authoritative mitigations layer with defense→offense edges; directly importable if tmodel is RDF; DAO seeds asset/component modeling."
-  assessed: "2026-09-26"
+  assessed: "2026-10-25"
 topic: ""
 tags:
   - d3fend
@@ -37,3 +43,4 @@ tags:
   - owl
 status: summarized
 confidence: medium
+owner: nymble

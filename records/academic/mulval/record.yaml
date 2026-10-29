@@ -4,20 +4,30 @@ body: academic
 type: paper
 maturity: white-paper
 title: "MulVAL: A Logic-based Network Security Analyzer (Ou et al., USENIX Security 2005)"
+authors:
+  - Xinming Ou
+  - Sudhakar Govindavajhala
+  - Andrew W. Appel
+date: "2005-08"
+publisher: "USENIX Security Symposium 2005"
 identifiers:
   url: https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf
 content:
   url: https://www.usenix.org/legacy/event/sec05/tech/full_papers/ou/ou.pdf
-  sha256: ""
-  retrieved: "2026-09-26"
+  sha256: "a3007a72146d7d3413fb48dc5cf8908c4e5b4bbf6e858b007b0254a103fa5958"
+  retrieved: "2026-10-25"
   local: false
+  media_type: application/pdf
+  pages: 16
 relations:
   supersedes: []
   superseded_by: []
   cited_by: []
-  see_also: []
+  see_also:
+    - bron
   implements_concept: []
 bears_on:
+  - DEC-001
   - DEC-005
 applicability:
   security: core
@@ -26,7 +36,7 @@ applicability:
 usefulness:
   verdict: useful
   reason: "Reference model for rule-based attack-path derivation; facts=nodes, rules=logic, derivation graph = the reviewable attack-path artifact."
-  assessed: "2026-09-26"
+  assessed: "2026-10-25"
 topic: ""
 tags:
   - mulval
@@ -35,3 +45,4 @@ tags:
   - attack-path
 status: summarized
 confidence: medium
+owner: nymble

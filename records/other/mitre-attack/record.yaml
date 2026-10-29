@@ -4,21 +4,30 @@ body: other
 type: dataset
 maturity: best-practice
 title: "MITRE ATT&CK (knowledge base + STIX 2.1 data)"
+version: "Enterprise 20.0"
+date: "2026-10-13"
+publisher: "The MITRE Corporation"
 identifiers:
   url: https://attack.mitre.org/
 content:
-  url: https://attack.mitre.org/
-  sha256: ""
-  retrieved: "2026-09-26"
+  url: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack-20.0.json
+  sha256: "81113ba98afa2928f3dcff62022539f7ce30c315c32e14422f11ff95ce534352"
+  retrieved: "2026-10-25"
   local: false
+  media_type: application/json
 relations:
   supersedes: []
   superseded_by: []
   cited_by: []
-  see_also: []
+  see_also:
+    - capec
+    - stix-2-1
+    - d3fend
+    - bron
   implements_concept: []
 bears_on:
   - DEC-001
+  - DEC-008
 applicability:
   security: core
   cryptography: adjacent
@@ -26,7 +35,7 @@ applicability:
 usefulness:
   verdict: useful
   reason: "Canonical vocabulary/IDs for tmodel's threat + attack-path layer; ready-made graph-ingestion source."
-  assessed: "2026-09-26"
+  assessed: "2026-10-25"
 topic: ""
 tags:
   - attack
@@ -35,3 +44,4 @@ tags:
   - threat
 status: summarized
 confidence: medium
+owner: nymble
