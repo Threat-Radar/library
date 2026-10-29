@@ -1,0 +1,4 @@
+{
+	"summary": string,
+	"details": string
+}

@@ -1,0 +1,467 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "DERIVED - not verbatim. Written by this library from the prose of OSV Schema v1.9.2 (docs/schema.md at tag v1.9.2, sha256 96d82f03d763fb408bc344d01fc271f761a81cc225f6f6a42d318e3ed21cebff). It holds only rules the prose states that neither osv.schema.json (validation/schema.json, verbatim) nor vulnerability.proto enforces. Apply it IN ADDITION to osv.schema.json: a record conforms only if it is valid against both. Each rule P01 to P12 quotes its source lines; schema/README.md lists them.",
+  "title": "OSV Schema v1.9.2: prose rules that validation/schema.json does not enforce (derived)",
+  "type": "object",
+  "allOf": [
+    {"$ref": "#/$defs/P01-id-character-set"},
+    {"$ref": "#/$defs/P02-timestamps-utc-z"},
+    {"$ref": "#/$defs/P03-semver-range-versions"},
+    {"$ref": "#/$defs/P04-git-range-zero-only-introduced"},
+    {"$ref": "#/$defs/P05-aliases-in-id-form"},
+    {"$ref": "#/$defs/P06-purl-without-version"},
+    {"$ref": "#/$defs/P07-ecosystem-suffix-must"},
+    {"$ref": "#/$defs/P08-ecosystem-suffix-has"},
+    {"$ref": "#/$defs/P09-ecosystem-suffix-forms"},
+    {"$ref": "#/$defs/P10-package-name-forms"},
+    {"$ref": "#/$defs/P11-summary-one-line"},
+    {"$ref": "#/$defs/P12-arrays-not-null"}
+  ],
+  "$defs": {
+    "P01-id-character-set": {
+      "title": "P01 id: only ASCII letters, digits and the characters : _ . -",
+      "$comment": "L154: 'the `id` field must strictly use ASCII characters matching the regular expression:'; L157: '^[a-zA-Z0-9:_.-]+$'; L160: 'Characters outside this set (such as spaces, slashes `/`, backslashes `\\`, parentheses, or exclamation marks) are not allowed.'; osv.schema.json checks only the home-database prefix ($defs/prefix, not anchored at the end), so it accepts x_a b/c",
+      "properties": {"id": {"pattern": "^[a-zA-Z0-9:_.-]+$"}}
+    },
+    "P02-timestamps-utc-z": {
+      "title": "P02 modified, published, withdrawn: the whole value is an RFC 3339 timestamp in UTC ending in Z",
+      "$comment": "L716-L717: 'The `modified` field gives the time the entry was last modified, as an RFC3339-formatted timestamp in UTC (ending in \"Z\").'; L734-L735: 'The `published` field gives the time the entry should be considered to have been published, as an RFC3339-formatted time stamp in UTC (ending in \"Z\").'; L745-L746: 'The `withdrawn` field gives the time the entry should be considered to have been withdrawn, as an RFC3339-formatted timestamp in UTC (ending in \"Z\").'; osv.schema.json $defs/timestamp has the same pattern without ^ and $, so when format is not asserted (the 2020-12 default) it accepts any string that contains a timestamp. This rule anchors it; calendar ranges (month 13, hour 25) still need format date-time asserted",
+      "properties": {
+        "modified": {"$ref": "#/$defs/utc-timestamp"},
+        "published": {"$ref": "#/$defs/utc-timestamp"},
+        "withdrawn": {"$ref": "#/$defs/utc-timestamp"}
+      }
+    },
+    "P03-semver-range-versions": {
+      "title": "P03 SEMVER ranges: event versions are SemVer 2.0.0 with no leading v (introduced may be 0; limit may contain *)",
+      "$comment": "L1098-L1099: '`SEMVER`: The versions `introduced` and `fixed` are semantic versions as defined by [SemVer 2.0.0](https://semver.org), with no leading \"v\" prefix.'; L1143-L1144: 'The values of `introduced`, `fixed`, `last_affected` and `limit` are version strings as defined by the `affected[].ranges[].type` field.'; L1151-L1152: '`introduced` allows a version of the value `\"0\"` to represent a version that sorts before any other version.'; L1153: '`limit` allows versions containing the string `\"*\"` to represent \"infinity\".'; neither osv.schema.json nor vulnerability.proto checks SEMVER versions",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "ranges": {
+                "items": {
+                  "if": {"required": ["type"], "properties": {"type": {"const": "SEMVER"}}},
+                  "then": {
+                    "properties": {
+                      "events": {
+                        "items": {
+                          "properties": {
+                            "introduced": {"anyOf": [{"const": "0"}, {"$ref": "#/$defs/semver-2.0.0"}]},
+                            "fixed": {"$ref": "#/$defs/semver-2.0.0"},
+                            "last_affected": {"$ref": "#/$defs/semver-2.0.0"},
+                            "limit": {"anyOf": [{"$ref": "#/$defs/semver-2.0.0"}, {"pattern": "\\*"}]}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "P04-git-range-zero-only-introduced": {
+      "title": "P04 GIT ranges: only introduced may be 0; fixed, last_affected and limit are commit hashes",
+      "$comment": "L1122-L1123: '`GIT`: The versions `introduced` and `fixed` are full-length Git commit hashes.'; L1143-L1144: 'The values of `introduced`, `fixed`, `last_affected` and `limit` are version strings as defined by the `affected[].ranges[].type` field.'; L1151-L1152: '`introduced` allows a version of the value `\"0\"` to represent a version that sorts before any other version.'; osv.schema.json applies ^(0|[a-f0-9]{40}|[a-f0-9]{64})$ to all four event types, so it admits 0 for fixed, last_affected and limit",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "ranges": {
+                "items": {
+                  "if": {"required": ["type"], "properties": {"type": {"const": "GIT"}}},
+                  "then": {
+                    "properties": {
+                      "events": {
+                        "items": {
+                          "properties": {
+                            "fixed": {"not": {"const": "0"}},
+                            "last_affected": {"not": {"const": "0"}},
+                            "limit": {"not": {"const": "0"}}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "P05-aliases-in-id-form": {
+      "title": "P05 aliases[]: each item is in the form of the id field (the P01 character set)",
+      "$comment": "L758-L759: 'The `aliases` field gives a list of IDs of the same vulnerability in other databases, in the form of the `id` field.'; reading: the form includes the id character set (P01); the home-database prefix list is not applied, as osv.schema.json does not apply it to aliases either",
+      "properties": {"aliases": {"items": {"pattern": "^[a-zA-Z0-9:_.-]+$"}}}
+    },
+    "P06-purl-without-version": {
+      "title": "P06 affected[].package.purl: a Package URL (scheme pkg) without the @version component",
+      "$comment": "L964-L966: 'The `purl` field is a string following the [Package URL specification](https://github.com/package-url/purl-spec) that identifies the package, without the `@version` component.'; the pattern checks the pkg: scheme and that no @ comes before the qualifiers (?) or the subpath (#); it is not a full Package URL check",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "package": {"allOf": [{"properties": {"purl": {"pattern": "^pkg:[^@?#]+(\\?[^#]*)?(#.*)?$"}}}]}
+            }
+          }
+        }
+      }
+    },
+    "P07-ecosystem-suffix-must": {
+      "title": "P07 ecosystems whose suffix the prose says must be present",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "package": {
+                "allOf": [
+                  {
+                    "title": "P07a Alpine: suffix :v<RELEASE-NUMBER> required",
+                    "$comment": "L992: 'The ecosystem string must have a `:v<RELEASE-NUMBER>` suffix to scope the package to a particular Alpine release branch (the `v` prefix is required).'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Alpine(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Alpine:v.+$"}}}
+                  },
+                  {
+                    "title": "P07b Mageia: suffix :<RELEASE-NUMBER> required",
+                    "$comment": "L1016: 'The ecosystem string must have a `:<RELEASE-NUMBER>` suffix to scope the package to a particular Mageia release.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Mageia(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Mageia:.+$"}}}
+                  },
+                  {
+                    "title": "P07c Photon OS: suffix :<RELEASE-NUMBER> required",
+                    "$comment": "L1026: 'The ecosystem string must have a `:<RELEASE-NUMBER>` suffix to scope the package to a particular Photon OS release.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Photon OS(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Photon OS:.+$"}}}
+                  },
+                  {
+                    "title": "P07d Red Hat Lightwell: suffix naming an existing OSV ecosystem required",
+                    "$comment": "L1030: 'The ecosystem **must** have a suffix matching an existing OSV ecosystem (e.g. `Red Hat Lightwell:Maven`) to denote what ecosystem the advisory is describing.'; reading: the suffix is one of the 52 ecosystem names of the table (L988-L1042), optionally followed by that ecosystem's own suffix",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Red Hat Lightwell(:|$)"}}
+                    },
+                    "then": {
+                      "properties": {
+                        "ecosystem": {
+                          "pattern": "^Red Hat Lightwell:(AlmaLinux|Alpaquita|Alpine|Android|Azure Linux|BellSoft Hardened Containers|Bioconductor|Bitnami|Chainguard|CleanStart|ConanCenter|CRAN|crates\\.io|Debian|Docker Hardened Images|Echo|FreeBSD|GHC|GitHub Actions|Go|Hackage|Hex|Homebrew|Julia|Kubernetes|Linux|Mageia|Maven|MinimOS|npm|NuGet|opam|openEuler|openSUSE|OSS-Fuzz|Packagist|Photon OS|Pub|PyPI|Red Hat|Red Hat Lightwell|Rocky Linux|Root|RubyGems|SUSE|SwiftURL|TuxCare|Ubuntu|vcpkg|VSCode|Wolfi|WordPress)(:.+)?$"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "P08-ecosystem-suffix-has": {
+      "title": "P08 ecosystems whose string the prose says has a suffix (and its form, where stated)",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "package": {
+                "allOf": [
+                  {
+                    "title": "P08a Alpaquita: has a :<RELEASE> suffix",
+                    "$comment": "L991: 'The ecosystem string has a `:<RELEASE>` suffix to scope the package to a particular Alpaquita Linux release.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Alpaquita(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Alpaquita:.+$"}}}
+                  },
+                  {
+                    "title": "P08b Azure Linux: has a :<RELEASE> suffix, numeric",
+                    "$comment": "L994: 'The ecosystem string has a `:<RELEASE>` suffix to scope the package to a particular Azure Linux release. `<RELEASE>` is a numeric version.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Azure Linux(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Azure Linux:[0-9]+(\\.[0-9]+)*$"}}}
+                  },
+                  {
+                    "title": "P08c BellSoft Hardened Containers: has a :<RELEASE> suffix",
+                    "$comment": "L995: 'The ecosystem string has a `:<RELEASE>` suffix to scope the package to a particular Hardened Containers release.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^BellSoft Hardened Containers(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^BellSoft Hardened Containers:.+$"}}}
+                  },
+                  {
+                    "title": "P08d openEuler: has a <RELEASE> suffix",
+                    "$comment": "L1022: 'The ecosystem string has a `<RELEASE>` suffix, specifying a particular openEuler LTS Release.'; reading: written with the colon that osv.schema.json requires before any suffix ($defs/ecosystemWithSuffix)",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^openEuler(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^openEuler:.+$"}}}
+                  },
+                  {
+                    "title": "P08e openSUSE: has a :<RELEASE> suffix",
+                    "$comment": "L1023: 'The ecosystem string has a `:<RELEASE>` suffix presenting the marketing name of the openSUSE distribution.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^openSUSE(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^openSUSE:.+$"}}}
+                  },
+                  {
+                    "title": "P08f Red Hat: has a :<CPE> suffix",
+                    "$comment": "L1029: 'The ecosystem string has a `:<CPE>` suffix to scope the RPM to a specific Red Hat product stream.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Red Hat(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Red Hat:.+$"}}}
+                  },
+                  {
+                    "title": "P08g SUSE: has a :<RELEASE> suffix",
+                    "$comment": "L1034: 'The ecosystem string has a `:<RELEASE>` suffix representing the marketing name of the SUSE product.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^SUSE(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^SUSE:.+$"}}}
+                  },
+                  {
+                    "title": "P08h Ubuntu: :[Pro:]YY.MM[:LTS]",
+                    "$comment": "L1037: 'The ecosystem string has a `:<RELEASE>` suffix to scope the package to a particular Ubuntu release. `<RELEASE>` is a numeric (\"YY.MM\") version as specified in [Ubuntu Releases](https://wiki.ubuntu.com/Releases), with a mandatory `:LTS` suffix if the release is marked as LTS. The release version may also be prefixed with `:Pro:` to denote Ubuntu Pro (aka Expanded Security Maintenance (ESM)) updates.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Ubuntu(:|$)"}}
+                    },
+                    "then": {
+                      "properties": {"ecosystem": {"pattern": "^Ubuntu:(Pro:)?[0-9]{2}\\.[0-9]{2}(:LTS)?$"}}
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "P09-ecosystem-suffix-forms": {
+      "title": "P09 other suffix forms the prose states (numeric release, closed lists, none, no trailing slash)",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "package": {
+                "allOf": [
+                  {
+                    "title": "P09a AlmaLinux: optional suffix is a numeric version",
+                    "$comment": "L990: 'The ecosystem string might optionally have a `:<RELEASE>` suffix to scope the package to a particular AlmaLinux release. `<RELEASE>` is a numeric version.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^AlmaLinux(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^AlmaLinux(:[0-9]+(\\.[0-9]+)*)?$"}}}
+                  },
+                  {
+                    "title": "P09b Rocky Linux: optional suffix is a numeric version",
+                    "$comment": "L1031: 'The ecosystem string might optionally have a `:<RELEASE>` suffix to scope the package to a particular Rocky Linux release. `<RELEASE>` is a numeric version.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Rocky Linux(:|$)"}}
+                    },
+                    "then": {
+                      "properties": {"ecosystem": {"pattern": "^Rocky Linux(:[0-9]+(\\.[0-9]+)*)?$"}}
+                    }
+                  },
+                  {
+                    "title": "P09c TuxCare: optional suffix is a numeric version",
+                    "$comment": "L1036: 'The ecosystem string might optionally have a `:<RELEASE>` suffix to scope the package to a particular TuxCare release. `<RELEASE>` is a numeric version.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^TuxCare(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^TuxCare(:[0-9]+(\\.[0-9]+)*)?$"}}}
+                  },
+                  {
+                    "title": "P09d Echo: suffix only PyPI, Maven, npm or NuGet",
+                    "$comment": "L1005: 'The supported values are `Echo:PyPI`, `Echo:Maven`, `Echo:npm` and `Echo:NuGet`.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Echo(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Echo(:(PyPI|Maven|npm|NuGet))?$"}}}
+                  },
+                  {
+                    "title": "P09e WordPress: suffix only :Core, :Plugin or :Theme",
+                    "$comment": "L1041: 'The ecosystem string may have a suffix to specify the component: `:Core` for WordPress Core (the `name` is `wordpress`), `:Plugin` for plugins (the `name` is the plugin slug), or `:Theme` for themes (the `name` is the theme slug).'; reading: the three listed suffixes are the only ones",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^WordPress(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^WordPress(:(Core|Plugin|Theme))?$"}}}
+                  },
+                  {
+                    "title": "P09f vcpkg: no suffix",
+                    "$comment": "L1038: 'The ecosystem string has no release suffix.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^vcpkg(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^vcpkg$"}}}
+                  },
+                  {
+                    "title": "P09g Maven: remote repository URL suffix without a trailing slash",
+                    "$comment": "L1017: 'The ecosystem string might optionally have a `:<REMOTE-REPO-URL>` suffix to denote the remote repository URL that best represents the source of truth for this package, without a trailing slash (e.g. `Maven:https://maven.google.com`).'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Maven(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Maven(:.*[^/])?$"}}}
+                  },
+                  {
+                    "title": "P09h Packagist: remote repository URL suffix without a trailing slash",
+                    "$comment": "L1025: 'The ecosystem string might optionally have a `:<REMOTE-REPO-URL>` suffix to denote the remote repository URL that best represents the source of truth for this package, without a trailing slash (e.g. `Packagist:https://packages.drupal.org/8`).'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Packagist(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^Packagist(:.*[^/])?$"}}}
+                  },
+                  {
+                    "title": "P09i VSCode: remote repository URL suffix without a trailing slash",
+                    "$comment": "L1039: 'The ecosystem string might optionally have a `:<REMOTE-REPO-URL>` suffix to denote the remote repository URL that best represents the source of truth for this package, without a trailing slash (e.g. `VSCode:https://open-vsx.org`).'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^VSCode(:|$)"}}
+                    },
+                    "then": {"properties": {"ecosystem": {"pattern": "^VSCode(:.*[^/])?$"}}}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "P10-package-name-forms": {
+      "title": "P10 package name forms the prose states for an ecosystem",
+      "$comment": "L959-L960: 'Use the wildcard package name `*` to indicate that an advisory affects all packages within the specified `ecosystem`.'; so every name form below exempts the name *. For Linux the prose does not reconcile this with L1015 (normative.md U-24), and P10a does not decide between them",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "package": {
+                "allOf": [
+                  {
+                    "title": "P10a Linux: name is Kernel",
+                    "$comment": "L1015: 'The only supported `name` is `Kernel`.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Linux(:|$)"}, "name": {"not": {"const": "*"}}}
+                    },
+                    "then": {"properties": {"name": {"const": "Kernel"}}}
+                  },
+                  {
+                    "title": "P10b Android: a :linux_kernel: name ends in nothing or one listed SoC vendor",
+                    "$comment": "L993: 'One exception is when the project contains the Linux kernel source code, in which case `name` field will be `:linux_kernel:`, followed by an optional SoC vendor name e.g. `:linux_kernel:Qualcomm`.'; L2001: 'its `name` will be `:linux_kernel:`, optionally appended with one of the following SoC vendor names'; vendors from the list at L2003-L2010",
+                    "if": {
+                      "required": ["ecosystem", "name"],
+                      "properties": {
+                        "ecosystem": {"pattern": "^Android(:|$)"},
+                        "name": {"pattern": "^:linux_kernel:"}
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "name": {
+                          "pattern": "^:linux_kernel:(AMLogic|ARM|Broadcom|MediaTek|Marvell|NVIDIA|Qualcomm|Unisoc)?$"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "title": "P10c Maven: name is groupId:artifactId",
+                    "$comment": "L1017: 'The `name` field is a Maven package name in the format `groupId:artifactId`.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^Maven(:|$)"}, "name": {"not": {"const": "*"}}}
+                    },
+                    "then": {"properties": {"name": {"pattern": "^[^:]+:[^:]+$"}}}
+                  },
+                  {
+                    "title": "P10d VSCode: name is <publisher>.<name>",
+                    "$comment": "L1039: 'the `name` is the `<publisher>.<name>` string which uniquely identifies a package.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^VSCode(:|$)"}, "name": {"not": {"const": "*"}}}
+                    },
+                    "then": {"properties": {"name": {"pattern": "^[^.]+\\..+$"}}}
+                  },
+                  {
+                    "title": "P10e GitHub Actions: name is {owner}/{repo}",
+                    "$comment": "L1008: 'the `name` field is the action's repository name with owner e.g. `{owner}/{repo}`.'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^GitHub Actions(:|$)"}, "name": {"not": {"const": "*"}}}
+                    },
+                    "then": {"properties": {"name": {"pattern": "^[^/]+/[^/]+$"}}}
+                  },
+                  {
+                    "title": "P10f PyPI: name is a normalized (PEP 503) package name",
+                    "$comment": "L1028: 'the `name` field is a [normalized](https://www.python.org/dev/peps/pep-0503/#normalized-names) PyPI package name.'; pattern: a PEP 508 project name after PEP 503 normalization (lower case; each run of . - _ replaced by one -), as the prose links it",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"pattern": "^PyPI(:|$)"}, "name": {"not": {"const": "*"}}}
+                    },
+                    "then": {"properties": {"name": {"pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}}}
+                  },
+                  {
+                    "title": "P10g WordPress:Core: name is wordpress",
+                    "$comment": "L1041: '`:Core` for WordPress Core (the `name` is `wordpress`)'",
+                    "if": {
+                      "required": ["ecosystem"],
+                      "properties": {"ecosystem": {"const": "WordPress:Core"}, "name": {"not": {"const": "*"}}}
+                    },
+                    "then": {"properties": {"name": {"const": "wordpress"}}}
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "P11-summary-one-line": {
+      "title": "P11 summary: one line (no line feed or carriage return)",
+      "$comment": "L823-L824: 'The `summary` field gives a one-line, English textual summary of the vulnerability.'; English is not checked. Added in pass 3 (cross-check): pass 1 checked one-line as S02a of osv-recommended.derived.schema.json, a warning, while requirements.yaml R-0043 is a constraint and examples GAP-40 expects a two-line summary to be invalid",
+      "properties": {"summary": {"not": {"pattern": "[\\n\\r]"}}}
+    },
+    "P12-arrays-not-null": {
+      "title": "P12 aliases, affected, references, severity and affected[].severity: an array, never null",
+      "$comment": "L758: 'The `aliases` field gives a list of IDs'; L920: 'The `affected` field is a JSON array'; L1427: 'The `references` field contains a list of JSON objects describing references.'; L851: 'The `severity` field is a JSON array'; L1069: 'The `severity` field is an optional element [defined here](#severity-field).'; osv.schema.json admits null for exactly these five (D11). Added in pass 3 (cross-check), as requirements.yaml R-0032, R-0050, R-0063 and R-0205 and examples GAP-36 to GAP-39 read them",
+      "properties": {
+        "aliases": {"not": {"type": "null"}},
+        "affected": {"not": {"type": "null"}, "items": {"properties": {"severity": {"not": {"type": "null"}}}}},
+        "references": {"not": {"type": "null"}},
+        "severity": {"not": {"type": "null"}}
+      }
+    },
+    "utc-timestamp": {"pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"},
+    "semver-2.0.0": {
+      "$comment": "A SemVer 2.0.0 version (https://semver.org/spec/v2.0.0.html, section 2, 9 and 10), no leading v; written with [0-9] rather than \\d so that ECMA-262 and Python regular expressions agree",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-(0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(\\.(0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
+    }
+  }
+}

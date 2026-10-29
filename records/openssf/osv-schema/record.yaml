@@ -1,16 +1,35 @@
+# Spec: version is load-bearing. This record tracks OSV Schema 1.9.2 (tag
+# v1.9.2). https://ossf.github.io/osv-schema/ renders the main branch, which
+# moves after the tag, so content.url points at the tagged file instead.
 schema: "library-record/v1"
 id: osv-schema
 body: openssf
 type: spec
 maturity: best-practice
 title: "OSV Schema (OpenSSF)"
+short_title: "OSV Schema 1.9.2"
+# The original authors named at the top of docs/schema.md.
+authors:
+  - "Oliver Chang"
+  - "Russ Cox"
+date: "2026-10-13"
+publisher: "OpenSSF (Open Source Security Foundation)"
+version: "1.9.2"
 identifiers:
   url: https://ossf.github.io/osv-schema/
+  git: https://github.com/ossf/osv-schema/releases/tag/v1.9.2
+  commit: "c8a57bdc5b0bc54646e140cabbb7834bd0b5aec9"
+# The digest is of docs/schema.md, the specification text. The tag's other two
+# sources were read for the extraction: validation/schema.json (sha256
+# 15b10dbb4c4e31c7aae11d22cdd991a9a374758db7c8389e62b3cc37cac92653, copied
+# verbatim into distilled/schema/) and proto/vulnerability.proto (sha256
+# 1c5a7af863c576398e333358c006d30577dd111c810416cd2f3fc0cecd20a070).
 content:
-  url: https://ossf.github.io/osv-schema/
-  sha256: ""
-  retrieved: "2026-09-26"
+  url: https://raw.githubusercontent.com/ossf/osv-schema/v1.9.2/docs/schema.md
+  sha256: "96d82f03d763fb408bc344d01fc271f761a81cc225f6f6a42d318e3ed21cebff"
+  retrieved: "2026-10-18"
   local: false
+  media_type: text/markdown
 relations:
   supersedes: []
   superseded_by: []
@@ -18,20 +37,90 @@ relations:
   see_also: []
   implements_concept: []
 bears_on:
-  - DEC-001
+  - DEC-001a
+  - DEC-002
+  - DEC-003
+  - DEC-008
+  - DEC-009
 applicability:
   security: core
-  cryptography: adjacent
+  cryptography: none
   this_project: core
+implementations:
+  open_source:
+    - "osvschema and osvconstants (Go, generated from the protobuf), https://github.com/ossf/osv-schema/tree/v1.9.2/bindings/go, Apache-2.0"
+    - "OSV.dev (aggregator: exports and query API), https://github.com/google/osv.dev, Apache-2.0"
+    - "OSV-Scanner v2.7.0, https://github.com/google/osv-scanner, Apache-2.0"
+    - "Dependency-Track 5.2.0, https://github.com/DependencyTrack/dependency-track, Apache-2.0"
+    - "GUAC v1.1.0, https://github.com/guacsec/guac, Apache-2.0"
+    - "Trivy v0.76.0, https://github.com/aquasecurity/trivy, Apache-2.0"
+  commercial: []
+  searched: "2026-10-18"
 usefulness:
   verdict: useful
   reason: "Best template for linking tmodel vuln nodes to specific component/version nodes."
   assessed: "2026-09-26"
-topic: ""
+topic: product-composition
 tags:
   - osv
   - vulnerability
   - openssf
   - package
-status: summarized
+  - supply-chain
+  - normative
+status: distilled
 confidence: medium
+distillation:
+  profile: full
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "384 numbered statements N-0001 to N-0384, verbatim, in source order under the source's headings: 317 from docs/schema.md (191 quoted passages and fences, 126 table rows and list items), 31 JSON Schema constraint statements with JSON Pointers, 36 proto statements; 75 excluded passages with reasons; verbal-form tally per region; disagreements D-1 to D-25 and unclear points U-1 to U-28; every statement's req names its requirement ids (319 statements, 391 links) or the reason it has none (65: 36 proto, 12 field blocks, 15 explanatory prose sentences, 2 unreferenced $defs)"
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "237 entries R-0001 to R-0237 (requirement 26, prohibition 5, recommendation 43, permission 24, constraint 135, informative 4; 1 inferred): 224 from docs/schema.md, 13 from validation/schema.json where it differs from or adds to the prose. BCP 14: source 0, extracted 0. Lowercase baseline: all 74 must, must not, should, should not, may and required occurrences accounted for by line (68 in entry texts, 6 excluded), and 43 supplementary wordings by line. Field types are carried in messages.yaml; the proto is not extracted (normative.md carries its 36 statements)"
+      reviewed_by: ""
+    - kind: schema
+      path: distilled/schema
+      coverage: "osv.schema.json and vulnerability.proto: validation/schema.json and proto/vulnerability.proto at tag v1.9.2, byte-identical (sha256 15b10dbb...2653, 1c5a7af8...a070); osv-prose.derived.schema.json: rules P01 to P12 (36 checks), stated rules neither verbatim file enforces (errors); osv-recommended.derived.schema.json: rules S01 to S10, should and recommended statements (warnings); README: 36 disagreements D1 to D36, readings R1 to R13, the requirement ids of every P and S rule, and the stated rules no schema expresses, with reasons"
+      reviewed_by: ""
+    - kind: messages
+      path: distilled/messages.yaml
+      coverage: "13 structures and 47 fields (the record, severity, affected, package, range, event, reference, credit, the four open *_specific objects and the deprecated proto-only Commit) with type, required-ness, format, allowed values and locators from the prose, the JSON Schema and the proto side by side, and disagreements D1 to D36; constrained_by wired in pass 3: 428 links on 44 of 47 fields and 54 on 12 of 13 structures, reaching 231 of 237 requirements; the 6 unwired requirements and the proto-only Commit are explained in verification.md"
+      reviewed_by: ""
+    - kind: state-machine
+      path: distilled/state-machine.yaml
+      coverage: "2 machines: range-evaluation (the IncludedInRanges and BeforeLimits pseudocode: 6 states, 10 transitions, error state invalid-range) and record-lifecycle (authority of the later-modified copy and withdrawal: 4 states, 14 transitions, each stated or inferred); 8 named events, each tied to a messages.yaml structure or field; every transition carries its event and constrained_by (pass 3)"
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "224 fixtures: the 34 fenced blocks and 54 inline examples of docs/schema.md byte for byte, 10 source examples placed in a record, 23 positives, 34 negatives, 41 records the prose forbids and the JSON Schema accepts, 3 the reverse, 10 broken recommendations, 12 edge cases (10 unspecified), 3 tool cases; expected results from the prose, actual results from jsonschema 4.26.0 with and without a format checker (47 tool differences, each a finding); requirement ids on 100 of 109 quoted rules and on every violated rule (breaks, pass 3); run-fixtures.derived.py reproduces every result"
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "7 adopt, 8 adapt and 7 reject items for tmodel, each grounded in quotations and mapped to a DEC or ADR with status (accepted: DEC-001a, DEC-002, DEC-003, DEC-004, DEC-005, DEC-006, DEC-007, DEC-010, DEC-011; open: DEC-001b, DEC-008, DEC-009); a 30-row mapping table; 22 source defects; evidence E1 to E13 from tmodel's research and this extraction's probes; 14 open questions routed to their owners; requirement ids beside the cited passages (pass 3: 262 ids, 135 distinct)"
+      reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "pass 2 (independent verify) and pass 3 (cross-check) evidence: recount table, defects found and fixed, the constrained_by wiring rule and counts, the statement-to-requirement mapping, example and design-note traceability, state-machine events, every inconsistency and its fix, and what was not checked"
+      reviewed_by: ""
+  not_applicable:
+    - kind: protocol
+      reason: "OSV Schema 1.9.2 defines one JSON document, the vulnerability record, and no exchange between parties. It names producers (databases), consumers, clients and display code and says what each does with a record: serve it only as JSON (L105-L107), read a newer minor version by ignoring unexpected fields (L129-L132), sanitize details (L833-L834). These are single-party rules, carried by R-0004, R-0008 and R-0048. The document defines no messages, sequences or error paths between parties; the OSV.dev API it links to is outside it; state-machine.yaml models the evaluation of a range and the lifecycle of a record."
+  passes:
+    - pass: extract
+      by: "claude (5 parallel agents: normative; requirements; schema, messages and state machine; examples; design notes)"
+      effort: max
+      date: "2026-10-18"
+      note: "each agent read the three tagged source files (docs/schema.md, validation/schema.json and proto/vulnerability.proto at v1.9.2), never a summary or another agent's output"
+    - pass: verify
+      by: "claude (independent agent, did not extract)"
+      effort: max
+      date: "2026-10-19"
+      note: "10 defects found and fixed, 6 material: 176 file-sync duplicates moved out of examples/, the prefix table enumerated verbatim in R-0019, the derived rule P10 wrongly rejecting the wildcard package name, proto quotations added to 7 entries, 7 non-verbatim description keys in messages.yaml renamed to note, and 12 quotations made exact; recount 74 of 74 lowercase forms; all quotations verbatim (237 requirement texts, 384 normative statements, 286 messages quotations, 149 design-note quotations)"
+    - pass: cross-check
+      by: "claude (independent agent)"
+      effort: max
+      date: "2026-10-19"
+      note: "every requirement's labels resolve to messages.yaml or the schema; constrained_by wired (482 links; Commit is proto-only); all 384 normative statements mapped or given a reason; examples traced to requirement ids (breaks on 96 violated rules), GAP-41 added, EDGE-05 made invalid; 262 ids added to design-notes; 8 state-machine events; 7 inconsistencies fixed, including P11 and P12 in the derived prose schema; 4 source questions recorded; no verbatim text or verbatim schema byte changed"

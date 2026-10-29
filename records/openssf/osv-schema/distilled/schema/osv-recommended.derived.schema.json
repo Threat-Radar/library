@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "DERIVED - not verbatim. Written by this library from the prose of OSV Schema v1.9.2 (docs/schema.md at tag v1.9.2, sha256 96d82f03d763fb408bc344d01fc271f761a81cc225f6f6a42d318e3ed21cebff). A lint profile: each rule S01 to S10 is a should or recommended statement that a schema can express and that neither osv.schema.json nor vulnerability.proto checks. A record that fails it is still valid; report a failure as a warning. schema/README.md lists the rules.",
+  "title": "OSV Schema v1.9.2: recommendations a schema can check (derived lint profile)",
+  "type": "object",
+  "allOf": [
+    {"$ref": "#/$defs/S01-schema-version-semver"},
+    {"$ref": "#/$defs/S02-summary-short"},
+    {"$ref": "#/$defs/S03-versions-present"},
+    {"$ref": "#/$defs/S04-ecosystem-range-with-versions"},
+    {"$ref": "#/$defs/S05-git-range-with-versions"},
+    {"$ref": "#/$defs/S06-purl-present"},
+    {"$ref": "#/$defs/S07-credit-contact-url"},
+    {"$ref": "#/$defs/S08-no-limit-in-linear-ranges"},
+    {"$ref": "#/$defs/S09-git-separate-from-strict"},
+    {"$ref": "#/$defs/S10-git-entry-without-package"}
+  ],
+  "$defs": {
+    "S01-schema-version-semver": {
+      "title": "S01 schema_version: an OSV Schema version in SemVer 2.0.0 form, no leading v",
+      "$comment": "L126-L128: 'The value should be a string matching the OSV Schema version, which follows the [SemVer 2.0.0](https://semver.org) format, with no leading \"v\" prefix.'",
+      "properties": {"schema_version": {"$ref": "#/$defs/semver-2.0.0"}}
+    },
+    "S02-summary-short": {
+      "title": "S02 summary: at most about 120 characters",
+      "$comment": "L824-L825: 'It is recommended that this field be kept short, on the order of no more than 120 characters.'; 120 is used as a hard lint limit; the prose says on the order of. Until pass 3 (cross-check) this rule also checked one-line as S02a; that check is now P11 of osv-prose.derived.schema.json",
+      "properties": {"summary": {"maxLength": 120}}
+    },
+    "S03-versions-present": {
+      "title": "S03 affected[]: versions is present, unless the entry has a SEMVER range",
+      "$comment": "L937-L939: 'The `versions` list is generally recommended to always be present, to allow software to easily answer the question \"is this specific version affected?\" without having to contain code specific to every different ecosystem.'; L1104-L1105: 'Specifying one or more `SEMVER` ranges removes the requirement to specify an explicit enumerated `versions` list (see the discussion above).'",
+      "properties": {
+        "affected": {
+          "items": {
+            "if": {
+              "not": {
+                "required": ["ranges"],
+                "properties": {
+                  "ranges": {"contains": {"required": ["type"], "properties": {"type": {"const": "SEMVER"}}}}
+                }
+              }
+            },
+            "then": {"required": ["versions"]}
+          }
+        }
+      }
+    },
+    "S04-ecosystem-range-with-versions": {
+      "title": "S04 affected[] with an ECOSYSTEM range: versions is present",
+      "$comment": "L1114-L1115: 'It is recommended that you provide an explicitly enumerated `versions` list when specifying one or more `ECOSYSTEM` ranges'",
+      "properties": {
+        "affected": {
+          "items": {
+            "if": {
+              "required": ["ranges"],
+              "properties": {
+                "ranges": {"contains": {"required": ["type"], "properties": {"type": {"const": "ECOSYSTEM"}}}}
+              }
+            },
+            "then": {"required": ["versions"]}
+          }
+        }
+      }
+    },
+    "S05-git-range-with-versions": {
+      "title": "S05 affected[] with a GIT range: versions is present",
+      "$comment": "L1127-L1129: 'Specifying one or more `GIT` ranges does NOT remove the requirement to specify an explicitly enumerated `versions` list, because `GIT` range inclusion queries cannot be answered without access to a copy of the underlying Git repository.'; kept as a recommendation: the requirement it refers to is the generally recommended of L937",
+      "properties": {
+        "affected": {
+          "items": {
+            "if": {
+              "required": ["ranges"],
+              "properties": {
+                "ranges": {"contains": {"required": ["type"], "properties": {"type": {"const": "GIT"}}}}
+              }
+            },
+            "then": {"required": ["versions"]}
+          }
+        }
+      }
+    },
+    "S06-purl-present": {
+      "title": "S06 affected[].package: purl is present",
+      "$comment": "L967: 'This field is optional but recommended.'",
+      "properties": {"affected": {"items": {"properties": {"package": {"required": ["purl"]}}}}}
+    },
+    "S07-credit-contact-url": {
+      "title": "S07 credits[].contact[]: a fully qualified URL",
+      "$comment": "L1487-L1488: 'Each `credits[].contact[]` entry should be a valid, fully qualified, plain-text URL at which the credited can be reached.'; format uri needs format assertion; the pattern (a scheme, then no white space) works without it",
+      "properties": {
+        "credits": {
+          "items": {
+            "properties": {"contact": {"items": {"format": "uri", "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:\\S+$"}}}
+          }
+        }
+      }
+    },
+    "S08-no-limit-in-linear-ranges": {
+      "title": "S08 SEMVER and ECOSYSTEM ranges: no limit event",
+      "$comment": "L1337-L1338: '`limit` events are typically not necessary for describing numbered (linear) version ranges and should not be used.'; reading: numbered (linear) version ranges are the SEMVER and ECOSYSTEM types, as against GIT",
+      "properties": {
+        "affected": {
+          "items": {
+            "properties": {
+              "ranges": {
+                "items": {
+                  "if": {"required": ["type"], "properties": {"type": {"enum": ["SEMVER", "ECOSYSTEM"]}}},
+                  "then": {"properties": {"events": {"items": {"not": {"required": ["limit"]}}}}}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "S09-git-separate-from-strict": {
+      "title": "S09 affected[]: GIT ranges are not mixed with SEMVER or ECOSYSTEM ranges in one entry",
+      "$comment": "L1056: 'When providing vulnerability information for both a strict packaging ecosystem (such as `npm`, `PyPI`, or `Go`) and Git-level details (such as commit hashes), it is recommended to use separate entries in the `affected` array.'",
+      "properties": {
+        "affected": {
+          "items": {
+            "not": {
+              "allOf": [
+                {
+                  "required": ["ranges"],
+                  "properties": {
+                    "ranges": {"contains": {"required": ["type"], "properties": {"type": {"const": "GIT"}}}}
+                  }
+                },
+                {
+                  "required": ["ranges"],
+                  "properties": {
+                    "ranges": {
+                      "contains": {
+                        "required": ["type"],
+                        "properties": {"type": {"enum": ["SEMVER", "ECOSYSTEM"]}}
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "S10-git-entry-without-package": {
+      "title": "S10 affected[] without a package: GIT ranges only",
+      "$comment": "L1059: '**Git Entry**: This entry should use **no** `package` field. It should use the `GIT` range type in the `ranges` field to specify affected commit ranges.'; reading: an entry with no package is a Git entry",
+      "properties": {
+        "affected": {
+          "items": {
+            "if": {"not": {"required": ["package"]}},
+            "then": {"properties": {"ranges": {"items": {"properties": {"type": {"const": "GIT"}}}}}}
+          }
+        }
+      }
+    },
+    "semver-2.0.0": {
+      "$comment": "A SemVer 2.0.0 version (https://semver.org/spec/v2.0.0.html, section 2, 9 and 10), no leading v; written with [0-9] rather than \\d so that ECMA-262 and Python regular expressions agree",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-(0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(\\.(0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
+    }
+  }
+}
