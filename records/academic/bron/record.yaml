@@ -1,32 +1,94 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
 schema: "library-record/v1"
 id: bron
 body: academic
 type: paper
 maturity: white-paper
-title: "BRON — Linking ATT&CK, CAPEC, CWE, CVE, CPE (Hemberg et al., 2020)"
+title: "Linking Threat Tactics, Techniques, and Patterns with Defensive Weaknesses, Vulnerabilities and Affected Platform Configurations for Cyber Hunting"
+short_title: "BRON (Hemberg et al., 2020)"
+authors:
+  - "Erik Hemberg"
+  - "Jonathan Kelly"
+  - "Michal Shlapentokh-Rothman"
+  - "Bryn Reinstadler"
+  - "Katherine Xu"
+  - "Nick Rutar"
+  - "Una-May O'Reilly"
+date: "2020-10-01"
+publisher: "arXiv"
+version: "v2"
+venue: "arXiv preprint (cs.CR); v1 2020-10-01, v2 2021-02-10. The PDF carries unfilled ACM template placeholders (Conference'17, DOI nnnnnnn), so no peer-reviewed venue is claimed here."
 identifiers:
   url: https://arxiv.org/abs/2010.00533
+  arxiv: 2010.00533v2
 content:
-  url: https://arxiv.org/abs/2010.00533
-  sha256: ""
-  retrieved: "2026-09-26"
+  url: https://arxiv.org/pdf/2010.00533v2
+  sha256: "00879ac47493bdc27f7ed3e5406a8f7dfe164dbec9f8c1bca0aecfe1e2a0d4c3"
+  retrieved: "2026-10-25"
   local: false
+  media_type: application/pdf
+  pages: 13
+cites:
+  - mitre-attack
+  - capec
+  - cwe
+  - mitre-attack-design-philosophy
+  - sei-threat-modeling-methods-2018
+  - title: "NIST, Common Platform Enumeration (ref [23]; no edition given)"
+    locator: "arXiv:2010.00533v2 ref [23]"
+  - title: "Iannacone et al., Developing an ontology for cyber security knowledge graphs (STUCCO), CISRC 2015"
+    locator: "arXiv:2010.00533v2 ref [6]"
+  - title: "Kiesling et al., The SEPSES Knowledge Graph: An Integrated Resource for Cybersecurity, ISWC 2019"
+    locator: "arXiv:2010.00533v2 ref [11]"
+  - title: "Xiao et al., Embedding and predicting software security entity relationships: a knowledge graph based approach, ICONIP 2019"
+    locator: "arXiv:2010.00533v2 ref [39]"
+  - title: "Feutrill et al., The effect of CVSS metrics on vulnerability exploit delay, CANDAR 2018"
+    locator: "arXiv:2010.00533v2 ref [3]"
+  - title: "Syed et al., UCO: A Unified Cybersecurity Ontology, AAAI 2016 workshop"
+    locator: "arXiv:2010.00533v2 ref [35]"
+  - title: "Piazza, Wunder, Jordan, STIX Version 2.0 Part 1: STIX Core Concepts (2017)"
+    locator: "arXiv:2010.00533v2 ref [28]"
+  - title: "MITRE, 2020 CWE Top 25 Most Dangerous Software Weaknesses"
+    locator: "https://cwe.mitre.org/top25/archive/2020/2020_cwe_top25.html"
+  - title: "US-CERT alert AA20-133A, Top 10 Routinely Exploited Vulnerabilities"
+    locator: "https://us-cert.cisa.gov/ncas/alerts/aa20-133a"
+  - title: "Ozment, Vulnerability discovery and software security, PhD thesis, Cambridge 2007"
+    locator: "arXiv:2010.00533v2 ref [27]"
 relations:
   supersedes: []
   superseded_by: []
   cited_by: []
-  see_also: []
+  see_also:
+    - mitre-attack
+    - capec
+    - cwe
+    - nistir-7695
+    - first-cvss
+    - d3fend
+    - mulval
+    - anwar-2020-cleaning-nvd
   implements_concept: []
+  contradicts: []
 bears_on:
   - DEC-001
+  - DEC-003
+  - DEC-008
+  - DEC-009
+  - R-010
+  - R-020
 applicability:
   security: core
-  cryptography: adjacent
+  cryptography: none
   this_project: core
+implementations:
+  open_source:
+    - "BRON, https://github.com/ALFA-group/BRON, MIT License (last commit 2025-11-09; README now also links MITRE Engage, D3FEND, CAR and ATLAS, beyond the paper's sources)"
+  commercial: []
+  searched: "2026-10-25"
 usefulness:
   verdict: useful
-  reason: "The most directly relevant prior art: a reusable reference implementation of tmodel's CVE→CWE→CAPEC→ATT&CK backbone."
-  assessed: "2026-09-26"
+  reason: "Closest prior art for tmodel's CVE-CWE-CAPEC-ATT&CK backbone, and measured evidence of how often that chain breaks in the public data."
+  assessed: "2026-10-25"
 topic: ""
 tags:
   - bron
@@ -35,5 +97,22 @@ tags:
   - cwe
   - cve
   - backbone
-status: summarized
+  - knowledge-graph
+  - vulnerability-data
+  - prior-art
+  - evidence
+status: distilled
 confidence: medium
+owner: nymble
+distillation:
+  artifacts:
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Analysis of the paper (method, findings, internal inconsistencies, currency) and its implications for tmodel: object model, attack paths, risk metric, knowledge graph, agentic threats, DEC-001b, DEC-008, DEC-009; draft follow-up issues. Every claim about the paper carries a page/section locator. Does not re-run BRON or re-measure its counts on current data."
+      reviewed_by: ""
+  passes:
+    - pass: extract
+      by: "Grok Bot (for nymble)"
+      effort: max
+      date: "2026-10-25"
+      note: "read all 13 pages of v2 (pdftotext -layout); numbers re-checked against the tables and text; single agent, no independent verify pass"
