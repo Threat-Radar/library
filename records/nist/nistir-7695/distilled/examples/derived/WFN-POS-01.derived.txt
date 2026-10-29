@@ -1,0 +1,1 @@
+wfn:[part="o",vendor="microsoft",product="windows_7",version="6\.1",update="sp1",edition=ANY,language="en\-us",sw_edition="professional",target_sw=NA,target_hw="x64",other=NA]

@@ -1,0 +1,83 @@
+; =====================================================================
+; figure-6-2-uri-preferred.derived.abnf
+;
+; DERIVED - not verbatim. Figure 6-2 of NISTIR 7695 (CPE Naming
+; Specification Version 2.3, August 2011), "ABNF for Preferred URI
+; Binding", section 6.1.1, printed page 17, repaired so that it is
+; valid RFC 5234 ABNF. The verbatim figure is
+; figure-6-2-uri-preferred.abnf beside this file.
+;
+; Root rule: cpe-name.
+;
+; Source PDF SHA-256
+; 01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6
+;
+; Role. 6.1.1 says: "Although the freer syntax is allowed as valid
+; input, CPE URIs SHOULD obey the more restricted syntax shown in
+; Figure 6-2." and "The bind_to_URI procedure (cf. 6.1.2) is designed
+; to produce URIs that obey the syntax shown in Figure 6-2." Section 4,
+; item 3: a producer "SHOULD produce URIs that adhere to the more
+; constrained rules specified in Figure 6-2".
+;
+; The three repairs, and nothing else (every other token is the
+; figure's):
+;   R1  "/=" is written "=/" (RFC 2234 and RFC 5234 section 3.3).
+;   R2  The four continuation lines of pct-encoded begin with "=" in
+;       the figure (checked on the rendered page). An element cannot
+;       begin with "=", so the four "=" are removed; the alternatives
+;       they introduce are kept.
+;   R3  The rule names str_wo_special, str_w_special and spec_chrs are
+;       written str-wo-special, str-w-special and spec-chrs (rule
+;       names allow letters, digits and hyphens only, RFC 2234 and
+;       RFC 5234 section 2.1).
+;
+; Readings kept from the figure, not repaired:
+;   - RFC 2234 quoted strings are case-insensitive, so "%2A" matches
+;     "%2a", and "cpe:/" and the part letters match in either case.
+;     run-fixtures.derived.py also reports a case-sensitive reading.
+;   - special is defined and never used.
+;   - A value made only of special forms ("%01" alone) matches neither
+;     str-wo-special nor str-w-special, though 5.3.2 allows "?" by
+;     itself and bind_to_URI produces "%01" for it (README.md).
+;   - lang does not admit "-", the URI form of NA (README.md).
+; =====================================================================
+
+cpe-name                = "cpe:/" component-list
+
+component-list          = part ":" vendor ":" product ":" version ":" update ":"
+                          edition ":" lang
+component-list          =/ part ":" vendor ":" product ":" version ":" update ":"
+                           edition
+component-list          =/ part ":" vendor ":" product ":" version ":" update
+component-list          =/ part ":" vendor ":" product ":" version
+component-list          =/ part ":" vendor ":" product
+component-list          =/ part ":" vendor
+component-list          =/ part
+component-list          =/ empty
+part                    = "h" / "o" / "a" / empty
+vendor                  = string
+product                 = string
+version                 = string
+update                  = string
+edition                 = string / packed
+lang                    = LANGTAG / empty
+string                  = str-wo-special / str-w-special
+str-wo-special          = *( unreserved / pct-encoded )
+str-w-special           = *1spec-chrs 1*( unreserved / pct-encoded ) *1spec-chrs
+spec-chrs               = 1*spec1 / spec2
+packed                  = "~" string "~" string "~" string "~" string "~" string
+empty                   = ""
+unreserved              = ALPHA / DIGIT / "-" / "." / "_"
+special                 = spec1 / spec2
+spec1                   = "%01"
+spec2                   = "%02"
+pct-encoded             = "%21" / "%22" / "%23" / "%24" / "%25" / "%26" / "%27" /
+                          "%28" / "%29" / "%2a" / "%2b" / "%2c" / "%2f" / "%3a" /
+                          "%3b" / "%3c" / "%3d" / "%3e" / "%3f" / "%40" / "%5b" /
+                          "%5c" / "%5d" / "%5e" / "%60" / "%7b" / "%7c" / "%7d" /
+                          "%7e"
+ALPHA                   = %x41-5a / %x61-7a ; A-Z or a-z
+DIGIT                   = %x30-39 ; 0-9
+LANGTAG                 = language ["-" region] ; cf. [RFC5646]
+language                = 2*3ALPHA              ; shortest ISO 639 code
+region                  = 2ALPHA / 3DIGIT       ; ISO 3166-1 code or UN M.49 code

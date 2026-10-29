@@ -1,0 +1,73 @@
+; =====================================================================
+; figure-6-2-uri-preferred.abnf
+;
+; VERBATIM figure, with a header added by the library.
+;
+; Source: NIST Interagency Report 7695, "Common Platform
+; Enumeration: Naming Specification Version 2.3" (August 2011),
+; Figure 6-2. ABNF for Preferred URI Binding,
+; section 6.1.1 URI Binding Syntax,
+; printed page 17 (PDF page 23); lines 980 to 1018 of the
+; pdftotext -layout rendering of the PDF (caption on line
+; 1019). PDF SHA-256:
+; 01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6
+; <https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf>
+;
+; Everything after this header is the figure, character for
+; character, checked against the rendered PDF page. Two layout
+; changes only: indentation common to every line of the figure is
+; removed, and trailing spaces are dropped. Spaces inside a line
+; keep the page's columns (glyph positions, 6 pt per character);
+; pdftotext -layout widens some runs. The header is the library's;
+; it is not part of the figure, and it is ASCII only.
+;
+; Not valid RFC 2234 ABNF as printed: incremental alternatives are
+; written "/=" (RFC 2234 section 3.3 writes "=/"); the four
+; continuation lines of pct-encoded begin with "="; the rule
+; names str_wo_special, str_w_special and spec_chrs contain
+; underscores. Machine-usable repair:
+; figure-6-2-uri-preferred.derived.abnf.
+;
+; Published by NIST with no copyright notice; two of the three
+; authors were not NIST staff (Acknowledgments, printed p. iii).
+; =====================================================================
+
+cpe-name          = "cpe:/" component-list
+
+component-list    = part ":" vendor ":" product ":" version ":" update ":"
+                    edition ":" lang
+component-list    /= part ":" vendor ":" product ":" version ":" update ":"
+                     edition
+component-list    /= part ":" vendor ":" product ":" version ":" update
+component-list    /= part ":" vendor ":" product ":" version
+component-list    /= part ":" vendor ":" product
+component-list    /= part ":" vendor
+component-list    /= part
+component-list    /= empty
+part              = "h" / "o" / "a" / empty
+vendor            = string
+product           = string
+version           = string
+update            = string
+edition           = string / packed
+lang              = LANGTAG / empty
+string            = str_wo_special / str_w_special
+str_wo_special    = *( unreserved / pct-encoded )
+str_w_special     = *1spec_chrs 1*( unreserved / pct-encoded ) *1spec_chrs
+spec_chrs         = 1*spec1 / spec2
+packed            = "~" string "~" string "~" string "~" string "~" string
+empty             = ""
+unreserved        = ALPHA / DIGIT / "-" / "." / "_"
+special           = spec1 / spec2
+spec1             = "%01"
+spec2             = "%02"
+pct-encoded       = "%21" / "%22" / "%23" / "%24" / "%25" / "%26" / "%27" /
+                  = "%28" / "%29" / "%2a" / "%2b" / "%2c" / "%2f" / "%3a" /
+                  = "%3b" / "%3c" / "%3d" / "%3e" / "%3f" / "%40" / "%5b" /
+                  = "%5c" / "%5d" / "%5e" / "%60" / "%7b" / "%7c" / "%7d" /
+                  = "%7e"
+ALPHA             = %x41-5a / %x61-7a  ; A-Z or a-z
+DIGIT             = %x30-39  ; 0-9
+LANGTAG           = language ["-" region] ; cf. [RFC5646]
+language          = 2*3ALPHA              ; shortest ISO 639 code
+region            = 2ALPHA / 3DIGIT       ; ISO 3166-1 code or UN M.49 code

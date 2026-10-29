@@ -1,0 +1,3 @@
+wfn:[part="a",vendor="microsoft",product="internet_explorer",
+version="8\.*",update="sp?",edition=ANY,language=ANY,
+sw_edition=ANY,target_sw=ANY,target_hw=ANY,other=ANY]

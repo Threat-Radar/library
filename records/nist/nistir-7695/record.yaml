@@ -34,14 +34,86 @@ relations:
   cited_by: []
   implements_concept: []
 bears_on:
+  - DEC-001a
   - DEC-002
+  - DEC-005
   - DEC-008
+  - DEC-009
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+implementations:
+  open_source:
+    - "CPE-Parser 3.0.1 (us.springett:cpe-parser), https://github.com/stevespringett/CPE-Parser, Apache-2.0"
+    - "cpe 1.3.1 (Python), https://github.com/nilp0inter/cpe, LGPL-3.0"
+    - "go-cpe (Go, no tagged release), https://github.com/knqyf263/go-cpe, MIT"
+    - "nvdtools v0.1.5, wfn package (Go, repository archived), https://github.com/facebookincubator/nvdtools, Apache-2.0"
+    - "Syft v1.54.1 (emits CPE candidates), https://github.com/anchore/syft, Apache-2.0"
+    - "Dependency-Check v13.0.0 (identifies dependencies by CPE), https://github.com/dependency-check/DependencyCheck, Apache-2.0"
+  commercial: []
+  searched: "2026-10-19"
+usefulness:
+  verdict: useful
+  reason: "CPE is the name NVD keys its applicability data on and one of the strings tmodel's accepted identifiers slot carries, so it is the bridge from a Component to a CVE where no ecosystem or distribution advisory covers the package."
+  assessed: "2026-10-19"
 topic: product-composition
 tags:
   - naming
   - cpe
-  - prior-art
-# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
-status: stub
-confidence: low
+  - normative
+status: distilled
+confidence: medium
 owner: Clovier
+distillation:
+  profile: full
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "466 numbered statements N-0001 to N-0466, verbatim, in source order under the source's headings from §1.3 to Appendix A, including the 89 rules of the four ABNF figures at the page's columns, the 33 pairs of Tables 6-1 and 6-2 and every pseudocode step; excluded material listed with reasons; verbal-form tally per section (108 uppercase, 106 in statements); 14 disagreements (D-1 to D-14) and 22 other source defects (DEF-1 to DEF-22); 321 statements map to requirement ids and 145 give the reason they have none"
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "240 entries R-0001 to R-0240, §1.3 to §7 (requirement 31, prohibition 6, recommendation 33, permission 27, constraint 124, definition 11, exemption 4, informative 4; none inferred), including the 74 ABNF rules (15 more in also_at), the Table 6-1 and 6-2 enumerations and 23 pseudocode excerpts. BCP 14: source 108, extracted 106 (the other 2 in the Appendix B change log); all 37 lowercase forms accounted for by line; 38 excluded passages with reasons"
+      reviewed_by: ""
+    - kind: schema
+      path: distilled/schema
+      coverage: "the four ABNF figures (5-1, 6-1, 6-2, 6-3) verbatim at the page's columns, none valid RFC 2234 as printed, each with a repaired .derived.abnf twin (the 5-1 twin adds the §5.3.2 prose as a grammar); wfn.derived.schema.json, a draft 2020-12 JSON Schema for a WFN held as JSON (the library's shape; agrees with the ABNF checks on all 84 fixture WFNs); cpe-naming_2.3.xsd, the NIST XML schema §6 calls authoritative, fetched 2026-10-19, bytes unchanged (SHA-256 d37f813f...dd69); provenance, repairs and digests in schema/README.md"
+      reviewed_by: ""
+    - kind: messages
+      path: distilled/messages.yaml
+      coverage: "8 structures and 46 fields (the WFN and its eleven attributes, the attribute-value pair, the logical values, the Figure 5-1 value string, the URI binding and its packed edition, the formatted string binding, the bindings' language tag) with type, position, separators, encoding, case, verbatim rules and flags where the source disagrees with itself; constrained_by wired in pass 3: 961 links (865 on fields, 96 on structures) to 229 of 240 requirements; the 11 that constrain no structure are listed with reasons in verification.md"
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "177 fixtures: the 65 printed examples verbatim (84 files) and 112 derived inputs (positives, negatives, disputed and edge cases, bindings, conversions, round trips), each with the expected result and the actual result of run-fixtures.derived.py, which reproduces every result (15 where the printed pseudocode differs, each with a finding); 28 findings; the 78 cited rules carry their requirement ids (69 rules, 88 links) and 76 of the 77 violates entries, on 65 fixtures, name the ids they break (78 links)"
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "6 adopt, 6 adapt and 6 reject items for tmodel, each grounded in a quotation and mapped to a DEC or ADR with its status; a 21-row mapping table; 21 numbered source defects; evidence E1 to E11 with probes P1 to P9; 20 open questions routed to their owners (15 to 20 added in pass 3); 201 requirement-id references (148 distinct ids) added in pass 3"
+      reviewed_by: ""
+    - kind: verification
+      path: distilled/verification.md
+      coverage: "pass 2 (independent verify) and pass 3 (cross-check) evidence: recount table, every defect found and fixed, judgements, requirement-to-structure resolution, the constrained_by wiring and its 11 unwired requirements, the normative-to-requirement mapping, example traces, design-note ids, the source questions added and what was not checked"
+      reviewed_by: ""
+  not_applicable:
+    - kind: protocol
+      reason: "NIST IR 7695 defines a logical name (the WFN, §5) and two string bindings of it (§6.1, §6.2), with procedures to bind, unbind and convert them (§6.1.2, §6.1.3, §6.2.2, §6.2.3, §7). It names producers and consumers of CPE names (§4 items 2 to 4), binds names 'for machine interchange and processing' (§2.1, Bind, L307; §5.1), and §3.2 motivates the WFN by 'the ways in which machines exchange product descriptions' (L410). It defines no parties that exchange messages, no transport, no sequence of steps between parties and no error path between them. Every procedure (bind_to_URI, unbind_URI, bind_to_fs, unbind_fs, convert_uri_to_fs, convert_fs_to_uri) is a single-party function over one input. requirements.yaml, messages.yaml and the examples carry these rules."
+    - kind: state-machine
+      reason: "No lifecycle, persistent state or transitions: 'The WFN is a logical construct only.' (§5.1, L544), and bound names are strings. new, get and set (§5.4) are pass-by-value functions (§1.3, L278) that return a new value. Whether an attribute is specified is a property of the value, not a state it moves through. The only state in the source is the scanning flag `embedded` in decode() (§6.1.3.2, L1533) and add_quoting() (§6.2.3.2, L2162). It enforces the placement rule for special characters in §5.3.2 item 4, a property of one string already expressed by Figures 5-1, 6-2 and 6-3 and by messages.yaml (wfn-value-string). 'deprecated' appears once, for the edition attribute (§5.3.3.6, L766), not for a name; the deprecation lifecycle of dictionary names belongs to NIST IR 7697."
+  passes:
+    - pass: extract
+      by: "claude (4 parallel agents: normative; requirements; schema and examples; messages and design notes)"
+      effort: max
+      date: "2026-10-19"
+      note: "started 2026-10-18, paused for a usage limit and resumed from each agent's own transcript; each agent read the PDF's text rendering (and page images where the layout text was ambiguous), never a summary or another agent's output"
+    - pass: verify
+      by: "claude (independent agent, did not extract)"
+      effort: max
+      date: "2026-10-19"
+      note: "16 defects found and fixed, 5 material: the four verbatim ABNF figure files rebuilt character for character from the PDF content stream (their spacing had come from pdftotext), false notes in R-0007, R-0104 and R-0173 about the URIs bind_to_URI produces when part or language is NA, a false note in R-0103 about the XSD, R-0159 and R-0168 calling bind_to_URI the only source of the component order, and 12 statements in 11 files that called the report a U.S. Government work; recount 108 of 108 uppercase keywords (106 in entry texts, 2 in the Appendix B change log) and 37 of 37 lowercase forms; all quotations verbatim and exactly located (348 requirement checks, 518 normative quotations and blocks, 164 messages texts)"
+    - pass: cross-check
+      by: "claude (independent agent)"
+      effort: max
+      date: "2026-10-19"
+      note: "every requirement's object and field resolve to messages.yaml or a schema file; constrained_by wired on 54 of 54 slots (961 links to 229 requirements, 11 unwired with reasons); all 466 normative statements mapped (321 to ids, 145 with reasons); requirement ids on 69 of 78 example rules and breaks on 76 of 77 violates entries, with the runner unchanged at 177 fixtures, 15 differing, 0 problems; 201 requirement-id references added to design-notes.md and six source disagreements recorded as open questions 15 to 20; README rewritten; no verbatim text or schema byte changed"

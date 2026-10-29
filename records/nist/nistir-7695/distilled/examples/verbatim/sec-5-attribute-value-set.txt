@@ -1,0 +1,1 @@
+[year=2004, maker=subaru, model=outback, interior_color=black, interior_material=leather]

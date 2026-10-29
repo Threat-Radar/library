@@ -1,0 +1,1 @@
+cpe:/a:microsoft:internet_explorer:8.%02:sp%01

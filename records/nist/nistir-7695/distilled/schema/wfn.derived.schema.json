@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CPE 2.3 well-formed name (WFN) as a JSON object",
+  "description": "DERIVED - not part of NISTIR 7695. A JSON shape the library defined so that test harnesses can exchange and validate WFNs. NISTIR 7695 section 5.1 says: \"The WFN is a logical construct only. The WFN is not intended to be a data format, encoding, or any other kind of machine-readable representation for machine interchange and processing.\" so no specification defines this JSON form. Shape: an object whose keys are the eleven attribute names of section 5.2, written in lower case; an absent key is an unspecified attribute, whose value defaults to ANY (5.2 item 2). A value is either a string, holding the attribute-value string exactly as it appears between the double quotes of the wfn:[...] notation (backslash quoting included, so version \"8\\.0\\.6001\" is the JSON string \"8\\\\.0\\\\.6001\"), or an object {\"logical\": \"ANY\"} or {\"logical\": \"NA\"} for the logical values of 5.3.1. The patterns are compiled from figure-5-1-avstring.derived.abnf by ../examples/run-fixtures.derived.py, which fails if they drift.",
+  "$comment": "Enforces: 5.2 item 1 (only the eleven attributes: propertyNames), 5.2 item 2 (each at most once: JSON object keys; duplicate keys in the JSON text are a parser matter and are not detected), 5.2 item 3 and 5.3 (each value is a logical value or a string), 5.3.1 (ANY, NA), 5.3.2 (string values: both Figure 5-1 and the prose of items 1 to 6, see $defs/string-value), 5.3.3.1 (part), 5.3.3.10 (language, RFC 5646 well-formedness only). Not enforced: 5.1 case-insensitive attribute names (this shape requires lower case), the SHOULD rules of 5.3.3 (valid-values lists, recommended content) and RFC 5646 registry validity.",
+  "type": "object",
+  "propertyNames": {
+    "enum": [
+      "part",
+      "vendor",
+      "product",
+      "version",
+      "update",
+      "edition",
+      "language",
+      "sw_edition",
+      "target_sw",
+      "target_hw",
+      "other"
+    ]
+  },
+  "properties": {
+    "part": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/logical"
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/string-value"
+            },
+            {
+              "$ref": "#/$defs/part-string"
+            }
+          ]
+        }
+      ]
+    },
+    "vendor": {
+      "$ref": "#/$defs/value"
+    },
+    "product": {
+      "$ref": "#/$defs/value"
+    },
+    "version": {
+      "$ref": "#/$defs/value"
+    },
+    "update": {
+      "$ref": "#/$defs/value"
+    },
+    "edition": {
+      "$ref": "#/$defs/value"
+    },
+    "language": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/logical"
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/string-value"
+            },
+            {
+              "$ref": "#/$defs/language-string"
+            }
+          ]
+        }
+      ]
+    },
+    "sw_edition": {
+      "$ref": "#/$defs/value"
+    },
+    "target_sw": {
+      "$ref": "#/$defs/value"
+    },
+    "target_hw": {
+      "$ref": "#/$defs/value"
+    },
+    "other": {
+      "$ref": "#/$defs/value"
+    }
+  },
+  "$defs": {
+    "logical": {
+      "$comment": "5.3.1: the logical values ANY and NA.",
+      "type": "object",
+      "properties": {
+        "logical": {
+          "enum": [
+            "ANY",
+            "NA"
+          ]
+        }
+      },
+      "required": [
+        "logical"
+      ],
+      "additionalProperties": false
+    },
+    "avstring-figure-5-1": {
+      "$comment": "Figure 5-1 (5.3.2), rule avstring, compiled from figure-5-1-avstring.derived.abnf (PART 1). Accepts \"*\", \"**\", \"?*\" and \"*?\", which the prose forbids; rejects \"\\-?\", which the prose allows.",
+      "type": "string",
+      "pattern": "^(?:(?:(?:(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))))))(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-))))))))*|(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-)))))))){2,}))|(?:(?:(?:(?:\\?))+|(?:\\*)))(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-))))))))*)(?:(?:(?:(?:(?:\\?))+|(?:\\*))))?)$"
+    },
+    "avstring-prose": {
+      "$comment": "5.3.2 items 1 to 6 under the library's readings P1 to P4, rule avstring-prose of figure-5-1-avstring.derived.abnf (PART 2).",
+      "type": "string",
+      "pattern": "^(?:(?:(?:(?:\\?))+|(?:(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))))))(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-))))))))*|(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-)))))))){2,}))|(?:(?:(?:(?:\\?))+|(?:\\*)))(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-))))))))+(?:(?:(?:(?:(?:\\?))+|(?:\\*))))?|(?:(?:(?:(?:(?:(?:(?:[A-Z]|[a-z]))|(?:[0-9])|_))|(?:(?:\\\\)(?:(?:\\\\)|(?:(?:(?:\\?)|(?:\\*)))|(?:(?:(?:(?:!|(?:\")|#|\\$|%|&|'|\\(|\\)|\\+|,|\\.|\\/|:|;|<|=|>|@|\\[|\\]|\\^|`|\\{|\\||\\}|~))|(?:-))))))))+(?:(?:(?:(?:\\?))+|(?:\\*)))))$"
+    },
+    "string-value": {
+      "$comment": "A string value must satisfy both Figure 5-1 and the prose (the intersection, rule avstring-strict). Use only one of the two $defs above to apply one reading.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/avstring-figure-5-1"
+        },
+        {
+          "$ref": "#/$defs/avstring-prose"
+        }
+      ]
+    },
+    "value": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/logical"
+        },
+        {
+          "$ref": "#/$defs/string-value"
+        }
+      ]
+    },
+    "part-string": {
+      "$comment": "5.3.3.1: \"The part attribute SHALL have one of these three string values:\" a, o, h (case-sensitive).",
+      "type": "string",
+      "pattern": "^(?:(?:a|o|h))$"
+    },
+    "language-string": {
+      "$comment": "5.3.3.10: \"Values for this attribute SHALL be valid language tags as defined by [RFC5646]\". The RFC 5646 section 2.1 Language-Tag production with every hyphen quoted (\"en\\-us\"); RFC 5646 registry validity is not checked.",
+      "type": "string",
+      "pattern": "^(?:(?:(?:(?:[A-Za-z]{2,3}(?:\\\\-[A-Za-z]{3}){0,3}|[A-Za-z]{4}|[A-Za-z]{5,8})(?:\\\\-[A-Za-z]{4})?(?:\\\\-(?:[A-Za-z]{2}|[0-9]{3}))?(?:\\\\-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(?:\\\\-[0-9A-WY-Za-wy-z](?:\\\\-[A-Za-z0-9]{2,8})+)*(?:\\\\-[xX](?:\\\\-[A-Za-z0-9]{1,8})+)?|[xX](?:\\\\-[A-Za-z0-9]{1,8})+|[Ee][Nn]\\\\-[Gg][Bb]\\\\-[Oo][Ee][Dd]|[Ii]\\\\-[Aa][Mm][Ii]|[Ii]\\\\-[Bb][Nn][Nn]|[Ii]\\\\-[Dd][Ee][Ff][Aa][Uu][Ll][Tt]|[Ii]\\\\-[Ee][Nn][Oo][Cc][Hh][Ii][Aa][Nn]|[Ii]\\\\-[Hh][Aa][Kk]|[Ii]\\\\-[Kk][Ll][Ii][Nn][Gg][Oo][Nn]|[Ii]\\\\-[Ll][Uu][Xx]|[Ii]\\\\-[Mm][Ii][Nn][Gg][Oo]|[Ii]\\\\-[Nn][Aa][Vv][Aa][Jj][Oo]|[Ii]\\\\-[Pp][Ww][Nn]|[Ii]\\\\-[Tt][Aa][Oo]|[Ii]\\\\-[Tt][Aa][Yy]|[Ii]\\\\-[Tt][Ss][Uu]|[Ss][Gg][Nn]\\\\-[Bb][Ee]\\\\-[Ff][Rr]|[Ss][Gg][Nn]\\\\-[Bb][Ee]\\\\-[Nn][Ll]|[Ss][Gg][Nn]\\\\-[Cc][Hh]\\\\-[Dd][Ee]|[Aa][Rr][Tt]\\\\-[Ll][Oo][Jj][Bb][Aa][Nn]|[Cc][Ee][Ll]\\\\-[Gg][Aa][Uu][Ll][Ii][Ss][Hh]|[Nn][Oo]\\\\-[Bb][Oo][Kk]|[Nn][Oo]\\\\-[Nn][Yy][Nn]|[Zz][Hh]\\\\-[Gg][Uu][Oo][Yy][Uu]|[Zz][Hh]\\\\-[Hh][Aa][Kk][Kk][Aa]|[Zz][Hh]\\\\-[Mm][Ii][Nn]|[Zz][Hh]\\\\-[Mm][Ii][Nn]\\\\-[Nn][Aa][Nn]|[Zz][Hh]\\\\-[Xx][Ii][Aa][Nn][Gg])))$"
+    }
+  }
+}

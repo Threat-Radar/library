@@ -1,0 +1,2 @@
+wfn:[part="a",vendor="foo\\bar",product="big\$money_2010",
+sw_edition="special",target_sw="ipod_touch"]

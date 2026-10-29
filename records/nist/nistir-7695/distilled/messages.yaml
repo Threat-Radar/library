@@ -1,0 +1,2620 @@
+# Contains text from NIST IR 7695 (August 2011), published by NIST with no copyright or licence notice. Works of
+# NIST employees are not subject to copyright in the United States (17 U.S.C. 105), but two of the three authors
+# were not NIST staff (Acknowledgments, p. iii), so the text is not claimed to be wholly a U.S. Government work.
+# CPE is a trademark of The MITRE Corporation (p. iii).
+#
+# Block style only, and one line per scalar: bin/_yaml.py reads no flow
+# mappings. Every string that holds a backslash is single-quoted (a quote
+# inside it is written ''); double-quoted strings hold no backslash.
+schema: "library-messages/v1"
+record: nistir-7695
+reviewed_by: ""
+source_version: "NIST IR 7695, Common Platform Enumeration: Naming Specification Version 2.3 (August 2011)"
+source_digest: "sha256:01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6"
+extracted: "2026-10-18"
+extracted_by: "claude (FX-1 pass 1, structures and design-notes agent D, effort max)"
+note: 'CPE Naming 2.3 defines no wire protocol and no message exchange. It defines one logical construct and two string encodings of it, and this file decomposes all of them: (1) the well-formed CPE name (structure wfn: an unordered set of at most eleven attribute-value pairs), its pair (wfn-attribute-value-pair), its two logical values (logical-value) and the grammar of an attribute value string (wfn-value-string, Figure 5-1); (2) the URI binding of section 6.1 (uri-binding: the cpe:/ prefix and seven components) with the packed edition component (uri-packed-edition); (3) the formatted string binding of section 6.2 (formatted-string-binding: thirteen colon-separated components, cpe, 2.3 and eleven attribute fields); and (4) the language tag that both bindings restrict (binding-language-tag). Conventions. Every value of a key named text or source_phrase is verbatim from the PDF: a sentence the PDF wraps is joined with one space, or with nothing where the line ends in a hyphen inside a compound such as percent-encoded; list numbers and bullet glyphs are left out; the Symbol-font arrow that pdftotext renders as U+F0AE is written as U+2192, as the page shows it. The em dash (U+2014) is written {U+2014}, because house style forbids the character in this library (as in normative.md); replace each {U+2014} with U+2014 to recover the source. Locators read section / PDF page / line in the pdftotext -layout rendering nistir7695.txt (2443 lines); for the body, PDF page n is printed page n minus 6. Short values under keys such as allowed_values, permitted_characters, case, encoding, separator_before and separator_after are our structured restatement of the verbatim rules beside them, never a substitute for them. Anything implied but not stated sits under an inferred key or carries kind: inferred with its basis. Flags record places where the source disagrees with itself; the probes they cite (P1 to P9) are runs of our own literal transcription of the pseudocode, kept in the extraction scratchpad and not committed, and design-notes.md lists the results. Keys named external_xsd_* describe the XML schema that section 6 calls the authoritative XML binding definition; it is not printed in the PDF, so those values are an observation of the file as served on 2026-10-19 (SHA-256 d37f813fe223922fb7456751d453482009fc7075a3f5ad5e1999d075d190dd69), not source text. constrained_by (pass 3, cross-check) lists the requirements.yaml ids that constrain each structure and field: the entries at the sections in constrained_by_locators, kept where the entry''s object, field and text reach that structure or field, plus the entries that the field''s own keys cite (allowed_values, permitted_characters, encoding, case, logical_value_forms, binding_forms, required_source). A binding or unbinding step is wired to every component whose permitted values it can act on. A structure-level constrained_by holds the entries that bind the structure as a whole: its grammar root, its order and separators, its conformance and same-result requirements, and the conversions between the two bindings. constrained_by_locators is the pass-1 list, kept unchanged, and constrained_by_note says where the entries at a listed section are wired when they bind another structure. 11 entries constrain no structure (R-0002, R-0005, R-0012, R-0136, R-0147, R-0171, R-0172, R-0177, R-0191, R-0219, R-0224); distilled/verification.md, pass 3, gives the reasons.'
+
+structures:
+
+  # =========================================================================
+  # PART 1. THE LOGICAL CONSTRUCT (section 5)
+  # =========================================================================
+
+  - name: wfn
+    locator: "§5 / p. 14; §5.1 / p. 14 to 15; §5.2 / p. 15; §5.3 / p. 15; §5.4 / p. 19 to 20"
+    encoding: 'none: "The WFN is a logical construct only." (§5.1). The wfn:[...] notation is for illustration only and no implementation has to use it.'
+    structure: 'unordered set of attribute-value pairs, at most one pair per attribute (a map keyed by attribute name)'
+    layout: 'wfn:[a1=v1, a2=v2, …, an=vn] (illustrative notation, §5.1)'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0001"
+      - "nistir-7695#R-0014"
+      - "nistir-7695#R-0015"
+      - "nistir-7695#R-0017"
+      - "nistir-7695#R-0018"
+      - "nistir-7695#R-0019"
+      - "nistir-7695#R-0020"
+      - "nistir-7695#R-0100"
+      - "nistir-7695#R-0101"
+      - "nistir-7695#R-0102"
+    constrained_by_note: 'R-0001 (§1.3) is the calling convention quoted under operations; R-0100 to R-0102 are the operations. R-0016 (attribute case) is wired to wfn-attribute-value-pair.attribute, and R-0021 to R-0024 to the eleven fields. §5, in constrained_by_locators, holds no entry: its sentences are scope statements (normative.md N-0031 to N-0038).'
+    constrained_by_locators:
+      - "§5"
+      - "§5.1"
+      - "§5.2"
+      - "§5.3"
+      - "§5.4"
+    rules:
+      - text: 'This section defines the foundational logical construct of CPE{U+2014}the well-formed CPE name (WFN).'
+        locator: "§5 / p. 14 / L503"
+      - text: 'WFNs can be used to describe a set of products or to identify an individual product.'
+        locator: "§5 / p. 14 / L504"
+      - text: 'The CPE Naming specification leaves all decisions about what distinguishes identifiers and descriptions to the users. All names constitute descriptions of product classes, and a description becomes an identifier when it contains sufficient information to select a single entity from the universe of possibilities.'
+        locator: "§5 / p. 14 / L519"
+      - text: 'WFNs are used solely for product classes. They cannot identify product instances, which are unique, physically discernible entities in the world, such as a specific licensed and configured installation of a product on a particular computing device owned by XYZ Corp. and physically installed in a particular location in the world.'
+        locator: "§5 / p. 14 / L524"
+      - text: 'A WFN is an unordered set of attribute-value pairs that collectively (a) describe or identify a software application, operating system, or hardware device, and (b) satisfy the criteria specified in Section 5.2.'
+        locator: "§5.1 / p. 14 / L539"
+      - text: 'Unordered means that there is no prescribed order for the attribute-value pairs, and there is no specified relationship (hierarchical, set-theoretic, or otherwise) among attributes or attribute-value pairs.'
+        locator: "§5.1 / p. 14 / L541"
+      - text: 'The WFN is a logical construct only. The WFN is not intended to be a data format, encoding, or any other kind of machine-readable representation for machine interchange and processing. Rather, it is a conceptual data structure{U+2014}an abstract canonical form{U+2014}used to clearly and unambiguously specify desired implementations and behaviors. There is no requirement that CPE-conformant tools create or manipulate WFN-like data structures internally to their implementations.'
+        locator: "§5.1 / p. 14 / L544"
+      - text: 'This document uses the following notation to illustrate WFNs:'
+        locator: "§5.1 / p. 15 / L570"
+      - text: 'wfn:[a1=v1, a2=v2, …, an=vn]'
+        locator: "§5.1 / p. 15 / L571"
+      - text: 'This notation is used solely for the purposes of explaining and illustrating the concepts and procedures specified herein. There is no requirement that implementations represent WFNs explicitly or use this notation in any way.'
+        locator: "§5.1 / p. 15 / L574"
+      - text: 'WFNs MUST satisfy these criteria:'
+        locator: "§5.2 / p. 15 / L580"
+      - text: 'Only the following attributes SHALL be permitted in a WFN attribute-value pair:'
+        locator: "§5.2 / p. 15 / L581"
+      - text: 'Each permitted attribute MAY be used at most once in a WFN. If an attribute is not used in a WFN, it is said to be unspecified, and its value SHALL default to the logical value ANY (cf. 5.3.1).'
+        locator: "§5.2 / p. 15 / L593"
+      - text: 'Attribute values of WFNs MUST satisfy the requirements specified in Section 5.3.'
+        locator: "§5.2 / p. 15 / L596"
+      - text: 'The attributes sw_edition, target_sw, target_hw, and other are newly introduced in this specification and are referred to collectively as the extended attributes.'
+        locator: "§5.2 / p. 15 / L598"
+      - text: 'Attributes of WFNs SHALL be assigned one of the following values:'
+        locator: "§5.3 / p. 15 / L603"
+      - text: 'A logical value specified in Section 5.3.1'
+        locator: "§5.3 / p. 15 / L604"
+      - text: 'A character string satisfying both (a) the requirements on string values specified in Section 5.3.2, and (b) the per-attribute value restrictions specified in Section 5.5.3.'
+        locator: "§5.3 / p. 15 / L605"
+    out_of_scope:
+      - text: 'Other aspects of product naming and description that are outside the scope of the CPE Naming specification are:'
+        locator: "§5 / p. 14 / L527"
+      - text: 'Representing relationships (e.g., part of, bundled with, released before/after, same as) between products'
+        locator: "§5 / p. 14 / L529"
+      - text: 'Representing user-defined configurations of installed products'
+        locator: "§5 / p. 14 / L531"
+      - text: 'Representing entitlement/licensing information about products'
+        locator: "§5 / p. 14 / L532"
+      - text: 'Defining procedures and guidelines for assigning “correct” or “valid” values to attributes of product descriptions or identifiers'
+        locator: "§5 / p. 14 / L533"
+      - text: 'Defining procedures and guidelines for creating or maintaining valid-values lists.'
+        locator: "§5 / p. 14 / L535"
+    operations:
+      - name: new
+        signature: 'new() returns a WFN'
+        text: 'The new() function takes no arguments. It returns an empty WFN (a WFN containing no attribute-value pairs).'
+        locator: "§5.4.1 / p. 19 / L829"
+      - name: get
+        signature: 'get(w,a) returns a value'
+        text: 'The get(w,a) function takes two arguments, a WFN w and an attribute a, and returns the value of a. If the attribute a is unspecified in w, get(w,a) returns the default value ANY.'
+        locator: "§5.4.2 / p. 20 / L844"
+      - name: set
+        signature: 'set(w,a,v) returns a WFN'
+        text: 'The set(w,a,v) function takes three arguments, a WFN w, an attribute a, and a value v. If the attribute a is unspecified in w, set(w,a,v) adds the attribute-value pair a=v to w. If the attribute a is specified in w, set(w,a,v) replaces its value with v. If v is nil, set(w,a,v) deletes a from w if a is specified in w, otherwise has no effect. The function always returns the new value of w.'
+        locator: "§5.4.3 / p. 20 / L855"
+      - name: "(all)"
+        text: 'Three functions are defined over WFNs: new, get, and set. These functions are used in defining binding and unbinding procedures in Section 6.'
+        locator: "§5.4 / p. 19 / L824"
+      - name: "(calling convention)"
+        text: 'All pseudocode functions are pass by value, meaning that any changes applied to the supplied arguments within the scope of the function do not affect the values of the variables in the caller’s scope.'
+        locator: "§1.3 / p. 8 / L278"
+    inferred:
+      - statement: 'The attribute set is closed: a pair whose attribute is not one of the eleven makes the WFN ill-formed, and so does a second pair for the same attribute.'
+        basis: '"Only the following attributes SHALL be permitted" and "Each permitted attribute MAY be used at most once in a WFN" (§5.2); the permission is phrased with an upper limit, which we read as a prohibition of a second use.'
+        kind: inferred
+      - statement: 'An unspecified attribute and the same attribute set to ANY are indistinguishable: get() returns ANY for both and both bindings write them identically (probe P8). The document defines no equality of two WFNs; comparison is the subject of NIST IR 7696 (record nistir-7696).'
+        basis: '§5.2 item 2, §5.4.2, the bind pseudocode of §6.1.2.3 and §6.2.2.2; set(w,a,ANY) keeps the pair (example wfn:[vendor="microsoft",update=ANY], §5.4.3).'
+        kind: inferred
+      - statement: 'A WFN with no pairs (new()) is well formed; every attribute then reads as ANY, so it describes every product class.'
+        basis: '§5.4.1 returns an empty WFN, §5.2 sets no minimum number of pairs, and Figures 6-1 and 6-2 admit the empty component list.'
+        kind: inferred
+    flags:
+      - 'Dangling reference: §5.3 item 2 sends the reader to "Section 5.5.3" for the per-attribute value restrictions; §5.5 (WFN Examples) has no subsections and the restrictions are in §5.3.3.'
+      - 'Bound forms are lossy for this distinction: wfn:[part="a"] and wfn:[part="a",vendor=ANY] have one binding each way, and unbinding returns the explicit form for every attribute it reads: all eleven from a formatted string (the §6.2.3.3 examples list ANY for each), and from a URI the seven URI attributes, plus the four extended ones only when the edition is packed (the §6.1.3.3 examples).'
+    fields:
+
+      - name: part
+        list_item: "§5.2 item 1.a"
+        uri_position: 1
+        fs_position: 2
+        type: 'logical value (ANY or NA) or a value string limited to one of three one-character values'
+        required: false
+        required_source: '§5.2 item 2: an unused attribute is unspecified and defaults to ANY'
+        default: ANY
+        allowed_values: '"a" (a class of applications), "o" (a class of operating systems), "h" (a class of hardware devices); ANY; NA'
+        permitted_characters: 'one of the lower-case letters a, o, h'
+        case: 'not stated for WFN values; the three values are printed in lower case'
+        binding_forms: 'URI (Figures 6-1, 6-2): part = "h" / "o" / "a" / empty, so ANY binds to the empty component and NA has no form; formatted string (Figure 6-3): part = "h" / "o" / "a" / logical'
+        rules:
+          - text: 'The part attribute SHALL have one of these three string values:'
+            locator: "§5.3.3.1 / p. 18 / L729"
+          - text: 'The value “a”, when the WFN is for a class of applications.'
+            locator: "§5.3.3.1 / p. 18 / L730"
+          - text: 'The value “o”, when the WFN is for a class of operating systems.'
+            locator: "§5.3.3.1 / p. 18 / L731"
+          - text: 'The value “h”, when the WFN is for a class of hardware devices.'
+            locator: "§5.3.3.1 / p. 18 / L732"
+        inferred:
+          - statement: 'part may also be ANY or NA.'
+            basis: '§5.3 lets every attribute take "A logical value specified in Section 5.3.1", and Figure 6-3 writes part = "h" / "o" / "a" / logical; §5.3.3.1 lists only the three strings and does not exclude the logical values.'
+            kind: inferred
+        flags:
+          - 'NA has a formatted-string form ("-") but no URI form: Figures 6-1 and 6-2 give part only "h", "o", "a" or empty, yet bind_value_for_URI returns "-" for NA, so bind_to_URI writes cpe:/-:... (probe P4), which neither figure admits and which §4 item 3 forbids a producer to emit (MUST adhere to Figure 6-1).'
+          - 'RFC 2234 §2.3 makes quoted ABNF strings case-insensitive, so Figure 6-3 also admits "A", "O" and "H"; unbind_fs keeps the case and yields a part value outside the three of §5.3.3.1, while unbind_URI lowercases (decode). The external XSD pattern cpe23Type admits lower case only.'
+        locator: "§5.2; §5.3; §5.3.3.1; Figures 6-1, 6-2 and 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0065"
+        constrained_by_note: 'The binding rules at §6.1.2.1.1 and §6.2 in constrained_by_locators (R-0150, R-0151, R-0195, R-0213) and the figure rules the flags cite (R-0107, R-0201) bind the bound components and are wired to uri-binding.part and formatted-string-binding.part; R-0065 is wired to all three.'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.1"
+          - "§5.3.3.1"
+          - "§6.1.2.1.1"
+          - "§6.2"
+
+      - name: vendor
+        list_item: "§5.2 item 1.b"
+        uri_position: 2
+        fs_position: 3
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2; a valid-values list is recommended but defined elsewhere'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD describe or identify the person or organization that manufactured or created the product. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.2 / p. 18 / L736"
+        inferred:
+          - statement: 'A vendor value is a name, not an identity of an organization: nothing in this document ties it to a registry of organizations, and the choice of a "correct" value is out of scope (§5).'
+            basis: 'The SHOULD wording above and the out-of-scope item "Defining procedures and guidelines for assigning “correct” or “valid” values" (§5).'
+            kind: inferred
+        locator: "§5.2; §5.3.3.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0066"
+          - "nistir-7695#R-0067"
+          - "nistir-7695#R-0068"
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.2"
+
+      - name: product
+        list_item: "§5.2 item 1.c"
+        uri_position: 3
+        fs_position: 4
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD describe or identify the most common and recognizable title or name of the product. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.3 / p. 18 / L743"
+        locator: "§5.2; §5.3.3.3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0069"
+          - "nistir-7695#R-0070"
+          - "nistir-7695#R-0071"
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.3"
+
+      - name: version
+        list_item: "§5.2 item 1.d"
+        uri_position: 4
+        fs_position: 5
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2; no valid-values list is suggested for this attribute'
+        permitted_characters: 'as structure wfn-value-string; periods and hyphens are quoted in the WFN ("8\.0\.6001")'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD be vendor-specific alphanumeric strings characterizing the particular release version of the product. Version information SHOULD be copied directly (with escaping of printable non-alphanumeric characters as required) from discoverable data and SHOULD NOT be truncated or otherwise modified. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.4 / p. 18 / L750"
+        inferred:
+          - statement: 'A version value is an opaque string: this document defines no ordering, comparison or range of versions.'
+            basis: 'No section defines an order; §5.1 says there is "no specified relationship (hierarchical, set-theoretic, or otherwise) among attributes or attribute-value pairs". Version ranges in NVD data are an NVD convention, outside this document.'
+            kind: inferred
+        flags:
+          - '"vendor-specific alphanumeric strings" (SHOULD) sits beside "copied directly ... from discoverable data": real version strings contain periods and hyphens, which the WFN must quote (§5.3.2 item 5), as every example does.'
+        locator: "§5.2; §5.3.3.4"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0044"
+          - "nistir-7695#R-0072"
+          - "nistir-7695#R-0073"
+          - "nistir-7695#R-0074"
+        constrained_by_note: 'R-0044 is added because permitted_characters cites the quoting of periods and hyphens (§5.3.2 item 5).'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.4"
+
+      - name: update
+        list_item: "§5.2 item 1.e"
+        uri_position: 5
+        fs_position: 6
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD be vendor-specific alphanumeric strings characterizing the particular update, service pack, or point release of the product. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.5 / p. 18 / L758"
+        locator: "§5.2; §5.3.3.5"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0075"
+          - "nistir-7695#R-0076"
+          - "nistir-7695#R-0077"
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.5"
+
+      - name: edition
+        list_item: "§5.2 item 1.f"
+        uri_position: 6
+        uri_location: 'component 6, alone or as the first part of a packed edition (structure uri-packed-edition)'
+        fs_position: 7
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        deprecated: true
+        allowed_values: 'ANY recommended; NA or a value string only for backward compatibility with CPE 2.2'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'The edition attribute is considered deprecated in this specification, and it SHOULD be assigned the logical value ANY except where required for backward compatibility with version 2.2 of the CPE specification. This attribute is referred to as the “legacy edition” attribute.'
+            locator: "§5.3.3.6 / p. 18 / L766"
+          - text: 'If this attribute is used, values for this attribute SHOULD capture edition-related terms applied by the vendor to the product. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.6 / p. 18 / L770"
+        locator: "§5.2; §5.3.3.6"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0078"
+          - "nistir-7695#R-0079"
+          - "nistir-7695#R-0080"
+          - "nistir-7695#R-0081"
+        constrained_by_note: '§6.1.2.1.3, in constrained_by_locators, holds R-0157, which packs the legacy edition into the URI edition component; it is wired to uri-binding.edition and uri-packed-edition.'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.6"
+          - "§6.1.2.1.3"
+
+      - name: language
+        list_item: "§5.2 item 1.g"
+        uri_position: 7
+        fs_position: 8
+        type: 'logical value (ANY or NA) or a value string that is a valid language tag'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or a valid RFC 5646 language tag; tags with language and region codes recommended'
+        permitted_characters: 'a language tag written as a WFN value string, so its hyphen is quoted ("en\-us")'
+        case: 'not stated (RFC 5646 tags are case-insensitive; this document does not say so)'
+        binding_forms: 'URI: lang = LANGTAG / empty (Figure 6-1: any RFC 5646 tag; Figure 6-2: structure binding-language-tag); formatted string: lang = LANGTAG / logical (Figure 6-3, structure binding-language-tag)'
+        rules:
+          - text: 'Values for this attribute SHALL be valid language tags as defined by [RFC5646], and SHOULD be used to define the language supported in the user interface of the product being described. Although any valid language tag MAY be used, only tags containing language and region codes SHOULD be used.'
+            locator: "§5.3.3.10 / p. 19 / L809"
+        flags:
+          - 'The preferred URI syntax and the formatted string carry only language ["-" region] (Figures 6-2 and 6-3), so a valid tag that §5.3.3.10 permits with MAY, such as zh-Hant-TW, has no formatted-string binding (rejected by Figure 6-3 and by the XSD pattern; design-notes.md, evidence E9).'
+          - 'NA has no URI form: lang = LANGTAG / empty, yet bind_to_URI writes a final "-" for NA (probe P4).'
+          - 'In a WFN the hyphen of a tag must be quoted (§5.3.2 item 5), and both unbinding procedures add the quote, so the WFN value is "en\-us", not the RFC 5646 string en-us.'
+        locator: "§5.2; §5.3.3.10; Figures 6-1, 6-2 and 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0044"
+          - "nistir-7695#R-0092"
+          - "nistir-7695#R-0093"
+          - "nistir-7695#R-0094"
+          - "nistir-7695#R-0095"
+        constrained_by_note: 'The figure rules at §6.1.1 and §6.2.1 in constrained_by_locators bind the bound components and are wired to uri-binding.language, formatted-string-binding.language and binding-language-tag. R-0044 is added because the tag''s hyphen is quoted in a WFN (the flags).'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.10"
+          - "§6.1.1"
+          - "§6.2.1"
+
+      - name: sw_edition
+        list_item: "§5.2 item 1.h"
+        extended_attribute: true
+        uri_position: 6
+        uri_location: 'packed edition, part 2 (structure uri-packed-edition)'
+        fs_position: 9
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD characterize how the product is tailored to a particular market or class of end users. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.7 / p. 19 / L785"
+        locator: "§5.2; §5.3.3.7"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0082"
+          - "nistir-7695#R-0083"
+          - "nistir-7695#R-0084"
+        constrained_by_note: '§6.1.2.1.3, in constrained_by_locators, holds R-0157, which packs this attribute into the URI edition component; it is wired to uri-packed-edition.'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.7"
+          - "§6.1.2.1.3"
+
+      - name: target_sw
+        list_item: "§5.2 item 1.i"
+        extended_attribute: true
+        uri_position: 6
+        uri_location: 'packed edition, part 3 (structure uri-packed-edition)'
+        fs_position: 10
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD characterize the software computing environment within which the product operates. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.8 / p. 19 / L792"
+        locator: "§5.2; §5.3.3.8"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0085"
+          - "nistir-7695#R-0086"
+          - "nistir-7695#R-0087"
+        constrained_by_note: '§6.1.2.1.3, in constrained_by_locators, holds R-0157, which packs this attribute into the URI edition component; it is wired to uri-packed-edition.'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.8"
+          - "§6.1.2.1.3"
+
+      - name: target_hw
+        list_item: "§5.2 item 1.j"
+        extended_attribute: true
+        uri_position: 6
+        uri_location: 'packed edition, part 4 (structure uri-packed-edition)'
+        fs_position: 11
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2; bytecode targets count as instruction set architectures'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD characterize the instruction set architecture (e.g., x86) on which the product being described or identified by the WFN operates. Bytecode-intermediate languages, such as Java bytecode for the Java Virtual Machine or Microsoft Common Intermediate Language for the Common Language Runtime virtual machine, SHALL be considered instruction set architectures. Values for this attribute SHOULD be selected from an attribute-specific valid-values list, which MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.9 / p. 19 / L799"
+        locator: "§5.2; §5.3.3.9"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0088"
+          - "nistir-7695#R-0089"
+          - "nistir-7695#R-0090"
+          - "nistir-7695#R-0091"
+        constrained_by_note: '§6.1.2.1.3, in constrained_by_locators, holds R-0157, which packs this attribute into the URI edition component; it is wired to uri-packed-edition.'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.9"
+          - "§6.1.2.1.3"
+
+      - name: other
+        list_item: "§5.2 item 1.k"
+        extended_attribute: true
+        uri_position: 6
+        uri_location: 'packed edition, part 5 (structure uri-packed-edition)'
+        fs_position: 12
+        type: 'logical value (ANY or NA) or value string (structure wfn-value-string)'
+        required: false
+        required_source: '§5.2 item 2'
+        default: ANY
+        allowed_values: 'ANY, NA, or any value string meeting §5.3.2; not instance-specific data'
+        permitted_characters: 'as structure wfn-value-string'
+        case: 'not stated'
+        rules:
+          - text: 'Values for this attribute SHOULD capture any other general descriptive or identifying information which is vendor- or product-specific and which does not logically fit in any other attribute value. Values SHOULD NOT be used for storing instance-specific data (e.g., globally-unique identifiers or Internet Protocol addresses). Values for this attribute SHOULD be selected from a valid-values list that is refined over time; this list MAY be defined by other specifications that utilize this specification. Any character string meeting the requirements for WFNs (cf. 5.3.2) MAY be specified as the value of the attribute.'
+            locator: "§5.3.3.11 / p. 19 / L815"
+        locator: "§5.2; §5.3.3.11"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0019"
+          - "nistir-7695#R-0020"
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+          - "nistir-7695#R-0096"
+          - "nistir-7695#R-0097"
+          - "nistir-7695#R-0098"
+          - "nistir-7695#R-0099"
+        constrained_by_note: '§6.1.2.1.3, in constrained_by_locators, holds R-0157, which packs this attribute into the URI edition component; it is wired to uri-packed-edition.'
+        constrained_by_locators:
+          - "§5.2"
+          - "§5.3"
+          - "§5.3.2"
+          - "§5.3.3.11"
+          - "§6.1.2.1.3"
+
+  - name: wfn-attribute-value-pair
+    locator: "§5.1 / p. 15; §5.3.1 / p. 16; §5.3.2 / p. 16"
+    encoding: 'none (logical); notated a=v inside wfn:[...]'
+    structure: 'tuple (attribute, value)'
+    layout: 'attribute=value, with a value string in straight double quotes and a logical value unquoted in upper case (wfn:[…,update="sr1",…], wfn:[…,update=ANY,…])'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0014"
+    constrained_by_note: 'R-0014 says there is no order and no relationship among the pairs. The definition of a pair (§5.1, normative.md N-0045) has no entry.'
+    constrained_by_locators:
+      - "§5.1"
+      - "§5.2"
+      - "§5.3"
+    rules:
+      - text: 'An attribute-value pair is a tuple a=v in which a (the attribute) is an alphanumeric label (used to represent a property or state of some entity), and v (the value) is the value assigned to the attribute.'
+        locator: "§5.1 / p. 15 / L558"
+      - text: 'In WFNs, these logical values will be written in all uppercase characters, without surrounding quotation marks, on the right side of the equal sign, as in these examples:'
+        locator: "§5.3.1 / p. 16 / L624"
+      - text: 'In WFNs, attribute-value strings will be enclosed in double quotes as in the examples below. The quotation marks are, of course, not considered part of the string values themselves.'
+        locator: "§5.3.2 / p. 16 / L635"
+    flags:
+      - 'The attribute is called "an alphanumeric label", yet three of the eleven names (sw_edition, target_sw, target_hw) contain an underscore; the pseudocode''s is_alphanum (§6.1.2.3) also counts the underscore as alphanumeric.'
+      - 'The four example pairs of §5.1 (color=“red” and so on) are printed with curly quotation marks; every other WFN in the document uses straight double quotes.'
+    fields:
+
+      - name: attribute
+        position: 1
+        type: 'attribute name: one of part, vendor, product, version, update, edition, language, sw_edition, target_sw, target_hw, other'
+        required: true
+        allowed_values: 'the eleven names of §5.2 item 1 (structure wfn, fields)'
+        case: 'case-insensitive; written in lower case by convention'
+        rules:
+          - text: 'Lexical case SHALL NOT distinguish attributes from one another, e.g., the attributes Foo, foo, FOO, etc., SHALL be considered equivalent. By convention, attributes will be written in all lowercase letters, with the underscore (“_”) character used to separate distinct words within an attribute.'
+            locator: "§5.1 / p. 15 / L560"
+        inferred:
+          - statement: 'target_HW in the §6.1.3.3.5 example names the attribute target_hw.'
+            basis: 'The case rule above; the example writes target_HW=ANY where every other example writes target_hw.'
+            kind: inferred
+        locator: "§5.1; §5.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0016"
+          - "nistir-7695#R-0019"
+        constrained_by_locators:
+          - "§5.1"
+          - "§5.2"
+
+      - name: value
+        position: 2
+        type: 'logical value (structure logical-value) or value string (structure wfn-value-string)'
+        required: true
+        allowed_values: 'per attribute, structure wfn field rules'
+        rules:
+          - text: 'Attributes of WFNs SHALL be assigned one of the following values:'
+            locator: "§5.3 / p. 15 / L603"
+        locator: "§5.1; §5.3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0022"
+          - "nistir-7695#R-0023"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0027"
+          - "nistir-7695#R-0028"
+        constrained_by_note: 'The per-attribute restrictions of §5.3.3 (R-0065 to R-0099) are wired to the eleven fields of structure wfn, and the other §5.3.2 rules to structure wfn-value-string.'
+        constrained_by_locators:
+          - "§5.1"
+          - "§5.3"
+          - "§5.3.1"
+          - "§5.3.2"
+          - "§5.3.3"
+
+  - name: logical-value
+    locator: "§5.3.1 / p. 16; §5.2 / p. 15; §6.1.2.1.1 / p. 24; §6.2 / p. 37; Figure 6-3"
+    encoding: 'WFN: the bare upper-case words ANY and NA; URI: empty component and "-"; formatted string: "*" and "-"'
+    structure: enum
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0023"
+      - "nistir-7695#R-0024"
+    constrained_by_locators:
+      - "§5.2"
+      - "§5.3.1"
+      - "§6.1.2.1.1"
+      - "§6.1.2.2"
+      - "§6.2"
+      - "§6.2.1"
+    rules:
+      - text: 'An attribute of a WFN MAY be assigned one of these logical values:'
+        locator: "§5.3.1 / p. 16 / L617"
+      - text: 'In WFNs, these logical values will be written in all uppercase characters, without surrounding quotation marks, on the right side of the equal sign, as in these examples:'
+        locator: "§5.3.1 / p. 16 / L624"
+      - text: 'The logical values ANY and NA are defined as possible attribute values in WFNs. The logical value ANY SHALL bind to what [CPE22] calls a “blank” (i.e., an empty component, indicated by two sequential colons) in the URI. The logical value NA SHALL bind to a single hyphen.'
+        locator: "§6.1.2.1.1 / p. 24 / L1063"
+      - text: 'When used alone, the asterisk (“*”) represents the logical value ANY, and the hyphen (“-”) represents the logical value NA.'
+        locator: "§6.2 / p. 37 / L1815"
+      - text: 'logical = "*" / "-"'
+        locator: "§6.2.1 / p. 38 / L1853"
+      - text: 'Removed all mention of and support for the logical value UNKNOWN.'
+        locator: "Appendix B / p. 49 / L2410"
+      - text: 'Clarified the view that the logical value NA should also be used if an attribute value is assessed to be null.'
+        locator: "Appendix B / p. 49 / L2411"
+    flags:
+      - '§5.2 item 2 makes an attribute "not used in a WFN" unspecified, with the value ANY, while §5.3.1 says NA "SHOULD be assigned ... when that attribute is not used as part of the description". The two phrases are close enough to be read as one case with opposite values; our reading is that §5.2 speaks of a missing pair and §5.3.1 of a pair the describer chose to mark not applicable.'
+      - 'NA has no URI form for part and language (Figures 6-1 and 6-2 allow only empty besides real values); see structure wfn, fields part and language.'
+    inferred:
+      - statement: 'No value string can be bound as "*" or "-" alone, because both bindings reserve those spellings for ANY and NA; §5.3.2 forbids a lone unquoted asterisk and a lone quoted hyphen in a WFN, which closes both collisions.'
+        basis: '§5.3.2 items 4 and 6; §6.2 (L1815); bind_value_for_fs and bind_value_for_URI (§6.2.2.2, §6.1.2.3).'
+        kind: inferred
+    fields:
+
+      - name: ANY
+        position: 1
+        type: 'logical value'
+        meaning: 'no restriction on acceptable values'
+        wfn_form: 'ANY (unquoted, upper case)'
+        uri_form: "'' (an empty component; trailing empty components are trimmed)"
+        fs_form: "'*'"
+        default_for: 'every unspecified attribute (§5.2 item 2; get(w,a), §5.4.2)'
+        unbinding: 'URI: decode("") returns ANY; formatted string: unbind_value_fs("*") returns ANY'
+        rules:
+          - text: 'ANY (i.e., “any value”). The logical value ANY SHOULD be assigned to an attribute when there are no restrictions on acceptable values for that attribute.'
+            locator: "§5.3.1 / p. 16 / L618"
+          - text: 'If the attribute is unspecified, or its logical value is ANY, bind it to blank (“”) in the URI.'
+            locator: "§6.1.2.2 / p. 26 / L1146"
+        locator: "§5.3.1; §6.1.2.1.1; §6.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0021"
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0025"
+          - "nistir-7695#R-0101"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0228"
+        constrained_by_locators:
+          - "§5.3.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.2"
+          - "§6.2"
+
+      - name: NA
+        position: 2
+        type: 'logical value'
+        meaning: 'not applicable or not used; also for an obtainable value that is null'
+        wfn_form: 'NA (unquoted, upper case)'
+        uri_form: "'-' (a single hyphen)"
+        fs_form: "'-'"
+        unbinding: 'URI: decode("-") returns NA; formatted string: unbind_value_fs("-") returns NA'
+        rules:
+          - text: 'NA (i.e., “not applicable/not used”). The logical value NA SHOULD be assigned when there is no legal or meaningful value for that attribute, or when that attribute is not used as part of the description. This includes the situation in which an attribute has an obtainable value that is null.'
+            locator: "§5.3.1 / p. 16 / L620"
+          - text: 'If the logical value is NA, bind it to the hyphen (“-”).'
+            locator: "§6.1.2.2 / p. 26 / L1147"
+        locator: "§5.3.1; §6.1.2.1.1; §6.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0024"
+          - "nistir-7695#R-0026"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0229"
+        constrained_by_locators:
+          - "§5.3.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.2"
+          - "§6.2"
+
+  - name: wfn-value-string
+    locator: "§5.3.2 / p. 16 to 17; Figure 5-1 / p. 17"
+    encoding: 'non-empty string of printable ASCII characters (bytes x00 to x7F as UTF-8); backslash quoting; the surrounding double quotes of the notation are not part of the value'
+    structure: sequence
+    layout: '[leading special characters] body [trailing special characters]'
+    grammar: 'Figure 5-1 (avstring); reproduced verbatim by the schema artifact'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0023"
+      - "nistir-7695#R-0027"
+      - "nistir-7695#R-0028"
+      - "nistir-7695#R-0039"
+      - "nistir-7695#R-0040"
+      - "nistir-7695#R-0042"
+      - "nistir-7695#R-0046"
+      - "nistir-7695#R-0047"
+    constrained_by_note: '§5.3.3, in constrained_by_locators, holds the per-attribute restrictions (R-0065 to R-0099), wired to the fields of structure wfn. R-0152 and R-0153 come from §6.1.2.1.2, outside constrained_by_locators; they restate the quoting rule for WFN value strings and are wired to the fields.'
+    constrained_by_locators:
+      - "§5.3"
+      - "§5.3.2"
+      - "§5.3.3"
+    rules:
+      - text: 'Value strings assigned to attributes of WFNs SHALL be non-empty contiguous strings of bytes encoded using printable Unicode Transformation Format-8 (UTF-8) characters with hexadecimal values between x00 and x7F [RFC3629].'
+        locator: "§5.3.2 / p. 16 / L631"
+      - text: 'Value strings in WFNs SHALL satisfy all of the following requirements:'
+        locator: "§5.3.2 / p. 16 / L640"
+      - text: 'Uppercase letters, lowercase letters or digit characters MAY be used (ASCII x41-x5a, x30-x39 and x61-x7a).'
+        locator: "§5.3.2 / p. 16 / L641"
+      - text: 'The underscore (x5f) MAY be used, and it SHOULD be used in place of whitespace characters (which SHALL NOT be used).'
+        locator: "§5.3.2 / p. 16 / L643"
+      - text: 'The backslash (x5c) MAY be used, and is designated the escape character. It SHOULD be used in a value string when required to modify the interpretation of the character that immediately follows (see below). In these circumstances, the character following the backslash is said to be quoted.'
+        locator: "§5.3.2 / p. 16 / L645"
+      - text: 'The asterisk (x2a) and the question mark (x3f) MAY be used, and are designated special characters. These two characters MAY be assigned special interpretations by other CPE specifications. To block special interpretation of these characters, precede them with the escape character, otherwise leave them unquoted in the value string. A special character MAY be included at the beginning of an otherwise non-empty value string, and/or at the end of the string. A special character MUST NOT be embedded within a value string. A single asterisk MUST NOT be used by itself as an attribute value. The asterisk MUST NOT be used more than once in sequence. A single question mark MAY be used by itself as an attribute value. The question mark MAY be used more than once in sequence.'
+        locator: "§5.3.2 / p. 16 / L649"
+      - text: 'All other printable non-alphanumeric characters (i.e., all punctuation marks, brackets, delimiters and other special purpose symbols, except for the special characters defined above) MUST be quoted when embedded in value strings.'
+        locator: "§5.3.2 / p. 16 / L658"
+      - text: 'A quoted hyphen MUST NOT be used by itself as a value string.'
+        locator: "§5.3.2 / p. 16 / L661"
+      - text: 'These requirements are summarized by the Augmented Backus-Naur Form (ABNF) grammar [RFC2234] for avstring shown in Figure 5-1.'
+        locator: "§5.3.2 / p. 17 / L671"
+    grammar_rules:
+      - text: 'avstring = ( body / ( spec_chrs *body2 )) *1spec_chrs'
+        locator: "§5.3.2 / p. 17 / L675"
+      - text: 'spec_chrs = 1*spec1 / spec2'
+        locator: "§5.3.2 / p. 17 / L676"
+      - text: 'body = ( body1 *body2 ) / 2*body2'
+        locator: "§5.3.2 / p. 17 / L679"
+      - text: 'body1 = unreserved / quoted1'
+        locator: "§5.3.2 / p. 17 / L680"
+      - text: 'body2 = unreserved / quoted2'
+        locator: "§5.3.2 / p. 17 / L681"
+      - text: 'unreserved = ALPHA / DIGIT / "_"'
+        locator: "§5.3.2 / p. 17 / L682"
+      - text: 'quoted1 = escape (escape / special / punc-no-dash)'
+        locator: "§5.3.2 / p. 17 / L683"
+      - text: 'quoted2 = escape (escape / special / punc-w-dash)'
+        locator: "§5.3.2 / p. 17 / L684"
+    character_classes:
+      - name: letters and digits
+        chars: 'A to Z, a to z, 0 to 9 (x41-x5a, x61-x7a, x30-x39)'
+        in_value: 'written as themselves, never quoted'
+      - name: underscore
+        chars: '_ (x5f)'
+        in_value: 'written as itself; stands in for whitespace'
+      - name: whitespace
+        chars: 'space and other whitespace'
+        in_value: 'not allowed'
+      - name: escape character
+        chars: '\ (x5c)'
+        in_value: 'quotes the next character; a literal backslash is written \\'
+      - name: special characters
+        chars: '* (x2a) and ? (x3f)'
+        in_value: 'unquoted: open to special interpretation, only at the start or the end (one *, or one or more ?); quoted (\*, \?): ordinary characters anywhere'
+      - name: punctuation
+        chars: '! " # $ % & '' ( ) + , - . / : ; < = > @ [ ] ^ ` { | } ~ (punc-no-dash plus the dash)'
+        in_value: 'always quoted; a quoted hyphen alone is not a value'
+    inferred:
+      - statement: 'Exactly 31 characters can follow the escape character: the 28 punctuation characters, the backslash and the two special characters. Table 6-1 has one row for each of the 31.'
+        basis: 'Figure 5-1 quoted1 and quoted2 with punc-w-dash; our count of Table 6-1 (§6.1.2.1.2).'
+        kind: inferred
+      - statement: 'Quoting is compulsory at any position, not only inside the string.'
+        basis: 'Item 5 says "MUST be quoted when embedded in value strings", but Figure 5-1 admits punctuation only through quoted1 and quoted2, at the start as well.'
+        kind: inferred
+    flags:
+      - 'Figure 5-1 is not the summary L671 says it is: avstring admits a lone "*" and "**" (spec_chrs, no body, then *1spec_chrs), which item 4 forbids ("A single asterisk MUST NOT be used by itself", "MUST NOT be used more than once in sequence").'
+      - '"printable ... characters with hexadecimal values between x00 and x7F" includes the control characters x00 to x1F and x7F, which are not printable, and the space, which item 2 forbids; the usable range is x21 to x7E (our reading).'
+      - 'Verb strength differs for one act: item 3 says the escape character "SHOULD be used" where needed, item 5 says punctuation "MUST be quoted", and Figure 5-1 makes quoting compulsory.'
+      - 'Case: upper and lower case letters are both allowed (item 1), and no sentence says whether two values that differ only in case are the same value. unbind_URI lowercases every URI value; unbind_fs keeps case (structures uri-binding and formatted-string-binding).'
+      - 'A lone "?" (and "??") is a valid value here and in Figure 5-1, but no formatted string or preferred URI can carry it: Figure 6-3, Figure 6-2 and the XSD pattern all need at least one body character (probe P5).'
+    examples_in_source:
+      - text: '"foo\-bar" (hyphen is quoted)'
+        locator: "§5.3.2 / p. 17 / L700"
+      - text: '"Acrobat_Reader"'
+        locator: "§5.3.2 / p. 17 / L701"
+      - text: '"\"oh_my\!\"" (quotation marks and exclamation point are quoted)'
+        locator: "§5.3.2 / p. 17 / L702"
+      - text: '"g\+\+" (plus signs are quoted)'
+        locator: "§5.3.2 / p. 17 / L703"
+      - text: '"9\.?" (period is quoted, question mark is unquoted)'
+        locator: "§5.3.2 / p. 17 / L704"
+      - text: '"sr*" (asterisk is unquoted)'
+        locator: "§5.3.2 / p. 17 / L705"
+      - text: '"big\$money" (dollar sign is quoted)'
+        locator: "§5.3.2 / p. 17 / L706"
+      - text: '"foo\:bar" (colon is quoted)'
+        locator: "§5.3.2 / p. 17 / L707"
+      - text: '"back\\slash_software" (backslash is quoted)'
+        locator: "§5.3.2 / p. 17 / L708"
+      - text: '"with_quoted\~tilde" (tilde is quoted)'
+        locator: "§5.3.2 / p. 17 / L709"
+      - text: '"*SOFT*" (single unquoted asterisk at beginning and end)'
+        locator: "§5.3.2 / p. 17 / L710"
+      - text: '"8\.??" (two unquoted question marks at end)'
+        locator: "§5.3.2 / p. 17 / L711"
+      - text: '"*8\.??" (one unquoted asterisk at beginning, two unquoted question marks at end)'
+        locator: "§5.3.2 / p. 17 / L712"
+    fields:
+
+      - name: leading_special
+        position: 1
+        type: 'special characters: one or more unquoted ?, or one unquoted *'
+        required: false
+        grammar_rule: "spec_chrs (first alternative of avstring)"
+        permitted_characters: '? repeated, or a single *'
+        rules:
+          - text: 'spec_chrs = 1*spec1 / spec2'
+            locator: "§5.3.2 / p. 17 / L676"
+        locator: "§5.3.2 item 4; Figure 5-1"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0035"
+          - "nistir-7695#R-0036"
+          - "nistir-7695#R-0037"
+          - "nistir-7695#R-0038"
+          - "nistir-7695#R-0040"
+          - "nistir-7695#R-0041"
+          - "nistir-7695#R-0042"
+          - "nistir-7695#R-0043"
+          - "nistir-7695#R-0047"
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0153"
+        constrained_by_locators:
+          - "§5.3.2"
+
+      - name: body
+        position: 2
+        type: 'one or more ordinary or quoted characters'
+        required: 'yes, except in a value made only of special characters (a lone ? or ?? sequence, which item 4 allows)'
+        grammar_rule: "body, or *body2 after leading special characters"
+        permitted_characters: 'letters, digits and underscore unquoted; every other printable character as a backslash pair; a quoted hyphen cannot be the whole value'
+        rules:
+          - text: 'body = ( body1 *body2 ) / 2*body2'
+            locator: "§5.3.2 / p. 17 / L679"
+        locator: "§5.3.2 items 1 to 3, 5 and 6; Figure 5-1"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0029"
+          - "nistir-7695#R-0030"
+          - "nistir-7695#R-0031"
+          - "nistir-7695#R-0032"
+          - "nistir-7695#R-0033"
+          - "nistir-7695#R-0034"
+          - "nistir-7695#R-0037"
+          - "nistir-7695#R-0039"
+          - "nistir-7695#R-0044"
+          - "nistir-7695#R-0045"
+          - "nistir-7695#R-0047"
+          - "nistir-7695#R-0051"
+          - "nistir-7695#R-0052"
+          - "nistir-7695#R-0053"
+          - "nistir-7695#R-0054"
+          - "nistir-7695#R-0055"
+          - "nistir-7695#R-0056"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0059"
+          - "nistir-7695#R-0060"
+          - "nistir-7695#R-0061"
+          - "nistir-7695#R-0062"
+          - "nistir-7695#R-0063"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0152"
+        constrained_by_locators:
+          - "§5.3.2"
+
+      - name: trailing_special
+        position: 3
+        type: 'special characters: one or more unquoted ?, or one unquoted *'
+        required: false
+        grammar_rule: "*1spec_chrs at the end of avstring"
+        permitted_characters: '? repeated, or a single *'
+        rules:
+          - text: 'avstring = ( body / ( spec_chrs *body2 )) *1spec_chrs'
+            locator: "§5.3.2 / p. 17 / L675"
+        locator: "§5.3.2 item 4; Figure 5-1"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0035"
+          - "nistir-7695#R-0036"
+          - "nistir-7695#R-0037"
+          - "nistir-7695#R-0038"
+          - "nistir-7695#R-0041"
+          - "nistir-7695#R-0043"
+          - "nistir-7695#R-0047"
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0153"
+        constrained_by_locators:
+          - "§5.3.2"
+
+  # =========================================================================
+  # PART 2. THE URI BINDING (section 6.1)
+  # =========================================================================
+
+  - name: uri-binding
+    locator: "§6 / p. 22; §6.1 to §6.1.3 / p. 22 to 37; Figures 6-1 and 6-2; Tables 6-1 and 6-2; §4 items 3 and 4"
+    encoding: 'ASCII URI, scheme name cpe: ([CPE22] §5.1). Value characters: letters, digits, underscore, period and hyphen unencoded; every other quoted WFN character percent-encoded per Table 6-1; unquoted ? and * as %01 and %02 per Table 6-2; tilde unencoded only as the packing sub-delimiter in the preferred syntax. Logical values: ANY as the empty component, NA as "-".'
+    structure: sequence
+    layout: 'cpe:/part:vendor:product:version:update:edition:language, with trailing empty components and their colons removed'
+    grammar: 'Figure 6-1 (CPE 2.2 syntax: what a consumer MUST accept) and Figure 6-2 (preferred syntax: what a producer SHOULD emit); both are reproduced verbatim by the schema artifact'
+    external_xsd_type: "cpe22Type"
+    external_xsd_pattern: '[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}'
+    external_xsd_note: 'On base xsd:anyURI. Looser than Figure 6-2: each component is any run of letters, digits, period, underscore, hyphen, tilde and percent sign, so neither the percent-encoded forms, nor the place of %01 and %02, nor the packed edition is checked. Unlike Figure 6-1 under RFC 2234, the first letter must be a lower-case c. Its tilde is the ASCII ~. Observation, not source text.'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0003"
+      - "nistir-7695#R-0004"
+      - "nistir-7695#R-0007"
+      - "nistir-7695#R-0008"
+      - "nistir-7695#R-0010"
+      - "nistir-7695#R-0011"
+      - "nistir-7695#R-0013"
+      - "nistir-7695#R-0103"
+      - "nistir-7695#R-0104"
+      - "nistir-7695#R-0105"
+      - "nistir-7695#R-0106"
+      - "nistir-7695#R-0121"
+      - "nistir-7695#R-0122"
+      - "nistir-7695#R-0123"
+      - "nistir-7695#R-0143"
+      - "nistir-7695#R-0144"
+      - "nistir-7695#R-0145"
+      - "nistir-7695#R-0146"
+      - "nistir-7695#R-0148"
+      - "nistir-7695#R-0149"
+      - "nistir-7695#R-0155"
+      - "nistir-7695#R-0156"
+      - "nistir-7695#R-0159"
+      - "nistir-7695#R-0166"
+      - "nistir-7695#R-0167"
+      - "nistir-7695#R-0168"
+      - "nistir-7695#R-0173"
+      - "nistir-7695#R-0176"
+      - "nistir-7695#R-0178"
+      - "nistir-7695#R-0179"
+      - "nistir-7695#R-0184"
+      - "nistir-7695#R-0237"
+      - "nistir-7695#R-0238"
+      - "nistir-7695#R-0239"
+      - "nistir-7695#R-0240"
+    constrained_by_note: 'The conversions of §4 item 4(c), §4 item 5 and §7 (R-0011, R-0013, R-0237 to R-0240) read or write this binding and are wired to both bound forms, as are R-0003 and R-0004 (§2.1, Bind and Unbind). R-0147 and R-0177 (it is OPTIONAL to follow the pseudocode) constrain no structure. R-0152 and R-0153, at §6.1.2.1.2, bind WFN value strings and are wired to structure wfn-value-string.'
+    constrained_by_locators:
+      - "§4"
+      - "§6"
+      - "§6.1"
+      - "§6.1.1"
+      - "§6.1.2"
+      - "§6.1.2.1"
+      - "§6.1.2.1.1"
+      - "§6.1.2.1.2"
+      - "§6.1.2.2"
+      - "§6.1.3"
+      - "§6.1.3.1"
+    rules:
+      - text: 'This section defines the formats for acceptable bound CPE names. The XML schema implementation of these format requirements, which is the authoritative XML binding definition, can be found at http://scap.nist.gov/schema/cpe/2.3/cpe-naming_2.3.xsd.'
+        locator: "§6 / p. 22 / L916"
+      - text: 'The URI Binding is included in this specification for backward compatibility with prior CPE versions. Section 5.1 of [CPE22] specifies that a CPE name is a percent-encoded URI [RFC3986] with each name having the URI scheme name “cpe:”. The procedure defined here for creating a URI binding ensures that when a WFN is bound to a URI, it will satisfy the requirements of [CPE22] for CPE names.'
+        locator: "§6.1 / p. 22 / L922"
+      - text: 'This syntax specification is less restrictive than suggested by other text in [CPE22] as well as current CPE operational practice. Specifically, it allows any character in the range %01-ff to be percent-encoded, but Section 5.4 of [CPE22] suggests that only certain printable non-alphanumeric characters should be percent-encoded.'
+        locator: "§6.1.1 / p. 23 / L970"
+      - text: 'To ensure full backward compatibility with [CPE22], any implementation that consumes URIs and claims to be conformant with this Naming specification MUST accept as valid input any URI that obeys the full syntax shown in Figure 6-1.'
+        locator: "§6.1.1 / p. 23 / L976"
+      - text: 'Although the freer syntax is allowed as valid input, CPE URIs SHOULD obey the more restricted syntax shown in Figure 6-2. The syntax shown in Figure 6-2 has the following features:'
+        locator: "§6.1.1 / p. 23 / L1021"
+      - text: 'It introduces support for “packing” multiple attribute values into the edition component.'
+        locator: "§6.1.1 / p. 24 / L1031"
+      - text: 'It introduces support for the use of special characters.'
+        locator: "§6.1.1 / p. 24 / L1032"
+      - text: 'It strictly enumerates the allowed percent-encoded forms.'
+        locator: "§6.1.1 / p. 24 / L1033"
+      - text: 'The bind_to_URI procedure (cf. 6.1.2) is designed to produce URIs that obey the syntax shown in Figure 6-2. The unbind_URI procedure (cf. 6.1.3) is designed to accept as valid input URIs that obey the syntax shown in either Figure 6-1 or Figure 6-2.'
+        locator: "§6.1.1 / p. 24 / L1035"
+      - text: 'The algorithm defined here assumes that the input WFN complies with the requirements defined in Section 5.2. The behavior of bind_to_URI is undefined if its input is not well formed.'
+        locator: "§6.1.2 / p. 24 / L1046"
+      - text: 'It is OPTIONAL for implementations of URI binding to follow the pseudocode, processes, and other non-normative information provided in this section. However, the result of an implementation performing a URI binding MUST produce the same result as the suggested pseudocode, processes, etc. would produce.'
+        locator: "§6.1.2 / p. 24 / L1050"
+      - text: 'The procedure for binding WFNs to URIs MUST address the following issues:'
+        locator: "§6.1.2.1 / p. 24 / L1056"
+      - text: 'In WFN attribute-value strings, non-alphanumeric characters generally MUST be quoted, with the exception that the special characters “*” and “?” MAY appear without quoting. When forming the URI binding, certain transformations MUST be applied.'
+        locator: "§6.1.2.1.2 / p. 24 / L1069"
+      - text: 'Following Table 6-1, the binding procedure SHALL replace quoted non-alphanumeric substrings shown under the columns labeled IN with the substitute character or percent-encoded string shown to its right under the columns labeled OUT.'
+        locator: "§6.1.2.1.2 / p. 24 / L1076"
+      - text: 'When an unquoted special character is encountered in an attribute-value string, it SHALL be bound to the special percent-encoded form shown in Table 6-2.'
+        locator: "§6.1.2.1.2 / p. 25 / L1099"
+      - text: 'Initialize the output URI binding to the string "cpe:/".'
+        locator: "§6.1.2.2 / p. 25 / L1124"
+      - text: 'Append the attribute-value string to the output URI, followed by a trailing colon.'
+        locator: "§6.1.2.2 / p. 26 / L1152"
+      - text: 'Return the output URI, trimming away all trailing colons for compactness.'
+        locator: "§6.1.2.2 / p. 26 / L1154"
+      - text: 'Given a CPE v2.2-conformant URI, the procedure to unbind it to a WFN is specified in pseudocode below.'
+        locator: "§6.1.3 / p. 31 / L1435"
+      - text: 'The algorithm expects that the syntax of the input URI conforms to the ABNF in Figure 6-1 or Figure 6-2. (This is guaranteed if the URI is the result of binding a WFN.) The algorithm performs some limited error checking and handling: (1) if an illegal percent-encoded form is encountered, an error is raised; (2) if unquoted special characters are used in a way that violates the legal syntax, an error is raised. A fully robust implementation of the unbinding procedure SHOULD implement additional syntax checks, such as making sure that non-alphanumeric characters do not appear without percent-encoding.'
+        locator: "§6.1.3 / p. 31 / L1441"
+      - text: 'It is OPTIONAL for implementations of URI unbinding to follow the pseudocode, processes, and other non-normative information provided in this section. However, the result of an implementation performing a URI unbinding MUST produce the same result as the suggested pseudocode, processes, etc. would produce.'
+        locator: "§6.1.3 / p. 31 / L1448"
+      - text: 'For URI components 1-5 and 7, decode the string and set the corresponding WFN attribute value. Decoding entails: converting sole "" to ANY, sole "-" to NA, adding quoting to embedded periods and hyphens, and decoding percent-encoded forms.'
+        locator: "§6.1.3.1 / p. 31 / L1458"
+      - text: ';; Normalize: convert all uppercase letters to lowercase first.'
+        locator: "§6.1.3.2 / p. 32 / L1529"
+      - text: 'Ensured that uppercase letters are transformed to lowercase in unbind_URI.'
+        locator: "Appendix B / p. 49 / L2423"
+      - text: 'If the implementation produces CPE names in URI form, it MUST produce URIs that adhere to the syntax rules specified in Figure 6-1, and it SHOULD produce URIs that adhere to the more constrained rules specified in Figure 6-2.'
+        locator: "§4 / p. 13 / L476"
+      - text: '(b) it SHOULD be able to consume any CPE name that meets the syntax requirements specified in Figure 6-1 or Figure 6-2; and (c) it SHOULD be able to convert input CPE names in URI form to syntactically correct formatted string bindings (cf. 7.1).'
+        locator: "§4 / p. 13 / L482"
+    quoted_character_bindings:
+      locator: "Table 6-1 / §6.1.2.1.2 / p. 25 / L1091"
+      note: 'IN is the quoted pair in a WFN value string, OUT what bind_to_URI writes; decode() maps each OUT back to its IN, and maps an unencoded period, hyphen or tilde to its quoted form. 31 rows, cells verbatim.'
+      rows:
+        - in: '\!'
+          out: '%21'
+        - in: '\"'
+          out: '%22'
+        - in: '\#'
+          out: '%23'
+        - in: '\$'
+          out: '%24'
+        - in: '\%'
+          out: '%25'
+        - in: '\&'
+          out: '%26'
+        - in: '\'''
+          out: '%27'
+        - in: '\('
+          out: '%28'
+        - in: '\)'
+          out: '%29'
+        - in: '\*'
+          out: '%2a'
+        - in: '\+'
+          out: '%2b'
+        - in: '\,'
+          out: '%2c'
+        - in: '\-'
+          out: '-'
+        - in: '\.'
+          out: '.'
+        - in: '\/'
+          out: '%2f'
+        - in: '\:'
+          out: '%3a'
+        - in: '\;'
+          out: '%3b'
+        - in: '\<'
+          out: '%3c'
+        - in: '\='
+          out: '%3d'
+        - in: '\>'
+          out: '%3e'
+        - in: '\?'
+          out: '%3f'
+        - in: '\@'
+          out: '%40'
+        - in: '\['
+          out: '%5b'
+        - in: '\\'
+          out: '%5c'
+        - in: '\]'
+          out: '%5d'
+        - in: '\^'
+          out: '%5e'
+        - in: '\`'
+          out: '%60'
+        - in: '\{'
+          out: '%7b'
+        - in: '\|'
+          out: '%7c'
+        - in: '\}'
+          out: '%7d'
+        - in: '\~'
+          out: '%7e'
+    special_character_bindings:
+      locator: "Table 6-2 / §6.1.2.1.2 / p. 25 / L1102"
+      note: 'Unquoted special characters; decode() accepts %01 only at the start or end or inside a leading or trailing run of %01, and %02 only as the first or last form, and raises an error otherwise.'
+      rows:
+        - in: '?'
+          out: '%01'
+        - in: '*'
+          out: '%02'
+    flags:
+      - 'Figure 6-1 writes its tilde as "˜" (U+02DC SMALL TILDE in the text layer; the page image shows a small raised tilde): unreserved = ALPHA / DIGIT / "-" / "." / "_" / "˜". Every other tilde in the document is the ASCII x7E, §6.1.3.3.7 says "The original v2.2 URI syntax allows tildes to appear without encoding", and the XSD allows ASCII ~. Read literally, Figure 6-1 rejects the §6.1.3.3.7 input cpe:/a:foo~bar:big%7emoney_2010, which unbinds without error.'
+      - 'Figures 6-1 and 6-2 are not RFC 2234 ABNF as printed: they write the incremental alternative as "/=" where RFC 2234 §3.3 defines "=/", and Figure 6-2 continues the pct-encoded rule on four lines that each begin with "=" (L1010 to L1013).'
+      - 'MUST accept versus MUST error: §6.1.1 obliges a consumer to accept every Figure 6-1 URI as valid input, and Figure 6-1 admits any "%" HEXDIG HEXDIG (the text says "%01-ff"), but decode() raises an error for any form outside Tables 6-1 and 6-2 and §6.1.3 requires the same result as the pseudocode. Example 6 (§6.1.3.3.6, %07) shows the error; %2e, %20 and %41 fail the same way (probe P6).'
+      - 'An edition that begins with a tilde but is not a five-part packed string (cpe:/a:foo:bar:1.0:sp1:~x, legal under Figure 6-1 with the tilde reading above) sends unbind_URI into unpack(), where strchr returns nil and the result is undefined (probe P6).'
+      - 'A lone %02 component, legal under Figure 6-1, unbinds to the value "*", which §5.3.2 forbids in a WFN (probe P6).'
+      - 'unbind_URI lowercases every value (decode, Appendix B), so cpe:/a:Microsoft and cpe:/a:microsoft unbind to the same WFN; unbind_fs does not lowercase (structure formatted-string-binding).'
+      - 'transform_for_uri silently drops any unquoted character it has no branch for: given a WFN that is not well formed, such as version "8.0" with an unquoted period, it writes 80 (probe P9). §6.1.2 leaves this undefined.'
+      - '§6 calls the external XSD "the authoritative XML binding definition", yet its cpe22Type differs from both figures (external_xsd_note above) and nothing says which governs when they disagree (design-notes.md, defect 20).'
+    worked_examples:
+      - uri: 'cpe:/a:microsoft:internet_explorer:8.0.6001:beta'
+        locator: "§1 / p. 7 / L208"
+        components: 'part a; vendor microsoft; product internet_explorer; version 8.0.6001; update beta; edition and language omitted (ANY)'
+        kind: inferred
+      - uri: 'cpe:/a:hp:insight_diagnostics:7.4.0.1570:-:~~online~win2003~x64~'
+        locator: "§6.1.2.4.3 / p. 30 / L1396"
+        components: 'part a; vendor hp; product insight_diagnostics; version 7.4.0.1570; update NA; edition packed: edition ANY, sw_edition online, target_sw win2003, target_hw x64, other ANY; language omitted (ANY)'
+        kind: inferred
+    notes: 'The decompositions are our parse with the transcribed unbind_URI (probe), not text from the source.'
+    fields:
+
+      - name: scheme
+        position: 0
+        type: string
+        required: true
+        value: "cpe:/"
+        separator_after: 'none: the prefix ends with the slash; component 1 follows directly'
+        case: 'the ABNF literal "cpe:/" matches any case under RFC 2234 §2.3; unbind_URI does not check the prefix'
+        grammar_rule: 'cpe-name = "cpe:/" component-list'
+        rules:
+          - text: 'cpe-name = "cpe:/" component-list'
+            locator: "§6.1.1 / p. 22 / L934"
+          - text: ';; Return the i’th CPE component of the URI. If i=0, ;; return the URI scheme.'
+            locator: "§6.1.3.2 / p. 32 / L1506"
+        notes: 'get_comp_uri(uri,0) returns "cpe:" (the scheme with its colon), so the slash belongs to neither the scheme nor component 1.'
+        locator: "Figures 6-1 and 6-2; §6.1; §6.1.2.2; §6.1.3.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0105"
+          - "nistir-7695#R-0122"
+          - "nistir-7695#R-0158"
+          - "nistir-7695#R-0184"
+        constrained_by_note: '§6.1, in constrained_by_locators, holds R-0104 only, which is about the URI as a whole and is wired to the structure.'
+        constrained_by_locators:
+          - "§6.1"
+          - "§6.1.1"
+          - "§6.1.2.2"
+
+      - name: part
+        position: 1
+        wfn_attribute: part
+        type: string
+        required: false
+        required_source: 'Figure 6-1: component-list may be empty; part = "h" / "o" / "a" / empty'
+        separator_before: 'none (follows cpe:/)'
+        separator_after: "':' if a later component is present"
+        allowed_values: 'h, o, a, or empty (ANY); no form for NA'
+        logical_value_forms: 'ANY: empty; NA: none in either figure (bind_to_URI writes "-")'
+        encoding: 'none'
+        case: 'decode() lowercases; the XSD pattern admits A, H, O as well'
+        grammar_rule: 'part'
+        rules:
+          - text: 'part = "h" / "o" / "a" / empty'
+            locator: "§6.1.1 / p. 22 / L946"
+        locator: "Figures 6-1 and 6-2; §6.1.3.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0065"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0107"
+          - "nistir-7695#R-0115"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0182"
+          - "nistir-7695#R-0186"
+        constrained_by_note: 'R-0151 binds NA to a hyphen, which part = "h" / "o" / "a" / empty (R-0107) does not admit (normative.md D-3). Tables 6-1 and 6-2 cannot act on the three part values and are not wired here.'
+        constrained_by_locators:
+          - "§5.3.3.1"
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.3"
+
+      - name: vendor
+        position: 2
+        wfn_attribute: vendor
+        type: string
+        required: false
+        required_source: 'Figure 6-1 component-list alternatives'
+        separator_before: "':'"
+        separator_after: "':' if a later component is present"
+        allowed_values: 'Figure 6-1: string = *( unreserved / pct-encoded ); Figure 6-2: string = str_wo_special / str_w_special'
+        permitted_characters: 'Figure 6-2: letters, digits, "-", ".", "_", the 29 percent-encoded forms of Table 6-1, and %01 or %02 at the start or end only; Figure 6-1: letters, digits, "-", ".", "_", tilde and any %HH'
+        logical_value_forms: 'ANY: empty; NA: "-"'
+        encoding: 'percent-encoding per Tables 6-1 and 6-2'
+        case: 'decode() lowercases'
+        grammar_rule: 'vendor = string'
+        rules:
+          - text: 'string = str_wo_special / str_w_special'
+            locator: "§6.1.1 / p. 23 / L999"
+          - text: 'str_w_special = *1spec_chrs 1*( unreserved / pct-encoded ) *1spec_chrs'
+            locator: "§6.1.1 / p. 23 / L1001"
+        locator: "Figures 6-1 and 6-2; Tables 6-1 and 6-2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0108"
+          - "nistir-7695#R-0114"
+          - "nistir-7695#R-0116"
+          - "nistir-7695#R-0117"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0119"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0124"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0182"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.1.2"
+          - "§6.1.3"
+
+      - name: product
+        position: 3
+        wfn_attribute: product
+        type: string
+        required: false
+        required_source: 'Figure 6-1 component-list alternatives'
+        separator_before: "':'"
+        separator_after: "':' if a later component is present"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: empty; NA: "-"'
+        encoding: 'percent-encoding per Tables 6-1 and 6-2'
+        case: 'decode() lowercases'
+        grammar_rule: 'product = string'
+        locator: "Figures 6-1 and 6-2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0109"
+          - "nistir-7695#R-0114"
+          - "nistir-7695#R-0116"
+          - "nistir-7695#R-0117"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0119"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0125"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0182"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.1.2"
+          - "§6.1.3"
+
+      - name: version
+        position: 4
+        wfn_attribute: version
+        type: string
+        required: false
+        required_source: 'Figure 6-1 component-list alternatives'
+        separator_before: "':'"
+        separator_after: "':' if a later component is present"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor; periods and hyphens appear unencoded (8.0.6001)'
+        logical_value_forms: 'ANY: empty; NA: "-"'
+        encoding: 'percent-encoding per Tables 6-1 and 6-2'
+        case: 'decode() lowercases'
+        grammar_rule: 'version = string'
+        locator: "Figures 6-1 and 6-2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0110"
+          - "nistir-7695#R-0114"
+          - "nistir-7695#R-0116"
+          - "nistir-7695#R-0117"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0119"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0126"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0182"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.1.2"
+          - "§6.1.3"
+
+      - name: update
+        position: 5
+        wfn_attribute: update
+        type: string
+        required: false
+        required_source: 'Figure 6-1 component-list alternatives'
+        separator_before: "':'"
+        separator_after: "':' if a later component is present"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: empty; NA: "-"'
+        encoding: 'percent-encoding per Tables 6-1 and 6-2'
+        case: 'decode() lowercases'
+        grammar_rule: 'update = string'
+        locator: "Figures 6-1 and 6-2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0111"
+          - "nistir-7695#R-0114"
+          - "nistir-7695#R-0116"
+          - "nistir-7695#R-0117"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0119"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0127"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0182"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.1.2"
+          - "§6.1.3"
+
+      - name: edition
+        position: 6
+        wfn_attribute: 'edition, or edition with sw_edition, target_sw, target_hw and other when packed'
+        type: 'string, or packed string (structure uri-packed-edition)'
+        required: false
+        required_source: 'Figure 6-1 component-list alternatives'
+        separator_before: "':'"
+        separator_after: "':' if language follows"
+        allowed_values: 'Figure 6-1: edition = string; Figure 6-2: edition = string / packed'
+        permitted_characters: 'as vendor; plus the tilde as packing sub-delimiter (Figure 6-2)'
+        logical_value_forms: 'ANY: empty; NA: "-" (when not packed)'
+        encoding: 'percent-encoding per Tables 6-1 and 6-2; packing per §6.1.2.1.3'
+        case: 'decode() lowercases'
+        grammar_rule: 'edition'
+        rules:
+          - text: 'edition = string / packed'
+            locator: "§6.1.1 / p. 23 / L997"
+          - text: 'if (v = "" or v = "-" or substr(v,0,0) != "~")'
+            locator: "§6.1.3.2 / p. 32 / L1489"
+        notes: 'unbind_URI treats any edition whose first character is a tilde as packed (L1489); every other edition, including empty and "-", sets the legacy edition only and leaves the four extended attributes unspecified.'
+        locator: "Figures 6-1 and 6-2; §6.1.2.1.3; §6.1.2.2 step 3; §6.1.3.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0112"
+          - "nistir-7695#R-0114"
+          - "nistir-7695#R-0116"
+          - "nistir-7695#R-0117"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0119"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0128"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0134"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0157"
+          - "nistir-7695#R-0160"
+          - "nistir-7695#R-0161"
+          - "nistir-7695#R-0162"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0169"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0181"
+          - "nistir-7695#R-0183"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+        constrained_by_note: 'R-0163 (step 4a) names every attribute other than edition, so it is not wired here; the edition binds through bind_value_for_URI all the same (R-0169). R-0180 covers components 1 to 5 and 7, and R-0183 the sixth.'
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.2.1.2"
+          - "§6.1.2.1.3"
+          - "§6.1.2.2"
+          - "§6.1.3"
+          - "§6.1.3.1"
+
+      - name: language
+        position: 7
+        wfn_attribute: language
+        type: string
+        required: false
+        required_source: 'Figure 6-1 component-list alternatives'
+        separator_before: "':'"
+        separator_after: 'none: the last component'
+        allowed_values: 'Figure 6-1: lang = LANGTAG / empty, LANGTAG = cf. [RFC5646]; Figure 6-2: LANGTAG = language ["-" region] (structure binding-language-tag)'
+        permitted_characters: 'letters, digits and the hyphen of the tag'
+        logical_value_forms: 'ANY: empty; NA: none in either figure (bind_to_URI writes "-")'
+        encoding: 'none needed: a quoted hyphen binds to an unencoded hyphen (Table 6-1)'
+        case: 'decode() lowercases'
+        grammar_rule: 'lang'
+        rules:
+          - text: 'lang = LANGTAG / empty'
+            locator: "§6.1.1 / p. 23 / L998"
+          - text: 'LANGTAG = cf. [RFC5646]'
+            locator: "§6.1.1 / p. 22 / L960"
+        locator: "Figures 6-1 and 6-2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0092"
+          - "nistir-7695#R-0094"
+          - "nistir-7695#R-0095"
+          - "nistir-7695#R-0106"
+          - "nistir-7695#R-0113"
+          - "nistir-7695#R-0115"
+          - "nistir-7695#R-0120"
+          - "nistir-7695#R-0123"
+          - "nistir-7695#R-0129"
+          - "nistir-7695#R-0140"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0163"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0180"
+          - "nistir-7695#R-0183"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+        constrained_by_note: 'R-0092, R-0094 and R-0095 (§5.3.3.10) are wired because the component carries the WFN''s tag, which Figure 6-2 narrows (R-0140; normative.md D-5). R-0093, on what the tag should describe, stays on wfn.language. R-0151 binds NA to a hyphen, which lang = LANGTAG / empty does not admit (D-3). The rules for the parts of LANGTAG are on binding-language-tag.'
+        constrained_by_locators:
+          - "§5.3.3.10"
+          - "§6.1.1"
+          - "§6.1.2.1.1"
+          - "§6.1.3"
+
+  - name: uri-packed-edition
+    locator: "§6.1.2.1.3 / p. 25; §6.1.2.2 / p. 25 to 26; §6.1.2.3 / p. 28; §6.1.3.1 / p. 31; §6.1.3.2 / p. 32 to 35; Figure 6-2"
+    encoding: 'the URI edition component: a tilde, then five URI-encoded values separated by tildes; the tilde is not percent-encoded here'
+    structure: sequence
+    layout: '~edition~sw_edition~target_sw~target_hw~other'
+    grammar: 'Figure 6-2: packed = "~" string "~" string "~" string "~" string "~" string'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0128"
+      - "nistir-7695#R-0134"
+      - "nistir-7695#R-0155"
+      - "nistir-7695#R-0157"
+      - "nistir-7695#R-0160"
+      - "nistir-7695#R-0161"
+      - "nistir-7695#R-0162"
+      - "nistir-7695#R-0169"
+      - "nistir-7695#R-0181"
+      - "nistir-7695#R-0183"
+      - "nistir-7695#R-0190"
+    constrained_by_note: 'R-0155 is wired because a tilde inside a packed value binds to %7e (Table 6-1), so the five parts hold no raw tilde in the preferred syntax (the inferred statement). Each part is encoded as uri-binding.vendor, so the Figure 6-2 string, binding and decoding rules wired there are wired to the parts too; R-0163 (step 4a) excludes edition, and the parts are bound by bind_value_for_URI (R-0169).'
+    constrained_by_locators:
+      - "§6.1.1"
+      - "§6.1.2.1.3"
+      - "§6.1.2.2"
+      - "§6.1.3.1"
+    rules:
+      - text: 'The version 2.3 specification introduces four new attributes{U+2014}the extended attributes{U+2014}that have no assigned position in the URI binding. When these attributes have values other than ANY in the WFN, they are “packed” in a special format, and in a specified order, into the edition component of the URI. This special format uses the tilde character “~” (without percent-encoding) as a sub-delimiter.'
+        locator: "§6.1.2.1.3 / p. 25 / L1110"
+      - text: 'The capability to bind WFNs to URIs is provided primarily for use by CPE dictionary creators and maintainers, to allow them to create new CPE names that take full advantage of all features introduced in this specification, while still having a backward-compatible path for creating approximate names that conform to [CPE22]. This capability should be used with care, as CPE v2.2-conformant tools may be unable to properly match names that differ in terms of packed attribute values.'
+        locator: "§6.1.2.1.3 / p. 25 / L1115"
+      - text: 'Special handling of edition: When binding to a 2.2 URI, the edition component (the sixth element of the URI) is used as the location to “pack” five attribute values in the WFN: (legacy) edition, sw_edition, target_sw, target_hw, and other. The “packing” process involves concatenating the five values together, prefixed and separated by the tilde. The leading tilde serves as a flag indicating that the contents of the edition field are a packed representation of five separate values, and the internal tildes are used to aid parsing the values out. In the special case in which the four extended attributes are not specified, or all are ANY, only the edition attribute is used and no packing is performed.'
+        locator: "§6.1.2.2 / p. 25 / L1127"
+      - text: 'The edition component is "unpacked" if a leading tilde indicates it contains a packed collection of five attribute values.'
+        locator: "§6.1.3.1 / p. 31 / L1461"
+      - text: 'packed = "~" string "~" string "~" string "~" string "~" string'
+        locator: "§6.1.1 / p. 23 / L1003"
+    inferred:
+      - statement: 'Packing happens when any extended attribute is NA or a value string, not only for value strings: pack() tests for blanks, and only ANY binds to a blank.'
+        basis: 'pack() in §6.1.2.3 (if sw_ed, t_sw, t_hw and oth are all "" return ed) with bind_value_for_URI (ANY to "", NA to "-").'
+        kind: inferred
+      - statement: 'A tilde inside a packed value is written %7e, so the five parts never contain a raw tilde in the preferred syntax.'
+        basis: 'Table 6-1 (\~ to %7e) and Figure 6-2, whose string has no tilde in unreserved.'
+        kind: inferred
+    flags:
+      - 'unpack() has no error path: when an edition begins with a tilde but has fewer than five parts, strchr returns nil and start := end+1 is undefined (probe P6).'
+      - 'unpack() puts everything after the fifth tilde into other, so a sixth part (legal under Figure 6-1, not under Figure 6-2) becomes part of the other value, with its tilde quoted by decode().'
+      - 'CPE 2.2 consumers see the whole packed string as one edition value (Figure 6-1 has no packed rule), which is the matching risk §6.1.2.1.3 names.'
+    fields:
+
+      - name: edition
+        position: 1
+        wfn_attribute: edition
+        type: string
+        required: true
+        separator_before: "'~' (the leading tilde, a flag)"
+        separator_after: "'~'"
+        allowed_values: 'Figure 6-2 string; empty for ANY, "-" for NA'
+        encoding: 'as uri-binding.vendor'
+        locator: "§6.1.2.2 step 3; §6.1.3.2 unpack()"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0134"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0160"
+          - "nistir-7695#R-0161"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0169"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+          - "nistir-7695#R-0190"
+        constrained_by_locators:
+          - "§6.1.2.1.3"
+          - "§6.1.2.2"
+
+      - name: sw_edition
+        position: 2
+        wfn_attribute: sw_edition
+        type: string
+        required: true
+        separator_before: "'~'"
+        separator_after: "'~'"
+        allowed_values: 'Figure 6-2 string; empty for ANY, "-" for NA'
+        encoding: 'as uri-binding.vendor'
+        locator: "§6.1.2.2 step 3; §6.1.3.2 unpack()"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0134"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0160"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0169"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+          - "nistir-7695#R-0190"
+        constrained_by_locators:
+          - "§6.1.2.1.3"
+          - "§6.1.2.2"
+
+      - name: target_sw
+        position: 3
+        wfn_attribute: target_sw
+        type: string
+        required: true
+        separator_before: "'~'"
+        separator_after: "'~'"
+        allowed_values: 'Figure 6-2 string; empty for ANY, "-" for NA'
+        encoding: 'as uri-binding.vendor'
+        locator: "§6.1.2.2 step 3; §6.1.3.2 unpack()"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0134"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0160"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0169"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+          - "nistir-7695#R-0190"
+        constrained_by_locators:
+          - "§6.1.2.1.3"
+          - "§6.1.2.2"
+
+      - name: target_hw
+        position: 4
+        wfn_attribute: target_hw
+        type: string
+        required: true
+        separator_before: "'~'"
+        separator_after: "'~'"
+        allowed_values: 'Figure 6-2 string; empty for ANY, "-" for NA'
+        encoding: 'as uri-binding.vendor'
+        locator: "§6.1.2.2 step 3; §6.1.3.2 unpack()"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0134"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0160"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0169"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+          - "nistir-7695#R-0190"
+        constrained_by_locators:
+          - "§6.1.2.1.3"
+          - "§6.1.2.2"
+
+      - name: other
+        position: 5
+        wfn_attribute: other
+        type: string
+        required: true
+        separator_before: "'~'"
+        separator_after: 'none: runs to the end of the edition component'
+        allowed_values: 'Figure 6-2 string; empty for ANY, "-" for NA'
+        encoding: 'as uri-binding.vendor'
+        locator: "§6.1.2.2 step 3; §6.1.3.2 unpack()"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0130"
+          - "nistir-7695#R-0131"
+          - "nistir-7695#R-0132"
+          - "nistir-7695#R-0133"
+          - "nistir-7695#R-0134"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0137"
+          - "nistir-7695#R-0138"
+          - "nistir-7695#R-0139"
+          - "nistir-7695#R-0150"
+          - "nistir-7695#R-0151"
+          - "nistir-7695#R-0154"
+          - "nistir-7695#R-0155"
+          - "nistir-7695#R-0156"
+          - "nistir-7695#R-0160"
+          - "nistir-7695#R-0164"
+          - "nistir-7695#R-0165"
+          - "nistir-7695#R-0169"
+          - "nistir-7695#R-0170"
+          - "nistir-7695#R-0174"
+          - "nistir-7695#R-0175"
+          - "nistir-7695#R-0185"
+          - "nistir-7695#R-0186"
+          - "nistir-7695#R-0187"
+          - "nistir-7695#R-0188"
+          - "nistir-7695#R-0189"
+          - "nistir-7695#R-0190"
+        constrained_by_locators:
+          - "§6.1.2.1.3"
+          - "§6.1.2.2"
+
+  # =========================================================================
+  # PART 3. THE FORMATTED STRING BINDING (section 6.2)
+  # =========================================================================
+
+  - name: formatted-string-binding
+    locator: "§6.2 to §6.2.3 / p. 37 to 46; Figure 6-3; §7 / p. 47; §4 items 2, 4 and 5"
+    encoding: 'ASCII string, defined not to be a URI; values use backslash quoting (no percent-encoding); fields separated by unquoted colons'
+    structure: sequence
+    layout: 'cpe:2.3:part:vendor:product:version:update:edition:language:sw_edition:target_sw:target_hw:other'
+    grammar: 'Figure 6-3 (formstring); reproduced verbatim by the schema artifact'
+    external_xsd_type: "cpe23Type"
+    external_xsd_pattern: 'cpe:2\.3:[aho\*\-](:(((\?*|\*?)([a-zA-Z0-9\-\._]|(\\[\\\*\?!"#$$%&''\(\)\+,/:;<=>@\[\]\^`\{\|}~]))+(\?*|\*?))|[\*\-])){5}(:(([a-zA-Z]{2,3}(-([a-zA-Z]{2}|[0-9]{3}))?)|[\*\-]))(:(((\?*|\*?)([a-zA-Z0-9\-\._]|(\\[\\\*\?!"#$$%&''\(\)\+,/:;<=>@\[\]\^`\{\|}~]))+(\?*|\*?))|[\*\-])){4}'
+    external_xsd_note: 'On base xsd:string; XML entities (&quot;, &amp;, &lt;, &gt;) decoded. Same shape as Figure 6-3 except case: the regular expression admits only the lower-case prefix and part letter, where RFC 2234 literals are case-insensitive. Observation, not source text.'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0003"
+      - "nistir-7695#R-0004"
+      - "nistir-7695#R-0006"
+      - "nistir-7695#R-0009"
+      - "nistir-7695#R-0011"
+      - "nistir-7695#R-0013"
+      - "nistir-7695#R-0103"
+      - "nistir-7695#R-0192"
+      - "nistir-7695#R-0193"
+      - "nistir-7695#R-0198"
+      - "nistir-7695#R-0199"
+      - "nistir-7695#R-0200"
+      - "nistir-7695#R-0218"
+      - "nistir-7695#R-0220"
+      - "nistir-7695#R-0221"
+      - "nistir-7695#R-0223"
+      - "nistir-7695#R-0225"
+      - "nistir-7695#R-0226"
+      - "nistir-7695#R-0227"
+      - "nistir-7695#R-0231"
+      - "nistir-7695#R-0232"
+      - "nistir-7695#R-0237"
+      - "nistir-7695#R-0238"
+      - "nistir-7695#R-0239"
+      - "nistir-7695#R-0240"
+    constrained_by_note: 'R-0219 and R-0224 (it is OPTIONAL to follow the pseudocode) and R-0012 (it is OPTIONAL to offer the §7.2 conversion) constrain no structure. R-0198 (all eleven values MUST appear) is also wired to the eleven attribute fields.'
+    constrained_by_locators:
+      - "§4"
+      - "§6.2"
+      - "§6.2.1"
+      - "§6.2.2"
+      - "§6.2.2.1"
+      - "§6.2.3"
+      - "§6.2.3.1"
+      - "§7"
+      - "§7.1"
+      - "§7.2"
+    rules:
+      - text: 'The formatted string binding is new to CPE version 2.3. In keeping with the spirit of the v2.2 specification, the formatted string binding looks similar to the URI binding; however, it is defined simply to be a “formatted string” rather than a URI in order to relax the requirements that typically apply to URIs as specified in [RFC3986].'
+        locator: "§6.2 / p. 37 / L1798"
+      - text: 'The formatted string binding is a colon-delimited list of fields prefixed with the string "cpe:2.3:". Use of a prefix distinct from the v2.2 URI binding enables tools to inspect a given input string and use a simple syntactic test to determine whether to process the input as a URI or as a formatted string.'
+        locator: "§6.2 / p. 37 / L1803"
+      - text: 'Similar to the URI binding, the formatted string binds the attributes in a WFN in a fixed order, separated by the colon character:'
+        locator: "§6.2 / p. 37 / L1808"
+      - text: 'In a formatted string binding, the alphanumeric characters plus hyphen (“-”), period (“.”) and underscore (“_”) appear unquoted. When used alone, the asterisk (“*”) represents the logical value ANY, and the hyphen (“-”) represents the logical value NA. All other non-alphanumeric characters, if used, MUST be quoted (preceded by the backslash). The special characters asterisk and question mark may appear without quoting, in which case they are open to special interpretation by other CPE specifications. Note that all eleven (11) attribute values MUST appear in the formatted string binding.'
+        locator: "§6.2 / p. 37 / L1814"
+      - text: 'This section specifies the procedure that SHALL be followed when binding a WFN to a formatted string.'
+        locator: "§6.2.2 / p. 38 / L1874"
+      - text: 'It is OPTIONAL for implementations of formatted string binding to follow the pseudocode, processes, and other non-normative information provided in this section. However, the result of an implementation performing a formatted string binding MUST produce the same result as the suggested pseudocode, processes, etc. would produce.'
+        locator: "§6.2.2 / p. 38 / L1879"
+      - text: 'The procedure iterates over the eleven allowed attributes in a fixed order. Corresponding attribute values are obtained from the input WFN and conversions of logical values are applied. A result string is formed by concatenating the attribute values separated by colons.'
+        locator: "§6.2.2.1 / p. 39 / L1894"
+      - text: 'Given a formatted string binding, the procedure that SHALL be followed to unbind it to a WFN is specified in pseudocode below.'
+        locator: "§6.2.3 / p. 42 / L2063"
+      - text: 'It is OPTIONAL for implementations of formatted string unbinding to follow the pseudocode, processes, and other non-normative information provided in this section. However, the result of an implementation performing a formatted string unbinding MUST produce the same result as the suggested pseudocode, processes, etc. would produce.'
+        locator: "§6.2.3 / p. 42 / L2070"
+      - text: 'Unbinding a formatted string is straightforward, since the attribute values are encoded explicitly and in a fixed left-to-right order in the binding, delimited by colons. (Because a colon may appear embedded in a value string if preceded by the escape character, the parsing function needs to ignore escaped colons.) The algorithm parses the eleven fields of the formatted string, then unbinds each string result. If a field contains only an asterisk, it is unbound to the logical value ANY. If a field contains only a hyphen, it is unbound to the logical value NA. Quoting of non-alphanumeric characters is restored as needed, but the two special characters (asterisk and question mark) are permitted to appear without a preceding escape character. The unbinding procedure performs limited error checking, only ensuring that unquoted special characters adhere to syntax requirements specified in Figure 5-1.'
+        locator: "§6.2.3.1 / p. 42 / L2077"
+      - text: 'If the implementation produces (i.e., generates as an output) CPE names, it MUST produce syntactically correct formatted string bindings as needed to describe or identify applications, operating systems, and hardware devices (cf. 6.2).'
+        locator: "§4 / p. 13 / L472"
+      - text: 'If the implementation consumes (i.e., accepts as valid input) CPE names, (a) it MUST consume syntactically correct formatted string bindings as needed to describe or identify applications, operating systems, and hardware devices (cf. 6.2);'
+        locator: "§4 / p. 13 / L480"
+      - text: 'It is OPTIONAL for implementations to be able to convert any syntactically correct formatted string binding to a valid CPE name that meets the requirements specified in [CPE22] (cf. 7.2). An implementation that offers this functionality SHOULD implement the procedure defined in Section 7.2.'
+        locator: "§4 / p. 13 / L487"
+      - text: 'This section specifies the procedures that SHOULD be followed when converting between the two required bound forms of WFNs.'
+        locator: "§7 / p. 47 / L2305"
+      - text: 'Both conversions are round-trip safe, meaning that taking one of the two bound forms, converting it to the other form, then converting that back to the original binding form, will result in the original binding.'
+        locator: "§7 / p. 47 / L2307"
+      - text: 'Changed the prefix of the formatted string binding from "cpe23:" to "cpe:2.3:".'
+        locator: "Appendix B / p. 49 / L2418"
+    quoting_on_binding:
+      text: ';; the period, hyphen and underscore pass unharmed.'
+      locator: "§6.2.2.2 / p. 39 / L1942"
+      note: 'process_quoted_chars() writes a quoted period, hyphen or underscore of the WFN without its backslash and keeps the backslash on every other quoted character; unquoted characters, including unquoted ? and *, pass through.'
+    quoting_on_unbinding:
+      text: ';; add quoting to any unquoted non-alphanumeric characters, ;; but leave the two special characters alone, as they may ;; appear quoted or unquoted.'
+      locator: "§6.2.3.2 / p. 43 / L2149"
+      note: 'add_quoting() keeps every backslash pair, accepts an unquoted * only as the first or last character, accepts an unquoted ? at the start or end or in a leading or trailing run, and quotes every other non-alphanumeric character (so 8.0 becomes 8\.0). It never changes case.'
+    flags:
+      - 'The bind pseudocode does not give the result the examples show. In process_quoted_chars (§6.2.2.2) the branch for a quoted period, hyphen or underscore sets idx = idx + 2 (written with "=", not ":=") and has no continue, so the loop also runs idx := idx + 1. Read as an assignment, the next character is skipped and the §6.2.2.3.1 version 8\.0\.6001 binds to 8..001; read as a comparison, as = is used elsewhere in the pseudocode, the quoted character is copied twice (8..0..6001). Neither is the 8.0.6001 of the example (probe P1). Every binding of a value with a quoted period, hyphen or underscore is affected, and §6.2.2 makes the pseudocode''s result the normative one.'
+      - 'add_quoting accepts an embedded run of question marks: after an unquoted ? it sets embedded to false, so a??b passes and unbinds to a WFN value that §5.3.2 forbids, while decode() rejects the URI equivalent a%01%01b (probe P2).'
+      - 'get_comp_fs is documented as "If i=0, return the string to the left of the first forward slash", but a formatted string has no slash; its own example gives get_comp_fs(fs,0) = "cpe".'
+      - 'The negative example of §6.2.3.3.3, cpe:2.3:a:hp:insight_diagnostics:7.4.*.1570:*:*:*:*:*:*, has ten attribute fields, not eleven; the text blames only the embedded asterisk (probe P7).'
+      - 'unbind_fs keeps case and unbind_URI lowercases, so FS to URI to FS turns cpe:2.3:a:Microsoft:... into cpe:2.3:a:microsoft:..., and URI to FS to URI turns cpe:/a:foo~bar into cpe:/a:foo%7ebar (probe P3); §7 calls both conversions round-trip safe.'
+      - '§6.2.2 says the procedure "SHALL be followed" and, two sentences later, that following the pseudocode is OPTIONAL; §6.2.3 does the same. Our reading: the result is binding, the steps are not.'
+      - 'A lone ? value (valid in a WFN) binds to a field that Figure 6-3 and the XSD pattern reject (probe P5).'
+      - 'RFC 2234 §2.3 makes the literals "cpe:2.3:", "h", "o" and "a" case-insensitive, so Figure 6-3 admits CPE:2.3:A:...; the XSD pattern does not, and unbind_fs would keep the upper-case part.'
+      - 'Figure 6-3 comments ALPHA = %x41-5a / %x61-7A with "; a-z" although the rule includes A to Z.'
+    worked_examples:
+      - fs: 'cpe:2.3:a:microsoft:internet_explorer:8.0.6001:beta:*:*:*:*:*:*'
+        locator: "§1 / p. 7 / L214"
+        components: 'scheme cpe; cpe_version 2.3; part a; vendor microsoft; product internet_explorer; version 8.0.6001; update beta; edition, language, sw_edition, target_sw, target_hw and other ANY'
+        kind: inferred
+      - fs: 'cpe:2.3:a:foo\\bar:big\$money_2010:*:*:*:*:special:ipod_touch:80gb:*'
+        locator: "§6.2.2.3.5 / p. 41 / L2048"
+        components: 'part a; vendor foo\\bar (a quoted backslash); product big\$money_2010 (a quoted dollar sign); version, update, edition and language ANY; sw_edition special; target_sw ipod_touch; target_hw 80gb; other ANY'
+        kind: inferred
+    notes: 'The decompositions are our parse with the transcribed unbind_fs (probe), not text from the source.'
+    fields:
+
+      - name: scheme
+        position: 0
+        type: string
+        required: true
+        value: "cpe"
+        separator_after: "':'"
+        case: 'lower case in Figure 6-3 and the XSD pattern; Figure 6-3 literals are case-insensitive under RFC 2234'
+        grammar_rule: 'formstring = "cpe:2.3:" component-list'
+        rules:
+          - text: 'formstring = "cpe:2.3:" component-list'
+            locator: "§6.2.1 / p. 38 / L1834"
+          - text: ';; NB: the cpe scheme is the 0th component, the cpe version is the ;; 1st. So we start parsing at the 2nd component.'
+            locator: "§6.2.3.2 / p. 42 / L2092"
+        locator: "§6.2; Figure 6-3; §6.2.3.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0192"
+          - "nistir-7695#R-0199"
+          - "nistir-7695#R-0232"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+
+      - name: cpe_version
+        position: 1
+        type: string
+        required: true
+        value: "2.3"
+        separator_after: "':'"
+        grammar_rule: 'part of the "cpe:2.3:" literal'
+        rules:
+          - text: ';; get_comp_fs(fs,1) = "2.3"'
+            locator: "§6.2.3.2 / p. 43 / L2132"
+        locator: "§6.2; Figure 6-3; §6.2.3.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0192"
+          - "nistir-7695#R-0199"
+          - "nistir-7695#R-0232"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+
+      - name: part
+        position: 2
+        wfn_attribute: part
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'h, o, a, * (ANY) or - (NA)'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'none'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'part = "h" / "o" / "a" / logical'
+        rules:
+          - text: 'part = "h" / "o" / "a" / logical'
+            locator: "§6.2.1 / p. 38 / L1840"
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0065"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0201"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+        constrained_by_locators:
+          - "§5.3.3.1"
+          - "§6.2"
+          - "§6.2.1"
+
+      - name: vendor
+        position: 3
+        wfn_attribute: vendor
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'avstring (Figure 6-3) or * or -'
+        permitted_characters: 'letters, digits, "-", ".", "_" unquoted; the 26 punc characters of Figure 6-3, the backslash, * and ? as backslash pairs; unquoted ? (one or more) or * (one) at the start or end only'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'backslash quoting; an escaped colon (\:) is part of the value, not a separator'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'vendor = avstring'
+        rules:
+          - text: 'avstring = *1spec_chrs 1*( unreserved / quoted ) *1spec_chrs / logical'
+            locator: "§6.2.1 / p. 38 / L1851"
+          - text: 'unreserved = ALPHA / DIGIT / "-" / "." / "_"'
+            locator: "§6.2.1 / p. 38 / L1857"
+          - text: 'quoted = escape (escape / special / punc)'
+            locator: "§6.2.1 / p. 38 / L1858"
+        locator: "Figure 6-3; §6.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0202"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: product
+        position: 4
+        wfn_attribute: product
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'product = avstring'
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0203"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: version
+        position: 5
+        wfn_attribute: version
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor; periods and hyphens unquoted (8.0.6001)'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'version = avstring'
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0204"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: update
+        position: 6
+        wfn_attribute: update
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'update = avstring'
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0205"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: edition
+        position: 7
+        wfn_attribute: edition
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor; ANY recommended (the attribute is deprecated)'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor; never packed in this binding'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'edition = avstring'
+        locator: "Figure 6-3; §5.3.3.6"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0078"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0206"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_note: 'R-0078 comes from §5.3.3.6, in constrained_by_locators: allowed_values cites the deprecation.'
+        constrained_by_locators:
+          - "§5.3.3.6"
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: language
+        position: 8
+        wfn_attribute: language
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'language ["-" region] (structure binding-language-tag), * or -'
+        permitted_characters: '2 or 3 letters, optionally a hyphen and 2 letters or 3 digits; no special characters'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'none; the hyphen of the tag is unquoted here and quoted in the WFN'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'lang = LANGTAG / logical'
+        rules:
+          - text: 'lang = LANGTAG / logical'
+            locator: "§6.2.1 / p. 38 / L1846"
+        locator: "Figure 6-3; §5.3.3.10"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0092"
+          - "nistir-7695#R-0094"
+          - "nistir-7695#R-0095"
+          - "nistir-7695#R-0140"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0207"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0236"
+        constrained_by_note: 'R-0092, R-0094 and R-0095 (§5.3.3.10) are wired because the field carries the WFN''s tag, which Figure 6-3 narrows (R-0140; normative.md D-5). The rules for the parts of LANGTAG are on binding-language-tag.'
+        constrained_by_locators:
+          - "§5.3.3.10"
+          - "§6.2"
+          - "§6.2.1"
+
+      - name: sw_edition
+        position: 9
+        wfn_attribute: sw_edition
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'sw_edition = avstring'
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0208"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: target_sw
+        position: 10
+        wfn_attribute: target_sw
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'target_sw = avstring'
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0209"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: target_hw
+        position: 11
+        wfn_attribute: target_hw
+        type: string
+        required: true
+        separator_after: "':'"
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'target_hw = avstring'
+        locator: "Figure 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0210"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+      - name: other
+        position: 12
+        wfn_attribute: other
+        type: string
+        required: true
+        separator_after: 'none: the last field'
+        allowed_values: 'as vendor'
+        permitted_characters: 'as vendor'
+        logical_value_forms: 'ANY: *; NA: -'
+        encoding: 'as vendor'
+        case: 'kept as written by unbind_fs'
+        grammar_rule: 'other = avstring'
+        rules:
+          - text: ';; add a colon except at the very end'
+            locator: "§6.2.2.2 / p. 39 / L1909"
+        locator: "Figure 6-3; §6.2.2.2"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0048"
+          - "nistir-7695#R-0049"
+          - "nistir-7695#R-0050"
+          - "nistir-7695#R-0057"
+          - "nistir-7695#R-0058"
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0135"
+          - "nistir-7695#R-0194"
+          - "nistir-7695#R-0195"
+          - "nistir-7695#R-0196"
+          - "nistir-7695#R-0197"
+          - "nistir-7695#R-0198"
+          - "nistir-7695#R-0211"
+          - "nistir-7695#R-0212"
+          - "nistir-7695#R-0213"
+          - "nistir-7695#R-0214"
+          - "nistir-7695#R-0215"
+          - "nistir-7695#R-0216"
+          - "nistir-7695#R-0217"
+          - "nistir-7695#R-0221"
+          - "nistir-7695#R-0222"
+          - "nistir-7695#R-0226"
+          - "nistir-7695#R-0228"
+          - "nistir-7695#R-0229"
+          - "nistir-7695#R-0230"
+          - "nistir-7695#R-0231"
+          - "nistir-7695#R-0233"
+          - "nistir-7695#R-0234"
+          - "nistir-7695#R-0235"
+          - "nistir-7695#R-0236"
+        constrained_by_note: 'R-0221 is added for the rule quoted here (the colon after every field but other).'
+        constrained_by_locators:
+          - "§6.2"
+          - "§6.2.1"
+          - "§6.2.3.1"
+
+  # =========================================================================
+  # PART 4. THE LANGUAGE TAG OF THE BINDINGS (Figures 6-2 and 6-3)
+  # =========================================================================
+
+  - name: binding-language-tag
+    locator: "Figure 6-2 / p. 23; Figure 6-3 / p. 38; §5.3.3.10 / p. 19"
+    encoding: 'ASCII; in a WFN the hyphen is quoted'
+    structure: sequence
+    layout: 'language[-region]'
+    grammar: 'LANGTAG = language ["-" region], identical in Figures 6-2 and 6-3; Figure 6-1 only points to RFC 5646'
+    kind: stated
+    constrained_by:
+      - "nistir-7695#R-0092"
+      - "nistir-7695#R-0094"
+      - "nistir-7695#R-0095"
+      - "nistir-7695#R-0140"
+    constrained_by_note: 'Figure 6-1''s LANGTAG = cf. [RFC5646] (R-0120) is not this structure; it is wired to uri-binding.language.'
+    constrained_by_locators:
+      - "§5.3.3.10"
+      - "§6.1.1"
+      - "§6.2.1"
+    rules:
+      - text: 'LANGTAG = language ["-" region] ; cf. [RFC5646]'
+        locator: "§6.1.1 / p. 23 / L1016"
+      - text: 'LANGTAG = language ["-" region] ; cf. [RFC5646]'
+        locator: "§6.2.1 / p. 38 / L1866"
+    flags:
+      - 'Narrower than §5.3.3.10, which allows any valid RFC 5646 tag (MAY): script, variant, extension and private-use subtags have no binding in the preferred URI or the formatted string.'
+      - 'Figure 6-1 has LANGTAG = cf. [RFC5646], a prose pointer rather than an ABNF rule.'
+    fields:
+
+      - name: language
+        position: 1
+        type: string
+        required: true
+        allowed_values: '2 or 3 ASCII letters'
+        permitted_characters: 'A to Z, a to z'
+        rules:
+          - text: 'language = 2*3ALPHA ; shortest ISO 639 code'
+            locator: "§6.2.1 / p. 38 / L1867"
+        locator: "Figures 6-2 and 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0141"
+          - "nistir-7695#R-0216"
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.2.1"
+
+      - name: region
+        position: 2
+        type: string
+        required: false
+        separator_before: "'-' (unquoted in the bindings, quoted in a WFN)"
+        allowed_values: '2 ASCII letters (ISO 3166-1) or 3 digits (UN M.49)'
+        permitted_characters: 'A to Z, a to z, or 0 to 9'
+        rules:
+          - text: 'region = 2ALPHA / 3DIGIT ; ISO 3166-1 code or UN M.49 code'
+            locator: "§6.2.1 / p. 38 / L1868"
+        locator: "Figures 6-2 and 6-3"
+        kind: stated
+        constrained_by:
+          - "nistir-7695#R-0064"
+          - "nistir-7695#R-0118"
+          - "nistir-7695#R-0142"
+          - "nistir-7695#R-0216"
+        constrained_by_locators:
+          - "§6.1.1"
+          - "§6.2.1"

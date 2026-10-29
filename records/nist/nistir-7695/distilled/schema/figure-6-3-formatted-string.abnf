@@ -1,0 +1,66 @@
+; =====================================================================
+; figure-6-3-formatted-string.abnf
+;
+; VERBATIM figure, with a header added by the library.
+;
+; Source: NIST Interagency Report 7695, "Common Platform
+; Enumeration: Naming Specification Version 2.3" (August 2011),
+; Figure 6-3. ABNF for Formatted String Binding,
+; section 6.2.1 Syntax for Formatted String Binding,
+; printed page 32 (PDF page 38); lines 1834 to 1868 of the
+; pdftotext -layout rendering of the PDF (caption on line
+; 1869). PDF SHA-256:
+; 01553a4638b21eda10018690b71162e91605d78eb15850f881bd0b2b691ac3f6
+; <https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf>
+;
+; Everything after this header is the figure, character for
+; character, checked against the rendered PDF page. Two layout
+; changes only: indentation common to every line of the figure is
+; removed, and trailing spaces are dropped. Spaces inside a line
+; keep the page's columns (glyph positions, 6 pt per character);
+; pdftotext -layout widens some runs. The header is the library's;
+; it is not part of the figure, and it is ASCII only.
+;
+; Not valid RFC 2234 ABNF as printed: the rule names sw_edition,
+; target_sw, target_hw and spec_chrs contain underscores.
+; Machine-usable repair: figure-6-3-formatted-string.derived.abnf.
+;
+; Published by NIST with no copyright notice; two of the three
+; authors were not NIST staff (Acknowledgments, printed p. iii).
+; =====================================================================
+
+formstring      = "cpe:2.3:" component-list
+
+component-list  = part ":" vendor ":" product ":" version ":" update ":"
+                  edition ":" lang ":" sw_edition ":" target_sw ":"
+                  target_hw ":" other
+
+part            = "h" / "o" / "a" / logical
+vendor          = avstring
+product         = avstring
+version         = avstring
+update          = avstring
+edition         = avstring
+lang            = LANGTAG / logical
+sw_edition      = avstring
+target_sw       = avstring
+target_hw       = avstring
+other           = avstring
+avstring        = *1spec_chrs 1*( unreserved / quoted ) *1spec_chrs / logical
+spec_chrs       = 1*spec1 / spec2
+logical         = "*" / "-"
+special         = spec1 / spec2
+spec1           = "?"
+spec2           = "*"
+unreserved      = ALPHA / DIGIT / "-" / "." / "_"
+quoted          = escape (escape / special / punc)
+escape          = "\"
+punc            = "!" / DQUOTE / "#" / "$" / "%" / "&" / "'" / "(" / ")" /
+                  "+" / "," / "/" / ":" / ";" / "<" / "=" / ">" / "@" /
+                  "[" / "]" / "^" / "`" / "{" / "|" / "}" / "~"
+ALPHA           = %x41-5a / %x61-7A   ; a-z
+DIGIT           = %x30-39  ; 0-9
+DQUOTE          = %x22  ; double-quote
+LANGTAG         = language ["-" region] ; cf. [RFC5646]
+language        = 2*3ALPHA              ; shortest ISO 639 code
+region          = 2ALPHA / 3DIGIT       ; ISO 3166-1 code or UN M.49 code

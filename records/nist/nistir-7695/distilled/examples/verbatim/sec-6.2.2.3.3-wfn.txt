@@ -1,0 +1,3 @@
+wfn:[part="a",vendor="hp",product="insight",
+version="7\.4\.0\.1570",update=NA,
+sw_edition="online",target_sw="win2003",target_hw="x64"]

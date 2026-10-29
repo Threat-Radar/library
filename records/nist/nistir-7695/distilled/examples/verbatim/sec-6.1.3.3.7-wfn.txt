@@ -1,0 +1,2 @@
+wfn:[part="a",vendor="foo\~bar",product="big\~money_2010",
+version=ANY,update=ANY,edition=ANY,language=ANY]

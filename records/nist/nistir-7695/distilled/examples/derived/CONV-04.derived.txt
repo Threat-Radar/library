@@ -1,0 +1,1 @@
+cpe:/a:foo~bar:big%7emoney_2010
