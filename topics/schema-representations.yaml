@@ -21,4 +21,5 @@ records:
   - sacm-2-3
   - sysml-2-0
   - taxii-2-1
+  - cve-json-5
 answer: ""
