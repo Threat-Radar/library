@@ -1,0 +1,60 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# summarized here; RPT-0009 §2.7 reads it. A workshop report, not a SAGAI paper.
+schema: "library-record/v1"
+id: securing-future-genai-policy-technology
+body: academic
+type: paper
+title: "Securing the Future of GenAI: Policy and Technology"
+authors:
+  - "Mihai Christodorescu"
+  - "Ryan Craven"
+  - "Soheil Feizi"
+  - "Neil Gong"
+  - "Mia Hoffmann"
+  - "Somesh Jha"
+  - "Zhengyuan Jiang"
+  - "Mehrdad Saberi Kamarposhti"
+  - "John Mitchell"
+  - "Jessica Newman"
+  - "Emelia Probasco"
+  - "Yanjun Qi"
+  - "Khawaja Shams"
+  - "Matthew Turek"
+date: "2024-05-21"
+version: "v1"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2407.12999"
+  url: https://arxiv.org/abs/2407.12999
+content:
+  url: https://arxiv.org/pdf/2407.12999v1
+  sha256: "1a6596654e07c708bb09d8b374a1415489fdae72d6e26e689b80a3b3c41020e1"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - sagai-workshop
+    - systems-security-agentic-computing
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-018
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: none
+usefulness:
+  verdict: marginal
+  reason: "Policy versus capability for GenAI; context for SAGAI's out-of-model guardrails agenda, with no attack or requirement tmodel models."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+  - regulation
+status: stub
+confidence: medium
+owner: Maimcghee

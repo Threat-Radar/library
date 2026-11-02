@@ -84,13 +84,17 @@ cites:
   - ref: "[i.25]"
     title: "NVIDIA, NeMo-Guardrails, 2023"
     locator: "https://github.com/NVIDIA/NeMo-Guardrails"
-# Predecessor ETSI TS 104 223 V1.1.1 (2025-04) is not held yet; add `supersedes` when it is.
+# Predecessor ETSI TS 104 223 V1.1.1 (2025-04) is held as a stub since tmodel #189 (this EN's History table).
 relations:
-  supersedes: []
+  supersedes:
+    - etsi-ts-104-223
   superseded_by: []
   # CISA's AI-in-OT guidance (§3.4) lists this document's predecessor, TS 104 223 V1.1.1.
   see_also:
     - cisa-ai-in-ot-principles
+    - etsi-tr-104-128
+    - nist-ai-100-2-e2025
+    - mitre-atlas
   cited_by: []
   implements_concept: []
 # design-notes.md maps every provision. ADR-0010 accepts DEC-001a (DEC-001b open),

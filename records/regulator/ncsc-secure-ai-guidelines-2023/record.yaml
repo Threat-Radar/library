@@ -1,0 +1,50 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# extracted. Cited inside etsi-en-304-223 and cisa-ai-in-ot-principles.
+schema: "library-record/v1"
+id: ncsc-secure-ai-guidelines-2023
+body: regulator
+type: spec
+maturity: best-practice
+title: "Guidelines for secure AI system development"
+short_title: "NCSC/CISA secure AI guidelines"
+authors:
+  - "UK National Cyber Security Centre (NCSC)"
+  - "US Cybersecurity and Infrastructure Security Agency (CISA)"
+date: "2023-11-27"
+publisher: "UK National Cyber Security Centre (NCSC), with CISA and international partner agencies"
+version: ""
+identifiers:
+  url: https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
+content:
+  url: https://www.ncsc.gov.uk/files/Guidelines-for-secure-AI-system-development.pdf
+  sha256: "f61a22f012a999fdb1d9d555f484648ddc53a40cbd4313985a4e1da09dde87f9"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cisa-ai-in-ot-principles
+    - etsi-en-304-223
+    - cisa-secure-by-design-2023
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-018
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "The secure AI lifecycle CISA's AI-in-OT guidance tells operators to follow (§1.2)."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+  - regulation
+status: stub
+confidence: medium
+owner: Maimcghee

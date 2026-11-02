@@ -80,4 +80,5 @@ belong in their own records.
   jointly.
 - **Generic on threats.** It names AI attack classes but offers no taxonomy or catalogue;
   pair it with MITRE ATLAS or NIST AI 100-2 (both cited informatively) for that.
-- **Predecessor not held.** TS 104 223 V1.1.1 is not yet a record, so no `supersedes` link.
+- **Predecessor held as a stub only.** TS 104 223 V1.1.1 is record `etsi-ts-104-223`
+  (`supersedes`), pinned but not compared with this EN text.

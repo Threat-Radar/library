@@ -1,0 +1,48 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# extracted. The Code was submitted to ETSI as the basis of TS 104 223 (landing page).
+schema: "library-record/v1"
+id: uk-ai-cyber-security-code-2025
+body: regulator
+type: spec
+title: "Code of Practice for the Cyber Security of AI"
+short_title: "UK AI Cyber Security Code of Practice"
+authors:
+  - "UK Department for Science, Innovation and Technology (DSIT)"
+date: "2025-01-31"
+publisher: "UK Department for Science, Innovation and Technology (DSIT)"
+version: ""
+identifiers:
+  url: https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice
+content:
+  url: https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice/code-of-practice-for-the-cyber-security-of-ai
+  sha256: "c72839044f01f518866fb1451ac97f0abfdcb5507958b9eeaa792138d61c40d2"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - etsi-ts-104-223
+    - etsi-tr-104-128
+    - uk-software-security-code-of-practice
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-018
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: marginal
+  reason: "The origin of ETSI TS 104 223 and EN 304 223, which supersede it in substance; kept for lineage."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+  - regulation
+status: stub
+confidence: medium
+owner: Maimcghee
