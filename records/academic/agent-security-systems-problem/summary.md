@@ -39,8 +39,9 @@ share failure modes.
 ## Status
 
 A stub for tmodel #189 (2026-11-02). RPT-0009 §2.6 reads it. The author list
-matches `systems-security-agentic-computing`; whether either is a SAGAI'25
-output is unconfirmed (#189), so the link to `sagai-workshop` is `see_also`.
+matches v2 of `systems-security-agentic-computing`, which is the SAGAI'25
+report. This paper names no workshop in either version (v1 or v2), so the link
+to `sagai-workshop` is `see_also`, not `part_of`.
 
 ## Limits
 

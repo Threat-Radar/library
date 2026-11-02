@@ -1,8 +1,8 @@
 # Paper/PDF: cite by DOI or arXiv id where one exists.
 # Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
 # summarized here; RPT-0009 §2.6 reads it. Same authors as
-# systems-security-agentic-computing; its tie to SAGAI'25 is unconfirmed like that
-# paper's (tmodel #189), so see_also rather than part_of.
+# systems-security-agentic-computing (the SAGAI'25 report), but neither v1 nor v2
+# names the workshop (checked 2026-11-02, tmodel #189), so see_also rather than part_of.
 schema: "library-record/v1"
 id: agent-security-systems-problem
 body: academic

@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: systems-security-agentic-computing
 record: systems-security-agentic-computing
 type: summary
-updated: "2026-10-01"
+updated: "2026-11-02"
 ---
 
 # Systems Security Foundations for Agentic Computing
@@ -39,9 +39,16 @@ unlikely to fully solve the prompt injection problem" (§5.1).
 | Cryptography | `none` | — |
 | This project | `adjacent` | Attack-to-principle mapping is input to AI threat types in the object model (DEC-001) |
 
-`bears_on: DEC-001`. Probably the SAGAI'25 research-challenges document — written by the
-organizers plus a SAGAI'25 panelist — but the text never names the workshop, so it is
-`see_also: sagai-workshop`, not `part_of`.
+`bears_on: DEC-001`. It is the SAGAI'25 research-challenges document, so `part_of:
+sagai-workshop` (tmodel #189, 2026-11-02). Version 1 (2025-12-01, 7 pages, by Christodorescu,
+Fernandes, Hooda, Jha, Rehberger and Shams) opens: "The IEEE Secure Generative AI Agents 2025
+workshop (SAGAI; co-located with the IEEE Symposium on Security and Privacy) set out to
+explore how computer-security research and practice can help inform and advance agentic
+computing security. This report captures those discussions and distills key lessons, open
+research problems and recommendations". Four of its authors are four of the five SAGAI'25
+organizers, and Rehberger spoke at the workshop. Version 2, pinned here, is the expanded SoK
+with eight more authors, and drops that sentence, which is why an earlier search of v2 found
+no mention of the workshop.
 
 ## Implementations
 
@@ -60,4 +67,6 @@ NeMo Guardrails. Not independently searched.
 - **Problems, not solutions.** Most mechanisms are open research; the authors doubt that
   provable defenses can be built on a probabilistic component at all (§2.1, §5.4).
 - **Follow-up exists.** A shorter position paper by the same authors, *Agent Security is a
-  Systems Problem* (arXiv 2605.18991), is not yet a record.
+  Systems Problem* (arXiv 2605.18991), is record `agent-security-systems-problem` (a stub).
+- **Two versions differ.** This summary reads v2. v1, the workshop report as first issued,
+  is not pinned as its own record; its digest is in `record.yaml`'s header.

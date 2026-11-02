@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: sagai-workshop
 record: sagai-workshop
 type: summary
-updated: "2026-10-01"
+updated: "2026-11-02"
 ---
 
 # SAGAI — IEEE Security and Privacy workshop series on securing generative AI
@@ -56,9 +56,10 @@ Not applicable to a workshop series; see the member papers.
 
 ## Limits
 
-- **Membership is partly unconfirmed.** `systems-security-agentic-computing` is probably
-  the SAGAI'25 research-challenges document but never names the workshop, so it is linked
-  with `see_also`, not `part_of`.
+- **SAGAI'25's output is a member since 2026-11-02.** `systems-security-agentic-computing`
+  is the research-challenges document: its v1 introduces itself as the report of "the IEEE
+  Secure Generative AI Agents 2025 workshop (SAGAI ...)" (tmodel #189). Its follow-up,
+  `agent-security-systems-problem`, names no workshop and stays `see_also`.
 - **SAGAI'26 content is missing** from this library until its program is published.
 - **Name clash.** Fraunhofer IESE runs an unrelated "SAGAI" workshop (*Software
   Architecture and Generative AI*, at ICSA); it is out of scope here.

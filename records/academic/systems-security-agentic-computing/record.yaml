@@ -1,5 +1,8 @@
-# Paper: probably the SAGAI'25 research-challenges document (unconfirmed: authors match,
-# text never names the workshop), so see_also rather than part_of.
+# Paper: the SAGAI'25 research-challenges document, so part_of (tmodel #189, 2026-11-02).
+# v1 (2025-12-01, 7 pp., sha256 eb44e09cdc240650f5d4636cf3627c1a7316aef448c2ed5dcf5ceaa23025fe6a)
+# opens: "The IEEE Secure Generative AI Agents 2025 workshop (SAGAI; co-located with the
+# IEEE Symposium on Security and Privacy) set out to explore ... This report captures ...".
+# v2, pinned below, is the expanded SoK and no longer names the workshop.
 schema: "library-record/v1"
 id: systems-security-agentic-computing
 body: academic
@@ -37,9 +40,11 @@ relations:
   supersedes: []
   superseded_by: []
   see_also:
-    - sagai-workshop
+    - agent-security-systems-problem
   cited_by: []
   implements_concept: []
+  part_of:
+    - sagai-workshop
 bears_on:
   - DEC-001
 applicability:
