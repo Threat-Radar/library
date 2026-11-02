@@ -2,7 +2,7 @@ schema: "library-topic/v1"
 id: schema-representations
 question: "Which existing schemas and formats (catalogs, vulnerability records, threat-model interchange) can tmodel import, map or reuse, and what does each one's object model, identifier scheme, provenance and extension mechanism imply for DEC-001 and DEC-002? (tmodel RPT-0005, issue #39)"
 owner: Maimcghee
-status: open
+status: answered
 bears_on:
   - DEC-001
   - DEC-002
@@ -22,4 +22,30 @@ records:
   - sysml-2-0
   - taxii-2-1
   - cve-json-5
-answer: ""
+answer: >
+  Import what tmodel reads; model what it writes. Of the 24 formats compared in
+  tmodel RPT-0005 (draft 0.5.0, tmodel@cd798e1), those on the reading side are
+  mature: CVE JSON 5, CWE, CVSS, EPSS, VEX (OpenVEX, CSAF) and the CPE and purl
+  identifiers are standardized, versioned and widely produced. An import keeps
+  almost everything if it keeps three things. The first is who said what: CVE
+  records, OpenVEX, STIX, SPDX 3 and CycloneDX hold several parties' claims side
+  by side with source and time, which is the evidence for ADR-0010's Assertion
+  (DEC-001a). The second is the qualifiers on each relation (scope, order, fit,
+  logic, justification), which a bare typed edge loses. The third is the catalog
+  version beside every id, because ATT&CK ids change meaning between releases,
+  CAPEC is frozen at ATT&CK 12.0, and CWE 5.0 (2026-10-28) moved to a new,
+  incompatible schema.
+  Closed catalogs (CWE, CAPEC) cannot be extended in place, so local entries need
+  their own namespace and a fit-graded link. The writing side has no exact
+  carrier. No format encodes a human review with an assigned impact, and none of
+  the 24 holds an ordered attack path; MITRE's Attack Flow, a released STIX 2.1
+  extension outside the 24, does, and is the candidate carrier. For DEC-002 the
+  two committed imports are thinner than they look. OTM, the only cross-vendor
+  threat-model interchange, is a vendor-controlled 0.x schema whose assets, trust
+  zones and dataflows have no target class in the accepted schema (G13, under
+  review in tmodel #130). STIX yields attack knowledge, not a threat model. For
+  DEC-008, NVD no longer enriches most new CVEs, so CWE and applicability must
+  come from the CVE record's CNA and ADP containers. Two caveats. Attack Flow and
+  OWASP's TM-BOM v1 were added by the adversarial review and have coverage rows,
+  not crosswalk rows. The report awaits the sponsor's sign-off, and it accepts no
+  decision.
