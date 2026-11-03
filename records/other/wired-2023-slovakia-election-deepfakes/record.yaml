@@ -1,0 +1,48 @@
+# Article: WIRED news story, read as the live page.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-1128.
+schema: "library-record/v1"
+id: wired-2023-slovakia-election-deepfakes
+body: other
+type: article
+title: "Slovakia's Election Deepfakes Show AI Is a Danger to Democracy"
+short_title: "Slovakia's election deepfakes"
+authors:
+  - "Morgan Meaker"
+date: "2023-10-03"
+publisher: "WIRED"
+identifiers:
+  url: https://www.wired.com/story/slovakias-election-deepfakes-show-ai-is-a-danger-to-democracy/
+content:
+  url: https://www.wired.com/story/slovakias-election-deepfakes-show-ai-is-a-danger-to-democracy/
+  sha256: "96e7ed7db712eca635002716f27fd3d21132c00fd9fe6e093ca88cb1cd8e0fb1"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "A contemporary news account of the fabricated audio released before Slovakia's 2023 election, with the fact-checkers' side; it confirms the details INC-035 lists as recalled and unconfirmed."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-incident
+  - ai-enabled-offense
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

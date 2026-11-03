@@ -1,0 +1,48 @@
+# Article: OpenAI blog post, read from the Internet Archive's original-bytes copy (openai.com returns 403 to scripts).
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-1085.
+schema: "library-record/v1"
+id: openai-2023-chatgpt-redis-outage
+body: vendor
+type: article
+title: "March 20 ChatGPT outage: Here's what happened"
+short_title: "ChatGPT redis-py data exposure"
+authors:
+  - "OpenAI"
+date: "2023-03-24"
+publisher: "OpenAI (OpenAI blog)"
+identifiers:
+  url: https://openai.com/blog/march-20-chatgpt-outage
+content:
+  url: https://web.archive.org/web/20230326020730id_/https://openai.com/blog/march-20-chatgpt-outage
+  sha256: "66b92d3b419ebbed42371af8496ed0de160136400b9e8938a351769dda086c0d"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "OpenAI's own account of a bug in an open-source dependency (redis-py) that showed ChatGPT users other users' chat titles and some Plus subscribers' payment details; it is the primary source for INC-029, is cited by AIT-141 and is a reference of CVE-2023-28858."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-incident
+  - ai-supply-chain
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

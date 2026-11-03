@@ -1,0 +1,49 @@
+# Article: CNN news story, read as the live page.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-1130 (the CNN part of it).
+schema: "library-record/v1"
+id: cnn-2024-deepfake-cfo-hong-kong
+body: other
+type: article
+title: "Finance worker pays out $25 million after video call with deepfake 'chief financial officer'"
+short_title: "Hong Kong deepfake CFO fraud"
+authors:
+  - "Heather Chen"
+  - "Kathleen Magramo"
+date: "2024-02-04"
+publisher: "CNN"
+identifiers:
+  url: https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk
+content:
+  url: https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk
+  sha256: "05dbbbff34398557da45720e0c0f3a8364b6e934d748ecac3a5aa69d66ac22ba"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "The contemporary report, from the Hong Kong police briefing, of a multi-person deepfake video call that led a finance worker to remit about US$25.6 million; it is the press source named for INC-041 and is cited by AIT-127."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-incident
+  - ai-enabled-offense
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

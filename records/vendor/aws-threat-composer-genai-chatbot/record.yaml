@@ -1,0 +1,57 @@
+# Dataset: one JSON workspace file in a git repository, pinned to a commit.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-0950.
+schema: "library-record/v1"
+id: aws-threat-composer-genai-chatbot
+body: vendor
+type: dataset
+title: "Sample Generative AI Chatbot Application (Threat Composer example threat model)"
+short_title: "Threat Composer GenAI chatbot example"
+authors:
+  - "Amazon Web Services"
+date: "2025-09-02"
+version: "file last changed in commit 8af3a1f99765 (2025-09-02)"
+publisher: "Amazon Web Services (AWS Labs, threat-composer repository)"
+identifiers:
+  url: https://github.com/awslabs/threat-composer/blob/3d4ed92f96a29605a74795d8df103e068f11ed70/packages/threat-composer/src/data/workspaceExamples/GenAIChatbot.tc.json
+commit: "3d4ed92f96a29605a74795d8df103e068f11ed70"
+license: "Apache-2.0"
+content:
+  url: https://raw.githubusercontent.com/awslabs/threat-composer/3d4ed92f96a29605a74795d8df103e068f11ed70/packages/threat-composer/src/data/workspaceExamples/GenAIChatbot.tc.json
+  sha256: "604bc44003fa894b0397b61f17fc491892ab1b01c2bd6b1b4e5fa1d73e129912"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/json
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - aws-threat-composer
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+  - R-005
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+implementations:
+  open_source:
+    - name: awslabs/threat-composer
+      url: https://github.com/awslabs/threat-composer
+      license: Apache-2.0
+      note: "the open-source tool that opens and edits this workspace; the library's aws-threat-composer record covers it"
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "A complete, machine-readable threat model of an LLM retrieval chatbot (37 threats, 84 mitigations, 13 assumptions, all linked) in a published JSON format; it is RPT-0014's TM-026 and a ready import test."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-threat-model
+  - rag-security
+  - prior-art
+status: summarized
+confidence: medium
+owner: Clovier
