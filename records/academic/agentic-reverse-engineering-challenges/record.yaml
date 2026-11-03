@@ -1,0 +1,49 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Honest stub for tmodel #189 (RPT-0009 Phase 4 review, finding F-07, 2026-11-02):
+# a SAGAI'26 paper. The arXiv comment says "accepted at SAGAI 2026", so part_of
+# sagai-workshop. Read for this stub: abstract and §1.
+schema: "library-record/v1"
+id: agentic-reverse-engineering-challenges
+body: academic
+type: paper
+title: "Challenges and Future Directions in Agentic Reverse Engineering Systems"
+authors:
+  - "Salem Radey"
+  - "Jack West"
+  - "Kassem Fawaz"
+date: "2026-04-15"
+version: "v1"
+venue: "SAGAI 2026 (IEEE S&P workshop; accepted, per the arXiv comment); arXiv preprint"
+identifiers:
+  arxiv: "2604.14317"
+  url: https://arxiv.org/abs/2604.14317
+content:
+  url: https://arxiv.org/pdf/2604.14317v1
+  sha256: "0133f777a0e76a74c50150c8dcaac9d550cd2ee83e342a7c9a598426b3363f11"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+  part_of:
+    - sagai-workshop
+bears_on: []
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: none
+usefulness:
+  verdict: useful
+  reason: "AI used as a security tool (binary reverse engineering), and the risk that a crafted binary tricks an unguarded agent into running malicious code; bears on whether attacks that use AI as a tool are in scope."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - agent-security
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

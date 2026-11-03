@@ -26,4 +26,9 @@ records:
   - agent-security-systems-problem
   - securing-future-genai-policy-technology
   - fraunhofer-iese-sagai
+  - etsi-ts-104-050
+  - aim-labs-echoleak-disclosure
+  - pentest-lessons-agent-systems
+  - cacheprobe-prompt-cache-isolation
+  - agentic-reverse-engineering-challenges
 answer: ""

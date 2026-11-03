@@ -1,0 +1,46 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Honest stub for tmodel #189 (RPT-0009 Phase 4 review, finding F-09, 2026-11-02):
+# the finders' primary disclosure of EchoLeak (CVE-2025-32711). NOT PINNED: the
+# page returned HTTP 403 to bin/ingest --fetch on 2026-11-02, so there is no
+# digest and the page was not read. The URL comes from the CVE record's CVE
+# Program (ADP) container; the title is as the secondary case study cites it.
+schema: "library-record/v1"
+id: aim-labs-echoleak-disclosure
+body: vendor
+type: web
+title: "EchoLeak Vulnerability Found in Microsoft 365 Copilot"
+authors:
+  - "Aim Labs (Aim Security)"
+date: "2025-06"
+publisher: "Aim Security"
+identifiers:
+  url: https://www.aim.security/lp/aim-labs-echoleak-m365
+content:
+  url: https://www.aim.security/lp/aim-labs-echoleak-m365
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - echoleak-zero-click-prompt-injection
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "The finders' own account of EchoLeak, the attack RPT-0009's worked example models; the primary source the secondary case study relies on."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - prompt-injection
+  - ai-security
+status: stub
+confidence: low
+owner: Maimcghee
