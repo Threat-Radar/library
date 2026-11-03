@@ -34,13 +34,29 @@ relations:
   cited_by: []
   implements_concept: []
 bears_on:
+  - DEC-001a
   - DEC-009
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: core
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "A free, regulator-defined catalogue of vehicle threats paired with generic mitigations (Annex 5), which tmodel#172 converts into ThreatInstances and Requirements under ADR-0012."
+  assessed: "2026-11-02"
 topic: product-composition
 tags:
   - regulation
   - automotive
+  - normative
   - evidence
-# stub: honest keep-for-later (tmodel#38). Not read in full, not extracted.
-status: stub
-confidence: low
+# Summary bar (tmodel#172): paragraphs 1 to 12 and Annex 5 of the original version read in full on
+# 2026-11-02, Annexes 1 to 4 by title; digest re-checked. Annex 5 is extracted in tmodel
+# research/0017-requirements-extraction/unece-r155.yaml. Not FX-1.
+status: summarized
+confidence: medium
 owner: Clovier
