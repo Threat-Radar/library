@@ -1,0 +1,77 @@
+# Survey: arXiv v3 (summarized here); version of record in ACM Computing Surveys 55(13s), 2023.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0687.
+schema: "library-record/v1"
+id: cina-2023-wild-patterns-reloaded-poisoning
+body: academic
+type: paper
+title: "Wild Patterns Reloaded: A Survey of Machine Learning Security against Training Data Poisoning"
+short_title: "Wild Patterns Reloaded"
+authors:
+  - "Antonio Emanuele Cinà"
+  - "Kathrin Grosse"
+  - "Ambra Demontis"
+  - "Sebastiano Vascon"
+  - "Werner Zellinger"
+  - "Bernhard A. Moser"
+  - "Alina Oprea"
+  - "Battista Biggio"
+  - "Marcello Pelillo"
+  - "Fabio Roli"
+date: "2023-03-09"
+version: "v3"
+publisher: "Authors at Ca' Foscari University of Venice, EPFL, University of Cagliari, Software Competence Center Hagenberg, Northeastern University, University of Genoa and Pluribus One (arXiv) / ACM (Computing Surveys)"
+venue: "ACM Computing Surveys 55(13s), 2023, pp. 1-39"
+identifiers:
+  arxiv: "2205.01992"
+  doi: "10.1145/3585385"
+  url: https://arxiv.org/abs/2205.01992
+content:
+  url: https://arxiv.org/pdf/2205.01992v3
+  sha256: "46abf985e5fb3c4d9bf0c214e5198e74208ac0b7e5b30e45595fa08330716f5e"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 37
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - goldblum-2022-dataset-security-survey
+    - li-2022-backdoor-learning-survey
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: Trusted-AI/adversarial-robustness-toolbox
+      url: https://github.com/Trusted-AI/adversarial-robustness-toolbox
+      license: MIT
+      note: "the library with the most poisoning attacks and defenses in the survey's resource review (§6)"
+    - name: pralab/secml
+      url: https://github.com/pralab/secml
+      license: Apache-2.0
+      note: "SecML, with indiscriminate poisoning attacks on SVM, logistic and ridge regression (§6)"
+    - name: advboxes/AdvBox
+      url: https://github.com/advboxes/AdvBox
+      license: Apache-2.0
+      note: "advBox, with indiscriminate and backdoor attacks on a toy problem (§6)"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "A systematization of poisoning attacks and defenses with a threat-modeling framework, a unified bilevel formulation and an attack-defense matching; NIST AI 100-2e2025 bases its poisoning classification on it and AIT-011 cites it."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - data-poisoning
+  - backdoor
+  - ai-threat-model
+  - prior-art
+status: summarized
+confidence: medium
+owner: Clovier

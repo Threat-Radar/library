@@ -1,0 +1,60 @@
+# Paper: arXiv v2 (summarized here), which carries the ICLR 2022 header.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0140.
+schema: "library-record/v1"
+id: carlini-2022-contrastive-poisoning
+body: academic
+type: paper
+title: "Poisoning and Backdooring Contrastive Learning"
+authors:
+  - "Nicholas Carlini"
+  - "Andreas Terzis"
+date: "2022-03-28"
+version: "v2"
+publisher: "Authors at Google (arXiv) / ICLR 2022 (OpenReview.net)"
+venue: "International Conference on Learning Representations (ICLR) 2022"
+identifiers:
+  arxiv: "2106.09667"
+  url: https://arxiv.org/abs/2106.09667
+content:
+  url: https://arxiv.org/pdf/2106.09667v2
+  sha256: "3bcc0034881ffadb4f169076e6697cd28f3134182e1c6bee088aaae06be49304"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 13
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: mlfoundations/open_clip
+      url: https://github.com/mlfoundations/open_clip
+      license: MIT
+      note: "the open-source CLIP training code the paper used (Ilharco et al. 2021); the authors say the attack needs only existing CLIP training tools run unmodified on a poisoned dataset"
+    - name: nishadsinghi/CleanCLIP
+      url: https://github.com/nishadsinghi/CleanCLIP
+      license: MIT
+      note: "a later defense (ICCV 2023); its backdoor/create_backdoor_data.py builds patch-triggered poisoned CLIP training sets of this kind, though its README does not cite this paper"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "By its own account the first poisoning and backdoor attacks on multimodal contrastive training: 3 poisoned pairs in 3 million give 40% targeted success and 0.01% gives 50% backdoor success. AIT-013 cites it."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - data-poisoning
+  - backdoor
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier
