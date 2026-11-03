@@ -1,6 +1,8 @@
 # Web page: content drifts. The digest + retrieved date is the whole point.
 # Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
-# extracted. The Code was submitted to ETSI as the basis of TS 104 223 (landing page).
+# extracted. The pinned page says the UK government "plan to submit the Code and
+# Implementation Guide in ETSI"; TS 104 223 followed in April 2025 (RPT-0009
+# Phase 4 review, F-24, 2026-11-02: quotes now come from the pinned page only).
 schema: "library-record/v1"
 id: uk-ai-cyber-security-code-2025
 body: regulator
@@ -37,7 +39,7 @@ applicability:
   this_project: adjacent
 usefulness:
   verdict: marginal
-  reason: "The origin of ETSI TS 104 223 and EN 304 223, which supersede it in substance; kept for lineage."
+  reason: "The UK code the government planned to submit to ETSI, before ETSI TS 104 223 and EN 304 223 were published; kept for lineage. Cite the EN for requirements."
   assessed: "2026-11-02"
 topic: sagai
 tags:

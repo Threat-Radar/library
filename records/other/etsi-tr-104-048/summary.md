@@ -18,9 +18,17 @@ updated: "2026-11-02"
 
 ## Overview
 
-ETSI's technical report on data supply chain security for AI. Only the title
-and publication details were checked for this stub; its content is not
-described here.
+ETSI's technical report on data supply chain security for AI. Its scope
+(clause 1) "addresses the security problems arising from data supply chains in
+in [sic] the development of Artificial Intelligence (AI) and Machine Learning
+(ML) systems", noting that "Compromising the integrity of data has been
+demonstrated to be a viable attack vector". It summarizes how training data is
+sourced, reviews data-sharing initiatives, and gives a gap analysis to scope
+possible standards requirements. Clause 4 covers why data integrity matters:
+consequences, methods of compromise, case studies. It names the poisoning of
+training data as "the most likely outcome" of such an attack. It "relates
+primarily to the security of data, rather than the security of models
+themselves" (clause 1).
 
 ## Applicability
 
@@ -39,5 +47,7 @@ as one of the top AI technical standards. Not extracted.
 
 ## Limits
 
-- Not read. Whether it gives the data supply chain a model tmodel could use
-  (RPT-0009 G10, training data as Asset or Component) is unknown.
+- Only the scope and clause 4's outline and poisoning sentences were read (for
+  the RPT-0009 Phase 4 review, F-25, 2026-11-02). Whether it gives the data
+  supply chain a model tmodel could use (RPT-0009 G10, training data as Asset
+  or Component) is unknown.

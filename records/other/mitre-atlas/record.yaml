@@ -2,6 +2,9 @@
 # Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
 # extracted. RPT-0009 uses its technique ids and case study AML.CS0059 (G12).
 # Shared with RPT-0014 (tmodel #71), which cites the same 2026.09 file.
+# v2026.10 (2026-10-28) exists and is NOT pinned here; it removes ids the records
+# use. See summary.md (RPT-0009 Phase 4 review, F-11 and F-21, 2026-11-02). A
+# re-pin is a new record linked by supersedes, not an edit of this one.
 schema: "library-record/v1"
 id: mitre-atlas
 body: other

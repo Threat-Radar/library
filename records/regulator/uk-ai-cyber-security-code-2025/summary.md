@@ -18,12 +18,16 @@ updated: "2026-11-02"
 
 ## Overview
 
-The UK's baseline cyber security principles "to help secure AI systems and the
-organisations which develop and deploy them" (GOV.UK landing page), published with a separate
-implementation guide after a 2024 call for views. The GOV.UK landing page says
-DSIT, with the NCSC, submitted the Code and guide to ETSI as the basis for
-TS 104 223 and TR 104 128, and will update the Code to mirror the ETSI
-standard.
+The UK's "voluntary Code of Practice which will be used to help create a
+global standard in the European Telecommunication Standards Institute (ETSI)
+that sets baseline security requirements" (pinned page). It follows DSIT's
+Call for Views (15 May to 9 August 2024), builds on the NCSC's guidelines for
+secure AI development, and comes with a separate implementation guide. The
+page says "The UK government plan to submit the Code and Implementation Guide
+in ETSI so that the future standard is accompanied by a guide", and that the
+government will update both "to mirror the future ETSI global standard and
+guide". ETSI TS 104 223 (April 2025) and TR 104 128 (May 2025) followed. The
+pinned page does not itself say they are based on the Code.
 
 ## Applicability
 
@@ -31,7 +35,7 @@ standard.
 |---|---|---|
 | Security | `core` | Baseline AI security principles |
 | Cryptography | `none` | |
-| This project | `adjacent` | The origin of EN 304 223 (FX-1); cite the EN for requirements |
+| This project | `adjacent` | Planned as ETSI's input before EN 304 223 (FX-1) was published; cite the EN for requirements |
 
 `bears_on: R-018`, through the ETSI documents.
 

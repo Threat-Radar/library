@@ -1,6 +1,7 @@
 # Spec: version is load-bearing. New version = new record, linked by supersedes.
 # Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
 # extracted. Named by CISA's AI-in-OT guidance (§3.4) as a top AI technical standard.
+# Scope and clause 4 read for the poisoning claim (RPT-0009 Phase 4 review, F-25).
 schema: "library-record/v1"
 id: etsi-tr-104-048
 body: other

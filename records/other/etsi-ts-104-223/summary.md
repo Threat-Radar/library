@@ -20,9 +20,10 @@ updated: "2026-11-02"
 
 The first publication of what became ETSI EN 304 223. The EN's History table
 lists V1.1.1 (April 2025) as "Publication as ETSI TS 104 223", then the EN
-approval procedure, then EN V2.1.1 (December 2025). The UK government's AI
-Cyber Security Code of Practice page says the UK submitted its Code to ETSI as
-the basis for this TS.
+approval procedure, then EN V2.1.1 (December 2025). The UK government's Code
+of Practice page (pinned in `uk-ai-cyber-security-code-2025`, published 31
+January 2025) says the UK "plan to submit the Code and Implementation Guide in
+ETSI"; this TS followed in April 2025.
 
 ## Applicability
 

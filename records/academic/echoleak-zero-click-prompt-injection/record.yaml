@@ -1,6 +1,9 @@
 # Paper/PDF: cite by DOI or arXiv id where one exists.
 # Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
 # summarized here. RPT-0009's EchoLeak model (em-01) was checked against it (§5).
+# A SECONDARY case study (RPT-0009 Phase 4 review, F-09 and F-23, 2026-11-02): its
+# authors are at The George Washington University, not the finders; the finders'
+# disclosure is aim-labs-echoleak-disclosure.
 schema: "library-record/v1"
 id: echoleak-zero-click-prompt-injection
 body: academic
@@ -12,7 +15,7 @@ authors:
   - "Aditya Sanjay Gujral"
 date: "2025-09-06"
 version: "v1"
-venue: "arXiv preprint"
+venue: "AAAI Fall Symposium Series 2025 (per the arXiv comment); arXiv preprint"
 identifiers:
   arxiv: "2509.10540"
   cve: "CVE-2025-32711"
@@ -27,6 +30,7 @@ relations:
   supersedes: []
   superseded_by: []
   see_also:
+    - aim-labs-echoleak-disclosure
     - mitre-atlas
     - spotlighting-indirect-prompt-injection
     - systems-security-agentic-computing
@@ -40,7 +44,7 @@ applicability:
   this_project: core
 usefulness:
   verdict: useful
-  reason: "The primary write-up of the attack RPT-0009 models step by step (em-01); its bypass chain is the evidence for gaps G1 to G7."
+  reason: "A secondary case study of the attack RPT-0009 models step by step (em-01), written from public sources; its account of the bypass chain is the evidence for gaps G1 to G7."
   assessed: "2026-11-02"
 topic: sagai
 tags:

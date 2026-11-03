@@ -48,3 +48,16 @@ recorded in RPT-0009 §10; the document itself is not extracted.
   (a single class per attack, or several) is open (RPT-0009 G9).
 - EN 304 223 cites the earlier E2023 edition ([i.17]), not this one; no record
   of E2023 is held.
+- **Index erratum.** NIST's "Errata (Potential Updates)" list, last updated
+  June 3, 2025
+  (https://csrc.nist.gov/files/pubs/ai/100/2/e2025/final/docs/nist.ai.100-2e2025_potential_updates.pdf,
+  sha256 `ac73cb5fe5e5c6dfaef566866d92ad5c9887176480f620112cc6a997d7d624d8`
+  as downloaded 2026-11-02, not pinned here), corrects the taxonomy index on
+  page x. Under Generative AI Attacks, Availability Violations (NISTAML.01), the
+  index lists Data Poisoning (NISTAML.013), Indirect Prompt Injection
+  (NISTAML.015) and Prompt Injection (NISTAML.018). These "should be replaced
+  with" Manipulate Resources (NISTAML.016) and Time-Consuming Tasks
+  (NISTAML.017). NIST says these "are not official changes to the document".
+  No mapping in `etsi-en-304-223` or `cisa-ai-in-ot-principles` depends on the
+  error: the one availability mapping (ETSI 5.2.2-2) uses NISTAML.01 itself
+  (checked 2026-11-02, RPT-0009 Phase 4 review, F-22).

@@ -22,8 +22,34 @@ updated: "2026-11-02"
 ATT&CK's counterpart for attacks on AI systems: a matrix of tactics and
 techniques, mitigations, and case studies of real attacks and exercises, each
 case study coded step by step to techniques. The pinned file holds 16 tactics,
-208 techniques (88 of them sub-techniques), 40 mitigations, 73 case studies and
-322 relationships (counted from the YAML on 2026-11-02).
+208 techniques (88 of them sub-techniques), 40 mitigations, 73 case studies,
+and 1,355 relationship items under 322 source objects (counted from the YAML on
+2026-11-02; 0.3.1 of this stub wrongly called the 322 source objects
+relationships).
+
+**A newer release exists.** ATLAS v2026.10 (collection `modified-date`
+2026-10-28, data format 6.1.0) came out before this record was pinned. This
+record keeps 2026.09, the version RPT-0009's and RPT-0014's mappings use. The
+changes that touch those mappings, checked against
+`dist/v6/ATLAS-2026.10.yaml` (sha256
+`ac41ee9f99a47084ba5fdfc77ae83a28687e12390240fffeb37df7914ffe142d`, the copy
+the review downloaded from the v2026.10 tag; not pinned here):
+- **Removed:** AML.T0024.000 (Infer Training Data Membership), .001 (Invert AI
+  Model) and .002 (Extract AI Model), and AML.T0057 (LLM Data Leakage). The
+  parent AML.T0024 (Exfiltration via AI Inference API) remains.
+- **Renamed:** AML.T0010 "AI Supply Chain Compromise" becomes "Supply Chain
+  Compromise", with .001 "AI Software" becoming "Software", .002 "Data" becoming
+  "Data Repository" and .003 "Model" becoming "Model Repository". AML.M0026
+  "Privileged AI Agent Permissions Configuration" becomes "Manage AI Agent
+  Service Access", and AML.M0027 "Single-User AI Agent Permissions
+  Configuration" becomes "Manage User-Delegated AI Agent Access".
+- **AML.CS0059 (EchoLeak):** the 2026.09 field `actor: Aim Labs` is gone. 2026.10
+  links the case study `attributed-to` the new entity AML.E0016, Cato Networks
+  ("activity-purpose: Security Evaluation"), which the entity's description says
+  acquired Aim Security in September 2025. The case study's own description
+  still says "Aim Security researchers discovered EchoLeak".
+- 2026.10 adds top-level `entities` (44) and `software` (37), and has 221
+  techniques, 44 mitigations, 77 case studies and 1,750 relationship items.
 
 ## Applicability
 

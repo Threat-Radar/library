@@ -1,6 +1,7 @@
 # Spec: version is load-bearing. New version = new record, linked by supersedes.
 # Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
-# extracted. Cited by EN 304 223 as [i.1].
+# extracted. Cited by EN 304 223 as [i.1]. Clause 6 read for the provisions
+# RPT-0009 uses (Phase 4 review, F-01, 2026-11-02); see summary.md.
 schema: "library-record/v1"
 id: etsi-tr-104-128
 body: other
