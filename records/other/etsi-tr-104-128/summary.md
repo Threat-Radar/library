@@ -66,7 +66,10 @@ were read, for the RPT-0009 Phase 4 review.
 
 - Informative, so it adds no requirements. Its examples are guidance on how a
   provision may be met, not what the provision requires.
-- Only the seven subclauses in the table were read. The rest of clause 6 and
-  the annex were not, so other provisions may also gain attack links from it.
+- Only the seven subclauses in the table were read in full. A text search of
+  all of clause 6 (2026-11-02, RPT-0009's second review) finds "prompt
+  injection" in the examples for 15 provisions, "RAG" for 11 and "exfiltrat"
+  for 2 (5.1.2-6 and 5.2.1-4, §6.5.5); RPT-0009 §3 lists them. "render",
+  "markdown" and "content security" occur nowhere. The annex was not read.
 - `etsi-en-304-223`'s mappings were made from the EN's normative text, and are
   not updated from this guide.
