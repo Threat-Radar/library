@@ -1,0 +1,67 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0959), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: pillar-2024
+body: academic
+type: paper
+title: "PILLAR: an AI-Powered Privacy Threat Modeling Tool"
+short_title: "PILLAR"
+authors:
+  - "Majid Mollaeefar"
+  - "Andrea Bissoli"
+  - "Silvio Ranise"
+date: "2024-10-11"
+publisher: "arXiv preprint (FBK Center for Cybersecurity and University of Trento)"
+venue: "arXiv preprint, v1 2024-10-11 (the only version); no peer-reviewed venue found"
+version: "arXiv v1; matches the RPT-0014 pdf-manifest digest"
+identifiers:
+  arxiv: "2410.08755"
+  url: https://arxiv.org/abs/2410.08755
+content:
+  url: https://arxiv.org/pdf/2410.08755v1
+  sha256: "ac066c325ca2354ed5d33a9414f0aef56a86187bc55afdaa34421610e858da06"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 10
+# In-scope references central to the source. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - deng-linddun-2011
+  - linddun-org
+  - stride-gpt
+  - title: "Guo et al. 2024, LLM-based multi-agent systems survey (cited for the multi-agent design)"
+    locator: "as printed [2]; not checked"
+  - title: "AttackGen (LLM incident-response scenario generator)"
+    locator: "GitHub project, as printed; not checked"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-018        # summary.md, Applicability
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: core
+implementations:
+  open_source:
+    - name: "PILLAR (authors' code)"
+      url: https://github.com/stfbk/PILLAR
+      license: "Apache-2.0"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "An LLM tool that automates LINDDUN privacy threat modeling from a text description (DFD generation, LINDDUN GO and PRO, impact and controls); a direct comparator for tmodel's own AI-generated threat models, but it reports no evaluation."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - prior-art
+  - method
+status: summarized
+confidence: high
+owner: kriishnaa-18

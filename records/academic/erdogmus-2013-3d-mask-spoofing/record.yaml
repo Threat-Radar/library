@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [7] of
+# sharif-2016-accessorize-to-a-crime (S-0012). Bibliographic fields were checked
+# against Crossref on 2026-11-02. Not read: summary.md is the unwritten
+# scaffold, and filling it is deferred; tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: erdogmus-2013-3d-mask-spoofing
+body: academic
+type: paper
+title: "Spoofing in 2D face recognition with 3D masks and anti-spoofing with Kinect"
+authors:
+  - "Nesli Erdogmus"
+  - "Sebastien Marcel"
+date: "2013-09"
+publisher: "IEEE, 2013 IEEE Sixth International Conference on Biometrics: Theory, Applications and Systems (BTAS), pp. 1-6"
+identifiers:
+  doi: 10.1109/BTAS.2013.6712688
+  url: https://doi.org/10.1109/BTAS.2013.6712688
+content:
+  url: https://doi.org/10.1109/BTAS.2013.6712688
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "IEEE BTAS 2013"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

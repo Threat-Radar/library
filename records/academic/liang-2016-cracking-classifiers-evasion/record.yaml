@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [23] of
+# sharif-2016-accessorize-to-a-crime (S-0012). Bibliographic fields were checked
+# against Crossref on 2026-11-02. Not read: summary.md is the unwritten
+# scaffold, and filling it is deferred; tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: liang-2016-cracking-classifiers-evasion
+body: academic
+type: paper
+title: "Cracking Classifiers for Evasion: A Case Study on the Google's Phishing Pages Filter"
+authors:
+  - "Bin Liang"
+  - "Miaoqiang Su"
+  - "Wei You"
+  - "Wenchang Shi"
+  - "Gang Yang"
+date: "2016-04-11"
+publisher: "International World Wide Web Conferences Steering Committee, Proceedings of the 25th International Conference on World Wide Web (WWW '16), pp. 345-356"
+identifiers:
+  doi: 10.1145/2872427.2883060
+  url: https://doi.org/10.1145/2872427.2883060
+content:
+  url: https://doi.org/10.1145/2872427.2883060
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "WWW 2016"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

@@ -1,0 +1,61 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 Wave 1 subset-1 (S-0998), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: russinovich-2024-skeleton-key
+body: vendor
+type: article
+title: "Mitigating Skeleton Key, a new type of generative AI jailbreak technique"
+short_title: "Skeleton Key"
+authors:
+  - "Mark Russinovich"
+date: "2024-06-26"
+publisher: "Microsoft, Microsoft Security Blog"
+venue: "Microsoft Security Blog"
+version: "web page as served on 2026-11-03"
+identifiers:
+  url: https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/
+content:
+  url: https://www.microsoft.com/en-us/security/blog/2024/06/26/mitigating-skeleton-key-a-new-type-of-generative-ai-jailbreak-technique/
+  sha256: "d6344137dcc97dd402be96c65b3b983632f61560424f89cb2ecb150e7f4ea29a"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: text/html
+# In-scope references central to the source. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "Russinovich et al., Crescendo multi-turn jailbreak (RPT-0014 S-0310)"
+    locator: "arXiv:2404.01833"
+  - title: "Dong et al., Attacks, Defenses and Evaluations for LLM Conversation Safety: A Survey (screened 2026-11-03; not created)"
+    locator: "arXiv:2402.09283 (NAACL 2024)"
+  - title: "Microsoft, AI jailbreaks: What they are and how they can be mitigated"
+    locator: "Microsoft Security Blog, as linked; not checked"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "PyRIT (Microsoft red-teaming toolkit; updated to include Skeleton Key)"
+      url: https://github.com/Azure/PyRIT
+      license: "MIT"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Vendor disclosure of a guideline-augmentation jailbreak that worked on seven major models in April-May 2024, with Microsoft's mitigations; no success rates published."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - jailbreak
+status: summarized
+confidence: high
+owner: kriishnaa-18

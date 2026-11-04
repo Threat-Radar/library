@@ -1,0 +1,71 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0684), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: lukas-2022-sok-watermark-robustness
+body: academic
+type: paper
+title: "SoK: How Robust is Image Classification Deep Neural Network Watermarking?"
+short_title: "SoK: DNN watermarking robustness"
+authors:
+  - "Nils Lukas"
+  - "Edward Jiang"
+  - "Xinda Li"
+  - "Florian Kerschbaum"
+date: "2022-05"
+publisher: "IEEE, 2022 IEEE Symposium on Security and Privacy (SP), pp. 787-804"
+venue: "IEEE S&P 2022; arXiv v1 2021-08-11 is the extended version"
+version: "arXiv v1, the extended version (21 pages); the IEEE version of record was not obtained"
+identifiers:
+  doi: 10.1109/SP46214.2022.9833693
+  arxiv: "2108.04974"
+  url: https://doi.org/10.1109/SP46214.2022.9833693
+content:
+  url: https://arxiv.org/pdf/2108.04974v1
+  sha256: "dab695dacd6b441c5b7f3873eefd6ec8cbec5350a3c2846aefc744b031e9f9ab"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 21
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - uchida-2017-embedding-watermarks    # [14]; reference-expansion stub (tmodel#81)
+  - title: "[16] Adi et al., Turning Your Weakness Into a Strength (RPT-0014 S-0030)"
+    locator: "USENIX Security 2018"
+  - title: "[25] Jia et al., Entangled Watermarks as a Defense against Model Extraction (RPT-0014 S-0118)"
+    locator: "USENIX Security 2021"
+  - title: "[27] Szyller et al., DAWN: Dynamic Adversarial Watermarking of Neural Networks (screened 2026-11-03; not created)"
+    locator: "arXiv:1906.00830 (ACM MM 2021)"
+  - aiken-2021-neural-network-laundering    # [35]; reference-expansion stub (tmodel#81)
+  - title: "[40] Orekondy et al., Knockoff Nets: stealing functionality of black-box models"
+    locator: "CVPR 2019 (as printed; not checked)"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "Watermark-Robustness-Toolbox (the authors' implementation of all schemes and attacks)"
+      url: https://github.com/dnn-security/Watermark-Robustness-Toolbox
+      license: "GPL-3.0"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Systematic evaluation showing that none of 11 published DNN watermarking schemes survives all 29 removal attacks on CIFAR-10 and ImageNet; evidence that watermarks are weak proof of model theft."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - model-extraction
+status: summarized
+confidence: high
+owner: kriishnaa-18

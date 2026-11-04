@@ -1,0 +1,141 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0685), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: apruzzese-2023-real-attackers
+body: academic
+type: paper
+title: "\"Real Attackers Don't Compute Gradients\": Bridging the Gap Between Adversarial ML Research and Practice"
+short_title: "Real Attackers Don't Compute Gradients"
+authors:
+  - "Giovanni Apruzzese"
+  - "Hyrum S. Anderson"
+  - "Savino Dambra"
+  - "David Freeman"
+  - "Fabio Pierazzi"
+  - "Kevin Roundy"
+date: "2023-02"
+publisher: "IEEE, 2023 IEEE Conference on Secure and Trustworthy Machine Learning (SaTML), pp. 339-364"
+venue: "IEEE SaTML 2023, Raleigh, NC, USA, 8-10 February 2023; arXiv v1 2022-12-29 (the only arXiv version)"
+version: "arXiv v1; text identical to the authors' SaTML copy apart from the arXiv stamp, two one-word edits and Table IV symbol encoding; the IEEE PDF was not obtained"
+identifiers:
+  doi: 10.1109/SaTML54575.2023.00031
+  arxiv: "2212.14315"
+  url: https://doi.org/10.1109/SaTML54575.2023.00031
+content:
+  url: https://arxiv.org/pdf/2212.14315v1
+  sha256: "c946a01f8d97aadd801294e87f98b855b911898be296b79994ec81ebdf8a640c"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+  pages: 26
+# In-scope subset of the 197 references: the works the paper uses as evidence
+# for its argument, plus the sources of its case studies. Bracketed numbers are
+# the source's own. Plain ids are records this library holds, including the
+# reference-expansion stubs created under tmodel#81. Entries marked "not created"
+# were screened and excluded on 2026-11-03. The other references, including the Table IV papers
+# cited only as survey data points, are listed by category in summary.md.
+cites:
+  - szegedy-2013-intriguing-properties          # [38]; printed as ICML 2013, really ICLR 2014
+  - srndic-2014-practical-evasion               # [43]
+  - title: "[3] Kumar et al., Adversarial machine learning - industry perspectives (RPT-0014 S-0675)"
+    locator: "arXiv:2002.05646"
+  - title: "[10] Apruzzese et al., Wild Networks: Exposure of 5G Network Infrastructures to Adversarial Examples (screened 2026-11-03; not created)"
+    locator: "doi:10.1109/TNSM.2022.3188930"
+  - tramer-2019-adversarial-ad-blocking    # [12]; reference-expansion stub (tmodel#81)
+  - title: "[13] Carlini et al., On evaluating adversarial robustness (RPT-0014 S-0058)"
+    locator: "arXiv:1902.06705"
+  - xiao-2019-image-scaling-camouflage    # [22]; reference-expansion stub (tmodel#81)
+  - title: "[25] Nassi et al., Phantom of the ADAS (RPT-0014 S-0095)"
+    locator: "ACM CCS 2020"
+  - title: "[28] Sato et al., Dirty Road Can Attack (RPT-0014 S-0125)"
+    locator: "USENIX Security 2021"
+  - pajola-2021-fall-of-giants    # [32]; reference-expansion stub (tmodel#81)
+  - title: "[39] Biggio and Roli, Wild patterns (RPT-0014 S-0672)"
+    locator: "doi:10.1016/j.patcog.2018.07.023"
+  - title: "[40] Biggio et al., Evasion attacks against machine learning at test time (RPT-0014 S-0002)"
+    locator: "ECML PKDD 2013"
+  - apruzzese-2022-realistic-nids-attacks    # [42]; reference-expansion stub (tmodel#81)
+  - title: "[44] Demontis et al., Why Do Adversarial Attacks Transfer? Explaining Transferability of Evasion and Poisoning Attacks (screened 2026-11-03; not created)"
+    locator: "https://www.usenix.org/conference/usenixsecurity19/presentation/demontis; arXiv:1809.02861"
+  - title: "[45] Tramer et al., Stealing machine learning models via prediction APIs (RPT-0014 S-0013)"
+    locator: "USENIX Security 2016"
+  - title: "[47] Biggio, Nelson and Laskov, Poisoning attacks against support vector machines (RPT-0014 S-0001)"
+    locator: "ICML 2012"
+  - title: "[48] Papernot et al., Practical black-box attacks against machine learning (RPT-0014 S-0026)"
+    locator: "ACM AsiaCCS 2017"
+  - title: "[49] Pierazzi et al., Intriguing properties of adversarial ML attacks in the problem space (RPT-0014 S-0098)"
+    locator: "IEEE S&P 2020"
+  - title: "[50] Li, Guo and Chen, Practical No-box Adversarial Attacks against DNNs (screened 2026-11-03; not created)"
+    locator: "arXiv:2012.02525 (NeurIPS 2020)"
+  - title: "[52] Yao et al., Latent backdoor attacks on deep neural networks (RPT-0014 S-0076)"
+    locator: "ACM CCS 2019"
+  - gilmer-2018-rules-of-the-game    # [66]; reference-expansion stub (tmodel#81)
+  - title: "[78] AI Incident Database (consulted for the in-the-wild search in Sec. III-B)"
+    locator: "https://incidentdatabase.ai/"
+  - shan-2022-poison-forensics    # [82]; reference-expansion stub (tmodel#81)
+  - title: "[83] Shan et al., Post-breach Recovery: Protection against White-box Adversarial Examples for Leaked DNN Models (screened 2026-11-03; not created)"
+    locator: "doi:10.1145/3548606.3560561"
+  - title: "[84]-[85] CujoAI, MLSEC 2021 anti-phishing evasion track: call and results (source of the Sec. III-C case study)"
+    locator: "https://cujo.com/mlsec-2021-anti-phishing/ (as printed; not checked)"
+  - title: "[86] Kaspersky, MLSEC 2021 anti-phishing 1st place solution description"
+    locator: "https://gist.github.com/KLBot/eaff9a1df3402da709a38cfc83680f0e (as printed; not checked)"
+  - title: "[87] Reeves, MLSEC 2021 anti-phishing 3rd place solution description"
+    locator: "https://github.com/reevesrs24/mlsec2021 (as printed; not checked)"
+  - title: "[89] Nasr, Bahramali and Houmansadr, Defeating DNN-Based Traffic Analysis Systems in Real-Time With Blind Adversarial Perturbations (screened 2026-11-03; not created)"
+    locator: "https://www.usenix.org/conference/usenixsecurity21/presentation/nasr"
+  - chen-2021-real-bob    # [91]; reference-expansion stub (tmodel#81)
+  - zheng-2021-commercial-speech-platforms    # [92]; reference-expansion stub (tmodel#81)
+  - title: "[95] Bagdasaryan and Shmatikov, Blind backdoors in deep learning models (RPT-0014 S-0110)"
+    locator: "USENIX Security 2021"
+  - title: "[107] Jagielski et al., High accuracy and high fidelity extraction of neural networks (RPT-0014 S-0089)"
+    locator: "USENIX Security 2020"
+  - title: "[110] Hong et al., Terminal brain damage (RPT-0014 S-0062)"
+    locator: "USENIX Security 2019"
+  - title: "[111] Batina et al., CSI NN (RPT-0014 S-0054)"
+    locator: "USENIX Security 2019"
+  - title: "[112] Rakin et al., Deep-Dup: An Adversarial Weight Duplication Attack Framework to Crush Deep Neural Network in Multi-Tenant FPGA (screened 2026-11-03; not created)"
+    locator: "https://www.usenix.org/conference/usenixsecurity21/presentation/rakin; arXiv:2011.03006"
+  - title: "[132] Ling et al., DEEPSEC: A Uniform Platform for Security Analysis of Deep Learning Model (screened 2026-11-03; not created)"
+    locator: "doi:10.1109/SP.2019.00023"
+  - title: "[133] Carlini, A critique of the DeepSec Platform for Security Analysis of Deep Learning Models (screened 2026-11-03; not created)"
+    locator: "arXiv:1905.07112"
+  - title: "[134] Pintor et al., Indicators of Attack Failure: Debugging and Improving Optimization of Adversarial Examples (screened 2026-11-03; not created)"
+    locator: "doi:10.52202/068431-1676"
+  - title: "[139] Quiring et al., Against All Odds: Winning the Defense Challenge in an Evasion Competition with Diversification (screened 2026-11-03; not created)"
+    locator: "arXiv:2010.09569"
+  - ceschin-2020-mlsec-xor-evasion    # [140]; reference-expansion stub (tmodel#81)
+  - title: "[150] Lovisotto et al., SLAP: Improving Physical Adversarial Examples with Short-Lived Adversarial Perturbations (screened 2026-11-03; not created)"
+    locator: "arXiv:2007.04137 (USENIX Security 2021)"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-011        # cost-driven threat modeling and human-effort cost bear on the risk metric (summary.md, Applicability)
+  - DEC-003
+  - R-020        # threat models must cover the deployed ML system, not only the model
+  - DEC-009      # the generic-threat-to-product half only
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "Practitioner case studies of real ML evasion plus a systematic review of 88 papers; argues for system-wide, cost-driven threat models. Primary in-the-wild evidence is a 100-sample judgement study, and the paper concedes it cannot prove the absence of gradient-based attacks."
+  assessed: "2026-11-02"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - method
+  - evasion
+  - ai-threat-model
+  - ai-incident
+status: summarized
+confidence: high
+owner: kriishnaa-18

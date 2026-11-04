@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [82] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against the USENIX paper page's citation metadata and the arXiv API.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: shan-2022-poison-forensics
+body: academic
+type: paper
+title: "Poison Forensics: Traceback of Data Poisoning Attacks in Neural Networks"
+authors:
+  - "Shawn Shan"
+  - "Arjun Nitin Bhagoji"
+  - "Haitao Zheng"
+  - "Ben Y. Zhao"
+date: "2022"
+publisher: "USENIX Association, 31st USENIX Security Symposium (USENIX Security 22), pp. 3575-3592 (proceedings ISBN 978-1-939133-31-1)"
+identifiers:
+  arxiv: "2110.06904"
+  url: https://www.usenix.org/conference/usenixsecurity22/presentation/shan
+content:
+  url: https://www.usenix.org/system/files/sec22-shan.pdf
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "USENIX Security 2022"
+media_type: "application/pdf"
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

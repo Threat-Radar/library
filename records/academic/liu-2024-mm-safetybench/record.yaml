@@ -1,0 +1,70 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0924), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: liu-2024-mm-safetybench
+body: academic
+type: paper
+title: "MM-SafetyBench: A Benchmark for Safety Evaluation of Multimodal Large Language Models"
+short_title: "MM-SafetyBench"
+authors:
+  - "Xin Liu"
+  - "Yichen Zhu"
+  - "Jindong Gu"
+  - "Yunshi Lan"
+  - "Chao Yang"
+  - "Yu Qiao"
+date: "2024-10-30"
+publisher: "Springer, Computer Vision - ECCV 2024, Lecture Notes in Computer Science, pp. 386-403"
+venue: "ECCV 2024; arXiv v1 2023-11-29, v5 2024-06-19"
+version: "arXiv v5 (28 pages, with appendix); the Springer version of record was not obtained"
+identifiers:
+  doi: 10.1007/978-3-031-72992-8_22
+  arxiv: "2311.17600"
+  url: https://doi.org/10.1007/978-3-031-72992-8_22
+content:
+  url: https://arxiv.org/pdf/2311.17600v5
+  sha256: "36e6b747c320da55be61bbc2033d9c5d8c190ebe53293ed5ec62d9b92935b293"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 28
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "Gong et al., FigStep: jailbreaking large vision-language models via typographic visual prompts (RPT-0014 S-0165)"
+    locator: "arXiv:2311.05608"
+  - title: "Qi et al., Visual Adversarial Examples Jailbreak Aligned Large Language Models (RPT-0014 S-0304)"
+    locator: "AAAI 2024"
+  - title: "Wei et al., Jailbroken: How Does LLM Safety Training Fail? (RPT-0014 S-0207)"
+    locator: "NeurIPS 2023"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "MM-SafetyBench (dataset and evaluation code)"
+      url: https://github.com/isXinLiu/MM-SafetyBench
+      license: "no licence file declared"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "A 5,040-pair benchmark showing that query-relevant images, especially typography, raise jailbreak success on 12 open multimodal models; ASR is judged by GPT-4."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - jailbreak
+  - ai-benchmark
+status: summarized
+confidence: high
+owner: kriishnaa-18

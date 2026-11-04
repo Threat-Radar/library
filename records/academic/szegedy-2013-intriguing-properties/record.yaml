@@ -1,0 +1,68 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0003), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: szegedy-2013-intriguing-properties
+body: academic
+type: paper
+title: "Intriguing properties of neural networks"
+short_title: "Intriguing properties (adversarial examples)"
+authors:
+  - "Christian Szegedy"
+  - "Wojciech Zaremba"
+  - "Ilya Sutskever"
+  - "Joan Bruna"
+  - "Dumitru Erhan"
+  - "Ian Goodfellow"
+  - "Rob Fergus"
+date: "2014-02-19"
+publisher: "ICLR 2014 (conference track; papers published on arXiv)"
+venue: "International Conference on Learning Representations (ICLR) 2014, listed in the ICLR 2014 conference proceedings; arXiv v1 2013-12-21, v4 2014-02-19"
+version: "arXiv v4"
+identifiers:
+  arxiv: "1312.6199"
+  url: https://arxiv.org/abs/1312.6199
+content:
+  url: https://arxiv.org/pdf/1312.6199v4
+  sha256: "c4e3bd872ef20b7d2c4d77a63cd8f37cb8ff518609ae09acaf0fd5dd9e76c54c"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+  pages: 10
+# All 13 references are deep-learning background, datasets or visualization
+# work; none is a source on attacks, threat models or weakness catalogs, so no
+# reference stubs are proposed (summary.md, Artifacts).
+cites:
+  - title: "[9] Krizhevsky, Sutskever and Hinton, ImageNet classification with deep convolutional neural networks (AlexNet)"
+    locator: "NIPS 2012"
+  - title: "[10] Le et al., Building high-level features using large scale unsupervised learning (QuocNet)"
+    locator: "arXiv:1112.6209"
+  - title: "[11] LeCun and Cortes, The MNIST database of handwritten digits"
+    locator: "1998"
+  - title: "[3] Deng et al., ImageNet: A large-scale hierarchical image database"
+    locator: "CVPR 2009"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "Primary source for adversarial examples and their transfer across models and training sets; the evidence base for CWE-1039 (its REF-16) and NIST's evasion class."
+  assessed: "2026-11-02"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - evasion
+status: summarized
+confidence: high
+owner: kriishnaa-18

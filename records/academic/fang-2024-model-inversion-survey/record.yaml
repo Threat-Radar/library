@@ -1,0 +1,79 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0692), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: fang-2024-model-inversion-survey
+body: academic
+type: paper
+title: "Privacy Leakage on DNNs: A Survey of Model Inversion Attacks and Defenses"
+short_title: "Model inversion survey"
+authors:
+  - "Hao Fang"
+  - "Yixiang Qiu"
+  - "Hongyao Yu"
+  - "Wenbo Yu"
+  - "Jiawei Kong"
+  - "Baoli Chong"
+  - "Bin Chen"
+  - "Xuan Wang"
+  - "Shu-Tao Xia"
+  - "Ke Xu"
+date: "2026-10"
+publisher: "Springer, International Journal of Computer Vision 134(10)"
+venue: "International Journal of Computer Vision (IJCV), vol. 134, no. 10, 2026; arXiv v1 2024-02-06, v3 2026-09-18"
+version: "arXiv v3 (accepted version, 39 pages); the Springer version of record was not obtained"
+identifiers:
+  doi: 10.1007/s11263-026-03049-x
+  arxiv: "2402.04013"
+  url: https://doi.org/10.1007/s11263-026-03049-x
+content:
+  url: https://arxiv.org/pdf/2402.04013v3
+  sha256: "9974adc35d92877cf4835208cdced4accb48f427f6c32dc8d0893fd3d9b98cb9"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 39
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "[6] Fredrikson et al., Privacy in pharmacogenetics (RPT-0014 S-0004)"
+    locator: "USENIX Security 2014"
+  - title: "[14] Zhang et al., The Secret Revealer: generative model-inversion attacks (RPT-0014 S-0109)"
+    locator: "CVPR 2020"
+  - struppek-2022-plug-and-play-mi    # [15]; reference-expansion stub (tmodel#81)
+  - title: "[10] Wang et al., Variational Model Inversion Attacks (screened 2026-11-03; not created)"
+    locator: "arXiv:2201.10787 (NeurIPS 2021)"
+  - kahla-2022-brepmi    # [41]; reference-expansion stub (tmodel#81)
+  - title: "[60] Zhang et al., Extracting Prompts by Inverting LLM Outputs (RPT-0014 S-0351)"
+    locator: "EMNLP 2024"
+  - title: "Morris et al., Language Model Inversion (RPT-0014 S-0187)"
+    locator: "ICLR 2024"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "Model-Inversion-Attack-ToolBox (the toolbox the survey announces; repository of the first author)"
+      url: https://github.com/ffhibnese/Model-Inversion-Attack-ToolBox
+      license: "no licence file declared"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Broad, current taxonomy of model inversion attacks and defences across image, text and graph models, with white- and black-box settings; a survey, so secondary to the primary attack papers."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - model-inversion
+status: summarized
+confidence: high
+owner: kriishnaa-18

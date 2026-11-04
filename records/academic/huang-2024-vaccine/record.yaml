@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [100] of huang-2024-harmful-finetuning-survey (S-0695).
+# Bibliographic fields were checked on 2026-11-03 against the arXiv API.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: huang-2024-vaccine
+body: academic
+type: paper
+title: "Vaccine: Perturbation-aware Alignment for Large Language Models against Harmful Fine-tuning Attack"
+authors:
+  - "Tiansheng Huang"
+  - "Sihao Hu"
+  - "Ling Liu"
+date: "2024-02-02"
+publisher: "arXiv preprint"
+identifiers:
+  arxiv: "2402.01109"
+  url: https://arxiv.org/abs/2402.01109
+content:
+  url: https://arxiv.org/abs/2402.01109
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "NeurIPS 2024, per the arXiv comment (not independently checked)"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

@@ -1,0 +1,58 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 Wave 1 subset-1 (S-1025), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: google-photos-model-extraction-2025
+body: vendor
+type: article
+title: "Google Photos' AI Models: The Secret Sauce That Can Be Stolen"
+short_title: "Google Photos model extraction"
+authors:
+  - "Mathis Mauvisseau"
+  - "Victor Guyomard"
+date: "2025-03-31"
+publisher: "Skyld"
+venue: "Skyld blog; documented in MITRE ATLAS as case study AML.CS0058"
+version: "web page as served on 2026-11-03"
+identifiers:
+  url: https://skyld.io/google-photos-model-extraction
+  atlas: "AML.CS0058"
+content:
+  url: https://skyld.io/google-photos-model-extraction
+  sha256: "b0d63e6479e623184a565149b8a52c3f655ee9eff29ecefd24599fa59a53f95f"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: text/html
+# In-scope references central to the source. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "Paindavoine, Despres and Sabt, Your Mind is Mine: How to Automatically Steal DL Models From Android Apps"
+    locator: "as printed; locator not found"
+  - title: "MITRE ATLAS case study AML.CS0058, Google Photos AI Model Extraction (cites this post)"
+    locator: "ATLAS release 2026.09"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Primary account of extracting TensorFlow Lite models from the Google Photos Android app, including encrypted ones captured after runtime decryption; the source of ATLAS AML.CS0058. Written by a vendor that sells model protection."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - model-extraction
+status: summarized
+confidence: medium
+owner: kriishnaa-18

@@ -1,0 +1,81 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0695), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: huang-2024-harmful-finetuning-survey
+body: academic
+type: paper
+title: "Harmful Fine-tuning Attacks and Defenses for Large Language Models: A Survey"
+short_title: "Harmful fine-tuning survey"
+authors:
+  - "Tiansheng Huang"
+  - "Sihao Hu"
+  - "Fatih Ilhan"
+  - "Selim Furkan Tekin"
+  - "Ling Liu"
+date: "2026-06-23"
+publisher: "ACM, ACM Computing Surveys 58(13), pp. 1-39"
+venue: "ACM Computing Surveys (CSUR), vol. 58, no. 13, 2026; arXiv v1 2024-09-26, v6 2026-04-23 (the authors keep updating it)"
+version: "arXiv v6 (45 pages, page header still reads 'Manuscript submitted to ACM'); the ACM version of record was not obtained"
+identifiers:
+  doi: 10.1145/3817114
+  arxiv: "2409.18169"
+  url: https://doi.org/10.1145/3817114
+content:
+  url: https://arxiv.org/pdf/2409.18169v6
+  sha256: "c23302761c3d5d48a333a6edc887da01710d67315a171d84c8dfd143bb94e20c"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 45
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "[189] Qi et al., Fine-tuning Aligned Language Models Compromises Safety (RPT-0014 S-0303)"
+    locator: "ICLR 2024"
+  - title: "[256] Yang et al., Shadow Alignment (RPT-0014 S-0209)"
+    locator: "arXiv:2310.02949"
+  - title: "[128] Lermen et al., LoRA Fine-tuning Efficiently Undoes Safety Training (RPT-0014 S-0177)"
+    locator: "arXiv:2310.20624"
+  - title: "[263] Zhan et al., Removing RLHF Protections in GPT-4 via Fine-Tuning (RPT-0014 S-0215)"
+    locator: "NAACL 2024"
+  - title: "[217] Tamirisa et al., Tamper-Resistant Safeguards (RPT-0014 S-0471)"
+    locator: "ICLR 2025"
+  - huang-2024-vaccine    # [100]; reference-expansion stub (tmodel#81)
+  - rosati-2024-repnoise    # [196]; reference-expansion stub (tmodel#81)
+  - title: "[98] Huang et al., Booster: Tackling Harmful Fine-tuning via Attenuating Harmful Perturbation (screened 2026-11-03; not created)"
+    locator: "arXiv:2409.01586"
+  - title: "[85] Hsu et al., Safe LoRA (screened 2026-11-03; not created)"
+    locator: "arXiv:2405.16833 (NeurIPS 2024)"
+  - title: "[97] Huang et al., Lisa: Lazy Safety Alignment against Harmful Fine-tuning (screened 2026-11-03; not created)"
+    locator: "arXiv:2405.18641 (NeurIPS 2024)"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "awesome_LLM-harmful-fine-tuning-papers (the authors' maintained paper list)"
+      url: https://github.com/git-disl/awesome_LLM-harmful-fine-tuning-papers
+      license: "no licence file declared"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "The reference taxonomy for harmful fine-tuning attacks and the 100+ proposed defences, with an explicit fine-tuning-as-a-service threat model; a survey whose authors are also the authors of several surveyed defences."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - data-poisoning
+  - jailbreak
+status: summarized
+confidence: high
+owner: kriishnaa-18

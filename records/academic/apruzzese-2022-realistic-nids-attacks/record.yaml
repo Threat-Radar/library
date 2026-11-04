@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [42] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against Crossref.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: apruzzese-2022-realistic-nids-attacks
+body: academic
+type: paper
+title: "Modeling Realistic Adversarial Attacks against Network Intrusion Detection Systems"
+authors:
+  - "Giovanni Apruzzese"
+  - "Mauro Andreolini"
+  - "Luca Ferretti"
+  - "Mirco Marchetti"
+  - "Michele Colajanni"
+date: "2022-02-07"
+publisher: "Association for Computing Machinery (ACM), Digital Threats: Research and Practice, vol. 3, no. 3, pp. 1-19"
+identifiers:
+  doi: 10.1145/3469659
+  url: https://doi.org/10.1145/3469659
+content:
+  url: https://doi.org/10.1145/3469659
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "ACM Digital Threats: Research and Practice, vol. 3, no. 3"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

@@ -1,0 +1,46 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [9] of
+# sharif-2016-accessorize-to-a-crime (S-0012). The paper has no DOI. Bibliographic
+# fields were checked on 2026-11-02 against the EPFL Infoscience record and the
+# PDF's own title page and footer ("ICML 2015 Workshop on Deep Learning, Lille,
+# France"). The title matches S-0012's printed citation exactly. Not the same
+# work as arXiv:1502.02590 ("Analysis of classifiers' robustness to adversarial
+# perturbations"), the longer technical report it points to.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: fawzi-2015-fundamental-limits-adversarial-robustness
+body: academic
+type: paper
+title: "Fundamental limits on adversarial robustness"
+authors:
+  - "Alhussein Fawzi"
+  - "Omar Fawzi"
+  - "Pascal Frossard"
+date: "2015"
+publisher: "Proceedings of ICML 2015, Workshop on Deep Learning (Lille, France); copyright the authors"
+identifiers:
+  handle: "20.500.14299/122125"
+  url: https://infoscience.epfl.ch/handle/20.500.14299/122125
+content:
+  url: https://www.epfl.ch/labs/lts4/wp-content/uploads/2018/10/icml2015a.pdf
+  sha256: "47a198b8b6461fd9864707b790db84a3370f8d844bcad9b1e4d938dc5b44dba0"
+  retrieved: "2026-11-02"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "ICML 2015 Workshop on Deep Learning, Lille, France; listed in EPFL Infoscience as a conference paper"
+media_type: "application/pdf"
+pages: 7
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

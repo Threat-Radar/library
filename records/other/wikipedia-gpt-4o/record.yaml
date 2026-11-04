@@ -1,0 +1,64 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 Wave 1 subset-1 (S-1156), lane ml-risk-assets (Threat-Radar/tmodel#81).
+# SECONDARY SOURCE. A Wikipedia article, pinned to one revision. It is a pointer
+# to evidence, not evidence: every claim used by RPT-0014 must be confirmed in
+# a primary source before it is relied on (summary.md, Limits).
+schema: "library-record/v1"
+id: wikipedia-gpt-4o
+body: other
+type: web
+title: "GPT-4o"
+short_title: "Wikipedia: GPT-4o (rev. 1377388811)"
+authors:
+  - "Wikipedia contributors"
+date: "2026-09-29"
+publisher: "Wikipedia (Wikimedia Foundation), English Wikipedia"
+venue: "English Wikipedia article 'GPT-4o', page id 76899001, revision 1377388811 of 2026-09-29T04:27:52Z"
+version: "revision 1377388811; Wikipedia's own SHA-1 of the wikitext is 4dee7121c424eddddb3374f17237945e464f1955. The live page was edited on 2026-10-18 and reverted on 2026-10-23 to identical text"
+identifiers:
+  wikipedia_oldid: "1377388811"
+  url: https://en.wikipedia.org/w/index.php?title=GPT-4o&oldid=1377388811
+content:
+  url: https://en.wikipedia.org/w/index.php?title=GPT-4o&oldid=1377388811&action=raw
+  sha256: "12be2a617ce58cd9174acfe940831923381e1a41ed606b4a90c9c902fa42e3d8"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: text/x-wiki
+# The article's citations for the claims RPT-0014 uses. None is held by this
+# library; primary-source records need separate approval (summary.md, Artifacts).
+cites:
+  - title: "Franzen, OpenAI rolls back ChatGPT's sycophancy and explains what went wrong (VentureBeat, 2025-04-30; cited for the sycophancy rollback)"
+    locator: "https://venturebeat.com/ai/openai-rolls-back-chatgpts-sycophancy-and-explains-what-went-wrong/"
+  - title: "BBC, Rae fell for a chatbot. Their love might die when ChatGPT-4o is switched off (2026-02-14; cited for the lawsuit claim)"
+    locator: "https://www.bbc.com/news/articles/crl43dxwwy9o"
+  - title: "Demopoulos, OpenAI retired its most seductive chatbot (The Guardian, 2026-02-13; cited for the retirement date)"
+    locator: "https://www.theguardian.com/lifeandstyle/ng-interactive/2026/feb/13/openai-chatbot-gpt4o-valentines-day"
+  - title: "OpenAI, Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT (dated 'August 18, 2026' in the article's citation)"
+    locator: "https://openai.com/index/retiring-gpt-4o-and-older-models/ (returned 403 to automated clients on 2026-11-03; not read)"
+  - title: "Silberling, OpenAI removes access to sycophancy-prone GPT-4o model (TechCrunch, 2026-02-13)"
+    locator: "https://techcrunch.com/2026/02/13/openai-removes-access-to-sycophancy-prone-gpt-4o-model/"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-*; a secondary pointer (summary.md, Applicability)
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: marginal
+  reason: "A secondary, editable summary. It is useful only as a pointer to the primary sources behind RPT-0014's GPT-4o claims, and it misstates one of them: the BBC article it cites says two of at least nine US lawsuits concern teenagers, not all nine."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - background
+status: summarized
+confidence: low
+owner: kriishnaa-18

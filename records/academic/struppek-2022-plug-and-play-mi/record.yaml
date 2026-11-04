@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [15] of fang-2024-model-inversion-survey (S-0692).
+# Bibliographic fields were checked on 2026-11-03 against the arXiv API.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: struppek-2022-plug-and-play-mi
+body: academic
+type: paper
+title: "Plug & Play Attacks: Towards Robust and Flexible Model Inversion Attacks"
+authors:
+  - "Lukas Struppek"
+  - "Dominik Hintersdorf"
+  - "Antonio De Almeida Correia"
+  - "Antonia Adler"
+  - "Kristian Kersting"
+date: "2022-01-28"
+publisher: "arXiv preprint"
+identifiers:
+  arxiv: "2201.12179"
+  url: https://arxiv.org/abs/2201.12179
+content:
+  url: https://arxiv.org/abs/2201.12179
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "ICML 2022, per the arXiv comment (not independently checked)"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

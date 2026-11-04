@@ -1,0 +1,86 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0012), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: sharif-2016-accessorize-to-a-crime
+body: academic
+type: paper
+title: "Accessorize to a Crime: Real and Stealthy Attacks on State-of-the-Art Face Recognition"
+short_title: "Accessorize to a Crime"
+authors:
+  - "Mahmood Sharif"
+  - "Sruti Bhagavatula"
+  - "Lujo Bauer"
+  - "Michael K. Reiter"
+date: "2016-10-24"
+publisher: "ACM, Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (CCS '16), pp. 1528-1540"
+venue: "ACM CCS 2016, Vienna, Austria, 24-28 October 2016"
+version: "author-hosted copy linked from co-author Lujo Bauer's CMU page; carries the ACM permission block and DOI; the ACM DL PDF returned HTTP 403 on 2026-11-02"
+identifiers:
+  doi: 10.1145/2976749.2978392
+  isbn: "978-1-4503-4139-4"
+  url: https://doi.org/10.1145/2976749.2978392
+content:
+  url: https://users.ece.cmu.edu/~lbauer/papers/2016/ccs2016-face-recognition.pdf
+  sha256: "e70d28a1fb80015315845de20a551896db6a4a2cb2b0d84994f0e7b6c664750b"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+  pages: 13
+# In-scope subset of the 46 references, plus the three systems attacked.
+# Bracketed numbers are the source's own. Plain ids are records this library
+# holds: S-0003, and the ten reference-expansion stubs created under
+# tmodel#81 (summary.md, Artifacts). Title/locator entries have no record.
+cites:
+  - szegedy-2013-intriguing-properties          # [39]
+  - erdogmus-2013-3d-mask-spoofing              # [7]
+  - fawzi-2015-fundamental-limits-adversarial-robustness  # [9]
+  - feng-2013-fashion-camouflage                # [10]
+  - galbally-2010-hill-climbing-face            # [12]
+  - li-2014-osn-facial-disclosure               # [22]
+  - liang-2016-cracking-classifiers-evasion     # [23]
+  - papernot-2016-defensive-distillation        # [32]
+  - srndic-2014-practical-evasion               # [35]
+  - wittel-2004-attacking-statistical-spam-filters  # [43]
+  - yamada-2013-privacy-visor                   # [44]
+  - title: "[5] Carlini et al., Hidden voice commands (RPT-0014 S-0008)"
+    locator: "USENIX Security 2016"
+  - title: "[11] Fredrikson, Jha and Ristenpart, Model inversion attacks that exploit confidence information and basic countermeasures (RPT-0014 S-0005)"
+    locator: "ACM CCS 2015"
+  - title: "[13] Goodfellow, Shlens and Szegedy, Explaining and harnessing adversarial examples (RPT-0014 S-0006)"
+    locator: "ICLR 2015"
+  - title: "[14] Harvey, CV Dazzle: Camouflage from face detection (master's thesis, NYU)"
+    locator: "http://cvdazzle.com (as printed; now redirects to https://adam.harvey.studio/cvdazzle, a project page; the thesis itself was not located)"
+  - title: "[25] Megvii, Face++ (commercial face recognition attacked in Sec. 6)"
+    locator: "http://www.faceplusplus.com/ (as printed)"
+  - title: "[31] Papernot et al., The limitations of deep learning in adversarial settings (RPT-0014 S-0010; printed as Euro S&P 2015)"
+    locator: "doi:10.1109/EuroSP.2016.36"
+  - title: "[33] Parkhi, Vedaldi and Zisserman, Deep face recognition (VGG-Face, the attacked DNN_A)"
+    locator: "BMVC 2015"
+  - title: "[42] Viola and Jones, Rapid object detection using a boosted cascade of simple features (the attacked face detector)"
+    locator: "CVPR 2001"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "Primary demonstration of physically realizable, inconspicuous evasion and impersonation of face recognition (white-box, plus a black-box commercial API); small, controlled subject set."
+  assessed: "2026-11-02"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - evasion
+status: summarized
+confidence: high
+owner: kriishnaa-18

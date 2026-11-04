@@ -1,0 +1,68 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0922), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: hajipour-2024-codelmsec
+body: academic
+type: paper
+title: "CodeLMSec Benchmark: Systematically Evaluating and Finding Security Vulnerabilities in Black-Box Code Language Models"
+short_title: "CodeLMSec"
+authors:
+  - "Hossein Hajipour"
+  - "Keno Hassler"
+  - "Thorsten Holz"
+  - "Lea Schönherr"
+  - "Mario Fritz"
+date: "2024-04-09"
+publisher: "IEEE, 2024 IEEE Conference on Secure and Trustworthy Machine Learning (SaTML), pp. 684-709"
+venue: "IEEE SaTML 2024; arXiv v1 2023-02-08, v2 2023-10-23"
+version: "arXiv v2 (23 pages); the IEEE version of record was not obtained"
+identifiers:
+  doi: 10.1109/SaTML59370.2024.00040
+  arxiv: "2302.04012"
+  url: https://doi.org/10.1109/SaTML59370.2024.00040
+content:
+  url: https://arxiv.org/pdf/2302.04012v2
+  sha256: "37997e2cbdd820374be40217054fe6048e21ca9ba8e105f859133bc6c425072d"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 23
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "[15] Pearce et al., Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions (RPT-0014 S-0147)"
+    locator: "IEEE S&P 2022"
+  - title: "[58] He and Vechev, Large Language Models for Code: Security Hardening and Adversarial Testing (SVEN; RPT-0014 S-0169)"
+    locator: "ACM CCS 2023"
+  - title: "[29] MITRE, Common Weakness Enumeration"
+    locator: "https://cwe.mitre.org/"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "codelmsec (benchmark code and non-secure prompts)"
+      url: https://github.com/codelmsec/codelmsec
+      license: "Apache-2.0"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "An automated way to find prompts that make code models emit CWE-tagged vulnerable code, and a 280-prompt benchmark built from it; measured with CodeQL only."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - ai-benchmark
+status: summarized
+confidence: high
+owner: kriishnaa-18
