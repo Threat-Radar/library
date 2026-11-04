@@ -1,0 +1,56 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-1027), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: gtig-adversarial-misuse-2025
+body: google
+type: paper
+title: "Adversarial Misuse of Generative AI"
+short_title: "GTIG: adversarial misuse of Gemini"
+authors:
+  - "Google Threat Intelligence Group"
+date: "2025-01-29"
+publisher: "Google Threat Intelligence Group (GTIG), Google Cloud"
+venue: "GTIG report (PDF, dated January 2025) with a companion Google Cloud blog post of 2025-01-29"
+version: "PDF report, 32 pages; the blog post (the RPT-0014 URL) summarizes it"
+identifiers:
+  url: https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai
+content:
+  url: https://services.google.com/fh/files/misc/adversarial-misuse-generative-ai.pdf
+  sha256: "6eaf9782e628ed2c444153f4a25d76ab4ae1235127ca2c1d97418e1f6dfc44eb"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 32
+# In-scope references central to the source. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "Google, Secure AI Framework (SAIF) risk taxonomy (referenced as the frame for AI-focused threats)"
+    locator: "https://saif.google/ (as referenced; not checked)"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "In-the-wild evidence from Google's own telemetry of how government-backed APT and IO actors used Gemini: productivity uplift, failed low-effort jailbreaks, no novel capability. Written by the model's vendor about its own product."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - ai-enabled-offense
+  - ai-incident
+status: summarized
+confidence: high
+owner: kriishnaa-18

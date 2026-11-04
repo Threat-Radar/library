@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [66] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against the arXiv API.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: gilmer-2018-rules-of-the-game
+body: academic
+type: paper
+title: "Motivating the Rules of the Game for Adversarial Example Research"
+authors:
+  - "Justin Gilmer"
+  - "Ryan P. Adams"
+  - "Ian Goodfellow"
+  - "David Andersen"
+  - "George E. Dahl"
+date: "2018-07-18"
+publisher: "arXiv preprint"
+identifiers:
+  arxiv: "1807.06732"
+  url: https://arxiv.org/abs/1807.06732
+content:
+  url: https://arxiv.org/abs/1807.06732
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "arXiv preprint (no peer-reviewed venue found)"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

@@ -1,0 +1,75 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0696), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: meeus-2024-sok-mia-llms
+body: academic
+type: paper
+title: "SoK: Membership Inference Attacks on LLMs are Rushing Nowhere (and How to Fix It)"
+short_title: "SoK: MIAs on LLMs"
+authors:
+  - "Matthieu Meeus"
+  - "Igor Shilov"
+  - "Shubham Jain"
+  - "Manuel Faysse"
+  - "Marek Rei"
+  - "Yves-Alexandre de Montjoye"
+date: "2025-04-09"
+publisher: "IEEE, 2025 IEEE Conference on Secure and Trustworthy Machine Learning (SaTML), pp. 385-401"
+venue: "IEEE SaTML 2025; arXiv v1 2024-06-25, v3 2025-03-07"
+version: "arXiv v3 (accepted version, 17 pages); the IEEE version of record was not obtained"
+identifiers:
+  doi: 10.1109/SaTML64287.2025.00028
+  arxiv: "2406.17975"
+  url: https://doi.org/10.1109/SaTML64287.2025.00028
+content:
+  url: https://arxiv.org/pdf/2406.17975v3
+  sha256: "8eca6bdda481842f9cf75668e2fa7ed9bde3109759cdea80d16cf92d3ed9f2b6"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 17
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "[85] Shi et al., Detecting Pretraining Data from Large Language Models (Min-K%, WikiMIA; RPT-0014 S-0317)"
+    locator: "ICLR 2024"
+  - title: "[27] Duan et al., Do Membership Inference Attacks Work on Large Language Models? (MIMIR; RPT-0014 S-0251)"
+    locator: "arXiv:2402.07841"
+  - title: "[21] Das et al., Blind Baselines Beat Membership Inference Attacks for Foundation Models (RPT-0014 S-0387)"
+    locator: "arXiv:2406.16201"
+  - title: "[65] Maini et al., LLM Dataset Inference (RPT-0014 S-0293)"
+    locator: "NeurIPS 2024"
+  - title: "[11] Carlini et al., Membership Inference Attacks From First Principles (RPT-0014 S-0139)"
+    locator: "IEEE S&P 2022"
+  - meeus-2024-copyright-traps    # [69]; reference-expansion stub (tmodel#81)
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "mia_llms_benchmark (the authors' code and data)"
+      url: https://github.com/imperial-aisp/mia_llms_benchmark
+      license: "no licence file declared"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Shows that most reported membership-inference successes against LLMs are artefacts of distribution shift between post-hoc member and non-member sets; an evidence-quality filter for privacy-attack claims."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - membership-inference
+  - method
+status: summarized
+confidence: high
+owner: kriishnaa-18

@@ -1,0 +1,58 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 Wave 1 subset-1 (S-1154), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: ftc-2025-companion-chatbots-6b
+body: regulator
+type: article
+title: "FTC Launches Inquiry into AI Chatbots Acting as Companions"
+short_title: "FTC 6(b) inquiry: companion chatbots"
+authors:
+  - "U.S. Federal Trade Commission, Office of Public Affairs"
+date: "2025-09-11"
+publisher: "U.S. Federal Trade Commission"
+venue: "FTC press release"
+version: "Wayback Machine capture of 2025-09-12 06:51:07 UTC; ftc.gov returns 403/404 to automated clients"
+identifiers:
+  url: https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions
+content:
+  url: https://web.archive.org/web/20250912065107/https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions
+  sha256: "10cef210a9af6a401aeedae31a5dd5857b24ebdf765d25690e9e1803559e9107"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: text/html
+# In-scope references central to the source. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - ftc-2025-companion-chatbots-6b-orders    # 6(b) orders; reference-expansion stub (tmodel#81)
+  - title: "Statement of Commissioner Melissa Holyoak regarding issuance of the 6(b) orders"
+    locator: "https://www.ftc.gov/legal-library/browse/cases-proceedings/public-statements/statement-commissioner-melissa-holyoak-regarding-issuance-section-6b-orders-companies-offer"
+  - title: "Statement of Commissioner Mark R. Meador regarding the 6(b) resolution"
+    locator: "https://www.ftc.gov/legal-library/browse/cases-proceedings/public-statements/statement-commissioner-mark-r-meador-regarding-section-6b-resolution-relating-generative-ai"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Primary record that the FTC opened a 6(b) study of seven companion-chatbot providers on harms to children and teens, data use and safeguards; it announces questions, not findings."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - regulation
+  - ai-governance
+status: summarized
+confidence: high
+owner: kriishnaa-18

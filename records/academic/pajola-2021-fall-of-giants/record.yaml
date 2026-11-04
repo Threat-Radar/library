@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [32] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against Crossref.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: pajola-2021-fall-of-giants
+body: academic
+type: paper
+title: "Fall of Giants: How popular text-based MLaaS fall against a simple evasion attack"
+authors:
+  - "Luca Pajola"
+  - "Mauro Conti"
+date: "2021-09"
+publisher: "IEEE, 2021 IEEE European Symposium on Security and Privacy (EuroS&P), pp. 198-211"
+identifiers:
+  doi: 10.1109/EuroSP51992.2021.00023
+  url: https://doi.org/10.1109/EuroSP51992.2021.00023
+content:
+  url: https://doi.org/10.1109/EuroSP51992.2021.00023
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "IEEE EuroS&P 2021"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

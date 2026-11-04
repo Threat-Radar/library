@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [43] of
+# sharif-2016-accessorize-to-a-crime (S-0012). The paper has no DOI. Identity
+# checked on 2026-11-02: the CEAS 2004 accepted-papers page (Wayback capture
+# 2004-08-03) lists it under these authors. content.url is the Wayback capture
+# of the conference-hosted PDF from 2004-12-21. The live ceas.cc copy is
+# byte-identical, but the ceas.cc site has since been repurposed, so the live
+# URL is kept only as an identifier.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: wittel-2004-attacking-statistical-spam-filters
+body: academic
+type: paper
+title: "On Attacking Statistical Spam Filters"
+authors:
+  - "Gregory L. Wittel"
+  - "S. Felix Wu"
+date: "2004-07"
+publisher: "First Conference on Email and Anti-Spam (CEAS 2004), Mountain View, California, 30-31 July 2004"
+identifiers:
+  url: https://www.ceas.cc/papers-2004/170.pdf
+content:
+  url: https://web.archive.org/web/20041221141549/http://www.ceas.cc:80/papers-2004/170.pdf
+  sha256: "4f53e5dcd0b0d29638b68c4c657abf81528d3e2dbd104630d59fec22f7fa312b"
+  retrieved: "2026-11-02"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "CEAS 2004"
+media_type: "application/pdf"
+pages: 7
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

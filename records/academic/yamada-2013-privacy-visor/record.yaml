@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [44] of
+# sharif-2016-accessorize-to-a-crime (S-0012). Bibliographic fields were checked
+# against Crossref on 2026-11-02. Not read: summary.md is the unwritten
+# scaffold, and filling it is deferred; tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: yamada-2013-privacy-visor
+body: academic
+type: paper
+title: "Privacy Visor: Method Based on Light Absorbing and Reflecting Properties for Preventing Face Image Detection"
+authors:
+  - "Takayuki Yamada"
+  - "Seiichi Gohshi"
+  - "Isao Echizen"
+date: "2013-10"
+publisher: "IEEE, 2013 IEEE International Conference on Systems, Man, and Cybernetics (SMC 2013), pp. 1572-1577"
+identifiers:
+  doi: 10.1109/SMC.2013.271
+  url: https://doi.org/10.1109/SMC.2013.271
+content:
+  url: https://doi.org/10.1109/SMC.2013.271
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "IEEE SMC 2013"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

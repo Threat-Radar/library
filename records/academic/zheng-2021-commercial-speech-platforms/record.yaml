@@ -1,0 +1,46 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [92] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against Crossref.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: zheng-2021-commercial-speech-platforms
+body: academic
+type: paper
+title: "Black-box Adversarial Attacks on Commercial Speech Platforms with Minimal Information"
+authors:
+  - "Baolin Zheng"
+  - "Peipei Jiang"
+  - "Qian Wang"
+  - "Qi Li"
+  - "Chao Shen"
+  - "Cong Wang"
+  - "Yunjie Ge"
+  - "Qingyang Teng"
+  - "Shenyi Zhang"
+date: "2021-11-12"
+publisher: "ACM, Proceedings of the 2021 ACM SIGSAC Conference on Computer and Communications Security, pp. 86-107"
+identifiers:
+  doi: 10.1145/3460120.3485383
+  url: https://doi.org/10.1145/3460120.3485383
+content:
+  url: https://doi.org/10.1145/3460120.3485383
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "ACM CCS 2021"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

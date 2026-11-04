@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [35] of lukas-2022-sok-watermark-robustness (S-0684).
+# Bibliographic fields were checked on 2026-11-03 against Crossref and the arXiv API.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+# Note: RPT-0014 sources.md mentions this work only inside S-0030's summary, not as its own source.
+schema: "library-record/v1"
+id: aiken-2021-neural-network-laundering
+body: academic
+type: paper
+title: "Neural network laundering: Removing black-box backdoor watermarks from deep neural networks"
+authors:
+  - "William Aiken"
+  - "Hyoungshick Kim"
+  - "Simon Woo"
+  - "Jungwoo Ryoo"
+date: "2021-07"
+publisher: "Elsevier, Computers & Security, vol. 106, article 102277"
+identifiers:
+  doi: 10.1016/j.cose.2021.102277
+  arxiv: "2004.11368"
+  url: https://doi.org/10.1016/j.cose.2021.102277
+content:
+  url: https://doi.org/10.1016/j.cose.2021.102277
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "Computers & Security (journal), 2021; arXiv preprint 2020-04-22"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

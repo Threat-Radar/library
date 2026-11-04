@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [22] of
+# sharif-2016-accessorize-to-a-crime (S-0012). Bibliographic fields were checked
+# against Crossref on 2026-11-02. Not read: summary.md is the unwritten
+# scaffold, and filling it is deferred; tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: li-2014-osn-facial-disclosure
+body: academic
+type: paper
+title: "Understanding OSN-based facial disclosure against face authentication systems"
+authors:
+  - "Yan Li"
+  - "Ke Xu"
+  - "Qiang Yan"
+  - "Yingjiu Li"
+  - "Robert H. Deng"
+date: "2014-06-04"
+publisher: "ACM, Proceedings of the 9th ACM Symposium on Information, Computer and Communications Security (ASIA CCS '14), pp. 413-424"
+identifiers:
+  doi: 10.1145/2590296.2590315
+  url: https://doi.org/10.1145/2590296.2590315
+content:
+  url: https://doi.org/10.1145/2590296.2590315
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "ACM ASIA CCS 2014"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

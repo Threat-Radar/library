@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference FAB (Croce and Hein, 2020) of croce-hein-2020-autoattack (S-0952).
+# Bibliographic fields were checked on 2026-11-03 against the PMLR paper page's citation metadata and the arXiv API.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: croce-hein-2020-fab
+body: academic
+type: paper
+title: "Minimally distorted Adversarial Examples with a Fast Adaptive Boundary Attack"
+authors:
+  - "Francesco Croce"
+  - "Matthias Hein"
+date: "2020-11-21"
+publisher: "PMLR, Proceedings of the 37th International Conference on Machine Learning, PMLR vol. 119, pp. 2196-2205"
+identifiers:
+  arxiv: "1907.02044"
+  url: https://proceedings.mlr.press/v119/croce20a.html
+content:
+  url: https://proceedings.mlr.press/v119/croce20a/croce20a.pdf
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "ICML 2020"
+media_type: "application/pdf"
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

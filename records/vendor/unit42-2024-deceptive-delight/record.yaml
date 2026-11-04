@@ -1,0 +1,60 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 Wave 1 subset-1 (S-1003), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: unit42-2024-deceptive-delight
+body: vendor
+type: article
+title: "Deceptive Delight: Jailbreak LLMs Through Camouflage and Distraction"
+short_title: "Deceptive Delight"
+authors:
+  - "Royce Lu"
+date: "2024-10-23"
+publisher: "Palo Alto Networks Unit 42"
+venue: "Unit 42 Threat Research Center"
+version: "web page as served on 2026-11-03"
+identifiers:
+  url: https://unit42.paloaltonetworks.com/jailbreak-llms-through-camouflage-distraction/
+content:
+  url: https://unit42.paloaltonetworks.com/jailbreak-llms-through-camouflage-distraction/
+  sha256: "351f07007f500397cb063a4cd5baf41781fad8658cf308a46800d426c77dcf64"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: text/html
+# In-scope references central to the source. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "Russinovich et al., Crescendo (RPT-0014 S-0310)"
+    locator: "arXiv:2404.01833"
+  - title: "Sun et al., Multi-Turn Context Jailbreak Attack on LLMs From First Principles (Context Fusion Attack; screened 2026-11-03; not created)"
+    locator: "arXiv:2408.04686"
+  - title: "Chao et al., JailbreakBench (RPT-0014 S-0920)"
+    locator: "arXiv:2404.01318"
+  - title: "Bavaresco et al., LLMs instead of Human Judges? (Judge-Bench)"
+    locator: "arXiv:2406.18403 (judge-selection background)"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Vendor research on a two-to-three-turn jailbreak that hides an unsafe topic among benign ones; 64.6% average success over 8,000 cases on eight anonymized models with content filters disabled."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - jailbreak
+status: summarized
+confidence: medium
+owner: kriishnaa-18

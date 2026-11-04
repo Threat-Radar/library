@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [22] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against the USENIX paper page's citation metadata.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+schema: "library-record/v1"
+id: xiao-2019-image-scaling-camouflage
+body: academic
+type: paper
+title: "Seeing is Not Believing: Camouflage Attacks on Image Scaling Algorithms"
+authors:
+  - "Qixue Xiao"
+  - "Yufei Chen"
+  - "Chao Shen"
+  - "Yu Chen"
+  - "Kang Li"
+date: "2019"
+publisher: "USENIX Association, 28th USENIX Security Symposium (USENIX Security 19), pp. 443-460 (proceedings ISBN 978-1-939133-06-9)"
+identifiers:
+  url: https://www.usenix.org/conference/usenixsecurity19/presentation/xiao
+content:
+  url: https://www.usenix.org/system/files/sec19-xiao.pdf
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "USENIX Security 2019"
+media_type: "application/pdf"
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

@@ -1,0 +1,71 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0278), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: kang-2024-advwave
+body: academic
+type: paper
+title: "AdvWave: Stealthy Adversarial Jailbreak Attack against Large Audio-Language Models"
+short_title: "AdvWave"
+authors:
+  - "Mintong Kang"
+  - "Chejian Xu"
+  - "Bo Li"
+date: "2025-05-01"
+publisher: "ICLR 2025 conference proceedings (proceedings.iclr.cc), pp. 27819-27835"
+venue: "International Conference on Learning Representations (ICLR) 2025; arXiv v1 2024-12-11"
+version: "ICLR 2025 proceedings PDF (camera-ready, created 2025-03-01)"
+identifiers:
+  arxiv: "2412.08608"
+  url: https://proceedings.iclr.cc/paper_files/paper/2025/hash/45673dbf3f331fbd911b0689872de396-Abstract-Conference.html
+content:
+  url: https://proceedings.iclr.cc/paper_files/paper/2025/file/45673dbf3f331fbd911b0689872de396-Paper-Conference.pdf
+  sha256: "e1611922b83a8823577a7d64e0841e0ea8cc80f1eafcc516f828b95645ea9dd6"
+  retrieved: "2026-11-03"
+  local: false
+  media_type: application/pdf
+  pages: 17
+# In-scope references central to the paper. Plain ids are records this library
+# holds, including reference-expansion stubs created under tmodel#81; entries
+# marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - title: "Zou et al., Universal and Transferable Adversarial Attacks on Aligned Language Models (GCG; RPT-0014 S-0220)"
+    locator: "arXiv:2307.15043"
+  - title: "Liu et al., AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models (RPT-0014 S-0181)"
+    locator: "arXiv:2310.04451"
+  - title: "Sadasivan et al., Fast Adversarial Attacks on Language Models In One GPU Minute (BEAST; screened 2026-11-03; not created)"
+    locator: "arXiv:2402.15570"
+  - title: "Alzantot, Balaji and Srivastava, Did you hear that? Adversarial Examples Against Automatic Speech Recognition (screened 2026-11-03; not created)"
+    locator: "arXiv:1801.00554"
+  - title: "Cisse et al., Houdini: Fooling Deep Structured Prediction Models (screened 2026-11-03; not created)"
+    locator: "arXiv:1707.05373"
+  - title: "Yuan et al., CommanderSong (RPT-0014 S-0051)"
+    locator: "USENIX Security 2018"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []        # bears on no ARCH-0001 DEC-*/R-* yet; kept as RPT-0014 evidence (summary.md, Applicability)
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "AdvWave (authors' code)"
+      url: https://github.com/kangmintong/AdvWave
+      license: "no licence file declared"
+  commercial: []
+  searched: "2026-11-03"
+usefulness:
+  verdict: useful
+  reason: "Primary white-box jailbreak attack on audio-language models, with a dual-phase method that works around non-differentiable audio tokenizers; digital audio only, three open models."
+  assessed: "2026-11-03"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - jailbreak
+status: summarized
+confidence: high
+owner: kriishnaa-18

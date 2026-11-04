@@ -1,0 +1,47 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Reference-expansion stub, RPT-0014 Wave 1 subset-1, lane ml-risk-assets
+# (Threat-Radar/tmodel#81). Created from reference [91] of apruzzese-2023-real-attackers (S-0685).
+# Bibliographic fields were checked on 2026-11-03 against Crossref.
+# Not read: summary.md is the unwritten scaffold, and filling it is deferred;
+# tmodel#81 owns that pass.
+# Note: Crossref lists the second author as "Sen Chenb"; the arXiv record (1911.01840)
+# gives "Sen Chen", used here. S-0685 prints the same "Chenb" typo.
+schema: "library-record/v1"
+id: chen-2021-real-bob
+body: academic
+type: paper
+title: "Who is Real Bob? Adversarial Attacks on Speaker Recognition Systems"
+authors:
+  - "Guangke Chen"
+  - "Sen Chen"
+  - "Lingling Fan"
+  - "Xiaoning Du"
+  - "Zhe Zhao"
+  - "Fu Song"
+  - "Yang Liu"
+date: "2021-05"
+publisher: "IEEE, 2021 IEEE Symposium on Security and Privacy (SP), pp. 694-711"
+identifiers:
+  doi: 10.1109/SP40001.2021.00004
+  arxiv: "1911.01840"
+  url: https://doi.org/10.1109/SP40001.2021.00004
+content:
+  url: https://doi.org/10.1109/SP40001.2021.00004
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  []
+topic: ai-threat-model-ml-risk-assets
+venue: "IEEE S&P 2021"
+media_type: ""
+tags: []
+status: stub
+confidence: low
+owner: kriishnaa-18

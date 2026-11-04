@@ -1,0 +1,108 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 Wave 1 subset-1 (S-0952), lane ml-risk-assets (Threat-Radar/tmodel#81).
+schema: "library-record/v1"
+id: croce-hein-2020-autoattack
+body: academic
+type: paper
+title: "Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks"
+short_title: "AutoAttack"
+authors:
+  - "Francesco Croce"
+  - "Matthias Hein"
+date: "2020-11-21"
+publisher: "PMLR, Proceedings of the 37th International Conference on Machine Learning (ICML 2020), PMLR vol. 119, pp. 2206-2216"
+venue: "ICML 2020, held virtually 13-18 July 2020; PMLR vol. 119 published 2020-11-21; arXiv v1 2020-03-03, v2 2020-08-04"
+version: "PMLR version of record (main paper, 11 pages); the PMLR supplementary PDF (20 pages, sha256 50e45c02...) is the full paper with appendix and matches arXiv v2. arXiv v1 differs: it defines an AutoAttack+ variant and evaluates fewer models"
+identifiers:
+  arxiv: "2003.01690"
+  url: https://proceedings.mlr.press/v119/croce20b.html
+content:
+  url: https://proceedings.mlr.press/v119/croce20b/croce20b.pdf
+  sha256: "b54ed573e5cdda17229f2700320b9acb44e47390cc9846e3d684c34530f632db"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+  pages: 11
+# In-scope subset of the references: the attacks AutoAttack combines or builds
+# on, the evaluation-methodology work it answers, and the defences it found
+# most overestimated. FAB is a reference-expansion stub created under tmodel#81;
+# entries marked "not created" were screened and excluded on 2026-11-03 (summary.md, Artifacts).
+cites:
+  - croce-hein-2020-fab    # FAB; reference-expansion stub (tmodel#81)
+  - title: "Andriushchenko et al., Square Attack: a query-efficient black-box adversarial attack via random search (RPT-0014 S-0078)"
+    locator: "ECCV 2020"
+  - title: "Madry et al., Towards deep learning models resistant to adversarial attacks (RPT-0014 S-0044)"
+    locator: "ICLR 2018"
+  - title: "Goodfellow, Shlens and Szegedy, Explaining and harnessing adversarial examples (RPT-0014 S-0006)"
+    locator: "ICLR 2015"
+  - title: "Kurakin, Goodfellow and Bengio, Adversarial examples in the physical world (RPT-0014 S-0021)"
+    locator: "ICLR Workshop 2017"
+  - title: "Carlini and Wagner, Towards evaluating the robustness of neural networks (RPT-0014 S-0015)"
+    locator: "IEEE S&P 2017"
+  - title: "Carlini and Wagner, Adversarial examples are not easily detected: Bypassing ten detection methods (RPT-0014 S-0016)"
+    locator: "ACM AISec 2017"
+  - title: "Athalye, Carlini and Wagner, Obfuscated gradients give a false sense of security (RPT-0014 S-0032)"
+    locator: "ICML 2018"
+  - title: "Carlini et al., On evaluating adversarial robustness (RPT-0014 S-0058)"
+    locator: "arXiv:1902.06705"
+  - title: "Mosbach et al., Logit pairing methods can fool gradient-based attacks (screened 2026-11-03; not created)"
+    locator: "arXiv:1810.12042"
+  - title: "Croce, Rauber and Hein, Scaling up the randomized gradient-free adversarial attack reveals overestimation of robustness using established attacks (screened 2026-11-03; not created)"
+    locator: "doi:10.1007/s11263-019-01213-0"
+  - title: "Cohen, Rosenfeld and Kolter, Certified adversarial robustness via randomized smoothing (RPT-0014 S-0060)"
+    locator: "ICML 2019"
+  - title: "Zhang and Xu, Adversarial interpolation training (rejected ICLR 2020 submission; robust accuracy overstated by 32.25 points)"
+    locator: "https://openreview.net/forum?id=Syejj0NYvr (as printed; OpenReview returned a bot challenge, not checked)"
+  - title: "Wang and Zhang, Bilateral adversarial training (overstated by 39.97 points; screened 2026-11-03; not created)"
+    locator: "doi:10.1109/ICCV.2019.00673"
+  - title: "Mustafa et al., Adversarial defense by restricting the hidden space of deep neural networks (overstated by 32.04 points; screened 2026-11-03; not created)"
+    locator: "doi:10.1109/ICCV.2019.00348"
+  - title: "Pang et al., Rethinking softmax cross-entropy loss for adversarial robustness (overstated by 31.40 points; screened 2026-11-03; not created)"
+    locator: "arXiv:1905.10626 (ICLR 2020)"
+  - title: "Xiao, Zhong and Zheng, Enhancing adversarial defense by k-winners-take-all (overstated by 33.90 points; screened 2026-11-03; not created)"
+    locator: "arXiv:1905.10510 (ICLR 2020)"
+  - title: "Taghanaki et al., A kernelized manifold mapping to diminish the effect of adversarial perturbations (overstated by 64.25 points; screened 2026-11-03; not created)"
+    locator: "doi:10.1109/CVPR.2019.01160"
+  - title: "Pang et al., Improving adversarial robustness via promoting ensemble diversity (overstated by 30.40 and 32.98 points; screened 2026-11-03; not created)"
+    locator: "PMLR v97 (https://proceedings.mlr.press/v97/pang19a.html); arXiv:1901.08846"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-021        # evidence that a claimed evasion mitigation should not be recorded as effective without an independent strong evaluation
+  - DEC-009      # the mitigation-lifecycle half only
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: "auto-attack (reference implementation)"
+      url: https://github.com/fra31/auto-attack
+      license: MIT
+    - name: "RobustBench (benchmark built on AutoAttack)"
+      url: https://github.com/RobustBench/robustbench
+      license: "MIT for the code; some model-zoo weights carry other licences (LICENSE file)"
+    - name: "Adversarial Robustness Toolbox, AutoAttack"
+      url: https://github.com/Trusted-AI/adversarial-robustness-toolbox/blob/main/art/attacks/evasion/auto_attack.py
+      license: MIT
+    - name: "torchattacks, AutoAttack"
+      url: https://github.com/Harry24k/adversarial-attacks-pytorch/blob/master/torchattacks/attacks/autoattack.py
+      license: MIT
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "The standard parameter-free test for evasion robustness of image classifiers. Its evaluation of 58 models found that most published defences overstated their robustness, which is evidence about how far mitigation claims can be trusted."
+  assessed: "2026-11-02"
+topic: ai-threat-model-ml-risk-assets
+tags:
+  - evidence
+  - evasion
+  - ai-benchmark
+status: summarized
+confidence: high
+owner: kriishnaa-18
