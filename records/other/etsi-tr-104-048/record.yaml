@@ -1,0 +1,50 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# extracted. Named by CISA's AI-in-OT guidance (§3.4) as a top AI technical standard.
+# Scope and clause 4 read for the poisoning claim (RPT-0009 Phase 4 review, F-25).
+schema: "library-record/v1"
+id: etsi-tr-104-048
+body: other
+type: spec
+maturity: informational
+title: "Securing Artificial Intelligence (SAI); Data Supply Chain Security"
+short_title: "ETSI TR 104 048"
+authors:
+  - "ETSI Technical Committee Securing Artificial Intelligence (SAI)"
+date: "2025-01"
+publisher: "ETSI"
+version: "V1.1.1"
+identifiers:
+  etsi: "TR 104 048 V1.1.1"
+  url: https://www.etsi.org/deliver/etsi_tr/104000_104099/104048/01.01.01_60/tr_104048v010101p.pdf
+content:
+  url: https://www.etsi.org/deliver/etsi_tr/104000_104099/104048/01.01.01_60/tr_104048v010101p.pdf
+  sha256: "a91b1fed1edb296c95dcb2e1a2464ae4761eb9bdfaac41b55708051af76ad40a"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cisa-ai-in-ot-principles
+    - etsi-en-304-223
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-018
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "ETSI's report on AI data supply chain security; RPT-0009 maps 8 ETSI and 6 CISA entries to supply-chain attacks (Table 2)."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+  - supply-chain
+status: stub
+confidence: medium
+owner: Maimcghee

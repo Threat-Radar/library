@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: sagai-workshop
 record: sagai-workshop
 type: summary
-updated: "2026-10-01"
+updated: "2026-11-02"
 ---
 
 # SAGAI — IEEE Security and Privacy workshop series on securing generative AI
@@ -26,7 +26,10 @@ May 23 2024) accepted peer-reviewed papers, published in the IEEE SPW 2024 proce
 **SAGAI'25** (*Secure Generative AI Agents Workshop*, May 15 2025) ran as invited talks and
 panels with no papers; its stated output is a joint research-challenges document.
 **SAGAI'26** (*Secure Agents for Generative Artificial Intelligence*, May 21 2026) is listed
-by IEEE S&P; its program page was not available (404) on 2026-09-29.
+by IEEE S&P; its program page was not available (404) on 2026-09-29. Three of its papers
+were found on arXiv on 2026-11-02 by their authors' acceptance notes and are members:
+`pentest-lessons-agent-systems`, `cacheprobe-prompt-cache-isolation` and
+`agentic-reverse-engineering-challenges`.
 
 The series' through-line is that GenAI security is a property of the **whole system**, not
 only the model: its 2024 topics include input sanitization, prompt-injection defenses,
@@ -56,9 +59,13 @@ Not applicable to a workshop series; see the member papers.
 
 ## Limits
 
-- **Membership is partly unconfirmed.** `systems-security-agentic-computing` is probably
-  the SAGAI'25 research-challenges document but never names the workshop, so it is linked
-  with `see_also`, not `part_of`.
-- **SAGAI'26 content is missing** from this library until its program is published.
+- **SAGAI'25's output is a member since 2026-11-02.** `systems-security-agentic-computing`
+  is the research-challenges document: its v1 introduces itself as the report of "the IEEE
+  Secure Generative AI Agents 2025 workshop (SAGAI ...)" (tmodel #189). Its follow-up,
+  `agent-security-systems-problem`, names no workshop and stays `see_also`.
+- **SAGAI'26 is only partly held.** Three papers are members (2026-11-02, tmodel #189,
+  RPT-0009 Phase 4 review F-07), found by an arXiv search for "SAGAI" in the comment field;
+  membership rests on each paper's own "accepted at SAGAI 2026" note. The full program is
+  still unpublished, so other SAGAI'26 papers may exist.
 - **Name clash.** Fraunhofer IESE runs an unrelated "SAGAI" workshop (*Software
   Architecture and Generative AI*, at ICSA); it is out of scope here.

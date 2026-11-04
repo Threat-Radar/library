@@ -1,0 +1,55 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# summarized here. RPT-0009's EchoLeak model (em-01) was checked against it (§5).
+# A SECONDARY case study (RPT-0009 Phase 4 review, F-09 and F-23, 2026-11-02): its
+# authors are at The George Washington University, not the finders; the finders'
+# disclosure is aim-labs-echoleak-disclosure.
+schema: "library-record/v1"
+id: echoleak-zero-click-prompt-injection
+body: academic
+type: paper
+title: "EchoLeak: The First Real-World Zero-Click Prompt Injection Exploit in a Production LLM System"
+short_title: "EchoLeak"
+authors:
+  - "Pavan Reddy"
+  - "Aditya Sanjay Gujral"
+date: "2025-09-06"
+version: "v1"
+venue: "AAAI Fall Symposium Series 2025 (per the arXiv comment); arXiv preprint"
+identifiers:
+  arxiv: "2509.10540"
+  cve: "CVE-2025-32711"
+  url: https://arxiv.org/abs/2509.10540
+content:
+  url: https://arxiv.org/pdf/2509.10540v1
+  sha256: "4f0939532c477922ab9d501adbfc3f25433d1df72da7d33e4e7834a2b064969c"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - aim-labs-echoleak-disclosure
+    - mitre-atlas
+    - spotlighting-indirect-prompt-injection
+    - systems-security-agentic-computing
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "A secondary case study of the attack RPT-0009 models step by step (em-01), written from public sources; its account of the bypass chain is the evidence for gaps G1 to G7."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - prompt-injection
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

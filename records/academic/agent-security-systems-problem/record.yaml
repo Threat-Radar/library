@@ -1,0 +1,63 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# summarized here; RPT-0009 §2.6 reads it. Same authors as
+# systems-security-agentic-computing (the SAGAI'25 report), but neither v1 nor v2
+# names the workshop (checked 2026-11-02, tmodel #189), so see_also rather than part_of.
+schema: "library-record/v1"
+id: agent-security-systems-problem
+body: academic
+type: paper
+title: "Agent Security is a Systems Problem"
+authors:
+  - "Mihai Christodorescu"
+  - "Earlence Fernandes"
+  - "Ashish Hooda"
+  - "Somesh Jha"
+  - "Johann Rehberger"
+  - "Kamalika Chaudhuri"
+  - "Xiaohan Fu"
+  - "Khawaja Shams"
+  - "Guy Amir"
+  - "Jihye Choi"
+  - "Sarthak Choudhary"
+  - "Nils Palumbo"
+  - "Andrey Labunets"
+  - "Nishit V. Pandya"
+date: "2026-05-18"
+version: "v2 (2026-05-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2605.18991"
+  url: https://arxiv.org/abs/2605.18991
+content:
+  url: https://arxiv.org/pdf/2605.18991v2
+  sha256: "eb02d189389663de9e0b4a315ca9f33b07fa1b2e32b23972ea245273134bbadf"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - systems-security-agentic-computing
+    - sagai-workshop
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "Argues for treating the model as an untrusted component, with separation, least privilege and information-flow control enforced by the system."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - agent-security
+  - prompt-injection
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

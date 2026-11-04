@@ -1,0 +1,40 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# Recorded as not-useful for tmodel #189 (2026-11-02), as RPT-0009's source log planned:
+# a different workshop series with the same acronym, kept so it is not re-evaluated.
+schema: "library-record/v1"
+id: fraunhofer-iese-sagai
+body: other
+type: web
+title: "SAGAI: International Workshop on Software Architecture and Generative AI (Fraunhofer IESE, at IEEE ICSA)"
+short_title: "SAGAI (software architecture, ICSA)"
+date: "2025"
+publisher: "Fraunhofer IESE"
+identifiers:
+  url: https://www.iese.fraunhofer.de/en/events/sagai.html
+content:
+  url: https://www.iese.fraunhofer.de/en/events/sagai.html
+  sha256: "eb12671e28fe968532be05ae38f9becf037beaf8b3115c10aa54b73b04a762aa"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - sagai-workshop
+  cited_by: []
+  implements_concept: []
+bears_on: []
+applicability:
+  security: none
+  cryptography: none
+  this_project: none
+usefulness:
+  verdict: not-useful
+  reason: "Name clash: a software-architecture workshop at IEEE ICSA (2025 onward), not the IEEE S&P security series RPT-0009 studies."
+  assessed: "2026-11-02"
+topic: sagai
+tags: []
+status: stub
+confidence: high
+owner: Maimcghee

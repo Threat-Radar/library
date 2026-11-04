@@ -1,0 +1,51 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Honest stub for tmodel #189 (RPT-0009 Phase 4 review, finding F-08, 2026-11-02):
+# pinned, not extracted. Its History table says V1.1.1 was first published in
+# January 2022 as ETSI GR SAI 001; the library holds no record for GR SAI 001, so
+# there is no supersedes link to make.
+schema: "library-record/v1"
+id: etsi-ts-104-050
+body: other
+type: spec
+title: "Securing Artificial Intelligence (SAI); AI Threat Ontology and definitions"
+short_title: "ETSI TS 104 050"
+authors:
+  - "ETSI Technical Committee Securing Artificial Intelligence (SAI)"
+date: "2025-03"
+publisher: "ETSI"
+version: "V1.1.1"
+identifiers:
+  etsi: "TS 104 050 V1.1.1"
+  url: https://www.etsi.org/deliver/etsi_ts/104000_104099/104050/01.01.01_60/ts_104050v010101p.pdf
+content:
+  url: https://www.etsi.org/deliver/etsi_ts/104000_104099/104050/01.01.01_60/ts_104050v010101p.pdf
+  sha256: "7a49a0c77b9bf766d2b198f5adac420d364de10c23a7cf69b208d98ffb0485c4"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - etsi-en-304-223
+    - etsi-tr-104-128
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "ETSI's ontology of AI threats (threats, threat agents, assets and their relationships), with AI as both threat agent and attack target: direct evidence for what a threat-model schema must represent."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+  - threat-modeling
+  - ontology
+status: stub
+confidence: medium
+owner: Maimcghee

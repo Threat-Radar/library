@@ -1,0 +1,50 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# extracted. Cited by EN 304 223 as [i.1]. Clause 6 read for the provisions
+# RPT-0009 uses (Phase 4 review, F-01, 2026-11-02); see summary.md.
+schema: "library-record/v1"
+id: etsi-tr-104-128
+body: other
+type: spec
+maturity: informational
+title: "Securing Artificial Intelligence (SAI); Guide to Cyber Security for AI Models and Systems"
+short_title: "ETSI TR 104 128"
+authors:
+  - "ETSI Technical Committee Securing Artificial Intelligence (SAI)"
+date: "2025-05"
+publisher: "ETSI"
+version: "V1.1.1"
+identifiers:
+  etsi: "TR 104 128 V1.1.1"
+  url: https://www.etsi.org/deliver/etsi_tr/104100_104199/104128/01.01.01_60/tr_104128v010101p.pdf
+content:
+  url: https://www.etsi.org/deliver/etsi_tr/104100_104199/104128/01.01.01_60/tr_104128v010101p.pdf
+  sha256: "824c2ef6720ea30e38c0b64ec7ac46e2d5a5ea6e597f0b69029e4e2605900e05"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - etsi-en-304-223
+    - etsi-ts-104-223
+    - uk-ai-cyber-security-code-2025
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - R-018
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "The implementation guide for EN 304 223's provisions; where to look for how a provision is met."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

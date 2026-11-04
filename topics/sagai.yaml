@@ -14,4 +14,21 @@ records:
   - pretrained-encoders-secure-learning
   - systems-security-agentic-computing
   - cisa-ai-in-ot-principles
+  - etsi-en-304-223
+  - etsi-ts-104-223
+  - etsi-tr-104-128
+  - etsi-tr-104-048
+  - ncsc-secure-ai-guidelines-2023
+  - uk-ai-cyber-security-code-2025
+  - nist-ai-100-2-e2025
+  - mitre-atlas
+  - echoleak-zero-click-prompt-injection
+  - agent-security-systems-problem
+  - securing-future-genai-policy-technology
+  - fraunhofer-iese-sagai
+  - etsi-ts-104-050
+  - aim-labs-echoleak-disclosure
+  - pentest-lessons-agent-systems
+  - cacheprobe-prompt-cache-isolation
+  - agentic-reverse-engineering-challenges
 answer: ""

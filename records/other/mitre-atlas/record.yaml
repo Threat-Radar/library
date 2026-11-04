@@ -1,0 +1,53 @@
+# Dataset: version is load-bearing; ids are pinned to the release named below.
+# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
+# extracted. RPT-0009 uses its technique ids and case study AML.CS0059 (G12).
+# Shared with RPT-0014 (tmodel #71), which cites the same 2026.09 file.
+# v2026.10 (2026-10-28) exists and is NOT pinned here; it removes ids the records
+# use. See summary.md (RPT-0009 Phase 4 review, F-11 and F-21, 2026-11-02). A
+# re-pin is a new record linked by supersedes, not an edit of this one.
+schema: "library-record/v1"
+id: mitre-atlas
+body: other
+type: dataset
+maturity: best-practice
+title: "MITRE ATLAS (Adversarial Threat Landscape for AI Systems) data"
+short_title: "MITRE ATLAS"
+date: "2026-09-15"
+publisher: "The MITRE Corporation"
+version: "2026.09 (data format 6.0.0)"
+identifiers:
+  url: https://atlas.mitre.org/
+  git: https://github.com/mitre-atlas/atlas-data
+content:
+  url: https://raw.githubusercontent.com/mitre-atlas/atlas-data/v2026.09/dist/v6/ATLAS-2026.09.yaml
+  sha256: "935efa93e28294432d3e2f537eb94991ef8d1f8c58341cd360ea3321ddb66688"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/yaml
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - mitre-attack
+    - nist-ai-100-2-e2025
+    - etsi-en-304-223
+    - cisa-ai-in-ot-principles
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-008
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "Technique ids for AI attacks and coded case studies; the ATT&CK counterpart for AI threats in RPT-0009 and RPT-0014."
+  assessed: "2026-11-02"
+topic: sagai
+tags:
+  - ai-security
+  - taxonomy
+status: stub
+confidence: medium
+owner: Maimcghee
