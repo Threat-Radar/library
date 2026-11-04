@@ -1,0 +1,62 @@
+# Paper: arXiv v3 (summarized here), which carries the ICML 2025 header (PMLR 267).
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0940.
+schema: "library-record/v1"
+id: vero-2025-baxbench
+body: academic
+type: paper
+title: "BaxBench: Can LLMs Generate Correct and Secure Backends?"
+short_title: "BaxBench"
+authors:
+  - "Mark Vero"
+  - "Niels Mündler"
+  - "Victor Chibotaru"
+  - "Veselin Raychev"
+  - "Maximilian Baader"
+  - "Nikola Jovanović"
+  - "Jingxuan He"
+  - "Martin Vechev"
+date: "2025-05-30"
+version: "v3"
+publisher: "Authors at ETH Zurich, LogicStar.ai, UC Berkeley and INSAIT (arXiv) / PMLR (ICML 2025 proceedings)"
+venue: "Proceedings of the 42nd International Conference on Machine Learning (ICML 2025), PMLR 267"
+identifiers:
+  arxiv: "2502.11844"
+  url: https://arxiv.org/abs/2502.11844
+content:
+  url: https://arxiv.org/pdf/2502.11844v3
+  sha256: "fbabce80c3094bde4b10da9c2c0f557aaa41315669bd192cc78c623595c9e9ed"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 47
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: logic-star-ai/baxbench
+      url: https://github.com/logic-star-ai/baxbench
+      license: MIT
+      note: "the benchmark's scenarios, functional tests and exploits; leaderboard at https://baxbench.com/ (golden solutions are not released, §5)"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "The measured evidence behind AIT-131: on 392 backend tasks the best model is correct and secure 37% of the time, and expert exploits break about half of the correct programs, organized by CWE."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-benchmark
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

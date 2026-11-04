@@ -1,0 +1,70 @@
+# Paper: arXiv v2 (summarized here); Meta technical report released with Llama 3.1, dated 2024-07-23.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0929.
+schema: "library-record/v1"
+id: wan-2024-cyberseceval3
+body: vendor
+type: paper
+title: "CYBERSECEVAL 3: Advancing the Evaluation of Cybersecurity Risks and Capabilities in Large Language Models"
+short_title: "CyberSecEval 3"
+authors:
+  - "Shengye Wan"
+  - "Cyrus Nikolaidis"
+  - "Daniel Song"
+  - "David Molnar"
+  - "James Crnkovich"
+  - "Jayson Grace"
+  - "Manish Bhatt"
+  - "Sahana Chennabasappa"
+  - "Spencer Whitman"
+  - "Stephanie Ding"
+  - "Vlad Ionescu"
+  - "Yue Li"
+  - "Joshua Saxe"
+date: "2024-09-06"
+version: "v2"
+publisher: "Meta"
+venue: "arXiv preprint (Meta technical report)"
+identifiers:
+  arxiv: "2408.01605"
+  url: https://arxiv.org/abs/2408.01605
+content:
+  url: https://arxiv.org/pdf/2408.01605v2
+  sha256: "a087ed720f8409213e61c55ac9743d1a357cd2aca953bb38b8e41c472689241d"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 36
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: meta-llama/PurpleLlama (CybersecurityBenchmarks)
+      url: https://github.com/meta-llama/PurpleLlama/tree/main/CybersecurityBenchmarks
+      license: MIT
+      note: "the benchmark suite (MIT per the repository README); the same repository holds the guardrails the paper recommends: Code Shield, Prompt Guard and Llama Guard 3, whose models use Llama community licenses"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "Measures AI uplift to attackers with a human study and autonomous-agent runs, alongside application risks; AIT-122 cites it, and its negative uplift result is evidence for attack-feasibility judgements."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+  - prompt-injection
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

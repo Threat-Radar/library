@@ -1,0 +1,69 @@
+# Survey: arXiv v5 (summarized here); version of record in IEEE TNNLS 35(1).
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0683.
+schema: "library-record/v1"
+id: li-2022-backdoor-learning-survey
+body: academic
+type: paper
+title: "Backdoor Learning: A Survey"
+authors:
+  - "Yiming Li"
+  - "Yong Jiang"
+  - "Zhifeng Li"
+  - "Shu-Tao Xia"
+date: "2022-02-16"
+version: "v5"
+publisher: "Authors at Tsinghua University, Peng Cheng Laboratory and Tencent (arXiv) / IEEE (TNNLS)"
+venue: "IEEE Transactions on Neural Networks and Learning Systems 35(1), pp. 5-22"
+identifiers:
+  arxiv: "2007.08745"
+  doi: "10.1109/TNNLS.2022.3182979"
+  url: https://arxiv.org/abs/2007.08745
+content:
+  url: https://arxiv.org/pdf/2007.08745v5
+  sha256: "3e0f4dca09a10ef180dacbc99ebd452618e1ba95a48a3cda7e3a5bdbdaa3b405"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 17
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - goldblum-2022-dataset-security-survey
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: THUYimingLi/backdoor-learning-resources
+      url: https://github.com/THUYimingLi/backdoor-learning-resources
+      license: MIT
+      note: "the authors' curated list of backdoor papers, linked from the abstract"
+    - name: THUYimingLi/BackdoorBox
+      url: https://github.com/THUYimingLi/BackdoorBox
+      license: GPL-2.0
+      note: "toolbox of backdoor attacks and defenses by the survey's first author; not cited in v5"
+    - name: SCLBD/BackdoorBench
+      url: https://github.com/SCLBD/BackdoorBench
+      license: "not detected (GitHub NOASSERTION)"
+      note: "benchmark of backdoor attacks and defenses; not cited in v5"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "A taxonomy of backdoor attacks and defenses with a threat model of the three ways training passes to third parties (Table I); AIT-015 cites it."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - backdoor
+  - data-poisoning
+  - ai-supply-chain
+  - prior-art
+status: summarized
+confidence: medium
+owner: Clovier

@@ -1,0 +1,73 @@
+# Survey: arXiv v4 (summarized here); version of record in IEEE TPAMI 45(2).
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0680.
+schema: "library-record/v1"
+id: goldblum-2022-dataset-security-survey
+body: academic
+type: paper
+title: "Dataset Security for Machine Learning: Data Poisoning, Backdoor Attacks, and Defenses"
+short_title: "Dataset Security for Machine Learning"
+authors:
+  - "Micah Goldblum"
+  - "Dimitris Tsipras"
+  - "Chulin Xie"
+  - "Xinyun Chen"
+  - "Avi Schwarzschild"
+  - "Dawn Song"
+  - "Aleksander Mądry"
+  - "Bo Li"
+  - "Tom Goldstein"
+date: "2021-03-31"
+version: "v4"
+publisher: "Authors at University of Maryland, MIT, University of Illinois Urbana-Champaign and UC Berkeley (arXiv) / IEEE (TPAMI)"
+venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence 45(2), pp. 1563-1580"
+identifiers:
+  arxiv: "2012.10544"
+  doi: "10.1109/TPAMI.2022.3162397"
+  url: https://arxiv.org/abs/2012.10544
+content:
+  url: https://arxiv.org/pdf/2012.10544v4
+  sha256: "00def975e6b7e06ab0ead76d04d507a27d3d9c3963d19399816d571aa55aa5c1"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 39
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: Trusted-AI/adversarial-robustness-toolbox
+      url: https://github.com/Trusted-AI/adversarial-robustness-toolbox
+      license: MIT
+      note: "implements many reviewed attacks (feature collision, Bullseye Polytope, gradient matching, clean-label and hidden-trigger backdoors, SVM poisoning) and defenses (activation clustering, spectral signatures)"
+    - name: aks2203/poisoning-benchmark
+      url: https://github.com/aks2203/poisoning-benchmark
+      license: MIT
+      note: "the Schwarzschild et al. 2020 poisoning benchmark the survey cites (§2.8)"
+    - name: JonasGeiping/poisoning-gradient-matching
+      url: https://github.com/JonasGeiping/poisoning-gradient-matching
+      license: LGPL-2.1
+      note: "Witches' Brew, gradient-matching poisoning reviewed in §2.3"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "A systematic survey of poisoning, backdoor attacks and defenses, with taxonomies of each and open problems; AIT-012 cites it."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - data-poisoning
+  - backdoor
+  - prior-art
+status: summarized
+confidence: medium
+owner: Clovier

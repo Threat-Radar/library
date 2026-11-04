@@ -1,0 +1,52 @@
+# Dataset: two CVE records (NVD entries, shelved under nist as cve-2024-3094 is). Content is the CVE List V5 record
+# that NVD mirrors, pinned at a commit, because NVD API responses carry a per-request timestamp and never hash alike.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-1086.
+schema: "library-record/v1"
+id: mlflow-2023-path-traversal-cves
+body: nist
+type: dataset
+title: "MLflow path traversal: CVE-2023-1177 and CVE-2023-6831"
+short_title: "MLflow CVE-2023-1177 and CVE-2023-6831"
+authors:
+  - "huntr (CVE Numbering Authority for both records)"
+date: "2023-03-24"
+version: "CVE-2023-1177 record as updated 2025-02-19; CVE-2023-6831 published 2023-12-15, updated 2024-08-02"
+publisher: "CVE Program (CVE List V5), mirrored and scored by NIST's National Vulnerability Database"
+identifiers:
+  cve: CVE-2023-1177
+  ghsa: GHSA-xg73-94fp-g449
+  url: https://nvd.nist.gov/vuln/detail/CVE-2023-1177
+commit: "525d93ce211bce7b0f832d198dfad7a9aa4471c1"
+content:
+  url: https://raw.githubusercontent.com/CVEProject/cvelistV5/525d93ce211bce7b0f832d198dfad7a9aa4471c1/cves/2023/1xxx/CVE-2023-1177.json
+  sha256: "eb908f62e5f8236320f852ebd4853f742efb0a14c2a79bed349d447f1299deb7"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/json
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "The CVE records for two path traversals in MLflow's tracking and model-registry server, the first an unauthenticated arbitrary file read on a default install; together with the huntr report and the maintainers' advisory they are the evidence behind S-1086, which AIT-039 cites."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-infrastructure
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

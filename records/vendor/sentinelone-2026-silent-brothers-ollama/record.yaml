@@ -1,0 +1,49 @@
+# Article: SentinelLABS research post (with Censys), read from the Internet Archive's original-bytes copy of
+# 2026-03-02, because sentinelone.com answered scripted requests with HTTP 429 on 2026-11-02.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-1150.
+schema: "library-record/v1"
+id: sentinelone-2026-silent-brothers-ollama
+body: vendor
+type: article
+title: "Silent Brothers | Ollama Hosts Form Anonymous AI Network Beyond Platform Guardrails"
+short_title: "Silent Brothers (exposed Ollama hosts)"
+authors:
+  - "Gabriel Bernadett-Shapiro"
+  - "Silas Cutler"
+date: "2026-01-29"
+publisher: "SentinelOne (SentinelLABS), with Censys"
+identifiers:
+  url: https://www.sentinelone.com/labs/silent-brothers-ollama-hosts-form-anonymous-ai-network-beyond-platform-guardrails/
+content:
+  url: https://web.archive.org/web/20260302174036id_/https://www.sentinelone.com/labs/silent-brothers-ollama-hosts-form-anonymous-ai-network-beyond-platform-guardrails/
+  sha256: "b9cb7d4b04bece6d3800f6c3566cd034d910eed1da3047b36c37571e9d81ea72"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "An internet-scale measurement of exposed Ollama hosts (175,108 hosts in 130 countries over 293 days) with their capabilities, models and network tiers, plus a short threat analysis; it is cited by AIT-040 and AIT-113."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-infrastructure
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

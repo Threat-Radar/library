@@ -1,0 +1,84 @@
+# Paper: arXiv v1 (summarized here); version of record in ASE '24 (ACM).
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0355.
+schema: "library-record/v1"
+id: zhao-2024-models-are-codes-malhug
+body: academic
+type: paper
+title: "Models Are Codes: Towards Measuring Malicious Code Poisoning Attacks on Pre-trained Model Hubs"
+short_title: "Models Are Codes"
+authors:
+  - "Jian Zhao"
+  - "Shenao Wang"
+  - "Yanjie Zhao"
+  - "Xinyi Hou"
+  - "Kailong Wang"
+  - "Peiming Gao"
+  - "Yuanchao Zhang"
+  - "Chen Wei"
+  - "Haoyu Wang"
+date: "2024-09-14"
+version: "v1"
+publisher: "Authors at Huazhong University of Science and Technology and MYbank, Ant Group (arXiv) / ACM (ASE '24 proceedings)"
+venue: "ASE '24: 39th IEEE/ACM International Conference on Automated Software Engineering, Sacramento, 2024"
+identifiers:
+  arxiv: "2409.09368"
+  doi: "10.1145/3691620.3695271"
+  url: https://arxiv.org/abs/2409.09368
+content:
+  url: https://arxiv.org/pdf/2409.09368v1
+  sha256: "a96784cd34bdff60e946ef8ddd2726ed77865125cefbf1db339ad2fd237f4d78"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 12
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: security-pride/MalHug
+      url: https://github.com/security-pride/MalHug
+      license: "none stated"
+      note: "the paper's results, not its pipeline: a CSV of the 100 malicious repositories with code slices, and a pointer to their source files on Zenodo (record 13850049)"
+    - name: trailofbits/fickling
+      url: https://github.com/trailofbits/fickling
+      license: LGPL-3.0
+      note: "pickle decompiler and static analyzer; MalHug's model decompilation builds on it (§5.1)"
+    - name: protectai/modelscan
+      url: https://github.com/protectai/modelscan
+      license: Apache-2.0
+      note: "scanner for pickle variants, TensorFlow and Keras models; MalHug builds on it (§5.1)"
+    - name: mmaitre314/picklescan
+      url: https://github.com/mmaitre314/picklescan
+      license: MIT
+      note: "pickle import scanner, compared in Table 6"
+    - name: dropbox/bhakti
+      url: https://github.com/dropbox/bhakti
+      license: Apache-2.0
+      note: "Keras and TensorFlow model checks, compared in Table 6"
+  commercial:
+    - name: Hugging Face pickle scanning
+      url: https://huggingface.co/docs/hub/security-pickle
+      note: "hosted scanning on the Hub (ClamAV plus a listing of a pickle's imports), compared in Table 6"
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "Measures malicious code in hub artifacts at scale (91 models and 9 dataset scripts among 705,991 models and 176,386 datasets); AIT-028 and AIT-043 cite it and report.md quotes its counts."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-supply-chain
+  - supply-chain
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

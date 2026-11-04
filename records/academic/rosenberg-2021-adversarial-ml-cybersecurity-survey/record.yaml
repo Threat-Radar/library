@@ -1,0 +1,68 @@
+# Survey: arXiv v3 (summarized here); version of record in ACM Computing Surveys 54(5), 2021.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0679.
+schema: "library-record/v1"
+id: rosenberg-2021-adversarial-ml-cybersecurity-survey
+body: academic
+type: paper
+title: "Adversarial Machine Learning Attacks and Defense Methods in the Cyber Security Domain"
+authors:
+  - "Ishai Rosenberg"
+  - "Asaf Shabtai"
+  - "Yuval Elovici"
+  - "Lior Rokach"
+date: "2021-03-13"
+version: "v3"
+publisher: "Authors at Ben-Gurion University of the Negev (arXiv) / ACM (Computing Surveys)"
+venue: "ACM Computing Surveys 54(5), 2021, pp. 1-36"
+identifiers:
+  arxiv: "2007.02407"
+  doi: "10.1145/3453158"
+  url: https://arxiv.org/abs/2007.02407
+content:
+  url: https://arxiv.org/pdf/2007.02407v3
+  sha256: "c796dadb9e8db71d81aa204f1e5bf859758babd20f0c194e9051e1f12c34a63d"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 57
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: endgameinc/gym-malware
+      url: https://github.com/endgameinc/gym-malware
+      license: MIT
+      note: "the reinforcement-learning PE evasion environment of Anderson et al. 2018, reviewed in §5.1.1"
+    - name: pralab/secml_malware
+      url: https://github.com/pralab/secml_malware
+      license: MIT
+      note: "implements PE byte-padding and FGSM attacks the survey reviews (Kolosnjaji 2018; Kreuk 2018; Suciu 2018a, §5.1.2)"
+    - name: elastic/ember
+      url: https://github.com/elastic/ember
+      license: "not detected (GitHub NOASSERTION)"
+      note: "the EMBER PE malware dataset in Table 8; repository archived"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "A structured review of attacks on ML-based security products, with per-attack feasibility marks (Tables 1-7) and a taxonomy of attacker knowledge and access; AIT-007 cites it."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - evasion
+  - data-poisoning
+  - ai-threat-model
+  - prior-art
+status: summarized
+confidence: medium
+owner: Clovier

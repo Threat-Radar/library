@@ -1,0 +1,55 @@
+# Article: Microsoft Security Blog post (Azure Security Center research), read as the live page.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-0971.
+schema: "library-record/v1"
+id: microsoft-2020-kubeflow-cryptomining
+body: vendor
+type: article
+title: "Misconfigured Kubeflow workloads are a security risk"
+short_title: "Kubeflow cryptomining campaign"
+authors:
+  - "Yossi Weizman"
+date: "2020-06-10"
+publisher: "Microsoft (Microsoft Security Blog; Azure Security Center, now Microsoft Defender for Cloud)"
+identifiers:
+  url: https://www.microsoft.com/en-us/security/blog/2020/06/10/misconfigured-kubeflow-workloads-are-a-security-risk/
+content:
+  url: https://www.microsoft.com/en-us/security/blog/2020/06/10/misconfigured-kubeflow-workloads-are-a-security-risk/
+  sha256: "fde5a09af6810abcda2c84206a24f092b4de160a8d72f57ee19bc07ea73692b0"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: microsoft/Threat-Matrix-for-Kubernetes
+      url: https://github.com/microsoft/Threat-Matrix-for-Kubernetes
+      license: "not detected (GitHub NOASSERTION)"
+      note: "the Kubernetes threat matrix the post maps the campaign onto"
+  commercial:
+    - name: Microsoft Defender for Cloud (formerly Azure Security Center)
+      url: https://learn.microsoft.com/en-us/azure/defender-for-cloud/
+      note: "the product whose Kubernetes monitoring detected the campaign"
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "The first documented in-the-wild campaign against Kubeflow: exposed dashboards on tens of clusters used to deploy cryptominers; it is the primary source for INC-017 and is cited by AIT-039."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-infrastructure
+  - ai-incident
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

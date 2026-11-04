@@ -1,0 +1,66 @@
+# Paper: arXiv v6 (summarized here), the version without the jailbreak-tuning study; AAAI 2025 version of record.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0372.
+schema: "library-record/v1"
+id: bowen-2025-scaling-trends-data-poisoning
+body: academic
+type: paper
+title: "Scaling Trends for Data Poisoning in LLMs"
+authors:
+  - "Dillon Bowen"
+  - "Brendan Murphy"
+  - "Will Cai"
+  - "David Khachaturov"
+  - "Adam Gleave"
+  - "Kellin Pelrine"
+date: "2025-07-17"
+version: "v6"
+publisher: "Authors at FAR.AI, UC Berkeley, University of Cambridge and McGill University / Mila (arXiv) / AAAI Press (AAAI-25 proceedings)"
+venue: "Proceedings of the AAAI Conference on Artificial Intelligence 39(26), 2025, pp. 27206-27214"
+identifiers:
+  arxiv: "2408.02946"
+  doi: "10.1609/aaai.v39i26.34929"
+  url: https://arxiv.org/abs/2408.02946
+content:
+  url: https://arxiv.org/pdf/2408.02946v6
+  sha256: "07339ee65b26bb383ab87fe2dc9d594d4b21962bc54a8168f94b5f454db9fff3"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 22
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: AlignmentResearch/scaling-poisoning
+      url: https://github.com/AlignmentResearch/scaling-poisoning
+      license: "none stated"
+      note: "the paper's code (first page footnote); its README still uses the earlier title, Scaling laws for data poisoning"
+    - name: alexandrasouly/strongreject
+      url: https://github.com/alexandrasouly/strongreject
+      license: MIT
+      note: "StrongREJECT, the harmfulness evaluator used for the Harmful QA results (§5.3)"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "Measures how poisoning susceptibility grows with model size across 24 open models, and shows 2% disguised poison passing OpenAI's fine-tuning moderation; AIT-017 and AIT-081 cite it and NIST AI 100-2e2025 cites it as [46]."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - data-poisoning
+  - backdoor
+  - jailbreak
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

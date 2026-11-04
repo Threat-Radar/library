@@ -1,0 +1,50 @@
+# Article: Google Threat Intelligence Group report, published as a blog post and a 20-page PDF; read as the PDF.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#136, part of #80). RPT-0014 source S-1026.
+schema: "library-record/v1"
+id: google-2025-gtig-ai-threat-tracker
+body: vendor
+type: article
+title: "GTIG AI Threat Tracker: Advances in Threat Actor Usage of AI Tools"
+short_title: "GTIG AI Threat Tracker (November 2025)"
+authors:
+  - "Google Threat Intelligence Group"
+date: "2025-11-05"
+publisher: "Google (Google Threat Intelligence Group; Google Cloud Blog)"
+identifiers:
+  url: https://cloud.google.com/blog/topics/threat-intelligence/threat-actor-usage-of-ai-tools
+content:
+  url: https://services.google.com/fh/files/misc/advances-in-threat-actor-usage-of-ai-tools-en.pdf
+  sha256: "bc517904af9d5c40ad4f3a7dc1f8bba30c6b874f42ca93a1146a02ea1f86bf45"
+  retrieved: "2026-11-02"
+  local: false
+  media_type: application/pdf
+  pages: 20
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-02"
+usefulness:
+  verdict: useful
+  reason: "Google's report of the first malware families seen querying LLMs during execution (PROMPTFLUX, PROMPTSTEAL, QUIETVAULT and others), each marked experimental or observed in operations; it is the primary source for INC-131 and is cited by AIT-123 and AIT-125."
+  assessed: "2026-11-02"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-incident
+  - ai-enabled-offense
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier

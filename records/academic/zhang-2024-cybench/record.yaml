@@ -1,0 +1,84 @@
+# Paper: arXiv v4 (summarized here), which carries the ICLR 2025 header.
+# WAVE 1 subset-1, lane supply-chain-infra (tmodel#135, part of #80). RPT-0014 source S-0944.
+schema: "library-record/v1"
+id: zhang-2024-cybench
+body: academic
+type: paper
+title: "Cybench: A Framework for Evaluating Cybersecurity Capabilities and Risks of Language Models"
+short_title: "Cybench"
+authors:
+  - "Andy K. Zhang"
+  - "Neil Perry"
+  - "Riya Dulepet"
+  - "Joey Ji"
+  - "Celeste Menders"
+  - "Justin W. Lin"
+  - "Eliot Jones"
+  - "Gashon Hussein"
+  - "Samantha Liu"
+  - "Donovan Jasper"
+  - "Pura Peetathawatchai"
+  - "Ari Glenn"
+  - "Vikram Sivashankar"
+  - "Daniel Zamoshchin"
+  - "Leo Glikbarg"
+  - "Derek Askaryar"
+  - "Mike Yang"
+  - "Teddy Zhang"
+  - "Rishi Alluri"
+  - "Nathan Tran"
+  - "Rinnara Sangpisit"
+  - "Polycarpos Yiorkadjis"
+  - "Kenny Osele"
+  - "Gautham Raghupathi"
+  - "Dan Boneh"
+  - "Daniel E. Ho"
+  - "Percy Liang"
+date: "2025-04-12"
+version: "v4"
+publisher: "Authors at Stanford University (arXiv) / ICLR 2025 (OpenReview.net)"
+venue: "International Conference on Learning Representations (ICLR) 2025, oral"
+identifiers:
+  arxiv: "2408.08926"
+  url: https://arxiv.org/abs/2408.08926
+content:
+  url: https://arxiv.org/pdf/2408.08926v4
+  sha256: "b7bf58d0fac493bdf834f1ad508e7a5d5c2292ebc4168c8469d9ff1fd4baa084"
+  retrieved: "2026-11-01"
+  local: false
+  media_type: application/pdf
+  pages: 150
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - wan-2024-cyberseceval3
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001a
+  - DEC-003
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: andyzorigin/cybench
+      url: https://github.com/andyzorigin/cybench
+      license: Apache-2.0
+      note: "the benchmark's tasks, agent, logs and code; project site https://cybench.github.io"
+  commercial: []
+  searched: "2026-11-01"
+usefulness:
+  verdict: useful
+  reason: "Human-grounded difficulty for AI-driven exploitation: unguided agents solve only CTF tasks whose first human solve took 11 minutes or less (best success 17.5%); AIT-122 cites it and the US and UK AI Safety Institutes have tested on it."
+  assessed: "2026-11-01"
+topic: ai-threat-model-supply-chain-infra
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+  - evidence
+status: summarized
+confidence: medium
+owner: Clovier
