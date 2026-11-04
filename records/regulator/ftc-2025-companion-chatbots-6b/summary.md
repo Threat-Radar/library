@@ -15,8 +15,8 @@ updated: "2026-11-03"
 | **Authors** | U.S. Federal Trade Commission, Office of Public Affairs. Lead staff are named in the release |
 | **Published** | 2025-09-11 |
 | **Identifier** | https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions |
-| **Source** | https://web.archive.org/web/20250912065107/https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions. On 2026-11-03, ftc.gov answered automated clients with 403 or 404, so the Wayback Machine capture from the day after release was used. RPT-0014's fold fetched ftc.gov directly on 2026-10-03 |
-| **Digest** | `sha256:10cef210a9af6a401aeedae31a5dd5857b24ebdf765d25690e9e1803559e9107`. This is the capture's HTML after gzip decompression (1,000,070 bytes) |
+| **Source** | https://web.archive.org/web/20250912065107id_/https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions, the Wayback Machine's raw capture of 2025-09-12 06:51:07 UTC. The `id_` form serves the archived page without the Wayback toolbar. On 2026-11-03, ftc.gov answered automated clients with 403 or 404, so this capture from the day after release was used. RPT-0014's fold fetched ftc.gov directly on 2026-10-03 |
+| **Digest** | `sha256:0be50fcc014d3fd94558df1b7bb5dfe24d2f3531e8bd18fb91fe49fc14d668a6` (388,225 bytes), retrieved and verified 2026-11-03 with two identical fetches. These are the bytes as served: gzip-encoded HTML, hashed without decompression. Decompressed, the HTML is 1,000,070 bytes with `sha256:10cef210a9af6a401aeedae31a5dd5857b24ebdf765d25690e9e1803559e9107`, the digest this record gave before. That digest was recorded against the toolbar (viewer) URL, whose bytes differ, so it could not be reproduced from the recorded URL |
 
 ## Overview
 

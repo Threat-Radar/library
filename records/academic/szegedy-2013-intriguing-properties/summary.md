@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: szegedy-2013-intriguing-properties
 record: szegedy-2013-intriguing-properties
 type: summary
-updated: "2026-11-02"
+updated: "2026-11-03"
 ---
 
 # Intriguing properties of neural networks
@@ -76,8 +76,8 @@ Searched 2026-11-02. The paper ships no code. The full-resolution adversarial im
   - QuocNet is tested only as a binary car classifier on frozen features (Fig. 6).
 - **Transfer is weaker than the prose suggests.**
   - Cross-model error at the original distortion ranges from 2% to 87.1% (Table 2).
-  - Examples crafted on the linear models rarely fool the sigmoid networks (2–3.9%).
-  - On a disjoint training set the effect drops to 5.1–5.9% (Table 4). It rises to 22–43% only after the authors amplify the perturbation by about 40% (p. 8).
+  - Transfer from the linear (softmax) models to the two sigmoid networks depends on the source model (Table 2). Examples crafted on FC10(10⁻⁴) fool FC100-100-10 and FC200-200-10 only 2% and 3.9% of the time. Those crafted on FC10(10⁻²) fool them 35.9% and 27.3% of the time, and those on FC10(1) 48.1% and 47%. These two models' examples are also larger: average distortion 0.1 and 0.14, against 0.062 for FC10(10⁻⁴).
+  - Across the disjoint training sets the effect drops to 5.1–8.2% (Table 4). From the two P₁ models to the P₂ model it is 5.9% and 5.1%; from the P₂ model to each P₁ model it is 8.2%. Gaussian noise of similar size causes 2.2–2.6%. After the authors amplify the perturbations to stddev 0.1, by what they call about 40% (p. 8), it rises to 22–50%: 43% and 22% from P₁ to P₂, and 27% and 50% from P₂ to P₁. Gaussian noise at stddev 0.1 causes 2.6–2.8%.
   - The prose concedes a considerable drop, but its headline is that examples generalize.
 - **The noise comparison is overstated.** On p. 7 the text says Gaussian noise of standard deviation 0.1 exceeds the adversarial noise for every model except one. Table 2's distortion column shows two models at or above 0.1 (FC10(10⁻²) at 0.1 and FC10(1) at 0.14).
 - **Typographical ambiguity.** On p. 8 the prime that distinguishes the P₂-trained network `FC100-100-10'` is dropped in the prose, which reads "Models FC100-100-10 and FC100-100-10". Table 3 keeps the prime.

@@ -14,9 +14,11 @@ venue: "FTC press release"
 version: "Wayback Machine capture of 2025-09-12 06:51:07 UTC; ftc.gov returns 403/404 to automated clients"
 identifiers:
   url: https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions
+# Raw capture (id_: no Wayback toolbar). The digest is of the bytes as served,
+# gzip-encoded, 388,225 bytes, hashed without decompression (summary.md, Digest).
 content:
-  url: https://web.archive.org/web/20250912065107/https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions
-  sha256: "10cef210a9af6a401aeedae31a5dd5857b24ebdf765d25690e9e1803559e9107"
+  url: https://web.archive.org/web/20250912065107id_/https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions
+  sha256: "0be50fcc014d3fd94558df1b7bb5dfe24d2f3531e8bd18fb91fe49fc14d668a6"
   retrieved: "2026-11-03"
   local: false
   media_type: text/html
