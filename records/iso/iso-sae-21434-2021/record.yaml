@@ -105,12 +105,12 @@ distillation:
   artifacts:
     - kind: requirements
       path: distilled/requirements.yaml
-      coverage: "All 118 normative statements (101 RQ, 13 RC, 4 PM) + 42 required deliverables, `#RQ-CC-NN`. Audit-typed (library-requirements/v2): normativity, actor, nature (process vs deliverable-producing: 47 D / 71 P), expects_deliverables, verification, tailorable. Full verbatim text. Derived fields (actor/nature/verification/short_title) NOT yet human-reviewed."
+      coverage: "All 118 normative statements (101 RQ, 13 RC, 4 PM) + 42 required deliverables, `#RQ-CC-NN`. Audit-typed (library-requirements/v2): normativity, actor, nature (process vs deliverable-producing: 47 D / 71 P), expects_deliverables, verification, tailorable. Text and short titles are our own paraphrase, not the standard's wording (licensed standard; sponsor decision tmodel#38 Q3, tmodel#154); 16 defective entries flagged for a licensed-copy check. Derived fields (actor/nature/verification/short_title) NOT yet human-reviewed."
       generated_from: "pdftotext -layout of the purchased PDF + marker extraction"
       reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.md
-      coverage: "Viewable per-clause table: designator + short title for all 118 requirements + 42 work products. Full text/refs in requirements.yaml."
+      coverage: "Viewable per-clause table: designator + short title for all 118 requirements + 42 work products. Paraphrased text/refs in requirements.yaml."
       generated_from: distilled/requirements.yaml
       reviewed_by: ""
     - kind: normative

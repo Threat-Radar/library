@@ -4,8 +4,8 @@ id: requirements
 title: "What is a requirement"
 type: policy
 status: draft
-version: "0.2.0"
-updated: "2026-10-08"
+version: "0.3.0"
+updated: "2026-11-05"
 needs_review: true
 reviewed: false
 source: "sponsor question 2026-09-22: what is a requirement?"
@@ -83,8 +83,9 @@ requirements:
 
 Rules:
 
-- **`text` is verbatim.** Never paraphrase a normative sentence — paraphrase is
-  how a MUST silently becomes a SHOULD.
+- **`text` is verbatim** — except for licensed standards (§3a). Never paraphrase
+  a normative sentence from a source we may quote — paraphrase is how a MUST
+  silently becomes a SHOULD.
 - **`kind: inferred` for anything the document implies but does not state**, and
   it must say so in `notes`. **An invented MUST is a defect that propagates into
   our own specification**, which is the whole reason this file exists.
@@ -95,6 +96,38 @@ Rules:
   starts.
 - **`reviewed_by` empty means unusable.** An unreviewed extraction may be read,
   but nothing may be built on it.
+
+## 3a. Exception: licensed standards are paraphrased, never quoted
+
+Some sources may not be republished. ISO, IEC, ISO/SAE and other paywalled or
+all-rights-reserved standards forbid posting their text without permission, and
+this library is public. For those sources the verbatim rule is reversed
+(sponsor decision, tmodel#38 Q3, 2026-10-19; first applied in tmodel#154):
+
+- **`text` MUST be our own paraphrase.** Never copy the standard's wording into
+  any file, issue, PR or commit message. Short defined terms and names (*item*,
+  *cybersecurity goal*, *attack feasibility*, the levels of a rating scale) may be
+  used as names; sentences may not.
+- **Mark it.** The set header carries `text_origin: paraphrase` and a
+  `licensed_text` note naming the decision; an entry may repeat
+  `text_origin: paraphrase`.
+- **Keep the anchors beside the paraphrase**, so drift is visible: designator or
+  tag, `normativity`, `verb`, `locator`, and the set's `source_digest` of the
+  bytes that were read. **`verb` is authoritative for force**: the paraphrase
+  states the same modal (shall stays shall, should stays should, may stays may)
+  and must not soften or harden it.
+- **Preserve meaning, not words**: the actor, the condition, the action, the
+  objects and every list item. A paraphrase that drops a list item is a defect,
+  as a truncated quote is.
+- **Never invent to fill a gap.** If the text we extracted is cut off or wrong,
+  paraphrase only the intact part, or leave a placeholder, and flag the entry
+  (`audit_status: text-defect-needs-licensed-copy` plus `notes`) until someone
+  with a licensed copy checks it.
+- **Free and public sources stay verbatim**: IETF, W3C, NIST, CISA, EU law,
+  UNECE and other sources whose terms allow quotation.
+
+Verification for a paraphrased entry checks meaning against the licensed copy
+(actor, condition, action, objects, modal, list items), not string equality.
 
 ## 3b. External reference — a requirement must be citable
 
@@ -114,7 +147,7 @@ Resolving it yields:
 | `source_version` | `-04` — which revision |
 | `source_digest` | the bytes we read |
 | `verb` | MUST / MUST NOT / … |
-| `text` | verbatim |
+| `text` | verbatim, or our paraphrase for a licensed standard (§3a) |
 
 That is what makes a requirement **qualified**: another document can cite
 `draft-ietf-vcon-vcon-core-04#R-0004` and a reader can get back to the exact

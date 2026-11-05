@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: iso-sae-21434-2021
 record: iso-sae-21434-2021
 type: summary
-updated: "2026-10-03"
+updated: "2026-11-05"
 ---
 
 # Road vehicles — Cybersecurity engineering (ISO/SAE 21434:2021)
@@ -43,7 +43,7 @@ Two things make this the core doc to iterate on:
 
 ## Requirements
 
-**118 requirements** (101 shall / 13 should / 4 may) and **42 work products**, extracted with full text, clause locators, cross-references, and produced work products.
+**118 requirements** (101 shall / 13 should / 4 may) and **42 work products**, catalogued with clause locators, cross-references and produced work products. Each provision's text is **our own paraphrase**, not the standard's wording: this is a licensed standard, and the sponsor's decision (tmodel#38 Q3, tmodel#154) is paraphrase plus clause IDs, never verbatim text.
 
 - Full structured catalog: [`distilled/requirements.yaml`](distilled/requirements.yaml) (cite as `iso-sae-21434-2021#RQ-CC-NN`)
 - Viewable list (designator + short title, per clause): [`distilled/requirements.md`](distilled/requirements.md)
@@ -87,7 +87,7 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
 | File | What it is |
 |---|---|
 | `record.yaml` | metadata |
-| `distilled/requirements.yaml` | 118 requirements + 42 work products, full text/refs, `#RQ-CC-NN` referenceable |
+| `distilled/requirements.yaml` | 118 requirements + 42 work products, paraphrased text, refs, `#RQ-CC-NN` referenceable |
 | `distilled/requirements.md` | viewable per-clause table: designator + short title |
 | `distilled/normative.md` | TARA pipeline, object model (Fig 3), Table 1 feasibility, terminology, audit mapping |
 | `distilled/README.md` | index of distilled artifacts + coverage |
@@ -97,14 +97,19 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
 - Distilled from the document body; **Annexes not distilled** — impact criteria (Annex F),
   attack-feasibility methods (attack-potential / CVSS / attack-vector, Annexes G/H), and the
   worked example are referenced but not extracted.
-- Requirement statements are **verbatim** and **not yet reviewed line by line** (`reviewed_by`
-  empty). A check against the source (tmodel RPT-0007 §7, 2026-10-02) found 16 of the 118 texts
-  wrong: 5 hold annex text instead of the provision (RQ-07-04, RQ-09-03, RQ-09-04, RQ-10-08,
-  RQ-11-01), and 11 lose the list items that follow an interrupting NOTE or EXAMPLE (RQ-05-11,
-  RQ-06-02, RQ-06-15, RQ-06-16, RQ-06-30, RQ-09-01, RQ-10-01, RQ-10-04, RQ-12-02, RQ-13-01,
-  RQ-15-17). Their text is left as it is until the sponsor decides whether this public
-  repository may hold the standard's verbatim text; read the standard for those entries. A
-  human pass is still required before any requirement is treated as authoritative.
+- Requirement statements are **our own paraphrases** (rewritten 2026-11-05), not the
+  standard's wording, and are **not yet reviewed line by line** (`reviewed_by` empty). The
+  designator, normativity, verb and locator of each entry are kept beside the paraphrase; the
+  `verb` field is authoritative for force. Read the standard before relying on any entry.
+- A check against the source (tmodel RPT-0007 §7, 2026-10-02) found 16 of the 118 extracted
+  texts defective: 5 held annex text instead of the provision (RQ-07-04, RQ-09-03, RQ-09-04,
+  RQ-10-08, RQ-11-01), and 11 lost the list items that follow an interrupting NOTE or EXAMPLE
+  (RQ-05-11, RQ-06-02, RQ-06-15, RQ-06-16, RQ-06-30, RQ-09-01, RQ-10-01, RQ-10-04, RQ-12-02,
+  RQ-13-01, RQ-15-17). These carry `audit_status: text-defect-needs-licensed-copy` and a
+  `notes` field: the 11 paraphrase only the intact fragment and say that items are missing; the
+  5 hold a placeholder. Nothing was invented to fill the gaps. Each needs a paraphrase checked
+  against a licensed copy. A human pass is still required before any requirement is treated as
+  authoritative.
 - Work-product links (22 were missing), locators (5 provision, 14 work product) and three
   work-product titles were corrected against the source on 2026-10-02 (RPT-0007 §7). The
   derived `nature` and `verification` fields follow the links: 47 provisions are now

@@ -3,7 +3,7 @@ schema: "library-normative/v1"
 id: iso-sae-21434-2021-normative
 record: iso-sae-21434-2021
 type: normative
-updated: "2026-10-02"
+updated: "2026-11-05"
 coverage: "Clause 15 TARA, the Fig 3 object model, Table 1 feasibility, key Clause 3 terms, audit mapping. Annexes NOT distilled."
 reviewed_by: ""
 ---
@@ -11,6 +11,8 @@ reviewed_by: ""
 # ISO/SAE 21434 — distilled normative content
 
 > Compacted so an implementer can build the model without re-reading the source.
+> **Our own wording throughout.** ISO/SAE 21434 is a licensed standard; this page paraphrases
+> it and cites clause IDs, and quotes none of its text (tmodel#38 Q3, tmodel#154).
 > Requirement ids resolve in `requirements.yaml`. **Coverage baseline:** the standard
 > tags every obligation, so the baseline is marker count, not a verb grep —
 > **118 requirements (101 RQ shall / 13 RC should / 4 PM may) + 42 work products.**
@@ -47,7 +49,7 @@ Ordered, each step a requirement + a work product:
 | Risk treatment decision | 15.9 | RQ-15-17 | WP-15-08 |
 
 ### Table 1 — Attack feasibility ratings
-| rating | the attack path can be accomplished utilising… |
+| rating | effort the attack path needs |
 |---|---|
 | High | low effort |
 | Medium | medium effort |
