@@ -60,8 +60,8 @@ written reason in `distillation.not_applicable` — never silently omitted.
 | kind | file | what it is | N/A allowed? |
 |---|---|---|---|
 | **summary + labels** | `summary.md`, record `tags`, `bears_on`, `topic` | what it is, why we hold it, what it bears on | **no** |
-| **normative** | `distilled/normative.md` | every normative statement, verbatim, with its locator; structure preserved | **no** |
-| **requirements** | `distilled/requirements.yaml` | **every** BCP 14 statement as `<record>#R-NNNN`: verbatim text, locator, verb, actor, `testable`, `kind: stated \| inferred` | **no** |
+| **normative** | `distilled/normative.md` | every normative statement, verbatim (paraphrased for a licensed standard, see below), with its locator; structure preserved | **no** |
+| **requirements** | `distilled/requirements.yaml` | **every** BCP 14 statement as `<record>#R-NNNN`: verbatim text (paraphrase for a licensed standard, see below), locator, verb, actor, `testable`, `kind: stated \| inferred` | **no** |
 | **schema** | `distilled/schema/*.cddl`, `*.schema.json` | usable schemas: the spec's own CDDL/ASN.1/JSON Schema **verbatim**, plus a machine-checkable rendering if the source has only prose | with reason |
 | **messages** | `distilled/messages.yaml` | every message / structure / header: fields, types, encoding, byte-level layout, which requirements constrain it | with reason |
 | **protocol** | `distilled/protocol.yaml` + `protocol.md` | roles, messages exchanged, sequences, error paths; a Mermaid sequence diagram | with reason (pure data formats) |
@@ -73,6 +73,32 @@ written reason in `distillation.not_applicable` — never silently omitted.
 D-3 explicitly (option 5: reduced CBOR, no IANA tags, COSE as export only):
 which headers and structures map onto our statement fields, what the export
 mapping is, and what we deliberately do not carry.
+
+## Licensed standards: paraphrase, not verbatim
+
+**Added 2026-11-05 (sponsor decision, tmodel#38 Q3; tmodel#154).** For a
+paywalled or all-rights-reserved standard (ISO, IEC, ISO/SAE and the like), the
+word *verbatim* in the **normative** and **requirements** rows above reads as
+**our own paraphrase**. The artifacts stay mandatory (N/A is still not allowed);
+only their text changes:
+
+- every statement is paraphrased per `docs/requirements.md` §3a, with its
+  designator, verb, normativity and locator kept beside it, and the set's
+  `source_digest` retained;
+- the set header says `text_origin: paraphrase` and carries a `licensed_text`
+  note naming the decision;
+- no sentence of the standard appears in the library, in a PR or issue body, or
+  in a commit message; refer to provisions by designator and locator;
+- **pass 2** checks each paraphrase's meaning against the licensed copy (actor,
+  condition, action, objects, modal, list items) instead of string equality, and
+  `bin/bcp14-count` reconciliation uses the standard's own tags or modal counts
+  rather than capitalised BCP 14 keywords;
+- an entry whose extract is cut off or wrong is paraphrased only as far as it is
+  intact, or left as a placeholder, and flagged
+  `audit_status: text-defect-needs-licensed-copy`. Nothing is invented.
+
+Free and public sources (IETF, W3C, NIST, CISA, EU law, UNECE and similar) keep
+the verbatim rule.
 
 ## Completeness is checked, not asserted
 
@@ -97,7 +123,7 @@ each recorded in `distillation.passes`:
 | pass | what | output |
 |---|---|---|
 | **1 · extract** | one agent per artifact kind, in parallel, each reading the **source** (never the summary) | the artifact set |
-| **2 · verify** | an adversarial agent that did not extract: re-derives the keyword count, checks every locator and every verbatim quote against the source, hunts for dropped statements and spliced quotes | defects fixed, count reconciled |
+| **2 · verify** | an adversarial agent that did not extract: re-derives the keyword count, checks every locator and every verbatim quote (or, for a licensed standard, every paraphrase's meaning) against the source, hunts for dropped statements and spliced quotes | defects fixed, count reconciled |
 | **3 · cross-check** | requirements ↔ schema ↔ messages ↔ state machine: every field a requirement names exists in the schema; every transition's trigger is a defined message | inconsistencies fixed or recorded |
 | **4 · human review** | a person signs `reviewed_by` on each artifact | buildable-on |
 

@@ -127,7 +127,8 @@ classes:
       984/6274 real rows state one (divergence documented in
       docs/requirements-schema.md). `text` is VERBATIM — never paraphrased
       (docs/requirements.md §3, "paraphrase is how a MUST silently becomes a
-      SHOULD"). The id resolves to locator + source_version + source_digest +
+      SHOULD") — except for licensed standards, where it is our own
+      paraphrase beside the verb and locator (§3a). The id resolves to locator + source_version + source_digest +
       verb + text (§3b).
     exact_mappings:
       - oscal:control            # OSCAL control (id + prose + props + parts + links)
@@ -611,7 +612,9 @@ slots:
   # ---- the statement ----
   text:
     description: >-
-      The requirement text, VERBATIM. Never paraphrased (docs/requirements.md §3).
+      The requirement text, VERBATIM. Never paraphrased (docs/requirements.md §3),
+      except for a licensed standard, where it MUST be our own paraphrase and
+      the set says text_origin: paraphrase (docs/requirements.md §3a).
       For an inferred requirement this is the lowercase-prose / numbered-step text
       the obligation is stated in (rfc-9052 inferred entries).
     required: true

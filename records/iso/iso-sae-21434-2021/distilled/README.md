@@ -4,7 +4,7 @@ id: iso-sae-21434-2021-distilled-index
 record: iso-sae-21434-2021
 type: index
 audience: human   # orientation for people; the machine source is requirements.yaml
-updated: "2026-10-03"
+updated: "2026-11-05"
 ---
 
 # Distilled artifacts — ISO/SAE 21434:2021
@@ -17,13 +17,14 @@ as authoritative.
 
 | artifact | what it is | coverage |
 |---|---|---|
-| `requirements.yaml` | **machine source.** 118 requirements + 42 required deliverables, audit-typed: normativity, actor, nature (process vs deliverable-producing), expects_deliverables, verification, tailorable, refs, external_refs | all normative statements, full text; derived fields need review |
+| `requirements.yaml` | **machine source.** 118 requirements + 42 required deliverables, audit-typed: normativity, actor, nature (process vs deliverable-producing), expects_deliverables, verification, tailorable, refs, external_refs | all normative statements; text is our paraphrase, never the standard's wording (licensed standard); derived fields need review |
 | `requirements.md` | **human view, generated.** Per-clause table: designator, normativity, nature, actor, short title, deliverables | all 118 + 42 |
 | `normative.md` | TARA pipeline (Clause 15), Fig 3 object model, Table 1 feasibility, key Clause 3 terms, audit-automation mapping | overview; **Annexes not distilled** (impact tables F, feasibility methods) |
 
 ## Not yet done (next passes)
 - Line-by-line human review of `requirements.yaml` (set `reviewed_by`, fix any truncation/verb drift).
-- Fix the 16 wrong texts listed in `summary.md` (Limits), once the sponsor decides whether this public repository may hold the standard's verbatim text.
+- Paraphrase the 16 defective entries (`audit_status: text-defect-needs-licensed-copy`, listed in `summary.md` Limits) from a licensed copy. Their current text covers only the intact fragment, or is a placeholder.
+- Done 2026-11-05: every provision `text` and `short_title` is now our own paraphrase, under the sponsor's licensed-text decision (paraphrase plus clause IDs, never verbatim; tmodel#38 Q3, tmodel#154). Designator, normativity, verb and locator sit beside each paraphrase; the `verb` field is authoritative for force. Policy: `docs/requirements.md` §3a and the licensed-standards section of `docs/extraction.md`.
 - Done 2026-10-02: every provision and work-product locator points to the subclause that holds it, and every provision-to-work-product link the standard names is recorded (RPT-0007 §7).
 - Done 2026-10-03: the 10 work products that the standard ties to subclauses rather than provisions list them in `from_subclauses`, so every work product now records what it results from. The provisions in those subclauses do not list these work products; find them by locator.
 - Annex distillation: impact-rating criteria (Annex F) and attack-feasibility methods (attack-potential / CVSS / attack-vector). tmodel RPT-0007 §3 and §4 summarize Annexes E to H in its own words.
