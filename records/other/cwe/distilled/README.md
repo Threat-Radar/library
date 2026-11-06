@@ -3,7 +3,7 @@ record: cwe
 kind: index
 title: "cwe — distilled artifacts"
 extracted: "2026-10-08"
-reviewed_by: ""
+reviewed_by: "Clovier"
 ---
 
 # Distilled artifacts

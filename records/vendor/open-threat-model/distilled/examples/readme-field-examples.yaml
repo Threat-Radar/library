@@ -1,6 +1,6 @@
 schema: "library-examples/v1"
 record: "open-threat-model"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 note: >-
   Every snippet in the Examples column of the README field tables, one vector per table row that has one (86 of
   the 109 rows; the other 23 cells are empty). text is the snippet exactly: for an HTML table cell, the lines of

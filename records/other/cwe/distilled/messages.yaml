@@ -1,6 +1,6 @@
 schema: "library-messages/v1"
 record: "cwe"
-reviewed_by: ""
+reviewed_by: "Clovier"
 source:
   file: "cwe_schema_v7.3.xsd"
   url: "https://cwe.mitre.org/data/xsd/cwe_schema_v7.3.xsd"

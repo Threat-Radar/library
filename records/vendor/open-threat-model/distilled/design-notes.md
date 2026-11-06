@@ -3,7 +3,7 @@ record: open-threat-model
 kind: design-notes
 title: "open-threat-model — bearing on our design"
 extracted: "2026-10-13"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 ---
 
 How Open Threat Model (OTM) 0.2.0 bears on tmodel.

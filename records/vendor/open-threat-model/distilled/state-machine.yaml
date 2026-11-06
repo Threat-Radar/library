@@ -1,6 +1,6 @@
 schema: "library-state-machine/v1"
 record: "open-threat-model"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 note: >-
   The Open Threat Model is a data format: it defines no protocol, no message exchange and no processing model,
   and no structure in it has a defined lifecycle. Two fields name a state, Threat instance state and Mitigation

@@ -3,7 +3,7 @@ record: open-threat-model
 kind: examples
 title: "open-threat-model — examples and test vectors"
 extracted: "2026-10-13"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 ---
 
 # Examples and test vectors: Open Threat Model 0.2.0

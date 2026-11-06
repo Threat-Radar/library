@@ -3,7 +3,7 @@ record: open-threat-model
 kind: index
 title: "open-threat-model — distilled artifacts"
 extracted: "2026-10-13"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 ---
 
 # Distilled artifacts

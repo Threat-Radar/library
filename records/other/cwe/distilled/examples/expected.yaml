@@ -1,6 +1,6 @@
 schema: "library-examples/v1"
 record: "cwe"
-reviewed_by: ""
+reviewed_by: "Clovier"
 note: >-
   Expected results for every fixture in this directory. Validation results are actual xmllint runs (libxml2
   2.9.13) against schema/cwe_schema_v7.3.xsd with the W3C XHTML schemas resolved offline through an XML catalog
