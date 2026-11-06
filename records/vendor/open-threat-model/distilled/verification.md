@@ -3,7 +3,7 @@ record: open-threat-model
 kind: verification
 title: "open-threat-model — FX-1 pass 2 (verify) and pass 3 (cross-check)"
 extracted: "2026-10-14"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 ---
 
 # Verification: Open Threat Model 0.2.0 extraction

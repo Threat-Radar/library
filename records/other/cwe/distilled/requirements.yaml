@@ -35,7 +35,7 @@ reconciliation: >
   (the Compound co-constraint, L616, cwe#R-0198, added by the verify pass); a 'the required / the optional
   X' label restates the declaration and is cross-checked, not extracted. Occurrence by occurrence:
   keyword_accounting.
-reviewed_by: ""
+reviewed_by: "Clovier"
 extracted: "2026-10-08"
 extracted_by: "claude (pass 1, agent A)"
 note: >

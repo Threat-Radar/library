@@ -1,6 +1,6 @@
 schema: "library-state-machine/v1"
 record: "cwe"
-reviewed_by: ""
+reviewed_by: "Clovier"
 note: >-
   The CWE XML Schema is a data format: it defines no protocol and no message exchange. Three things in it have a
   lifecycle or act as a guard, and are modelled here: an entry's Status (M1), the Mapping_Notes/Usage guard a

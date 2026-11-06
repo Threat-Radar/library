@@ -1,6 +1,6 @@
 schema: "library-examples/v1"
 record: "open-threat-model"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 note: >-
   Expected and actual results for every fixture in this directory. actual is what jsonschema reported when run
   on 2026-10-14; nothing here is predicted. expected is the result the fixture is meant to have: for a source

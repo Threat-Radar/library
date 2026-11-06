@@ -51,7 +51,7 @@ reconciliation: >
   61 type-nullable: every type keyword in the file) + 46 required (44 required + 2 required-in-branch: every name of
   all 20 required arrays) + 1 one-of + 10 ref (every $ref) = 177. Occurrence by occurrence: keyword_accounting (87
   rows: 51 upper-case and 16 lower-case in README.md, 20 'required' keys in otm_schema.json).
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 extracted: "2026-10-13"
 extracted_by: "claude (pass 1, agent A)"
 note: >

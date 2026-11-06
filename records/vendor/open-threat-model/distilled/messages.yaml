@@ -1,6 +1,6 @@
 schema: "library-messages/v1"
 record: "open-threat-model"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 source:
   specification:
     file: "README.md"

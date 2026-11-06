@@ -3,7 +3,7 @@ record: open-threat-model
 kind: schema
 title: "open-threat-model — schemas"
 extracted: "2026-10-13"
-reviewed_by: ""
+reviewed_by: "Maimcghee"
 ---
 
 # Schema — Open Threat Model 0.2.0 JSON Schema

@@ -3,7 +3,7 @@ record: cwe
 kind: verification
 title: "cwe — FX-1 pass 2 (verify) and pass 3 (cross-check)"
 extracted: "2026-10-08"
-reviewed_by: ""
+reviewed_by: "Clovier"
 ---
 
 # Verification: CWE XML Schema 7.3 extraction

@@ -3,7 +3,7 @@ record: cwe
 kind: examples
 title: "cwe — examples and test vectors"
 extracted: "2026-10-08"
-reviewed_by: ""
+reviewed_by: "Clovier"
 ---
 
 # Examples and test vectors: CWE XML Schema 7.3 with CWE List 4.20

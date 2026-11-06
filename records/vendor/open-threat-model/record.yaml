@@ -79,36 +79,36 @@ distillation:
     - kind: normative
       path: distilled/normative.md
       coverage: "README.md verbatim with line locators in source order: Versions, Format, Data Types, every object's field table (all rows, REQUIRED cells), the licence footer; otm_schema.json normative content by JSON pointer; README-vs-schema comparison per field; source defects D-01..D-32. Introduction is purpose text, not rules. Covers the pinned repository only, not IriusRisk product documentation."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
     - kind: requirements
       path: distilled/requirements.yaml
       coverage: "287 requirements: 110 prose (97 stated, 13 inferred) + 177 schema (every type, every required entry, $ref, oneOf, $schema). BCP 14: README 51 (REQUIRED 50, RECOMMENDED 1) = extracted 51; every lower-case keyword and schema 'required' accounted in keyword_accounting (87 rows). 32 source defects."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
     - kind: schema
       path: distilled/schema
       coverage: "otm_schema.json byte-identical (Apache-2.0 notice kept); DERIVED strict profile otm-0.2.0.derived-strict.schema.json adding 36 README rules (S-01..S-36), each citing its README line; offline jsonschema commands and results; the weaker pre-2024-01-31 text that carried the same 0.2.0 $id."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
       generated_from: "README.md + otm_schema.json (strict profile only)"
     - kind: messages
       path: distilled/messages.yaml
       coverage: "26 structures named as README headings, 120 field entries (README/schema type, required in each, constraints, references, pointers, lines, EXAMPLE.json occurrence); encodings, identifier scheme, 12 unchecked references, XR-01..XR-10 derived checks, extension points, mismatches M-01..M-16. constrained_by links 275 of 287 requirements and all 120 fields; 12 unlinked with reasons."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
     - kind: state-machine
       path: distilled/state-machine.yaml
       coverage: "No lifecycle is defined in the source. M1 threat-instance state and M2 mitigation-instance state (values observed only in examples; transitions inferred, flagged); M3 specification version lifecycle (semver stated; next-major change at L1139; releases from git history)."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
     - kind: examples
       path: distilled/examples
       coverage: "49 fixtures: 23 README Example blocks and EXAMPLE.json/.yaml verbatim, 24 derived negatives (11 source-schema, 9 strict-only, 4 XR-only); 86 Examples-column snippets as vectors; actual jsonschema 4.26.0 results under both schemas. 7 README examples fail as published. README/EXAMPLE content CC BY-SA 4.0 with attribution; derived negatives CC BY-SA 4.0."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
     - kind: design-notes
       path: distilled/design-notes.md
       coverage: "Adopt / adapt / reject against tmodel ADR-0010 (DEC-001a classes), ADR-0007 (OTM import), ADR-0006, ADR-0004, R-005/010/018/020/021; G13 (no target class for assets, trustZones, dataflows; sponsor direction 2026-10-14 recorded) and related gaps; no classes proposed; open questions."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
     - kind: verification
       path: distilled/verification.md
       coverage: "Passes 2 and 3: keyword recount, verbatim and locator checks (21 planted errors caught), section walk, defects re-derived, messages rebuilt independently, every fixture re-run, schema byte check, cross-checks incl. design notes against tmodel main; defects fixed and residual issues."
-      reviewed_by: ""
+      reviewed_by: "Maimcghee"
   not_applicable:
     - kind: protocol
       reason: "Pure data format: the source defines one JSON/YAML document and no exchange between parties (README Format, L23). How tools move OTM files between them is outside the pinned source."
