@@ -1,6 +1,6 @@
 schema: "library-catalog-stats/v1"
 record: "cwe"
-reviewed_by: "Clovier"
+reviewed_by: ""
 note: >-
   Whole-catalog expected results for CWE List 4.20 (cwec_v4.20.xml), computed in one pass by the logic under
   derivation. kind: observed throughout — these are facts about this release, not schema rules; a

@@ -3,7 +3,7 @@ record: cwe
 kind: normative
 title: "cwe — normative statements"
 extracted: "2026-10-08"
-reviewed_by: "Clovier"
+reviewed_by: ""
 ---
 
 # CWE XML Schema 7.3 — normative content

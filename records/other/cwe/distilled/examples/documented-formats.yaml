@@ -1,6 +1,6 @@
 schema: "library-examples/v1"
 record: "cwe"
-reviewed_by: "Clovier"
+reviewed_by: ""
 note: >-
   The XSD's documentation gives its own examples of identifier and content formats. Each is a vector here: the
   example verbatim with its line, the rule it implies (kind: stated when the documentation states it, derived

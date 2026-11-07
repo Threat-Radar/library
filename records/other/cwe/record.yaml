@@ -55,31 +55,31 @@ distillation:
     - kind: normative
       path: distilled/normative.md
       coverage: "All 111 xs:documentation texts and the xs:appinfo (incl. terms_of_use) verbatim with line locators, in schema file order; every declaration with type and cardinality; all enumeration values. Source inconsistencies D-01..D-16. Covers the XSD only, not the CWE website or mapping guidance."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
     - kind: requirements
       path: distilled/requirements.yaml
       coverage: "198 requirements: 85 prose (76 stated, 9 inferred) + 113 structural (every use=required, every required particle incl. default minOccurs, both required choices, 5 xs:unique, 2 xs:any). BCP 14: source 0 = extracted 0; all 197 lower-case keyword occurrences accounted one by one in keyword_accounting. R-0198 added by the verify pass."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
     - kind: schema
       path: distilled/schema
       coverage: "cwe_schema_v7.3.xsd byte-identical with MITRE's licence header; offline validation commands (W3C XHTML import via a local catalog, not committed). Full cwec_v4.20.xml validates. No derived schema: the source is machine-checkable."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
     - kind: messages
       path: distilled/messages.yaml
       coverage: "60 structures (root, 4 containers, 31 named + 24 anonymous complexTypes), 203 fields with type, cardinality, XSD line and 4.20 occurrence counts; 35 enumerations; 5 identity constraints; unresolved cross-references. constrained_by links 191 of 198 requirements; 7 unlinked with reasons."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
     - kind: state-machine
       path: distilled/state-machine.yaml
       coverage: "M1 entry Status lifecycle, M2 Mapping_Notes/Usage guard, M3 Content_History event log; 13 events. Stated / inferred / observed marked; the XML keeps no status history, so most M1 transitions are inferred."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
     - kind: examples
       path: distilled/examples
       coverage: "20 fixtures (13 cut verbatim from 4.20, 1 derived positive control, 6 negatives) with digests and actual xmllint results; 12 vectors for documented string formats; whole-catalog figures and 32 invariants (catalog-stats.yaml). CWE content reproduced under the CWE terms of use."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
     - kind: design-notes
       path: distilled/design-notes.md
       coverage: "Adopt / adapt / reject against ARCH-0001 §3/§6, ADR-0004, DEC-001/002/003/008/009, R-010/018/021/022; mapping table; 5 open questions incl. source-vs-data departures."
-      reviewed_by: "Clovier"
+      reviewed_by: ""
   not_applicable:
     - kind: protocol
       reason: "Pure data format: the XSD defines a catalog document and no exchange between parties. MITRE's content-submission process is described on the CWE website, not in the pinned source."

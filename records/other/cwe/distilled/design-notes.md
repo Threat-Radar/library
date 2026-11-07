@@ -3,7 +3,7 @@ record: cwe
 kind: design-notes
 title: "cwe — bearing on our design"
 extracted: "2026-10-08"
-reviewed_by: "Clovier"
+reviewed_by: ""
 ---
 
 How CWE bears on tmodel. Quotes are from `cwe_schema_v7.3.xsd` (SHA-256

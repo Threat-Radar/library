@@ -3,7 +3,7 @@ record: cwe
 kind: schema
 title: "cwe — schemas"
 extracted: "2026-10-08"
-reviewed_by: "Clovier"
+reviewed_by: ""
 ---
 
 # Schema — CWE XML Schema 7.3
