@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: iso-sae-21434-2021
 record: iso-sae-21434-2021
 type: summary
-updated: "2026-11-07"
+updated: "2026-11-08"
 ---
 
 # Road vehicles — Cybersecurity engineering (ISO/SAE 21434:2021)
@@ -43,7 +43,7 @@ Two things make this the core doc to iterate on:
 
 ## Requirements
 
-**118 requirements** (101 shall / 13 should / 4 may) and **42 work products**, catalogued with clause locators, cross-references and produced work products. Each provision's text is **our own paraphrase**, not the standard's wording: this is a licensed standard, and the sponsor's decision (tmodel#38 Q3, tmodel#154) is paraphrase plus clause IDs, never verbatim text.
+**118 requirements** (101 shall / 13 should / 4 may) and **42 work products**, catalogued with clause locators, cross-references and produced work products. Each provision's text is **our own paraphrase**, not the standard's wording: this is a licensed standard, and the sponsor's decision (tmodel#69 sponsor note, hold 1 (2026-10-02); tmodel#154) is paraphrase plus clause IDs, never verbatim text.
 
 - Full structured catalog: [`distilled/requirements.yaml`](distilled/requirements.yaml) (cite as `iso-sae-21434-2021#RQ-CC-NN`)
 - Viewable list (designator + short title, per clause): [`distilled/requirements.md`](distilled/requirements.md)

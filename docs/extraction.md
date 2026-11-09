@@ -76,7 +76,8 @@ mapping is, and what we deliberately do not carry.
 
 ## Licensed standards: paraphrase, not verbatim
 
-**Added 2026-11-05 (sponsor decision, tmodel#38 Q3; tmodel#154).** For a
+**Added 2026-11-05 (sponsor decision: tmodel#69 sponsor note, hold 1
+(2026-10-02); tmodel#154).** For a
 paywalled or all-rights-reserved standard (ISO, IEC, ISO/SAE and the like), the
 word *verbatim* in the **normative** and **requirements** rows above reads as
 **our own paraphrase**. The artifacts stay mandatory (N/A is still not allowed);

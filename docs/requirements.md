@@ -4,8 +4,8 @@ id: requirements
 title: "What is a requirement"
 type: policy
 status: draft
-version: "0.3.0"
-updated: "2026-11-05"
+version: "0.3.1"
+updated: "2026-11-08"
 needs_review: true
 reviewed: false
 source: "sponsor question 2026-09-22: what is a requirement?"
@@ -102,7 +102,8 @@ Rules:
 Some sources may not be republished. ISO, IEC, ISO/SAE and other paywalled or
 all-rights-reserved standards forbid posting their text without permission, and
 this library is public. For those sources the verbatim rule is reversed
-(sponsor decision, tmodel#38 Q3, 2026-10-19; first applied in tmodel#154):
+(sponsor decision: tmodel#69 sponsor note, hold 1 (2026-10-02), confirmed in
+tmodel#202 item 7; first applied in tmodel#154):
 
 - **`text` MUST be our own paraphrase.** Never copy the standard's wording into
   any file, issue, PR or commit message. Short defined terms and names (*item*,
