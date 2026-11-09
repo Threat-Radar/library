@@ -3,7 +3,7 @@ schema: "library-normative/v1"
 id: iso-sae-21434-2021-normative
 record: iso-sae-21434-2021
 type: normative
-updated: "2026-11-05"
+updated: "2026-11-08"
 coverage: "Clause 15 TARA, the Fig 3 object model, Table 1 feasibility, key Clause 3 terms, audit mapping. Annexes NOT distilled."
 reviewed_by: ""
 ---
@@ -12,7 +12,8 @@ reviewed_by: ""
 
 > Compacted so an implementer can build the model without re-reading the source.
 > **Our own wording throughout.** ISO/SAE 21434 is a licensed standard; this page paraphrases
-> it and cites clause IDs, and quotes none of its text (tmodel#38 Q3, tmodel#154).
+> it and cites clause IDs, and quotes none of its text (sponsor decision:
+> tmodel#69 sponsor note, hold 1 (2026-10-02); tmodel#154).
 > Requirement ids resolve in `requirements.yaml`. **Coverage baseline:** the standard
 > tags every obligation, so the baseline is marker count, not a verb grep —
 > **118 requirements (101 RQ shall / 13 RC should / 4 PM may) + 42 work products.**
@@ -61,17 +62,17 @@ Ordered, each step a requirement + a work product:
 
 ## 3. Key terminology (Clause 3, selected)
 
-- **asset** — object with cybersecurity property whose compromise leads to a damage scenario.
-- **cybersecurity property** — attribute of an asset (e.g. confidentiality, integrity, availability).
-- **damage scenario** — adverse consequence for a road user, involving a vehicle.
-- **threat scenario** — potential cause of compromise of a cybersecurity property of ≥1 asset.
-- **attack path** — set of deliberate actions to realise a threat scenario.
-- **attack feasibility** — attribute of an attack path describing ease of successful execution.
-- **item** — component or set of components implementing a function at vehicle level.
-- **component** — part logically/technically separable.
-- **weakness** — defect/characteristic that can lead to undesirable behaviour (cf. CWE).
-- **vulnerability** — weakness that can be exploited (cf. CVE).
-- **work product** — result of activities that fulfil requirements (the auditable evidence).
+- **asset** (3.1.2): something that has value or helps create value; its cybersecurity properties, if compromised, can lead to damage scenarios.
+- **cybersecurity property** (3.1.20): an attribute that might deserve protection, for example confidentiality, integrity or availability.
+- **damage scenario** (3.1.22): a harmful outcome for a road user that involves a vehicle or one of its functions.
+- **threat scenario** (3.1.33): a possible way one or more assets could have their cybersecurity properties compromised, bringing about a damage scenario.
+- **attack path** (3.1.4): the deliberate actions that, taken together, carry out a threat scenario; also called an attack.
+- **attack feasibility** (3.1.3): how easily the actions of an attack path can be carried out successfully; a property of the path.
+- **item** (3.1.25): what delivers a vehicle-level function: one component, or several working together.
+- **component** (3.1.7): a part that can be separated from the rest, both logically and technically.
+- **weakness** (3.1.40): a flaw or trait that can cause unwanted behaviour, such as a missing requirement, a design flaw or an implementation defect (cf. CWE).
+- **vulnerability** (3.1.38): a weakness that an attack path can exploit (cf. CVE).
+- **work product** (described in the Introduction; 3.2 lists only its abbreviation, WP): what a cybersecurity activity produces in meeting one or more of the requirements tied to it; Annex A summarizes them. In this audit model it is the evidence an auditor checks.
 
 ## 4. Requirement / work-product structure → audit automation (tmodel #15)
 

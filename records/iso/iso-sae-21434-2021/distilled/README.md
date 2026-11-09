@@ -4,7 +4,7 @@ id: iso-sae-21434-2021-distilled-index
 record: iso-sae-21434-2021
 type: index
 audience: human   # orientation for people; the machine source is requirements.yaml
-updated: "2026-11-07"
+updated: "2026-11-08"
 ---
 
 # Distilled artifacts — ISO/SAE 21434:2021
@@ -23,8 +23,9 @@ as authoritative.
 
 ## Not yet done (next passes)
 - Line-by-line human review of `requirements.yaml` (set `reviewed_by`, fix any truncation/verb drift).
+- Done 2026-11-08: 52 entries whose paraphrase still followed a sentence of the standard are reworded: every entry that reused 70% or more of its provision's words in the same order, unless the overlap was only names or references, plus a few with a near-copied opening. `normative.md` §3 is rewritten in our own words. The decision citations now point to where the decision is written: hold 1 of the tmodel#69 sponsor note (2026-10-02), which the sponsor confirmed for the library's ISO/SAE 21434 material in tmodel#202 item 7 (2026-11-04) and on tmodel#154 (2026-11-05). That comment and library#44 call it the "#38 Q3 decision", but on tmodel#38 it is question 4 of the 2026-10-19 comment, and no answer was posted there.
 - Done 2026-11-07: the 16 defective entries listed in `summary.md` Limits are paraphrased in full from the licensed copy (tmodel#154). Each one's `notes` says what the earlier extract had lost or held instead.
-- Done 2026-11-05: every provision `text` and `short_title` is now our own paraphrase, under the sponsor's licensed-text decision (paraphrase plus clause IDs, never verbatim; tmodel#38 Q3, tmodel#154). Designator, normativity, verb and locator sit beside each paraphrase; the `verb` field is authoritative for force. Policy: `docs/requirements.md` §3a and the licensed-standards section of `docs/extraction.md`.
+- Done 2026-11-05: every provision `text` and `short_title` is now our own paraphrase, under the sponsor's licensed-text decision (paraphrase plus clause IDs, never verbatim; tmodel#69 sponsor note, hold 1 (2026-10-02); tmodel#154). Designator, normativity, verb and locator sit beside each paraphrase; the `verb` field is authoritative for force. Policy: `docs/requirements.md` §3a and the licensed-standards section of `docs/extraction.md`.
 - Done 2026-10-02: every provision and work-product locator points to the subclause that holds it, and every provision-to-work-product link the standard names is recorded (RPT-0007 §7).
 - Done 2026-10-03: the 10 work products that the standard ties to subclauses rather than provisions list them in `from_subclauses`, so every work product now records what it results from. The provisions in those subclauses do not list these work products; find them by locator.
 - Annex distillation: impact-rating criteria (Annex F) and attack-feasibility methods (attack-potential / CVSS / attack-vector). tmodel RPT-0007 §3 and §4 summarize Annexes E to H in its own words.
