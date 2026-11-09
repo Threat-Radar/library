@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: iso-sae-21434-2021
 record: iso-sae-21434-2021
 type: summary
-updated: "2026-11-05"
+updated: "2026-11-07"
 ---
 
 # Road vehicles — Cybersecurity engineering (ISO/SAE 21434:2021)
@@ -105,11 +105,9 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
   texts defective: 5 held annex text instead of the provision (RQ-07-04, RQ-09-03, RQ-09-04,
   RQ-10-08, RQ-11-01), and 11 lost the list items that follow an interrupting NOTE or EXAMPLE
   (RQ-05-11, RQ-06-02, RQ-06-15, RQ-06-16, RQ-06-30, RQ-09-01, RQ-10-01, RQ-10-04, RQ-12-02,
-  RQ-13-01, RQ-15-17). These carry `audit_status: text-defect-needs-licensed-copy` and a
-  `notes` field: the 11 paraphrase only the intact fragment and say that items are missing; the
-  5 hold a placeholder. Nothing was invented to fill the gaps. Each needs a paraphrase checked
-  against a licensed copy. A human pass is still required before any requirement is treated as
-  authoritative.
+  RQ-13-01, RQ-15-17). On 2026-11-07 all 16 were paraphrased in full from the licensed copy
+  (tmodel#154), and each one's `notes` says what the earlier extract had lost or held instead.
+  A human pass is still required before any requirement is treated as authoritative.
 - Work-product links (22 were missing), locators (5 provision, 14 work product) and three
   work-product titles were corrected against the source on 2026-10-02 (RPT-0007 §7). The
   derived `nature` and `verification` fields follow the links: 47 provisions are now

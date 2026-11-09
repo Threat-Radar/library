@@ -3,7 +3,7 @@ record: iso-sae-21434-2021
 source_version: "2021"
 source_digest: "73f990078d3a5b47dec91dd0d2b4e6c24cecd9e4160ae5b143c3b3fa80b7cdf4"
 audience: machine   # canonical structured source; requirements.md is the human view
-generated_from: 'pdftotext -layout of purchased PDF (local .cache) + scratchpad/extract3.py; every text and short_title rewritten as our own paraphrase on 2026-11-05'
+generated_from: 'pdftotext -layout of purchased PDF (local .cache) + scratchpad/extract3.py; every text and short_title rewritten as our own paraphrase on 2026-11-05; the 16 defective entries completed from the licensed copy on 2026-11-07 (tmodel#154)'
 text_origin: paraphrase   # licensed standard: docs/requirements.md §3a, docs/extraction.md "Licensed standards"
 licensed_text: >
   ISO/SAE 21434:2021 is a purchased, all-rights-reserved standard. Under the sponsor's
@@ -13,8 +13,8 @@ licensed_text: >
   normativity, verb and locator are kept beside the paraphrase so a shall cannot drift into a
   should; the verb field is authoritative for force. source_digest identifies the purchased
   PDF bytes the original extraction read. A paraphrase is not the standard; read the
-  standard before relying on any entry. 16 entries whose extract was cut off or held annex
-  text carry audit_status text-defect-needs-licensed-copy and a notes field.
+  standard before relying on any entry. The 16 entries whose extract was cut off or held
+  annex text were completed from the licensed copy on 2026-11-07 (tmodel#154); their notes say so.
 reviewed_by: ""
 note: >
   Audit-oriented typing. normativity=requirement/recommendation/permission; actor=who must
@@ -209,14 +209,14 @@ requirements:
     clause_name: "Organizational cybersecurity management"
     phase: organizational
     locator: "§5.4.4"
-    short_title: "Quality management system (topic list incomplete)"
-    text: "The organization shall establish and maintain a quality management system, based on International Standards or an equivalent, that supports cybersecurity engineering and covers a list of management topics that this catalog does not hold."
+    short_title: "Quality management system"
+    text: "The organization shall establish and maintain a quality management system, based on International Standards or an equivalent, that supports cybersecurity engineering and covers (a) change management, (b) documentation management, (c) configuration management and (d) requirements management."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-05-12
     designator: RQ-05-12
     normativity: requirement
@@ -347,14 +347,14 @@ requirements:
     clause_name: "Project dependent cybersecurity management"
     phase: project
     locator: "§6.4.2"
-    short_title: "Relevance analysis of the item or component (list incomplete)"
-    text: "To decide which cybersecurity activities an item or component needs, it shall be analysed to establish (a) whether it is relevant to cybersecurity, and further points that this catalog does not hold."
+    short_title: "Relevance, reuse and tailoring analysis"
+    text: "To decide which cybersecurity activities an item or component needs, it shall be analysed to establish (a) whether it is relevant to cybersecurity; (b) if it is, whether it is being newly developed or reused; and (c) whether tailoring under 6.4.3 applies."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-06-03
     designator: RQ-06-03
     normativity: requirement
@@ -570,14 +570,14 @@ requirements:
     clause_name: "Project dependent cybersecurity management"
     phase: project
     locator: "§6.4.4"
-    short_title: "When a reuse analysis is needed (list incomplete)"
-    text: "A reuse analysis shall be done for an item or component that has already been developed when (a) changes to it are planned, (b) it is planned to be reused in a different operational environment, or a further condition that this catalog does not hold applies."
+    short_title: "When a reuse analysis is needed"
+    text: "A reuse analysis shall be done for an item or component that has already been developed when (a) changes to it are planned, (b) it is planned to be reused in a different operational environment, or (c) it is planned to be reused unchanged but relevant information about it has changed."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-06-16
     designator: RQ-06-16
     normativity: requirement
@@ -588,14 +588,14 @@ requirements:
     clause_name: "Project dependent cybersecurity management"
     phase: project
     locator: "§6.4.4"
-    short_title: "Content of a reuse analysis (list incomplete)"
-    text: "When an item or component undergoes a reuse analysis, the analysis shall (a) identify what changes in the item or component and in its operational environment and (b) analyse the cybersecurity implications of those changes, including whether earlier cybersecurity claims and assumptions still hold, plus further steps that this catalog does not hold."
+    short_title: "Content of a reuse analysis"
+    text: "When an item or component undergoes a reuse analysis, the analysis shall (a) identify what changes in the item or component and in its operational environment; (b) analyse what those changes mean for cybersecurity, including whether earlier cybersecurity claims and assumptions still hold; (c) identify which work products are affected or missing; and (d) set out in the cybersecurity plan the cybersecurity activities needed to conform to ISO/SAE 21434 (see 6.4.2)."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-06-17
     designator: RQ-06-17
     normativity: requirement
@@ -831,14 +831,14 @@ requirements:
     clause_name: "Project dependent cybersecurity management"
     phase: project
     locator: "§6.4.8"
-    short_title: "Scope of the cybersecurity assessment (list incomplete)"
-    text: "The scope of a cybersecurity assessment shall cover (a) the cybersecurity plan and every work product it names; (b) how the cybersecurity risks were treated; (c) whether the cybersecurity controls implemented and the cybersecurity activities performed in the project are appropriate and effective; and a further item that this catalog does not hold."
+    short_title: "Scope of the cybersecurity assessment"
+    text: "The scope of a cybersecurity assessment shall cover (a) the cybersecurity plan and every work product it names; (b) how the cybersecurity risks were treated; (c) whether the cybersecurity controls implemented and the cybersecurity activities performed in the project are appropriate and effective; and (d) any rationales offered to show that the objectives of ISO/SAE 21434 have been achieved."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-06-31
     designator: RQ-06-31
     normativity: requirement
@@ -970,14 +970,14 @@ requirements:
     clause_name: "Distributed cybersecurity activities"
     phase: distributed
     locator: "§7.4.3"
-    short_title: "Provision in §7.4.3 (text not in catalog)"
-    text: "Placeholder: this catalog does not hold the text of this mandatory (shall) provision. It is a provision in the subclause on distributed cybersecurity activities between customer and supplier (§7.4.3); paraphrase it from a licensed copy."
+    short_title: "Cybersecurity interface agreement"
+    text: "The customer and the supplier shall set out the cybersecurity activities they distribute between them in a cybersecurity interface agreement that covers (a) the cybersecurity point of contact each of them appoints; (b) which cybersecurity activities the customer performs and which the supplier performs; (c) where applicable, joint tailoring of cybersecurity activities under 6.4.3; (d) the information and work products they will share; (e) milestones for the distributed cybersecurity activities; and (f) a definition of when cybersecurity support for the item or component ends."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract captured Annex C interface-agreement template material that follows a later mention of this identifier, not the provision itself. The text field is a placeholder; paraphrase the provision from a licensed copy."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held Annex C interface-agreement template material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself."
   - id: iso-sae-21434-2021#RC-07-05
     designator: RC-07-05
     normativity: recommendation
@@ -1193,14 +1193,14 @@ requirements:
     clause_name: "Concept"
     phase: concept
     locator: "§9.3.2"
-    short_title: "Item information to identify (list incomplete)"
-    text: "Information about the item shall be identified, including (a) the item's boundary, and further information that this catalog does not hold."
+    short_title: "Item information to identify"
+    text: "Information about the item shall be identified, namely (a) the item boundary, (b) the item's functions and (c) its preliminary architecture."
     text_origin: paraphrase
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-09-02
     designator: RQ-09-02
     normativity: requirement
@@ -1228,14 +1228,14 @@ requirements:
     clause_name: "Concept"
     phase: concept
     locator: "§9.4.2"
-    short_title: "Concept-phase TARA provision in §9.4.2 (text not in catalog)"
-    text: "Placeholder: this catalog does not hold the text of this mandatory (shall) provision. It is a provision of §9.4.2 that RQ-09-06 and RQ-09-07 cite as the concept-phase analysis whose results are verified against the item definition, and it is linked to the TARA work product (WP-09-02); paraphrase it from a licensed copy."
+    short_title: "Concept-phase TARA analysis (15.3 to 15.8)"
+    text: "Starting from the item definition, an analysis shall be carried out that covers (a) asset identification under 15.3, (b) threat scenario identification under 15.4, (c) impact rating under 15.5, (d) attack path analysis under 15.6, (e) attack feasibility rating under 15.7 and (f) risk value determination under 15.8."
     text_origin: paraphrase
     expects_deliverables: [WP-09-02]
     verification: "inspect required deliverable(s): WP-09-02"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract captured Annex H example material that follows a later mention of this identifier, not the provision itself. The text field is a placeholder; paraphrase the provision from a licensed copy."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held Annex H example material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself."
   - id: iso-sae-21434-2021#RQ-09-04
     designator: RQ-09-04
     normativity: requirement
@@ -1246,14 +1246,15 @@ requirements:
     clause_name: "Concept"
     phase: concept
     locator: "§9.4.2"
-    short_title: "Concept-phase risk treatment provision in §9.4.2 (text not in catalog)"
-    text: "Placeholder: this catalog does not hold the text of this mandatory (shall) provision. It is a provision of §9.4.2 that RQ-09-07 cites as the source of the risk treatment decisions, and it is linked to the TARA work product (WP-09-02); paraphrase it from a licensed copy."
+    short_title: "Concept-phase risk treatment decisions (15.9)"
+    text: "For every threat scenario, its risk treatment options shall be decided as 15.9 sets out, working from the RQ-09-03 results."
     text_origin: paraphrase
     expects_deliverables: [WP-09-02]
     verification: "inspect required deliverable(s): WP-09-02"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract captured Annex H example material and the bibliography that follows a later mention of this identifier, not the provision itself. The text field is a placeholder; paraphrase the provision from a licensed copy. Its external_refs were parsed from the bibliography, not the provision, and were removed."
+    refs: [RQ-09-03]
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held Annex H example material and the bibliography instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself. The external_refs parsed from the bibliography were removed earlier; refs now names RQ-09-03, the one provision it cites."
   - id: iso-sae-21434-2021#RQ-09-05
     designator: RQ-09-05
     normativity: requirement
@@ -1387,14 +1388,14 @@ requirements:
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
-    short_title: "Inputs to cybersecurity specifications (list incomplete)"
-    text: "Cybersecurity specifications shall be defined from (a) the cybersecurity specifications at higher levels of architectural abstraction, (b) the cybersecurity controls chosen for implementation, where applicable, and a further input that this catalog does not hold."
+    short_title: "Inputs to cybersecurity specifications"
+    text: "Cybersecurity specifications shall be defined from (a) the cybersecurity specifications at higher levels of architectural abstraction, (b) the cybersecurity controls chosen for implementation, where applicable, and (c) the existing architectural design, where applicable."
     text_origin: paraphrase
     expects_deliverables: [WP-10-01]
     verification: "inspect required deliverable(s): WP-10-01"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-10-02
     designator: RQ-10-02
     normativity: requirement
@@ -1439,14 +1440,14 @@ requirements:
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
-    short_title: "Criteria for notations and languages (list incomplete)"
-    text: "When the cybersecurity specifications or their implementation use design, modelling or programming notations or languages, the choice of notation or language shall take into account (a) a clear, understandable definition of both syntax and semantics; (b) support for modularity, abstraction and encapsulation; (c) support for structured constructs; (d) support for secure design and implementation techniques; (e) the ability to integrate existing components; and a further criterion that this catalog does not hold."
+    short_title: "Criteria for notations and languages"
+    text: "When the cybersecurity specifications or their implementation use design, modelling or programming notations or languages, the choice of notation or language shall take into account (a) a clear, understandable definition of both syntax and semantics; (b) support for modularity, abstraction and encapsulation; (c) support for structured constructs; (d) support for secure design and implementation techniques; (e) the ability to integrate existing components; and (f) how well the language resists vulnerabilities that arise from using it incorrectly."
     text_origin: paraphrase
     expects_deliverables: [WP-10-03]
     verification: "inspect required deliverable(s): WP-10-03"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-10-05
     designator: RQ-10-05
     normativity: requirement
@@ -1510,14 +1511,14 @@ requirements:
     clause_name: "Product development"
     phase: development
     locator: "§10.4.1"
-    short_title: "Verification provision in §10.4.1 (text not in catalog)"
-    text: "Placeholder: this catalog does not hold the text of this mandatory (shall) provision. It is a provision of §10.4.1 linked to the verification report for the cybersecurity specifications (WP-10-04); paraphrase it from a licensed copy."
+    short_title: "Verification of the cybersecurity specifications"
+    text: "A verification of the defined cybersecurity specifications shall show that they are complete, correct and consistent with the cybersecurity specifications at higher levels of architectural abstraction."
     text_origin: paraphrase
     expects_deliverables: [WP-10-04]
     verification: "inspect required deliverable(s): WP-10-04"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract captured annex table material that follows a later mention of this identifier, not the provision itself. The text field is a placeholder; paraphrase the provision from a licensed copy. Its refs were parsed from that table, not the provision, and were removed."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held annex table material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself. The refs parsed from that table were removed earlier; the provision cites no other provision."
   - id: iso-sae-21434-2021#RQ-10-09
     designator: RQ-10-09
     normativity: requirement
@@ -1615,14 +1616,14 @@ requirements:
     clause_name: "Cybersecurity validation"
     phase: validation
     locator: "§11.4"
-    short_title: "Validation provision in §11.4 (text not in catalog)"
-    text: "Placeholder: this catalog does not hold the text of this mandatory (shall) provision. It is a provision of the cybersecurity validation subclause (§11.4) linked to the validation report (WP-11-01); paraphrase it from a licensed copy."
+    short_title: "Vehicle-level cybersecurity validation"
+    text: "Vehicle-level validation of the item, done with the configurations intended for series production, shall confirm (a) that the cybersecurity goals are adequate for the threat scenarios and their risks; (b) that the item achieves its cybersecurity goals; (c) that the cybersecurity claims are valid; and (d) where applicable, that the requirements on the operational environment are valid."
     text_origin: paraphrase
     expects_deliverables: [WP-11-01]
     verification: "inspect required deliverable(s): WP-11-01"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract captured annex table material that follows a later mention of this identifier, not the provision itself. The text field is a placeholder; paraphrase the provision from a licensed copy. Its external_refs were parsed from that table, not the provision, and were removed."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held annex table material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself. The external_refs parsed from that table were removed earlier; the provision cites no other provision."
   - id: iso-sae-21434-2021#RQ-11-02
     designator: RQ-11-02
     normativity: requirement
@@ -1667,14 +1668,14 @@ requirements:
     clause_name: "Production"
     phase: production
     locator: "§12.4"
-    short_title: "Contents of the production control plan (list incomplete)"
-    text: "The production control plan shall contain (a) the ordered steps for applying the post-development cybersecurity requirements; (b) the production tools and equipment; (c) cybersecurity controls that stop unauthorized changes during production; and a further item that this catalog does not hold."
+    short_title: "Contents of the production control plan"
+    text: "The production control plan shall contain (a) the ordered steps for applying the post-development cybersecurity requirements; (b) the production tools and equipment; (c) cybersecurity controls that stop unauthorized changes during production; and (d) the methods for confirming that the post-development cybersecurity requirements are met."
     text_origin: paraphrase
     expects_deliverables: [WP-12-01]
     verification: "inspect required deliverable(s): WP-12-01"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-12-03
     designator: RQ-12-03
     normativity: requirement
@@ -1702,14 +1703,14 @@ requirements:
     clause_name: "Operations and maintenance"
     phase: operations-maintenance
     locator: "§13.3.2"
-    short_title: "Incident response plan (list incomplete)"
-    text: "A cybersecurity incident response plan shall be created for each cybersecurity incident, containing (a) remedial actions, and further content that this catalog does not hold."
+    short_title: "Incident response plan"
+    text: "A cybersecurity incident response plan shall be created for each cybersecurity incident, containing (a) remedial actions; (b) a communication plan; (c) who is responsible for the remedial actions; (d) a procedure for capturing any new cybersecurity information about the incident; (e) a way to measure progress; (f) the criteria for closing the incident response; and (g) the actions to take when closing it."
     text_origin: paraphrase
     expects_deliverables: [WP-13-01]
     verification: "inspect required deliverable(s): WP-13-01"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-13-02
     designator: RQ-13-02
     normativity: requirement
@@ -2061,14 +2062,14 @@ requirements:
     clause_name: "Threat analysis and risk assessment (TARA) methods"
     phase: tara-method
     locator: "§15.9.2"
-    short_title: "Risk treatment options (list incomplete)"
-    text: "For each threat scenario, taking its risk values into account, one or more risk treatment options shall be chosen; the options include (a) avoiding the risk, and further options that this catalog does not hold."
+    short_title: "Risk treatment options"
+    text: "For each threat scenario, taking its risk values into account, one or more risk treatment options shall be chosen from these four: (a) avoiding the risk, (b) reducing the risk, (c) sharing the risk and (d) retaining the risk."
     text_origin: paraphrase
     expects_deliverables: [WP-15-08]
     verification: "inspect required deliverable(s): WP-15-08"
     tailorable: true
-    audit_status: text-defect-needs-licensed-copy
-    notes: "Catalog defect (tmodel RPT-0007 §7.2): the purchased-PDF extract stopped where a NOTE or EXAMPLE interrupts the list, so later list items are missing. The paraphrase covers only the intact part; check against a licensed copy before relying on this entry. Other entries name reducing (RQ-09-05), sharing and retaining (RQ-09-06) as treatment options; RPT-0007 §2.9 reports four options in total."
+    audit_status: not-reviewed
+    notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
 
 # Required deliverables (work products) — the auditable evidence units.
 required_deliverables:

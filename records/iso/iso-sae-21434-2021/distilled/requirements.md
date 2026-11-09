@@ -5,14 +5,14 @@ record: iso-sae-21434-2021
 type: index
 audience: human   # generated from requirements.yaml — do not hand-edit
 generated_from: distilled/requirements.yaml
-updated: "2026-11-05"
+updated: "2026-11-07"
 ---
 
 # ISO/SAE 21434:2021 — requirements (human-viewable list)
 
 > **Generated** from `requirements.yaml` (the machine/AI source of truth). Do not hand-edit.
 > **118 requirements** + **42 required deliverables**. `P`=process, `D`=deliverable-producing.
-> Paraphrased text, actor, verification, cross-refs and deliverables are in the YAML. Short titles and texts are our own wording, not the standard's: ISO/SAE 21434 is a licensed standard (tmodel#154). Titles marked "list incomplete" or "text not in catalog" need a check against a licensed copy.
+> Paraphrased text, actor, verification, cross-refs and deliverables are in the YAML. Short titles and texts are our own wording, not the standard's: ISO/SAE 21434 is a licensed standard (tmodel#154).
 > In the work-product table, an entry starting with § is a subclause: for 10 work products the standard names subclauses, not provisions (`from_subclauses` in the YAML).
 
 
@@ -30,7 +30,7 @@ updated: "2026-11-05"
 | `RQ-05-08` | req | D | organization | Continuous improvement | WP-05-02 |
 | `RQ-05-09` | req | P | organization | Rules for sharing cybersecurity information | — |
 | `RC-05-10` | rec | P | organization | Information security of shared data | — |
-| `RQ-05-11` | req | P | organization | Quality management system (topic list incomplete) | — |
+| `RQ-05-11` | req | P | organization | Quality management system | — |
 | `RQ-05-12` | req | P | unspecified | Configuration information kept available | — |
 | `RC-05-13` | rec | P | project (implied) | Cybersecurity management for production | — |
 | `RQ-05-14` | req | P | project (implied) | Tool management | — |
@@ -43,7 +43,7 @@ updated: "2026-11-05"
 | designator | norm | nature | actor | short title | deliverables |
 |---|---|---|---|---|---|
 | `RQ-06-01` | req | P | project (implied) | Project cybersecurity responsibilities | — |
-| `RQ-06-02` | req | P | project (implied) | Relevance analysis of the item or component (list incomplete) | — |
+| `RQ-06-02` | req | P | project (implied) | Relevance, reuse and tailoring analysis | — |
 | `RQ-06-03` | req | P | cybersecurity plan | Contents of the cybersecurity plan | — |
 | `RQ-06-04` | req | P | unspecified | Responsibility for the cybersecurity plan | — |
 | `RQ-06-05` | req | P | cybersecurity plan | Cybersecurity plan and project plan | — |
@@ -56,8 +56,8 @@ updated: "2026-11-05"
 | `RQ-06-12` | req | P | project (implied) | Planned work products under management | — |
 | `PM-06-13` | perm | P | project (implied) | Tailoring | — |
 | `RQ-06-14` | req | P | unspecified | Rationale for tailoring | — |
-| `RQ-06-15` | req | P | project (implied) | When a reuse analysis is needed (list incomplete) | — |
-| `RQ-06-16` | req | P | unspecified | Content of a reuse analysis (list incomplete) | — |
+| `RQ-06-15` | req | P | project (implied) | When a reuse analysis is needed | — |
+| `RQ-06-16` | req | P | unspecified | Content of a reuse analysis | — |
 | `RQ-06-17` | req | P | unspecified | Reuse analysis of a component | — |
 | `RQ-06-18` | req | P | project (implied) | Assumptions for out-of-context components | — |
 | `RQ-06-19` | req | P | project (implied) | Requirements for out-of-context components | — |
@@ -71,7 +71,7 @@ updated: "2026-11-05"
 | `RQ-06-27` | req | P | project (implied) | Appointing the assessor | — |
 | `RQ-06-28` | req | P | unspecified | Assessor access and cooperation | — |
 | `PM-06-29` | perm | P | project (implied) | Objective-based assessment | — |
-| `RQ-06-30` | req | P | scope of a cybersecurity assessment | Scope of the cybersecurity assessment (list incomplete) | — |
+| `RQ-06-30` | req | P | scope of a cybersecurity assessment | Scope of the cybersecurity assessment | — |
 | `RQ-06-31` | req | P | a cybersecurity assessment report | Assessment recommendation | — |
 | `RQ-06-32` | req | P | unspecified | Conditions for conditional acceptance | — |
 | `RQ-06-33` | req | P | project (implied) | Work products needed before release | — |
@@ -84,7 +84,7 @@ updated: "2026-11-05"
 | `RQ-07-01` | req | P | unspecified | Evaluating supplier capability | — |
 | `RC-07-02` | rec | P | unspecified | Supplier capability record | — |
 | `RQ-07-03` | req | P | unspecified | Contents of a request for quotation | — |
-| `RQ-07-04` | req | P | unspecified | Provision in §7.4.3 (text not in catalog) | — |
+| `RQ-07-04` | req | P | unspecified | Cybersecurity interface agreement | — |
 | `RC-07-05` | rec | P | project (implied) | Agreeing the interface agreement first | — |
 | `RQ-07-06` | req | P | unspecified | Agreed actions on a shared vulnerability | — |
 | `RQ-07-07` | req | P | unspecified | Notifying unclear or conflicting requirements | — |
@@ -107,10 +107,10 @@ updated: "2026-11-05"
 
 | designator | norm | nature | actor | short title | deliverables |
 |---|---|---|---|---|---|
-| `RQ-09-01` | req | P | project (implied) | Item information to identify (list incomplete) | — |
+| `RQ-09-01` | req | P | project (implied) | Item information to identify | — |
 | `RQ-09-02` | req | P | project (implied) | Operational environment | — |
-| `RQ-09-03` | req | D | unspecified | Concept-phase TARA provision in §9.4.2 (text not in catalog) | WP-09-02 |
-| `RQ-09-04` | req | D | unspecified | Concept-phase risk treatment provision in §9.4.2 (text not in catalog) | WP-09-02 |
+| `RQ-09-03` | req | D | unspecified | Concept-phase TARA analysis (15.3 to 15.8) | WP-09-02 |
+| `RQ-09-04` | req | D | unspecified | Concept-phase risk treatment decisions (15.9) | WP-09-02 |
 | `RQ-09-05` | req | D | project (implied) | Cybersecurity goals | WP-09-03 |
 | `RQ-09-06` | req | D | unspecified | Cybersecurity claims | WP-09-04 |
 | `RQ-09-07` | req | D | project (implied) | Verifying the concept-phase TARA, goals and claims | WP-09-05 |
@@ -123,14 +123,14 @@ updated: "2026-11-05"
 
 | designator | norm | nature | actor | short title | deliverables |
 |---|---|---|---|---|---|
-| `RQ-10-01` | req | D | project (implied) | Inputs to cybersecurity specifications (list incomplete) | WP-10-01 |
+| `RQ-10-01` | req | D | project (implied) | Inputs to cybersecurity specifications | WP-10-01 |
 | `RQ-10-02` | req | D | project (implied) | Allocating requirements to architecture components | WP-10-01 |
 | `RQ-10-03` | req | D | project (implied) | Post-development procedures | WP-10-02 |
-| `RQ-10-04` | req | D | unspecified | Criteria for notations and languages (list incomplete) | WP-10-03 |
+| `RQ-10-04` | req | D | unspecified | Criteria for notations and languages | WP-10-03 |
 | `RQ-10-05` | req | D | unspecified | Guidelines covering language gaps | WP-10-03 |
 | `RC-10-06` | rec | P | project (implied) | Trusted design and implementation principles | — |
 | `RQ-10-07` | req | D | project (implied) | Architectural weakness analysis | WP-10-05 |
-| `RQ-10-08` | req | D | unspecified | Verification provision in §10.4.1 (text not in catalog) | WP-10-04 |
+| `RQ-10-08` | req | D | unspecified | Verification of the cybersecurity specifications | WP-10-04 |
 | `RQ-10-09` | req | D | integration and verification activities | Verifying implementation and integration | WP-10-07 |
 | `RQ-10-10` | req | D | project (implied) | Specifying integration and verification | WP-10-06 |
 | `RQ-10-11` | req | D | project (implied) | Test coverage | WP-10-07 |
@@ -141,7 +141,7 @@ updated: "2026-11-05"
 
 | designator | norm | nature | actor | short title | deliverables |
 |---|---|---|---|---|---|
-| `RQ-11-01` | req | D | unspecified | Validation provision in §11.4 (text not in catalog) | WP-11-01 |
+| `RQ-11-01` | req | D | unspecified | Vehicle-level cybersecurity validation | WP-11-01 |
 | `RQ-11-02` | req | D | project (implied) | Rationale for validation activities | WP-11-01 |
 
 ## Clause 12 — Production
@@ -149,14 +149,14 @@ updated: "2026-11-05"
 | designator | norm | nature | actor | short title | deliverables |
 |---|---|---|---|---|---|
 | `RQ-12-01` | req | D | project (implied) | Production control plan | WP-12-01 |
-| `RQ-12-02` | req | D | production control plan | Contents of the production control plan (list incomplete) | WP-12-01 |
+| `RQ-12-02` | req | D | production control plan | Contents of the production control plan | WP-12-01 |
 | `RQ-12-03` | req | P | project (implied) | Implementing the production control plan | — |
 
 ## Clause 13 — Operations and maintenance
 
 | designator | norm | nature | actor | short title | deliverables |
 |---|---|---|---|---|---|
-| `RQ-13-01` | req | D | project (implied) | Incident response plan (list incomplete) | WP-13-01 |
+| `RQ-13-01` | req | D | project (implied) | Incident response plan | WP-13-01 |
 | `RQ-13-02` | req | P | project (implied) | Carrying out the incident response plan | — |
 | `RQ-13-03` | req | P | project (implied) | Updates | — |
 
@@ -187,7 +187,7 @@ updated: "2026-11-05"
 | `RC-15-14` | rec | P | project (implied) | Predominant attack vector | — |
 | `RQ-15-15` | req | D | project (implied) | Risk value | WP-15-07 |
 | `RQ-15-16` | req | D | project (implied) | Risk value range | WP-15-07 |
-| `RQ-15-17` | req | D | project (implied) | Risk treatment options (list incomplete) | WP-15-08 |
+| `RQ-15-17` | req | D | project (implied) | Risk treatment options | WP-15-08 |
 
 ## Required deliverables (work products)
 
