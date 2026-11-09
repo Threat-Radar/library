@@ -1,0 +1,11 @@
+{
+  "type": "x-detection",
+  "spec_version": "2.1",
+  "id": "x-detection--a1b2c3d4-5678-90ef-ghij-klmnopqrstuv",
+  "created": "2022-08-02T19:34:35.143Z",
+  "modified": "2022-08-02T19:34:35.143Z",
+  "detection_id": "DET0516",
+  "name": "Suspicious PowerShell Command",
+  "description": "Detects suspicious PowerShell commands that may indicate lateral movement.",
+  "labels": ["x-detection"]
+}

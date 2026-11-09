@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: mitre-attack-flow
 record: mitre-attack-flow
 type: summary
-updated: "2026-10-22"
+updated: "2026-11-09"
 ---
 
 # Attack Flow — Language
@@ -26,7 +26,8 @@ interoperate with existing threat-intelligence tools. A flow document has
 exactly one **`attack-flow`** object (name, description, `start_refs`, and a
 `scope` label). Its building blocks, as defined in the JSON schema, are:
 
-- **`attack-action`**: one execution of a behaviour (only `name` is required;
+- **`attack-action`**: one execution of a behavior (`name` is the only required
+  action-specific property; the common properties are still required;
   usually `technique_id` and `tactic_id`, optional refs to the ATT&CK objects,
   `execution_start` / `execution_end`, a command, the assets it touches), linked
   to what follows through **`effect_refs`**;
@@ -40,7 +41,7 @@ exactly one **`attack-flow`** object (name, description, `start_refs`, and a
 An arrow from one action to another is a **dependency**: "the second action
 cannot be executed until the first action completes successfully"
 (`introduction.rst`), which the documentation calls a more powerful concept
-than one action happening before another. The graph therefore gives a partial
+than one action happening before another. An acyclic graph therefore gives a partial
 order; independent branches stay unordered, and timestamps are optional.
 
 `scope` values in the schema: `incident`, `campaign`, `threat-actor`,
@@ -70,6 +71,16 @@ Bears on **DEC-001** (object model — attack steps, gates, dependency vs order)
 and **DEC-005** (MVP scope — the attack-path graph). A STIX 2.1 import is already
 committed by ADR-0007, so Attack Flow documents are a candidate interchange.
 
+### Applicability to tmodel's graph
+
+| Axis | Rating | Why |
+|---|---|---|
+| Object model | core | Actions, assets, dependency edges, conditions and operators provide a concrete import crosswalk candidate; they are not a replacement for the accepted schema. |
+| Provenance / attribution | partial | Common STIX fields preserve creator, creation/modification time and external references, but provenance still needs mapping to tmodel assertions. |
+| Human review / audit | insufficient alone | Confidence and timestamps do not record a separate human acceptance or impact judgment. |
+| Federation | partial | A published STIX extension can carry shared graphs; consumers must understand the extension, and the schema must be pinned because its version label was reused. |
+| AI grounding | useful with limits | Pinned source/schema artifacts can ground proposed imports; source contradictions and confidence conventions require explicit handling, never automatic review acceptance. |
+
 ## Implementations
 
 Searched 2026-10-22.
@@ -85,11 +96,14 @@ Searched 2026-10-22.
 |---|---|
 | `record.yaml` | metadata |
 | `summary.md` | this summary |
+| `distilled/README.md` | full extraction index, source discrepancies and automated validation; human artifact review pending |
 
 ## Limits
 
-- **Summary bar only:** this `spec` record is summarised, not extracted; no FX-1
-  extraction was done.
+- **Review boundary:** full FX-1 artifacts are available in `distilled/`. Automated
+  extraction and checking do not constitute human acceptance; each artifact
+  keeps `reviewed_by` blank until a person signs it. See the extraction index
+  for the pinned-source scope, normative count and known source defects.
 - **Describes attacks, not systems:** no DFD, components or trust boundaries, and
   no risk scoring.
 - **Schema versioning:** the schema labelled 2.0.0 was widened in place, so an
@@ -106,4 +120,5 @@ Searched 2026-10-22.
   "Speculative" to 10 and "Very Doubtful" to 20, while the documented scale has
   "Speculation" at 0 and "Very Doubtful" at 10; nothing in a flow says which scale
   it used. The generation guide has analysts validate AI drafts by updating
-  confidence, so confidence carries review state.
+  confidence. That convention does not supply tmodel's separate, auditable
+  human-review record or establish that a generated action was accepted.

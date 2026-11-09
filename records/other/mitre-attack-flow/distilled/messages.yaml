@@ -1,0 +1,3152 @@
+# Attack Flow language and STIX extension structures; source locators refer to the pinned source files.
+schema: 'library-messages/v1'
+record: 'mitre-attack-flow'
+reviewed_by: ''
+source_version: 'Attack Flow v4.1.0 language; Attack Flow STIX extension/schema 2.0.0; external STIX JSON Schema snapshots retrieved 2026-11-09'
+extracted: '2026-11-09'
+source_digest: 'sha256:85ae7b7f367b57c935328276a412e5b2f051e4d48f2ab622276359d49615fa49'
+source_files:
+  - path: 'docs/language.rst'
+    sha256: '85ae7b7f367b57c935328276a412e5b2f051e4d48f2ab622276359d49615fa49'
+  - path: 'stix/attack-flow-schema-2.0.0.json'
+    sha256: 'fff896f5e1bdc39d9b387c0d3571307037cf9be1059de9cd94d066d1da2997cc'
+  - path: 'stix/attack-flow-extension-2.0.0.json'
+    sha256: 'afdbac65edc9805ea2f3b2b84b4ae4908644e7f4190f28e8e836659d74d87e70'
+note: 'Independent source-based extraction of all seven language-defined object types and all 48 rows in their property tables, the eight common-property rows described by the language, all 14 properties in the imported STIX core snapshot, the Attack Flow extension marker, and every member of the published extension bundle. External STIX datatypes and property rules are captured with their own provenance and exact schema facets. required and cardinality describe language/source-schema rules; published-instance presence is not converted into requiredness. Requirement cross-links were added only after independently checking the 109 requirement texts as contiguous source substrings and matching each object/field label to this artifact. Shared-field links and source-difference links preserve the distinction between language and schema constraints; no external-STIX rules are given invented record-local requirement ids.'
+format:
+  encoding: 'JSON, extending STIX 2.1'
+  locator: 'docs/language.rst §Overview L7-L24'
+  byte_layout: 'The cited Attack Flow sources define named JSON properties and arrays, without fixed byte offsets, binary fields, a byte-order rule, a canonical serialization, a character-encoding mandate, message framing or transport.'
+  validation_unit: 'The Attack Flow JSON Schema validates one object. The prose exactly-one-attack-flow rule applies across a document and is not enforced by this object schema.'
+  source_authority: 'docs/language.rst L22-L24 calls the JSON schema the formal specification; stix/attack-flow-schema-2.0.0.json /description calls it the normative definition. Language/schema differences are retained below rather than silently reconciled.'
+external_dependencies:
+  - role: 'common STIX properties and general object constraints'
+    uri: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json'
+    locator: 'stix/attack-flow-schema-2.0.0.json /allOf/0/$ref'
+    status: 'External STIX core and its transitive schema closure are read from the pinned snapshots in external_sources; imported constraints remain distinct from Attack Flow-local constraints.'
+  - role: 'STIX identifier datatype'
+    uri: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+    locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/start_refs/items/allOf/0/$ref and the other identifier $refs'
+    status: 'Exact imported identifier pattern is recorded in stix-identifier below; its lexical regex does not enforce object-id/type equality, reference resolution or UUID generation rules.'
+  - role: 'action execution timestamps'
+    uri: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json'
+    locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/execution_start/$ref; /$defs/attack-action/properties/execution_end/$ref'
+    status: 'The source reference is an unpinned master branch. The dated pinned snapshot is recorded in external_sources and is byte-identical to the stix2.1 timestamp snapshot for this extraction.'
+  - role: 'common-property and datatype semantics'
+    uri: 'https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html'
+    locator: 'docs/language.rst L55-L64'
+    status: 'The language table is a subset of STIX. This artifact adds the complete imported JSON Schema core and nested datatypes from pinned snapshots, while full STIX prose obligations and object definitions outside that closure remain external.'
+local_constraints:
+  - description: 'The root declares unevaluatedProperties: false, but imported properties.json broadly evaluates property names matching its patterns. It is not a whitelist of only the five Attack Flow object-specific property sets; custom property names and non-null scalar/object/nonempty-array values can be accepted.'
+    locator: 'stix/attack-flow-schema-2.0.0.json /type; /unevaluatedProperties; /allOf/0; stix-dependencies/stix2.1/schemas/common/core.json/allOf; stix-dependencies/stix2.1/schemas/common/properties.json/patternProperties'
+    authority: 'attack-flow-local'
+    kind: 'inferred'
+    constrained_by:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+  - description: 'The type dispatch covers exactly attack-flow, attack-action, attack-condition, attack-operator and attack-asset. Its final else is true, so unknown/custom types do not receive any Attack Flow object-specific schema.'
+    locator: 'stix/attack-flow-schema-2.0.0.json /allOf/2'
+    authority: 'attack-flow-local'
+    kind: 'stated'
+    constrained_by:
+      - 'mitre-attack-flow#R-0109'
+  - description: 'Reference-prefix patterns constrain string form. The per-object schema does not verify referenced-object existence, document membership, acyclicity, reachability, uniqueness of IDs across a document, graph connectivity, or chronological relation of execution_start and execution_end.'
+    locator: 'stix/attack-flow-schema-2.0.0.json /$defs; docs/language.rst L600-L615'
+    authority: 'attack-flow-local'
+    kind: 'inferred'
+conflicts:
+  - id: 'scope-enumeration'
+    aspect: 'Allowed attack-flow.scope values'
+    language:
+      values:
+        - 'incident'
+        - 'campaign'
+        - 'threat-actor'
+        - 'malware'
+        - 'other'
+      locator: 'docs/language.rst L154-L159'
+    json_schema:
+      values:
+        - 'incident'
+        - 'campaign'
+        - 'threat-actor'
+        - 'malware'
+        - 'emulation-plan'
+        - 'attack-tree'
+        - 'other'
+      locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/scope/enum'
+    finding: 'emulation-plan and attack-tree are accepted by the normative JSON Schema but omitted from the language table.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0007'
+      - 'mitre-attack-flow#R-0033'
+      - 'mitre-attack-flow#R-0100'
+  - id: 'execution-time-datatype'
+    aspect: 'attack-action.execution_start and execution_end datatypes'
+    language:
+      value: 'identifier in the type column; timestamp in the descriptions'
+      locator: 'docs/language.rst L248-L253'
+    json_schema:
+      value: 'timestamp.json references'
+      locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/execution_start; /$defs/attack-action/properties/execution_end'
+    finding: 'Timestamp representation is retained as the schema/description reading; identifier is retained explicitly as the conflicting table label.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0043'
+      - 'mitre-attack-flow#R-0044'
+      - 'mitre-attack-flow#R-0101'
+      - 'mitre-attack-flow#R-0102'
+  - id: 'custom-object-schema-coverage'
+    aspect: 'x-detection and x-mitigation validation'
+    language:
+      value: 'Both custom types are defined; type/spec_version/labels are required and labels contain their own type string. Examples omit extensions.'
+      locator: 'docs/language.rst L479-L575'
+    json_schema:
+      value: 'Neither $defs nor dispatch recognizes either type; the final else is true, but allOf/0 common core and allOf/1 extension marker requirements still apply when the root is used.'
+      locator: 'stix/attack-flow-schema-2.0.0.json /$defs; /allOf/2; /allOf/0; /allOf/1'
+    finding: 'The local schema supplies no detection_id/mitigation_id string constraint and no type-specific labels-contains rule. Imported properties.json accepts broadly named custom properties with general value types. Applying the root to the language custom-object examples requires their missing extension marker and also rejects their invalid ids.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0017'
+      - 'mitre-attack-flow#R-0018'
+      - 'mitre-attack-flow#R-0019'
+      - 'mitre-attack-flow#R-0020'
+      - 'mitre-attack-flow#R-0065'
+      - 'mitre-attack-flow#R-0066'
+      - 'mitre-attack-flow#R-0067'
+      - 'mitre-attack-flow#R-0068'
+      - 'mitre-attack-flow#R-0069'
+      - 'mitre-attack-flow#R-0070'
+      - 'mitre-attack-flow#R-0071'
+      - 'mitre-attack-flow#R-0072'
+      - 'mitre-attack-flow#R-0073'
+      - 'mitre-attack-flow#R-0074'
+      - 'mitre-attack-flow#R-0075'
+      - 'mitre-attack-flow#R-0076'
+      - 'mitre-attack-flow#R-0109'
+  - id: 'schema-publication-path'
+    aspect: 'Published schema identity paths'
+    extension_definition:
+      value: 'https://center-for-threat-informed-defense.github.io/attack-flow/stix/attack-flow-schema-2.0.0.json'
+      locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/schema'
+    json_schema:
+      value: 'https://center-for-threat-informed-defense.github.io/attack-flow/schema/attack-flow-schema-2.0.0.json'
+      locator: 'stix/attack-flow-schema-2.0.0.json /$id'
+    finding: 'The extension-definition uses /stix/ while the JSON Schema $id uses /schema/. This extraction records both identifiers and does not assume they resolve to the same retrieval resource.'
+gaps:
+  - aspect: 'External STIX completion'
+    finding: 'The complete imported JSON Schema core and its dependency closure are represented below. The complete STIX 2.1 prose standard and the definitions of referenced identity, process, attack-pattern and other STIX object types remain outside this Attack Flow extraction; no rules from those unexamined object definitions are invented.'
+    locator: 'docs/language.rst L61-L64; stix/attack-flow-schema-2.0.0.json /allOf/0/$ref'
+  - aspect: 'Document and graph validation'
+    finding: 'Exactly one flow root, reference resolution and effect execution semantics require document/graph checks beyond the per-object JSON Schema. No local machine-checkable bundle count, resolution, cycle, scheduling or missing-reference error format is present.'
+    locator: 'docs/language.rst L131-L133, L600-L615; stix/attack-flow-schema-2.0.0.json /$defs'
+  - aspect: 'Custom object identifiers in examples'
+    finding: 'Both custom-object example ids contain non-hexadecimal characters and also fail the imported identifier regex version/variant positions. They remain source examples with known invalid identifier syntax, not accepted positive identifier vectors.'
+    locator: 'docs/language.rst L518, L568'
+confidence_scale:
+  name: 'confidence-scale'
+  kind: 'stated'
+  locator: 'docs/language.rst §Confidence L619-L684'
+  input_type: 'integer 0..100'
+  note: 'Converts a term to its representative number and an integer number to the term whose range includes it. The ranges cover 0 through 100 once each; representative values are a mapping, not the only permitted confidence integers.'
+  rows:
+    - term: 'Speculation'
+      value: 0
+      minimum: 0
+      maximum: 0
+      locator: 'docs/language.rst L641-L645'
+      constrained_by:
+        - 'mitre-attack-flow#R-0089'
+    - term: 'Very Doubtful'
+      value: 10
+      minimum: 1
+      maximum: 20
+      locator: 'docs/language.rst L646-L651'
+      constrained_by:
+        - 'mitre-attack-flow#R-0090'
+    - term: 'Doubtful'
+      value: 30
+      minimum: 21
+      maximum: 40
+      locator: 'docs/language.rst L652-L656'
+      constrained_by:
+        - 'mitre-attack-flow#R-0091'
+    - term: 'Even Odds'
+      value: 50
+      minimum: 41
+      maximum: 60
+      locator: 'docs/language.rst L657-L661'
+      constrained_by:
+        - 'mitre-attack-flow#R-0092'
+    - term: 'Probable'
+      value: 70
+      minimum: 61
+      maximum: 80
+      locator: 'docs/language.rst L662-L665'
+      constrained_by:
+        - 'mitre-attack-flow#R-0093'
+    - term: 'Very Probable'
+      value: 90
+      minimum: 81
+      maximum: 99
+      locator: 'docs/language.rst L666-L670'
+      constrained_by:
+        - 'mitre-attack-flow#R-0094'
+    - term: 'Certainty'
+      value: 100
+      minimum: 100
+      maximum: 100
+      locator: 'docs/language.rst L671-L674'
+      constrained_by:
+        - 'mitre-attack-flow#R-0095'
+  constrained_by:
+    - 'mitre-attack-flow#R-0003'
+    - 'mitre-attack-flow#R-0027'
+    - 'mitre-attack-flow#R-0089'
+    - 'mitre-attack-flow#R-0090'
+    - 'mitre-attack-flow#R-0091'
+    - 'mitre-attack-flow#R-0092'
+    - 'mitre-attack-flow#R-0093'
+    - 'mitre-attack-flow#R-0094'
+    - 'mitre-attack-flow#R-0095'
+structures:
+  - name: 'stix-common-properties'
+    kind: 'stated'
+    structure: 'map-properties'
+    encoding: 'JSON object properties'
+    locator: 'docs/language.rst §STIX Common Properties L58-L114'
+    applies_to:
+      - 'attack-flow'
+      - 'attack-action'
+      - 'attack-asset'
+      - 'attack-condition'
+      - 'attack-operator'
+      - 'x-detection'
+      - 'x-mitigation'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L73-L76'
+        description: 'Identifies the type of STIX object. It must be a valid object type as defined in the STIX 2.1 standard or in an extension (such as Attack Flow).'
+        constraints:
+          - description: 'A valid STIX 2.1 or extension-defined object type.'
+            locator: 'docs/language.rst L73-L76'
+            authority: 'external-stix-restated-by-language'
+            kind: 'stated'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/type'
+        external_schema_constraints:
+          title: 'type'
+          type: 'string'
+          pattern: '^([a-z][a-z0-9]*)+(-[a-z0-9]+)*\-?$'
+          minLength: 3
+          maxLength: 250
+          not:
+            enum:
+              - 'action'
+        external_schema_required: true
+        constrained_by:
+          - 'mitre-attack-flow#R-0021'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L77-L80'
+        description: 'The version of the STIX specification used to represent this object. The value must be ``2.1`` for all Attack Flow objects.'
+        constraints:
+          - description: 'All Attack Flow objects use STIX 2.1.'
+            locator: 'docs/language.rst L77-L80'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        value: '2.1'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/spec_version'
+        external_schema_constraints:
+          type: 'string'
+          enum:
+            - '2.0'
+            - '2.1'
+        external_schema_required: true
+        constrained_by:
+          - 'mitre-attack-flow#R-0022'
+      - name: 'id'
+        type: 'identifier'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L81-L83'
+        description: 'Uniquely identifies each object.'
+        constraints:
+          - description: 'Identifies an object uniquely; exact identifier syntax is imported from STIX, not defined by an Attack Flow-local pattern.'
+            locator: 'docs/language.rst L81-L83; stix/attack-flow-schema-2.0.0.json /allOf/0/$ref'
+            authority: 'external-stix-restated-by-language'
+            kind: 'stated'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/id'
+        external_schema_constraints:
+          $ref: '../common/identifier.json'
+        external_schema_required: true
+        value_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0023'
+      - name: 'created_by_ref'
+        type: 'identifier'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L84-L87'
+        description: 'Specifies the ``id`` property of the ``identity`` object that describes the entity that created this object.'
+        constraints:
+          - description: 'References the identity object for the object creator.'
+            locator: 'docs/language.rst L84-L87'
+            authority: 'external-stix-restated-by-language'
+            kind: 'stated'
+        reference_targets:
+          - 'identity'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/created_by_ref'
+        external_schema_constraints:
+          $ref: '../common/identifier.json'
+        external_schema_required: false
+        notes: 'Identity is the language-table semantic target. The imported core schema validates only identifier syntax and does not impose an identity-- prefix.'
+        value_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0024'
+      - name: 'created'
+        type: 'timestamp'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string carrying a STIX timestamp'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L88-L93'
+        description: 'Represents the time at which the object was originally created. The object creator can use the time it deems most appropriate as the time the object was created. The minimum precision MUST be milliseconds (three digits after the decimal place in seconds), but MAY be more precise.'
+        constraints:
+          - description: 'Timestamp precision is at least three fractional digits in seconds; greater precision is permitted.'
+            locator: 'docs/language.rst L88-L100'
+            authority: 'external-stix-restated-by-language'
+            kind: 'stated'
+          - description: 'The imported timestamp pattern requires uppercase T and UTC Z, while this core field additionally requires at least three fractional digits.'
+            locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/created; stix-dependencies/stix2.1/schemas/common/timestamp.json/pattern'
+            authority: 'external-stix-schema-snapshot'
+            kind: 'stated'
+        example_encoding: '2022-08-02T19:34:35.143Z'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/created'
+        external_schema_constraints:
+          allOf:
+            - $ref: '../common/timestamp.json'
+            - title: 'timestamp_millis'
+              pattern: 'T\d{2}:\d{2}:\d{2}\.\d{3,}Z$'
+        external_schema_required: true
+        value_structure: 'stix-timestamp'
+        constrained_by:
+          - 'mitre-attack-flow#R-0001'
+          - 'mitre-attack-flow#R-0025'
+      - name: 'modified'
+        type: 'timestamp'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string carrying a STIX timestamp'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L94-L100'
+        description: 'The modified property is only used by STIX Objects that support versioning and represents the time that this particular version of the object was last modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The minimum precision MUST be milliseconds (three digits after the decimal place in seconds), but MAY be more precise.'
+        constraints:
+          - description: 'Timestamp precision is at least three fractional digits in seconds; greater precision is permitted.'
+            locator: 'docs/language.rst L88-L100'
+            authority: 'external-stix-restated-by-language'
+            kind: 'stated'
+          - description: 'The imported timestamp pattern requires uppercase T and UTC Z, while this core field additionally requires at least three fractional digits.'
+            locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/modified; stix-dependencies/stix2.1/schemas/common/timestamp.json/pattern'
+            authority: 'external-stix-schema-snapshot'
+            kind: 'stated'
+        example_encoding: '2022-08-02T19:34:35.143Z'
+        notes: 'The table marks modified required and describes it as used only for STIX objects that support versioning; these language objects are presented with created and modified in their examples.'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/modified'
+        external_schema_constraints:
+          allOf:
+            - $ref: '../common/timestamp.json'
+            - title: 'timestamp_millis'
+              pattern: 'T\d{2}:\d{2}:\d{2}\.\d{3,}Z$'
+        external_schema_required: true
+        value_structure: 'stix-timestamp'
+        constrained_by:
+          - 'mitre-attack-flow#R-0002'
+          - 'mitre-attack-flow#R-0026'
+      - name: 'confidence'
+        type: 'integer'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON integer'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L101-L106'
+        description: 'The confidence property identifies the confidence that the creator has in the correctness of their data. The confidence value MUST be a number in the range of 0-100. Attack Flow uses a :ref:`confidence scale <confidence>` to convert from numerical confidence to human terms.'
+        constraints:
+          - description: 'Integer from 0 through 100 inclusive.'
+            locator: 'docs/language.rst L101-L106, L622-L625'
+            authority: 'external-stix-restated-by-language'
+            kind: 'stated'
+        minimum: 0
+        maximum: 100
+        mapping: 'confidence-scale'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/confidence'
+        external_schema_constraints:
+          type: 'integer'
+          minimum: 0
+          maximum: 100
+        external_schema_required: false
+        constrained_by:
+          - 'mitre-attack-flow#R-0003'
+          - 'mitre-attack-flow#R-0027'
+          - 'mitre-attack-flow#R-0089'
+          - 'mitre-attack-flow#R-0090'
+          - 'mitre-attack-flow#R-0091'
+          - 'mitre-attack-flow#R-0092'
+          - 'mitre-attack-flow#R-0093'
+          - 'mitre-attack-flow#R-0094'
+          - 'mitre-attack-flow#R-0095'
+      - name: 'external_references'
+        type: 'array<external-reference>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON objects'
+        kind: 'stated'
+        locator: 'docs/language.rst §STIX Common Properties L107-L114'
+        description: 'Citing the intelligence sources consulted for creating an Attack Flow is an important part of producing informative and trustworthy flows. You can include this property on the ``attack-flow`` object to cite the sources used for creating the flow, or you can include references on ``attack-action`` objects for fine-grained sourcing. For the STIX standard, see `STIX Chap. 2.5. <https://docs.oasis-open.org/cti/stix/v2.1/cs02/stix-v2.1-cs02.html#_72bcfr3t79jx>`__'
+        constraints:
+          - description: 'References can cite the overall flow or individual attack actions.'
+            locator: 'docs/language.rst L107-L114'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        item_type: 'external-reference'
+        item_cardinality: '1..* when present'
+        notes: 'Attack Flow defines no local external-reference datatype. The imported STIX snapshot requires at least one item and supplies the nested structure and branch constraints recorded below.'
+        external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/external_references'
+        external_schema_constraints:
+          type: 'array'
+          items:
+            $ref: '../common/external-reference.json'
+          minItems: 1
+        external_schema_required: false
+        value_structure: 'stix-external-reference'
+        constrained_by:
+          - 'mitre-attack-flow#R-0028'
+      - name: 'labels'
+        type: 'array<string>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/labels'
+        description: 'A nonempty list of descriptive terms.'
+        external_schema_constraints:
+          type: 'array'
+          items:
+            type: 'string'
+          minItems: 1
+        external_schema_required: false
+        item_cardinality: '1..* when present'
+        item_type: 'string'
+        notes: 'Optional in external core; the two language-defined custom types override it to required and require their own type label.'
+      - name: 'revoked'
+        type: 'boolean'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON boolean'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/revoked'
+        description: 'Whether the object has been revoked.'
+        external_schema_constraints:
+          type: 'boolean'
+        external_schema_required: false
+      - name: 'lang'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/lang'
+        description: 'Language of the text content in this object.'
+        external_schema_constraints:
+          type: 'string'
+        external_schema_required: false
+      - name: 'object_marking_refs'
+        type: 'array<identifier>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/object_marking_refs'
+        description: 'Marking-definition objects applied to this object.'
+        external_schema_constraints:
+          type: 'array'
+          items:
+            $ref: '../common/identifier.json'
+          minItems: 1
+        external_schema_required: false
+        item_cardinality: '1..* when present'
+        item_type: 'identifier'
+        reference_targets:
+          - 'marking-definition'
+        notes: 'Target type follows the external schema description. The items schema checks identifier syntax but has no marking-definition-- prefix restriction.'
+      - name: 'granular_markings'
+        type: 'array<object>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON objects'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/granular_markings'
+        description: 'Granular markings applied to selected content.'
+        external_schema_constraints:
+          type: 'array'
+          items:
+            $ref: '../common/granular-marking.json'
+          minItems: 1
+        external_schema_required: false
+        item_cardinality: '1..* when present'
+        value_structure: 'stix-granular-marking'
+      - name: 'extensions'
+        type: 'object'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON object'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/extensions'
+        description: 'Dictionary of object extensions.'
+        external_schema_constraints:
+          type: 'object'
+          minProperties: 1
+          patternProperties:
+            ^([a-z][a-z0-9]*)+(-[a-z0-9]+)*\-ext$:
+              type: 'object'
+              minProperties: 1
+              allOf:
+                - $ref: '../common/properties.json'
+            ^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$:
+              allOf:
+                - $ref: '../common/extension.json'
+          additionalProperties: false
+        external_schema_required: false
+        value_structure: 'stix-extensions-dictionary'
+        minimum_properties: 1
+        notes: 'Optional in external core; the Attack Flow root overrides presence to required and requires its own extension-definition entry for objects validated by that root.'
+    notes: 'All 14 properties from the imported STIX core are listed: eight also have language-table descriptions and six are inherited only through the external core. The common required set is type, spec_version, id, created and modified; the five Attack Flow $defs and custom-type language tables add their own constraints. STIX bundle requiredness is a different, external definition and is not inferred from this SDO/SRO core.'
+    external_schema_locator: 'stix-dependencies/stix2.1/schemas/common/core.json'
+    external_constraints:
+      - description: 'type has a lowercase lexical pattern, length 3..250, and excludes the literal action.'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/type'
+        authority: 'external-stix-schema-snapshot'
+        kind: 'stated'
+      - description: 'The core accepts spec_version 2.0 or 2.1; all seven language types constrain it to 2.1.'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/spec_version; docs/language.rst L77-L80'
+        authority: 'external-stix-schema-snapshot'
+        kind: 'stated'
+      - description: 'The core forbids the presence of severity, action, username and phone_numbers.'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/not'
+        authority: 'external-stix-schema-snapshot'
+        kind: 'stated'
+      - description: 'All top-level properties also satisfy imported properties.json; general scalar/object/nonempty-array values and suffix-specific binary/hex rules apply.'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/allOf; stix-dependencies/stix2.1/schemas/common/properties.json'
+        authority: 'external-stix-schema-snapshot'
+        kind: 'stated'
+    constrained_by:
+      - 'mitre-attack-flow#R-0098'
+  - name: 'attack-flow-extension-properties'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object properties'
+    locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1'
+    applies_to:
+      - 'attack-flow'
+      - 'attack-action'
+      - 'attack-asset'
+      - 'attack-condition'
+      - 'attack-operator'
+    notes: 'These are Attack Flow-local constraints imposed by the root JSON Schema, alongside external STIX core constraints. The root also imposes them if it is applied to an unrecognized/custom type; the custom type language examples do not carry the marker.'
+    fields:
+      - name: 'extensions'
+        type: 'object'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON object'
+        kind: 'stated'
+        locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions; /allOf/1/required'
+        value_structure: 'attack-flow-extension-map'
+        constraints:
+          - description: 'The extensions object contains the Attack Flow extension-definition key.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions/required'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        constrained_by:
+          - 'mitre-attack-flow#R-0099'
+    constrained_by:
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-flow-extension-map'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions'
+    fields:
+      - name: 'extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4'
+        type: 'object'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON object'
+        kind: 'stated'
+        locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions/properties/extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4'
+        value_structure: 'attack-flow-extension-marker'
+        constrained_by:
+          - 'mitre-attack-flow#R-0099'
+    notes: 'The local nested schema does not itself close this object or forbid other extension entries; imported STIX constraints also apply.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-flow-extension-marker'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions/properties/extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4'
+    fields:
+      - name: 'extension_type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        value: 'new-sdo'
+        kind: 'stated'
+        locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions/properties/extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4/properties/extension_type'
+        constraints:
+          - description: 'The property is required and has the constant value new-sdo.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /allOf/1/properties/extensions/properties/extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        constrained_by:
+          - 'mitre-attack-flow#R-0099'
+    notes: 'The local marker schema has no additionalProperties: false; no broader closure is inferred for the nested marker.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-flow-extension-bundle'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix/attack-flow-extension-2.0.0.json /'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /type'
+        value: 'bundle'
+      - name: 'id'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /id'
+        value: 'bundle--1872d22d-9b37-4d95-8500-715d52fa73ba'
+      - name: 'objects'
+        type: 'array<object>'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON array; elements encoded as JSON objects'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects'
+        value_structures:
+          - 'attack-flow-extension-definition'
+          - 'attack-flow-extension-creator-identity'
+        item_cardinality: '2 in this published instance'
+    notes: 'This is the published extension bundle, not a new Attack Flow-defined envelope grammar. STIX bundle requiredness and general rules are external; the Attack Flow root schema validates the five Attack Flow SDO types as individual objects, not this bundle as a whole.'
+  - name: 'attack-flow-extension-definition'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix/attack-flow-extension-2.0.0.json /objects/0'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/type'
+        value: 'extension-definition'
+      - name: 'id'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/id'
+        value: 'extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4'
+      - name: 'spec_version'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/spec_version'
+        value: '2.1'
+      - name: 'name'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/name'
+        value: 'Attack Flow'
+      - name: 'description'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/description'
+        value: 'Extends STIX 2.1 with features to create Attack Flows.'
+      - name: 'created'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/created'
+        value: '2022-08-02T19:34:35.143Z'
+      - name: 'modified'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/modified'
+        value: '2022-08-02T19:34:35.143Z'
+      - name: 'created_by_ref'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/created_by_ref'
+        value: 'identity--d673f8cb-c168-42da-8ed4-0cb26725f86c'
+      - name: 'schema'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/schema'
+        value: 'https://center-for-threat-informed-defense.github.io/attack-flow/stix/attack-flow-schema-2.0.0.json'
+      - name: 'version'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/version'
+        value: '2.0.0'
+      - name: 'extension_types'
+        type: 'array<string>'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/extension_types'
+        allowed_instance_values:
+          - 'new-sdo'
+        item_cardinality: '1 in this published instance'
+      - name: 'external_references'
+        type: 'array<object>'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON array; elements encoded as JSON objects'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/external_references'
+        value_structure: 'stix-external-reference'
+        item_cardinality: '2 in this published instance'
+    notes: 'Concrete STIX extension-definition instance; the schema URL, version and extension_types values bind the extension. The schema URL path differs from the JSON Schema $id path; both are retained as published.'
+  - name: 'attack-flow-extension-creator-identity'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix/attack-flow-extension-2.0.0.json /objects/1'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/type'
+        value: 'identity'
+      - name: 'spec_version'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/spec_version'
+        value: '2.1'
+      - name: 'id'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/id'
+        value: 'identity--d673f8cb-c168-42da-8ed4-0cb26725f86c'
+      - name: 'created_by_ref'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/created_by_ref'
+        value: 'identity--d673f8cb-c168-42da-8ed4-0cb26725f86c'
+      - name: 'created'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/created'
+        value: '2022-08-02T19:34:35.143Z'
+      - name: 'modified'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/modified'
+        value: '2022-08-02T19:34:35.143Z'
+      - name: 'name'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/name'
+        value: 'MITRE Center for Threat-Informed Defense'
+      - name: 'identity_class'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: 'present once in this published instance'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/1/identity_class'
+        value: 'organization'
+    notes: 'Concrete STIX identity instance identifying the extension publisher. It is not an Attack Flow-specific identity definition; its full grammar and requiredness are external STIX rules.'
+  - name: 'external-reference-observed-members'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst L183-L194; stix/attack-flow-extension-2.0.0.json /objects/0/external_references'
+    fields:
+      - name: 'source_name'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: '0..1 as a member; present in the cited instances'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/external_references/0/source_name'
+        notes: 'Observed member of the external STIX datatype; this file does not infer a complete datatype definition from examples.'
+      - name: 'description'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: '0..1 as a member; present in the cited instances'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/external_references/0/description'
+        notes: 'Observed member of the external STIX datatype; this file does not infer a complete datatype definition from examples.'
+      - name: 'url'
+        type: 'string'
+        required: 'external-STIX-definition'
+        cardinality: '0..1 as a member; present in the cited instances'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'stix/attack-flow-extension-2.0.0.json /objects/0/external_references/0/url'
+        notes: 'Observed member of the external STIX datatype; this file does not infer a complete datatype definition from examples.'
+    notes: 'These members are shown in the Attack Flow examples. The complete imported datatype with source_name/external_id branch constraints and hashes is recorded separately as stix-external-reference.'
+  - name: 'stix-identifier'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'scalar'
+    encoding: 'JSON string'
+    locator: 'stix-dependencies/stix2.1/schemas/common/identifier.json'
+    schema_constraints:
+      type: 'string'
+      pattern: '^[a-z][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'
+    fields:
+      - name: 'value'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/identifier.json'
+        schema_constraints:
+          $id: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+          $schema: 'https://json-schema.org/draft/2020-12/schema'
+          title: 'identifier'
+          type: 'string'
+          pattern: '^[a-z][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'
+        description: 'Represents identifiers across the CTI specifications. The format consists of the name of the top-level object being identified, followed by two dashes (--), followed by a UUIDv4.'
+    notes: 'The external description says UUIDv4, while the actual pattern allows UUID version digits 1 through 5 with RFC UUID variant digits 8,9,a,b. Both are preserved; no additional Attack Flow-local UUIDv4 constraint is inferred. The pattern does not ensure that the prefix equals the containing object type.'
+  - name: 'stix-timestamp'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'scalar'
+    encoding: 'JSON string'
+    locator: 'stix-dependencies/stix2.1/schemas/common/timestamp.json'
+    schema_constraints:
+      type: 'string'
+      pattern: '^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\.[0-9]+)?Z$'
+    fields:
+      - name: 'value'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/timestamp.json'
+        schema_constraints:
+          $id: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json'
+          $schema: 'https://json-schema.org/draft/2020-12/schema'
+          title: 'timestamp'
+          type: 'string'
+          pattern: '^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)(\.[0-9]+)?Z$'
+        description: 'Represents timestamps across the CTI specifications. The format is an RFC3339 timestamp, with a required timezone specification of ''Z''.'
+    notes: 'The timestamp is a JSON string using a restricted date-time lexical regex with uppercase T, UTC Z, and optional fractional seconds. It permits a seconds value of 60. The regex is not a calendar-validity check. created and modified separately add the at-least-three-fractional-digits pattern in core.json; execution_start and execution_end do not. The master snapshot is byte-identical to this stix2.1 snapshot.'
+  - name: 'stix-granular-marking'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix-dependencies/stix2.1/schemas/common/granular-marking.json'
+    schema_constraints:
+      type: 'object'
+      properties:
+        selectors:
+          type: 'array'
+          description: 'A list of selectors for content contained within the STIX object in which this property appears.'
+          items:
+            type: 'string'
+            pattern: '^([a-z0-9_-]{3,249}(\.(\[\d+\]|[a-z0-9_-]{1,250}))*|id)$'
+          minItems: 1
+        lang:
+          type: 'string'
+          description: 'Identifies the language of the text identified by this marking.'
+        marking_ref:
+          allOf:
+            - $ref: '../common/identifier.json'
+            - pattern: '^marking-definition--'
+              description: 'The marking_ref property specifies the ID of the marking-definition object that describes the marking.'
+      required:
+        - 'selectors'
+        - 'marking_ref'
+    fields:
+      - name: 'selectors'
+        type: 'array<string>'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/granular-marking.json/properties/selectors'
+        schema_constraints:
+          type: 'array'
+          items:
+            type: 'string'
+            pattern: '^([a-z0-9_-]{3,249}(\.(\[\d+\]|[a-z0-9_-]{1,250}))*|id)$'
+          minItems: 1
+        description: 'A list of selectors for content contained within the STIX object in which this property appears.'
+        item_cardinality: '1..*'
+        item_type: 'string'
+        notes: 'Items use the exact selector pattern in schema_constraints; no selector resolution is performed by that pattern.'
+      - name: 'lang'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/granular-marking.json/properties/lang'
+        schema_constraints:
+          type: 'string'
+        description: 'Identifies the language of the text identified by this marking.'
+      - name: 'marking_ref'
+        type: 'identifier'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/granular-marking.json/properties/marking_ref'
+        schema_constraints:
+          allOf:
+            - $ref: '../common/identifier.json'
+            - pattern: '^marking-definition--'
+              description: 'The marking_ref property specifies the ID of the marking-definition object that describes the marking.'
+        reference_targets:
+          - 'marking-definition'
+    notes: 'A required nonempty selectors array and required marking_ref identifier; optional language tag. Exact constraints are external STIX schema rules, not additional Attack Flow-local properties.'
+  - name: 'stix-external-reference'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json'
+    schema_constraints:
+      type: 'object'
+      properties:
+        description:
+          type: 'string'
+          description: 'A human readable description'
+        url:
+          $ref: '../common/url-regex.json'
+          description: 'A URL reference to an external resource.'
+        hashes:
+          description: 'Specifies a dictionary of hashes for the file.'
+          allOf:
+            - $ref: '../common/hashes-type.json'
+            - propertyNames:
+                pattern: '^MD5|SHA-1|SHA-256|SHA-512|SHA3-256|SHA3-512|SSDEEP|TLSH$'
+      oneOf:
+        - properties:
+            source_name:
+              type: 'string'
+              description: 'The source within which the external-reference is defined (system, registry, organization, etc.)'
+              pattern: '^cve$'
+            external_id:
+              type: 'string'
+              description: 'An identifier for the external reference content.'
+              pattern: '^CVE-\d{4}-(0\d{3}|[1-9]\d{3,})$'
+          required:
+            - 'source_name'
+            - 'external_id'
+        - properties:
+            source_name:
+              type: 'string'
+              description: 'The source within which the external-reference is defined (system, registry, organization, etc.)'
+              pattern: '^capec$'
+            external_id:
+              type: 'string'
+              description: 'An identifier for the external reference content.'
+              pattern: '^CAPEC-\d+$'
+          required:
+            - 'source_name'
+            - 'external_id'
+        - properties:
+            source_name:
+              type: 'string'
+              description: 'The source within which the external-reference is defined (system, registry, organization, etc.)'
+              not:
+                pattern: '^((cve)|(capec))$'
+            external_id:
+              type: 'string'
+              description: 'An identifier for the external reference content.'
+              not:
+                pattern: '^((CVE-\d{4}-(0\d{3}|[1-9]\d{3,}))|(CAPEC-\d+))$'
+          required:
+            - 'source_name'
+          anyOf:
+            - required:
+                - 'external_id'
+            - required:
+                - 'description'
+            - required:
+                - 'url'
+    fields:
+      - name: 'source_name'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/oneOf/0/properties/source_name; /oneOf/1/properties/source_name; /oneOf/2/properties/source_name'
+        schema_constraints:
+          type: 'string'
+          not:
+            pattern: '^((cve)|(capec))$'
+        description: 'The source within which the external-reference is defined (system, registry, organization, etc.)'
+        notes: 'The raw oneOf branches are retained on the containing structure; lowercase cve and capec select dedicated external-id regexes, all other source names select the third branch.'
+      - name: 'external_id'
+        type: 'string'
+        required: 'conditional'
+        cardinality: '1 for cve/capec branches; otherwise 0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/oneOf/0/properties/external_id; /oneOf/1/properties/external_id; /oneOf/2/properties/external_id'
+        schema_constraints:
+          type: 'string'
+          not:
+            pattern: '^((CVE-\d{4}-(0\d{3}|[1-9]\d{3,}))|(CAPEC-\d+))$'
+        description: 'An identifier for the external reference content.'
+        notes: 'Required when source_name is cve or capec; otherwise one of external_id, description or url is required.'
+      - name: 'description'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/properties/description'
+        schema_constraints:
+          type: 'string'
+        description: 'A human readable description'
+      - name: 'url'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/properties/url'
+        schema_constraints:
+          $ref: '../common/url-regex.json'
+        description: 'A URL reference to an external resource.'
+      - name: 'hashes'
+        type: 'object'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON object'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/properties/hashes'
+        schema_constraints:
+          allOf:
+            - $ref: '../common/hashes-type.json'
+            - propertyNames:
+                pattern: '^MD5|SHA-1|SHA-256|SHA-512|SHA3-256|SHA3-512|SSDEEP|TLSH$'
+        description: 'Specifies a dictionary of hashes for the file.'
+        value_structure: 'stix-hashes'
+        notes: 'Hash dictionary rules combine hashes-type.json with the exact additional propertyNames pattern from external-reference.json.'
+    notes: 'Exactly one branch applies: source_name cve with required CVE-form external_id; source_name capec with required CAPEC-form external_id; otherwise source_name excludes those two and at least one of external_id, description or url is required. The third-branch external_id also excludes the CVE and CAPEC forms. The exact propertyNames hash pattern is preserved without adding grouping or anchors.'
+    constraints:
+      - description: 'For cve, external_id matches ^CVE-\d{4}-(0\d{3}|[1-9]\d{3,})$; for capec it matches ^CAPEC-\d+$.'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/oneOf/0; /oneOf/1'
+        authority: 'external-stix-schema-snapshot'
+        kind: 'stated'
+      - description: 'The generic source-name branch requires at least one of external_id, description or url; hashes alone is insufficient.'
+        locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json/oneOf/2/anyOf'
+        authority: 'external-stix-schema-snapshot'
+        kind: 'stated'
+  - name: 'stix-hashes'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json'
+    schema_constraints:
+      type: 'object'
+      allOf:
+        - $ref: '../common/dictionary.json'
+      patternProperties:
+        ^[a-zA-Z0-9_-]{3,250}$:
+          type: 'string'
+          description: 'Custom hash key'
+        ^MD5$:
+          type: 'string'
+          description: 'Specifies the MD5 message digest algorithm.'
+          pattern: '^[a-fA-F0-9]{32}$'
+        ^SHA-1$:
+          type: 'string'
+          description: 'Specifies the SHA-1 (secure-hash algorithm 1) cryptographic hash function.'
+          pattern: '^[a-fA-F0-9]{40}$'
+        ^SHA-256$:
+          type: 'string'
+          description: 'Specifies the SHA-256 cryptographic hash function (part of the SHA2 family).'
+          pattern: '^[a-fA-F0-9]{64}$'
+        ^SHA-512$:
+          type: 'string'
+          description: 'Specifies the SHA-512 cryptographic hash function (part of the SHA2 family).'
+          pattern: '^[a-fA-F0-9]{128}$'
+        ^SHA3-256$:
+          type: 'string'
+          description: 'Specifies the SHA3-256 cryptographic hash function.'
+          pattern: '^[a-fA-F0-9]{64}$'
+        ^SHA3-512$:
+          type: 'string'
+          description: 'Specifies the SHA3-512 cryptographic hash function.'
+          pattern: '^[a-fA-F0-9]{128}$'
+        ^SSDEEP$:
+          type: 'string'
+          description: 'Specifies the ssdeep fuzzy hashing algorithm.'
+          pattern: '^[a-zA-Z0-9/+:.]{1,128}$'
+        ^TLSH$:
+          type: 'string'
+          description: 'Specifies the TLSH locality-sensitive hashing algorithm.'
+          pattern: '^[a-zA-Z0-9]{70}$'
+      additionalProperties: false
+    fields:
+      - name: '^[a-zA-Z0-9_-]{3,250}$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^[a-zA-Z0-9_-]{3,250}$'
+        schema_constraints:
+          type: 'string'
+        description: 'Custom hash key'
+        name_is_pattern: true
+      - name: '^MD5$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^MD5$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-fA-F0-9]{32}$'
+        description: 'Specifies the MD5 message digest algorithm.'
+        name_is_pattern: true
+      - name: '^SHA-1$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^SHA-1$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-fA-F0-9]{40}$'
+        description: 'Specifies the SHA-1 (secure-hash algorithm 1) cryptographic hash function.'
+        name_is_pattern: true
+      - name: '^SHA-256$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^SHA-256$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-fA-F0-9]{64}$'
+        description: 'Specifies the SHA-256 cryptographic hash function (part of the SHA2 family).'
+        name_is_pattern: true
+      - name: '^SHA-512$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^SHA-512$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-fA-F0-9]{128}$'
+        description: 'Specifies the SHA-512 cryptographic hash function (part of the SHA2 family).'
+        name_is_pattern: true
+      - name: '^SHA3-256$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^SHA3-256$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-fA-F0-9]{64}$'
+        description: 'Specifies the SHA3-256 cryptographic hash function.'
+        name_is_pattern: true
+      - name: '^SHA3-512$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^SHA3-512$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-fA-F0-9]{128}$'
+        description: 'Specifies the SHA3-512 cryptographic hash function.'
+        name_is_pattern: true
+      - name: '^SSDEEP$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^SSDEEP$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-zA-Z0-9/+:.]{1,128}$'
+        description: 'Specifies the ssdeep fuzzy hashing algorithm.'
+        name_is_pattern: true
+      - name: '^TLSH$'
+        type: 'string'
+        required: false
+        cardinality: '0..* matching dictionary entries'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json/patternProperties/^TLSH$'
+        schema_constraints:
+          type: 'string'
+          pattern: '^[a-zA-Z0-9]{70}$'
+        description: 'Specifies the TLSH locality-sensitive hashing algorithm.'
+        name_is_pattern: true
+    notes: 'A nonempty external dictionary with recognized hash regexes and general custom hash-name/string rules. MD5 is 32 hexadecimal characters; SHA-1 40; SHA-256/SHA3-256 64; SHA-512/SHA3-512 128; SSDEEP uses 1..128 characters from its specified alphabet; TLSH is 70 alphanumeric characters. In an external-reference, the enclosing propertyNames pattern also applies.'
+  - name: 'stix-extension'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix-dependencies/stix2.1/schemas/common/extension.json'
+    schema_constraints:
+      type: 'object'
+      minProperties: 1
+      properties:
+        extension_type:
+          description: 'The type of extension.'
+          $ref: '#/definitions/extension-type-enum'
+      allOf:
+        - $ref: '../common/properties.json'
+      required:
+        - 'extension_type'
+      definitions:
+        extension-type-enum:
+          type: 'string'
+          enum:
+            - 'new-sdo'
+            - 'new-sco'
+            - 'new-sro'
+            - 'property-extension'
+            - 'toplevel-property-extension'
+    fields:
+      - name: 'extension_type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/extension.json/properties/extension_type'
+        schema_constraints:
+          $ref: '#/definitions/extension-type-enum'
+        description: 'The type of extension.'
+        allowed_values:
+          - 'new-sdo'
+          - 'new-sco'
+          - 'new-sro'
+          - 'property-extension'
+          - 'toplevel-property-extension'
+    notes: 'A nonempty extension object containing extension_type; generic STIX property rules apply. The Attack Flow-local marker narrows extension_type to the constant new-sdo.'
+  - name: 'stix-extensions-dictionary'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/extensions'
+    schema_constraints:
+      type: 'object'
+      minProperties: 1
+      patternProperties:
+        ^([a-z][a-z0-9]*)+(-[a-z0-9]+)*\-ext$:
+          type: 'object'
+          minProperties: 1
+          allOf:
+            - $ref: '../common/properties.json'
+        ^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$:
+          allOf:
+            - $ref: '../common/extension.json'
+      additionalProperties: false
+    fields:
+      - name: '^([a-z][a-z0-9]*)+(-[a-z0-9]+)*\-ext$'
+        type: 'object'
+        required: false
+        cardinality: '0..* matching extension entries'
+        encoding: 'JSON object'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/extensions/patternProperties/^([a-z][a-z0-9]*)+(-[a-z0-9]+)*\-ext$'
+        schema_constraints:
+          type: 'object'
+          minProperties: 1
+          allOf:
+            - $ref: '../common/properties.json'
+        name_is_pattern: true
+      - name: '^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'
+        type: 'object'
+        required: false
+        cardinality: '0..* matching extension entries'
+        encoding: 'JSON object'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/core.json/properties/extensions/patternProperties/^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'
+        schema_constraints:
+          allOf:
+            - $ref: '../common/extension.json'
+        name_is_pattern: true
+        value_structure: 'stix-extension'
+    notes: 'The dictionary is nonempty. Built-in extension-name keys ending -ext map to nonempty objects satisfying generic property rules; extension-definition--UUID keys map to stix-extension objects. All other key names are rejected by this external core schema.'
+  - name: 'stix-generic-property-rules'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'rules'
+    encoding: 'JSON properties'
+    locator: 'stix-dependencies/stix2.1/schemas/common/properties.json'
+    schema_constraints:
+      patternProperties:
+        ^[a-z][a-z0-9_]{0,245}_bin$:
+          $ref: '../common/binary.json'
+        ^[a-z][a-z0-9_]{0,245}_hex$:
+          $ref: '../common/hex.json'
+        ^([a-z][a-z0-9_]{2,249})|id$:
+          anyOf:
+            - type: 'array'
+              minItems: 1
+            - type: 'string'
+            - type: 'integer'
+            - type: 'boolean'
+            - type: 'number'
+            - type: 'object'
+      additionalProperties: false
+    fields:
+      - name: '^[a-z][a-z0-9_]{0,245}_bin$'
+        type: 'value satisfying the recorded schema'
+        required: false
+        cardinality: '0..* matching property names'
+        encoding: 'JSON value'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/properties.json/patternProperties/^[a-z][a-z0-9_]{0,245}_bin$'
+        schema_constraints:
+          $ref: '../common/binary.json'
+        name_is_pattern: true
+        value_structure: 'stix-binary'
+      - name: '^[a-z][a-z0-9_]{0,245}_hex$'
+        type: 'value satisfying the recorded schema'
+        required: false
+        cardinality: '0..* matching property names'
+        encoding: 'JSON value'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/properties.json/patternProperties/^[a-z][a-z0-9_]{0,245}_hex$'
+        schema_constraints:
+          $ref: '../common/hex.json'
+        name_is_pattern: true
+        value_structure: 'stix-hex'
+      - name: '^([a-z][a-z0-9_]{2,249})|id$'
+        type: 'value satisfying the recorded schema'
+        required: false
+        cardinality: '0..* matching property names'
+        encoding: 'JSON value'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/properties.json/patternProperties/^([a-z][a-z0-9_]{2,249})|id$'
+        schema_constraints:
+          anyOf:
+            - type: 'array'
+              minItems: 1
+            - type: 'string'
+            - type: 'integer'
+            - type: 'boolean'
+            - type: 'number'
+            - type: 'object'
+        name_is_pattern: true
+    notes: 'The exact property-name patterns and allowed-value alternatives are retained, including their original grouping and anchors. A matching property may be a nonempty array, string, integer, boolean, number or object; null is excluded. Binary and hex suffix patterns can impose additional constraints. Do not replace these patterns with an assumed complete-name match.'
+  - name: 'stix-dictionary'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'stix-dependencies/stix2.1/schemas/common/dictionary.json'
+    schema_constraints:
+      type: 'object'
+      minProperties: 1
+      patternProperties:
+        ^[a-zA-Z0-9_-]{0,250}$:
+          anyOf:
+            - type: 'array'
+              minItems: 1
+            - type: 'string'
+            - type: 'integer'
+            - type: 'boolean'
+            - type: 'number'
+            - type: 'object'
+      additionalProperties: false
+    fields:
+      - name: '^[a-zA-Z0-9_-]{0,250}$'
+        type: 'value satisfying the recorded schema'
+        required: false
+        cardinality: '0..* matching property names'
+        encoding: 'JSON value'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/dictionary.json/patternProperties/^[a-zA-Z0-9_-]{0,250}$'
+        schema_constraints:
+          anyOf:
+            - type: 'array'
+              minItems: 1
+            - type: 'string'
+            - type: 'integer'
+            - type: 'boolean'
+            - type: 'number'
+            - type: 'object'
+        name_is_pattern: true
+    notes: 'The exact property-name patterns and allowed-value alternatives are retained, including their original grouping and anchors. A matching property may be a nonempty array, string, integer, boolean, number or object; null is excluded. Do not replace these patterns with an assumed complete-name match.'
+  - name: 'stix-binary'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'scalar'
+    encoding: 'JSON string'
+    locator: 'stix-dependencies/stix2.1/schemas/common/binary.json'
+    schema_constraints:
+      type: 'string'
+      pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$'
+    fields:
+      - name: 'value'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/binary.json'
+        schema_constraints:
+          $id: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/binary.json'
+          $schema: 'https://json-schema.org/draft/2020-12/schema'
+          title: 'binary'
+          type: 'string'
+          pattern: '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$'
+        description: 'The ​binary data type represents a sequence of bytes. In order to allow pattern matching on custom objects, for all properties that use the binary type, the property name MUST end with ''_bin''. The JSON MTI serialization represents this as a base64-­encoded string as specified in RFC4648​. Other serializations SHOULD use a native binary type, if available.'
+    notes: 'External STIX datatype; exact regex/format and source description are retained. '
+  - name: 'stix-hex'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'scalar'
+    encoding: 'JSON string'
+    locator: 'stix-dependencies/stix2.1/schemas/common/hex.json'
+    schema_constraints:
+      type: 'string'
+      pattern: '^([a-fA-F0-9]{2})+$'
+    fields:
+      - name: 'value'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/hex.json'
+        schema_constraints:
+          $id: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/hex.json'
+          $schema: 'https://json-schema.org/draft/2020-12/schema'
+          title: 'hex'
+          type: 'string'
+          pattern: '^([a-fA-F0-9]{2})+$'
+        description: 'The hex data type encodes an array of octets (8-bit bytes) as hexadecimal. The string MUST consist of an even number of hexadecimal characters, which are the digits ''0'' through ''9'' and the letters ''a'' through ''f''.  In order to allow pattern matching on custom objects, all properties that use the hex type, the property name MUST end with ''_hex''.'
+    notes: 'External STIX datatype; exact regex/format and source description are retained. '
+  - name: 'stix-uri'
+    kind: 'stated'
+    authority: 'external-stix-schema-snapshot'
+    structure: 'scalar'
+    encoding: 'JSON string'
+    locator: 'stix-dependencies/stix2.1/schemas/common/url-regex.json'
+    schema_constraints:
+      type: 'string'
+      format: 'uri'
+    fields:
+      - name: 'value'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        authority: 'external-stix-schema-snapshot'
+        locator: 'stix-dependencies/stix2.1/schemas/common/url-regex.json'
+        schema_constraints:
+          $id: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/url-regex.json'
+          $schema: 'https://json-schema.org/draft/2020-12/schema'
+          title: 'url-regex'
+          type: 'string'
+          format: 'uri'
+        description: 'Matches a URI according to RFC 3986.'
+    notes: 'External STIX datatype; exact regex/format and source description are retained. format: uri requires a validator with format checking enabled; it is not an Attack Flow-local URL scheme whitelist.'
+messages:
+  - name: 'attack-flow'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Attack Flow L128-L201'
+    inherits:
+      - 'stix-common-properties'
+      - 'attack-flow-extension-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Flow L142-L144'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``attack-flow``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/required; /$defs/attack-flow/properties/type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/type'
+        schema_constraints:
+          type: 'string'
+          const: 'attack-flow'
+        schema_required: true
+        value: 'attack-flow'
+        constrained_by:
+          - 'mitre-attack-flow#R-0005'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0029'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Flow L145-L147'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/required; /$defs/attack-flow/properties/spec_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/spec_version'
+        schema_constraints:
+          type: 'string'
+          const: '2.1'
+        schema_required: true
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0006'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0030'
+      - name: 'name'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Flow L148-L150'
+        language_type: '``string``'
+        description: 'The name of the Attack Flow.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/required; /$defs/attack-flow/properties/name'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/name'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/name'
+        schema_constraints:
+          type: 'string'
+        schema_required: true
+        constrained_by:
+          - 'mitre-attack-flow#R-0031'
+      - name: 'description'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Flow L151-L153'
+        language_type: '``string``'
+        description: 'A description of the overall Attack Flow.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/required; /$defs/attack-flow/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/description'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        constrained_by:
+          - 'mitre-attack-flow#R-0032'
+      - name: 'scope'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Flow L154-L159'
+        language_type: '``enum``'
+        description: 'Indicates what type of behavior the Attack Flow describes: a specific incident, a campaign, etc. The value of this property **MUST** be one of: "incident", "campaign", "threat-actor", "malware", "other".'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/required; /$defs/attack-flow/properties/scope'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/scope'
+        schema_constraints:
+          type: 'string'
+          enum:
+            - 'incident'
+            - 'campaign'
+            - 'threat-actor'
+            - 'malware'
+            - 'emulation-plan'
+            - 'attack-tree'
+            - 'other'
+        schema_required: true
+        language_values:
+          - 'incident'
+          - 'campaign'
+          - 'threat-actor'
+          - 'malware'
+          - 'other'
+        schema_values:
+          - 'incident'
+          - 'campaign'
+          - 'threat-actor'
+          - 'malware'
+          - 'emulation-plan'
+          - 'attack-tree'
+          - 'other'
+        conflicts:
+          - 'scope-enumeration'
+        constrained_by:
+          - 'mitre-attack-flow#R-0007'
+          - 'mitre-attack-flow#R-0033'
+          - 'mitre-attack-flow#R-0100'
+      - name: 'start_refs'
+        type: 'array<string>'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Flow L160-L162'
+        language_type: '``list`` of type ``identifier`` (of type ``attack-action`` or ``attack-condition``)'
+        description: 'A list of objects that start the flow.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/required; /$defs/attack-flow/properties/start_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'A present list has at least one identifier, each with attack-action-- or attack-condition-- prefix in addition to imported STIX identifier validation.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/start_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/properties/start_refs'
+        schema_constraints:
+          type: 'array'
+          items:
+            allOf:
+              - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+              - pattern: '^(attack-action|attack-condition)--'
+          minItems: 1
+        schema_required: true
+        reference_targets:
+          - 'attack-action'
+          - 'attack-condition'
+        item_type: 'identifier'
+        item_cardinality: '1..*'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0034'
+          - 'mitre-attack-flow#R-0103'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    json_schema: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-flow'
+    effective_required_language:
+      - 'created'
+      - 'id'
+      - 'modified'
+      - 'name'
+      - 'scope'
+      - 'spec_version'
+      - 'start_refs'
+      - 'type'
+    schema_validation: 'Validate through the root schema to include the imported STIX core and required extension marker; the $defs entry alone does not impose those shared constraints.'
+    constraints:
+      - description: 'Each Attack Flow document contains exactly one attack-flow object. This is a document-wide constraint stated in prose and a schema description; the per-object JSON Schema has no bundle-level count rule.'
+        locator: 'docs/language.rst L131-L133; stix/attack-flow-schema-2.0.0.json /$defs/attack-flow/description'
+        authority: 'attack-flow-local'
+        kind: 'stated'
+    effective_required_schema:
+      - 'created'
+      - 'extensions'
+      - 'id'
+      - 'modified'
+      - 'name'
+      - 'scope'
+      - 'spec_version'
+      - 'start_refs'
+      - 'type'
+    constrained_by:
+      - 'mitre-attack-flow#R-0004'
+    schema_constrained_by:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-action'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Attack Action L204-L290'
+    inherits:
+      - 'stix-common-properties'
+      - 'attack-flow-extension-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L217-L219'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``attack-action``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/type'
+        schema_constraints:
+          type: 'string'
+          const: 'attack-action'
+        schema_required: true
+        value: 'attack-action'
+        constrained_by:
+          - 'mitre-attack-flow#R-0008'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0035'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L220-L222'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/spec_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/spec_version'
+        schema_constraints:
+          type: 'string'
+          const: '2.1'
+        schema_required: true
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0009'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0036'
+      - name: 'name'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L223-L226'
+        language_type: '``string``'
+        description: 'The name of the technique, or if a specific technique is not known, then the name of the tactic.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/name'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/name'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/name'
+        schema_constraints:
+          type: 'string'
+        schema_required: true
+        constrained_by:
+          - 'mitre-attack-flow#R-0037'
+      - name: 'tactic_id'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L227-L230'
+        language_type: '``string``'
+        description: 'A tactic identifier or shortname that may reference an authoritative collection of tactics, e.g. ATT&CK.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/tactic_id'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/tactic_id'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/tactic_id'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        notes: 'No local pattern, length limit, registry lookup or cross-field consistency check is stated for this string. Examples are illustrative values.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0038'
+      - name: 'tactic_ref'
+        type: 'identifier'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L231-L234'
+        language_type: '``identifier``'
+        description: 'A reference to the tactic''s STIX representation. For ATT&CK, this should be an ``x-mitre-tactic`` object.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/tactic_ref'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/tactic_ref'
+        schema_constraints:
+          allOf:
+            - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+        schema_required: false
+        reference_targets:
+          - 'STIX object representing a tactic'
+        recommended_reference_target: 'x-mitre-tactic for ATT&CK'
+        notes: 'The local schema imports identifier validation without a tactic-specific prefix pattern; the x-mitre-tactic target is prose guidance.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0039'
+      - name: 'technique_id'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L235-L238'
+        language_type: '``string``'
+        description: 'A technique identifier or shortname that may reference an authoritative collection of techniques, e.g. ATT&CK.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/technique_id'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/technique_id'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/technique_id'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        notes: 'No local pattern, length limit, registry lookup or cross-field consistency check is stated for this string. Examples are illustrative values.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0040'
+      - name: 'technique_ref'
+        type: 'identifier'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L239-L241'
+        language_type: '``identifier`` (of type ``attack-pattern``)'
+        description: 'A reference to the technique''s STIX representation.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/technique_ref'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/technique_ref'
+        schema_constraints:
+          allOf:
+            - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+            - pattern: '^attack-pattern--'
+        schema_required: false
+        reference_targets:
+          - 'attack-pattern'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0041'
+      - name: 'description'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L242-L247'
+        language_type: '``string``'
+        description: 'A description of the adversary behavior, e.g. what they did, how they did it, and why. This field may contain prose as well as technical information, but consider using ``command_ref`` for providing technical details about technique execution.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/description'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        constrained_by:
+          - 'mitre-attack-flow#R-0042'
+      - name: 'execution_start'
+        type: 'timestamp'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX timestamp'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L248-L250'
+        language_type: '``identifier``'
+        description: 'Timestamp indicating when the execution of this action began.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/execution_start'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/execution_start'
+        schema_constraints:
+          $ref: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json'
+        schema_required: false
+        conflicts:
+          - 'execution-time-datatype'
+        notes: 'The language type column says identifier, while its description and JSON Schema specify a timestamp. The imported timestamp schema requires UTC Z and allows either no fractional seconds or any positive number of fractional digits. The common created/modified millisecond rule does not extend to these action fields. The master reference is frozen for this extraction in external_sources.'
+        value_structure: 'stix-timestamp'
+        external_schema_locator: 'stix-dependencies/master/schemas/common/timestamp.json'
+        constrained_by:
+          - 'mitre-attack-flow#R-0043'
+          - 'mitre-attack-flow#R-0101'
+      - name: 'execution_end'
+        type: 'timestamp'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX timestamp'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L251-L253'
+        language_type: '``identifier``'
+        description: 'Timestamp indicating when the execution of this action ended.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/execution_end'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/execution_end'
+        schema_constraints:
+          $ref: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json'
+        schema_required: false
+        conflicts:
+          - 'execution-time-datatype'
+        notes: 'The language type column says identifier, while its description and JSON Schema specify a timestamp. The imported timestamp schema requires UTC Z and allows either no fractional seconds or any positive number of fractional digits. The common created/modified millisecond rule does not extend to these action fields. The master reference is frozen for this extraction in external_sources.'
+        value_structure: 'stix-timestamp'
+        external_schema_locator: 'stix-dependencies/master/schemas/common/timestamp.json'
+        constrained_by:
+          - 'mitre-attack-flow#R-0044'
+          - 'mitre-attack-flow#R-0102'
+      - name: 'command_ref'
+        type: 'identifier'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L254-L258'
+        language_type: '``identifier`` (of type ``process``)'
+        description: 'Describe tools or commands executed by the attacker by referring to a STIX Process object, which can represent commands, environment variables, process image, etc.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/command_ref'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/command_ref'
+        schema_constraints:
+          allOf:
+            - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+            - pattern: '^process--'
+        schema_required: false
+        reference_targets:
+          - 'process'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0045'
+      - name: 'asset_refs'
+        type: 'array<string>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L259-L262'
+        language_type: '``list`` of type ``identifier`` (of type ``attack-asset``)'
+        description: 'The assets involved in this action, i.e. where this action modifies or depends on the state of the asset.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/asset_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'If present the array has at least one item; no maxItems or uniqueItems is stated locally.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/asset_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/asset_refs'
+        schema_constraints:
+          type: 'array'
+          items:
+            allOf:
+              - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+              - pattern: '^(attack-asset)--'
+          minItems: 1
+        schema_required: false
+        reference_targets:
+          - 'attack-asset'
+        item_type: 'identifier'
+        item_cardinality: '1..*'
+        notes: 'Omit an optional reference list to represent no outgoing references; an explicitly empty list fails the local minItems constraint. Prefix validation checks the identifier string, not whether its target exists.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0046'
+          - 'mitre-attack-flow#R-0104'
+      - name: 'effect_refs'
+        type: 'array<string>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Action L263-L266'
+        language_type: '``list`` of type ``identifier`` (of type ``attack-action`` or ``attack-operator`` or ``attack-condition``)'
+        description: 'The potential effects that result from executing this action. (See: :ref:`effects`.)'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/required; /$defs/attack-action/properties/effect_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'If present the array has at least one item; no maxItems or uniqueItems is stated locally.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/effect_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action/properties/effect_refs'
+        schema_constraints:
+          type: 'array'
+          items:
+            allOf:
+              - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+              - pattern: '^(attack-action|attack-operator|attack-condition)--'
+          minItems: 1
+        schema_required: false
+        reference_targets:
+          - 'attack-action'
+          - 'attack-operator'
+          - 'attack-condition'
+        item_type: 'identifier'
+        item_cardinality: '1..*'
+        notes: 'Omit an optional reference list to represent no outgoing references; an explicitly empty list fails the local minItems constraint. Prefix validation checks the identifier string, not whether its target exists.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0047'
+          - 'mitre-attack-flow#R-0105'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    json_schema: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-action'
+    effective_required_language:
+      - 'created'
+      - 'id'
+      - 'modified'
+      - 'name'
+      - 'spec_version'
+      - 'type'
+    schema_validation: 'Validate through the root schema to include the imported STIX core and required extension marker; the $defs entry alone does not impose those shared constraints.'
+    effect_semantics:
+      - description: 'While an action is executing its effect is indeterminate. An action chained to another depends on successful completion of the preceding action.'
+        locator: 'docs/language.rst §Effects L600-L604'
+        authority: 'attack-flow-local'
+        kind: 'stated'
+        constrained_by:
+          - 'mitre-attack-flow#R-0086'
+    effective_required_schema:
+      - 'created'
+      - 'extensions'
+      - 'id'
+      - 'modified'
+      - 'name'
+      - 'spec_version'
+      - 'type'
+    constrained_by:
+      - 'mitre-attack-flow#R-0086'
+    schema_constrained_by:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-asset'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Attack Asset L294-L351'
+    inherits:
+      - 'stix-common-properties'
+      - 'attack-flow-extension-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Asset L316-L318'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``attack-asset``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/required; /$defs/attack-asset/properties/type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/type'
+        schema_constraints:
+          type: 'string'
+          const: 'attack-asset'
+        schema_required: true
+        value: 'attack-asset'
+        constrained_by:
+          - 'mitre-attack-flow#R-0010'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0048'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Asset L319-L321'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/required; /$defs/attack-asset/properties/spec_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/spec_version'
+        schema_constraints:
+          type: 'string'
+          const: '2.1'
+        schema_required: true
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0011'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0049'
+      - name: 'name'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Asset L322-L324'
+        language_type: '``string``'
+        description: 'An name for the asset.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/required; /$defs/attack-asset/properties/name'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/name'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/name'
+        schema_constraints:
+          type: 'string'
+        schema_required: true
+        constrained_by:
+          - 'mitre-attack-flow#R-0050'
+      - name: 'description'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Asset L325-L327'
+        language_type: '``string``'
+        description: 'A description of the asset.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/required; /$defs/attack-asset/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/description'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        constrained_by:
+          - 'mitre-attack-flow#R-0051'
+      - name: 'object_ref'
+        type: 'identifier'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string carrying a STIX identifier'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Asset L328-L331'
+        language_type: '``identifier``'
+        description: 'A reference to any STIX data object (i.e. SDO) or observable (i.e. SCO) that contains structured data about this asset.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/required; /$defs/attack-asset/properties/object_ref'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset/properties/object_ref'
+        schema_constraints:
+          $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+        schema_required: false
+        reference_targets:
+          - 'any STIX Domain Object (SDO)'
+          - 'any STIX Cyber-observable Object (SCO)'
+        notes: 'The schema imports the identifier datatype without a prefix restriction; SDO-or-SCO target semantics come from its description.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0052'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    json_schema: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-asset'
+    effective_required_language:
+      - 'created'
+      - 'id'
+      - 'modified'
+      - 'name'
+      - 'spec_version'
+      - 'type'
+    schema_validation: 'Validate through the root schema to include the imported STIX core and required extension marker; the $defs entry alone does not impose those shared constraints.'
+    effective_required_schema:
+      - 'created'
+      - 'extensions'
+      - 'id'
+      - 'modified'
+      - 'name'
+      - 'spec_version'
+      - 'type'
+    constrained_by:
+      - 'mitre-attack-flow#R-0085'
+    schema_constrained_by:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-condition'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Attack Condition L355-L422'
+    inherits:
+      - 'stix-common-properties'
+      - 'attack-flow-extension-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L370-L372'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``attack-condition``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/type'
+        schema_constraints:
+          type: 'string'
+          const: 'attack-condition'
+        schema_required: true
+        value: 'attack-condition'
+        constrained_by:
+          - 'mitre-attack-flow#R-0012'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0053'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L373-L375'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/spec_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/spec_version'
+        schema_constraints:
+          type: 'string'
+          const: '2.1'
+        schema_required: true
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0013'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0054'
+      - name: 'description'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L376-L379'
+        language_type: '``string``'
+        description: 'The condition that is evaluated, usually based on the success or failure of the preceding action.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/description'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/description'
+        schema_constraints:
+          type: 'string'
+        schema_required: true
+        constrained_by:
+          - 'mitre-attack-flow#R-0055'
+      - name: 'pattern'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L380-L384'
+        language_type: '``string``'
+        description: '*(This is an experimental feature.)* The detection pattern for this condition may be expressed as a STIX Pattern or another appropriate language such as SNORT, YARA, etc.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/pattern'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/pattern'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/pattern'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        experimental: true
+        notes: 'The schema checks string type only; it does not compile the pattern, enforce the vocabulary or relate the pattern fields.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0056'
+      - name: 'pattern_type'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L385-L389'
+        language_type: '``string``'
+        description: '*(This is an experimental feature.)* The pattern langauge used in this condition. The value for this property should come from the STIX ``pattern-type-ov`` open vocabulary.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/pattern_type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/pattern_type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/pattern_type'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        experimental: true
+        notes: 'The schema checks string type only; it does not compile the pattern, enforce the vocabulary or relate the pattern fields.'
+        recommended_vocabulary: 'STIX pattern-type-ov (external open vocabulary; values not enumerated here)'
+        constrained_by:
+          - 'mitre-attack-flow#R-0057'
+      - name: 'pattern_version'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L390-L394'
+        language_type: '``string``'
+        description: '*(This is an experimental feature.)* The version of the pattern language used for the data in the ``pattern`` property. For the STIX Pattern language, the default value is determined by the ``spec_version`` of the condition object.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/pattern_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'Any JSON string is permitted by the local field schema; no minLength, maxLength or nonempty condition is stated.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/pattern_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/pattern_version'
+        schema_constraints:
+          type: 'string'
+        schema_required: false
+        experimental: true
+        notes: 'The schema checks string type only; it does not compile the pattern, enforce the vocabulary or relate the pattern fields.'
+        default_semantics: 'For STIX Pattern, the default is determined by this object''s spec_version; no JSON Schema default keyword or conditional rule is defined locally.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0058'
+      - name: 'on_true_refs'
+        type: 'array<string>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L395-L397'
+        language_type: '``list`` of type ``identifier`` (of type ``attack-action`` or ``attack-operator`` or ``attack-condition``)'
+        description: 'When the condition is ``true``, the flow continues to these objects.'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/on_true_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'If present the array has at least one item; no maxItems or uniqueItems is stated locally.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/on_true_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/on_true_refs'
+        schema_constraints:
+          type: 'array'
+          items:
+            allOf:
+              - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+              - pattern: '^(attack-action|attack-operator|attack-condition)--'
+          minItems: 1
+        schema_required: false
+        reference_targets:
+          - 'attack-action'
+          - 'attack-operator'
+          - 'attack-condition'
+        item_type: 'identifier'
+        item_cardinality: '1..*'
+        notes: 'Omit an optional reference list to represent no outgoing references; an explicitly empty list fails the local minItems constraint. Prefix validation checks the identifier string, not whether its target exists.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0059'
+          - 'mitre-attack-flow#R-0106'
+      - name: 'on_false_refs'
+        type: 'array<string>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Condition L398-L401'
+        language_type: '``list`` of type ``identifier`` (of type ``attack-action`` or ``attack-operator`` or ``attack-condition``)'
+        description: 'When the condition is ``false``, the flow continues to these objects. (If there are no objects, then the flow halts at this node.)'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/required; /$defs/attack-condition/properties/on_false_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'If present the array has at least one item; no maxItems or uniqueItems is stated locally.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/on_false_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition/properties/on_false_refs'
+        schema_constraints:
+          type: 'array'
+          items:
+            allOf:
+              - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+              - pattern: '^(attack-action|attack-operator|attack-condition)--'
+          minItems: 1
+        schema_required: false
+        reference_targets:
+          - 'attack-action'
+          - 'attack-operator'
+          - 'attack-condition'
+        item_type: 'identifier'
+        item_cardinality: '1..*'
+        notes: 'Omit an optional reference list to represent no outgoing references; an explicitly empty list fails the local minItems constraint. Prefix validation checks the identifier string, not whether its target exists.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0060'
+          - 'mitre-attack-flow#R-0107'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    json_schema: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-condition'
+    effective_required_language:
+      - 'created'
+      - 'description'
+      - 'id'
+      - 'modified'
+      - 'spec_version'
+      - 'type'
+    schema_validation: 'Validate through the root schema to include the imported STIX core and required extension marker; the $defs entry alone does not impose those shared constraints.'
+    effect_semantics:
+      - description: 'A condition selects one branch, on_true_refs or on_false_refs; the selected references determine continuation.'
+        locator: 'docs/language.rst §Effects L606-L610'
+        authority: 'attack-flow-local'
+        kind: 'stated'
+        constrained_by:
+          - 'mitre-attack-flow#R-0087'
+      - description: 'If no objects follow a false result, the flow halts at this node.'
+        locator: 'docs/language.rst L398-L401'
+        authority: 'attack-flow-local'
+        kind: 'stated'
+        constrained_by:
+          - 'mitre-attack-flow#R-0087'
+    effective_required_schema:
+      - 'created'
+      - 'description'
+      - 'extensions'
+      - 'id'
+      - 'modified'
+      - 'spec_version'
+      - 'type'
+    constrained_by:
+      - 'mitre-attack-flow#R-0087'
+    schema_constrained_by:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+  - name: 'attack-operator'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Attack Operator L426-L475'
+    inherits:
+      - 'stix-common-properties'
+      - 'attack-flow-extension-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Operator L439-L441'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``attack-operator``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/required; /$defs/attack-operator/properties/type'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/properties/type'
+        schema_constraints:
+          type: 'string'
+          const: 'attack-operator'
+        schema_required: true
+        value: 'attack-operator'
+        constrained_by:
+          - 'mitre-attack-flow#R-0014'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0061'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Operator L442-L444'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/required; /$defs/attack-operator/properties/spec_version'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/properties/spec_version'
+        schema_constraints:
+          type: 'string'
+          const: '2.1'
+        schema_required: true
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0015'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0062'
+      - name: 'operator'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Operator L445-L449'
+        language_type: '``enum``'
+        description: 'The logical operator to apply to the input effects. The value of this property **MUST** be one of: "AND", "OR".'
+        constraints:
+          - description: 'Required property.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/required; /$defs/attack-operator/properties/operator'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/properties/operator'
+        schema_constraints:
+          type: 'string'
+          enum:
+            - 'AND'
+            - 'OR'
+        schema_required: true
+        allowed_values:
+          - 'AND'
+          - 'OR'
+        constrained_by:
+          - 'mitre-attack-flow#R-0016'
+          - 'mitre-attack-flow#R-0063'
+      - name: 'effect_refs'
+        type: 'array<string>'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Attack Operator L450-L454'
+        language_type: '``list`` of type ``identifier`` (of type ``attack-action`` or ``attack-operator`` or ``attack-condition``)'
+        description: 'The effects, outcomes, or states that result when this operator evaluates to ``true``. If the operator evaluates to ``false``, then the flow halts. (See: :ref:`effects`.)'
+        constraints:
+          - description: 'Property is optional; when present its schema constraints apply.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/required; /$defs/attack-operator/properties/effect_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+          - description: 'If present the array has at least one item; no maxItems or uniqueItems is stated locally.'
+            locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/properties/effect_refs'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        schema_locator: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator/properties/effect_refs'
+        schema_constraints:
+          type: 'array'
+          items:
+            allOf:
+              - $ref: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+              - pattern: '^(attack-action|attack-operator|attack-condition)--'
+          minItems: 1
+        schema_required: false
+        reference_targets:
+          - 'attack-action'
+          - 'attack-operator'
+          - 'attack-condition'
+        item_type: 'identifier'
+        item_cardinality: '1..*'
+        notes: 'Omit an optional reference list to represent no outgoing references; an explicitly empty list fails the local minItems constraint. Prefix validation checks the identifier string, not whether its target exists.'
+        identifier_structure: 'stix-identifier'
+        constrained_by:
+          - 'mitre-attack-flow#R-0064'
+          - 'mitre-attack-flow#R-0108'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    json_schema: 'stix/attack-flow-schema-2.0.0.json /$defs/attack-operator'
+    effective_required_language:
+      - 'created'
+      - 'id'
+      - 'modified'
+      - 'operator'
+      - 'spec_version'
+      - 'type'
+    schema_validation: 'Validate through the root schema to include the imported STIX core and required extension marker; the $defs entry alone does not impose those shared constraints.'
+    effect_semantics:
+      - description: 'The operator combines input effects using AND or OR. Outgoing effect_refs apply on true; false halts the flow.'
+        locator: 'docs/language.rst L429-L454, L612-L615'
+        authority: 'attack-flow-local'
+        kind: 'stated'
+        constrained_by:
+          - 'mitre-attack-flow#R-0088'
+    effective_required_schema:
+      - 'created'
+      - 'extensions'
+      - 'id'
+      - 'modified'
+      - 'operator'
+      - 'spec_version'
+      - 'type'
+    constrained_by:
+      - 'mitre-attack-flow#R-0088'
+    schema_constrained_by:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+  - name: 'x-detection'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Detection L479-L525'
+    inherits:
+      - 'stix-common-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Detection L492-L494'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``x-detection``.'
+        constraints: []
+        value: 'x-detection'
+        constrained_by:
+          - 'mitre-attack-flow#R-0017'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0065'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Detection L495-L497'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints: []
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0018'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0066'
+      - name: 'detection_id'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Detection L498-L500'
+        language_type: '``string``'
+        description: 'A unique identifier for the detection (e.g., "DET0516").'
+        constraints: []
+        notes: 'No local pattern, length limit, registry lookup or cross-field consistency check is stated for this string. Examples are illustrative values.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0067'
+      - name: 'name'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Detection L501-L503'
+        language_type: '``string``'
+        description: 'A human-readable name for the detection.'
+        constraints: []
+        constrained_by:
+          - 'mitre-attack-flow#R-0068'
+      - name: 'description'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Detection L504-L506'
+        language_type: '``string``'
+        description: 'A description of the detection method.'
+        constraints: []
+        constrained_by:
+          - 'mitre-attack-flow#R-0069'
+      - name: 'labels'
+        type: 'array<string>'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Detection L507-L509'
+        language_type: '``list`` of type ``string``'
+        description: 'A list containing the string ``x-detection``.'
+        constraints:
+          - description: 'The required list contains the string x-detection; the prose does not require that it be the only item.'
+            locator: 'docs/language.rst L507-L509'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        item_type: 'string'
+        item_cardinality: '1..*'
+        contains_value: 'x-detection'
+        notes: 'The contains requirement follows directly from the language table, not from a custom-object schema; no local JSON Schema implements it.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0070'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    effective_required_language:
+      - 'created'
+      - 'id'
+      - 'labels'
+      - 'modified'
+      - 'spec_version'
+      - 'type'
+    schema_validation: 'No local $defs entry or type dispatch exists. The language defines this custom type and labels requirement; the Attack Flow root falls through to else: true for its object-specific branch but still imports the STIX core, requires the extension marker and applies unevaluatedProperties: false.'
+    notes: 'The language example omits extensions. Do not infer a new-sdo marker requirement for this custom type from that example; the root schema requirement is a separate validation behavior.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0109'
+    schema_constrained_by_if_root_applied:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+      - 'mitre-attack-flow#R-0109'
+  - name: 'x-mitigation'
+    kind: 'stated'
+    structure: 'map'
+    encoding: 'JSON object'
+    locator: 'docs/language.rst §Mitigation L529-L575'
+    inherits:
+      - 'stix-common-properties'
+    fields:
+      - name: 'type'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Mitigation L542-L544'
+        language_type: '``string``'
+        description: 'The type **MUST** be ``x-mitigation``.'
+        constraints: []
+        value: 'x-mitigation'
+        constrained_by:
+          - 'mitre-attack-flow#R-0019'
+          - 'mitre-attack-flow#R-0021'
+          - 'mitre-attack-flow#R-0071'
+      - name: 'spec_version'
+        type: 'string'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Mitigation L545-L547'
+        language_type: '``string``'
+        description: 'The version **MUST** be ``2.1``.'
+        constraints: []
+        value: '2.1'
+        constrained_by:
+          - 'mitre-attack-flow#R-0020'
+          - 'mitre-attack-flow#R-0022'
+          - 'mitre-attack-flow#R-0072'
+      - name: 'mitigation_id'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Mitigation L548-L550'
+        language_type: '``string``'
+        description: 'A unique identifier for the mitigation (e.g., "M1021").'
+        constraints: []
+        notes: 'No local pattern, length limit, registry lookup or cross-field consistency check is stated for this string. Examples are illustrative values.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0073'
+      - name: 'name'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Mitigation L551-L553'
+        language_type: '``string``'
+        description: 'A human-readable name for the mitigation.'
+        constraints: []
+        constrained_by:
+          - 'mitre-attack-flow#R-0074'
+      - name: 'description'
+        type: 'string'
+        required: false
+        cardinality: '0..1'
+        encoding: 'JSON string'
+        kind: 'stated'
+        locator: 'docs/language.rst §Mitigation L554-L556'
+        language_type: '``string``'
+        description: 'A description of the mitigation strategy.'
+        constraints: []
+        constrained_by:
+          - 'mitre-attack-flow#R-0075'
+      - name: 'labels'
+        type: 'array<string>'
+        required: true
+        cardinality: '1'
+        encoding: 'JSON array; elements encoded as JSON strings'
+        kind: 'stated'
+        locator: 'docs/language.rst §Mitigation L557-L559'
+        language_type: '``list`` of type ``string``'
+        description: 'A list containing the string ``x-mitigation``.'
+        constraints:
+          - description: 'The required list contains the string x-mitigation; the prose does not require that it be the only item.'
+            locator: 'docs/language.rst L557-L559'
+            authority: 'attack-flow-local'
+            kind: 'stated'
+        item_type: 'string'
+        item_cardinality: '1..*'
+        contains_value: 'x-mitigation'
+        notes: 'The contains requirement follows directly from the language table, not from a custom-object schema; no local JSON Schema implements it.'
+        constrained_by:
+          - 'mitre-attack-flow#R-0076'
+    layout: 'A JSON object with named properties; no fixed offsets, field order, binary packing or size framing is defined by Attack Flow.'
+    effective_required_language:
+      - 'created'
+      - 'id'
+      - 'labels'
+      - 'modified'
+      - 'spec_version'
+      - 'type'
+    schema_validation: 'No local $defs entry or type dispatch exists. The language defines this custom type and labels requirement; the Attack Flow root falls through to else: true for its object-specific branch but still imports the STIX core, requires the extension marker and applies unevaluatedProperties: false.'
+    notes: 'The language example omits extensions. Do not infer a new-sdo marker requirement for this custom type from that example; the root schema requirement is a separate validation behavior.'
+    constrained_by:
+      - 'mitre-attack-flow#R-0109'
+    schema_constrained_by_if_root_applied:
+      - 'mitre-attack-flow#R-0096'
+      - 'mitre-attack-flow#R-0097'
+      - 'mitre-attack-flow#R-0098'
+      - 'mitre-attack-flow#R-0099'
+      - 'mitre-attack-flow#R-0109'
+external_sources:
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/core.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: 'e8562aa1dd674249c33a640d1d972183256e491b9af81eaa78d102da1c473ffb'
+    locator: 'stix-dependencies/stix2.1/schemas/common/core.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/identifier.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/identifier.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: '662be3c490c8f3b2aa82100d1dc41ec1acf93c04d099c857cc2f88217d688524'
+    locator: 'stix-dependencies/stix2.1/schemas/common/identifier.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/master/schemas/common/timestamp.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/9af1db41b7b86c06324f899649ae83480134f66e/schemas/common/timestamp.json'
+    commit: '9af1db41b7b86c06324f899649ae83480134f66e'
+    sha256: 'e816ad77e8f46b66aaaacac6b7f5f14dcd9d320c01d992455a7958481337d4d9'
+    locator: 'stix-dependencies/master/schemas/common/timestamp.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/timestamp.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/timestamp.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: 'e816ad77e8f46b66aaaacac6b7f5f14dcd9d320c01d992455a7958481337d4d9'
+    locator: 'stix-dependencies/stix2.1/schemas/common/timestamp.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/external-reference.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/external-reference.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: 'ade5360f0e7b0863ad933d34a54802e7ac9e85d1e0db53cf449e43465ba81127'
+    locator: 'stix-dependencies/stix2.1/schemas/common/external-reference.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/granular-marking.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/granular-marking.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: '24c51ff9d99f1902b156e6e04e360e23ea01cded49d07a83fca709cef26884c0'
+    locator: 'stix-dependencies/stix2.1/schemas/common/granular-marking.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/properties.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/properties.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: 'ccb1920b6d2c9a80856d36e870163b3b298cf9c3ca42742f3f63dfbc87295754'
+    locator: 'stix-dependencies/stix2.1/schemas/common/properties.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/extension.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/extension.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: 'e4537cf608b709597ede2ad39027defa979df9ad79666b15643d625ac260f15d'
+    locator: 'stix-dependencies/stix2.1/schemas/common/extension.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/url-regex.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/url-regex.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: '88a22341762c7b039a1ce349d808a1ed4e0b560af11dbc911532eeb580026115'
+    locator: 'stix-dependencies/stix2.1/schemas/common/url-regex.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/hashes-type.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/hashes-type.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: '6493e13b08fbf0ced26e956166e03ab37011ae1bb2c26d80a449ea7c81155c50'
+    locator: 'stix-dependencies/stix2.1/schemas/common/hashes-type.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/binary.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/binary.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: '18d0faef9f42579d5c7f337659ae6f72334029209035c05f21583ae2be17bf25'
+    locator: 'stix-dependencies/stix2.1/schemas/common/binary.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/hex.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/hex.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: 'd079f4141f68615424756bd74d16b4a47b9a7388dd836845849595db6e59f253'
+    locator: 'stix-dependencies/stix2.1/schemas/common/hex.json'
+    authority: 'external-stix-schema-snapshot'
+  - reference: 'http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/dictionary.json'
+    snapshot_url: 'https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/c4f8d589acf2bdb3783655c89e0ffb6e150006ae/schemas/common/dictionary.json'
+    commit: 'c4f8d589acf2bdb3783655c89e0ffb6e150006ae'
+    sha256: '4984a232a664bd54d2fb99a49c052a38da2ce90e43995a007a9e5fa8d208c116'
+    locator: 'stix-dependencies/stix2.1/schemas/common/dictionary.json'
+    authority: 'external-stix-schema-snapshot'
+external_sources_retrieved: '2026-11-09'
+external_datatype_notes:
+  - description: 'The identifier description says UUIDv4, while its regex accepts version digits 1..5. Pattern acceptance is not proof of the UUID generation requirements in full STIX prose.'
+    locator: 'stix-dependencies/stix2.1/schemas/common/identifier.json/description; /pattern'
+    authority: 'external-stix-schema-snapshot'
+    kind: 'inferred'
+  - description: 'The hex description specifies letters a through f, while the pattern also accepts uppercase A through F. The source pattern is preserved as written.'
+    locator: 'stix-dependencies/stix2.1/schemas/common/hex.json/description; /pattern'
+    authority: 'external-stix-schema-snapshot'
+    kind: 'inferred'
+datatype_definitions:
+  - name: 'boolean'
+    kind: 'stated'
+    description: 'A value of true or false.'
+    locator: 'docs/language.rst L38-L39'
+    constrained_by:
+      - 'mitre-attack-flow#R-0077'
+    authority: 'external-stix-restated-by-language'
+  - name: 'enum'
+    kind: 'stated'
+    description: 'A value from a STIX Enumeration.'
+    locator: 'docs/language.rst L40-L41'
+    constrained_by:
+      - 'mitre-attack-flow#R-0078'
+    authority: 'external-stix-restated-by-language'
+  - name: 'external-reference'
+    kind: 'stated'
+    description: 'A non-STIX identifier or reference to other related external content.'
+    locator: 'docs/language.rst L42-L43'
+    constrained_by:
+      - 'mitre-attack-flow#R-0079'
+    authority: 'external-stix-restated-by-language'
+  - name: 'float'
+    kind: 'stated'
+    description: 'An IEEE 754 [IEEE 754-2008] double-precision number.'
+    locator: 'docs/language.rst L44-L45'
+    constrained_by:
+      - 'mitre-attack-flow#R-0080'
+    authority: 'external-stix-restated-by-language'
+  - name: 'identifier'
+    kind: 'stated'
+    description: 'An identifier (ID) is for STIX Objects.'
+    locator: 'docs/language.rst L46-L47'
+    constrained_by:
+      - 'mitre-attack-flow#R-0081'
+    authority: 'external-stix-restated-by-language'
+  - name: 'integer'
+    kind: 'stated'
+    description: 'A whole number.'
+    locator: 'docs/language.rst L48-L49'
+    constrained_by:
+      - 'mitre-attack-flow#R-0082'
+    authority: 'external-stix-restated-by-language'
+  - name: 'string'
+    kind: 'stated'
+    description: 'A series of Unicode characters.'
+    locator: 'docs/language.rst L50-L51'
+    constrained_by:
+      - 'mitre-attack-flow#R-0083'
+    authority: 'external-stix-restated-by-language'
+  - name: 'timestamp'
+    kind: 'stated'
+    description: 'A time value (date and time).'
+    locator: 'docs/language.rst L52-L53'
+    constrained_by:
+      - 'mitre-attack-flow#R-0084'
+    authority: 'external-stix-restated-by-language'
+requirement_cross_reference_method: 'constrained_by links object/field matches and relevant datatype, document-cardinality, behavior and schema constraints. The common-property structure links the local schema import; external snapshot fields without a language-table counterpart remain externally sourced, rather than receiving invented R ids. Custom-type schema_constrained_by_if_root_applied links are explicitly conditional on applying the Attack Flow root; they are not additional custom-type language requirements.'

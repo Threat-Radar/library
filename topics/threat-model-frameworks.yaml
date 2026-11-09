@@ -1,0 +1,10 @@
+schema: "library-topic/v1"
+id: threat-model-frameworks
+question: "Which threat-modeling frameworks and attack-path representations can inform tmodel without selecting a design? (RPT-0002, tmodel#36)"
+owner: paria03
+status: active
+bears_on:
+  - DEC-001
+  - DEC-005
+records:
+  - mitre-attack-flow

@@ -1,0 +1,16 @@
+{
+  "type": "attack-condition",
+  "spec_version": "2.1",
+  "id": "attack-condition--7e809f5b-319a-4b3f-82fe-e4dc09af5088",
+  "created": "2022-08-02T19:34:35.143Z",
+  "modified": "2022-08-02T19:34:35.143Z",
+  "description": "Adversary possesses a phishing domain.",
+  "on_true_refs": [
+    "attack-operator--609d7adf-a3d2-44e8-82de-4b30e3fb97be"
+  ],
+  "extensions": {
+    "extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4": {
+      "extension_type": "new-sdo"
+    }
+  }
+}

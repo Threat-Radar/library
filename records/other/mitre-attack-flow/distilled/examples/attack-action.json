@@ -1,0 +1,19 @@
+{
+  "type": "attack-action",
+  "spec_version": "2.1",
+  "id": "attack-action--37345417-3ee0-4e11-b421-1d4be68e6f15",
+  "created": "2022-08-02T19:34:35.143Z",
+  "modified": "2022-08-02T19:34:35.143Z",
+  "technique_id": "T1583.002",
+  "name": "Acquire Infrastructure: Domains",
+  "technique_ref": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+  "description": "The attacker obtains a phishing domain similar to the target company.",
+  "effect_refs": [
+    "attack-condition--7e809f5b-319a-4b3f-82fe-e4dc09af5088"
+  ],
+  "extensions": {
+    "extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4": {
+      "extension_type": "new-sdo"
+    }
+  }
+}

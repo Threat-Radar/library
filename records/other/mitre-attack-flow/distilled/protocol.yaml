@@ -1,0 +1,130 @@
+schema: library-protocol/v1
+record: mitre-attack-flow
+kind: protocol
+extracted: "2026-11-09"
+reviewed_by: ""
+source_version: "v4.1.0 (Attack Flow STIX extension 2.0.0)"
+applicability:
+  status: not_applicable
+  kind: inferred
+  reason: >-
+    Pure STIX 2.1 JSON graph data format; the source defines objects and graph
+    evaluation semantics, but no roles exchanging messages, transport,
+    endpoints, request/response sequences, or protocol error paths. See
+    docs/language.rst, Overview, Attack Flow SDOs, and Effects;
+    stix/attack-flow-extension-2.0.0.json, /objects/0/extension_types; and
+    stix/attack-flow-schema-2.0.0.json, /description and /$defs.
+  record_not_applicable:
+    kind: protocol
+    reason: >-
+      Pure STIX 2.1 JSON graph data format; the source defines objects and graph
+      evaluation semantics, but no roles exchanging messages, transport,
+      endpoints, request/response sequences, or protocol error paths. See
+      docs/language.rst, Overview, Attack Flow SDOs, and Effects;
+      stix/attack-flow-extension-2.0.0.json, /objects/0/extension_types; and
+      stix/attack-flow-schema-2.0.0.json, /description and /$defs.
+sources:
+  - id: language
+    path: docs/language.rst
+    url: https://github.com/center-for-threat-informed-defense/attack-flow/blob/v4.1.0/docs/language.rst
+    locators:
+      - "Overview, lines 7-24"
+      - "Attack Flow SDOs / Attack Flow, lines 131-165"
+      - "Attack Flow SDOs / Attack Action, lines 208-266"
+      - "Attack Flow SDOs / Attack Condition, lines 358-401"
+      - "Attack Flow SDOs / Attack Operator, lines 429-454"
+      - "Effects, lines 584-615"
+  - id: extension
+    path: stix/attack-flow-extension-2.0.0.json
+    url: https://github.com/center-for-threat-informed-defense/attack-flow/blob/v4.1.0/stix/attack-flow-extension-2.0.0.json
+    locators:
+      - "/objects/0/type"
+      - "/objects/0/description"
+      - "/objects/0/schema"
+      - "/objects/0/version"
+      - "/objects/0/extension_types"
+  - id: schema
+    path: stix/attack-flow-schema-2.0.0.json
+    url: https://github.com/center-for-threat-informed-defense/attack-flow/blob/v4.1.0/stix/attack-flow-schema-2.0.0.json
+    locators:
+      - "/description"
+      - "/$defs/attack-flow"
+      - "/$defs/attack-action"
+      - "/$defs/attack-condition"
+      - "/$defs/attack-operator"
+roles: []
+messages: []
+flows: []
+error_paths: []
+evidence:
+  - finding: The language extends STIX 2.1 with JSON-encoded domain objects.
+    locators:
+      - "docs/language.rst, Overview, lines 7-24"
+      - "stix/attack-flow-extension-2.0.0.json, /objects/0/extension_types"
+      - "stix/attack-flow-schema-2.0.0.json, /description"
+  - finding: >-
+      The extension-definition's schema URL identifies the data schema, and
+      created_by_ref identifies the object creator; neither defines a
+      communicating peer or a message endpoint.
+    kind: inferred
+    locators:
+      - "stix/attack-flow-extension-2.0.0.json, /objects/0/schema"
+      - "docs/language.rst, STIX Common Properties / created_by_ref, lines 84-87"
+  - finding: >-
+      Action success or failure, condition branches, and operator halting
+      describe modeled adversary behavior rather than delivery success,
+      transport errors, or recovery exchanges.
+    kind: inferred
+    locators:
+      - "docs/language.rst, Attack Condition / on_true_refs and on_false_refs, lines 395-401"
+      - "docs/language.rst, Attack Operator / effect_refs, lines 450-454"
+      - "docs/language.rst, Effects, lines 600-615"
+graph_evaluation:
+  classification: represented_behavior_semantics
+  note: >-
+    These graph relationships are data-model semantics. They do not specify
+    transport participants, an execution service, or an exchange protocol.
+  rules:
+    - id: graph-start
+      subject: attack-flow.start_refs
+      meaning: Identifies the attack-action or attack-condition objects that start the graph.
+      locators:
+        - "docs/language.rst, Attack Flow / start_refs, lines 162-165"
+        - "stix/attack-flow-schema-2.0.0.json, /$defs/attack-flow/properties/start_refs"
+    - id: action-dependency
+      subject: attack-action.effect_refs
+      meaning: >-
+        Effects are indeterminate while an action is executing and may be
+        evaluated after it concludes. A directly chained action depends on
+        the preceding action completing successfully.
+      locators:
+        - "docs/language.rst, Attack Action / effect_refs, lines 263-266"
+        - "docs/language.rst, Effects, lines 600-604"
+        - "stix/attack-flow-schema-2.0.0.json, /$defs/attack-action/properties/effect_refs"
+    - id: condition-branch
+      subject: attack-condition.on_true_refs / attack-condition.on_false_refs
+      meaning: >-
+        A condition selects either its true branch or its false branch.
+        When the condition is false and there are no false-branch objects,
+        the graph halts at that node.
+      locators:
+        - "docs/language.rst, Attack Condition / on_true_refs and on_false_refs, lines 395-401"
+        - "docs/language.rst, Effects, lines 606-610"
+        - "stix/attack-flow-schema-2.0.0.json, /$defs/attack-condition/properties/on_true_refs"
+        - "stix/attack-flow-schema-2.0.0.json, /$defs/attack-condition/properties/on_false_refs"
+    - id: operator-join
+      subject: attack-operator.operator / attack-operator.effect_refs
+      meaning: >-
+        An AND or OR operator combines input effects from attack paths.
+        A true result leads to its referenced effects; a false result halts
+        the graph at that operator.
+      locators:
+        - "docs/language.rst, Attack Operator, lines 429-454"
+        - "docs/language.rst, Effects, lines 612-615"
+        - "stix/attack-flow-schema-2.0.0.json, /$defs/attack-operator/properties/operator"
+        - "stix/attack-flow-schema-2.0.0.json, /$defs/attack-operator/properties/effect_refs"
+diagram:
+  kind: graph_evaluation
+  path: protocol.md
+  sequence_diagram_applicable: false
+  reason: No exchange between protocol participants is defined.

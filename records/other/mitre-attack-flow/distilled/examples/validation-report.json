@@ -1,0 +1,105 @@
+{
+  "record": "mitre-attack-flow",
+  "checked": "2026-11-09",
+  "reviewed_by": "",
+  "result": "expected outcomes reproduced",
+  "network_retrieval": false,
+  "source_equality": {
+    "status": "matched",
+    "fixture_count": 10,
+    "json_blocks": 7,
+    "related_instances": 1
+  },
+  "json_examples": [
+    {
+      "fixture": "attack-flow.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": true,
+      "attack_flow_root_errors": 0,
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": 0,
+      "expected_result_matched": true
+    },
+    {
+      "fixture": "attack-action.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": true,
+      "attack_flow_root_errors": 0,
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": 0,
+      "expected_result_matched": true
+    },
+    {
+      "fixture": "attack-asset.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": true,
+      "attack_flow_root_errors": 0,
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": 0,
+      "expected_result_matched": true
+    },
+    {
+      "fixture": "attack-condition.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": true,
+      "attack_flow_root_errors": 0,
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": 0,
+      "expected_result_matched": true
+    },
+    {
+      "fixture": "attack-operator.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": true,
+      "attack_flow_root_errors": 0,
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": 0,
+      "expected_result_matched": true
+    },
+    {
+      "fixture": "x-detection.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": false,
+      "attack_flow_root_errors": 3,
+      "stix_common_core_valid": false,
+      "stix_common_core_errors": 1,
+      "expected_result_matched": true
+    },
+    {
+      "fixture": "x-mitigation.json",
+      "json_parse": "valid",
+      "attack_flow_root_valid": false,
+      "attack_flow_root_errors": 3,
+      "stix_common_core_valid": false,
+      "stix_common_core_errors": 1,
+      "expected_result_matched": true
+    }
+  ],
+  "confidence": {
+    "table_rows": 7,
+    "source_worked_examples": 2,
+    "derived_boundary_cases": 12,
+    "integer_range_partition": "0..100, no gaps or overlaps"
+  },
+  "effects": {
+    "derived_cases_registered": 10,
+    "verbatim_evidence": "matched",
+    "engine_execution": "not performed"
+  },
+  "extension_instance": {
+    "json_parse": "valid",
+    "local_creator_references": "resolved",
+    "attack_flow_example_declarations": 5,
+    "schema_reference_and_id": "recorded differing URL paths",
+    "full_stix_bundle_validation": "not run (schema closure not included)"
+  },
+  "schema_summary": {
+    "attack_flow_root_valid": 5,
+    "attack_flow_root_invalid": 2,
+    "expected_source_defects_reproduced": [
+      "x-detection.json",
+      "x-mitigation.json"
+    ],
+    "complete_flow_reference_validation": "not performed; source examples are fragments"
+  }
+}

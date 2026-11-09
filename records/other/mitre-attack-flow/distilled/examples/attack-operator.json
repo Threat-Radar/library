@@ -1,0 +1,16 @@
+{
+  "type": "attack-operator",
+  "spec_version": "2.1",
+  "id": "attack-operator--609d7adf-a3d2-44e8-82de-4b30e3fb97be",
+  "created": "2022-08-02T19:34:35.143Z",
+  "modified": "2022-08-02T19:34:35.143Z",
+  "operator": "AND",
+  "effect_refs": [
+    "attack-action--d68e5201-796c-469c-b012-290b7040db02"
+  ],
+  "extensions": {
+    "extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4": {
+      "extension_type": "new-sdo"
+    }
+  }
+}
