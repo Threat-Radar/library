@@ -1,0 +1,120 @@
+# ISO/SAE 21434:2021 Annex E (informative): cybersecurity assurance levels (CAL), as data.
+# Licensed standard: every sentence here is our own wording; the level names, table cells that
+# are labels (CAL1, I2, T1, ...) and the table layout are carried as data with their locators
+# (sponsor decision: tmodel#69 sponsor note, hold 1 (2026-10-02); tmodel#154).
+schema: "library-examples/v1"
+record: iso-sae-21434-2021
+kind: examples
+title: "Annex E: cybersecurity assurance levels (CAL)"
+source_locator: "Annex E (E.1, E.2, E.3.1 to E.3.3), Tables E.1 to E.4, Figure E.1"
+informative: true
+reviewed_by: ""
+
+summary: >-
+  A CAL states how much rigour the later engineering work has to show for an item's or
+  component's assets. It prescribes no technical controls. It can be determined early, in the
+  concept phase, from parameters expected to stay stable until cybersecurity support ends, for
+  example ones based on the assets and on aspects of their risks taken before any controls are
+  considered; the risk value, by contrast, keeps moving as specification, design, implementation
+  and the field change (Figure E.1). A goal can carry its CAL, and the requirements refined from
+  that goal inherit it. The organization developing the item determines it, or an organization
+  building an out-of-context component assumes one (E.1).
+
+figure_e1:   # Figure E.1, described in our words
+  locator: "Figure E.1"
+  story: >-
+    Over the concept, product development and post-development phases the risk value rises
+    and falls: it sits above the unreasonable-risk line until a test shows the control works,
+    rises again when a vulnerability is found in the field, and falls when it is fixed. The CAL
+    is decided once, when the cybersecurity requirement is specified, and then applied to the
+    implementation and test activities that follow.
+  events:
+    - {id: E1, event: "the requirement is written and its CAL fixed"}
+    - {id: E2, event: "the control is built, at the CAL's rigour"}
+    - {id: E3, event: "testing, at the CAL's rigour, shows the control works"}
+    - {id: E4, event: "a vulnerability is found in the field"}
+    - {id: E5, event: "the vulnerability is fixed"}
+
+cal_by_impact_and_attack_vector:   # Table E.1, an example with four CALs
+  locator: "Table E.1"
+  basis: "chosen from the worst impact and the attack vector among the threat scenarios concerned (15.4); attack vector counts as a fixed input to feasibility (note b)"
+  columns: [physical, local, adjacent, network]
+  rows:
+    severe: [CAL2, CAL3, CAL4, CAL4]
+    major: [CAL1, CAL2, CAL3, CAL4]
+    moderate: [CAL1, CAL1, CAL2, CAL3]
+    negligible: [none, none, none, none]
+  negligible_note: "no CAL is given; note a points to PM-06-08 (a threat scenario whose risk value is 1 may skip the 9.5 work and Clauses 10 and 11)"
+  combining_goals: "one CAL can cover all of an item's goals, or each goal gets its own; a goal combined from several takes the highest of their CALs (E.2)"
+  sharing: "a written rationale for the CAL, the CAL scheme itself and the CALs decided can be shared with the supplier, including in the cybersecurity interface agreement (E.2)"
+
+rigour_by_cal:   # Table E.2, with its merged cells written out per CAL
+  locator: "Table E.2"
+  uses: "a CAL can steer which methods are used (a) to develop and verify, (b) to hunt for weaknesses and vulnerabilities, and (c) to assess (E.3.1)"
+  levels:
+    CAL1:
+      assurance: "low to moderate"
+      a_confidence_in_rigour: "testing based on the requirements"
+      b_no_unmanaged_vulnerabilities: "looking for vulnerabilities from what is already known, by analysis or test"
+      c_independence: {needed: false}
+    CAL2:
+      assurance: "moderate"
+      a_confidence_in_rigour: "testing based on the requirements"
+      b_no_unmanaged_vulnerabilities: "looking for vulnerabilities from what is already known, by analysis or test"
+      c_independence: {assessment_by: "a person other than the originator"}
+    CAL3:
+      assurance: "moderate to high"
+      a_confidence_in_rigour: "tests cover every interaction between components"
+      b_no_unmanaged_vulnerabilities: "analysis or testing that hunts for vulnerabilities with exploratory methods"
+      c_independence: {assessment_by: "a member of another team than the originator's"}
+    CAL4:
+      assurance: "high"
+      a_confidence_in_rigour: "tests cover every combination of component interactions"
+      b_no_unmanaged_vulnerabilities: "analysis or testing that hunts for vulnerabilities with exploratory methods"
+      c_independence: {assessment_by: "a person independent of the originating department", regarding: [management, resources, release authority]}
+
+concept_phase_use:   # E.3.2, an extension to RQ-09-10
+  locator: "E.3.2"
+  rules:
+    - "a requirement refined from a goal carries the goal's CAL"
+    - "a component that receives requirements with different CALs takes the highest of them"
+    - "if the component is shown to be protected from the other components, its CAL can be lowered or dropped, with a rationale"
+
+product_development_use:   # E.3.3
+  locator: "E.3.3"
+  rule: "when components hold cybersecurity requirements and cannot be shown to be isolated from the rest, they can be developed at the highest CAL among those requirements"
+
+independence_by_cal:   # Table E.3; the scope column says the level follows the highest CAL among the requirements concerned
+  locator: "Table E.3"
+  columns: [CAL1, CAL2, CAL3, CAL4]
+  activities:
+    - {activity: "verification of the cybersecurity concept and design", provisions: [RQ-09-11, RQ-10-08], levels: [I1, I1, I2, I2]}
+    - {activity: "verification of component implementation and integration", provisions: [RQ-10-09], levels: [I1, I1, I2, I2]}
+    - {activity: "cybersecurity validation", provisions: [RQ-11-01], levels: [I1, I1, I2, I2]}
+    - {activity: "cybersecurity assessment", provisions: [RQ-06-27], levels: [none, I1, I2, I3]}
+  notation:
+    none: "no suggestion for this activity"
+    I1: {performed_by: "a person other than those who created the work products concerned"}
+    I2: {performed_by: "a person outside the creating team, with a different line manager"}
+    I3: {performed_by: "a person independent of the creating department", regarding: [management, resources, release authority]}
+
+testing_by_cal:   # Table E.4; same scope rule as Table E.3
+  locator: "Table E.4"
+  columns: [CAL1, CAL2, CAL3, CAL4]
+  activities:
+    - {activity: "functional testing", provisions: [RC-10-12, RQ-11-01], levels: [T1, T1, T2, T2]}
+    - {activity: "vulnerability scanning", provisions: [RC-10-12, RQ-11-01], levels: [T1, T1, T1, T1]}
+    - {activity: "fuzz testing", provisions: [RC-10-12, RQ-11-01], levels: [none, T1, T2, T2]}
+    - {activity: "penetration testing", provisions: [RC-10-12, RQ-11-01], levels: [none, none, T1, T2]}
+  notation:
+    none: "no suggestion for this activity"
+    T1:
+      functional: "tests drawn from the requirements"
+      vulnerability_scanning: "scans for vulnerabilities already known"
+      fuzz: "inputs chosen at random"
+      penetration: {assumed_attacker_level: moderate, level_applies_to: [expertise, knowledge of the item or component, resources], combined: "and/or"}
+    T2:
+      functional: "tests drawn from the requirements and from how components interact"
+      vulnerability_scanning: "scans for vulnerabilities already known"
+      fuzz: "more test iterations, or inputs chosen adaptively"
+      penetration: {assumed_attacker_level: higher, level_applies_to: [expertise, knowledge of the item or component, resources], combined: "and/or"}

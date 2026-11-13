@@ -1,0 +1,125 @@
+# ISO/SAE 21434:2021: test vectors drawn from Annexes E, G and H, with the expected result of each,
+# worked out by hand from the annex data files beside this one. `stated` vectors restate a value the
+# standard prints; `derived` vectors apply a printed rule to inputs we chose.
+#
+# Reproduce every result from the repository root:
+#   python3 -I records/iso/iso-sae-21434-2021/distilled/examples/run-fixtures.derived.py
+# (needs PyYAML, as bin/check-artifacts does; requirements-dev.txt)
+schema: "library-examples/v1"
+record: iso-sae-21434-2021
+kind: examples
+title: "Test vectors for the Annex E, G and H methods, with expected results"
+reviewed_by: ""
+
+attack_potential_mapping:   # Table G.7: sum of the Table G.6 values -> rating
+  locator: "Table G.7"
+  kind: derived
+  cases:
+    - {sum: 0, rating: high}
+    - {sum: 9, rating: high}
+    - {sum: 10, rating: high}
+    - {sum: 13, rating: high}
+    - {sum: 14, rating: medium}
+    - {sum: 19, rating: medium}
+    - {sum: 20, rating: low}
+    - {sum: 24, rating: low}
+    - {sum: 25, rating: very_low}
+    - {sum: 57, rating: very_low}   # the largest possible sum: 19 + 8 + 11 + 10 + 9
+
+attack_potential_paths:   # Table H.7: factor levels -> Table G.6 values -> sum -> Table G.7 rating
+  locator: "Table H.7, Table G.6, Table G.7"
+  kind: stated
+  cases:
+    - path: AP-4
+      levels: {elapsed_time: "up to 1 week", specialist_expertise: "multiple experts", knowledge_of_the_item_or_component: confidential, window_of_opportunity: unlimited, equipment: specialized}
+      sum: 20
+      rating: low
+    - path: AP-5
+      levels: {elapsed_time: "up to 1 week", specialist_expertise: "multiple experts", knowledge_of_the_item_or_component: confidential, window_of_opportunity: moderate, equipment: specialized}
+      sum: 24
+      rating: low
+
+cvss_exploitability:   # G.3 formula and Table G.8; per-metric values from CVSS v3.1 (library record first-cvss-v3-1, 7.4), scope unchanged
+  locator: "G.3, Table G.8"
+  kind: derived
+  metric_values: {AV: {N: 0.85, A: 0.62, L: 0.55, P: 0.2}, AC: {L: 0.77, H: 0.44}, PR: {N: 0.85, L: 0.62, H: 0.27}, UI: {N: 0.85, R: 0.62}}
+  rounding: "E is rounded half up to two decimals before Table G.8 is applied"
+  cases:
+    - {vector: "AV:N/AC:L/PR:N/UI:N", E: 3.89, rating: high}
+    - {vector: "AV:A/AC:L/PR:N/UI:N", E: 2.84, rating: medium}
+    - {vector: "AV:N/AC:L/PR:L/UI:N", E: 2.84, rating: medium}
+    - {vector: "AV:L/AC:L/PR:N/UI:N", E: 2.52, rating: medium}
+    - {vector: "AV:N/AC:H/PR:N/UI:N", E: 2.22, rating: medium}
+    - {vector: "AV:L/AC:H/PR:N/UI:N", E: 1.44, rating: low}
+    - {vector: "AV:A/AC:H/PR:L/UI:R", E: 0.86, rating: very_low}
+    - {vector: "AV:P/AC:L/PR:N/UI:N", E: 0.91, rating: very_low}
+    - {vector: "AV:P/AC:H/PR:H/UI:R", E: 0.12, rating: very_low}
+
+attack_vector_ratings:   # Table G.9 applied to Table H.6; Table H.6 prints only the ratings
+  locator: "Table G.9, Table H.6, Table H.5"
+  kind: derived
+  cases:
+    - {path: AP-1, vector: network, vector_basis: "inferred from Table G.9's cellular example", rating: high}
+    - {path: AP-2, vector: adjacent, vector_basis: "inferred from Table G.9's Bluetooth example", rating: medium}
+    - {path: AP-3, vector: local, vector_basis: "stated in Table H.5", rating: low}
+
+risk_matrix:   # Table H.8, every cell
+  locator: "Table H.8"
+  kind: stated
+  cases:
+    - {impact: severe, feasibility: very_low, risk: 2}
+    - {impact: severe, feasibility: low, risk: 3}
+    - {impact: severe, feasibility: medium, risk: 4}
+    - {impact: severe, feasibility: high, risk: 5}
+    - {impact: major, feasibility: very_low, risk: 1}
+    - {impact: major, feasibility: low, risk: 2}
+    - {impact: major, feasibility: medium, risk: 3}
+    - {impact: major, feasibility: high, risk: 4}
+    - {impact: moderate, feasibility: very_low, risk: 1}
+    - {impact: moderate, feasibility: low, risk: 2}
+    - {impact: moderate, feasibility: medium, risk: 2}
+    - {impact: moderate, feasibility: high, risk: 3}
+    - {impact: negligible, feasibility: very_low, risk: 1}
+    - {impact: negligible, feasibility: low, risk: 1}
+    - {impact: negligible, feasibility: medium, risk: 1}
+    - {impact: negligible, feasibility: high, risk: 1}
+
+risk_formula_vs_matrix:   # Table H.10 formula R = 1 + I * F against Table H.8, every cell
+  locator: "H.2.7, Table H.10, Table H.8"
+  kind: derived
+  comparison: unrounded
+  agreeing_cells: 12
+  disagreeing_cells:
+    - {impact: severe, feasibility: very_low, formula: 1, matrix: 2}
+    - {impact: major, feasibility: low, formula: 2.5, matrix: 2}
+    - {impact: major, feasibility: medium, formula: 3.25, matrix: 3}
+    - {impact: moderate, feasibility: medium, formula: 2.5, matrix: 2}
+  note: "the annex claims agreement only for the two threat scenarios of Table H.9, which holds; across the whole grid the unrounded formula and the matrix differ in four cells, and the formula yields values that are not whole numbers (rounding half up leaves three differences, rounding down one)"
+
+risk_values:   # Table H.9: aggregated feasibility is the highest rating among a threat scenario's paths
+  locator: "Table H.9, Table H.6, Table H.7, Table H.8, Table H.10"
+  kind: stated
+  cases:
+    - {threat: TS-1, paths: [AP-1, AP-2, AP-3], aggregated_feasibility: high, impact: severe, matrix_risk: 5, formula_risk: 5}
+    - {threat: TS-3, paths: [AP-4, AP-5], aggregated_feasibility: low, impact: moderate, matrix_risk: 2, formula_risk: 2}
+
+cal_lookup:   # Table E.1, every cell
+  locator: "Table E.1"
+  kind: stated
+  cases:
+    - {impact: severe, vector: physical, cal: CAL2}
+    - {impact: severe, vector: local, cal: CAL3}
+    - {impact: severe, vector: adjacent, cal: CAL4}
+    - {impact: severe, vector: network, cal: CAL4}
+    - {impact: major, vector: physical, cal: CAL1}
+    - {impact: major, vector: local, cal: CAL2}
+    - {impact: major, vector: adjacent, cal: CAL3}
+    - {impact: major, vector: network, cal: CAL4}
+    - {impact: moderate, vector: physical, cal: CAL1}
+    - {impact: moderate, vector: local, cal: CAL1}
+    - {impact: moderate, vector: adjacent, cal: CAL2}
+    - {impact: moderate, vector: network, cal: CAL3}
+    - {impact: negligible, vector: physical, cal: none}
+    - {impact: negligible, vector: local, cal: none}
+    - {impact: negligible, vector: adjacent, cal: none}
+    - {impact: negligible, vector: network, cal: none}

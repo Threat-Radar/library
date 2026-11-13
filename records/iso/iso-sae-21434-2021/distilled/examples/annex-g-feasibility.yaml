@@ -1,0 +1,106 @@
+# ISO/SAE 21434:2021 Annex G (informative): the three attack feasibility approaches, as data.
+# Licensed standard: each level is carried as structured fields (who has access, what is available,
+# typical cases) with short labels, not as sentences; level names, point values, ranges and the
+# formula are the standard's (sponsor decision: tmodel#69 sponsor note, hold 1 (2026-10-02);
+# tmodel#154).
+schema: "library-examples/v1"
+record: iso-sae-21434-2021
+kind: examples
+title: "Annex G: attack potential, CVSS and attack vector approaches to attack feasibility"
+source_locator: "Annex G (G.1 to G.4), Tables G.1 to G.9"
+informative: true
+reviewed_by: ""
+
+summary: >-
+  Guidance for the three approaches that RC-15-11 names for rating attack feasibility (15.7):
+  attack potential (RC-15-12), CVSS exploitability (RC-15-13) and attack vector (RC-15-14). Each
+  ends on the four ratings of Table 1 (RQ-15-10). A rating can also weigh whether the attack can
+  scale, that is be repeated easily against many instances and targets (G.1).
+
+attack_potential:   # G.2, after ISO/IEC 18045 (Bibliography [23])
+  locator: "G.2, Tables G.1 to G.7"
+  idea: "the effort an attack takes, in terms of the attacker's expertise and resources, scored on five factors and summed (ISO/IEC 18045)"
+  factors:
+    elapsed_time:
+      locator: "Table G.1, G.2.2.1"
+      covers: "finding the vulnerability, then building and successfully using an exploit, judged on what experts know at the time of rating"
+      levels:
+        - {level: "up to 1 day", value: 0}
+        - {level: "up to 1 week", value: 1}
+        - {level: "up to 1 month", value: 4}
+        - {level: "up to 6 months", value: 17}
+        - {level: "more than 6 months", value: 19}
+    specialist_expertise:
+      locator: "Table G.2, G.2.2.2"
+      covers: "the attacker's skill and experience"
+      levels:
+        - {level: layman, value: 0, expertise: "none in particular, compared with experts or proficient people", typical: "someone following a public step-by-step attack"}
+        - {level: proficient, value: 3, knows: "how the product or system type behaves in security terms", typical: ["an experienced owner", "an ordinary technician who knows simple, widespread attacks such as odometer tuning or fitting counterfeit parts"]}
+        - {level: expert, value: 6, knows: ["cryptography", "attack methods and the classic attacks on this product type", "how to devise new attacks, with the techniques and tools for it", "the algorithms, protocols, hardware and structures used", "the security principles, concepts and behaviour employed"], typical: "an experienced technician or engineer"}
+        - {level: multiple experts, value: 8, needs: "expert-level skill in a different field for different steps of the attack", typical: "several highly experienced engineers from different fields"}
+    knowledge_of_the_item_or_component:
+      locator: "Table G.3, G.2.2.3"
+      covers: "how much the attacker knows about the item or component"
+      levels:
+        - {level: public, value: 0, access: "anyone, for example online", typical: ["the product's homepage", "internet forums"]}
+        - {level: restricted, value: 3, access: "inside the developer, and with partners only under an NDA", typical: ["internal documents a manufacturer and its supplier exchange", "requirement and design specifications"]}
+        - {level: confidential, value: 7, access: "only named teams within the developer", typical: ["immobilizer information", "software source code"]}
+        - {level: strictly confidential, value: 11, access: "a handful of named people, each cleared individually", typical: ["calibration data for one customer, documented in-house", "memory maps documented in-house by manufacturer or supplier"]}
+    window_of_opportunity:
+      locator: "Table G.4, G.2.2.4"
+      covers: "the access the attack needs, combining kind (logical, physical) and duration (limited, unlimited); depending on the attack, it can include finding targets, reaching one, getting the exploit to work, time on the target, staying unnoticed and getting round detection and controls"
+      levels:
+        - {level: unlimited, value: 0, availability: always, access: ["remote over a public or untrusted network, with no presence and no time limit", "unlimited physical access"], typical: ["a remote attack over V2X or cellular with no preconditions", "an owner chip-tuning their own car"]}
+        - {level: easy, value: 1, availability: "high, for a limited time", access: "remote, with no physical presence", typical: ["a Bluetooth pairing window", "a remote software update", "a remote attack that only works while the vehicle is stationary"]}
+        - {level: moderate, value: 4, availability: low, access: "restricted physical or logical access, such as reaching the car's interior or exterior with no special tools", typical: "entering an unlocked car and using an exposed port, such as the on-board diagnostic port"}
+        - {level: difficult, value: 10, availability: "very low", access: impractical, typical: ["decapping a chip to read it out", "brute-forcing a key faster than it is rotated"]}
+      note: "Table G.6 labels the last level difficult/none"
+    equipment:
+      locator: "Table G.5, G.2.2.5"
+      covers: "the kit the attacker has, both for discovery and for the attack itself"
+      levels:
+        - {level: standard, value: 0, availability: "already at hand: built into the product (an OS debugger, say) or easy to obtain (from the internet, a protocol analyser, simple attack scripts)", typical: ["a laptop", "a CAN adapter", "an OBD dongle", "hand tools such as a screwdriver, soldering iron or pliers"]}
+        - {level: specialized, value: 4, availability: "obtainable without undue effort", includes: ["a modest set of equipment, such as power-analysis tools", "hundreds of PCs linked over the internet", "larger attack scripts or programs written for the job"], rule: "if separate specialized test benches are needed for separate steps, rate it bespoke", typical: ["a hardware debugging device", "in-vehicle communication tools (a HIL test rig, a high-grade oscilloscope, a signal generator)", "special chemicals"]}
+        - {level: bespoke, value: 7, availability: "specially produced and not on the open market (black market at most), distribution-controlled or restricted, or very expensive", typical: ["manufacturer-restricted tools", "an electron microscope"]}
+        - {level: multiple bespoke, value: 9, rule: "each of several attack steps needs its own bespoke equipment"}
+  values_table: "Table G.6"
+  aggregation: "attack potential is the sum of the five factor values (ISO/IEC 18045)"
+  mapping:   # Table G.7: the High row spans two value bands
+    locator: "Table G.7"
+    bands:
+      - {from: 0, to: 9, rating: high}
+      - {from: 10, to: 13, rating: high}
+      - {from: 14, to: 19, rating: medium}
+      - {from: 20, to: 24, rating: low}
+      - {from: 25, to: null, rating: very_low}
+
+cvss_exploitability:   # G.3, after CVSS (FIRST, Bibliography [24]), base metric group
+  locator: "G.3, Table G.8"
+  idea: "rate feasibility from the CVSS exploitability metrics only; the impact side comes from this standard's own damage scenarios and impact rating (Annex F)"
+  metrics: [attack_vector, attack_complexity, privileges_required, user_interaction]
+  formula: "E = 8.22 * V * C * P * U"
+  ranges:
+    V: [0.2, 0.85]
+    C: [0.44, 0.77]
+    P: [0.27, 0.85]
+    U: [0.62, 0.85]
+    E: [0.12, 3.89]
+  mapping:   # Table G.8: equal-width steps
+    - {from: 2.96, to: 3.89, rating: high}
+    - {from: 2.00, to: 2.95, rating: medium}
+    - {from: 1.06, to: 1.99, rating: low}
+    - {from: 0.12, to: 1.05, rating: very_low}
+  notes:
+    - "using the exploitability metrics without the rest of the base group does not strictly follow CVSS's own rules; the standard's impact rating stands in for CVSS impact (G.3 NOTE)"
+    - "an organization can add its own examples to the metric descriptions, without changing the metric values, to cut misreadings"
+    - "the metrics also work for weaknesses, flaws and gaps found at concept level, not just for vulnerabilities"
+    - "the per-metric values (V, C, P, U) are CVSS's, not this standard's; Annex G gives only their ranges"
+
+attack_vector:   # G.4, Table G.9; the more remote the attacker can be, the higher the rating
+  locator: "G.4, Table G.9"
+  idea: "more attackers can reach a path over the internet than one that needs physical access, so remoteness drives the rating"
+  levels:
+    - {vector: network, rating: high, network_stack: true, limited: false, typical: "a cellular link that puts the ECU directly on the internet"}
+    - {vector: adjacent, rating: medium, network_stack: true, limited: "physically or logically", typical: ["a Bluetooth interface", "a VPN connection"]}
+    - {vector: local, rating: low, network_stack: false, needs: "direct access to the item", typical: ["a USB mass-storage device", "a memory card"]}
+    - {vector: physical, rating: very_low, network_stack: false, needs: "physical access"}

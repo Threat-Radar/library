@@ -1,0 +1,83 @@
+schema: "library-state-machine/v1"
+record: iso-sae-21434-2021
+source_scope: "ISO/SAE 21434:2021, purchased copy (sha256 73f99007...cdf4): Clause 6.4.7 to 6.4.9, Clause 8, Clause 12, 13.3, 13.4 and Clause 14"
+reviewed_by: ""
+note: >
+  Licensed standard: states and triggers are described in our own words and pinned to provision
+  designators (sponsor decision: tmodel#69 sponsor note, hold 1 (2026-10-02); tmodel#154). The
+  standard does not draw the security-finding machine; the item-release machine follows the
+  lifecycle loop of Figure 2 (Clause 4, informative). Both are read from the provisions and the
+  work products they produce. `kind: stated` means a provision names the step; `kind: inferred`
+  marks our modelling glue, such as an outcome a provision implies but does not name, or a path
+  that only a NOTE describes. Each activity's mandatory inputs (its Prerequisites) are listed in
+  normative.md §8; only R7 repeats them as a guard.
+
+machines:
+  - id: security-finding
+    entity: "cybersecurity information, and the event, weakness or vulnerability it becomes"
+    kind: stated
+    source: "8.3 to 8.6 (RQ-08-01 to RQ-08-08), 13.3 (RQ-13-01, RQ-13-02), 15.9 (RQ-15-17)"
+    initial: [information-gathered, weakness-from-development]
+    final: [not-an-event, no-weakness, not-a-vulnerability, managed]
+    states:
+      - {id: information-gathered, locator: "RQ-08-01, RQ-08-03", definition: "cybersecurity information collected from the chosen sources (WP-08-01)"}
+      - {id: not-an-event, locator: "RQ-08-03", definition: "triage finds no cybersecurity event in the information", kind: inferred, terminal: true}
+      - {id: cybersecurity-event, locator: "RQ-08-03", definition: "triage against the defined triggers (WP-08-02) finds an event (WP-08-03)"}
+      - {id: no-weakness, locator: "RQ-08-04", definition: "evaluation of the event finds no weakness in the item or component", kind: inferred, terminal: true}
+      - {id: weakness-from-development, locator: "WP-10-05; 8.5.1.2", definition: "a weakness found during product development, which 8.5 may also take as input"}
+      - {id: weakness, locator: "RQ-08-04, RQ-08-05", definition: "a weakness in an item or component, awaiting vulnerability analysis (WP-08-04, or WP-10-05 for one found in development)"}
+      - {id: not-a-vulnerability, locator: "RQ-08-06", definition: "analysis shows the weakness is not a vulnerability; the reasoning is recorded (WP-08-05)", terminal: true}
+      - {id: vulnerability, locator: "RQ-08-05", definition: "analysis shows the weakness is a vulnerability (WP-08-05)"}
+      - {id: risk-treatment, locator: "RQ-08-07 a), RQ-15-17", definition: "route (a): the vulnerability's risks are assessed and a 15.9 treatment option chosen (avoid, reduce, share or retain)"}
+      - {id: remediated, locator: "RQ-08-07 b)", definition: "route (b): an available remediation that needs no TARA removes the vulnerability"}
+      - {id: incident-response, locator: "RQ-08-08, RQ-13-01, RQ-13-02", definition: "the treatment decision calls for incident response; a plan of its own is drawn up and carried out (WP-13-01)"}
+      - {id: managed, locator: "RQ-08-07", definition: "no unreasonable risk remains, or the vulnerability is gone; recorded as managed (WP-08-06)", terminal: true}
+    transitions:
+      - {id: F1, from: information-gathered, to: cybersecurity-event, trigger: "a defined trigger matches during triage", locator: "RQ-08-02, RQ-08-03", kind: stated}
+      - {id: F2, from: information-gathered, to: not-an-event, trigger: "no trigger matches", locator: "RQ-08-03", kind: inferred}
+      - {id: F3, from: cybersecurity-event, to: weakness, trigger: "evaluation finds one or more weaknesses", locator: "RQ-08-04", kind: stated}
+      - {id: F4, from: cybersecurity-event, to: no-weakness, trigger: "evaluation finds none", locator: "RQ-08-04", kind: inferred}
+      - {id: F5, from: weakness-from-development, to: weakness, trigger: "the weakness enters vulnerability analysis", locator: "RQ-08-05 (every weakness is analysed); 8.5.1.2 lists WP-10-05 as an input", kind: stated}
+      - {id: F6, from: weakness, to: vulnerability, trigger: "analysis identifies it as a vulnerability", locator: "RQ-08-05", kind: stated}
+      - {id: F7, from: weakness, to: not-a-vulnerability, trigger: "analysis does not identify it as a vulnerability (8.5.2 EXAMPLES 1 and 2: for instance no attack path exists, or attack feasibility is very low)", guard: "rationale recorded", locator: "RQ-08-06", kind: stated}
+      - {id: F8, from: vulnerability, to: risk-treatment, trigger: "the organization takes route (a)", locator: "RQ-08-07 a)", kind: stated}
+      - {id: F9, from: vulnerability, to: remediated, trigger: "the organization takes route (b)", guard: "a ready remediation exists that needs no TARA", locator: "RQ-08-07 b)", kind: stated}
+      - {id: F10, from: risk-treatment, to: incident-response, trigger: "the 15.9 decision makes incident response necessary", locator: "RQ-08-08", kind: stated}
+      - {id: F11, from: risk-treatment, to: managed, trigger: "the chosen treatment leaves no unreasonable risk", locator: "RQ-08-07 a)", kind: stated}
+      - {id: F12, from: incident-response, to: managed, trigger: "the plan's closure criteria are met and its closing actions done", locator: "RQ-13-01 f) g), RQ-13-02", kind: inferred}
+      - {id: F13, from: remediated, to: managed, trigger: "the remediation is applied", locator: "RQ-08-07 b)", kind: inferred}
+      - {id: F14, from: weakness, to: remediated, trigger: "a remediation, such as a supplier's patch, is already available; the weakness is handled as an assumed vulnerability", locator: "8.4.2 NOTE 2", kind: inferred}
+      - {id: F15, from: vulnerability, to: incident-response, trigger: "incident response starts without a TARA", locator: "8.6.2 NOTE 3", kind: inferred}
+
+  - id: item-release
+    entity: "an item or component, from development to decommissioning"
+    kind: stated
+    source: "6.4.7 to 6.4.9 (RQ-06-23 to RQ-06-34), Clause 12 (RQ-12-01 to RQ-12-03), 13.4 (RQ-13-03), Clause 14 (RQ-14-01, RQ-14-02)"
+    initial: [in-development]
+    final: [decommissioned]
+    states:
+      - {id: in-development, locator: "Clauses 9 to 11", definition: "concept, product development and validation under way"}
+      - {id: case-built, locator: "RQ-06-23", definition: "a cybersecurity case argues, from the work products, that the item or component is secure enough (WP-06-02)"}
+      - {id: assessment-decided, locator: "RQ-06-24, RQ-06-25", definition: "whether to assess has been decided on a risk basis, and the rationale reviewed independently"}
+      - {id: assessed, locator: "RQ-06-26 to RQ-06-32", definition: "an independent assessment has judged the cybersecurity and recommends accepting, accepting with stated conditions, or rejecting (WP-06-03)"}
+      - {id: released, locator: "RQ-06-33, RQ-06-34", definition: "released for post-development (WP-06-04)"}
+      - {id: in-production, locator: "RQ-12-01 to RQ-12-03", definition: "produced under a production control plan that applies the post-development requirements (WP-12-01)"}
+      - {id: in-operation, locator: "13.3, 13.4", definition: "in the field: incidents are handled under 13.3 and updates are developed under the standard (RQ-13-03)"}
+      - {id: support-ended, locator: "14.1, RQ-14-01", definition: "the organization has ended cybersecurity support and informs customers by its procedure (WP-14-01); the item or component may still work in the field"}
+      - {id: decommissioned, locator: "14.1, RQ-14-02", definition: "taken out of service; the act itself is outside the standard, which asks only that the decommissioning parts of the post-development requirements be made available", terminal: true}
+    transitions:
+      - {id: R1, from: in-development, to: case-built, trigger: "the work products exist to argue from", locator: "RQ-06-23", kind: stated}
+      - {id: R2, from: case-built, to: assessment-decided, trigger: "the risk-based decision on assessing is made and reviewed", locator: "RQ-06-24, RQ-06-25; the order is ours, since RQ-06-24 NOTE 2 lets the rationale sit in the case", kind: inferred}
+      - {id: R3, from: assessment-decided, to: assessed, trigger: "an assessment is to be done and is carried out", locator: "RQ-06-26 to RQ-06-30", kind: stated}
+      - {id: R4, from: assessed, to: released, trigger: "the recommendation is to accept", guard: "the case convinces, the assessment confirms it, the post-development requirements are accepted, and the case, report and those requirements exist", locator: "RQ-06-31, RQ-06-33, RQ-06-34", kind: stated}
+      - {id: R4b, from: assessed, to: released, trigger: "the recommendation is to accept with conditions", guard: "the conditions stated under RQ-06-32 are met, and the guards of R4 hold", locator: "RQ-06-31, RQ-06-32, RQ-06-34", kind: inferred}
+      - {id: R5, from: assessed, to: in-development, trigger: "the recommendation is to reject", locator: "RQ-06-31", kind: inferred}
+      - {id: R6, from: assessment-decided, to: released, trigger: "no assessment applies", guard: "the case convinces, the post-development requirements are accepted, and the case and those requirements exist", locator: "RQ-06-33, RQ-06-34 (their items b) apply only when an assessment is done)", kind: stated}
+      - {id: R7, from: released, to: in-production, trigger: "production starts under the control plan", guard: "WP-06-04 and WP-10-02 are available (12.3.1)", locator: "RQ-12-01, RQ-12-03; Figure 2", kind: inferred}
+      - {id: R8, from: in-production, to: in-operation, trigger: "the item or component goes into service", locator: "Clause 13; Figure 2", kind: inferred}
+      - {id: R9, from: in-operation, to: support-ended, trigger: "the organization stops supporting the item's cybersecurity", locator: "RQ-14-01", kind: stated}
+      - {id: R10, from: support-ended, to: decommissioned, trigger: "it is taken out of service", locator: "14.1, RQ-14-02", kind: inferred}
+      - {id: R11, from: in-operation, to: decommissioned, trigger: "the item or component is taken out of service while still supported", locator: "14.1", kind: inferred}
+    notes:
+      - "ending support and decommissioning are separate (14.1): support can end while the item keeps working, and decommissioning can happen without the organization knowing, so R10 and R11 may have no trigger the organization sees"
+      - "an update (13.4) loops back through development under the standard, as Figure 2's loop from maintenance to concept shows; this machine does not draw that loop"

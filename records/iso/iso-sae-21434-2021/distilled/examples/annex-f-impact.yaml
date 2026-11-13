@@ -1,0 +1,54 @@
+# ISO/SAE 21434:2021 Annex F (informative): example impact rating criteria, as data.
+# Licensed standard: each criterion is carried as structured fields (what is affected, how badly,
+# whether the road user recovers) with short labels, not as sentences; level names, categories and
+# the S0 to S3 labels are the standard's (sponsor decision: tmodel#69 sponsor note, hold 1
+# (2026-10-02); tmodel#154).
+schema: "library-examples/v1"
+record: iso-sae-21434-2021
+kind: examples
+title: "Annex F: example criteria for rating impact in each of the four categories"
+source_locator: "Annex F (F.1 to F.5), Tables F.1 to F.4"
+informative: true
+reviewed_by: ""
+
+summary: >-
+  Example criteria for the impact rating that 15.5 asks for (RQ-15-04, RQ-15-05): one table per
+  impact category, each with the four levels severe, major, moderate and negligible. The
+  examples leave out how damage that reaches many road users at once changes the rating; an
+  organization can add that to its own criteria, for instance as EVITA D2.3 does in its C.1.2,
+  Table 4 (Bibliography [20]) (F.1).
+
+categories:
+  safety:   # Table F.1; the S classes come from ISO 26262-3:2018
+    locator: "Table F.1, F.2"
+    levels:
+      severe: {class: S3, injuries: "fatal, or life-threatening with survival uncertain"}
+      major: {class: S2, injuries: "severe or life-threatening, survival probable"}
+      moderate: {class: S1, injuries: "light to moderate"}
+      negligible: {class: S0, injuries: none, note: "the S0 call can follow ISO 26262-3:2018, Table B.1"}
+    notes:
+      - "the classes are those of ISO 26262-3:2018"
+      - "controllability and exposure, as ISO 26262-3:2018 defines them, can also enter the safety rating if a rationale is given"
+  financial:   # Table F.2
+    locator: "Table F.2, F.3"
+    levels:
+      severe: {consequence: catastrophic, road_user_recovers: "possibly never"}
+      major: {consequence: substantial, road_user_recovers: "yes"}
+      moderate: {consequence: inconvenient, road_user_recovers: "yes, with limited resources"}
+      negligible: {consequence: "none, trivial, or of no concern to the road user"}
+  operational:   # Table F.3
+    locator: "Table F.3, F.4"
+    levels:
+      severe: {function: core vehicle function, effect: "lost or impaired", examples: ["the vehicle does not work", "a core function misbehaves, such as limp-home mode starting or the car driving itself somewhere it was not sent"]}
+      major: {function: important vehicle function, effect: "lost or impaired", examples: ["the driver is seriously annoyed"]}
+      moderate: {function: a vehicle function, effect: "partly degraded", examples: ["user satisfaction suffers"]}
+      negligible: {function: a vehicle function, effect: "none, or not noticeable"}
+    notes:
+      - "an operational damage may or may not carry safety consequences as well"
+  privacy:   # Table F.4; PII and PII principal as in ISO/IEC 29100 (Bibliography [25])
+    locator: "Table F.4, F.5"
+    levels:
+      severe: {harm: "significant, possibly irreversible", information: [{sensitivity: highly sensitive, linkable_to_person: easily}]}
+      major: {harm: serious, information: [{sensitivity: highly sensitive, linkable_to_person: "with difficulty"}, {sensitivity: sensitive, linkable_to_person: easily}]}
+      moderate: {harm: inconvenient, information: [{sensitivity: sensitive, linkable_to_person: "with difficulty"}, {sensitivity: not sensitive, linkable_to_person: easily}]}
+      negligible: {harm: "none, trivial, or of no concern to the road user", information: [{sensitivity: not sensitive, linkable_to_person: "with difficulty"}]}

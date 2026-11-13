@@ -3,7 +3,7 @@ record: iso-sae-21434-2021
 source_version: "2021"
 source_digest: "73f990078d3a5b47dec91dd0d2b4e6c24cecd9e4160ae5b143c3b3fa80b7cdf4"
 audience: machine   # canonical structured source; requirements.md is the human view
-generated_from: 'pdftotext -layout of purchased PDF (local .cache) + scratchpad/extract3.py; every text and short_title rewritten as our own paraphrase on 2026-11-05; the 16 defective entries completed from the licensed copy on 2026-11-07; 52 entries reworded further on 2026-11-08 to move them away from the sentences of the standard (tmodel#154)'
+generated_from: "pdftotext -layout of purchased PDF (local .cache) + scratchpad/extract3.py; every text and short_title rewritten as our own paraphrase on 2026-11-05; the 16 defective entries completed from the licensed copy on 2026-11-07; 52 entries reworded further on 2026-11-08 to move them away from the sentences of the standard (tmodel#154) 2026-11-13 (FX-1 pass 2 and 3, tmodel#154): 11 texts and 1 short title reworded, 32 actors set, the 56 subclause-level verification texts name their work product, tailorable false for Clause 5 and RQ-14-01, and kind and testable added to all 118."
 text_origin: paraphrase   # licensed standard: docs/requirements.md §3a, docs/extraction.md "Licensed standards"
 licensed_text: >
   ISO/SAE 21434:2021 is a purchased, all-rights-reserved standard. Under the sponsor's
@@ -16,13 +16,24 @@ licensed_text: >
   PDF bytes the original extraction read. A paraphrase is not the standard; read the
   standard before relying on any entry. The 16 entries whose extract was cut off or held
   annex text were completed from the licensed copy on 2026-11-07 (tmodel#154); their notes say so.
+source_keyword_count: 0       # bin/bcp14-count on pdftotext -layout of the purchased PDF: ISO drafting uses lowercase verbs
+extracted_keyword_count: 0    # the paraphrases carry no capitalised BCP 14 keywords either
+reconciliation: >
+  Licensed standard (docs/extraction.md, Licensed standards): completeness is counted with the
+  standard's own tags, not BCP 14 keywords. The purchased copy holds 118 provision tags (101 RQ,
+  13 RC, 4 PM) and 42 work-product tags, counted on 2026-11-13; every one has an entry here. The
+  18 Prerequisites lists are untagged obligations; normative.md §8 carries them.
 reviewed_by: ""
 note: >
   Audit-oriented typing. normativity=requirement/recommendation/permission; actor=who must
-  comply; nature=process (activity) vs deliverable-producing (yields a work product);
+  comply; nature=deliverable-producing when a work product names the provision (47), otherwise process (71: 56 of them still feed a
+  subclause-level work product, which `verification` names, and 15 yield none);
   expects_deliverables=the required work product(s) that evidence conformance; verification=how
-  an audit checks it. All 21434 requirements are tailorable at project level (Clause 6.4.3).
-  DERIVED fields (actor, nature, verification, short_title) need human review; text is our
+  an audit checks it. tailorable=whether a project may tailor the activity (PM-06-13, with the RQ-06-14 rationale); false for
+  Clause 5 and RQ-14-01, whose provisions bind the organization, not a project (set 2026-11-13, FX-1 pass 2);
+  kind=stated for every entry (all are tagged provisions); testable=yes / partial / no, with testable_reason
+  when not yes (set 2026-11-13, FX-1 pass 3).
+  DERIVED fields (actor, nature, verification, short_title, expects_deliverables, tailorable, testable) need human review; text is our
   paraphrase (see licensed_text), not the standard's wording.
   from_subclauses=the subclauses a work product results from, for the 10 work products the
   standard ties to subclauses instead of provisions; their provisions can be found by locator.
@@ -40,11 +51,13 @@ requirements:
     phase: organizational
     locator: "§5.4.1"
     short_title: "Cybersecurity policy"
-    text: "The organization shall have a cybersecurity policy that (a) recognizes that road vehicles carry cybersecurity risks and (b) records executive management's commitment to managing those risks."
+    text: "Defining a cybersecurity policy is the organization's duty; the policy shall (a) accept that road vehicles carry cybersecurity risks and (b) state executive management's commitment to managing those risks."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.1; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-02
     designator: RQ-05-02
@@ -59,9 +72,12 @@ requirements:
     short_title: "Organization-wide rules and processes"
     text: "The organization shall set up, and keep current, the rules and processes needed (a) to put the requirements of ISO/SAE 21434 into effect and (b) to support carrying out the activities those requirements call for."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.1; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "the rules and processes can be inspected; whether they suffice to put the standard into effect is a judgement"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-03
     designator: RQ-05-03
@@ -76,9 +92,11 @@ requirements:
     short_title: "Cybersecurity responsibilities and authority"
     text: "The organization shall assign the responsibilities, with matching organizational authority, needed to reach and sustain cybersecurity, and shall make those assignments known."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.1; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-04
     designator: RQ-05-04
@@ -93,9 +111,12 @@ requirements:
     short_title: "Resources for cybersecurity"
     text: "The organization shall make resources available for cybersecurity work."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.1; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "that resources were provided can be shown; whether they are enough is a judgement"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-05
     designator: RQ-05-05
@@ -110,9 +131,11 @@ requirements:
     short_title: "Communication among related disciplines"
     text: "The organization shall determine which disciplines relate to or interact with cybersecurity and shall set up and keep communication channels among them, so that it can (a) decide whether and how cybersecurity fits into the processes it already has and (b) coordinate the sharing of relevant information."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.1; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-06
     designator: RQ-05-06
@@ -127,9 +150,12 @@ requirements:
     short_title: "Cybersecurity culture"
     text: "The organization shall cultivate a strong culture of cybersecurity and keep it alive."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.2; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "culture is judged from indicators such as those of Annex B, not measured"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-07
     designator: RQ-05-07
@@ -144,9 +170,12 @@ requirements:
     short_title: "Competence and awareness of role holders"
     text: "The organization shall make sure that everyone given a cybersecurity role or responsibility has the competence and awareness to carry it out."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-05-02]
-    verification: "inspect required deliverable(s): WP-05-02"
-    tailorable: true
+    verification: "inspect required deliverable(s): WP-05-02; also evidenced by WP-05-01, which the standard ties to all of §5.4.2"
+    testable: "partial"
+    testable_reason: "competence and awareness records can be inspected; their adequacy is a judgement"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-08
     designator: RQ-05-08
@@ -161,9 +190,11 @@ requirements:
     short_title: "Continuous improvement"
     text: "A continuous improvement process shall be put in place by the organization and kept running."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-05-02]
-    verification: "inspect required deliverable(s): WP-05-02"
-    tailorable: true
+    verification: "inspect required deliverable(s): WP-05-02; also evidenced by WP-05-01, which the standard ties to all of §5.4.2"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-09
     designator: RQ-05-09
@@ -178,9 +209,11 @@ requirements:
     short_title: "Rules for sharing cybersecurity information"
     text: "The organization shall define in which circumstances sharing cybersecurity-related information, inside or outside the organization, is required, allowed or forbidden."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.3; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-05-10
     designator: RC-05-10
@@ -195,9 +228,12 @@ requirements:
     short_title: "Information security of shared data"
     text: "The organization should coordinate with the other parties how the information security of data shared under RQ-05-09 is managed."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-01, which the standard ties to all of §5.4.3; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "coordination can be shown from agreements; whether it is enough is a judgement"
+    tailorable: false
     refs: [RQ-05-09]
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-11
@@ -213,16 +249,18 @@ requirements:
     short_title: "Quality management system"
     text: "The organization shall establish and maintain a quality management system, based on International Standards or an equivalent, that supports cybersecurity engineering and covers (a) change management, (b) documentation management, (c) configuration management and (d) requirements management."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-03, which the standard ties to all of §5.4.4; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
   - id: iso-sae-21434-2021#RQ-05-12
     designator: RQ-05-12
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "organization"
     nature: process
     clause: "05"
     clause_name: "Organizational cybersecurity management"
@@ -231,15 +269,17 @@ requirements:
     short_title: "Configuration information kept available"
     text: "The configuration information needed to maintain a product's cybersecurity in the field shall stay available until the product's end of cybersecurity support, so that remedial actions remain possible."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-03, which the standard ties to all of §5.4.4; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-05-13
     designator: RC-05-13
     normativity: recommendation
     verb: should
-    actor: "project (implied)"
+    actor: "organization"
     nature: process
     clause: "05"
     clause_name: "Organizational cybersecurity management"
@@ -248,15 +288,17 @@ requirements:
     short_title: "Cybersecurity management for production"
     text: "To support the Clause 12 activities, a cybersecurity management system should be set up that covers the production processes."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-03, which the standard ties to all of §5.4.4; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-14
     designator: RQ-05-14
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization"
     nature: process
     clause: "05"
     clause_name: "Organizational cybersecurity management"
@@ -265,15 +307,17 @@ requirements:
     short_title: "Tool management"
     text: "Any tool able to affect the cybersecurity of an item or a component shall be kept under management."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-04, which the standard ties to all of §5.4.5; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-05-15
     designator: RC-05-15
     normativity: recommendation
     verb: should
-    actor: "project (implied)"
+    actor: "organization"
     nature: process
     clause: "05"
     clause_name: "Organizational cybersecurity management"
@@ -282,15 +326,18 @@ requirements:
     short_title: "Reproducible environment for remedial actions"
     text: "An environment suitable for carrying out remedial actions on cybersecurity incidents (13.3) should remain reproducible until the product's end of cybersecurity support."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-04, which the standard ties to all of §5.4.5; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "reproducibility shows only when the environment is rebuilt, which an audit can only sample"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-05-16
     designator: RC-05-16
     normativity: recommendation
     verb: should
-    actor: "project (implied)"
+    actor: "organization"
     nature: process
     clause: "05"
     clause_name: "Organizational cybersecurity management"
@@ -299,15 +346,17 @@ requirements:
     short_title: "Information security management of work products"
     text: "An information security management system should govern how work products are handled."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-03, which the standard ties to all of §5.4.6; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-05-17
     designator: RQ-05-17
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization"
     nature: process
     clause: "05"
     clause_name: "Organizational cybersecurity management"
@@ -316,9 +365,11 @@ requirements:
     short_title: "Independent organizational audit"
     text: "An independent cybersecurity audit shall be carried out to judge whether the organization's processes meet the objectives of ISO/SAE 21434."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
-    tailorable: true
+    verification: "evidenced by WP-05-05, which the standard ties to all of §5.4.7; audit by assessing or reviewing that work product"
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-01
     designator: RQ-06-01
@@ -333,8 +384,10 @@ requirements:
     short_title: "Project cybersecurity responsibilities"
     text: "Each project shall allocate, and communicate, responsibility for its cybersecurity activities as RQ-05-03 requires."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.1; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-05-03]
     audit_status: not-reviewed
@@ -351,8 +404,10 @@ requirements:
     short_title: "Relevance, reuse and tailoring analysis"
     text: "To decide which cybersecurity activities an item or component needs, it shall be analysed to establish (a) whether it is relevant to cybersecurity; (b) if it is, whether it is being newly developed or reused; and (c) whether tailoring under 6.4.3 applies."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -360,7 +415,7 @@ requirements:
     designator: RQ-06-03
     normativity: requirement
     verb: shall
-    actor: "cybersecurity plan"
+    actor: "project (implied)"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
@@ -369,8 +424,10 @@ requirements:
     short_title: "Contents of the cybersecurity plan"
     text: "For each activity, the cybersecurity plan shall state (a) its objective; (b) what other activities or information it depends on; (c) who is responsible for performing it; (d) the resources it needs; (e) its start or end point and expected duration; and (f) which work products it will produce."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-04
@@ -386,8 +443,10 @@ requirements:
     short_title: "Responsibility for the cybersecurity plan"
     text: "Someone shall be made responsible, as RQ-05-03 and RQ-05-04 require, for producing and upkeeping the cybersecurity plan and for checking how the cybersecurity activities progress against it."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-05-03, RQ-05-04]
     audit_status: not-reviewed
@@ -395,7 +454,7 @@ requirements:
     designator: RQ-06-05
     normativity: requirement
     verb: shall
-    actor: "cybersecurity plan"
+    actor: "project (implied)"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
@@ -404,25 +463,29 @@ requirements:
     short_title: "Cybersecurity plan and project plan"
     text: "The cybersecurity plan shall either (a) be referenced from the development project plan or (b) form part of that project plan, with the cybersecurity activities identifiable within it."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-06
     designator: RQ-06-06
     normativity: requirement
     verb: shall
-    actor: "cybersecurity plan"
+    actor: "project (implied)"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
     phase: project
     locator: "§6.4.2"
     short_title: "Concept and development activities in the plan"
-    text: "The cybersecurity plan shall set out the cybersecurity activities needed in the concept and product development phases, according to the applicable requirements of Clauses 9, 10, 11 and 15."
+    text: "Clauses 9, 10, 11 and 15 decide which cybersecurity activities the concept and product development phases need; the cybersecurity plan shall lay those activities out."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-07
@@ -438,8 +501,11 @@ requirements:
     short_title: "Updating the cybersecurity plan"
     text: "Whenever the planned activities are found to need a change or a refinement, the cybersecurity plan shall be brought up to date."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "updates can be traced in the plan's history; whether every needed change was made is a judgement"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#PM-06-08
@@ -455,8 +521,11 @@ requirements:
     short_title: "Exemption for risk value 1"
     text: "For a threat scenario whose risk value, determined by a 15.8 analysis, is 1, conformance with 9.5 and with Clauses 10 and 11 may be omitted."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "no"
+    testable_reason: "a permission (may): it grants an option and sets no condition to check"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-09
@@ -472,15 +541,18 @@ requirements:
     short_title: "Keeping planned work products accurate"
     text: "Up to and including the release for post-development, every work product named in the cybersecurity plan shall be kept current and accurate."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "currency can be checked from versions; accuracy is a judgement"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-10
     designator: RQ-06-10
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "customer and supplier"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
@@ -489,8 +561,10 @@ requirements:
     short_title: "Plans for distributed activities"
     text: "If the customer and the supplier split the cybersecurity activities between them, each of the two shall draw up its own cybersecurity plan covering its part of the activities and the interfaces, in line with Clause 7."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-11
@@ -506,8 +580,10 @@ requirements:
     short_title: "Cybersecurity plan under configuration and documentation management"
     text: "Configuration management and documentation management, as set out in 5.4.4, shall cover the cybersecurity plan."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-12
@@ -523,8 +599,10 @@ requirements:
     short_title: "Planned work products under management"
     text: "Configuration, change, requirements and documentation management, as set out in 5.4.4, shall apply to every work product the cybersecurity plan names."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#PM-06-13
@@ -540,8 +618,11 @@ requirements:
     short_title: "Tailoring"
     text: "A project may tailor any of its cybersecurity activities."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.3; audit by assessing or reviewing that work product"
+    testable: "no"
+    testable_reason: "a permission (may): it grants an option and sets no condition to check"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-14
@@ -557,8 +638,11 @@ requirements:
     short_title: "Rationale for tailoring"
     text: "Whenever a cybersecurity activity is tailored, a rationale shall be written and reviewed explaining why, with the tailoring in place, the relevant objectives of ISO/SAE 21434 are still met adequately and sufficiently."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.3; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "the rationale and its review can be inspected; whether the objectives are still met is a judgement"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-15
@@ -574,8 +658,10 @@ requirements:
     short_title: "When a reuse analysis is needed"
     text: "An item or component that already exists shall undergo a reuse analysis if (a) it is to be modified, (b) it is to be reused in a different operational environment, or (c) it is to be reused without modification even though relevant information about it has changed."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.4; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -592,8 +678,10 @@ requirements:
     short_title: "Content of a reuse analysis"
     text: "When an item or component undergoes a reuse analysis, the analysis shall (a) identify what changes in the item or component and in its operational environment; (b) analyse what those changes mean for cybersecurity, including whether earlier cybersecurity claims and assumptions still hold; (c) identify which work products are affected or missing; and (d) set out in the cybersecurity plan the cybersecurity activities needed to conform to ISO/SAE 21434 (see 6.4.2)."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.4; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -610,8 +698,10 @@ requirements:
     short_title: "Reuse analysis of a component"
     text: "A component's reuse analysis shall establish (a) whether it can meet the cybersecurity requirements that the receiving item or component allocates to it, and (b) whether the documentation already available is enough to support integrating it into an item or another component."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.4; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-18
@@ -627,8 +717,10 @@ requirements:
     short_title: "Assumptions for out-of-context components"
     text: "For a component developed out of context, the assumed intended use and context, external interfaces included, shall be recorded in the related work products."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.5; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-19
@@ -642,10 +734,12 @@ requirements:
     phase: project
     locator: "§6.4.5"
     short_title: "Requirements for out-of-context components"
-    text: "When a component is developed out of context, its cybersecurity requirements shall rest on the assumptions recorded under RQ-06-18."
+    text: "The assumptions recorded under RQ-06-18 shall be the basis of the cybersecurity requirements of any component developed out of context."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.5; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-06-18]
     audit_status: not-reviewed
@@ -660,10 +754,12 @@ requirements:
     phase: project
     locator: "§6.4.5"
     short_title: "Validating out-of-context assumptions at integration"
-    text: "When a component developed out of context is integrated, its cybersecurity claims and the RQ-06-18 assumptions shall be validated."
+    text: "Integrating a component that was developed out of context shall include validating its cybersecurity claims and the RQ-06-18 assumptions."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.5; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-06-18]
     audit_status: not-reviewed
@@ -680,8 +776,10 @@ requirements:
     short_title: "Analysing an off-the-shelf component"
     text: "When an off-the-shelf component is integrated, the cybersecurity-relevant documentation about it shall be collected and examined to establish (a) whether the cybersecurity requirements allocated to it can be met, (b) whether it fits the specific context in which it is meant to be used, and (c) whether that documentation is enough for carrying out the cybersecurity activities."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.6; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-22
@@ -697,8 +795,11 @@ requirements:
     short_title: "Closing documentation gaps for off-the-shelf components"
     text: "If the available documentation does not adequately support integrating the off-the-shelf component, the cybersecurity activities needed to conform to ISO/SAE 21434 shall be identified and carried out."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-01, which the standard ties to all of §6.4.6; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "whether the documentation supports integration adequately is a judgement; the extra activities can then be inspected"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-23
@@ -714,8 +815,11 @@ requirements:
     short_title: "Cybersecurity case"
     text: "A cybersecurity case shall be built that argues, on the evidence of work products, for the item's or component's cybersecurity."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-02, which the standard ties to all of §6.4.7; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "the case can be inspected; how well it argues is judged under RQ-06-34"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-24
@@ -729,10 +833,12 @@ requirements:
     phase: project
     locator: "§6.4.8"
     short_title: "Deciding on a cybersecurity assessment"
-    text: "Whether to carry out a cybersecurity assessment of an item or component shall be decided, with a rationale that follows a risk-based approach."
+    text: "Each item or component shall have a decision, justified by a risk-based rationale, on whether it receives a cybersecurity assessment."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-25
@@ -748,8 +854,10 @@ requirements:
     short_title: "Independent review of the assessment decision"
     text: "The rationale from RQ-06-24 shall get an independent review."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-06-24]
     audit_status: not-reviewed
@@ -757,7 +865,7 @@ requirements:
     designator: RQ-06-26
     normativity: requirement
     verb: shall
-    actor: "cybersecurity assessment"
+    actor: "cybersecurity assessor (appointed under RQ-06-27)"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
@@ -766,8 +874,10 @@ requirements:
     short_title: "Purpose of the cybersecurity assessment"
     text: "The outcome of the cybersecurity assessment shall be a judgement about the item's or component's cybersecurity."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-27
@@ -783,8 +893,10 @@ requirements:
     short_title: "Appointing the assessor"
     text: "A person shall be appointed, as RQ-06-01 requires, to plan and carry out the cybersecurity assessment independently."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-06-01]
     audit_status: not-reviewed
@@ -801,8 +913,11 @@ requirements:
     short_title: "Assessor access and cooperation"
     text: "Whoever performs a cybersecurity assessment shall be given (a) access to whatever information and tools are relevant and (b) cooperation from the people doing the cybersecurity activities."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "access and cooperation are hard to evidence beyond the assessor's own report"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#PM-06-29
@@ -818,15 +933,18 @@ requirements:
     short_title: "Objective-based assessment"
     text: "Judging whether ISO/SAE 21434's objectives have been achieved may serve as the basis of a cybersecurity assessment."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "no"
+    testable_reason: "a permission (may): it grants an option and sets no condition to check"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-30
     designator: RQ-06-30
     normativity: requirement
     verb: shall
-    actor: "scope of a cybersecurity assessment"
+    actor: "cybersecurity assessor (appointed under RQ-06-27)"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
@@ -835,8 +953,10 @@ requirements:
     short_title: "Scope of the cybersecurity assessment"
     text: "A cybersecurity assessment shall extend to (a) the cybersecurity plan and every work product it names; (b) how the cybersecurity risks were treated; (c) whether the cybersecurity controls implemented and the cybersecurity activities performed in the project are appropriate and effective; and (d) any rationales offered to show that the objectives of ISO/SAE 21434 have been achieved."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -844,7 +964,7 @@ requirements:
     designator: RQ-06-31
     normativity: requirement
     verb: shall
-    actor: "a cybersecurity assessment report"
+    actor: "cybersecurity assessor (appointed under RQ-06-27)"
     nature: process
     clause: "06"
     clause_name: "Project dependent cybersecurity management"
@@ -853,8 +973,10 @@ requirements:
     short_title: "Assessment recommendation"
     text: "Every cybersecurity assessment report shall contain a recommendation on the item's or component's cybersecurity: accept it, accept it with conditions, or reject it."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-06-32
@@ -870,8 +992,10 @@ requirements:
     short_title: "Conditions for conditional acceptance"
     text: "When the report recommends conditional acceptance under RQ-06-31, it shall state the conditions."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-03, which the standard ties to all of §6.4.8; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-06-31]
     audit_status: not-reviewed
@@ -886,10 +1010,12 @@ requirements:
     phase: project
     locator: "§6.4.9"
     short_title: "Work products needed before release"
-    text: "These work products shall be in place before the release for post-development: (a) the cybersecurity case (WP-06-02); (b) the cybersecurity assessment report (WP-06-03), if applicable; and (c) the post-development cybersecurity requirements (WP-10-02)."
+    text: "Release for post-development shall not happen until these work products exist: (a) the cybersecurity case (WP-06-02); (b) where applicable, the cybersecurity assessment report (WP-06-03); and (c) the post-development cybersecurity requirements (WP-10-02)."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-04, which the standard ties to all of §6.4.9; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [WP-06-02, WP-06-03, WP-10-02]
     audit_status: not-reviewed
@@ -906,15 +1032,18 @@ requirements:
     short_title: "Conditions for release for post-development"
     text: "To release the item or component for post-development, all of these conditions shall hold: (a) the cybersecurity case makes a convincing argument for cybersecurity; (b) where applicable, the cybersecurity assessment confirms the cybersecurity case; and (c) the post-development cybersecurity requirements have been accepted."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-06-04, which the standard ties to all of §6.4.9; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "item (a) needs a judgement that the case convinces; items (b) and (c) can be inspected"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-07-01
     designator: RQ-07-01
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "customer (implied)"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -923,15 +1052,17 @@ requirements:
     short_title: "Evaluating supplier capability"
     text: "A candidate supplier's capability to carry out development, and post-development activities where applicable, in conformance with ISO/SAE 21434 shall be evaluated."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-07-02
     designator: RC-07-02
     normativity: recommendation
     verb: should
-    actor: "unspecified"
+    actor: "supplier"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -940,32 +1071,36 @@ requirements:
     short_title: "Supplier capability record"
     text: "A supplier should hand over a record of its cybersecurity capability so that the customer can evaluate that capability."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-07-03
     designator: RQ-07-03
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "customer"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
     phase: distributed
     locator: "§7.4.2"
     short_title: "Contents of a request for quotation"
-    text: "A customer's request for quotation to a candidate supplier shall contain (a) a formal request to conform to ISO/SAE 21434; (b) the expectation that the supplier takes on cybersecurity responsibilities as 7.4.3 describes; and (c) the cybersecurity goals and/or the set of cybersecurity requirements that apply to the item or component being quoted."
+    text: "Any request for quotation that a customer sends a candidate supplier shall include (a) a formal call to comply with ISO/SAE 21434; (b) a statement that the supplier is expected to carry cybersecurity responsibilities as set out in 7.4.3; and (c) the cybersecurity goals, the set of cybersecurity requirements, or both, that apply to the item or component quoted for."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-07-04
     designator: RQ-07-04
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "customer and supplier"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -974,8 +1109,10 @@ requirements:
     short_title: "Cybersecurity interface agreement"
     text: "The customer and the supplier shall set out the cybersecurity activities they distribute between them in a cybersecurity interface agreement that covers (a) the cybersecurity point of contact each of them appoints; (b) which cybersecurity activities the customer performs and which the supplier performs; (c) where applicable, joint tailoring of cybersecurity activities under 6.4.3; (d) the information and work products they will share; (e) milestones for the distributed cybersecurity activities; and (f) a definition of when cybersecurity support for the item or component ends."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-07-01, which the standard ties to all of §7.4.3; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held Annex C interface-agreement template material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself."
@@ -983,7 +1120,7 @@ requirements:
     designator: RC-07-05
     normativity: recommendation
     verb: should
-    actor: "project (implied)"
+    actor: "customer and supplier"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -992,15 +1129,17 @@ requirements:
     short_title: "Agreeing the interface agreement first"
     text: "Customer and supplier should both agree the cybersecurity interface agreement before the distributed cybersecurity activities start."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-07-01, which the standard ties to all of §7.4.3; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-07-06
     designator: RQ-07-06
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "customer and supplier"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -1009,8 +1148,10 @@ requirements:
     short_title: "Agreed actions on a shared vulnerability"
     text: "Where an identified vulnerability is to be managed under RQ-08-07, the customer and the supplier shall agree on the actions to take and who is responsible for each."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-07-01, which the standard ties to all of §7.4.3; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     refs: [RQ-08-07]
     audit_status: not-reviewed
@@ -1018,7 +1159,7 @@ requirements:
     designator: RQ-07-07
     normativity: requirement
     verb: shall
-    actor: "unspecified"
+    actor: "customer and supplier"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -1027,15 +1168,18 @@ requirements:
     short_title: "Notifying unclear or conflicting requirements"
     text: "Customer and supplier shall each tell the other about any requirement that is unclear, cannot be met, or clashes with other cybersecurity requirements or with requirements from other disciplines, so that the right decisions can be made and actions taken."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-07-01, which the standard ties to all of §7.4.3; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "messages sent can be shown; that nothing unclear went unreported cannot"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-07-08
     designator: RC-07-08
     normativity: recommendation
     verb: should
-    actor: "project (implied)"
+    actor: "customer and supplier"
     nature: process
     clause: "07"
     clause_name: "Distributed cybersecurity activities"
@@ -1044,15 +1188,17 @@ requirements:
     short_title: "Responsibility assignment matrix"
     text: "A responsibility assignment matrix should be used to record who is responsible for what."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-07-01, which the standard ties to all of §7.4.3; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-01
     designator: RQ-08-01
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1061,15 +1207,17 @@ requirements:
     short_title: "Sources of cybersecurity information"
     text: "The sources from which cybersecurity information is collected shall be chosen."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-01]
     verification: "inspect required deliverable(s): WP-08-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-02
     designator: RQ-08-02
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1078,15 +1226,18 @@ requirements:
     short_title: "Triage triggers"
     text: "Triggers for triaging cybersecurity information shall be defined and kept up to date."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-02]
     verification: "inspect required deliverable(s): WP-08-02"
+    testable: "partial"
+    testable_reason: "the triggers can be inspected; whether they are current is a judgement"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-03
     designator: RQ-08-03
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1095,15 +1246,17 @@ requirements:
     short_title: "Collecting and triaging cybersecurity information"
     text: "Cybersecurity information shall be gathered and triaged to decide whether it amounts to one or more cybersecurity events."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-03]
     verification: "inspect required deliverable(s): WP-08-03"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-04
     designator: RQ-08-04
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1112,15 +1265,17 @@ requirements:
     short_title: "Evaluating cybersecurity events"
     text: "Every cybersecurity event shall be evaluated for any weaknesses it points to in an item, a component, or both."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-04]
     verification: "inspect required deliverable(s): WP-08-04"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-05
     designator: RQ-08-05
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1129,32 +1284,36 @@ requirements:
     short_title: "Analysing weaknesses for vulnerabilities"
     text: "Each weakness shall be examined to establish whether it is a vulnerability."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-05]
     verification: "inspect required deliverable(s): WP-08-05"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-06
     designator: RQ-08-06
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
     phase: continual
     locator: "§8.5.2"
-    short_title: "Rationale for a weakness that is not a vulnerability"
+    short_title: "Recording why a weakness is not a vulnerability"
     text: "Where a weakness is judged not to be a vulnerability, the reasoning shall be recorded."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-05]
     verification: "inspect required deliverable(s): WP-08-05"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-07
     designator: RQ-08-07
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: deliverable-producing
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1163,15 +1322,18 @@ requirements:
     short_title: "Vulnerability management"
     text: "Every vulnerability shall be managed in one of two ways: (a) its cybersecurity risks are assessed and treated under 15.9 until no unreasonable risk remains; or (b) it is removed by applying an available remediation that does not depend on a TARA."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-08-06]
     verification: "inspect required deliverable(s): WP-08-06"
+    testable: "partial"
+    testable_reason: "the route taken can be inspected; that no unreasonable risk remains is a judgement"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-08-08
     designator: RQ-08-08
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization or project"
     nature: process
     clause: "08"
     clause_name: "Continual cybersecurity activities"
@@ -1180,8 +1342,10 @@ requirements:
     short_title: "Triggering incident response"
     text: "13.3 shall be applied whenever a 15.9 risk treatment decision makes cybersecurity incident response necessary."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-09-01
@@ -1197,8 +1361,10 @@ requirements:
     short_title: "Item information to identify"
     text: "Three things about the item shall be identified: (a) where its boundary lies, (b) what functions it has and (c) its preliminary architecture."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-09-01, which the standard ties to all of §9.3.2; audit by assessing or reviewing that work product"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -1215,8 +1381,11 @@ requirements:
     short_title: "Operational environment"
     text: "The cybersecurity-relevant aspects of the item's operational environment shall be described."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
-    verification: "assessment/review of the activity (no distinct work product named)"
+    verification: "evidenced by WP-09-01, which the standard ties to all of §9.3.2; audit by assessing or reviewing that work product"
+    testable: "partial"
+    testable_reason: "the description can be inspected; which aspects are relevant is a judgement"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-09-03
@@ -1232,8 +1401,10 @@ requirements:
     short_title: "Concept-phase TARA analysis (15.3 to 15.8)"
     text: "Starting from the item definition, an analysis shall be carried out that covers (a) asset identification under 15.3, (b) threat scenario identification under 15.4, (c) impact rating under 15.5, (d) attack path analysis under 15.6, (e) attack feasibility rating under 15.7 and (f) risk value determination under 15.8."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-02]
     verification: "inspect required deliverable(s): WP-09-02"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held Annex H example material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself."
@@ -1250,8 +1421,10 @@ requirements:
     short_title: "Concept-phase risk treatment decisions (15.9)"
     text: "For every threat scenario, its risk treatment options shall be decided as 15.9 sets out, working from the RQ-09-03 results."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-02]
     verification: "inspect required deliverable(s): WP-09-02"
+    testable: "yes"
     tailorable: true
     refs: [RQ-09-03]
     audit_status: not-reviewed
@@ -1269,8 +1442,10 @@ requirements:
     short_title: "Cybersecurity goals"
     text: "Whenever a threat scenario's risk is to be reduced under its risk treatment decision, at least one cybersecurity goal shall be specified for that threat scenario."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-03]
     verification: "inspect required deliverable(s): WP-09-03"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-09-06
@@ -1286,8 +1461,10 @@ requirements:
     short_title: "Cybersecurity claims"
     text: "If a threat scenario's risk treatment decision involves (a) sharing the risk, or (b) retaining it because the RQ-09-03 analysis relied on one or more assumptions, one or more cybersecurity claims for that threat scenario shall be specified."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-04]
     verification: "inspect required deliverable(s): WP-09-04"
+    testable: "yes"
     tailorable: true
     refs: [RQ-09-03]
     audit_status: not-reviewed
@@ -1304,8 +1481,10 @@ requirements:
     short_title: "Verifying the concept-phase TARA, goals and claims"
     text: "A verification shall confirm (a) that the RQ-09-03 results are correct and complete with respect to the item definition; (b) that the RQ-09-04 risk treatment decisions are complete, correct and consistent with the RQ-09-03 results; (c) that the RQ-09-05 cybersecurity goals and the RQ-09-06 cybersecurity claims are complete, correct and consistent with those treatment decisions; and (d) that all of the item's cybersecurity goals and claims are consistent with one another."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-05]
     verification: "inspect required deliverable(s): WP-09-05"
+    testable: "yes"
     tailorable: true
     refs: [RQ-09-03, RQ-09-04, RQ-09-05, RQ-09-06]
     audit_status: not-reviewed
@@ -1322,8 +1501,10 @@ requirements:
     short_title: "Describing cybersecurity controls"
     text: "A description shall be given of the technical and/or operational cybersecurity controls that achieve the cybersecurity goals and of how those controls work together, with account taken of (a) how the item's functions depend on one another and/or (b) cybersecurity claims."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-06]
     verification: "inspect required deliverable(s): WP-09-06"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-09-09
@@ -1339,8 +1520,10 @@ requirements:
     short_title: "Defining cybersecurity requirements"
     text: "For each cybersecurity goal, and following the RQ-09-08 description, cybersecurity requirements for the item and requirements on its operational environment shall be defined."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-06]
     verification: "inspect required deliverable(s): WP-09-06"
+    testable: "yes"
     tailorable: true
     refs: [RQ-09-08]
     audit_status: not-reviewed
@@ -1357,8 +1540,10 @@ requirements:
     short_title: "Allocating cybersecurity requirements"
     text: "Every cybersecurity requirement shall be assigned to the item and, where that applies, also to one or several of the item's components."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-06]
     verification: "inspect required deliverable(s): WP-09-06"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-09-11
@@ -1374,8 +1559,10 @@ requirements:
     short_title: "Verifying the cybersecurity concept"
     text: "Verification shall confirm that what RQ-09-08 to RQ-09-10 produced is (a) complete, correct and consistent with the cybersecurity goals and (b) consistent with the cybersecurity claims."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-09-07]
     verification: "inspect required deliverable(s): WP-09-07"
+    testable: "yes"
     tailorable: true
     refs: [RQ-09-08, RQ-09-09, RQ-09-10]
     audit_status: not-reviewed
@@ -1392,8 +1579,10 @@ requirements:
     short_title: "Inputs to cybersecurity specifications"
     text: "Cybersecurity specifications shall be drawn up from (a) the cybersecurity specifications at more abstract architectural levels, (b) where applicable, the cybersecurity controls chosen for implementation, and (c) where applicable, the architectural design that already exists."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-01]
     verification: "inspect required deliverable(s): WP-10-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -1410,8 +1599,10 @@ requirements:
     short_title: "Allocating requirements to architecture components"
     text: "Every defined cybersecurity requirement shall be assigned to architectural-design components."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-01]
     verification: "inspect required deliverable(s): WP-10-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-03
@@ -1427,8 +1618,10 @@ requirements:
     short_title: "Post-development procedures"
     text: "Where applicable, procedures that maintain cybersecurity after the component's development shall be specified."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-02]
     verification: "inspect required deliverable(s): WP-10-02"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-04
@@ -1444,8 +1637,11 @@ requirements:
     short_title: "Criteria for notations and languages"
     text: "When the cybersecurity specifications or their implementation use design, modelling or programming notations or languages, the choice of notation or language shall take into account (a) a clear, understandable definition of both syntax and semantics; (b) support for modularity, abstraction and encapsulation; (c) support for structured constructs; (d) support for secure design and implementation techniques; (e) the ability to integrate existing components; and (f) how well the language resists vulnerabilities that arise from using it incorrectly."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-03]
     verification: "inspect required deliverable(s): WP-10-03"
+    testable: "partial"
+    testable_reason: "the recorded considerations can be inspected; how far each criterion was weighed is a judgement"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -1462,8 +1658,10 @@ requirements:
     short_title: "Guidelines covering language gaps"
     text: "Where a design, modelling or programming language does not itself meet an RQ-10-04 suitability criterion, that criterion shall be addressed through design, modelling and coding guidelines or through the development environment."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-03]
     verification: "inspect required deliverable(s): WP-10-03"
+    testable: "yes"
     tailorable: true
     refs: [RQ-10-04]
     audit_status: not-reviewed
@@ -1480,8 +1678,11 @@ requirements:
     short_title: "Trusted design and implementation principles"
     text: "To avoid introducing weaknesses, or to introduce as few as possible, design and implementation should follow established, trusted principles."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "partial"
+    testable_reason: "which principles count as established and trusted is not defined; adherence is judged"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-07
@@ -1497,8 +1698,10 @@ requirements:
     short_title: "Architectural weakness analysis"
     text: "Weaknesses in the architectural design defined under RQ-10-01 shall be identified by analysing that design."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-05]
     verification: "inspect required deliverable(s): WP-10-05"
+    testable: "yes"
     tailorable: true
     refs: [RQ-10-01]
     audit_status: not-reviewed
@@ -1515,8 +1718,10 @@ requirements:
     short_title: "Verification of the cybersecurity specifications"
     text: "A verification of the defined cybersecurity specifications shall show that they are complete, correct and consistent with the cybersecurity specifications at higher levels of architectural abstraction."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-04]
     verification: "inspect required deliverable(s): WP-10-04"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held annex table material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself. The refs parsed from that table were removed earlier; the provision cites no other provision."
@@ -1524,7 +1729,7 @@ requirements:
     designator: RQ-10-09
     normativity: requirement
     verb: shall
-    actor: "integration and verification activities"
+    actor: "project (implied)"
     nature: deliverable-producing
     clause: "10"
     clause_name: "Product development"
@@ -1533,8 +1738,10 @@ requirements:
     short_title: "Verifying implementation and integration"
     text: "The integration and verification activities shall check that components, as implemented and integrated, conform to the defined cybersecurity specifications."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-07]
     verification: "inspect required deliverable(s): WP-10-07"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-10
@@ -1550,8 +1757,10 @@ requirements:
     short_title: "Specifying integration and verification"
     text: "The RQ-10-09 integration and verification activities shall be specified in a way that accounts for (a) the defined cybersecurity specifications; (b) where applicable, the configurations meant for series production; (c) enough capability to support the functions those specifications describe; and (d) where applicable, adherence to RQ-10-05's modelling, design and coding guidelines."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-06]
     verification: "inspect required deliverable(s): WP-10-06"
+    testable: "yes"
     tailorable: true
     refs: [RQ-10-05, RQ-10-09]
     audit_status: not-reviewed
@@ -1568,8 +1777,10 @@ requirements:
     short_title: "Test coverage"
     text: "Where verification is done by testing, test coverage shall be measured against defined coverage metrics to judge whether the testing is sufficient."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-07]
     verification: "inspect required deliverable(s): WP-10-07"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-10-12
@@ -1585,8 +1796,11 @@ requirements:
     short_title: "Testing for residual weaknesses"
     text: "The component should be tested to confirm that as few weaknesses and vulnerabilities as possible remain undetected in it."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-10-05, WP-10-07]
     verification: "inspect required deliverable(s): WP-10-05, WP-10-07"
+    testable: "partial"
+    testable_reason: "testing can be shown; as few undetected weaknesses as possible cannot be measured"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-10-13
@@ -1602,8 +1816,10 @@ requirements:
     short_title: "Rationale for not testing"
     text: "If the RC-10-12 testing is not carried out, a rationale shall be given."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     refs: [RC-10-12]
     audit_status: not-reviewed
@@ -1618,10 +1834,12 @@ requirements:
     phase: validation
     locator: "§11.4"
     short_title: "Vehicle-level cybersecurity validation"
-    text: "Vehicle-level validation of the item, done with the configurations intended for series production, shall confirm (a) that the cybersecurity goals are adequate for the threat scenarios and their risks; (b) that the item achieves its cybersecurity goals; (c) that the cybersecurity claims are valid; and (d) where applicable, that the requirements on the operational environment are valid."
+    text: "Vehicle-level validation of the item, taking into account the configurations planned for series production, shall confirm (a) that the cybersecurity goals are adequate for the threat scenarios and their risks; (b) that the item achieves its cybersecurity goals; (c) that the cybersecurity claims are valid; and (d) where applicable, that the requirements on the operational environment are valid."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-11-01]
     verification: "inspect required deliverable(s): WP-11-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract held annex table material instead of this provision (tmodel RPT-0007 §7.2); the text now paraphrases the provision itself. The external_refs parsed from that table were removed earlier; the provision cites no other provision."
@@ -1638,8 +1856,10 @@ requirements:
     short_title: "Rationale for validation activities"
     text: "The choice of validation activities shall be justified with a rationale."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-11-01]
     verification: "inspect required deliverable(s): WP-11-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-12-01
@@ -1655,15 +1875,17 @@ requirements:
     short_title: "Production control plan"
     text: "A production control plan shall be drawn up that carries the post-development cybersecurity requirements into production."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-12-01]
     verification: "inspect required deliverable(s): WP-12-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-12-02
     designator: RQ-12-02
     normativity: requirement
     verb: shall
-    actor: "production control plan"
+    actor: "project (implied)"
     nature: deliverable-producing
     clause: "12"
     clause_name: "Production"
@@ -1672,8 +1894,10 @@ requirements:
     short_title: "Contents of the production control plan"
     text: "The production control plan shall contain (a) the ordered steps for applying the post-development cybersecurity requirements; (b) the production tools and equipment; (c) cybersecurity controls that stop unauthorized changes during production; and (d) the methods for confirming that the post-development cybersecurity requirements are met."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-12-01]
     verification: "inspect required deliverable(s): WP-12-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -1690,8 +1914,11 @@ requirements:
     short_title: "Implementing the production control plan"
     text: "Production shall be carried out according to the production control plan."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "partial"
+    testable_reason: "adherence is checked by sampling production records"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-13-01
@@ -1707,8 +1934,10 @@ requirements:
     short_title: "Incident response plan"
     text: "Each cybersecurity incident shall have a cybersecurity incident response plan of its own, which sets out (a) remedial actions; (b) a communication plan; (c) who is responsible for the remedial actions; (d) a procedure for capturing any new cybersecurity information about the incident; (e) a way to measure progress; (f) the criteria for closing the incident response; and (g) the actions to take when closing it."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-13-01]
     verification: "inspect required deliverable(s): WP-13-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
@@ -1725,8 +1954,10 @@ requirements:
     short_title: "Carrying out the incident response plan"
     text: "Each cybersecurity incident shall be handled by carrying out its cybersecurity incident response plan."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-13-03
@@ -1742,15 +1973,18 @@ requirements:
     short_title: "Updates"
     text: "Development of updates, and of the vehicle's update-related capabilities, shall follow ISO/SAE 21434."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "partial"
+    testable_reason: "each update's conformance is itself a full assessment against the standard"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-14-01
     designator: RQ-14-01
     normativity: requirement
     verb: shall
-    actor: "project (implied)"
+    actor: "organization"
     nature: deliverable-producing
     clause: "14"
     clause_name: "End of cybersecurity support and decommissioning"
@@ -1759,9 +1993,11 @@ requirements:
     short_title: "Communicating end of cybersecurity support"
     text: "There shall be a procedure for informing customers once an organization decides to stop supporting an item's or component's cybersecurity."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-14-01]
     verification: "inspect required deliverable(s): WP-14-01"
-    tailorable: true
+    testable: "yes"
+    tailorable: false
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-14-02
     designator: RQ-14-02
@@ -1776,8 +2012,10 @@ requirements:
     short_title: "Decommissioning requirements available"
     text: "The post-development cybersecurity requirements that deal with decommissioning shall be provided."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-01
@@ -1793,8 +2031,10 @@ requirements:
     short_title: "Damage scenarios"
     text: "The analysis shall identify the damage scenarios."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-01]
     verification: "inspect required deliverable(s): WP-15-01"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-02
@@ -1810,8 +2050,10 @@ requirements:
     short_title: "Assets"
     text: "If compromising a cybersecurity property of an asset would result in a damage scenario, that asset and that property shall both be identified."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-02]
     verification: "inspect required deliverable(s): WP-15-02"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-03
@@ -1827,8 +2069,10 @@ requirements:
     short_title: "Threat scenarios"
     text: "Threat scenarios shall be identified, each stating the targeted asset, which cybersecurity property of that asset is compromised, and the cause of that compromise."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-03]
     verification: "inspect required deliverable(s): WP-15-03"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-04
@@ -1842,10 +2086,12 @@ requirements:
     phase: tara-method
     locator: "§15.5.2"
     short_title: "Impact assessment by category"
-    text: "Each damage scenario shall be assessed for its possible adverse consequences to road users in each impact category: safety, financial, operational and privacy (S, F, O, P)."
+    text: "For every damage scenario, the possible harm to road users shall be assessed separately in each of the four impact categories: safety, financial, operational and privacy (S, F, O, P)."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-04]
     verification: "inspect required deliverable(s): WP-15-04"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-05
@@ -1861,8 +2107,10 @@ requirements:
     short_title: "Impact rating scale"
     text: "For each impact category, a damage scenario's impact rating shall be set to one of four levels: severe, major, moderate or negligible."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-04]
     verification: "inspect required deliverable(s): WP-15-04"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-06
@@ -1878,8 +2126,10 @@ requirements:
     short_title: "Safety impact from ISO 26262-3"
     text: "Impact ratings in the safety category shall be obtained by applying ISO 26262-3:2018, 6.4.3."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-04]
     verification: "inspect required deliverable(s): WP-15-04"
+    testable: "yes"
     tailorable: true
     external_refs: ["ISO 26262-3"]
     audit_status: not-reviewed
@@ -1896,8 +2146,11 @@ requirements:
     short_title: "Skipping less critical impact categories"
     text: "Once a damage scenario has an impact rating, further analysis in another impact category may be left out if it can be argued that every impact in that other category is less critical."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "no"
+    testable_reason: "a permission (may): it grants an option and sets no condition to check"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-08
@@ -1913,8 +2166,10 @@ requirements:
     short_title: "Attack paths"
     text: "Attack paths shall be identified through an analysis of the threat scenarios."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-05]
     verification: "inspect required deliverable(s): WP-15-05"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-09
@@ -1930,8 +2185,10 @@ requirements:
     short_title: "Linking attack paths to threat scenarios"
     text: "Each attack path shall be linked to the threat scenarios it can realize."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-05]
     verification: "inspect required deliverable(s): WP-15-05"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-10
@@ -1947,8 +2204,10 @@ requirements:
     short_title: "Attack feasibility rating"
     text: "Every attack path shall receive an attack feasibility rating on the four-level scale of Table 1, which ties each rating to the effort the attack path needs: high (low effort), medium (medium effort), low (high effort) and very low (very high effort)."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-06]
     verification: "inspect required deliverable(s): WP-15-06"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-15-11
@@ -1964,8 +2223,10 @@ requirements:
     short_title: "Feasibility rating method"
     text: "One of three approaches should underlie the method for rating attack feasibility: (a) attack potential-based, (b) CVSS-based or (c) attack vector-based."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-15-12
@@ -1979,10 +2240,12 @@ requirements:
     phase: tara-method
     locator: "§15.7.2"
     short_title: "Attack potential factors"
-    text: "When attack feasibility is rated with the attack potential-based approach, the rating should rest on core factors, among them (a) elapsed time, (b) specialist expertise, (c) knowledge of the item or component, (d) window of opportunity and (e) equipment."
+    text: "An attack potential-based rating of attack feasibility should be built from core factors that include (a) elapsed time, (b) specialist expertise, (c) knowledge of the item or component, (d) window of opportunity and (e) equipment."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-15-13
@@ -1996,10 +2259,12 @@ requirements:
     phase: tara-method
     locator: "§15.7.2"
     short_title: "CVSS exploitability metrics"
-    text: "Under the CVSS-based approach, attack feasibility should be rated from the CVSS exploitability metrics in the base metric group, among them (a) attack vector, (b) attack complexity, (c) privileges required and (d) user interaction."
+    text: "A CVSS-based rating of attack feasibility should draw on the exploitability metrics of CVSS's base metric group, including (a) attack vector, (b) attack complexity, (c) privileges required and (d) user interaction."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RC-15-14
@@ -2015,8 +2280,10 @@ requirements:
     short_title: "Predominant attack vector"
     text: "Under the attack vector-based approach, attack feasibility should be rated by judging which attack vector predominates in the attack path, with attack vector as CVSS defines it (CVSS [24] 2.1.1)."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: []
     verification: "assessment/review of the activity (no distinct work product named)"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-15
@@ -2032,8 +2299,10 @@ requirements:
     short_title: "Risk value"
     text: "For every threat scenario, a risk value shall be worked out from two inputs: the attack feasibility of the attack paths linked to it and the impact of the damage scenarios linked to it."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-07]
     verification: "inspect required deliverable(s): WP-15-07"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-16
@@ -2049,8 +2318,10 @@ requirements:
     short_title: "Risk value range"
     text: "A threat scenario's risk value shall be from 1 to 5 inclusive, with 1 meaning minimal risk."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-07]
     verification: "inspect required deliverable(s): WP-15-07"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
   - id: iso-sae-21434-2021#RQ-15-17
@@ -2066,8 +2337,10 @@ requirements:
     short_title: "Risk treatment options"
     text: "With its risk values in view, every threat scenario shall be given one or more risk treatment options out of four: (a) avoiding the risk, (b) reducing the risk, (c) sharing the risk and (d) retaining the risk."
     text_origin: paraphrase
+    kind: stated
     expects_deliverables: [WP-15-08]
     verification: "inspect required deliverable(s): WP-15-08"
+    testable: "yes"
     tailorable: true
     audit_status: not-reviewed
     notes: "Completed from the licensed copy on 2026-11-07 (tmodel#154). The earlier extract stopped where a NOTE or EXAMPLE interrupts the list (tmodel RPT-0007 §7.2); the list items it lost are now paraphrased."
