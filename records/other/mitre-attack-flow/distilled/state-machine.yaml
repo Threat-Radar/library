@@ -1,0 +1,225 @@
+schema: library-state-machine/v1
+record: mitre-attack-flow
+source_version: "Attack Flow v4.1.0; STIX extension schema 2.0.0"
+extracted: "2026-11-09"
+reviewed_by: ""
+sources:
+  - path: docs/language.rst
+    url: https://github.com/center-for-threat-informed-defense/attack-flow/blob/v4.1.0/docs/language.rst
+    sha256: 85ae7b7f367b57c935328276a412e5b2f051e4d48f2ab622276359d49615fa49
+  - path: stix/attack-flow-schema-2.0.0.json
+    url: https://github.com/center-for-threat-informed-defense/attack-flow/blob/v4.1.0/stix/attack-flow-schema-2.0.0.json
+    sha256: fff896f5e1bdc39d9b387c0d3571307037cf9be1059de9cd94d066d1da2997cc
+note: >-
+  Semantic evaluation models for a graph data format, not a wire protocol or an
+  execution engine. State identifiers, initial markers, named events and
+  transition wiring are derived representations. Each transition is therefore
+  kind: inferred; its locator identifies the stated semantic basis. States marked
+  stated represent outcomes named in the source. No state or event here adds a
+  serialized STIX property. Initial markers scope the model, not object defaults.
+
+events:
+  - id: action_conclusion_observed
+    kind: inferred
+    definition: An action has concluded and its success or failure has been established.
+    parameters: [action_ref, outcome]
+    values: {outcome: [success, failure]}
+    locator: "docs/language.rst §Effects, lines 600-604"
+  - id: condition_result_observed
+    kind: inferred
+    definition: The condition has been evaluated as true or false.
+    parameters: [condition_ref, result]
+    values: {result: [true, false]}
+    locator: "docs/language.rst §Effects, lines 606-610; §Attack Condition, lines 395-401"
+  - id: operator_inputs_assessed
+    kind: inferred
+    definition: The operator's incoming effects are considered for logical evaluation.
+    parameters: [operator_ref, input_effects]
+    locator: "docs/language.rst §Attack Operator, lines 429-454; §Effects, lines 612-615"
+
+machines:
+  - id: action_effect_outcome
+    name: Action effects during execution and after conclusion
+    subject: attack-action
+    locator: "docs/language.rst §Effects, lines 584-604"
+    initial: executing_indeterminate
+    states:
+      - id: executing_indeterminate
+        kind: stated
+        meaning: The action is executing; its effect is indeterminate and no outcome can be asserted.
+        locator: "docs/language.rst §Effects, lines 600-601"
+      - id: concluded_successful
+        kind: stated
+        meaning: The action has concluded and its effects have been evaluated as successful.
+        locator: "docs/language.rst §Effects, lines 601-604"
+      - id: concluded_failed
+        kind: stated
+        meaning: The action has concluded and its effects have been evaluated as failed.
+        locator: "docs/language.rst §Effects, lines 601-602"
+    transitions:
+      - from: executing_indeterminate
+        to: concluded_successful
+        trigger: action_conclusion_observed
+        guard: "event.action_ref identifies this action and event.outcome = success"
+        effect: The successful effect can be evaluated by subsequent flow nodes.
+        kind: inferred
+        locator: "docs/language.rst §Effects, lines 601-604"
+      - from: executing_indeterminate
+        to: concluded_failed
+        trigger: action_conclusion_observed
+        guard: "event.action_ref identifies this action and event.outcome = failure"
+        effect: The failed effect can be evaluated, including by a condition describing failure.
+        kind: inferred
+        locator: "docs/language.rst §Effects, lines 601-610"
+    direct_action_chain_guard:
+      kind: stated
+      predicate: A directly chained second action can execute only when the first action completes successfully.
+      locator: "docs/language.rst §Effects, lines 602-604"
+      notes: >-
+        This is a necessary prerequisite, not an automatic execution command.
+        An executing or failed predecessor does not satisfy it. Failure can still
+        be described by a condition; it is not a global error or global halt.
+    error_states: []
+    notes: >-
+      This model begins while the action is executing and covers the source's
+      success/failure cases. Conclusion and evaluation need not be simultaneous;
+      the named event includes an established outcome. The source gives no
+      separate lifecycle for a concluded action whose outcome is not yet known.
+      Optional execution_start/execution_end timestamps record when execution
+      began/ended; they do not encode success or failure (schema
+      #/$defs/attack-action/properties/execution_start and /execution_end).
+
+  - id: condition_branch_selection
+    name: Exclusive condition branch selection
+    subject: attack-condition
+    locator: "docs/language.rst §Attack Condition, lines 358-401; §Effects, lines 606-610"
+    initial: result_not_recorded
+    states:
+      - id: result_not_recorded
+        kind: inferred
+        meaning: This model has not recorded a Boolean evaluation result.
+        locator: "docs/language.rst §Effects, lines 606-610 (derived evaluation frame)"
+      - id: true_branch_selected
+        kind: stated
+        meaning: The condition is true and selects the on_true_refs branch.
+        locator: "docs/language.rst §Attack Condition, lines 395-397; §Effects, lines 609-610"
+      - id: false_branch_selected
+        kind: stated
+        meaning: The condition is false and flow continues to the objects in on_false_refs.
+        locator: "docs/language.rst §Attack Condition, lines 398-401"
+      - id: false_branch_halted
+        kind: stated
+        meaning: The condition is false with no false-branch objects; flow halts at this node.
+        terminal: true
+        locator: "docs/language.rst §Attack Condition, lines 398-401"
+    transitions:
+      - from: result_not_recorded
+        to: true_branch_selected
+        trigger: condition_result_observed
+        guard: "event.condition_ref identifies this condition and event.result = true"
+        effect: Select only on_true_refs; where present, flow continues to those objects.
+        kind: inferred
+        locator: "docs/language.rst §Effects, lines 606-610; schema #/$defs/attack-condition/properties/on_true_refs"
+      - from: result_not_recorded
+        to: false_branch_selected
+        trigger: condition_result_observed
+        guard: "event.condition_ref identifies this condition and event.result = false and on_false_refs is present"
+        effect: Select only on_false_refs and continue to those objects.
+        kind: inferred
+        locator: "docs/language.rst §Effects, lines 609-610; schema #/$defs/attack-condition/properties/on_false_refs"
+      - from: result_not_recorded
+        to: false_branch_halted
+        trigger: condition_result_observed
+        guard: "event.condition_ref identifies this condition and event.result = false and on_false_refs is absent"
+        effect: Select the false branch and halt at this node.
+        kind: inferred
+        locator: "docs/language.rst §Attack Condition, lines 398-401; schema #/$defs/attack-condition/properties/on_false_refs"
+    error_states: []
+    notes: >-
+      A branch is one selected reference list; it can name several objects.
+      The condition does not activate both lists. The schema makes both lists
+      optional but requires minItems: 1 when present, so an empty list is not a
+      valid substitute for absence. No equivalent explicit halt rule is stated
+      for true with absent on_true_refs. Terminal here means this local path
+      halts, without specifying what happens to other paths.
+
+  - id: operator_boolean_evaluation
+    name: Aggregate incoming effects with AND or OR
+    subject: attack-operator
+    locator: "docs/language.rst §Attack Operator, lines 429-454; §Effects, lines 612-615"
+    initial: result_not_recorded
+    states:
+      - id: result_not_recorded
+        kind: inferred
+        meaning: This model has not recorded an operator result.
+        locator: "docs/language.rst §Attack Operator, lines 445-454 (derived evaluation frame)"
+      - id: evaluated_true
+        kind: stated
+        meaning: The operator is true; its effect_refs identify resulting effects, outcomes or states.
+        locator: "schema #/$defs/attack-operator/properties/effect_refs/description"
+      - id: evaluated_false_halted
+        kind: stated
+        meaning: The operator is false and the flow halts.
+        terminal: true
+        locator: "schema #/$defs/attack-operator/properties/effect_refs/description"
+    transitions:
+      - from: result_not_recorded
+        to: evaluated_true
+        trigger: operator_inputs_assessed
+        guard: "event.operator_ref identifies this operator; operator = AND; at least two input effects are supplied, all resolved Boolean and all true"
+        effect: Produce the effects, outcomes or states identified by effect_refs, where present.
+        kind: inferred
+        locator: "schema #/$defs/attack-operator/properties/operator and /effect_refs"
+      - from: result_not_recorded
+        to: evaluated_false_halted
+        trigger: operator_inputs_assessed
+        guard: "event.operator_ref identifies this operator; operator = AND; at least two input effects are supplied, all resolved Boolean and at least one false"
+        effect: Halt the flow at the operator.
+        kind: inferred
+        locator: "schema #/$defs/attack-operator/properties/operator and /effect_refs"
+      - from: result_not_recorded
+        to: evaluated_true
+        trigger: operator_inputs_assessed
+        guard: "event.operator_ref identifies this operator; operator = OR; at least two input effects are supplied, all resolved Boolean and at least one true"
+        effect: Produce the effects, outcomes or states identified by effect_refs, where present.
+        kind: inferred
+        locator: "schema #/$defs/attack-operator/properties/operator and /effect_refs"
+      - from: result_not_recorded
+        to: evaluated_false_halted
+        trigger: operator_inputs_assessed
+        guard: "event.operator_ref identifies this operator; operator = OR; at least two input effects are supplied, all resolved Boolean and all false"
+        effect: Halt the flow at the operator.
+        kind: inferred
+        locator: "schema #/$defs/attack-operator/properties/operator and /effect_refs"
+    error_states: []
+    notes: >-
+      AND/OR apply to incoming effects, not to the outbound effect_refs list.
+      input_effects is semantic event context, not a serialized field. Concrete
+      all/any guards are derived from the stated use of Boolean AND/OR; the
+      source supplies no truth table. Restricting these transitions to multiple
+      resolved inputs bounds this extraction, not a source requirement to wait
+      for all inputs or a schema cardinality constraint. Indeterminate inputs
+      have no transition here and no invented defer/short-circuit policy.
+
+limits:
+  - locator: "docs/language.rst §Effects, lines 600-615; schema #/$defs/attack-operator"
+    finding: >-
+      No truth-table rows specify mixtures of Boolean and indeterminate effects,
+      including AND(false, indeterminate), OR(true, indeterminate), or multiple
+      indeterminate inputs. No three-valued logic, waiting rule, or short-circuit
+      rule is supplied. Zero/single-input operator semantics are not specified.
+  - locator: "schema #/$defs/attack-condition/properties/on_true_refs and #/$defs/attack-operator/properties/effect_refs"
+    finding: >-
+      True with absent on_true_refs or absent operator effect_refs has no explicit
+      continuation/termination rule. Unselected condition paths are not assigned
+      a Boolean value for downstream operators by the read sources.
+  - locator: "docs/language.rst §Attack Flow, lines 160-162; §Effects, lines 600-615"
+    finding: >-
+      start_refs identifies starting action/condition nodes. The read sources do
+      not specify scheduling, concurrency, retries, cycles, reevaluation,
+      cancellation, error recovery or whole-graph completion. Failed effects and
+      false branches are semantic outcomes, not defined error states.
+  - locator: "docs/language.rst §Confidence, lines 622-628"
+    finding: >-
+      Confidence concerns correctness of the recorded data. It supplies no
+      transition probability or probabilistic success threshold.

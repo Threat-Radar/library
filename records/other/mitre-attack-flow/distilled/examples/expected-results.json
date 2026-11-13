@@ -1,0 +1,550 @@
+{
+  "record": "mitre-attack-flow",
+  "extracted": "2026-11-09",
+  "reviewed_by": "",
+  "text_origin": "derived expected results for verbatim source fixtures",
+  "validation_environment": {
+    "jsonschema": "4.26.0",
+    "schema_dialect": "draft-2020-12",
+    "format_checker": true,
+    "network_retrieval": false
+  },
+  "json_examples": {
+    "attack-flow": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": true,
+      "schema_errors": [],
+      "supported_attack_flow_sdo": true,
+      "source_is_fragment": true,
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": []
+    },
+    "attack-action": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": true,
+      "schema_errors": [],
+      "supported_attack_flow_sdo": true,
+      "source_is_fragment": true,
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": []
+    },
+    "attack-asset": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": true,
+      "schema_errors": [],
+      "supported_attack_flow_sdo": true,
+      "source_is_fragment": true,
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": []
+    },
+    "attack-condition": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": true,
+      "schema_errors": [],
+      "supported_attack_flow_sdo": true,
+      "source_is_fragment": true,
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": []
+    },
+    "attack-operator": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": true,
+      "schema_errors": [],
+      "supported_attack_flow_sdo": true,
+      "source_is_fragment": true,
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": true,
+      "stix_common_core_errors": []
+    },
+    "x-detection": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": false,
+      "schema_errors": [
+        {
+          "instance_path": [],
+          "schema_path": [
+            "unevaluatedProperties"
+          ],
+          "keyword": "unevaluatedProperties",
+          "message": "Unevaluated properties are not allowed ('created', 'description', 'detection_id', 'id', 'labels', 'modified', 'name', 'spec_version', 'type' were unexpected)"
+        },
+        {
+          "instance_path": [
+            "id"
+          ],
+          "schema_path": [
+            "allOf",
+            0,
+            "properties",
+            "id",
+            "pattern"
+          ],
+          "keyword": "pattern",
+          "message": "'x-detection--a1b2c3d4-5678-90ef-ghij-klmnopqrstuv' does not match '^[a-z][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'"
+        },
+        {
+          "instance_path": [],
+          "schema_path": [
+            "allOf",
+            1,
+            "required"
+          ],
+          "keyword": "required",
+          "message": "'extensions' is a required property"
+        }
+      ],
+      "supported_attack_flow_sdo": false,
+      "source_is_fragment": true,
+      "source_defects": [
+        "The illustrative id is not a STIX identifier: its UUID contains non-hexadecimal characters and invalid UUID version/variant components.",
+        "The object omits extensions, which the Attack Flow root schema requires.",
+        "This custom object type has no definition in the published Attack Flow schema. The generic fallback does not define its domain fields; unevaluatedProperties:false applies."
+      ],
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": false,
+      "stix_common_core_errors": [
+        {
+          "instance_path": [
+            "id"
+          ],
+          "schema_path": [
+            "properties",
+            "id",
+            "pattern"
+          ],
+          "keyword": "pattern",
+          "message": "'x-detection--a1b2c3d4-5678-90ef-ghij-klmnopqrstuv' does not match '^[a-z][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'"
+        }
+      ]
+    },
+    "x-mitigation": {
+      "json_parse": "valid",
+      "schema": "../schema/attack-flow-schema-2.0.0.json",
+      "schema_valid": false,
+      "schema_errors": [
+        {
+          "instance_path": [],
+          "schema_path": [
+            "unevaluatedProperties"
+          ],
+          "keyword": "unevaluatedProperties",
+          "message": "Unevaluated properties are not allowed ('created', 'description', 'id', 'labels', 'mitigation_id', 'modified', 'name', 'spec_version', 'type' were unexpected)"
+        },
+        {
+          "instance_path": [
+            "id"
+          ],
+          "schema_path": [
+            "allOf",
+            0,
+            "properties",
+            "id",
+            "pattern"
+          ],
+          "keyword": "pattern",
+          "message": "'x-mitigation--a1b2c3d4-5678-90ef-ghij-klmnopqrstuv' does not match '^[a-z][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'"
+        },
+        {
+          "instance_path": [],
+          "schema_path": [
+            "allOf",
+            1,
+            "required"
+          ],
+          "keyword": "required",
+          "message": "'extensions' is a required property"
+        }
+      ],
+      "supported_attack_flow_sdo": false,
+      "source_is_fragment": true,
+      "source_defects": [
+        "The illustrative id is not a STIX identifier: its UUID contains non-hexadecimal characters and invalid UUID version/variant components.",
+        "The object omits extensions, which the Attack Flow root schema requires.",
+        "This custom object type has no definition in the published Attack Flow schema. The generic fallback does not define its domain fields; unevaluatedProperties:false applies."
+      ],
+      "stix_common_core_reference": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/common/core.json",
+      "stix_common_core_valid": false,
+      "stix_common_core_errors": [
+        {
+          "instance_path": [
+            "id"
+          ],
+          "schema_path": [
+            "properties",
+            "id",
+            "pattern"
+          ],
+          "keyword": "pattern",
+          "message": "'x-mitigation--a1b2c3d4-5678-90ef-ghij-klmnopqrstuv' does not match '^[a-z][a-z0-9-]+[a-z0-9]--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$'"
+        }
+      ]
+    }
+  },
+  "confidence_scale": [
+    {
+      "term": "Speculation",
+      "value": 0,
+      "inclusive_range": [
+        0,
+        0
+      ],
+      "source_row": 1
+    },
+    {
+      "term": "Very Doubtful",
+      "value": 10,
+      "inclusive_range": [
+        1,
+        20
+      ],
+      "source_row": 2
+    },
+    {
+      "term": "Doubtful",
+      "value": 30,
+      "inclusive_range": [
+        21,
+        40
+      ],
+      "source_row": 3
+    },
+    {
+      "term": "Even Odds",
+      "value": 50,
+      "inclusive_range": [
+        41,
+        60
+      ],
+      "source_row": 4
+    },
+    {
+      "term": "Probable",
+      "value": 70,
+      "inclusive_range": [
+        61,
+        80
+      ],
+      "source_row": 5
+    },
+    {
+      "term": "Very Probable",
+      "value": 90,
+      "inclusive_range": [
+        81,
+        99
+      ],
+      "source_row": 6
+    },
+    {
+      "term": "Certainty",
+      "value": 100,
+      "inclusive_range": [
+        100,
+        100
+      ],
+      "source_row": 7
+    }
+  ],
+  "source_worked_conversions": [
+    {
+      "id": "very-probable-to-number",
+      "input": {
+        "term": "Very Probable"
+      },
+      "expected": {
+        "confidence": 90
+      },
+      "source_locator": "docs/language.rst:678-680",
+      "derived": false
+    },
+    {
+      "id": "38-to-term",
+      "input": {
+        "confidence": 38
+      },
+      "expected": {
+        "term": "Doubtful"
+      },
+      "source_locator": "docs/language.rst:681-684",
+      "derived": false
+    }
+  ],
+  "derived_confidence_boundary_cases": [
+    {
+      "input": {
+        "confidence": 0
+      },
+      "expected": {
+        "term": "Speculation"
+      },
+      "derived": true,
+      "source_row": 1
+    },
+    {
+      "input": {
+        "confidence": 1
+      },
+      "expected": {
+        "term": "Very Doubtful"
+      },
+      "derived": true,
+      "source_row": 2
+    },
+    {
+      "input": {
+        "confidence": 20
+      },
+      "expected": {
+        "term": "Very Doubtful"
+      },
+      "derived": true,
+      "source_row": 2
+    },
+    {
+      "input": {
+        "confidence": 21
+      },
+      "expected": {
+        "term": "Doubtful"
+      },
+      "derived": true,
+      "source_row": 3
+    },
+    {
+      "input": {
+        "confidence": 40
+      },
+      "expected": {
+        "term": "Doubtful"
+      },
+      "derived": true,
+      "source_row": 3
+    },
+    {
+      "input": {
+        "confidence": 41
+      },
+      "expected": {
+        "term": "Even Odds"
+      },
+      "derived": true,
+      "source_row": 4
+    },
+    {
+      "input": {
+        "confidence": 60
+      },
+      "expected": {
+        "term": "Even Odds"
+      },
+      "derived": true,
+      "source_row": 4
+    },
+    {
+      "input": {
+        "confidence": 61
+      },
+      "expected": {
+        "term": "Probable"
+      },
+      "derived": true,
+      "source_row": 5
+    },
+    {
+      "input": {
+        "confidence": 80
+      },
+      "expected": {
+        "term": "Probable"
+      },
+      "derived": true,
+      "source_row": 5
+    },
+    {
+      "input": {
+        "confidence": 81
+      },
+      "expected": {
+        "term": "Very Probable"
+      },
+      "derived": true,
+      "source_row": 6
+    },
+    {
+      "input": {
+        "confidence": 99
+      },
+      "expected": {
+        "term": "Very Probable"
+      },
+      "derived": true,
+      "source_row": 6
+    },
+    {
+      "input": {
+        "confidence": 100
+      },
+      "expected": {
+        "term": "Certainty"
+      },
+      "derived": true,
+      "source_row": 7
+    }
+  ],
+  "effects_cases": [
+    {
+      "id": "firewall-effect",
+      "input": {
+        "action": "open a firewall port"
+      },
+      "expected": {
+        "effect": "asset state modified"
+      },
+      "source_locator": "docs/language.rst:589",
+      "derived": true,
+      "source_text": "1. The attacker modifies the state of an asset, e.g. opening a port on the firewall.\n"
+    },
+    {
+      "id": "password-effect",
+      "input": {
+        "action": "gain a password"
+      },
+      "expected": {
+        "effect": "knowledge gained"
+      },
+      "source_locator": "docs/language.rst:590",
+      "derived": true,
+      "source_text": "2. The attacker gains some knowledge, e.g. a password.\n"
+    },
+    {
+      "id": "execution-effect",
+      "input": {
+        "action": "achieve code execution"
+      },
+      "expected": {
+        "effect": "code execution available"
+      },
+      "source_locator": "docs/language.rst:591",
+      "derived": true,
+      "source_text": "3. The attacker achieves code execution.\n"
+    },
+    {
+      "id": "internal-service-dependency",
+      "input": {
+        "action": "connect to an internal service"
+      },
+      "expected": {
+        "prerequisite": "opening a port on the firewall"
+      },
+      "source_locator": "docs/language.rst:595-596",
+      "derived": true,
+      "source_text": "1. The attacker wants to connect to an internal service, which requires opening a port\n   on the firewall.\n"
+    },
+    {
+      "id": "remote-login-dependency",
+      "input": {
+        "action": "log in remotely"
+      },
+      "expected": {
+        "prerequisite": "knowing the password"
+      },
+      "source_locator": "docs/language.rst:597",
+      "derived": true,
+      "source_text": "2. The attacker wants to log in remotely, which depends on knowing the password.\n"
+    },
+    {
+      "id": "c2-implant-dependency",
+      "input": {
+        "action": "run a C2 implant"
+      },
+      "expected": {
+        "prerequisite": "having code execution"
+      },
+      "source_locator": "docs/language.rst:598",
+      "derived": true,
+      "source_text": "3. The attacker wants to run a C2 implant, which depends on having code execution.\n"
+    },
+    {
+      "id": "effect-during-execution",
+      "input": {
+        "action_state": "executing"
+      },
+      "expected": {
+        "effect_state": "indeterminate"
+      },
+      "source_locator": "docs/language.rst:600-604",
+      "derived": true,
+      "source_text": "While an *action* is being executed, it's effect is an *indeterminate* state, i.e. we\ncannot make any statement about the outcome or result. Once the action concludes, then\nwe can evaluate its effects, whether it succeeded or failed, etc. When one action is\nchained to another, the latter depends on the effects of the former, i.e. the second one\ncan only execute when the first one completes successfully.\n"
+    },
+    {
+      "id": "chained-action-readiness",
+      "input": {
+        "predecessor": "not completed successfully"
+      },
+      "expected": {
+        "successor_can_execute": false
+      },
+      "source_locator": "docs/language.rst:602-604",
+      "derived": true,
+      "source_text": "we can evaluate its effects, whether it succeeded or failed, etc. When one action is\nchained to another, the latter depends on the effects of the former, i.e. the second one\ncan only execute when the first one completes successfully.\n"
+    },
+    {
+      "id": "privilege-escalation-success",
+      "input": {
+        "condition": "attacker has obtained elevated privileges",
+        "condition_value": true
+      },
+      "expected": {
+        "selected_edge_property": "on_true_refs"
+      },
+      "source_locator": "docs/language.rst:606-610",
+      "derived": true,
+      "source_text": "A *condition* splits a flow into multiple paths based on evaluating an effect, e.g. if\nthe action is a privilege escalation exploit, then the condition can test whether the\nattacker has obtained elevated privileges (i.e. the exploit succeeded) or still has\nregular privileges (i.e. the exploit failed.) A condition always selects one path to\nfollow, either the ``on_true_refs`` or the ``on_false_refs``.\n"
+    },
+    {
+      "id": "privilege-escalation-failure",
+      "input": {
+        "condition": "attacker has obtained elevated privileges",
+        "condition_value": false
+      },
+      "expected": {
+        "selected_edge_property": "on_false_refs"
+      },
+      "source_locator": "docs/language.rst:606-610",
+      "derived": true,
+      "source_text": "A *condition* splits a flow into multiple paths based on evaluating an effect, e.g. if\nthe action is a privilege escalation exploit, then the condition can test whether the\nattacker has obtained elevated privileges (i.e. the exploit succeeded) or still has\nregular privileges (i.e. the exploit failed.) A condition always selects one path to\nfollow, either the ``on_true_refs`` or the ``on_false_refs``.\n"
+    }
+  ],
+  "extension_instance": {
+    "path": "../schema/attack-flow-extension-2.0.0.json",
+    "json_parse": "valid",
+    "type": "bundle",
+    "id": "bundle--1872d22d-9b37-4d95-8500-715d52fa73ba",
+    "object_count": 2,
+    "extension_definition_id": "extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4",
+    "extension_type": "new-sdo",
+    "version": "2.0.0",
+    "creator_identity_id": "identity--d673f8cb-c168-42da-8ed4-0cb26725f86c",
+    "schema_reference": "https://center-for-threat-informed-defense.github.io/attack-flow/stix/attack-flow-schema-2.0.0.json",
+    "schema_document_id": "https://center-for-threat-informed-defense.github.io/attack-flow/schema/attack-flow-schema-2.0.0.json",
+    "full_stix_bundle_validation": "not run; bundle, identity, and extension-definition schema closure is not included",
+    "attack_flow_root_validation": "not applicable: this is a STIX bundle, not an Attack Flow SDO",
+    "consistency_checks": "JSON structure, definition id/type/version, local creator references, example extension declarations, and schema x-exampleObject selectors only"
+  },
+  "limitations": [
+    "The seven JSON examples are individual objects, not complete Attack Flow bundles. Cross-object reference existence and exactly one attack-flow per document are not established by validating them separately.",
+    "The Effects cases are expected implementation behavior derived from prose. The checker verifies fixture provenance and expectation coverage; it does not execute an Attack Flow engine.",
+    "The two x-* examples are custom STIX types described by the language page but absent from the Attack Flow schema. Root-schema rejection is recorded, not treated as proof that every custom STIX object must use the Attack Flow extension.",
+    "Expected-error comparison is a regression check: a successful checker run means published defects were reproduced, not that all source examples validate."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "x-mitigation",
+  "spec_version": "2.1",
+  "id": "x-mitigation--a1b2c3d4-5678-90ef-ghij-klmnopqrstuv",
+  "created": "2022-08-02T19:34:35.143Z",
+  "modified": "2022-08-02T19:34:35.143Z",
+  "mitigation_id": "M1021",
+  "name": "Restrict File and Directory Permissions",
+  "description": "Restrict file and directory permissions to the least-privilege needed.",
+  "labels": ["x-mitigation"]
+}

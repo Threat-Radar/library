@@ -1,0 +1,254 @@
+{
+  "record": "mitre-attack-flow",
+  "artifact_kind": "examples",
+  "extracted": "2026-11-09",
+  "reviewed_by": "",
+  "coverage": {
+    "json_code_blocks": 7,
+    "prose_fixture_files": 3,
+    "source_worked_conversions": 2,
+    "derived_confidence_boundary_cases": 12,
+    "derived_effects_cases": 10,
+    "pseudoellipsis_in_json_blocks": false
+  },
+  "source": {
+    "path": "docs/language.rst",
+    "url": "https://raw.githubusercontent.com/center-for-threat-informed-defense/attack-flow/5c8bf4ca9ff64ef9b55c38a2505db318750cbcda/docs/language.rst",
+    "release": "v4.1.0",
+    "commit": "5c8bf4ca9ff64ef9b55c38a2505db318750cbcda",
+    "sha256": "85ae7b7f367b57c935328276a412e5b2f051e4d48f2ab622276359d49615fa49"
+  },
+  "fixtures": [
+    {
+      "id": "attack-flow",
+      "path": "attack-flow.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Attack Flow",
+        "anchor": "schema_attack_flow",
+        "line_start": 168,
+        "line_end": 200,
+        "code_directive_line": 166
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "2209d5f6d176faceefab39812aeda73eee324b501f1a2554fc8191a3cd3e17f6",
+      "bytes": 1339,
+      "expected_result": "json_examples.attack-flow",
+      "reviewed_by": ""
+    },
+    {
+      "id": "attack-action",
+      "path": "attack-action.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Attack Action",
+        "anchor": "schema_attack_action",
+        "line_start": 272,
+        "line_end": 290,
+        "code_directive_line": 270
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "ef68ec57b55d880033d27818a4adb226d15750a87020b3ec552daa27c4730ea3",
+      "bytes": 658,
+      "expected_result": "json_examples.attack-action",
+      "reviewed_by": ""
+    },
+    {
+      "id": "attack-asset",
+      "path": "attack-asset.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Attack Asset",
+        "anchor": "schema_attack_asset",
+        "line_start": 337,
+        "line_end": 351,
+        "code_directive_line": 335
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "26e7b18182584c2f51559fe8cc640b2cf7137144ca735a8c43ca7a18179a82d9",
+      "bytes": 521,
+      "expected_result": "json_examples.attack-asset",
+      "reviewed_by": ""
+    },
+    {
+      "id": "attack-condition",
+      "path": "attack-condition.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Attack Condition",
+        "anchor": "schema_attack_condition",
+        "line_start": 407,
+        "line_end": 422,
+        "code_directive_line": 405
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "f37fe6d64708a58b66b346c74178e11fe49e19044f18c5e895b39119bc289e24",
+      "bytes": 482,
+      "expected_result": "json_examples.attack-condition",
+      "reviewed_by": ""
+    },
+    {
+      "id": "attack-operator",
+      "path": "attack-operator.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Attack Operator",
+        "anchor": "schema_attack_operator",
+        "line_start": 460,
+        "line_end": 475,
+        "code_directive_line": 458
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "777b13c4da72fe6ef0cee27a28155e96d323488be61b4a20b9b878afc528cdda",
+      "bytes": 439,
+      "expected_result": "json_examples.attack-operator",
+      "reviewed_by": ""
+    },
+    {
+      "id": "x-detection",
+      "path": "x-detection.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Detection",
+        "anchor": "schema_detection",
+        "line_start": 515,
+        "line_end": 525,
+        "code_directive_line": 513
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "6f8b5afccdc577d53e225192b92d7623fd723a8e768cbe846d7f130abffbf689",
+      "bytes": 393,
+      "expected_result": "json_examples.x-detection",
+      "reviewed_by": ""
+    },
+    {
+      "id": "x-mitigation",
+      "path": "x-mitigation.json",
+      "kind": "source-json-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Mitigation",
+        "anchor": "schema_mitigation",
+        "line_start": 565,
+        "line_end": 575,
+        "code_directive_line": 563
+      },
+      "transform": {
+        "kind": "strip-rst-code-indent",
+        "spaces": 4
+      },
+      "sha256": "05885d17627e082ba5fb06618402ebd737d6c2754baf28b9f603a6004a16d0f2",
+      "bytes": 401,
+      "expected_result": "json_examples.x-mitigation",
+      "reviewed_by": ""
+    },
+    {
+      "id": "effects",
+      "path": "effects.rst",
+      "kind": "source-prose-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Effects",
+        "anchor": "effects",
+        "line_start": 581,
+        "line_end": 615
+      },
+      "transform": {
+        "kind": "identity-line-slice"
+      },
+      "sha256": "4b1177c03a522f3aac7430c9307b982f8b9fc4b996086df9c34dd1f28fa6f118",
+      "bytes": 2046,
+      "expected_result": "effects_cases",
+      "reviewed_by": ""
+    },
+    {
+      "id": "confidence-scale",
+      "path": "confidence-scale.rst",
+      "kind": "source-prose-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Confidence",
+        "anchor": "confidence",
+        "line_start": 633,
+        "line_end": 674
+      },
+      "transform": {
+        "kind": "identity-line-slice"
+      },
+      "sha256": "48490d1e8711c72e255514b576fb0277237b73585bb24f963c6c663867ef52ef",
+      "bytes": 1212,
+      "expected_result": "confidence_scale",
+      "reviewed_by": ""
+    },
+    {
+      "id": "confidence-examples",
+      "path": "confidence-examples.rst",
+      "kind": "source-prose-example",
+      "source_path": "docs/language.rst",
+      "locator": {
+        "section": "Confidence",
+        "anchor": "confidence",
+        "line_start": 676,
+        "line_end": 684
+      },
+      "transform": {
+        "kind": "identity-line-slice"
+      },
+      "sha256": "6378dc4ea5c54c6f02b36ed70e11e8e0e6f56c3b965b35a758aa061485bcfff1",
+      "bytes": 402,
+      "expected_result": "source_worked_conversions",
+      "reviewed_by": ""
+    }
+  ],
+  "related_source_instance": {
+    "path": "../schema/attack-flow-extension-2.0.0.json",
+    "source_path": "stix/attack-flow-extension-2.0.0.json",
+    "url": "https://raw.githubusercontent.com/center-for-threat-informed-defense/attack-flow/5c8bf4ca9ff64ef9b55c38a2505db318750cbcda/stix/attack-flow-extension-2.0.0.json",
+    "locator": {
+      "line_start": 1,
+      "line_end": 43
+    },
+    "transform": {
+      "kind": "identity-file"
+    },
+    "sha256": "afdbac65edc9805ea2f3b2b84b4ae4908644e7f4190f28e8e836659d74d87e70",
+    "bytes": 1823,
+    "expected_result": "extension_instance",
+    "reviewed_by": ""
+  },
+  "expected_results": {
+    "path": "expected-results.json",
+    "sha256": "5644e8cf41af60ad287349c86e3c07b6c14823e1d8aac43f9fda287fe41da46b",
+    "origin": "derived; source fixtures are not repaired"
+  },
+  "checker": {
+    "path": "check_examples.py",
+    "schema_loader": "../schema/offline_validate.py:load_validator",
+    "source_equality": "optional --source-root argument; whole-source SHA256 and byte-for-byte extracted fixture checks",
+    "offline_validation": "required; registry resolves only schema/manifest.json snapshots"
+  }
+}

@@ -30,7 +30,7 @@ relations:
 bears_on:
   - DEC-001
   - DEC-005
-topic: 
+topic: threat-model-frameworks
 publisher: "MITRE Center for Threat-Informed Defense"
 version: "extension labelled 2.0.0 (defined 2022-08-02, released 2022-10-27; schema widened in place since); read from the sources at tag v4.1.0 (2026-10-14)"
 media_type: "text/x-rst"
@@ -41,5 +41,62 @@ tags:
   - attack-path
   - stix
   - method
-status: summarized
+status: distilled
 confidence: high
+distillation:
+  profile: full
+  artifacts:
+    - kind: normative
+      path: distilled/normative.md
+      coverage: "All 10 language tables, 22 uppercase modal occurrences, effects semantics, and schema constraints with locators."
+      reviewed_by: ""
+    - kind: requirements
+      path: distilled/requirements.yaml
+      coverage: "109 stated entries; all 22 modal occurrences covered exactly once in 20 blocks; 89 additional table, datatype, effect, confidence and schema entries."
+      reviewed_by: ""
+    - kind: schema
+      path: distilled/schema
+      coverage: "Exact published schema, extension instance, 13 pinned STIX dependencies, licenses, provenance manifest and offline resolver."
+      reviewed_by: ""
+    - kind: messages
+      path: distilled/messages.yaml
+      coverage: "Seven language object types, 48 local fields, 14 inherited common fields, supporting structures and all requirement links."
+      reviewed_by: ""
+    - kind: protocol
+      path: distilled/protocol.yaml
+      coverage: "Written N/A finding with source evidence; no message-exchange protocol is defined."
+      reviewed_by: ""
+    - kind: state-machine
+      path: distilled/state-machine.yaml
+      coverage: "Three semantic machines, 10 states and 9 transitions; unresolved operator inputs and runtime scheduling remain unspecified."
+      reviewed_by: ""
+    - kind: examples
+      path: distilled/examples
+      coverage: "All seven JSON examples and three text fixtures; expected results preserve two upstream invalid examples without repair."
+      reviewed_by: ""
+    - kind: design-notes
+      path: distilled/design-notes.md
+      coverage: "Source-grounded adopt/adapt/reject recommendations mapped to accepted tmodel ADRs, discrepancies and open questions."
+      reviewed_by: ""
+  not_applicable:
+    - kind: protocol
+      reason: >
+        Pure STIX 2.1 JSON graph data format; the source defines objects and graph
+        evaluation semantics, but no roles exchanging messages, transport,
+        endpoints, request/response sequences, or protocol error paths. See
+        docs/language.rst, Overview, Attack Flow SDOs, and Effects;
+        stix/attack-flow-extension-2.0.0.json, /objects/0/extension_types; and
+        stix/attack-flow-schema-2.0.0.json, /description and /$defs.
+  passes:
+    - pass: extract
+      by: "eight artifact extractors in parallel batches"
+      effort: max
+      date: "2026-11-09"
+    - pass: verify
+      by: "independent source and fixture verifier"
+      effort: max
+      date: "2026-11-09"
+    - pass: cross-check
+      by: "independent artifact consistency reviewer"
+      effort: max
+      date: "2026-11-09"

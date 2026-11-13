@@ -1,0 +1,15 @@
+{
+  "type": "attack-asset",
+  "spec_version": "2.1",
+  "id": "attack-asset--f7edf4aa-29ec-47aa-b4f6-c42dfbe2ac20",
+  "created": "2022-08-02T19:34:35.143Z",
+  "modified": "2022-08-02T19:34:35.143Z",
+  "name": "Employee WordPress Account",
+  "description": "The employee's credentials for accessing the WordPress blog.",
+  "object_ref": "user-account--ce035bd0-8e58-4d18-aefb-f1fbb031d782",
+  "extensions": {
+    "extension-definition--fb9c968a-745b-4ade-9b25-c324172197f4": {
+      "extension_type": "new-sdo"
+    }
+  }
+}
