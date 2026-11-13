@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: iso-sae-21434-2021
 record: iso-sae-21434-2021
 type: summary
-updated: "2026-11-08"
+updated: "2026-11-13"
 ---
 
 # Road vehicles — Cybersecurity engineering (ISO/SAE 21434:2021)
@@ -27,9 +27,10 @@ SAE J3061:2016. Its core method is **TARA — Threat Analysis and Risk Assessmen
 (Clause 15): identify damage scenarios and assets, derive threat scenarios, rate
 impact in four categories (Safety, Financial, Operational, Privacy), analyse attack
 paths, rate **attack feasibility** (Table 1), determine a **risk value**, and decide a
-risk treatment. It also defines a normative **object model** (Figure 3: item, function,
-component, asset, cybersecurity goal/requirement, threat scenario, damage scenario) and
-structures every obligation as a tagged **requirement** (`[RQ-CC-NN]` shall / `[RC-]`
+risk treatment. It also draws an **object model** (Figure 3, in the informative Clause 4: item, function,
+component, asset, cybersecurity goal and requirement, threat scenario, damage scenario; 3.1 defines
+most of these, though not function or cybersecurity requirement) and
+tags every provision as a **requirement** (`[RQ-CC-NN]` shall / `[RC-]`
 should / `[PM-]` may) that produces auditable **work products** (`[WP-CC-NN]`).
 
 ## Why it matters here
@@ -72,7 +73,9 @@ Two things make this the core doc to iterate on:
 | This project | core | Object model, TARA pipeline, and audit template all map directly |
 
 Bears on `DEC-003` (risk metric), `DEC-005` (MVP scope), `DEC-009` (product/mitigation
-mapping), `R-011`, `R-012` (ISO 21434 support), `R-021` (mitigation lifecycle).
+mapping), `DEC-001a` (core object model), `DEC-001b` (governed layer: evidence, gates, CAL),
+`DEC-008` (CWE and NVD feeds), `R-011`, `R-012` (ISO 21434 support), `R-013` (Common Criteria
+display), `R-018` (human review), `R-021` (mitigation lifecycle).
 
 ## Implementations
 
@@ -89,14 +92,17 @@ surveyed as build-on-it options — see the products survey (tmodel #7). searche
 | `record.yaml` | metadata |
 | `distilled/requirements.yaml` | 118 requirements + 42 work products, paraphrased text, refs, `#RQ-CC-NN` referenceable |
 | `distilled/requirements.md` | viewable per-clause table: designator + short title |
-| `distilled/normative.md` | TARA pipeline, object model (Fig 3), Table 1 feasibility, terminology, audit mapping |
+| `distilled/normative.md` | object model (Fig 3), TARA pipeline and Table 1, all 40 terms, audit mapping, Annexes A to H, scope, objectives, inputs, figures, coverage map |
+| `distilled/examples/` | Annexes E to H as data; 59 test vectors and a script that recomputes them |
+| `distilled/state-machine.yaml` | the Clause 8 finding lifecycle and the 6.4.9 release gate to decommissioning |
+| `distilled/design-notes.md` | how the standard bears on tmodel's DEC and ADR decisions |
 | `distilled/README.md` | index of distilled artifacts + coverage |
 
 ## Limits
 
-- Distilled from the document body; **Annexes not distilled** — impact criteria (Annex F),
-  attack-feasibility methods (attack-potential / CVSS / attack-vector, Annexes G/H), and the
-  worked example are referenced but not extracted.
+- Annexes A to H are distilled in our own words (`distilled/normative.md` §5), with the tables of
+  Annexes E to H and the worked headlamp TARA as data and test vectors (`distilled/examples/`), on 2026-11-13
+  (tmodel#154). The 55 EXAMPLE notes in Clauses 3 to 15 are not carried.
 - Requirement statements are **our own paraphrases** (rewritten 2026-11-05), not the
   standard's wording, and are **not yet reviewed line by line** (`reviewed_by` empty). The
   designator, normativity, verb and locator of each entry are kept beside the paraphrase; the

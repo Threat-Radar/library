@@ -1,0 +1,201 @@
+# ISO/SAE 21434:2021 Annex H (informative): the worked TARA of a headlamp system, as data.
+# Licensed standard: the annex's content is carried as structured fields (actors, actions, targets,
+# ratings, values) and short labels, not as sentences; every description is our own wording (sponsor
+# decision: tmodel#69 sponsor note, hold 1 (2026-10-02); tmodel#154). The ids (DS-n, TS-n, AP-n) are
+# ours; the annex numbers none.
+schema: "library-examples/v1"
+record: iso-sae-21434-2021
+kind: examples
+title: "Annex H: example TARA of a headlamp system (concept phase)"
+source_locator: "Annex H (H.1, H.2.1 to H.2.8), Tables H.1 to H.11, Figures H.1 to H.3"
+informative: true
+reviewed_by: ""
+
+summary: >-
+  An illustrative, simplified run of the TARA methods on one item in the concept phase: the item
+  definition, then asset identification, impact rating, threat scenarios, attack paths, attack
+  feasibility, risk values and treatment, in that order. The annex says the modules can be run in
+  other orders too (for example starting from a catalogue of damage scenarios), and that the
+  example implies no particular approach for real use. Step v rates feasibility twice, once by
+  attack vector (RC-15-14) and once by attack potential (RC-15-12) (H.1).
+
+concept_phase_flow:   # Figure H.1
+  locator: "Figure H.1"
+  steps:
+    - {from: "9.3", to: "9.4", carries: item definition}
+    - {within: "9.4", provision: RQ-09-03, calls: ["15.3", "15.4", "15.5", "15.6", "15.7", "15.8"]}
+    - {within: "9.4", provision: RQ-09-04, calls: ["15.9"]}
+    - {within: "9.4", provision: RQ-09-05, does: specify cybersecurity goals}
+    - {from: "9.4", to: "9.5"}
+
+item:   # H.2.1, Figure H.2
+  locator: "H.2.1, Figure H.2"
+  name: "headlamp system"
+  functions:
+    - {input: "driver's headlamp switch", output: "headlamp on or off"}
+    - {condition: "high beam on, oncoming vehicle seen", output: "automatic change to low beam"}
+    - {condition: "oncoming vehicle gone", output: "automatic return to high beam"}
+  independent_of: [navigation ECU, gateway ECU]   # H.2.1 NOTE: lighting needs neither
+  components:   # inside the item boundary
+    - headlamp switch
+    - body control ECU
+    - camera ECU
+    - power switch actuator
+    - headlamps
+  signals:
+    - {name: "lamp request", from: "body control ECU", to: "power switch actuator", values: [low, high, "off"]}
+    - {name: "oncoming car information", from: "camera ECU", to: "power switch actuator", values: ["yes", "no"]}
+  operational_environment:   # Figure H.2 (shaded area) and Table H.1
+    locator: "Figure H.2, Table H.1"
+    components: [gateway ECU, navigation ECU, OBD-II connector]
+    links:
+      - {between: [item, gateway ECU], kind: data communication}
+      - {between: [gateway ECU, navigation ECU], kind: data communication}
+      - {between: [gateway ECU, OBD-II connector]}
+    outside_the_environment: "Figure H.2 draws other ECUs wired to the gateway ECU, outside the shaded operational environment"
+    external_interfaces:
+      navigation ECU: [Bluetooth, cellular]
+      gateway ECU: [OBD-II]
+    assumptions:
+      - {component: navigation ECU, control: firewall, blocks: invalid traffic from its external interfaces}
+      - {component: gateway ECU, controls: "strong, a firewall among them", developed_at: CAL4}
+
+assets:   # H.2.2, Table H.2 (C, I, A marks as in the table)
+  locator: "H.2.2, Table H.2"
+  rows:
+    - {asset: "data communication (lamp request)", properties: [integrity, availability], damage: DS-1}
+    - {asset: "data communication (lamp request)", properties: [integrity], damage: DS-2}
+    - {asset: "data communication (oncoming car information)", properties: [integrity], damage: DS-3}
+    - {asset: "data communication (oncoming car information)", properties: [availability], damage: DS-4}
+    - {asset: "firmware of body control ECU", properties: [confidentiality, integrity], damage: null}
+
+damage_scenarios:   # Table H.2 and Table H.3
+  - id: DS-1
+    outcome: "car unusable at night"
+    cause: "the driver finds the headlamp function disabled after the car was parked"
+    impact: {category: operational, rating: major}
+  - id: DS-2
+    outcome: "head-on crash into a narrow fixed object, such as a tree"
+    cause: "the headlamp switches off when no one asked it to"
+    context: "night, medium speed"
+    impact: {category: safety, rating: severe, class: S3}
+  - id: DS-3
+    outcome: "drivers coming the other way are dazzled"
+    cause: "no change to low beam"
+    context: night
+    impact: null
+  - id: DS-4
+    outcome: "automatic high beam no longer works"
+    cause: "the lamp stays on low beam"
+    context: night
+    impact: {category: operational, rating: moderate}
+
+threat_scenarios:   # H.2.4, Table H.4
+  locator: "H.2.4, Table H.4"
+  items:
+    - {id: TS-1, damage: DS-2, attack: spoofing, target: "lamp request to the power switch actuator ECU", property: integrity, effect: "unintended switch-off of the headlamp"}
+    - {id: TS-2, damage: DS-2, attack: tampering, target: "lamp request to the power switch actuator ECU", source: "signal from the body control ECU", property: integrity, effect: "unintended switch-off of the headlamp"}
+    - {id: TS-3, damage: DS-4, asset: "oncoming car information", property: availability, cause: denial of service}
+
+attack_paths:   # H.2.5, Table H.5; paths needing physical access inside the item (e.g. the body control ECU's microcontroller) are left out by assumption
+  locator: "H.2.5, Table H.5, Figure H.3"
+  items:
+    - id: AP-1
+      threat: TS-1
+      steps:
+        - {actor: attacker, action: compromise, target: navigation ECU, via: cellular interface}
+        - {actor: navigation ECU (compromised), action: send, object: malicious control signals}
+        - {actor: gateway ECU, action: forward, object: the malicious signals, to: power switch actuator}
+        - {actor: the malicious signals, action: spoof, object: lamp request, value: "off"}
+    - id: AP-2
+      threat: TS-1
+      steps:
+        - {actor: attacker, action: compromise, target: navigation ECU, via: Bluetooth interface}
+        - {actor: navigation ECU (compromised), action: send, object: malicious control signals}
+        - {actor: gateway ECU, action: forward, object: the malicious signals, to: power switch actuator}
+        - {actor: the malicious signals, action: spoof, object: lamp request, value: "off"}
+    - id: AP-3
+      threat: TS-1
+      steps:
+        - {actor: attacker, action: gain access, target: OBD connector, access: "local (Table G.9)"}
+        - {actor: attacker, action: send, object: malicious control signals, via: OBD connector}
+        - {actor: gateway ECU, action: forward, object: the malicious signals, to: power switch actuator}
+        - {actor: the malicious signals, action: spoof, object: lamp request, value: "off"}
+    - id: AP-4
+      threat: TS-3
+      steps:
+        - {actor: attacker, action: compromise, target: navigation ECU, via: cellular interface}
+        - {actor: navigation ECU (compromised), action: send, object: malicious control signals}
+        - {actor: gateway ECU, action: forward, object: the malicious signals, to: power switch actuator}
+        - {actor: attacker, action: flood, target: communication bus, object: a large number of messages}
+    - id: AP-5
+      threat: TS-3
+      steps:
+        - {actor: attacker, action: attach, object: Bluetooth-enabled OBD dongle, target: OBD connector, condition: "vehicle parked and unlocked"}
+        - {actor: attacker, action: compromise, target: "driver's smartphone", via: Bluetooth interface}
+        - {actor: attacker, action: send, object: messages, via: "smartphone and Bluetooth dongle", to: gateway ECU}
+        - {actor: gateway ECU, action: forward, object: the malicious signals, to: power switch actuator}
+        - {actor: attacker, action: flood, target: communication bus, object: a large number of messages}
+  attack_tree:   # Figure H.3: AP-1 drawn as an attack tree under TS-1
+    locator: "Figure H.3"
+    root: TS-1
+    gate: and
+    children: "the four steps of AP-1, ending with the lamp request set to off"
+
+feasibility_by_attack_vector:   # H.2.6, Table H.6 (approach of G.4)
+  locator: "H.2.6, Table H.6"
+  note: "the attack vector approach suits the concept phase, when not all vulnerability information about the item is known yet (H.2.6, NOTE 1)"
+  ratings:
+    - {path: AP-1, vector: network, vector_basis: inferred, rating: high}
+    - {path: AP-2, vector: adjacent, vector_basis: inferred, rating: medium}
+    - {path: AP-3, vector: local, vector_basis: stated, rating: low}
+  vector_basis_note: "Table H.6 gives only the ratings; the local vector of AP-3 is stated in Table H.5, while network (cellular) and adjacent (Bluetooth) are read from the examples of Table G.9"
+
+feasibility_by_attack_potential:   # H.2.6, Table H.7 (approach of G.2, values of Table G.6, mapping of Table G.7)
+  locator: "H.2.6, Table H.7"
+  note: "each organization can justify the factor values by its own policy; AP-5's window of opportunity is moderate (4) because it needs physical access (H.2.6, NOTE 2)"
+  ratings:
+    - {path: AP-4, elapsed_time: 1, specialist_expertise: 8, knowledge_of_the_item_or_component: 7, window_of_opportunity: 0, equipment: 4, value: 20, rating: low}
+    - {path: AP-5, elapsed_time: 1, specialist_expertise: 8, knowledge_of_the_item_or_component: 7, window_of_opportunity: 4, equipment: 4, value: 24, rating: low}
+
+risk_matrix:   # H.2.7, Table H.8: the organization defines its own; this is the annex's example
+  locator: "H.2.7, Table H.8"
+  columns: [very_low, low, medium, high]   # attack feasibility rating
+  rows:   # impact rating
+    severe: [2, 3, 4, 5]
+    major: [1, 2, 3, 4]
+    moderate: [1, 2, 2, 3]
+    negligible: [1, 1, 1, 1]
+
+risk_values:   # Table H.9; the value is labelled with the impact category it comes from
+  locator: "Table H.9"
+  items:
+    - {threat: TS-1, aggregated_feasibility: high, impact: severe, category: safety, risk: 5, written: "S: 5"}
+    - {threat: TS-3, aggregated_feasibility: low, impact: moderate, category: operational, risk: 2, written: "O: 2"}
+
+risk_formula:   # H.2.7, Table H.10: an organization can use a formula instead of a matrix
+  locator: "H.2.7, Table H.10"
+  formula: "R = 1 + I * F"
+  impact_values: {negligible: 0, moderate: 1, major: 1.5, severe: 2}
+  feasibility_values: {very_low: 0, low: 1, medium: 1.5, high: 2}
+  note: "for the two threat scenarios of Table H.9 the formula gives the same risk values as Table H.8"
+
+treatment:   # H.2.8, Table H.11 (RQ-09-04, 15.9)
+  locator: "H.2.8, Table H.11"
+  items:
+    - {threat: TS-1, risk: "S: 5", option: reducing}
+    - {threat: TS-3, risk: "O: 2", option: reducing}
+
+source_inconsistencies:   # found while reading; recorded, not corrected
+  - "Table H.5 and Figure H.3 end the spoofing paths with the lamp request set to off, but Table H.6 says on for the same paths; the threat scenario (the headlamp switching off) agrees with off"
+  - "Table H.6's OBD path has three steps and starts by sending signals from the OBD-II connector; Table H.5's has four and starts by getting local access to the connector"
+  - "Table H.3 rates three of the four damage scenarios of Table H.2; DS-3 (oncoming drivers dazzled) is not rated, and the firmware asset's damage scenario is elided"
+  - "Table H.4 gives no threat scenario for DS-1, although Table H.3 rates it (operational, major)"
+  - "Table H.4 gives a tampering threat scenario (TS-2), but Table H.5 lists no attack path for it"
+  - "Table H.4 writes TS-3 as asset, property and cause, while TS-1 and TS-2 are sentences"
+  - "Figure H.3's threat-scenario box swaps two words, printing 'the of' where 'of the' is meant"
+
+caveats:   # not inconsistencies, but easy to misread
+  - "the two feasibility approaches are applied to different threat scenarios, never to the same path: AP-4 enters through the cellular interface (network, which Table G.9 rates high) yet scores 20, low, by attack potential"
+  - "the spoofing threat scenario (TS-1) is worded slightly differently in Tables H.4 and H.5, in Tables H.9 and H.11, and in Figure H.3"
+  - "H.2.5 leaves out attack paths that need physical access inside the item by assumption, but Table H.1 does not list that assumption"
