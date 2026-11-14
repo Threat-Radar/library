@@ -1,0 +1,47 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Metadata from Crossref. No content digest: the article is paywalled. Same lead author as OCCULT.
+schema: "library-record/v1"
+id: kouremetis-2024-mirage
+body: academic
+type: paper
+title: "Mirage: cyber deception against autonomous cyber attacks in emulation and simulation"
+authors:
+  - "Michael Kouremetis"
+  - "Dean Lawrence"
+  - "Ron Alford"
+  - "Zoe Cheuvront"
+  - "David Davila"
+  - "Benjamin Geyer"
+  - "Trevor Haigh"
+  - "Ethan Michalak"
+  - "Rachel Murphy"
+  - "Gianpaolo Russo"
+date: "2024-03-13"
+publisher: "Springer (Annals of Telecommunications 79, 803-817)"
+identifiers:
+  doi: "10.1007/s12243-024-01018-4"
+  url: https://doi.org/10.1007/s12243-024-01018-4
+content:
+  url: https://doi.org/10.1007/s12243-024-01018-4
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+venue: ""
+media_type: ""
+pages: 
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

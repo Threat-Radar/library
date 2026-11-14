@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: tann-2023-llm-ctf-certification
+body: academic
+type: paper
+title: "Using Large Language Models for Cybersecurity Capture-The-Flag Challenges and Certification Questions"
+authors:
+  - "Wesley Tann"
+  - "Yuancheng Liu"
+  - "Jun Heng Sim"
+  - "Choon Meng Seah"
+  - "Ee-Chien Chang"
+date: "2023-08-21"
+version: "arXiv v1 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2308.10443"
+  url: https://arxiv.org/abs/2308.10443
+content:
+  url: https://arxiv.org/pdf/2308.10443
+  sha256: "011947e5570010423013aaf0731213cd37694bda4ebb25f6a26d3ef1c5d2ef04"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

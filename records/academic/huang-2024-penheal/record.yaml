@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: huang-2024-penheal
+body: academic
+type: paper
+title: "PenHeal: A Two-Stage LLM Framework for Automated Pentesting and Optimal Remediation"
+authors:
+  - "Junjie Huang"
+  - "Quanyan Zhu"
+date: "2024-07-25"
+version: "arXiv v1 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2407.17788"
+  url: https://arxiv.org/abs/2407.17788
+content:
+  url: https://arxiv.org/pdf/2407.17788
+  sha256: "05144e08b3d462d70cc6767ea6699a6df8e2df4540da91a9173e429ba0e1143f"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: happe-2023-llms-as-hackers
+body: academic
+type: paper
+title: "LLMs as Hackers: Autonomous Linux Privilege Escalation Attacks"
+authors:
+  - "Andreas Happe"
+  - "Aaron Kaplan"
+  - "Juergen Cito"
+date: "2023-10-17"
+version: "arXiv v7 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2310.11409"
+  doi: "10.1007/s10664-025-10758-3"
+  url: https://arxiv.org/abs/2310.11409
+content:
+  url: https://arxiv.org/pdf/2310.11409
+  sha256: "a084d06673ed5bb17a3896c8ae2b4bfd422897cacedfff12c35bd4a5726f551b"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

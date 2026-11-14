@@ -1,0 +1,63 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: phuong-2024-dangerous-capabilities
+body: academic
+type: paper
+title: "Evaluating Frontier Models for Dangerous Capabilities"
+authors:
+  - "Mary Phuong"
+  - "Matthew Aitchison"
+  - "Elliot Catt"
+  - "Sarah Cogan"
+  - "Alexandre Kaskasoli"
+  - "Victoria Krakovna"
+  - "David Lindner"
+  - "Matthew Rahtz"
+  - "Yannis Assael"
+  - "Sarah Hodkinson"
+  - "Heidi Howard"
+  - "Tom Lieberum"
+  - "Ramana Kumar"
+  - "Maria Abi Raad"
+  - "Albert Webson"
+  - "Lewis Ho"
+  - "Sharon Lin"
+  - "Sebastian Farquhar"
+  - "Marcus Hutter"
+  - "Gregoire Deletang"
+  - "Anian Ruoss"
+  - "Seliem El-Sayed"
+  - "Sasha Brown"
+  - "Anca Dragan"
+  - "Rohin Shah"
+  - "Allan Dafoe"
+  - "Toby Shevlane"
+date: "2024-03-20"
+version: "arXiv v2 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2403.13793"
+  url: https://arxiv.org/abs/2403.13793
+content:
+  url: https://arxiv.org/pdf/2403.13793
+  sha256: "89225ba18d3823a3b766d00833bf77c4540749b4279a2628c1f78e15aadb560e"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

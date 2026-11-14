@@ -1,0 +1,36 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# OCCULT [26] cites protectai.com/threat-research/vulnhuntr-first-0-day-vulnerabilities, which
+# returned 404 on 2026-11-13; content is the Wayback Machine copy of 2024-11-05.
+schema: "library-record/v1"
+id: protectai-2024-vulnhuntr
+body: vendor
+type: web
+title: "Vulnhuntr: Autonomous AI Finds First 0-Day Vulnerabilities in Wild"
+authors:
+  - "Dan McInerney"
+  - "Marcello Salvati"
+date: "2024-10-19"
+publisher: "Protect AI"
+identifiers:
+  url: http://web.archive.org/web/20241105220226/https://protectai.com/threat-research/vulnhuntr-first-0-day-vulnerabilities
+content:
+  url: http://web.archive.org/web/20241105220226/https://protectai.com/threat-research/vulnhuntr-first-0-day-vulnerabilities
+  sha256: "027acbcebbbf53c83e0d20da45b344747be8411061552b91a4f8d5768f7ae70b"
+  retrieved: "2026-11-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

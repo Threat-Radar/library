@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: shao-2024-offensive-security-llms
+body: academic
+type: paper
+title: "An Empirical Evaluation of LLMs for Solving Offensive Security Challenges"
+authors:
+  - "Minghao Shao"
+  - "Boyuan Chen"
+  - "Sofija Jancheska"
+  - "Brendan Dolan-Gavitt"
+  - "Siddharth Garg"
+  - "Ramesh Karri"
+  - "Muhammad Shafique"
+date: "2024-02-19"
+version: "arXiv v1 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.11814"
+  url: https://arxiv.org/abs/2402.11814
+content:
+  url: https://arxiv.org/pdf/2402.11814
+  sha256: "0effcb1af433b52f34480612972080fa493bfebcb5e0664fb7f53b835ae34746"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,89 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0807. Metadata from the
+# arXiv API and the PDF's title page.
+schema: "library-record/v1"
+id: kouremetis-2025-occult
+body: academic
+type: paper
+title: "OCCULT: Evaluating Large Language Models for Offensive Cyber Operation Capabilities"
+short_title: "OCCULT"
+authors:
+  - "Michael Kouremetis"
+  - "Marissa Dotter"
+  - "Alex Byrne"
+  - "Dan Martin"
+  - "Ethan Michalak"
+  - "Gianpaolo Russo"
+  - "Michael Threet"
+  - "Guido Zarrella"
+date: "2025-02-18"
+publisher: "The MITRE Corporation"
+version: "arXiv v1"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2502.15797"
+  url: https://arxiv.org/abs/2502.15797
+content:
+  url: https://arxiv.org/pdf/2502.15797
+  sha256: "6b6a747c91b4672c4091a3c918c11377395ae35a4a1c5c1f4c45d4f73376c215"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+  pages: 44
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - kouremetis-2024-mirage
+  cited_by: []
+  implements_concept: []
+cites:
+  - wan-2024-cyberseceval3                      # [4]
+  - zhang-2024-cybench                          # [8] and [30], the same paper twice
+  - phuong-2024-dangerous-capabilities          # [5]
+  - huang-2024-penheal                          # [6]
+  - xu-2024-autoattacker                        # [7]
+  - abramovich-2024-enigma                      # [9]
+  - anurin-2024-3cb                             # [11]
+  - shao-2024-offensive-security-llms           # [12]
+  - tann-2023-llm-ctf-certification             # [13]
+  - happe-2023-llms-as-hackers                  # [14]
+  - happe-2024-got-root                         # [15]
+  - tihanyi-2024-cybermetric                    # [18]
+  - xuanwu-2023-seceval                         # [19]
+  - liu-2023-secqa                              # [20]
+  - glazunov-2024-project-naptime               # [22]
+  - chauvin-2024-eyeballvul                     # [23]
+  - protectai-2024-vulnhuntr                    # [26]
+  - kouremetis-2024-mirage                      # [50]
+  - title: "[1] Li et al., The WMDP benchmark (RPT-0014 S-0923)"
+  - title: "[3] Deng et al., PentestGPT (RPT-0014 S-0954)"
+  - title: "[10] Yang et al., Language agents as hackers: evaluating cybersecurity skills with capture the flag, NeurIPS 2023 MASec workshop"
+  - title: "[17] Bhatt et al., Purple Llama CyberSecEval (RPT-0014 S-0914)"
+  - title: "[21] Bhatt et al., CyberSecEval 2 (RPT-0014 S-0919)"
+  - title: "[24] Fang et al., LLM agents can autonomously exploit one-day vulnerabilities (RPT-0014 S-0254)"
+  - title: "[25] Fang et al., LLM agents can autonomously hack websites (RPT-0014 S-0253)"
+  - title: "[27] DARPA AI Cyber Challenge (AIxCC) about page (the challenge is RPT-0014 S-0725, S-1139)"
+  - title: "[29] Singer et al., On the feasibility of using LLMs to execute multistage network attacks (RPT-0014 S-0604)"
+bears_on:
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-13"
+usefulness:
+  verdict: useful
+  reason: "A test-design method that measures how far an LLM lifts an attacker, labelled by ATT&CK technique, use case and reasoning, with first results; evidence for AIT-121's feasibility, not a threat model of an AI system."
+  assessed: "2026-11-13"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+  - evidence
+status: summarized
+confidence: medium
+owner: Maimcghee

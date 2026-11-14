@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: happe-2024-got-root
+body: academic
+type: paper
+title: "Got Root? A Linux Priv-Esc Benchmark"
+authors:
+  - "Andreas Happe"
+  - "Jürgen Cito"
+date: "2024-05-03"
+version: "arXiv v2 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2405.02106"
+  url: https://arxiv.org/abs/2405.02106
+content:
+  url: https://arxiv.org/pdf/2405.02106
+  sha256: "4553cee5c396f75db38fdb5b071829e7e80cef235dc7bc92f40701fcfa6b1f59"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

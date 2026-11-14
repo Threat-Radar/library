@@ -1,0 +1,54 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+# OCCULT [9] cites it under its v1 title, "EnIGMA: Enhanced Interactive Generative Model Agent
+# for CTF Challenges"; later versions renamed it. Same arXiv id.
+schema: "library-record/v1"
+id: abramovich-2024-enigma
+body: academic
+type: paper
+title: "EnIGMA: Interactive Tools Substantially Assist LM Agents in Finding Security Vulnerabilities"
+authors:
+  - "Talor Abramovich"
+  - "Meet Udeshi"
+  - "Minghao Shao"
+  - "Kilian Lieret"
+  - "Haoran Xi"
+  - "Kimberly Milner"
+  - "Sofija Jancheska"
+  - "John Yang"
+  - "Carlos E. Jimenez"
+  - "Farshad Khorrami"
+  - "Prashanth Krishnamurthy"
+  - "Brendan Dolan-Gavitt"
+  - "Muhammad Shafique"
+  - "Karthik Narasimhan"
+  - "Ramesh Karri"
+  - "Ofir Press"
+date: "2024-09-24"
+version: "arXiv v3 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2409.16165"
+  url: https://arxiv.org/abs/2409.16165
+content:
+  url: https://arxiv.org/pdf/2409.16165
+  sha256: "00b5196e1e95248e1e506b968f3e44af4c9cbd00d436e853ef9d21cb72f8de55"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

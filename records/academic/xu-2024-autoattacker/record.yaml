@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: xu-2024-autoattacker
+body: academic
+type: paper
+title: "AutoAttacker: A Large Language Model Guided System to Implement Automatic Cyber-attacks"
+authors:
+  - "Jiacen Xu"
+  - "Jack W. Stokes"
+  - "Geoff McDonald"
+  - "Xuesong Bai"
+  - "David Marshall"
+  - "Siyue Wang"
+  - "Adith Swaminathan"
+  - "Zhou Li"
+date: "2024-03-02"
+version: "arXiv v1 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2403.01038"
+  url: https://arxiv.org/abs/2403.01038
+content:
+  url: https://arxiv.org/pdf/2403.01038
+  sha256: "b007dcf70c512fe1f4266acb06a802db9012c9f87c9f57c7ac815e5cc0770b3b"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee
