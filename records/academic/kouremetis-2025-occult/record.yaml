@@ -56,6 +56,7 @@ cites:
   - chauvin-2024-eyeballvul                     # [23]
   - protectai-2024-vulnhuntr                    # [26]
   - kouremetis-2024-mirage                      # [50]
+  - mitre-attack-design-philosophy              # [31], out of RPT-0014's scope but held
   - title: "[1] Li et al., The WMDP benchmark (RPT-0014 S-0923)"
   - title: "[3] Deng et al., PentestGPT (RPT-0014 S-0954)"
   - title: "[10] Yang et al., Language agents as hackers: evaluating cybersecurity skills with capture the flag, NeurIPS 2023 MASec workshop"

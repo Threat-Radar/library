@@ -1,0 +1,57 @@
+# Article: a company framework, not a specification anyone conforms to, so not `spec` (no FX-1).
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0805 (digest matches sources.md).
+schema: "library-record/v1"
+id: gdm-fsf-v3-2025
+body: google
+type: article
+title: "Frontier Safety Framework, Version 3.0"
+short_title: "Google DeepMind FSF v3.0"
+authors:
+  - "Google DeepMind"
+date: "2025-09-22"
+publisher: "Google DeepMind"
+version: "3.0"
+identifiers:
+  url: https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3.pdf
+content:
+  url: https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3.pdf
+  sha256: "87ebf40b747b98468226b2198442b45ff54854975f6e9882d9ece2d009082fe5"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+  pages: 16
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anthropic-rsp-v2-2-2025
+  cited_by: []
+  implements_concept: []
+cites:
+  - phuong-2025-stealth-situational-awareness   # safety cases, arXiv 2505.01420
+  - title: "Securing AI Model Weights (RAND RR-A2849-1, 2024; RPT-0014 S-0793): security level N aligns with RAND SL N"
+  - title: "An Approach to Technical AGI Safety and Security, arXiv 2504.01849 (RPT-0014 S-0763)"
+  - title: "OpenAI, Updating our Preparedness Framework (RPT-0014 S-0814)"
+bears_on:
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-13"
+usefulness:
+  verdict: useful
+  reason: "Ties each critical capability level to a weight-security level defined by RAND's SL goals (level 2 for misuse, 3 to 4 for ML R&D); the source of TM-101, whose attacker model is only that tiering."
+  assessed: "2026-11-13"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - ai-governance
+  - model-extraction
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee

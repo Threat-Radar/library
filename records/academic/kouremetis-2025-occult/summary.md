@@ -76,7 +76,7 @@ All 56 references were checked against RPT-0014's `sources.md` on 2026-11-13, by
 
 **Out of scope (28):**
 - general LLM and AI work: refs. 2, 16, 28, 34–39 and 47–49;
-- non-AI security references: 31 (ATT&CK design; the library already holds `mitre-attack`), 32, 40 and 41;
+- non-AI security references: 31 (ATT&CK design, which the library holds as `mitre-attack-design-philosophy` and `cites` links), 32, 40 and 41;
 - tools and services: 33, 42–46 and 51–54;
 - MITRE's press release: 55;
 - a test-data library: 56.

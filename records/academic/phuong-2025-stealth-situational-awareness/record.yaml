@@ -1,0 +1,45 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by gdm-fsf-v3-2025, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: phuong-2025-stealth-situational-awareness
+body: academic
+type: paper
+title: "Evaluating Frontier Models for Stealth and Situational Awareness"
+authors:
+  - "Mary Phuong"
+  - "Roland S. Zimmermann"
+  - "Ziyue Wang"
+  - "David Lindner"
+  - "Victoria Krakovna"
+  - "Sarah Cogan"
+  - "Allan Dafoe"
+  - "Lewis Ho"
+  - "Rohin Shah"
+date: "2025-05-02"
+version: "arXiv v4 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2505.01420"
+  url: https://arxiv.org/abs/2505.01420
+content:
+  url: https://arxiv.org/pdf/2505.01420
+  sha256: "00f6f2c00aba65992a6a5df6904bb7c311f14a20c0b7b12c4a6d2908cf197c1b"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - gdm-fsf-v3-2025
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee
