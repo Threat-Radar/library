@@ -1,0 +1,71 @@
+# Web catalog: an OWASP Top 10 list, typed `web` like owasp-mcp-top10-2025. Not a specification
+# anyone conforms to, so not `spec` and FX-1 does not apply.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0896.
+# Pinned by commit: content is the list page's Markdown source at that commit (raw.githubusercontent,
+# byte-stable). The ten risk pages, the method pages and the detection-resources page were read at
+# the same commit. The rendered site is https://owasp.github.io/www-project-non-human-identities-top-10/2025/.
+# Released 2024-12-09 (release notes); pages changed after that, e.g. NHI3's Salesloft Drift
+# scenario (2026-01-13) and the detection-resources page (2026-06/07).
+schema: "library-record/v1"
+id: owasp-nhi-top10-2025
+body: community
+type: web
+title: "OWASP Top 10 Non-Human Identities Risks - 2025"
+short_title: "OWASP NHI Top 10 (2025)"
+authors:
+  - "OWASP Foundation, OWASP Non-Human Identities Top 10 project"
+date: "2024-12-09"
+publisher: "OWASP Foundation"
+version: "2025 list, repository commit 16f8b793 (2026-07-02)"
+identifiers:
+  url: https://owasp.org/www-project-non-human-identities-top-10/
+  git: https://github.com/OWASP/www-project-non-human-identities-top-10
+content:
+  url: https://raw.githubusercontent.com/OWASP/www-project-non-human-identities-top-10/16f8b79394662c6467eb7a1907b6af7e209b1fd9/2025/docs/top-10-2025.md
+  sha256: "772f6f8c259320124b7780d6aa8d365e38ee3f24af21a48c631c8e7000f4e46d"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/markdown
+commit: "16f8b79394662c6467eb7a1907b6af7e209b1fd9"
+license: "CC-BY-SA-4.0"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - owasp-mcp-top10-2025
+  cited_by: []
+  implements_concept: []
+cites:
+  - doppler-2024-data-breaches-caused-by-leaks
+  - title: "Wiz Research, 38TB of data accidentally exposed by Microsoft AI researchers (RPT-0014 S-0977)"
+  - title: "Hugging Face, Space secrets leak disclosure (RPT-0014 S-1092)"
+  - title: "Google Threat Intelligence Group, Widespread Data Theft Targets Salesforce Instances via Salesloft Drift (RPT-0014 S-1105)"
+  - title: "Unit 42, Threat Brief: Compromised Salesforce Instances (Salesloft Drift)"
+  - title: "OWASP Risk Rating Methodology"
+  - title: "Cloud Security Alliance, State of Non-Human Identity Security Survey Report (2024)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: abhishek20c/gh-iga
+      url: https://github.com/abhishek20c/gh-iga
+      license: "MIT"
+      note: "the only tool on the list's detection-resources page (added 2026-06): GitHub App, deploy-key and Actions-secret inventory mapped to NHI1, NHI3, NHI5 and NHI7"
+  commercial: []
+  searched: "2026-11-15"
+usefulness:
+  verdict: useful
+  reason: "A ranked ten-item list of credential and identity risks for service accounts, keys and tokens; not AI-specific, but it is the identity layer AI agents run on, and RPT-0014 cites it for three techniques (AIT-100, AIT-113, AIT-138)."
+  assessed: "2026-11-15"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+  - agent-security
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee
