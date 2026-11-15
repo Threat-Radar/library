@@ -1,0 +1,43 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brauchler-2024-ai-application-threat-models,
+# in scope, not in RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# The NCC post cites openai.com/research/multimodal-neurons, now served at openai.com/index/multimodal-neurons/;
+# content is the Wayback Machine copy of 2023-03-08 (bytes as archived). The paper is Goh et al., Distill 2021.
+schema: "library-record/v1"
+id: openai-2021-multimodal-neurons
+body: vendor
+type: article
+title: "Multimodal neurons in artificial neural networks"
+authors:
+  - "Gabriel Goh"
+  - "Chelsea Voss"
+  - "Daniela Amodei"
+  - "Shan Carter"
+  - "Michael Petrov"
+  - "Justin Jay Wang"
+  - "Nick Cammarata"
+  - "Chris Olah"
+date: "2021-03-04"
+publisher: "OpenAI"
+identifiers:
+  url: https://openai.com/index/multimodal-neurons/
+content:
+  url: https://web.archive.org/web/20230308084015id_/https://openai.com/research/multimodal-neurons
+  sha256: "9ed6f61de09422a54302b9588999db36630cddc205fe35233c880ee5e169385f"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brauchler-2024-ai-application-threat-models
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee

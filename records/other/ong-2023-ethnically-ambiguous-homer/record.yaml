@@ -1,0 +1,36 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brauchler-2024-ai-application-threat-models,
+# in scope, not in RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2023-11-29 (bytes as archived). The article does not name
+# the image generator; the NCC post attributes the prompt augmentation to OpenAI.
+schema: "library-record/v1"
+id: ong-2023-ethnically-ambiguous-homer
+body: other
+type: article
+title: "AI's 'Accidental' Ethnically Ambiguous Homer Simpson"
+authors:
+  - "Jie Yee Ong"
+date: "2023-11-29"
+publisher: "The Chainsaw"
+identifiers:
+  url: https://thechainsaw.com/nft/ai-accidental-ethnically-ambiguous-homer-simpson/
+content:
+  url: https://web.archive.org/web/20231129122705id_/https://thechainsaw.com/nft/ai-accidental-ethnically-ambiguous-homer-simpson/
+  sha256: "b9d5712297bd66b719aa9a4d0ea65c6fc0768b84d8cb8ec719af5229b0447c30"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brauchler-2024-ai-application-threat-models
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee
