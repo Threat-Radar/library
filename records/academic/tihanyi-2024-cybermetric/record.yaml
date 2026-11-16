@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: tihanyi-2024-cybermetric
+body: academic
+type: paper
+title: "CyberMetric: A Benchmark Dataset based on Retrieval-Augmented Generation for Evaluating LLMs in Cybersecurity Knowledge"
+authors:
+  - "Norbert Tihanyi"
+  - "Mohamed Amine Ferrag"
+  - "Ridhi Jain"
+  - "Tamas Bisztray"
+  - "Merouane Debbah"
+date: "2024-02-12"
+version: "arXiv v2 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.07688"
+  url: https://arxiv.org/abs/2402.07688
+content:
+  url: https://arxiv.org/pdf/2402.07688
+  sha256: "52e9216679095b536e1fc65474a55b025919af4f668a9d23dc9c6dd7e059a01d"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

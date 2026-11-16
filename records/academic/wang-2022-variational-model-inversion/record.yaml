@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brauchler-2024-ai-application-threat-models, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: wang-2022-variational-model-inversion
+body: academic
+type: paper
+title: "Variational Model Inversion Attacks"
+authors:
+  - "Kuan-Chieh Wang"
+  - "Yan Fu"
+  - "Ke Li"
+  - "Ashish Khisti"
+  - "Richard Zemel"
+  - "Alireza Makhzani"
+date: "2022-01-26"
+version: "arXiv v1 (latest on 2026-11-15)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2201.10787"
+  url: https://arxiv.org/abs/2201.10787
+content:
+  url: https://arxiv.org/pdf/2201.10787
+  sha256: "5a2305637b00f33e45b1b0e65a2a1c920cd72dc77a3366ee195a49bd7bcf4101"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brauchler-2024-ai-application-threat-models
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - model-inversion
+status: stub
+confidence: medium
+owner: Maimcghee

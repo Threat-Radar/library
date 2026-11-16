@@ -1,0 +1,37 @@
+# Article. The current RSP when RPT-0014's subset-1 was done (2026-11-13): a new version is a
+# new record linked by supersedes (CLAUDE.md). Versions 3.0 to 3.3 (2026-02-24 to 2026-05-26)
+# came between it and v2.2 and are not recorded separately. Pinned, not summarized.
+schema: "library-record/v1"
+id: anthropic-rsp-v3-4-2026
+body: vendor
+type: article
+title: "Responsible Scaling Policy, Version 3.4"
+short_title: "Anthropic RSP v3.4"
+authors:
+  - "Anthropic"
+date: "2026-07-08"
+publisher: "Anthropic"
+version: "3.4 (effective 2026-07-08)"
+identifiers:
+  url: https://www.anthropic.com/rsp
+content:
+  url: https://assets.claude.com/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf
+  sha256: "6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+  pages: 21
+relations:
+  supersedes:
+    - anthropic-rsp-v2-2-2025
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

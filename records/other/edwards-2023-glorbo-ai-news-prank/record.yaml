@@ -1,0 +1,36 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brauchler-2024-ai-application-threat-models,
+# in scope, not in RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2023-07-21 (bytes as archived).
+schema: "library-record/v1"
+id: edwards-2023-glorbo-ai-news-prank
+body: other
+type: article
+title: "Redditors prank AI-powered news mill with “Glorbo” in World of Warcraft"
+authors:
+  - "Benj Edwards"
+date: "2023-07-21"
+publisher: "Ars Technica"
+identifiers:
+  url: https://arstechnica.com/gaming/2023/07/redditors-prank-ai-powered-news-mill-with-glorbo-in-world-of-warcraft/
+content:
+  url: https://web.archive.org/web/20230721164723id_/https://arstechnica.com/gaming/2023/07/redditors-prank-ai-powered-news-mill-with-glorbo-in-world-of-warcraft/
+  sha256: "e76ed6853d2fe3c7d411af7ff43e9a8428ba21b1e4b64462d50a06933fb26476"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brauchler-2024-ai-application-threat-models
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

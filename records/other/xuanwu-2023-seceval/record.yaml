@@ -1,0 +1,41 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Authors exactly as OCCULT [19] gives them, initials only (it cites no paper); date is the
+# repository's creation date (GitHub API). Pinned by commit; no content digest.
+schema: "library-record/v1"
+id: xuanwu-2023-seceval
+body: other
+type: repo
+title: "SecEval: A Comprehensive Benchmark for Evaluating Cybersecurity Knowledge of Foundation Models"
+authors:
+  - "G. Li"
+  - "Y. Li"
+  - "W. Guannan"
+  - "H. Yang"
+  - "Y. Yu"
+date: "2023-12-19"
+publisher: "XuanwuAI (GitHub organization)"
+identifiers:
+  git: https://github.com/XuanwuAI/SecEval
+content:
+  url: https://github.com/XuanwuAI/SecEval
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+commit: "7aef3176a1a095b40bbfa806a7a2d6c5e203d5b7"
+license: ""
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

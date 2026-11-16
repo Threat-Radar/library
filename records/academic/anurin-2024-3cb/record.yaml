@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: anurin-2024-3cb
+body: academic
+type: paper
+title: "Catastrophic Cyber Capabilities Benchmark (3CB): Robustly Evaluating LLM Agent Cyber Offense Capabilities"
+authors:
+  - "Andrey Anurin"
+  - "Jonathan Ng"
+  - "Kibo Schaffer"
+  - "Jason Schreiber"
+  - "Esben Kran"
+date: "2024-10-10"
+version: "arXiv v2 (latest on 2026-11-13)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2410.09114"
+  url: https://arxiv.org/abs/2410.09114
+content:
+  url: https://arxiv.org/pdf/2410.09114
+  sha256: "6e11eae277f1a311f484ac3b2243d24e461edd83e83673a17fc7ce196a85fa6c"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

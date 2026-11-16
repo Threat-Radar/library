@@ -1,0 +1,36 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by kouremetis-2025-occult, in scope, not in
+# RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Day not stated in the page's markup; the month is from its URL.
+schema: "library-record/v1"
+id: glazunov-2024-project-naptime
+body: vendor
+type: web
+title: "Project Naptime: Evaluating Offensive Security Capabilities of Large Language Models"
+authors:
+  - "Sergei Glazunov"
+  - "Mark Brand"
+date: "2024-06"
+publisher: "Google Project Zero"
+identifiers:
+  url: https://googleprojectzero.blogspot.com/2024/06/project-naptime.html
+content:
+  url: https://googleprojectzero.blogspot.com/2024/06/project-naptime.html
+  sha256: "4078eebf4b1c84720b081bf39fed795a7cb432aab2d6398b9c6baa3b1c0d17dc"
+  retrieved: "2026-11-13"
+  local: false
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - kouremetis-2025-occult
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee
