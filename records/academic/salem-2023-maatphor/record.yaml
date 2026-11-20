@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by wu-2024-new-era-llm-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: salem-2023-maatphor
+body: academic
+type: paper
+title: "Maatphor: Automated Variant Analysis for Prompt Injection Attacks"
+authors:
+  - "Ahmed Salem"
+  - "Andrew Paverd"
+  - "Boris Köpf"
+date: "2023-12-12"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2312.11513"
+  url: https://arxiv.org/abs/2312.11513
+content:
+  url: https://arxiv.org/pdf/2312.11513
+  sha256: "d2898dc3cf735395a1e8af623f84859fc559e41b1ea75a67550fc86a8fbfa6c2"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - wu-2024-new-era-llm-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee
