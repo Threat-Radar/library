@@ -1,0 +1,45 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: liu-2023-jailbreaking-chatgpt-prompt-engineering
+body: academic
+type: paper
+title: "Jailbreaking ChatGPT via Prompt Engineering: An Empirical Study"
+authors:
+  - "Yi Liu"
+  - "Gelei Deng"
+  - "Zhengzi Xu"
+  - "Yuekang Li"
+  - "Yaowen Zheng"
+  - "Ying Zhang"
+  - "Lida Zhao"
+  - "Tianwei Zhang"
+  - "Kailong Wang"
+  - "Yang Liu"
+date: "2023-05-23"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2305.13860"
+  url: https://arxiv.org/abs/2305.13860
+content:
+  url: https://arxiv.org/pdf/2305.13860
+  sha256: "d204c21297e1351c233eed1934a439ef9204cdbe1f001f7e4c28464c672f0f3a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

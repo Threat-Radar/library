@@ -1,0 +1,45 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zou-2025-queryattack-jailbreaking-aligned-large
+body: academic
+type: paper
+title: "QueryAttack: Jailbreaking Aligned Large Language Models Using Structured Non-natural Query Language"
+authors:
+  - "Qingsong Zou"
+  - "Jingyu Xiao"
+  - "Qing Li"
+  - "Zhi Yan"
+  - "Yuhang Wang"
+  - "Li Xu"
+  - "Wenxuan Wang"
+  - "Kuofeng Gao"
+  - "Ruoyu Li"
+  - "Yong Jiang"
+date: "2025-02-13"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2502.09723"
+  url: https://arxiv.org/abs/2502.09723
+content:
+  url: https://arxiv.org/pdf/2502.09723
+  sha256: "22dfac59d8e841cceee86d5d5f37c4c7d788010f420df9cfd71790e7768da12b"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

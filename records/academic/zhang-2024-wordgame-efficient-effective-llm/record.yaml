@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zhang-2024-wordgame-efficient-effective-llm
+body: academic
+type: paper
+title: "WordGame: Efficient & Effective LLM Jailbreak via Simultaneous Obfuscation in Query and Response"
+authors:
+  - "Tianrong Zhang"
+  - "Bochuan Cao"
+  - "Yuanpu Cao"
+  - "Lu Lin"
+  - "Prasenjit Mitra"
+  - "Jinghui Chen"
+date: "2024-05-22"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2405.14023"
+  url: https://arxiv.org/abs/2405.14023
+content:
+  url: https://arxiv.org/pdf/2405.14023
+  sha256: "3258e87fefa476ebe46faad51cd41e6392d81edba50d6d6468d69f3383942299"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

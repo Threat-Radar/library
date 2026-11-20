@@ -1,0 +1,37 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: nakka-2025-bitbypass-new-direction-jailbreaking
+body: academic
+type: paper
+title: "BitBypass: A New Direction in Jailbreaking Aligned Large Language Models with Bitstream Camouflage"
+authors:
+  - "Kalyan Nakka"
+  - "Nitesh Saxena"
+date: "2025-06-03"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2506.02479"
+  url: https://arxiv.org/abs/2506.02479
+content:
+  url: https://arxiv.org/pdf/2506.02479
+  sha256: "8d06d3121d5c4025ad35704c174f69e94a323dbfebf60251f096a9639d8681ad"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

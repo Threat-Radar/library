@@ -1,0 +1,45 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ren-2024-llms-know-their-vulnerabilities
+body: academic
+type: paper
+title: "LLMs know their vulnerabilities: Uncover Safety Gaps through Natural Distribution Shifts"
+authors:
+  - "Qibing Ren"
+  - "Hao Li"
+  - "Dongrui Liu"
+  - "Zhanxu Xie"
+  - "Xiaoya Lu"
+  - "Yu Qiao"
+  - "Lei Sha"
+  - "Junchi Yan"
+  - "Lizhuang Ma"
+  - "Jing Shao"
+date: "2024-10-14"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2410.10700"
+  url: https://arxiv.org/abs/2410.10700
+content:
+  url: https://arxiv.org/pdf/2410.10700
+  sha256: "da5cbefc47aa6ca3dc62b97a4dc33e6a2f28ad68ab49cefeca55ba3f0f97bce2"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

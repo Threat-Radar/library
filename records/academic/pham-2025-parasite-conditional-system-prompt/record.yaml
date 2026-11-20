@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: pham-2025-parasite-conditional-system-prompt
+body: academic
+type: paper
+title: "PARASITE: Conditional System Prompt Poisoning to Hijack LLMs"
+authors:
+  - "Viet Pham"
+  - "Thai Le"
+date: "2025-05-22"
+version: "arXiv v4 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2505.16888"
+  url: https://arxiv.org/abs/2505.16888
+content:
+  url: https://arxiv.org/pdf/2505.16888
+  sha256: "8ecfa52ed4839f84bc1b4cafb61184aacabe528ae676c73f7830d3031deaaf84"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

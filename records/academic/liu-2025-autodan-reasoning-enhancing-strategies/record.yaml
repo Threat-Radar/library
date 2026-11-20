@@ -1,0 +1,37 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: liu-2025-autodan-reasoning-enhancing-strategies
+body: academic
+type: paper
+title: "AutoDAN-Reasoning: Enhancing Strategies Exploration based Jailbreak Attacks with Test-Time Scaling"
+authors:
+  - "Xiaogeng Liu"
+  - "Chaowei Xiao"
+date: "2025-10-06"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2510.05379"
+  url: https://arxiv.org/abs/2510.05379
+content:
+  url: https://arxiv.org/pdf/2510.05379
+  sha256: "12f759ad50047095fe525cf83e13e19c7669ecc38506828922c3d268cecd9d3b"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

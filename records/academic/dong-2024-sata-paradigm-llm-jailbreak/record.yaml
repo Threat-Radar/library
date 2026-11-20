@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: dong-2024-sata-paradigm-llm-jailbreak
+body: academic
+type: paper
+title: "SATA: A Paradigm for LLM Jailbreak via Simple Assistive Task Linkage"
+authors:
+  - "Xiaoning Dong"
+  - "Wenbo Hu"
+  - "Wei Xu"
+  - "Tianxing He"
+date: "2024-12-19"
+version: "arXiv v5 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2412.15289"
+  url: https://arxiv.org/abs/2412.15289
+content:
+  url: https://arxiv.org/pdf/2412.15289
+  sha256: "6e9d83a53b6897644f841b020bf31a222b120085d7461034803aeb116941e63f"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zhang-2025-prompt-injection-mixture-of-encodings
+body: academic
+type: paper
+title: "Defense against Prompt Injection Attacks via Mixture of Encodings"
+authors:
+  - "Ruiyi Zhang"
+  - "David Sullivan"
+  - "Kyle Jackson"
+  - "Pengtao Xie"
+  - "Mei Chen"
+date: "2025-04-10"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2504.07467"
+  url: https://arxiv.org/abs/2504.07467
+content:
+  url: https://arxiv.org/pdf/2504.07467
+  sha256: "196ac23469e20bd58bb986f5745d1260ddb16f8851dca12ecf2119e8f0cb02cb"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ghanim-2024-jailbreaking-llms-arabic-transliteration
+body: academic
+type: paper
+title: "Jailbreaking LLMs with Arabic Transliteration and Arabizi"
+authors:
+  - "Mansour Al Ghanim"
+  - "Saleh Almohaimeed"
+  - "Mengxin Zheng"
+  - "Yan Solihin"
+  - "Qian Lou"
+date: "2024-06-26"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.18725"
+  url: https://arxiv.org/abs/2406.18725
+content:
+  url: https://arxiv.org/pdf/2406.18725
+  sha256: "ee9f108bc64b700f4dc433ced0a018951e070cf5208fe8abf9cf4790d0259e0f"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

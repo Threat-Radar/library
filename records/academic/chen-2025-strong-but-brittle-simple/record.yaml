@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: chen-2025-strong-but-brittle-simple
+body: academic
+type: paper
+title: "Strong but Brittle: Simple Attacks Subvert Reasoning-based Safety Guardrails"
+authors:
+  - "Shuo Chen"
+  - "Zhen Han"
+  - "Haokun Chen"
+  - "Bailan He"
+  - "Shengyun Si"
+  - "Jingpei Wu"
+  - "Philip Torr"
+  - "Volker Tresp"
+  - "Jindong Gu"
+date: "2025-10-13"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2510.11570"
+  url: https://arxiv.org/abs/2510.11570
+content:
+  url: https://arxiv.org/pdf/2510.11570
+  sha256: "a9ddade88a095d8fd83edcfb721878e9fd810ebe83d1c915bbf762cca5d9e14d"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: liu-2024-flipattack-jailbreak-llms-flipping
+body: academic
+type: paper
+title: "FlipAttack: Jailbreak LLMs via Flipping"
+authors:
+  - "Yue Liu"
+  - "Xiaoxin He"
+  - "Miao Xiong"
+  - "Jinlan Fu"
+  - "Shumin Deng"
+  - "Yingwei Ma"
+  - "Jiaheng Zhang"
+  - "Bryan Hooi"
+date: "2024-10-02"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2410.02832"
+  url: https://arxiv.org/abs/2410.02832
+content:
+  url: https://arxiv.org/pdf/2410.02832
+  sha256: "cd41478d78e9a3975efb9d98ad0b5cd137e3f90db89b5cfe5685882ec00c1586"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

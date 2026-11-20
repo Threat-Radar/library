@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: hackett-2025-bypassing-llm-guardrails-empirical
+body: academic
+type: paper
+title: "Bypassing LLM Guardrails: An Empirical Analysis of Evasion Attacks against Prompt Injection and Jailbreak Detection Systems"
+authors:
+  - "William Hackett"
+  - "Lewis Birch"
+  - "Stefan Trawicki"
+  - "Neeraj Suri"
+  - "Peter Garraghan"
+date: "2025-04-15"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2504.11168"
+  url: https://arxiv.org/abs/2504.11168
+content:
+  url: https://arxiv.org/pdf/2504.11168
+  sha256: "f583476d4b6b5994d8c04b076d0de0302224a117be6e97a46515ed60ae5008b2"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

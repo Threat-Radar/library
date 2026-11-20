@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: weng-2025-foot-door-multi-turn
+body: academic
+type: paper
+title: "Foot-In-The-Door: A Multi-turn Jailbreak for LLMs"
+authors:
+  - "Zixuan Weng"
+  - "Xiaolong Jin"
+  - "Jinyuan Jia"
+  - "Xiangyu Zhang"
+date: "2025-02-27"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2502.19820"
+  url: https://arxiv.org/abs/2502.19820
+content:
+  url: https://arxiv.org/pdf/2502.19820
+  sha256: "cae3138fdc27c102d9ac7ff529d1166820baff57e2d9e00979a89aef86e630a7"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - arcanum-pi-taxonomy
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee
