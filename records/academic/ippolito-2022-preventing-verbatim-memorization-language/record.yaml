@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ippolito-2022-preventing-verbatim-memorization-language
+body: academic
+type: paper
+title: "Preventing Verbatim Memorization in Language Models Gives a False Sense of Privacy"
+authors:
+  - "Daphne Ippolito"
+  - "Florian Tramèr"
+  - "Milad Nasr"
+  - "Chiyuan Zhang"
+  - "Matthew Jagielski"
+  - "Katherine Lee"
+  - "Christopher A. Choquette-Choo"
+  - "Nicholas Carlini"
+date: "2022-10-31"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2210.17546"
+  url: https://arxiv.org/abs/2210.17546
+content:
+  url: https://arxiv.org/pdf/2210.17546
+  sha256: "cf1c442fdf921c5be977e3912be4e41bff458053e068700600669f3c52d1260f"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - training-data-extraction
+status: stub
+confidence: medium
+owner: Maimcghee

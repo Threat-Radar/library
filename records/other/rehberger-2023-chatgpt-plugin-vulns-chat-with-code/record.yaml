@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-01, bytes as archived; decompressed sha256 3f484e81ce79a6c3d295d7006c9065a4a71d9742019a049b13731f698a77df11.
+schema: "library-record/v1"
+id: rehberger-2023-chatgpt-plugin-vulns-chat-with-code
+body: other
+type: article
+title: "Plugin Vulnerabilities: Visit a Website and Have Your Source Code Stolen"
+authors:
+  - "Johann Rehberger"
+date: "2023-06-20"
+publisher: "Embrace The Red"
+identifiers:
+  url: https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/
+content:
+  url: https://web.archive.org/web/20261001192552id_/https://embracethered.com/blog/posts/2023/chatgpt-plugin-vulns-chat-with-code/
+  sha256: "1ec7f4c191340d55c1042c14b702f58d4e093ee4d74d0f6870967f5b84eeb206"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

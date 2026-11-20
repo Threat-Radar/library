@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-07-13, bytes as archived.
+schema: "library-record/v1"
+id: thn-2023-shelltorch-pytorch-torchserve
+body: other
+type: article
+title: ""
+date: "2023-10-03"
+publisher: "The Hacker News"
+identifiers:
+  url: https://thehackernews.com/2023/10/warning-pytorch-models-vulnerable-to.html
+content:
+  url: https://web.archive.org/web/20260713210120id_/https://thehackernews.com/2023/10/warning-pytorch-models-vulnerable-to.html
+  sha256: "5ea6599e8c22e0e308f1e66afd3115a4ee817c1b60825c7aefae5c1a4ace3fa4"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-infrastructure
+status: stub
+confidence: medium
+owner: Maimcghee

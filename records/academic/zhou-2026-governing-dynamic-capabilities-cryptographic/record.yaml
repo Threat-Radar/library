@@ -1,0 +1,36 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zhou-2026-governing-dynamic-capabilities-cryptographic
+body: academic
+type: paper
+title: "Governing Dynamic Capabilities: Cryptographic Binding and Reproducibility Verification for AI Agent Tool Use"
+authors:
+  - "Ziling Zhou"
+date: "2026-03-15"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2603.14332"
+  url: https://arxiv.org/abs/2603.14332
+content:
+  url: https://arxiv.org/pdf/2603.14332
+  sha256: "66ccd67858e134c59e71a7f784a9ef64103e2b82f4d997d846d8f6e12aface50"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

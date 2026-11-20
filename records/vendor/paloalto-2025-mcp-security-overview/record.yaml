@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-05-10, bytes as archived.
+schema: "library-record/v1"
+id: paloalto-2025-mcp-security-overview
+body: vendor
+type: article
+title: "Model Context Protocol (MCP): A Security Overview"
+authors:
+  - "Sharon Farber"
+date: "2025-06-06"
+publisher: "Palo Alto Networks"
+identifiers:
+  url: https://www.paloaltonetworks.com/blog/cloud-security/model-context-protocol-mcp-a-security-overview/
+content:
+  url: https://web.archive.org/web/20260510192531id_/https://www.paloaltonetworks.com/blog/cloud-security/model-context-protocol-mcp-a-security-overview/
+  sha256: "c86c3a5f0febd4940cb8aae486683a4caf9dbe7ec938067ca91196abc38f9037"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - mcp
+status: stub
+confidence: medium
+owner: Maimcghee

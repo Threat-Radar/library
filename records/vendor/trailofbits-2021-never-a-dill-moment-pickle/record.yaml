@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-23, bytes as archived.
+schema: "library-record/v1"
+id: trailofbits-2021-never-a-dill-moment-pickle
+body: vendor
+type: article
+title: ""
+authors:
+  - "Evan Sultanik"
+date: "2021-03-15"
+publisher: "Trail of Bits"
+identifiers:
+  url: https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/
+content:
+  url: https://web.archive.org/web/20261023012236id_/https://blog.trailofbits.com/2021/03/15/never-a-dill-moment-exploiting-machine-learning-pickle-files/
+  sha256: "39b074c467d7732003f1c2549bb30b3e78e0c2aff4ede27a503efa3126aef830"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-supply-chain
+status: stub
+confidence: medium
+owner: Maimcghee

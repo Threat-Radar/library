@@ -1,0 +1,37 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: hong-2023-peta-parameter-efficient-trojan
+body: academic
+type: paper
+title: "PETA: Parameter-Efficient Trojan Attacks"
+authors:
+  - "Lauren Hong"
+  - "Ting Wang"
+date: "2023-10-01"
+version: "arXiv v5 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2310.00648"
+  url: https://arxiv.org/abs/2310.00648
+content:
+  url: https://arxiv.org/pdf/2310.00648
+  sha256: "9b582ed614c4cfbf46e7b5530d6821d4472231875472adf6267580a35e349d33"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - backdoor
+status: stub
+confidence: medium
+owner: Maimcghee

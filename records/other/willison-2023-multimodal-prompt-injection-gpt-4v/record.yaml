@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-14, bytes as archived; decompressed sha256 27ac58c39a2aca5d129faa6efed9e96f86c79ed55ff9432ebbd8d49e489269f9.
+schema: "library-record/v1"
+id: willison-2023-multimodal-prompt-injection-gpt-4v
+body: other
+type: article
+title: ""
+authors:
+  - "Simon Willison"
+date: "2023-10-14"
+publisher: "Simon Willison's Weblog"
+identifiers:
+  url: https://simonwillison.net/2023/Oct/14/multi-modal-prompt-injection/
+content:
+  url: https://web.archive.org/web/20261114154753id_/https://simonwillison.net/2023/Oct/14/multi-modal-prompt-injection/
+  sha256: "aca11268bfece5c89a920018f235c7cd4602e3c64198c28b4fea6321ed3fc8c0"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

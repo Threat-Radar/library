@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-04, bytes as archived; decompressed sha256 a668c6af4db5adb36e0a5790e7613a10f3f0cf37b272d33a365568cb984c65cc.
+schema: "library-record/v1"
+id: checkmarx-2025-11-emerging-ai-security-risks-mcp
+body: vendor
+type: article
+title: "11 Emerging AI Security Risks with MCP (Model Context Protocol)"
+date: "2025-11-25"
+publisher: "Checkmarx"
+identifiers:
+  url: https://checkmarx.com/zero-post/11-emerging-ai-security-risks-with-mcp-model-context-protocol/
+content:
+  url: https://web.archive.org/web/20261004233837id_/https://checkmarx.com/zero-post/11-emerging-ai-security-risks-with-mcp-model-context-protocol/
+  sha256: "47147098bb3125976154958cc6cbabcb5c5235c9cae630b8b637ce9c26638f8a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - cosai-risk-map
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - mcp
+status: stub
+confidence: medium
+owner: Maimcghee
