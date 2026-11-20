@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-05, bytes as archived; decompressed sha256 73aa2edb9788c884ce5d883e13e460cc01f660f65cae7f90f4d54c6f49700af9.
+schema: "library-record/v1"
+id: zenity-2026-scanning-exposed-llm-backends
+body: vendor
+type: article
+title: "Scanning for AI: Live Campaigns Mapping the Internet's Exposed LLM Backends"
+authors:
+  - "Ayush RoyChowdhury"
+date: "2026-06-30"
+publisher: "Zenity Labs"
+identifiers:
+  url: https://labs.zenity.io/post/scanning-for-ai-live-campaigns-mapping-the-internet-s-exposed-llm-backends
+content:
+  url: https://web.archive.org/web/20261105221238id_/https://labs.zenity.io/post/scanning-for-ai-live-campaigns-mapping-the-internet-s-exposed-llm-backends
+  sha256: "238773427d945f31389d8438f20eea8abdd4871ec66e05f5f8e6fdfed6f71240"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-infrastructure
+status: stub
+confidence: medium
+owner: Maimcghee

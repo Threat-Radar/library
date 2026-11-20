@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-12, bytes as archived; decompressed sha256 e6643a973519f695071374ca42e48f4620c92c912c21d8bdeee16405fb3ffb9e.
+schema: "library-record/v1"
+id: promptfoo-how-to-jailbreak-llms
+body: vendor
+type: article
+title: "Jailbreaking LLMs: A Comprehensive Guide (With Examples)"
+date: "2025-01-07"
+publisher: "Promptfoo"
+identifiers:
+  url: https://www.promptfoo.dev/blog/how-to-jailbreak-llms/
+content:
+  url: https://web.archive.org/web/20261012094927id_/https://www.promptfoo.dev/blog/how-to-jailbreak-llms/
+  sha256: "8a12f82ff6205a735dbe1be47c7f81dbdc61992ebd5aae2c4498a55143a5ac0e"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

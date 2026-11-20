@@ -1,0 +1,34 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: aiid-1280-phantom-hacker-voice-fraud
+body: other
+type: web
+title: "Reported Use of AI Voice and Identity Manipulation in the 'Phantom Hacker' Fraud Scheme"
+date: "2023-10-20"
+publisher: "AI Incident Database (Responsible AI Collaborative)"
+identifiers:
+  url: https://incidentdatabase.ai/cite/1280/
+content:
+  url: https://web.archive.org/web/20261031012919id_/https://incidentdatabase.ai/cite/1280/
+  sha256: "aaa3f380a9acbe0ce32a1e2820f3eb5f92f9d192e2b8a8ce8fd812ae182addcb"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

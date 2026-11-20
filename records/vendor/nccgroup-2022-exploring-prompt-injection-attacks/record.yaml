@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-03-03, bytes as archived.
+schema: "library-record/v1"
+id: nccgroup-2022-exploring-prompt-injection-attacks
+body: vendor
+type: article
+title: "Exploring prompt-based attacks"
+date: "2022-12-05"
+publisher: "NCC Group"
+identifiers:
+  url: https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks
+content:
+  url: https://web.archive.org/web/20250303130332id_/https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks
+  sha256: "d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

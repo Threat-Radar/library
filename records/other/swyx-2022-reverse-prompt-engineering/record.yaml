@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2023-03-14, bytes as archived; decompressed sha256 38d82d8c4f9940859529006270d2d8efb75f9565dcf3f21dd8e17c779009e6e0.
+schema: "library-record/v1"
+id: swyx-2022-reverse-prompt-engineering
+body: other
+type: article
+title: "Reverse Prompt Engineering for Fun and (no) Profit"
+authors:
+  - "swyx"
+date: "2022-12-28"
+publisher: "L-Space Diaries (swyx)"
+identifiers:
+  url: https://lspace.swyx.io/p/reverse-prompt-eng
+content:
+  url: https://web.archive.org/web/20230314000813id_/https://lspace.swyx.io/p/reverse-prompt-eng
+  sha256: "cfca779ac77054345adeff02c890149db8bfc2f07e81ba7e90a9fe244857ad5c"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

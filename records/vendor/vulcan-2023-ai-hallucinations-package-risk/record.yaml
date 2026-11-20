@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-04-15, bytes as archived; decompressed sha256 ad90c810bf5087369d5aec2893539e4574febc8625afdead545495106571bbc2.
+schema: "library-record/v1"
+id: vulcan-2023-ai-hallucinations-package-risk
+body: vendor
+type: article
+title: "Can you trust ChatGPT's package recommendations?"
+authors:
+  - "Bar Lanyado"
+date: "2023-06-06"
+publisher: "Vulcan Cyber"
+identifiers:
+  url: https://vulcan.io/blog/ai-hallucinations-package-risk
+content:
+  url: https://web.archive.org/web/20250415105247id_/https://vulcan.io/blog/ai-hallucinations-package-risk
+  sha256: "ad24c74de6c43522d73c5d6261d802ad1d637967a24c3f73c9926b4557cd1114"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-supply-chain
+status: stub
+confidence: medium
+owner: Maimcghee

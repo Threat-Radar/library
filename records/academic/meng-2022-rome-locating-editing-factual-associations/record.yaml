@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: meng-2022-rome-locating-editing-factual-associations
+body: academic
+type: paper
+title: "Locating and Editing Factual Associations in GPT"
+authors:
+  - "Kevin Meng"
+  - "David Bau"
+  - "Alex Andonian"
+  - "Yonatan Belinkov"
+date: "2022-02-10"
+version: "arXiv v5 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2202.05262"
+  url: https://arxiv.org/abs/2202.05262
+content:
+  url: https://arxiv.org/pdf/2202.05262
+  sha256: "d7c17f896cca512fb258261421b073baa6f4e6e44b6bb7ada5c90185f423054a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - backdoor
+status: stub
+confidence: medium
+owner: Maimcghee

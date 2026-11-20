@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-08, bytes as archived; decompressed sha256 00bacdaa7570654c5d72ba64fac2322466ceb50ab0e9430fa4a62a64860cb25b.
+schema: "library-record/v1"
+id: greynoise-2026-threat-actors-targeting-llms
+body: vendor
+type: article
+title: "Threat Actors Actively Targeting LLMs"
+date: "2026-01-08"
+publisher: "GreyNoise"
+identifiers:
+  url: https://www.greynoise.io/blog/threat-actors-actively-targeting-llms
+content:
+  url: https://web.archive.org/web/20261108000240id_/https://www.greynoise.io/blog/threat-actors-actively-targeting-llms
+  sha256: "c30e03f69f8f203e2eeb7d1656770a57fa86be2e3a55c6ce308bdbc934503fc9"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-infrastructure
+status: stub
+confidence: medium
+owner: Maimcghee

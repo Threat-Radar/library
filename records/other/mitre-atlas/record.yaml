@@ -1,7 +1,8 @@
 # Dataset: version is load-bearing; ids are pinned to the release named below.
-# Honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02): pinned, not
-# extracted. RPT-0009 uses its technique ids and case study AML.CS0059 (G12).
-# Shared with RPT-0014 (tmodel #71), which cites the same 2026.09 file.
+# Created as an honest stub for tmodel #189 (RPT-0009 references traced, 2026-11-02).
+# Summarized for RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0903, which
+# cites the same 2026.09 file. Not extracted: full extraction is WAVE 2's unit
+# CAT-mitre-atlas-2026-09 (#84). Topic stays `sagai`, the topic file that lists this record.
 # v2026.10 (2026-10-28) exists and is NOT pinned here; it removes ids the records
 # use. See summary.md (RPT-0009 Phase 4 review, F-11 and F-21, 2026-11-02). A
 # re-pin is a new record linked by supersedes, not an edit of this one.
@@ -24,6 +25,7 @@ content:
   retrieved: "2026-11-02"
   local: false
   media_type: application/yaml
+license: "Apache-2.0"
 relations:
   supersedes: []
   superseded_by: []
@@ -32,22 +34,78 @@ relations:
     - nist-ai-100-2-e2025
     - etsi-en-304-223
     - cisa-ai-in-ot-principles
+    - cosai-risk-map
   cited_by: []
   implements_concept: []
+cites:
+  - aiid-1100-lastpass-ceo-voice-deepfake
+  - aiid-1280-phantom-hacker-voice-fraud
+  - aiid-1285-momoa-deepfake-romance-scam
+  - aiid-147-hong-kong-bank-voice-clone-fraud
+  - aiid-564-voice-deepfake-bank-transfer-scam
+  - aiid-839-spoofed-google-call-gmail-phishing
+  - aiid-927-italian-defense-minister-voice-clone
+  - aiid-941-deepfake-robocalls-gmail-users
+  - backslash-2025-mcp-context-poisoning-poc
+  - chatgpt-dan-jailbreak-prompts-repo
+  - cybersecuritynews-2025-github-copilot-jailbreak
+  - gbhackers-2025-cybercriminals-exploit-llm-models
+  - gbhackers-2025-wormgpt-grok-mixtral
+  - google-2026-prompt-injections-on-the-web
+  - google-cloud-2024-ai-voice-spoofing-vishing
+  - greynoise-2026-threat-actors-targeting-llms
+  - jin-2024-jailbreakzoo
+  - medium-2022-careful-who-you-colab-with
+  - meng-2022-rome-locating-editing-factual-associations
+  - nccgroup-2022-exploring-prompt-injection-attacks
+  - oecd-aim-2026-voice-scam-drica-moraes
+  - opengpt2-2019-we-replicated-gpt2
+  - owasp-agent-memory-guard
+  - owasp-genai-red-teaming-guide
+  - owasp-mcp-security-cheat-sheet
+  - promptfoo-how-to-jailbreak-llms
+  - rehberger-2023-chatgpt-webpilot-markdown-exfil
+  - rehberger-2024-chatgpt-hacking-memories
+  - rehberger-2024-gemini-delayed-tool-invocation
+  - swyx-2022-reverse-prompt-engineering
+  - vulcan-2023-ai-hallucinations-package-risk
+  - zenity-2025-data-structure-injection-agents
+  - zenity-2026-scanning-exposed-llm-backends
+  - apruzzese-2023-real-attackers
+  - echoleak-zero-click-prompt-injection
+  - google-photos-model-extraction-2025
+  - lenovo-lena-xss-2025
+  - mcp-spec-security-best-practices
+  - pillar-2025-rules-file-backdoor
+  - pytorch-2022-torchtriton-dependency-confusion
 bears_on:
   - DEC-008
 applicability:
   security: core
   cryptography: none
   this_project: core
+implementations:
+  open_source:
+    - name: mitre-atlas/atlas-data
+      url: https://github.com/mitre-atlas/atlas-data
+      license: "Apache-2.0"
+      note: "the data itself, as YAML, STIX, Navigator layers and spreadsheets for each release"
+    - name: mitre-atlas/atlas-navigator-data
+      url: https://github.com/mitre-atlas/atlas-navigator-data
+      license: "Apache-2.0"
+      note: "ATLAS layers for the ATT&CK Navigator"
+  commercial: []
+  searched: "2026-11-20"
 usefulness:
   verdict: useful
-  reason: "Technique ids for AI attacks and coded case studies; the ATT&CK counterpart for AI threats in RPT-0009 and RPT-0014."
-  assessed: "2026-11-02"
+  reason: "Technique ids for AI attacks and coded case studies; the ATT&CK counterpart for AI threats, cited by 141 of RPT-0014's 146 attack entries, so its releases' removals reach straight into the catalog."
+  assessed: "2026-11-20"
 topic: sagai
 tags:
   - ai-security
   - taxonomy
-status: stub
+  - ai-weakness-catalog
+  - ai-incident
+status: summarized
 confidence: medium
 owner: Maimcghee

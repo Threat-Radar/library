@@ -1,0 +1,34 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-11, bytes as archived; decompressed sha256 cc2c9a0a651eb83f5bf2c2806a087c368aeb08825f07a190e5856df08cba16a8.
+schema: "library-record/v1"
+id: aiid-927-italian-defense-minister-voice-clone
+body: other
+type: web
+title: "Italian Defense Minister Voice Clone"
+date: "2025-02-04"
+publisher: "AI Incident Database (Responsible AI Collaborative)"
+identifiers:
+  url: https://incidentdatabase.ai/cite/927/
+content:
+  url: https://web.archive.org/web/20261111161258id_/https://incidentdatabase.ai/cite/927/
+  sha256: "01bfa4be1c338af2d815f75767de73b4be9fe6bb752c1f20eec7a30de5012728"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

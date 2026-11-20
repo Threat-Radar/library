@@ -1,0 +1,34 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: aiid-1285-momoa-deepfake-romance-scam
+body: other
+type: web
+title: "Purportedly AI-Generated Jason Momoa Deepfake Used in Romance Scam"
+date: "2025-11-29"
+publisher: "AI Incident Database (Responsible AI Collaborative)"
+identifiers:
+  url: https://incidentdatabase.ai/cite/1285/
+content:
+  url: https://web.archive.org/web/20261031002613id_/https://incidentdatabase.ai/cite/1285/
+  sha256: "b9afbdcb2b40e79e09b036f6cff408fca2780942b8cc2008a31fadaf1f379f40"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - mitre-atlas
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

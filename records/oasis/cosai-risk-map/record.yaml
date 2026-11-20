@@ -36,27 +36,27 @@ relations:
   implements_concept: []
 cites:
   - checkmarx-2025-11-emerging-ai-security-risks-mcp
-dubrovsky-2025-selective-adversarial-attacks-llm
-gao-2025-cache-side-channels-local-llm-inference
-gitguardian-2025-breaking-mcp-server-hosting
-hiddenlayer-2022-weaponizing-ml-models-ransomware
-hong-2023-peta-parameter-efficient-trojan
-invariantlabs-2025-whatsapp-mcp-exploited
-ippolito-2022-preventing-verbatim-memorization-language
-langford-2024-architectural-neural-backdoors-first
-long-2024-backdoor-attacks-dense-retrieval
-mathew-2024-hidden-plain-text-emergence
-nvd-cve-2026-24779-vllm-ssrf
-paloalto-2025-mcp-security-overview
-rehberger-2023-chatgpt-plugin-vulns-chat-with-code
-shapira-2022-phantom-sponges-exploiting-non
-thn-2023-shelltorch-pytorch-torchserve
-trailofbits-2021-never-a-dill-moment-pickle
-verge-2019-alexa-google-home-srlabs-phishing
-willison-2023-multimodal-prompt-injection-gpt-4v
-zhang-2026-similarity-vulnerability-key-collision
-zhou-2026-governing-dynamic-capabilities-cryptographic
-zhu-2024-fedmia-effective-membership-inference
+  - dubrovsky-2025-selective-adversarial-attacks-llm
+  - gao-2025-cache-side-channels-local-llm-inference
+  - gitguardian-2025-breaking-mcp-server-hosting
+  - hiddenlayer-2022-weaponizing-ml-models-ransomware
+  - hong-2023-peta-parameter-efficient-trojan
+  - invariantlabs-2025-whatsapp-mcp-exploited
+  - ippolito-2022-preventing-verbatim-memorization-language
+  - langford-2024-architectural-neural-backdoors-first
+  - long-2024-backdoor-attacks-dense-retrieval
+  - mathew-2024-hidden-plain-text-emergence
+  - nvd-cve-2026-24779-vllm-ssrf
+  - paloalto-2025-mcp-security-overview
+  - rehberger-2023-chatgpt-plugin-vulns-chat-with-code
+  - shapira-2022-phantom-sponges-exploiting-non
+  - thn-2023-shelltorch-pytorch-torchserve
+  - trailofbits-2021-never-a-dill-moment-pickle
+  - verge-2019-alexa-google-home-srlabs-phishing
+  - willison-2023-multimodal-prompt-injection-gpt-4v
+  - zhang-2026-similarity-vulnerability-key-collision
+  - zhou-2026-governing-dynamic-capabilities-cryptographic
+  - zhu-2024-fedmia-effective-membership-inference
   - pytorch-2022-torchtriton-dependency-confusion   # also RPT-0014 S-1083
   - mcp-spec-security-best-practices               # transports and elicitation pages (S-0854, S-0829)
   - rfc-6749
