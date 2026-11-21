@@ -1,0 +1,58 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0839.
+# Typed `spec` like eu-ai-act-art-50 (binding law), so it stays `status: stub`: WAVE 1 is a
+# summary pass (LANES.md), and moving a spec past stub needs FX-1 full extraction. summary.md
+# carries the WAVE 1 summary and the RPT-0014 applicability table.
+# Content is the whole regulation as published (OJ L, 2024/1689, 12.7.2024); this record is its
+# Article 15. Text read from the EUR-Lex HTML of the same act (anchor art_15). Article 15's text
+# is unchanged by Regulation (EU) 2026/1744, which moves its date of application.
+schema: "library-record/v1"
+id: eu-ai-act-art-15
+body: regulator
+type: spec
+title: "EU AI Act Article 15: Accuracy, robustness and cybersecurity"
+short_title: "AI Act Art. 15"
+authors:
+  - "European Parliament and Council of the European Union"
+date: "2024-06-13"
+publisher: "Publications Office of the European Union (Official Journal, L series)"
+version: "Regulation (EU) 2024/1689, OJ L 12.7.2024; Article 15 text as published; application dates as amended by Regulation (EU) 2026/1744"
+identifiers:
+  url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+  celex: "32024R1689"
+content:
+  url: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689
+  sha256: "bba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 144
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - eu-ai-act-art-50
+    - eu-2026-1744-digital-omnibus-ai
+    - eu-cra-2024-2847
+  cited_by: []
+  implements_concept: []
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "The only legally binding list of AI attack classes found: Art. 15(5) names data poisoning, model poisoning, adversarial examples or model evasion, confidentiality attacks and model flaws as what high-risk systems must resist; it applies from 2027-12-02 or 2028-08-02 after Regulation (EU) 2026/1744."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - regulation
+  - normative
+  - ai-governance
+  - data-poisoning
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee
