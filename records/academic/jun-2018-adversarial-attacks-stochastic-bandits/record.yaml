@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: jun-2018-adversarial-attacks-stochastic-bandits
+body: academic
+type: paper
+title: "Adversarial Attacks on Stochastic Bandits"
+authors:
+  - "Kwang-Sung Jun"
+  - "Lihong Li"
+  - "Yuzhe Ma"
+  - "Xiaojin Zhu"
+date: "2018-10-29"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1810.12188"
+  url: https://arxiv.org/abs/1810.12188
+content:
+  url: https://arxiv.org/pdf/1810.12188
+  sha256: "fa9850ed8cc891208d74b283c8d016300c28e0a43d338e5fc89cf5d1e9d39c56"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

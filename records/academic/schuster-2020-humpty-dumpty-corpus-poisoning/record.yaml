@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: schuster-2020-humpty-dumpty-corpus-poisoning
+body: academic
+type: paper
+title: "Humpty Dumpty: Controlling Word Meanings via Corpus Poisoning"
+authors:
+  - "Roei Schuster"
+  - "Tal Schuster"
+  - "Yoav Meri"
+  - "Vitaly Shmatikov"
+date: "2020-01-14"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2001.04935"
+  url: https://arxiv.org/abs/2001.04935
+content:
+  url: https://arxiv.org/pdf/2001.04935
+  sha256: "aead0e5784ce0c38669cae0633fac1afa2d7b9238c139d0e64591cee1403f6ae"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

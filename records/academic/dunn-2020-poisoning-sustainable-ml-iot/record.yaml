@@ -1,0 +1,37 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-10, bytes as archived; decompressed sha256 c4bbb62de0d56ce326123e1ad38e0fafaef1c71be7cca29f0406b9f594a85a9a.
+schema: "library-record/v1"
+id: dunn-2020-poisoning-sustainable-ml-iot
+body: academic
+type: paper
+title: "Robustness Evaluations of Sustainable Machine Learning Models against Data Poisoning Attacks in the Internet of Things"
+authors:
+  - "Corey Dunn"
+  - "Nour Moustafa"
+  - "Benjamin Turnbull"
+date: "2020-08-10"
+publisher: "MDPI (Sustainability)"
+identifiers:
+  url: https://www.mdpi.com/2071-1050/12/16/6434
+content:
+  url: https://web.archive.org/web/20261010223658id_/https://www.mdpi.com/2071-1050/12/16/6434
+  sha256: "799c753d58451320365187febd7f5fc0397d6ed27de0b5bb7b6890b0fe244c7b"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

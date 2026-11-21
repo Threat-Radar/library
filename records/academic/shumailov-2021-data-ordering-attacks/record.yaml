@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: shumailov-2021-data-ordering-attacks
+body: academic
+type: paper
+title: "Manipulating SGD with Data Ordering Attacks"
+authors:
+  - "Ilia Shumailov"
+  - "Zakhar Shumaylov"
+  - "Dmitry Kazhdan"
+  - "Yiren Zhao"
+  - "Nicolas Papernot"
+  - "Murat A. Erdogdu"
+  - "Ross Anderson"
+date: "2021-04-19"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2104.09667"
+  url: https://arxiv.org/abs/2104.09667
+content:
+  url: https://arxiv.org/pdf/2104.09667
+  sha256: "394d9a7e76603a7861e01637dbb0b9110c4643140b235fa92d85f5ebacb798ed"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

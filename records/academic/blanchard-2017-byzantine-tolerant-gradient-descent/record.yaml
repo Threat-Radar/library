@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002 ([i.9]), in
+# scope, not in RPT-0014 sources.md (several summaries name its Krum rule, none cites it).
+# Pinned, not summarized (LANES.md Step 2.5). Content is the NeurIPS proceedings PDF.
+schema: "library-record/v1"
+id: blanchard-2017-byzantine-tolerant-gradient-descent
+body: academic
+type: paper
+title: "Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent"
+authors:
+  - "Peva Blanchard"
+  - "El Mahdi El Mhamdi"
+  - "Rachid Guerraoui"
+  - "Julien Stainer"
+date: "2017-12"
+venue: "Advances in Neural Information Processing Systems 30 (NeurIPS 2017)"
+publisher: "Curran Associates (NeurIPS proceedings)"
+identifiers:
+  url: https://proceedings.neurips.cc/paper_files/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html
+content:
+  url: https://proceedings.neurips.cc/paper_files/paper/2017/file/f4b9ec30ad9f68f89b29639786cb62ef-Paper.pdf
+  sha256: "df73b5e45e062a2aceeb5ecba0881c6d0d04f382fb29e6ef7324f7cf6bb489c7"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 11
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

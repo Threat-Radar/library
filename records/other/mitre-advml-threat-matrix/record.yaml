@@ -1,0 +1,40 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002 ([i.16], its
+# main source for case studies), in scope, not in RPT-0014 sources.md. The repository's readme
+# announces that the matrix was rebranded as ATLAS (see mitre-atlas). Pinned, not summarized
+# (LANES.md Step 2.5). Content is readme.md at the repository's newest commit (last push
+# 2023-04-27).
+schema: "library-record/v1"
+id: mitre-advml-threat-matrix
+body: other
+type: repo
+title: "Adversarial ML Threat Matrix"
+authors:
+  - "MITRE and Microsoft, with industry and academic contributors"
+date: "2020-10-15"
+publisher: "The MITRE Corporation"
+identifiers:
+  url: https://github.com/mitre/advmlthreatmatrix
+  git: https://github.com/mitre/advmlthreatmatrix
+content:
+  url: https://raw.githubusercontent.com/mitre/advmlthreatmatrix/406e4a403895cd845a274a15ebf03bd50802d1b3/readme.md
+  sha256: "f4fc25128dbc4aee3b85b094ec7770369b90bbe3335666307d6da1d939276649"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/markdown
+commit: "406e4a403895cd845a274a15ebf03bd50802d1b3"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - mitre-atlas
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+status: stub
+confidence: medium
+owner: Maimcghee

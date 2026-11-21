@@ -1,0 +1,36 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: berghoff-2020-integrity-training-procedure-neural-networks
+body: academic
+type: paper
+title: "Protecting the integrity of the training procedure of neural networks"
+authors:
+  - "Christian Berghoff"
+date: "2020-05-14"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2005.06928"
+  url: https://arxiv.org/abs/2005.06928
+content:
+  url: https://arxiv.org/pdf/2005.06928
+  sha256: "447feb50477c8c4d0e374a5e16d65f64ec0f637565b0d55399f3c174a05b7b03"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

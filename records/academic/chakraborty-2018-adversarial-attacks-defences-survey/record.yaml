@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by etsi-gr-sai-002, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: chakraborty-2018-adversarial-attacks-defences-survey
+body: academic
+type: paper
+title: "Adversarial Attacks and Defences: A Survey"
+authors:
+  - "Anirban Chakraborty"
+  - "Manaar Alam"
+  - "Vishal Dey"
+  - "Anupam Chattopadhyay"
+  - "Debdeep Mukhopadhyay"
+date: "2018-09-28"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1810.00069"
+  url: https://arxiv.org/abs/1810.00069
+content:
+  url: https://arxiv.org/pdf/1810.00069
+  sha256: "0c6af0c6f0ccb1ba7c20592323f43a3eb17b683b6a7ce22762125a3243a5b9a1"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - etsi-gr-sai-002
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee

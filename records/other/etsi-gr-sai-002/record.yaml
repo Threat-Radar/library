@@ -1,0 +1,83 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0833 (since the v0.2 split, GR SAI
+# 002 only; 005, 006 and 009 are S-1174 to S-1176).
+# Typed `spec`, maturity informational, like the other ETSI TR records (etsi-tr-104-048): an
+# ETSI Group Report has no normative provisions ("Normative references are not applicable"),
+# but it is an ETSI deliverable. It stays `status: stub`: WAVE 1 is a summary pass, and moving a
+# spec past stub needs FX-1. summary.md carries the WAVE 1 summary and the applicability table.
+schema: "library-record/v1"
+id: etsi-gr-sai-002
+body: other
+type: spec
+maturity: informational
+title: "Securing Artificial Intelligence (SAI); Data Supply Chain Security"
+short_title: "ETSI GR SAI 002"
+authors:
+  - "ETSI Industry Specification Group Securing Artificial Intelligence (ISG SAI)"
+date: "2021-08"
+publisher: "ETSI"
+version: "V1.1.1"
+identifiers:
+  url: https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf
+  etsi: "DGR/SAI-002"
+content:
+  url: https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf
+  sha256: "1ef9d5f86c2b58b10a000185a2023a0bd626423e46fcbe0aaebd14db0130ea03"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 23
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - etsi-en-304-223
+    - mitre-advml-threat-matrix
+  cited_by: []
+  implements_concept: []
+cites:
+  - kiourti-2019-trojdrl                                   # [i.2]
+  - jun-2018-adversarial-attacks-stochastic-bandits        # [i.3]
+  - schuster-2020-humpty-dumpty-corpus-poisoning           # [i.4]
+  - zhang-2019-poisoning-knowledge-graph-embedding         # [i.5]
+  - sun-2018-poisoning-unsupervised-node-embedding         # [i.6]
+  - blanchard-2017-byzantine-tolerant-gradient-descent     # [i.9]
+  - yin-2018-byzantine-robust-distributed-learning         # [i.10]
+  - mitre-advml-threat-matrix                              # [i.16]
+  - dunn-2020-poisoning-sustainable-ml-iot                 # [i.17]
+  - chakraborty-2018-adversarial-attacks-defences-survey   # [i.21]
+  - nelson-2008-exploiting-ml-subvert-spam-filter          # [i.28]
+  - ibitoye-2019-adversarial-attacks-ml-network-security-survey  # [i.29]
+  - berghoff-2020-integrity-training-procedure-neural-networks   # [i.43]
+  - shumailov-2021-data-ordering-attacks                   # [i.46]
+  - title: "[i.1] Jagielski et al., Manipulating machine learning: poisoning attacks on regression (RPT-0014 S-0042)"
+  - title: "[i.8] Bhagoji et al., Analyzing federated learning through an adversarial lens (RPT-0014 S-0055)"
+  - title: "[i.13] ETSI GR SAI 004, Problem Statement (RPT-0014 S-0832)"
+  - title: "[i.14] Kumar et al., Adversarial machine learning: industry perspectives (RPT-0014 S-0675)"
+  - title: "[i.18] Papernot et al., SoK: security and privacy in machine learning (RPT-0014 S-0673)"
+  - title: "[i.19] Biggio and Roli, Wild patterns (RPT-0014 S-0672)"
+  - title: "[i.20] Chen et al., Targeted backdoor attacks using data poisoning (RPT-0014 S-0017)"
+  - title: "[i.22] Kumar et al., Failure modes in machine learning (RPT-0014 S-0872)"
+  - title: "[i.23] Marshall et al., Threat modeling AI/ML systems and dependencies (RPT-0014 S-0727)"
+  - title: "[i.27] ETSI GR SAI 005, Mitigation Strategy Report (RPT-0014 S-1174)"
+  - title: "[i.31] ENISA, Cybersecurity challenges in the uptake of AI in autonomous driving (RPT-0014 S-0730)"
+  - title: "[i.45] Fang et al., Local model poisoning attacks to Byzantine-robust federated learning (RPT-0014 S-0084)"
+bears_on:
+  - R-018
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "A short, early survey of poisoning through the AI data supply chain: three compromise methods plus reordering, the lifecycle stages where each bites, and a hash-and-sign scheme for the whole training record; it finds no standard or law covering the topic (2021)."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-supply-chain
+  - data-poisoning
+  - backdoor
+  - provenance
+status: stub
+confidence: medium
+owner: Maimcghee
