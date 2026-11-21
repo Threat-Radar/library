@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: muller-2022-open-challenges-synthetic-speech-detection
+body: academic
+type: paper
+title: "Open Challenges in Synthetic Speech Detection"
+authors:
+  - "Luca Cuccovillo"
+  - "Christoforos Papastergiopoulos"
+  - "Anastasios Vafeiadis"
+  - "Artem Yaroshchuk"
+  - "Patrick Aichroth"
+  - "Konstantinos Votis"
+  - "Dimitrios Tzovaras"
+date: "2022-09-15"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2209.07180"
+  url: https://arxiv.org/abs/2209.07180
+content:
+  url: https://arxiv.org/pdf/2209.07180
+  sha256: "2ba7fad39fa9c0d876c00f820985fdf5ba4df32c17d70c51166d183fd33eaa8f"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-16, bytes as archived; decompressed sha256 f9ae0671f3f81833c609c923c07261ed3db25885fc675a425db32e91501008b5.
+schema: "library-record/v1"
+id: fbi-2023-public-safety-alert-sextortion
+body: regulator
+type: web
+title: "FBI and Partners Issue National Public Safety Alert on Sextortion Schemes"
+date: "2023-01"
+publisher: "U.S. Attorney's Office, Southern District of Indiana"
+identifiers:
+  url: https://www.justice.gov/usao-sdin/pr/fbi-and-partners-issue-national-public-safety-alert-sextortion-schemes
+content:
+  url: https://web.archive.org/web/20261116051145id_/https://www.justice.gov/usao-sdin/pr/fbi-and-partners-issue-national-public-safety-alert-sextortion-schemes
+  sha256: "4c2ef72fb9089cc41303c6b0dfe1567d231bfe2c20089e8768477dff6c8a5e7c"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

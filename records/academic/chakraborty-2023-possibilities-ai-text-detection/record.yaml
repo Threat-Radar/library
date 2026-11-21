@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: chakraborty-2023-possibilities-ai-text-detection
+body: academic
+type: paper
+title: "On the Possibilities of AI-Generated Text Detection"
+authors:
+  - "Souradip Chakraborty"
+  - "Amrit Singh Bedi"
+  - "Sicheng Zhu"
+  - "Bang An"
+  - "Dinesh Manocha"
+  - "Furong Huang"
+date: "2023-04-10"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2304.04736"
+  url: https://arxiv.org/abs/2304.04736
+content:
+  url: https://arxiv.org/pdf/2304.04736
+  sha256: "0730853bd3a8e386351092324cb6be81174cdf8a75a3e66b7918e8c5d1812911"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

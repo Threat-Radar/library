@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: arstechnica-2024-fake-ai-taylor-swift-images
+body: other
+type: article
+title: "Toxic Telegram group produced X's X-rated fake AI Taylor Swift images, report says"
+authors:
+  - "Ashley Belanger"
+date: "2024-01"
+publisher: "Ars Technica"
+identifiers:
+  url: https://arstechnica.com/tech-policy/2024/01/fake-ai-taylor-swift-images-flood-x-amid-calls-to-criminalize-deepfake-porn/
+content:
+  url: https://web.archive.org/web/20261031004809id_/https://arstechnica.com/tech-policy/2024/01/fake-ai-taylor-swift-images-flood-x-amid-calls-to-criminalize-deepfake-porn/
+  sha256: "3635b9a9f86fc4af2f3bd33859baa194ffd49ec20913a6f837b9b4e0098b3351"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

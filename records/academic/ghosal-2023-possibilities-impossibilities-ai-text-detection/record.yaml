@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ghosal-2023-possibilities-impossibilities-ai-text-detection
+body: academic
+type: paper
+title: "Towards Possibilities & Impossibilities of AI-generated Text Detection: A Survey"
+authors:
+  - "Soumya Suvra Ghosal"
+  - "Souradip Chakraborty"
+  - "Jonas Geiping"
+  - "Furong Huang"
+  - "Dinesh Manocha"
+  - "Amrit Singh Bedi"
+date: "2023-10-23"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2310.15264"
+  url: https://arxiv.org/abs/2310.15264
+content:
+  url: https://arxiv.org/pdf/2310.15264
+  sha256: "65ee89e3adf0a9d4ffa66be33d31e0af95a093bfe6c928294a499a8be155c3d3"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: liang-2023-gpt-detectors-biased-non-native
+body: academic
+type: paper
+title: "GPT detectors are biased against non-native English writers"
+authors:
+  - "Weixin Liang"
+  - "Mert Yuksekgonul"
+  - "Yining Mao"
+  - "Eric Wu"
+  - "James Zou"
+date: "2023-04-06"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2304.02819"
+  url: https://arxiv.org/abs/2304.02819
+content:
+  url: https://arxiv.org/pdf/2304.02819
+  sha256: "9019ad9a465a7e5a6d13e372a1eccbb51321aa50a046e4510385865234194efb"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

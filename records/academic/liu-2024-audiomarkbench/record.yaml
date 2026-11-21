@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: liu-2024-audiomarkbench
+body: academic
+type: paper
+title: "AudioMarkBench: Benchmarking Robustness of Audio Watermarking"
+authors:
+  - "Hongbin Liu"
+  - "Moyang Guo"
+  - "Zhengyuan Jiang"
+  - "Lun Wang"
+  - "Neil Zhenqiang Gong"
+date: "2024-06-11"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.06979"
+  url: https://arxiv.org/abs/2406.06979
+content:
+  url: https://arxiv.org/pdf/2406.06979
+  sha256: "0fbbafac6ced0b404b225162ac0011477632ac3855a0dd48b204e90a20be5c9b"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nist-ai-100-4
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee
