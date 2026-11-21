@@ -1,0 +1,54 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0851.
+# Typed `spec` (a code under AI Act Article 56 whose Commitments and Measures bind signatories),
+# so it stays `status: stub`: WAVE 1 is a summary pass and a spec past stub needs FX-1.
+# summary.md carries the WAVE 1 summary and the RPT-0014 applicability table.
+schema: "library-record/v1"
+id: eu-gpai-code-2025-safety-security
+body: regulator
+type: spec
+title: "Code of Practice for General-Purpose AI Models: Safety and Security Chapter"
+short_title: "GPAI Code of Practice, Safety and Security"
+authors:
+  - "Independent chairs and vice-chairs of the Code's Working Groups 2 to 4, facilitated by the European Commission AI Office"
+date: "2025-07-10"
+publisher: "European Commission (AI Office)"
+identifiers:
+  url: https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai
+content:
+  url: https://ec.europa.eu/newsroom/dae/redirection/document/118119
+  sha256: "d879f9b54c6068aae57ebaead9d90ddaa46f2503312b9185367a724fa8da2f4a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 43
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - eu-ai-act-art-15
+    - anthropic-rsp-v2-2-2025
+    - gdm-fsf-v3-2025
+  cited_by: []
+  implements_concept: []
+cites:
+  - title: "RAND, Securing AI Model Weights (Measure 7.3; RPT-0014 S-0793)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "The EU's operative security commitments for systemic-risk GPAI models: a Security Goal naming threat actors, Appendix 4's weight-protection, interface-hardening and insider (including model self-exfiltration) controls, and 2/5/10/15-day serious-incident reporting."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - regulation
+  - normative
+  - ai-governance
+  - ai-infrastructure
+status: stub
+confidence: medium
+owner: Maimcghee
