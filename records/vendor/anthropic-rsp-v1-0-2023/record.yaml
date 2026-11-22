@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nevo-2024-securing-ai-model-weights, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-18, bytes as archived; decompressed sha256 095eda1e43c1e87e6b10b1c8f685f15caebe55199b8aabd6bb8858d2c759952b.
+schema: "library-record/v1"
+id: anthropic-rsp-v1-0-2023
+body: vendor
+type: article
+title: "Anthropic's Responsible Scaling Policy"
+date: "2023-09-19"
+publisher: "Anthropic"
+identifiers:
+  url: https://www.anthropic.com/news/anthropics-responsible-scaling-policy
+content:
+  url: https://web.archive.org/web/20261118072940id_/https://www.anthropic.com/news/anthropics-responsible-scaling-policy
+  sha256: "020569922fc7af12e846ba6230bfcbdc3de8e19f36085ea5653f4e8a482a7653"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anthropic-rsp-v2-2-2025
+    - anthropic-rsp-v3-4-2026
+  cited_by:
+    - nevo-2024-securing-ai-model-weights
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

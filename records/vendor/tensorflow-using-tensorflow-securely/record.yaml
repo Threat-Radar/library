@@ -1,0 +1,39 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nevo-2024-securing-ai-model-weights
+# (the ML-stack vulnerability vector), in scope, not in RPT-0014 sources.md. Pinned, not summarized
+# (LANES.md Step 2.5). Content is SECURITY.md at the commit that last changed it; the cited URL
+# (github.com/tensorflow/tensorflow/security/policy) renders this file. Its premise: "TensorFlow
+# models are programs".
+schema: "library-record/v1"
+id: tensorflow-using-tensorflow-securely
+body: vendor
+type: web
+title: "Using TensorFlow Securely"
+authors:
+  - "TensorFlow team (Google)"
+date: "2026-05-13"
+publisher: "Google (TensorFlow project)"
+identifiers:
+  url: https://github.com/tensorflow/tensorflow/security/policy
+  git: https://github.com/tensorflow/tensorflow
+content:
+  url: https://raw.githubusercontent.com/tensorflow/tensorflow/78d4f03d97f1eefa525c931b4cd6a1fb2b1a8a45/SECURITY.md
+  sha256: "63b94ffc256f9d346223866393413d187b2ef2742bf0b64ac076fd59770a92e4"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/markdown
+commit: "78d4f03d97f1eefa525c931b4cd6a1fb2b1a8a45"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - nevo-2024-securing-ai-model-weights
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-supply-chain
+status: stub
+confidence: medium
+owner: Maimcghee
