@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ma-2023-evolving-red-team-multi-agent-games
+body: academic
+type: paper
+title: "Evolving Diverse Red-team Language Models in Multi-round Multi-agent Games"
+authors:
+  - "Chengdong Ma"
+  - "Ziran Yang"
+  - "Hai Ci"
+  - "Jun Gao"
+  - "Minquan Gao"
+  - "Xuehai Pan"
+  - "Yaodong Yang"
+date: "2023-09-30"
+version: "arXiv v5 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2310.00322"
+  url: https://arxiv.org/abs/2310.00322
+content:
+  url: https://arxiv.org/pdf/2310.00322
+  sha256: "5c844bf136c5e4bdaf4b2d5aacfed9fba75135ade1308dd3b1e0ac5827ad8e19"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

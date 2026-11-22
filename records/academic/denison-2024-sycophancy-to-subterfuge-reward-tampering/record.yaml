@@ -1,0 +1,49 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: denison-2024-sycophancy-to-subterfuge-reward-tampering
+body: academic
+type: paper
+title: "Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models"
+authors:
+  - "Carson Denison"
+  - "Monte MacDiarmid"
+  - "Fazl Barez"
+  - "David Duvenaud"
+  - "Shauna Kravec"
+  - "Samuel Marks"
+  - "Nicholas Schiefer"
+  - "Ryan Soklaski"
+  - "Alex Tamkin"
+  - "Jared Kaplan"
+  - "Buck Shlegeris"
+  - "Samuel R. Bowman"
+  - "Ethan Perez"
+  - "Evan Hubinger"
+date: "2024-06-14"
+version: "arXiv v3 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.10162"
+  url: https://arxiv.org/abs/2406.10162
+content:
+  url: https://arxiv.org/pdf/2406.10162
+  sha256: "13d4293ad3146ec3e612351693e4036758bd83a7ec1b0f5decff7454db2c8022"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

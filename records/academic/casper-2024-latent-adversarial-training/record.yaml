@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: casper-2024-latent-adversarial-training
+body: academic
+type: paper
+title: "Defending Against Unforeseen Failure Modes with Latent Adversarial Training"
+authors:
+  - "Stephen Casper"
+  - "Lennart Schulze"
+  - "Oam Patel"
+  - "Dylan Hadfield-Menell"
+date: "2024-03-08"
+version: "arXiv v6 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2403.05030"
+  url: https://arxiv.org/abs/2403.05030
+content:
+  url: https://arxiv.org/pdf/2403.05030
+  sha256: "46ad7a229298459cfd5ba4f70dd1fb76e9d2aea94b0ce8e5730b94909d84af93"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: berglund-2023-taken-out-of-context-situational-awareness
+body: academic
+type: paper
+title: "Taken out of context: On measuring situational awareness in LLMs"
+authors:
+  - "Lukas Berglund"
+  - "Asa Cooper Stickland"
+  - "Mikita Balesni"
+  - "Max Kaufmann"
+  - "Meg Tong"
+  - "Tomasz Korbak"
+  - "Daniel Kokotajlo"
+  - "Owain Evans"
+date: "2023-09-01"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2309.00667"
+  url: https://arxiv.org/abs/2309.00667
+content:
+  url: https://arxiv.org/pdf/2309.00667
+  sha256: "d540ecb8aa64c68d5dc7e059233811b0266291988cb57613057715fbb32b237a"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

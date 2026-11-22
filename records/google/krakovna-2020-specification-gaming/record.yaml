@@ -1,0 +1,43 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2022-01-27, bytes as archived.
+schema: "library-record/v1"
+id: krakovna-2020-specification-gaming
+body: google
+type: article
+title: "Specification gaming: the flip side of AI ingenuity"
+authors:
+  - "Victoria Krakovna"
+  - "Jonathan Uesato"
+  - "Vladimir Mikulik"
+  - "Matthew Rahtz"
+  - "Tom Everitt"
+  - "Ramana Kumar"
+  - "Zac Kenton"
+  - "Jan Leike"
+  - "Shane Legg"
+date: "2020-04-21"
+publisher: "DeepMind Blog"
+identifiers:
+  url: https://deepmind.com/blog/article/Specification-gaming-the-flip-side-of-AI-ingenuity
+content:
+  url: https://web.archive.org/web/20220127025641id_/https://deepmind.com/blog/article/Specification-gaming-the-flip-side-of-AI-ingenuity
+  sha256: "a9868474b23cbd55d08127ca6b25523a720f78adc2fe161377d4590cbe58fbdd"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

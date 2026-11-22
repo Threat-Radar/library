@@ -1,0 +1,47 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ziegler-2022-adversarial-training-high-stakes-reliability
+body: academic
+type: paper
+title: "Adversarial Training for High-Stakes Reliability"
+authors:
+  - "Daniel M. Ziegler"
+  - "Seraphina Nix"
+  - "Lawrence Chan"
+  - "Tim Bauman"
+  - "Peter Schmidt-Nielsen"
+  - "Tao Lin"
+  - "Adam Scherlis"
+  - "Noa Nabeshima"
+  - "Ben Weinstein-Raun"
+  - "Daniel de Haas"
+  - "Buck Shlegeris"
+  - "Nate Thomas"
+date: "2022-05-03"
+version: "arXiv v5 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2205.01663"
+  url: https://arxiv.org/abs/2205.01663
+content:
+  url: https://arxiv.org/pdf/2205.01663
+  sha256: "acdc30e4cd2cfcc0fe7a13ca67fe51c4fd42ada52a8cee86267eb3bb535f4b49"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee

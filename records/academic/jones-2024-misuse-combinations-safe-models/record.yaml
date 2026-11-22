@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: jones-2024-misuse-combinations-safe-models
+body: academic
+type: paper
+title: "Adversaries Can Misuse Combinations of Safe Models"
+authors:
+  - "Erik Jones"
+  - "Anca Dragan"
+  - "Jacob Steinhardt"
+date: "2024-06-20"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.14595"
+  url: https://arxiv.org/abs/2406.14595
+content:
+  url: https://arxiv.org/pdf/2406.14595
+  sha256: "e0449075926a11dc50b092291aca97c9e008f084353e9490aba2c9e812140a0c"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

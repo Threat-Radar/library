@@ -1,0 +1,56 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: shevlane-2023-model-evaluation-extreme-risks
+body: academic
+type: paper
+title: "Model evaluation for extreme risks"
+authors:
+  - "Toby Shevlane"
+  - "Sebastian Farquhar"
+  - "Ben Garfinkel"
+  - "Mary Phuong"
+  - "Jess Whittlestone"
+  - "Jade Leung"
+  - "Daniel Kokotajlo"
+  - "Nahema Marchal"
+  - "Markus Anderljung"
+  - "Noam Kolt"
+  - "Lewis Ho"
+  - "Divya Siddarth"
+  - "Shahar Avin"
+  - "Will Hawkins"
+  - "Been Kim"
+  - "Iason Gabriel"
+  - "Vijay Bolina"
+  - "Jack Clark"
+  - "Yoshua Bengio"
+  - "Paul Christiano"
+  - "Allan Dafoe"
+date: "2023-05-24"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2305.15324"
+  url: https://arxiv.org/abs/2305.15324
+content:
+  url: https://arxiv.org/pdf/2305.15324
+  sha256: "ecf79ca43258103066592940d96e4c050ec1c4c6e99fcf3c2ea524b21aff817f"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

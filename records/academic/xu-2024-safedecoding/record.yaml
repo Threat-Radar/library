@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: xu-2024-safedecoding
+body: academic
+type: paper
+title: "SafeDecoding: Defending against Jailbreak Attacks via Safety-Aware Decoding"
+authors:
+  - "Zhangchen Xu"
+  - "Fengqing Jiang"
+  - "Luyao Niu"
+  - "Jinyuan Jia"
+  - "Bill Yuchen Lin"
+  - "Radha Poovendran"
+date: "2024-02-14"
+version: "arXiv v4 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.08983"
+  url: https://arxiv.org/abs/2402.08983
+content:
+  url: https://arxiv.org/pdf/2402.08983
+  sha256: "081f3fdf3b2d5ba4f07352745d456ab3027c3f4dd9cc41651c92ce3d405e4439"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: anderson-2016-deepdga
+body: academic
+type: paper
+title: "DeepDGA: Adversarially-Tuned Domain Generation and Detection"
+authors:
+  - "Hyrum S. Anderson"
+  - "Jonathan Woodbridge"
+  - "Bobby Filar"
+date: "2016-10-06"
+version: "arXiv v1 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1610.01969"
+  url: https://arxiv.org/abs/1610.01969
+content:
+  url: https://arxiv.org/pdf/1610.01969
+  sha256: "4938680dd68fc80ac6d65780267699f5ae2d938e1ef3687c27ba78ee0f1f883e"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

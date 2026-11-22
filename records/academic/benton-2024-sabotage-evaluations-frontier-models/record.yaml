@@ -1,0 +1,51 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: benton-2024-sabotage-evaluations-frontier-models
+body: academic
+type: paper
+title: "Sabotage Evaluations for Frontier Models"
+authors:
+  - "Joe Benton"
+  - "Misha Wagner"
+  - "Eric Christiansen"
+  - "Cem Anil"
+  - "Ethan Perez"
+  - "Jai Srivastav"
+  - "Esin Durmus"
+  - "Deep Ganguli"
+  - "Shauna Kravec"
+  - "Buck Shlegeris"
+  - "Jared Kaplan"
+  - "Holden Karnofsky"
+  - "Evan Hubinger"
+  - "Roger Grosse"
+  - "Samuel R. Bowman"
+  - "David Duvenaud"
+date: "2024-10-28"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2410.21514"
+  url: https://arxiv.org/abs/2410.21514
+content:
+  url: https://arxiv.org/pdf/2410.21514
+  sha256: "67f35893f1ebacb83407db92caf44c9b86d24da222ea5caee3f23184949cbb4f"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

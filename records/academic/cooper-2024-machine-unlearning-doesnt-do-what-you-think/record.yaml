@@ -1,0 +1,72 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: cooper-2024-machine-unlearning-doesnt-do-what-you-think
+body: academic
+type: paper
+title: "Machine Unlearning Doesn't Do What You Think: Lessons for Generative AI Policy and Research"
+authors:
+  - "A. Feder Cooper"
+  - "Christopher A. Choquette-Choo"
+  - "Miranda Bogen"
+  - "Kevin Klyman"
+  - "Matthew Jagielski"
+  - "Katja Filippova"
+  - "Ken Liu"
+  - "Alexandra Chouldechova"
+  - "Jamie Hayes"
+  - "Yangsibo Huang"
+  - "Eleni Triantafillou"
+  - "Peter Kairouz"
+  - "Nicole Elyse Mitchell"
+  - "Niloofar Mireshghallah"
+  - "Abigail Z. Jacobs"
+  - "James Grimmelmann"
+  - "Vitaly Shmatikov"
+  - "Christopher De Sa"
+  - "Ilia Shumailov"
+  - "Andreas Terzis"
+  - "Solon Barocas"
+  - "Jennifer Wortman Vaughan"
+  - "danah boyd"
+  - "Yejin Choi"
+  - "Sanmi Koyejo"
+  - "Fernando Delgado"
+  - "Percy Liang"
+  - "Daniel E. Ho"
+  - "Pamela Samuelson"
+  - "Miles Brundage"
+  - "David Bau"
+  - "Seth Neel"
+  - "Hanna Wallach"
+  - "Amy B. Cyphert"
+  - "Mark A. Lemley"
+  - "Nicolas Papernot"
+  - "Katherine Lee"
+date: "2024-12-09"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2412.06966"
+  url: https://arxiv.org/abs/2412.06966
+content:
+  url: https://arxiv.org/pdf/2412.06966
+  sha256: "a69f404c7dd3110cf18c5c86e5b8a8f8a73d7588a056d6f84d51aa154a1f7a23"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-09, bytes as archived.
+schema: "library-record/v1"
+id: openai-2024-disrupting-covert-influence-operations
+body: vendor
+type: article
+title: "Disrupting deceptive uses of AI by covert influence operations"
+date: "2024-05-30"
+publisher: "OpenAI"
+identifiers:
+  url: https://openai.com/index/disrupting-deceptive-uses-of-AI-by-covert-influence-operations/
+content:
+  url: https://web.archive.org/web/20261009090244id_/https://openai.com/index/disrupting-deceptive-uses-of-AI-by-covert-influence-operations/
+  sha256: "ec8e628a354107565fe51475cfb27dea15ff94e6ca1eb48c18b500122a27d972"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

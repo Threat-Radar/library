@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: sanyal-2022-data-free-model-stealing-hard-label
+body: academic
+type: paper
+title: "Towards Data-Free Model Stealing in a Hard Label Setting"
+authors:
+  - "Sunandini Sanyal"
+  - "Sravanti Addepalli"
+  - "R. Venkatesh Babu"
+date: "2022-04-23"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2204.11022"
+  url: https://arxiv.org/abs/2204.11022
+content:
+  url: https://arxiv.org/pdf/2204.11022
+  sha256: "7e06cb74d778b7ffdc7eb3a6a0224443b0b003373dae74c28d0c3c058ab393f2"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

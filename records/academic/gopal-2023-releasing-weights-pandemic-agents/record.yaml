@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: gopal-2023-releasing-weights-pandemic-agents
+body: academic
+type: paper
+title: "Will releasing the weights of future large language models grant widespread access to pandemic agents?"
+authors:
+  - "Anjali Gopal"
+  - "Nathan Helm-Burger"
+  - "Lennart Justen"
+  - "Emily H. Soice"
+  - "Tiffany Tzeng"
+  - "Geetha Jeyapragasan"
+  - "Simon Grimm"
+  - "Benjamin Mueller"
+  - "Kevin M. Esvelt"
+date: "2023-10-25"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2310.18233"
+  url: https://arxiv.org/abs/2310.18233
+content:
+  url: https://arxiv.org/pdf/2310.18233
+  sha256: "c201406d8f4c0e67cbba8cf22d0ad6a7adc74821e56f93d6e0a3d9a38108c346"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

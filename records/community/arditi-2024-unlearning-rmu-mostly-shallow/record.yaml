@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-06-27, bytes as archived; decompressed sha256 e1ae182b22fd707720864d77cd4ce699ca049b08a1017a6270f85166697a6fdb.
+schema: "library-record/v1"
+id: arditi-2024-unlearning-rmu-mostly-shallow
+body: community
+type: article
+title: "Unlearning via RMU is mostly shallow"
+authors:
+  - "Andy Arditi"
+  - "Bilal Chughtai"
+date: "2024-07-23"
+publisher: "AI Alignment Forum"
+identifiers:
+  url: https://www.alignmentforum.org/posts/6QYpXEscd8GuE7BgW/unlearning-via-rmu-is-mostly-shallow
+content:
+  url: https://web.archive.org/web/20260627064609id_/https://www.alignmentforum.org/posts/6QYpXEscd8GuE7BgW/unlearning-via-rmu-is-mostly-shallow
+  sha256: "91c9b08810e72fdc7cf2aa9ad9e3f96dc496b3f23f6149b3b8a6f66382b0a6ad"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

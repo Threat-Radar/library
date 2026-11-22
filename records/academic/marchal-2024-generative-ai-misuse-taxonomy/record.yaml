@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: marchal-2024-generative-ai-misuse-taxonomy
+body: academic
+type: paper
+title: "Generative AI Misuse: A Taxonomy of Tactics and Insights from Real-World Data"
+authors:
+  - "Nahema Marchal"
+  - "Rachel Xu"
+  - "Rasmi Elasmar"
+  - "Iason Gabriel"
+  - "Beth Goldberg"
+  - "William Isaac"
+date: "2024-06-19"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.13843"
+  url: https://arxiv.org/abs/2406.13843
+content:
+  url: https://arxiv.org/pdf/2406.13843
+  sha256: "4d7d8f4a26c1752e7604df176ebe339a4395f68bc00454cecbf2f3ead130b80b"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

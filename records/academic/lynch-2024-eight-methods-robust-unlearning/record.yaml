@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: lynch-2024-eight-methods-robust-unlearning
+body: academic
+type: paper
+title: "Eight Methods to Evaluate Robust Unlearning in LLMs"
+authors:
+  - "Aengus Lynch"
+  - "Phillip Guo"
+  - "Aidan Ewart"
+  - "Stephen Casper"
+  - "Dylan Hadfield-Menell"
+date: "2024-02-26"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.16835"
+  url: https://arxiv.org/abs/2402.16835
+content:
+  url: https://arxiv.org/pdf/2402.16835
+  sha256: "5109ca35a837fe1129e9c2c973b8bec41300c2677fb1660869d911bab72ad8db"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

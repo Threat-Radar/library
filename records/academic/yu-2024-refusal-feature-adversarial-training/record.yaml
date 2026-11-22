@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: yu-2024-refusal-feature-adversarial-training
+body: academic
+type: paper
+title: "Robust LLM safeguarding via refusal feature adversarial training"
+authors:
+  - "Lei Yu"
+  - "Virginie Do"
+  - "Karen Hambardzumyan"
+  - "Nicola Cancedda"
+date: "2024-09-30"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2409.20089"
+  url: https://arxiv.org/abs/2409.20089
+content:
+  url: https://arxiv.org/pdf/2409.20089
+  sha256: "1f9b0d766db67ddf6a4337682cf4f26524775d69608b67cfbf80f63af3f2b38e"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

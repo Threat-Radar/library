@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: sharma-2024-unlearning-or-concealment-diffusion
+body: academic
+type: paper
+title: "Unlearning or Concealment? A Critical Analysis and Evaluation Metrics for Unlearning in Diffusion Models"
+authors:
+  - "Aakash Sen Sharma"
+  - "Niladri Sarkar"
+  - "Vikram Chundawat"
+  - "Ankur A Mali"
+  - "Murari Mandal"
+date: "2024-09-09"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2409.05668"
+  url: https://arxiv.org/abs/2409.05668
+content:
+  url: https://arxiv.org/pdf/2409.05668
+  sha256: "689991b0f7bc22f5f2ccf8b128b455b97a057be90eb737ecfbf47ef7b5e55063"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

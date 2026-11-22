@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-15, bytes as archived; decompressed sha256 ef0be4c8e1d5e682fe0da826d908afc416eb8abf8dbb00f9ed78cd7bc5e89334.
+schema: "library-record/v1"
+id: zwetsloot-2019-risks-ai-accidents-misuse-structure
+body: other
+type: article
+title: "Thinking About Risks From AI: Accidents, Misuse and Structure"
+authors:
+  - "Remco Zwetsloot"
+  - "Allan Dafoe"
+date: "2019-02-11"
+publisher: "Lawfare"
+identifiers:
+  url: https://www.lawfaremedia.org/article/thinking-about-risks-ai-accidents-misuse-and-structure
+content:
+  url: https://web.archive.org/web/20261115201623id_/https://www.lawfaremedia.org/article/thinking-about-risks-ai-accidents-misuse-and-structure
+  sha256: "c1cf623b94b5d123e96e3c68e88670fee831979f15fee2f56619b3a433a60769"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

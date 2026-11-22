@@ -1,0 +1,41 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-02, bytes as archived; decompressed sha256 aad22b1b6a84b7fdd3115a793f029601c60341f8cafb6c5237d2a898dc121079.
+schema: "library-record/v1"
+id: hu-2025-training-documents-reward-hacking
+body: vendor
+type: article
+title: "Training on Documents about Reward Hacking Induces Reward Hacking"
+authors:
+  - "Nathan Hu"
+  - "Benjamin Wright"
+  - "Carson Denison"
+  - "Samuel Marks"
+  - "Johannes Treutlein"
+  - "Jonathan Uesato"
+  - "Evan Hubinger"
+date: "2025-01"
+publisher: "Anthropic Alignment Science Blog"
+identifiers:
+  url: https://alignment.anthropic.com/2025/reward-hacking-ooc/
+content:
+  url: https://web.archive.org/web/20261102164705id_/https://alignment.anthropic.com/2025/reward-hacking-ooc/
+  sha256: "ffc3d3a97290b7ec194f6da824e913ca7e2bc9cd824adb718632f58d40b61949"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

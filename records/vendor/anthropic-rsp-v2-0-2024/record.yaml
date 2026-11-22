@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-04-28, bytes as archived; decompressed sha256 22b37ecf913ea432e4c48a050a1b7fade32e155c96d7b6a9f85c2977501902f3.
+schema: "library-record/v1"
+id: anthropic-rsp-v2-0-2024
+body: vendor
+type: article
+title: "Responsible Scaling Policy (version 2.0, effective 2024-10-15)"
+date: "2024-10-15"
+publisher: "Anthropic"
+identifiers:
+  url: https://assets.anthropic.com/m/24a47b00f10301cd/original/Anthropic-Responsible-Scaling-Policy-2024-10-15.pdf
+content:
+  url: https://web.archive.org/web/20260428160734id_/https://assets.anthropic.com/m/24a47b00f10301cd/original/Anthropic-Responsible-Scaling-Policy-2024-10-15.pdf
+  sha256: "598ba5e47236616134c16a92b82c33092b918ccd7503cb5276c3c284a1977033"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - anthropic-rsp-v1-0-2023
+    - anthropic-rsp-v2-2-2025
+    - anthropic-rsp-v3-4-2026
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

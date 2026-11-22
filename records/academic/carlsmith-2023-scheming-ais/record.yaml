@@ -1,0 +1,36 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: carlsmith-2023-scheming-ais
+body: academic
+type: paper
+title: "Scheming AIs: Will AIs fake alignment during training in order to get power?"
+authors:
+  - "Joe Carlsmith"
+date: "2023-11-14"
+version: "arXiv v3 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2311.08379"
+  url: https://arxiv.org/abs/2311.08379
+content:
+  url: https://arxiv.org/pdf/2311.08379
+  sha256: "7f3325151046f62e12e167e6a4d9d1abc98a9cf28cbd17b2c0cd751f2ad9866c"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

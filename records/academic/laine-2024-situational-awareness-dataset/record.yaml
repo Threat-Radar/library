@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: laine-2024-situational-awareness-dataset
+body: academic
+type: paper
+title: "Me, Myself, and AI: The Situational Awareness Dataset (SAD) for LLMs"
+authors:
+  - "Rudolf Laine"
+  - "Bilal Chughtai"
+  - "Jan Betley"
+  - "Kaivalya Hariharan"
+  - "Jeremy Scheurer"
+  - "Mikita Balesni"
+  - "Marius Hobbhahn"
+  - "Alexander Meinke"
+  - "Owain Evans"
+date: "2024-07-05"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2407.04694"
+  url: https://arxiv.org/abs/2407.04694
+content:
+  url: https://arxiv.org/pdf/2407.04694
+  sha256: "8983ad5249f3ee0d75f8f875fa438529b7ee4b300d1694681309380b660d8d7a"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - shah-2025-gdm-agi-safety-security
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee
