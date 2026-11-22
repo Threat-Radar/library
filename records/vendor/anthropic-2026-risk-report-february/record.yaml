@@ -26,6 +26,7 @@ relations:
     - anthropic-2026-risk-report-august
   see_also: []
   cited_by:
+    - anthropic-rsp-v3-4-2026
     - anthropic-2026-risk-report-august
   implements_concept: []
 bears_on: []
