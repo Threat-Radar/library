@@ -1,0 +1,36 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: volkov-2024-badllama-3
+body: academic
+type: paper
+title: "Badllama 3: removing safety finetuning from Llama 3 in minutes"
+authors:
+  - "Dmitrii Volkov"
+date: "2024-07-01"
+version: "arXiv v1 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2407.01376"
+  url: https://arxiv.org/abs/2407.01376
+content:
+  url: https://arxiv.org/pdf/2407.01376
+  sha256: "888e939118f43f36f31343c4a99d9292d07bb0b32b7f13a5ab167cf92d16698e"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - aisi-2025-frontier-ai-trends
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

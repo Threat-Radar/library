@@ -1,0 +1,34 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-16, bytes as archived.
+schema: "library-record/v1"
+id: anthropic-2025-claude-4-system-card
+body: vendor
+type: web
+title: "System Card: Claude Opus 4 & Claude Sonnet 4"
+date: "2025-05"
+publisher: "Anthropic"
+identifiers:
+  url: https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf
+content:
+  url: https://web.archive.org/web/20261116161204id_/https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf
+  sha256: "2c192534d928c61d033366903bceb86039c80dac1e9684417b6250e267186799"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - aisi-2025-frontier-ai-trends
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+  - evidence
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-09, bytes as archived; decompressed sha256 08c7bf2a83932b077acfc7a8d059054d15f363af7f3e555888f6ddb7fce5b18b.
+schema: "library-record/v1"
+id: cato-2025-nytheon-ai-uncensored-llms
+body: vendor
+type: article
+title: "Cato CTRL: Nytheon AI, a new platform of uncensored LLMs"
+authors:
+  - "Vitaly Simonovich"
+date: "2025-06-11"
+publisher: "Cato Networks (Cato CTRL)"
+identifiers:
+  url: https://www.catonetworks.com/blog/cato-ctrl-nytheon-ai-a-new-platform-of-uncensored-llms/
+content:
+  url: https://web.archive.org/web/20261109205143id_/https://www.catonetworks.com/blog/cato-ctrl-nytheon-ai-a-new-platform-of-uncensored-llms/
+  sha256: "9c7047a75c599dba0fabfb773ac72d15e0dd0f93b8c0396b054a3aa5b4fb6a98"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - aisi-2025-frontier-ai-trends
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-15, bytes as archived; decompressed sha256 4a7e0eb964103b4c78e3b880d6f9eae86d5740a1e83352d30d2cf81e00dad7e5.
+# Date: month of the first Wayback capture (2025-03-25); the page shows none.
+schema: "library-record/v1"
+id: anthropic-2025-automated-researchers-sandbag
+body: vendor
+type: article
+title: "Automated Researchers Can Subtly Sandbag"
+date: "2025-03"
+publisher: "Anthropic (Alignment Science blog)"
+identifiers:
+  url: https://alignment.anthropic.com/2025/automated-researchers-sandbag
+content:
+  url: https://web.archive.org/web/20261115045529id_/https://alignment.anthropic.com/2025/automated-researchers-sandbag
+  sha256: "a563c99ff34f4b0ebb69e985519ab025a6ce3047b5274921992c67f9c25b560b"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - aisi-2025-frontier-ai-trends
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

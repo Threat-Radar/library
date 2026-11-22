@@ -1,0 +1,45 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: black-2025-replibench
+body: academic
+type: paper
+title: "RepliBench: Evaluating the Autonomous Replication Capabilities of Language Model Agents"
+authors:
+  - "Sid Black"
+  - "Asa Cooper Stickland"
+  - "Jake Pencharz"
+  - "Oliver Sourbut"
+  - "Michael Schmatz"
+  - "Jay Bailey"
+  - "Ollie Matthews"
+  - "Ben Millwood"
+  - "Alex Remedios"
+  - "Alan Cooney"
+date: "2025-04-21"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2504.18565"
+  url: https://arxiv.org/abs/2504.18565
+content:
+  url: https://arxiv.org/pdf/2504.18565
+  sha256: "7a55fdbbdd0ceff43ceabe28019b99176608c4324d43fbfb3bc0d97fc51f1d1e"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - aisi-2025-frontier-ai-trends
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

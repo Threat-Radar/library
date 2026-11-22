@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: vanderweij-2024-ai-sandbagging
+body: academic
+type: paper
+title: "AI Sandbagging: Language Models can Strategically Underperform on Evaluations"
+authors:
+  - "Teun van der Weij"
+  - "Felix Hofstätter"
+  - "Ollie Jaffe"
+  - "Samuel F. Brown"
+  - "Francis Rhys Ward"
+date: "2024-06-11"
+version: "arXiv v4 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.07358"
+  url: https://arxiv.org/abs/2406.07358
+content:
+  url: https://arxiv.org/pdf/2406.07358
+  sha256: "13815a5dfdcf5b8726494d3053aba4581c9738287d2b1d06c3373c17ed9736c5"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - aisi-2025-frontier-ai-trends
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee
