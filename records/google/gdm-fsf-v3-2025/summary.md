@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: gdm-fsf-v3-2025
 record: gdm-fsf-v3-2025
 type: summary
-updated: "2026-11-13"
+updated: "2026-11-22"
 lane: catalogs-schema
 reviewed_by: ""
 ---
@@ -12,7 +12,7 @@ reviewed_by: ""
 
 |  |  |
 |---|---|
-| **Type** | article (company framework) |
+| **Type** | article (company framework; **superseded** by v3.1, 2026-04-17, see Limits) |
 | **Maturity** | _unset — do not guess_ |
 | **Authors** | Google DeepMind |
 | **Published** | Version 3.0, 2025-09-22; 16 pages |
@@ -79,5 +79,5 @@ The framework cites in footnotes. Each link was checked against `sources.md` and
 - **The attacker model is borrowed.** What a level-2 or level-4 attacker can do is RAND's definition, so this framework adds the capability-to-level mapping and nothing about attack vectors.
 - **Goals, not controls.** It aligns with RAND's goals and principles, explicitly not its benchmark controls, so it does not say which measures are in place.
 - **Misalignment is exploratory.** Those CCLs are illustrative, with no committed security level.
-- **No newer version was found** at the source on 2026-11-13. The URL is version-specific, and DeepMind's site was not searched for a v4.
+- **Superseded.** v3.1 was published on 2026-04-17 (`gdm-fsf-v3-1-2026`). It was missed on 2026-11-13 because this URL still serves v3.0, and the FSF blog post, which links v3.1, wasn't checked. v3.1 adds Tracked Capability Levels, merges misalignment into ML R&D, and raises the misuse CCLs to "Security Level 2+" (insiders and well-resourced non-state actors). **TM-101 should follow v3.1.**
 - **Read in part.** Read: §1 (scope, CCLs, the assessment process), §2.1 on security mitigations with the RAND footnote, the per-domain CCL tables with their recommended security levels, and the footnotes. The deployment-mitigation and safety-case procedure passages were skimmed.

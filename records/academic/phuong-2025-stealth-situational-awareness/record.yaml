@@ -34,6 +34,7 @@ relations:
   see_also: []
   cited_by:
     - gdm-fsf-v3-2025
+    - gdm-fsf-v3-1-2026
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

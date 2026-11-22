@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: nevo-2024-securing-ai-model-weights
 record: nevo-2024-securing-ai-model-weights
 type: summary
-updated: "2026-11-21"
+updated: "2026-11-22"
 lane: catalogs-schema
 reviewed_by: ""
 ---
@@ -102,5 +102,5 @@ About 280 references, checked against `sources.md` and the library on 2026-11-21
 
 - **Expert judgement.** The feasibility scores are rounded averages of expert opinion, and RAND notes that "expert opinions vary significantly on the capabilities of state actors". They are not measurements.
 - **One asset.** It covers theft of weights only. Misuse through APIs, poisoning and prompt injection without code execution are scoped out by design.
-- **Benchmarks, not a standard.** The security levels describe example systems, and RAND says they shouldn't be used as a standard. Frameworks that adopt them (FSF v3, RSP v3.4) give them that weight anyway.
+- **Benchmarks, not a standard.** The security levels describe example systems, and RAND says they shouldn't be used as a standard. Frameworks that adopt them (FSF v3.1, which adds an "SL2+" tier; RSP v3.4) give them that weight anyway.
 - **2024 state of practice.** It predates agent deployments at scale and the incidents of 2025 and 2026 in RPT-0014's log.

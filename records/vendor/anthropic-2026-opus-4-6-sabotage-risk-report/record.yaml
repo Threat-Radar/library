@@ -1,0 +1,35 @@
+# Paper/PDF: a report.
+# RPT-0014 WAVE 1 currency check (tmodel #79), 2026-11-22: an Anthropic threat-model document, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Prints no date; first archived 2026-02-11, after the Claude Opus 4.6 system card (first archived 2026-02-05). Linked from the RSP page; the Risk Reports now carry this analysis.
+schema: "library-record/v1"
+id: anthropic-2026-opus-4-6-sabotage-risk-report
+body: vendor
+type: paper
+title: "Sabotage Risk Report: Claude Opus 4.6"
+authors:
+  - "Anthropic"
+date: "2026-02"
+publisher: "Anthropic"
+identifiers:
+  url: https://www.anthropic.com/claude-opus-4-6-risk-report
+content:
+  url: https://assets.claude.com/f21d93f21602ead5cdbecb8c8e1c765759d9e232.pdf
+  sha256: "d5979442d3896ce3ee5a57bd71245bf71fec358045a152b9165ab6c98574d670"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+  pages: 53
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

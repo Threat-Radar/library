@@ -66,7 +66,7 @@ Google DeepMind's plan for preventing *severe harm* from AGI-level systems. It r
 
 ## Implementations
 
-None, searched 2026-11-22: a research agenda. Its misuse strategy is carried out through the Frontier Safety Framework (`gdm-fsf-v3-2025`, and the version it cites, `gdm-2025-updating-frontier-safety-framework`).
+None, searched 2026-11-22: a research agenda. Its misuse strategy is carried out through the Frontier Safety Framework: v3.1 is current (`gdm-fsf-v3-1-2026`), after v3.0 (`gdm-fsf-v3-2025`); the paper cites the February 2025 version (`gdm-2025-updating-frontier-safety-framework`). FSF v3.1 cites this paper's §5 and §6 for its mitigations.
 
 | Name | Kind | License | URL |
 |---|---|---|---|
@@ -109,5 +109,5 @@ About 650 references, 648 of them with links, checked against `sources.md` and t
 
 - **An agenda, not results.** Most of it is planned or open research directions; the paper says its security thinking for misaligned AI "is particularly tentative".
 - **Severe harm only.** Mistakes and structural risks are scoped out, and so are lesser harms, which most company threat models would cover.
-- **One developer's view.** It is aligned with DeepMind's own Frontier Safety Framework, and it cites the February 2025 version, which v3.0 has since replaced.
+- **One developer's view.** It is aligned with DeepMind's own Frontier Safety Framework, and it cites the February 2025 version, since replaced by v3.0 (2025-09) and v3.1 (2026-04-17).
 - **Thin on concrete controls.** Weight security (§5.6) and security against a misaligned model (§6.4) get a page or two each, and it defers detail to RAND.

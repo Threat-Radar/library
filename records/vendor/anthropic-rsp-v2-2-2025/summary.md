@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: anthropic-rsp-v2-2-2025
 record: anthropic-rsp-v2-2-2025
 type: summary
-updated: "2026-11-13"
+updated: "2026-11-22"
 lane: catalogs-schema
 reviewed_by: ""
 ---
@@ -78,6 +78,7 @@ SOC 2 and NIST SP 800-53 are general security control frameworks, out of scope f
   - v3.4 drops the ASL-3 attacker-group list.
   - Its weight security for highly capable models is stated as "roughly in line with RAND SL4", and it names maximal-access insiders as a threat.
   - **TM-100 therefore describes a policy no longer in force.** The integration lane should decide whether TM-100 follows v3.4 (which then lines up with TM-101's RAND-level approach) or stays a historical entry.
+  - Under v3.0 and later, Anthropic's threat models are published in **Risk Reports**. The current one is August 2026 (`anthropic-2026-risk-report-august`, summarized). Its ASL-3 security scope still excludes sophisticated insiders and nation-state attackers. Checked 2026-11-22: v3.4 is still in force.
 - **A promise to test, not a result.** Whether Anthropic met the standard is outside this document.
 - **The out-of-scope list sets a ceiling.** A tmodel threat model that adopted it would deliberately not defend against targeted state actors.
 - **Two "v2.2" PDFs.** The RSP page also links a redline of v2.1 to v2.2 (sha256 `3fd9544b…`) with the same label; it differs in footnote 11's tracked changes. This record is the clean copy that `sources.md` pins.

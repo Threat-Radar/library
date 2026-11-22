@@ -1,0 +1,36 @@
+# Paper/PDF: a report.
+# RPT-0014 WAVE 1 currency check (tmodel #79), 2026-11-22: an Anthropic threat-model document, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Anthropic's report on its ASL-3 deployment and security standards (weight-security controls), which RSP v3.4's first row says Anthropic will 'maintain or improve on'. Linked from the Frontier Safety Roadmap as 'security controls'.
+schema: "library-record/v1"
+id: anthropic-2025-activating-asl3-protections
+body: vendor
+type: paper
+title: "Activating AI Safety Level 3 Protections"
+authors:
+  - "Anthropic"
+date: "2025-05"
+publisher: "Anthropic"
+identifiers:
+  url: https://www.anthropic.com/news/activating-asl3-protections
+content:
+  url: https://assets.claude.com/807c59454757214bfd37592d6e048079cd7a7728.pdf
+  sha256: "df89550474a3c9870c27724bf9ee95e7e35e0e5cafb4fe843ffd8410c9cdc124"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+  pages: 25
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - anthropic-rsp-v3-4-2026
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

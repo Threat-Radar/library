@@ -1,0 +1,36 @@
+# Paper/PDF: a report.
+# RPT-0014 WAVE 1 currency check (tmodel #79), 2026-11-22: an Anthropic threat-model document, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Published on the Alignment Science blog 2025-10-28. Linked from the Frontier Safety Roadmap as Anthropic's 'current threat models' for sabotage.
+schema: "library-record/v1"
+id: anthropic-2025-pilot-sabotage-risk-report
+body: vendor
+type: paper
+title: "Anthropic's Summer 2025 Pilot Sabotage Risk Report"
+authors:
+  - "Anthropic"
+date: "2025-10-26"
+publisher: "Anthropic"
+version: "evidence cutoff 2025-08-20, finalized 2025-10-26"
+identifiers:
+  url: https://alignment.anthropic.com/2025/sabotage-risk-report/
+content:
+  url: https://alignment.anthropic.com/2025/sabotage-risk-report/2025_pilot_risk_report.pdf
+  sha256: "e88a248bd0686544a7bf5a1439110bef87c1bff65c5e4a66d2da1ac8d19ea529"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+  pages: 67
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,38 @@
+# Paper/PDF: a report.
+# RPT-0014 WAVE 1 currency check (tmodel #79), 2026-11-22: an Anthropic threat-model document, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Anthropic's first Risk Report under RSP v3.0; first archived 2026-02-24. The served file carries a change log (2026-05-26) and is titled 'Updated 7.8.26'. Superseded by the August 2026 Risk Report.
+schema: "library-record/v1"
+id: anthropic-2026-risk-report-february
+body: vendor
+type: paper
+title: "Risk Report: February 2026"
+authors:
+  - "Anthropic"
+date: "2026-02"
+publisher: "Anthropic"
+version: "redacted public version, revised 2026-05-26 and 2026-07-08 (the file as served on 2026-11-22)"
+identifiers:
+  url: https://www.anthropic.com/feb-2026-risk-report
+content:
+  url: https://assets.claude.com/f4294ebe6210558c62226f44bd5c716f9cb80add.pdf
+  sha256: "58f07734aa892c5b324de8674e2cb320c71347f0dd5dd76632defccaa9cb3785"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+  pages: 106
+relations:
+  supersedes: []
+  superseded_by:
+    - anthropic-2026-risk-report-august
+  see_also: []
+  cited_by:
+    - anthropic-2026-risk-report-august
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

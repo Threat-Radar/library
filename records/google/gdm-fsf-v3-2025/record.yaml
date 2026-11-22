@@ -1,5 +1,6 @@
 # Article: a company framework, not a specification anyone conforms to, so not `spec` (no FX-1).
 # RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0805 (digest matches sources.md).
+# Superseded by v3.1 (2026-04-17), gdm-fsf-v3-1-2026; found in the 2026-11-22 currency check.
 schema: "library-record/v1"
 id: gdm-fsf-v3-2025
 body: google
@@ -22,7 +23,8 @@ content:
   pages: 16
 relations:
   supersedes: []
-  superseded_by: []
+  superseded_by:
+    - gdm-fsf-v3-1-2026
   see_also:
     - anthropic-rsp-v2-2-2025
   cited_by: []
