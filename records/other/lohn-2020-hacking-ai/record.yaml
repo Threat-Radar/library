@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-09-03, bytes as archived; decompressed sha256 3a53324b09ffc5d49c1cff58ec31a2bf3dc6759254afe55884d5411d15a0250e.
+schema: "library-record/v1"
+id: lohn-2020-hacking-ai
+body: other
+type: article
+title: "Hacking AI: A Primer for Policymakers on Machine Learning Cybersecurity"
+authors:
+  - "Andrew Lohn"
+date: "2020-12"
+publisher: "Center for Security and Emerging Technology (Georgetown)"
+identifiers:
+  url: https://cset.georgetown.edu/publication/hacking-ai/
+content:
+  url: https://web.archive.org/web/20260903170523id_/https://cset.georgetown.edu/publication/hacking-ai/
+  sha256: "5db836229fadb129d825e3852c3b5c8f03e880bd6c59259dccf4dfffcb553a7e"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

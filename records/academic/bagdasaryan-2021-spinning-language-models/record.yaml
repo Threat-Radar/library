@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: bagdasaryan-2021-spinning-language-models
+body: academic
+type: paper
+title: "Spinning Language Models: Risks of Propaganda-As-A-Service and Countermeasures"
+authors:
+  - "Eugene Bagdasaryan"
+  - "Vitaly Shmatikov"
+date: "2021-12-09"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2112.05224"
+  url: https://arxiv.org/abs/2112.05224
+content:
+  url: https://arxiv.org/pdf/2112.05224
+  sha256: "3b8765fbb2ced1c1e57042b62ee20a484cbf119ca782940d58b8fc23d94eb4aa"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - backdoor
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

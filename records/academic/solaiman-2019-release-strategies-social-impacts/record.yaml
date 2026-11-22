@@ -1,0 +1,50 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: solaiman-2019-release-strategies-social-impacts
+body: academic
+type: paper
+title: "Release Strategies and the Social Impacts of Language Models"
+authors:
+  - "Irene Solaiman"
+  - "Miles Brundage"
+  - "Jack Clark"
+  - "Amanda Askell"
+  - "Ariel Herbert-Voss"
+  - "Jeff Wu"
+  - "Alec Radford"
+  - "Gretchen Krueger"
+  - "Jong Wook Kim"
+  - "Sarah Kreps"
+  - "Miles McCain"
+  - "Alex Newhouse"
+  - "Jason Blazakis"
+  - "Kris McGuffie"
+  - "Jasmine Wang"
+date: "2019-08-24"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1908.09203"
+  url: https://arxiv.org/abs/1908.09203
+content:
+  url: https://arxiv.org/pdf/1908.09203
+  sha256: "3d2b985b0cb6ab85275504f592527a428e8322ce3c71ab655ad6eeefd9fef739"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

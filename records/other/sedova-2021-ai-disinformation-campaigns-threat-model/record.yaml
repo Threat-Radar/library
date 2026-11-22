@@ -1,0 +1,40 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-06, bytes as archived; decompressed sha256 e3a93dde83321b83dc72bce887aa023d9d851ee7fb4c54aeab7f23be93f63b3f.
+schema: "library-record/v1"
+id: sedova-2021-ai-disinformation-campaigns-threat-model
+body: other
+type: article
+title: "AI and the Future of Disinformation Campaigns, Part 2: A Threat Model"
+authors:
+  - "Katerina Sedova"
+  - "Christine McNeill"
+  - "Aurora Johnson"
+  - "Aditi Joshi"
+  - "Ido Wulkan"
+date: "2021-12"
+publisher: "Center for Security and Emerging Technology (Georgetown)"
+identifiers:
+  url: https://cset.georgetown.edu/publication/ai-and-the-future-of-disinformation-campaigns-2/
+content:
+  url: https://web.archive.org/web/20261006145851id_/https://cset.georgetown.edu/publication/ai-and-the-future-of-disinformation-campaigns-2/
+  sha256: "87e902df50432b872ebddd79548522c198f1d4fbe4407747e81853503b23e4d9"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

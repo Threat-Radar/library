@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-08-14, bytes as archived; decompressed sha256 64ac8f2eceb63f401c8248f2f34cb6ad6d2902be0c82f252ef5c8e04166ef8b5.
+schema: "library-record/v1"
+id: lohn-2022-cyber-swords-or-shields
+body: other
+type: article
+title: "Will AI Make Cyber Swords or Shields?"
+authors:
+  - "Andrew J. Lohn"
+  - "Krystal A. Jackson"
+date: "2022-08"
+publisher: "Center for Security and Emerging Technology (Georgetown)"
+identifiers:
+  url: https://cset.georgetown.edu/publication/will-ai-make-cyber-swords-or-shields/
+content:
+  url: https://web.archive.org/web/20260814085019id_/https://cset.georgetown.edu/publication/will-ai-make-cyber-swords-or-shields/
+  sha256: "aedbe8a45a13864978017e990fcd1d1707120457d80735963955fc2a1f82ba95"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-02-20, bytes as archived.
+schema: "library-record/v1"
+id: npr-2022-ai-fake-faces-influence-operations
+body: other
+type: article
+title: "AI-generated fake faces have become a hallmark of online influence operations"
+authors:
+  - "Shannon Bond"
+date: "2022-12-15"
+publisher: "NPR"
+identifiers:
+  url: https://www.npr.org/2022/12/15/1143114122/ai-generated-fake-faces-have-become-a-hallmark-of-online-influence-operations
+content:
+  url: https://web.archive.org/web/20260220080238id_/https://www.npr.org/2022/12/15/1143114122/ai-generated-fake-faces-have-become-a-hallmark-of-online-influence-operations
+  sha256: "ff83040f4cef0891c131591b59fc0bc2ea31b6e72237b3195f0deebb437dc015"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

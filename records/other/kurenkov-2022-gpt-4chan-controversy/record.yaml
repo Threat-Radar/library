@@ -1,0 +1,36 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-14, bytes as archived; decompressed sha256 2d7bc7fe620a290e4875c06dd7c695db734deebad60f3a3999cb9defbf169897.
+schema: "library-record/v1"
+id: kurenkov-2022-gpt-4chan-controversy
+body: other
+type: article
+title: "Lessons from the GPT-4Chan Controversy"
+authors:
+  - "Andrey Kurenkov"
+date: "2022-06-12"
+publisher: "The Gradient"
+identifiers:
+  url: https://thegradient.pub/gpt-4chan-lessons/
+content:
+  url: https://web.archive.org/web/20261114153257id_/https://thegradient.pub/gpt-4chan-lessons/
+  sha256: "4bef4db0c4fd46180dd64535fa8d5243105e054f42a225887723319c09b22c26"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - goldstein-2023-influence-operations
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-incident
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee
