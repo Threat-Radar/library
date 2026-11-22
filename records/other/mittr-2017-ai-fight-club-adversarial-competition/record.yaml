@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2019-12-09, bytes as archived.
+schema: "library-record/v1"
+id: mittr-2017-ai-fight-club-adversarial-competition
+body: other
+type: article
+title: "AI Fight Club Could Help Save Us From a Future of Super-Smart Cyberattacks"
+authors:
+  - "Will Knight"
+date: "2017"
+publisher: "MIT Technology Review"
+identifiers:
+  url: https://www.technologyreview.com/s/608288/ai-fight-club-could-help-save-us-from-a-future-of-super-smart-cyberattacks/
+content:
+  url: https://web.archive.org/web/20191209034920id_/https://www.technologyreview.com/s/608288/ai-fight-club-could-help-save-us-from-a-future-of-super-smart-cyberattacks/
+  sha256: "1d178365778d308ae7ca5e54fcce8a2203970baca7ec7c483614d1b1045fcef6"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brundage-2018-malicious-use-ai
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,37 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: giaretta-2017-community-targeted-phishing
+body: academic
+type: paper
+title: "Community Targeted Phishing: A Middle Ground Between Massive and Spear Phishing through Natural Language Generation"
+authors:
+  - "Alberto Giaretta"
+  - "Nicola Dragoni"
+date: "2017-08-24"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1708.07342"
+  url: https://arxiv.org/abs/1708.07342
+content:
+  url: https://arxiv.org/pdf/1708.07342
+  sha256: "0b11b019a77cffb2e98d683ddc69f9d163931bcebfba97bea29d652438ab3803"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brundage-2018-malicious-use-ai
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

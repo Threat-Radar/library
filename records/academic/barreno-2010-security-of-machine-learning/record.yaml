@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in
+# scope, not in RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Content is the
+# authors' copy at UC Berkeley (60 pages), the URL Brundage et al. give.
+schema: "library-record/v1"
+id: barreno-2010-security-of-machine-learning
+body: academic
+type: paper
+title: "The security of machine learning"
+authors:
+  - "Marco Barreno"
+  - "Blaine Nelson"
+  - "Anthony D. Joseph"
+  - "J. D. Tygar"
+date: "2010-11"
+venue: "Machine Learning 81(2), 2010"
+publisher: "Springer"
+identifiers:
+  doi: "10.1007/s10994-010-5188-5"
+  url: https://doi.org/10.1007/s10994-010-5188-5
+content:
+  url: https://people.eecs.berkeley.edu/~tygar/papers/SML/sec_mach_learn_journal.pdf
+  sha256: "ce5645c6242282b905531694761483988fd4e4ba8f55ebe6a889f6655d03f8d3"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+  pages: 60
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brundage-2018-malicious-use-ai
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

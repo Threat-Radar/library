@@ -1,0 +1,42 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-08-14, bytes as archived.
+schema: "library-record/v1"
+id: rubinstein-2009-antidote-poisoning-anomaly-detectors
+body: academic
+type: paper
+title: "ANTIDOTE: Understanding and Defending against Poisoning of Anomaly Detectors"
+authors:
+  - "Benjamin I. P. Rubinstein"
+  - "Blaine Nelson"
+  - "Ling Huang"
+  - "Anthony D. Joseph"
+  - "Shing-hon Lau"
+  - "Satish Rao"
+  - "Nina Taft"
+  - "J. D. Tygar"
+date: "2009"
+publisher: "ACM (IMC 2009)"
+identifiers:
+  url: https://people.eecs.berkeley.edu/~tygar/papers/SML/IMC.2009.pdf
+content:
+  url: https://web.archive.org/web/20260814182104id_/https://people.eecs.berkeley.edu/~tygar/papers/SML/IMC.2009.pdf
+  sha256: "21e85039f405c26a69f9d192a96cbfb3e53958693d010f67e5a6aa0f7f3aff03"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brundage-2018-malicious-use-ai
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+status: stub
+confidence: medium
+owner: Maimcghee

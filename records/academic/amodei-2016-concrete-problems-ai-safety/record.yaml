@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: amodei-2016-concrete-problems-ai-safety
+body: academic
+type: paper
+title: "Concrete Problems in AI Safety"
+authors:
+  - "Dario Amodei"
+  - "Chris Olah"
+  - "Jacob Steinhardt"
+  - "Paul Christiano"
+  - "John Schulman"
+  - "Dan Mané"
+date: "2016-06-21"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1606.06565"
+  url: https://arxiv.org/abs/1606.06565
+content:
+  url: https://arxiv.org/pdf/1606.06565
+  sha256: "a3ac7eda67026d6d95f2182b1202ac371b7d9feabcc10a48dc90e417fbac023e"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by:
+    - brundage-2018-malicious-use-ai
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee
