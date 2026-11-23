@@ -10,6 +10,7 @@ bears_on:
   - R-010
 records:
   - cwe
+  - cwe-4-21
   - open-threat-model
   - ssvc
   - csaf-2-0

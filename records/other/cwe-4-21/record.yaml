@@ -1,0 +1,51 @@
+schema: "library-record/v1"
+id: cwe-4-21
+body: other
+type: dataset
+maturity: best-practice
+title: "MITRE CWE: Common Weakness Enumeration 4.21"
+version: "4.21 (XML schema 7.4)"
+date: "2026-10-28"
+publisher: "The MITRE Corporation"
+identifiers:
+  url: https://cwe.mitre.org/
+  xsd: https://cwe.mitre.org/data/xsd/cwe_schema_v7.4.xsd
+content:
+  url: https://cwe.mitre.org/data/xml/cwec_v4.21.xml.zip
+  sha256: "5225e2b4976696b5b90b62cdad0ddab4e8898103d61350971e366a377e718862"
+  retrieved: "2026-11-22"
+  media_type: application/zip
+  local: false
+relations:
+  supersedes:
+    - cwe
+  superseded_by: []
+  cited_by: []
+  see_also:
+    - cve-json-5
+    - capec
+    - open-threat-model
+  implements_concept: []
+bears_on:
+  - DEC-001
+  - DEC-002
+  - DEC-008
+  - R-010
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: core
+usefulness:
+  verdict: useful
+  reason: "The CWE release tmodel's engine serves: the newest list in the 7.x schema its importer reads, the same weaknesses as CWE 5.0."
+  assessed: "2026-11-22"
+topic: schema-representations
+tags:
+  - cwe
+  - weakness
+  - mitre
+  - graph
+  - xml-schema
+  - catalog
+status: summarized
+confidence: medium
