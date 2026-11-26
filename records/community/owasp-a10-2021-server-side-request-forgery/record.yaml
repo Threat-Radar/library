@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: owasp-a10-2021-server-side-request-forgery
+body: community
+type: web
+title: "OWASP A10:2021 Server-Side Request Forgery"
+authors: []
+date: ""
+identifiers:
+  url: "https://owasp.org/Top10/2021/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/"
+content:
+  url: "https://owasp.org/Top10/2021/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/"
+  sha256: "b1a778b2e1457960757892106be1b1dc41c8d03b84a6869161a9fc5af10b2a9b"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mcp-spec-security-best-practices
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

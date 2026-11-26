@@ -1,0 +1,34 @@
+schema: "library-record/v1"
+id: system-prompt-hijacking-via-permutation-triggers-in-llm-supply-chains
+body: academic
+type: paper
+title: "System Prompt Hijacking via Permutation Triggers in LLM Supply Chains"
+authors:
+  - "Lu Yan"
+  - "Siyuan Cheng"
+  - "Xuan Chen"
+  - "Kaiyuan Zhang"
+  - "Guangyu Shen"
+  - "Xiangyu Zhang"
+date: ""
+identifiers:
+  url: "https://aclanthology.org/2025.findings-acl.229/"
+  doi: "10.18653/v1/2025.findings-acl.229"
+content:
+  url: "https://aclanthology.org/2025.findings-acl.229/"
+  sha256: "a498c71a5e13f5eecfad5223736bd6f93a7db465bfb09ad1e6de681178f8905a"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+  - ai-supply-chain
+status: stub
+confidence: low

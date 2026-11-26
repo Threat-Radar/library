@@ -23,6 +23,34 @@ content:
   local: false
   media_type: application/pdf
   pages: 18
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - beurer-kellner-2026-agent-skill-threats
+  - bhardwaj-2026-agentic-skills-supply-chain
+  - skill-scanner-security-scanner-for-agent-skills
+  - guardfall-shell-injection-bypass-defeats-ai-coding-agent-guardrails
+  - title: "Detecting Malicious Agent Skills in the Wild Using Attention"
+    locator: "https://arxiv.org/abs/2606.23416"
+  - agent-trust-hub-by-gen-ai-agent-security-scanner
+  - guo-2026-malskillbench
+  - hao-2026-poise-skill-injection
+  - hou-2026-skillsieve
+  - jia-2026-skillject
+  - title: "Do Not Mention This to the User: Detecting and Understanding Malicious Agent Skills in the Wild"
+    locator: "https://arxiv.org/abs/2602.06547"
+  - title: "Agent Skills in the Wild: An Empirical Study of Security Vulnerabilities at Scale"
+    locator: "https://arxiv.org/abs/2601.10338"
+  - skillspector-security-scanner-for-ai-agent-skills
+  - owasp-agentic-threats-mitigations-v1-1
+  - skillspector-a-pre-publication-security-control-for-agent-skills
+  - llm-guard-the-security-toolkit-for-llm-interactions
+  - title: "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks"
+    locator: "https://arxiv.org/abs/2602.20156"
+  - sentry-skill-scanner
+  - agent-scan-security-scanner-for-ai-agents-mcp-servers-and-agent-skills
+  - skill-vetter
+  - ai-infra-guard-ai-red-teaming-platform
+  - skilltrustbench-benchmark-for-ai-agent-skill-security-scanners
 relations:
   supersedes: []
   superseded_by: []
@@ -41,7 +69,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - evidence
   - prompt-injection
   - agent-security

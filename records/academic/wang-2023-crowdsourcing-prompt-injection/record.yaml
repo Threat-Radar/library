@@ -1,0 +1,37 @@
+schema: "library-record/v1"
+id: wang-2023-crowdsourcing-prompt-injection
+body: academic
+type: paper
+title: "Safeguarding Crowdsourcing Surveys from ChatGPT with Prompt Injection"
+authors:
+  - "Wang, Chaofan"
+  - "Freire, Samuel Kernan"
+  - "Zhang, Mo"
+  - "Wei, Jing"
+  - "Goncalves, Jorge"
+  - "Kostakos, Vassilis"
+  - "Sarsenbayeva, Zhanna"
+  - "Schneegass, Christina"
+  - "Bozzon, Alessandro"
+  - "Niforatos, Evangelos"
+date: "2023-06-15"
+identifiers:
+  url: "https://arxiv.org/abs/2306.08833"
+  arxiv: "2306.08833"
+content:
+  url: "https://arxiv.org/abs/2306.08833"
+  sha256: "07e969ae0f87ad8bb22424c40337defa05d4a656aa59686b3c6f45a8da7e6a1d"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: agent-can-bypass-allowed-commands-using-command-concatenation-gemini-cli-issue-210
+body: vendor
+type: web
+title: "Agent Can Bypass Allowed Commands Using Command Concatenation (Gemini CLI Issue 2106)"
+authors: []
+date: ""
+identifiers:
+  url: "https://github.com/google-gemini/gemini-cli/issues/2106"
+content:
+  url: "https://github.com/google-gemini/gemini-cli/issues/2106"
+  sha256: "ce9d05bd918144cbc7f6eb575fd04018a7d37fea420bd23baa250ff2e61780e0"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - tracebit-2025-gemini-cli-hijack
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

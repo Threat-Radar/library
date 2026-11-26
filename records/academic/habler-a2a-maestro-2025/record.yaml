@@ -21,6 +21,16 @@ content:
   local: false
   media_type: application/pdf
   pages: 13
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - csa-maestro-2025
+  - threat-modeling-google-s-a2a-protocol
+  - title: "Enterprise-Grade Security for the Model Context Protocol (MCP): Frameworks and Mitigation Strategies"
+    locator: "https://arxiv.org/abs/2504.08623"
+  - rfc-6749
+  - rfc-7519
+  - zero-trust-architecture
+  - owasp-agentic-threats-mitigations-v1-1
 relations:
   supersedes: []
   superseded_by: []
@@ -40,7 +50,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - evidence
   - agent-security
   - ai-threat-model

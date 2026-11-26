@@ -1,0 +1,37 @@
+schema: "library-record/v1"
+id: liu-2023-jailbreaking-chatgpt
+body: academic
+type: paper
+title: "Jailbreaking ChatGPT via Prompt Engineering: An Empirical Study"
+authors:
+  - "Liu, Yi"
+  - "Deng, Gelei"
+  - "Xu, Zhengzi"
+  - "Li, Yuekang"
+  - "Zheng, Yaowen"
+  - "Zhang, Ying"
+  - "Zhao, Lida"
+  - "Zhang, Tianwei"
+  - "Wang, Kailong"
+  - "Liu, Yang"
+date: "2023-05-23"
+identifiers:
+  url: "https://arxiv.org/abs/2305.13860"
+  arxiv: "2305.13860"
+content:
+  url: "https://arxiv.org/abs/2305.13860"
+  sha256: "24d77e2dfc6e5238b39421f22625e2e4d5c86d1a8f34dfb07e8dad833793333a"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - schulhoff-2023-hackaprompt
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

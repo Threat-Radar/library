@@ -1,0 +1,30 @@
+schema: "library-record/v1"
+id: jiang-2024-promptkeeper
+body: academic
+type: paper
+title: "PromptKeeper: Safeguarding System Prompts for LLMs"
+authors:
+  - "Jiang, Zhifeng"
+  - "Jin, Zhihua"
+  - "He, Guoliang"
+date: "2024-12-18"
+identifiers:
+  url: "https://arxiv.org/abs/2412.13426"
+  arxiv: "2412.13426"
+content:
+  url: "https://arxiv.org/abs/2412.13426"
+  sha256: "ffa2d02b0003f94b051d5a2a03bf8978b60ae2b14ef2ce1d12b21d7128901a86"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

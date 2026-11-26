@@ -1,0 +1,31 @@
+schema: "library-record/v1"
+id: qiu-2023-latent-jailbreak
+body: academic
+type: paper
+title: "Latent Jailbreak: A Benchmark for Evaluating Text Safety and Output Robustness of Large Language Models"
+authors:
+  - "Qiu, Huachuan"
+  - "Zhang, Shuai"
+  - "Li, Anqi"
+  - "He, Hongliang"
+  - "Lan, Zhenzhong"
+date: "2023-07-17"
+identifiers:
+  url: "https://arxiv.org/abs/2307.08487"
+  arxiv: "2307.08487"
+content:
+  url: "https://arxiv.org/abs/2307.08487"
+  sha256: "1533ceb56250b1cd66a7ecbeea48de0547dc33ba406218bce6db37989d3ec400"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - toyer-2023-tensor-trust
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

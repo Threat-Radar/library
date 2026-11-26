@@ -21,6 +21,71 @@ content:
   local: false
   media_type: application/pdf
   pages: 18
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - title: "Not What You’ve Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection"
+    locator: "https://arxiv.org/abs/2302.12173"
+  - title: "StruQ: Defending Against Prompt Injection with Structured Queries"
+    locator: "https://arxiv.org/abs/2402.06363"
+  - title: "Formalizing and Benchmarking Prompt Injection Attacks and Defenses"
+    locator: "https://arxiv.org/abs/2310.12815"
+  - title: "SecGPT: An Execution Isolation Architecture for LLM-Based Systems"
+    locator: "https://arxiv.org/abs/2403.04960"
+  - title: "Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models"
+    locator: "https://arxiv.org/abs/2312.14197"
+  - title: "InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents"
+    locator: "https://arxiv.org/abs/2403.02691"
+  - debenedetti-2024-agentdojo
+  - promptpwnd-prompt-injection-vulnerabilities-in-github-actions-using-ai-agents
+  - de-stefano-2024-rag-and-roll
+  - jiang-2024-promptkeeper
+  - wang-2023-crowdsourcing-prompt-injection
+  - ji-2025-prompt-injection-detection
+  - zhang-2025-browsesafe
+  - llm-prompt-injection-prevention-cheat-sheet
+  - cloak-honey-trap-proactive-defenses-against-llm-agents
+  - unseeable-prompt-injections-in-screenshots-more-vulnerabilities-in-comet-and-other
+  - cui-2025-vortexpia
+  - jacob-2025-promptshield
+  - make-agent-defeat-agent-automatic-detection-of-taint-style-vulnerabilities-in-llm
+  - system-prompt-hijacking-via-permutation-triggers-in-llm-supply-chains
+  - ignore-all-previous-instructions-and-do-this-instead-defending-against-prompt-inje
+  - anatomy-of-an-indirect-prompt-injection
+  - prompt-injection-attacks-on-applications-that-use-llms
+  - agent-hijacking-the-true-impact-of-prompt-injection-attacks
+  - indirect-prompt-injection-in-the-real-world-how-people-manipulate-neural-networks
+  - title: "Do Anything Now: Characterizing and Evaluating In-the-Wild Jailbreak Prompts on Large Language Models"
+    locator: "https://arxiv.org/abs/2308.03825"
+  - title: "Agentic Browser Security: Indirect Prompt Injection in Perplexity Comet"
+    locator: "https://brave.com/blog/comet-prompt-injection/"
+  - title: "SecAlign: Defending Against Prompt Injection with Preference Optimization"
+    locator: "https://arxiv.org/abs/2410.05451"
+  - title: "Investigating the Impact of Dark Patterns on LLM-Based Web Agents"
+    locator: "https://arxiv.org/abs/2510.18113"
+  - title: "WASP: Benchmarking Web Agent Security against Prompt Injection Attacks"
+    locator: "https://arxiv.org/abs/2504.18575"
+  - title: "When AI Meets the Web: Prompt Injection Risks in Third-Party AI Chatbot Plugins"
+    locator: "https://arxiv.org/abs/2511.05797"
+  - title: "When LLMs Go Online: The Emerging Threat of Web-Enabled LLMs"
+    locator: "https://arxiv.org/abs/2410.14569"
+  - title: "Fun-Tuning: Characterizing the Vulnerability of Proprietary LLMs to Optimization-Based Prompt Injection Attacks via the Fine-Tuning Interface"
+    locator: "https://arxiv.org/abs/2501.09798"
+  - title: "ACE: A Security Architecture for LLM-Integrated App Systems"
+    locator: "https://doi.org/10.14722/ndss.2026.230352"
+  - title: "WebCloak: Characterizing and Mitigating Threats from LLM-Driven Web Agents as Intelligent Scrapers"
+    locator: "https://doi.org/10.1109/SP63933.2026.00025"
+  - title: "DataSentinel: A Game-Theoretic Detection of Prompt Injection Attacks"
+    locator: "https://arxiv.org/abs/2504.11358"
+  - title: "Machine against the RAG: Jamming Retrieval-Augmented Generation with Blocker Documents"
+    locator: "https://arxiv.org/abs/2406.05870"
+  - title: "Prompt Injection Attack to Tool Selection in LLM Agents"
+    locator: "https://doi.org/10.14722/ndss.2026.230675"
+  - title: "ObliInjection: Order-Oblivious Prompt Injection Attack to LLM Agents with Multi-Source Data"
+    locator: "https://doi.org/10.14722/ndss.2026.240702"
+  - title: "Attention Is All You Need to Defend against Indirect Prompt Injection Attacks in LLMs"
+    locator: "https://doi.org/10.14722/ndss.2026.240394"
+  - title: "PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation of Large Language Models"
+    locator: "https://arxiv.org/abs/2402.07867"
 relations:
   supersedes: []
   superseded_by: []
@@ -39,7 +104,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - evidence
   - prompt-injection
   - agent-security

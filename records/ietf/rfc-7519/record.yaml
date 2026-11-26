@@ -1,0 +1,27 @@
+schema: "library-record/v1"
+id: rfc-7519
+body: ietf
+type: rfc
+title: "JSON Web Token (JWT)"
+authors: []
+date: ""
+identifiers:
+  rfc: 7519
+  doi: "10.17487/RFC7519"
+  url: "https://www.rfc-editor.org/rfc/rfc7519.html"
+content:
+  url: "https://www.rfc-editor.org/rfc/rfc7519.html"
+  sha256: "d0ca0d6c6f8b7dfcad6e13c55086694d7ee69665bb828dcac6362d1587b4b53b"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - habler-a2a-maestro-2025
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

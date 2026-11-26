@@ -24,6 +24,52 @@ content:
   local: false
   media_type: application/pdf
   pages: 26
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - title: "Not What You’ve Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection"
+    locator: "https://arxiv.org/abs/2302.12173"
+  - title: "StruQ: Defending Against Prompt Injection with Structured Queries"
+    locator: "https://arxiv.org/abs/2402.06363"
+  - debenedetti-2024-satml-llm-ctf
+  - fu-2023-misusing-tools-visual
+  - title: "Coercing LLMs to do and reveal (almost) anything"
+    locator: "https://arxiv.org/abs/2402.14020"
+  - spotlighting-indirect-prompt-injection
+  - llm-programmatic-dual-use
+  - title: "Prompt Injection attack against LLM-integrated Applications"
+    locator: "https://arxiv.org/abs/2306.05499"
+  - title: "Formalizing and Benchmarking Prompt Injection Attacks and Defenses"
+    locator: "https://arxiv.org/abs/2310.12815"
+  - title: "Neural Exec: Learning (and Learning from) Execution Triggers for Prompt Injection Attacks"
+    locator: "https://arxiv.org/abs/2403.03792"
+  - title: "Ignore Previous Prompt: Attack Techniques For Language Models"
+    locator: "https://arxiv.org/abs/2211.09527"
+  - fine-tuned-deberta-v3-base-for-prompt-injection-detection
+  - title: "Identifying the Risks of LM Agents with an LM-Emulated Sandbox"
+    locator: "https://arxiv.org/abs/2309.15817"
+  - schulhoff-2023-hackaprompt
+  - toyer-2023-tensor-trust
+  - title: "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions"
+    locator: "https://arxiv.org/abs/2404.13208"
+  - delimiters-won-t-save-you-from-prompt-injection
+  - title: "Prompt injection attacks against GPT-3"
+    locator: "https://simonwillison.net/2022/Sep/12/prompt-injection/"
+  - title: "The dual LLM pattern for building AI assistants that can resist prompt injection"
+    locator: "https://simonwillison.net/2023/Apr/25/dual-llm-pattern/"
+  - you-can-t-solve-ai-security-problems-with-more-ai
+  - title: "SecGPT: An Execution Isolation Architecture for LLM-Based Systems"
+    locator: "https://arxiv.org/abs/2403.04960"
+  - title: "Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models"
+    locator: "https://arxiv.org/abs/2312.14197"
+  - title: "InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents"
+    locator: "https://arxiv.org/abs/2403.02691"
+  - title: "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models"
+    locator: "https://arxiv.org/abs/2404.01318"
+  - title: "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal"
+    locator: "https://arxiv.org/abs/2402.04249"
+  - mu-2023-simple-rules
+  - chainguard
+  - sandwich-defense
 relations:
   supersedes: []
   superseded_by: []
@@ -43,7 +89,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - evidence
   - prompt-injection
   - agent-security

@@ -1,0 +1,31 @@
+schema: "library-record/v1"
+id: chen-2023-personal-information-instructions
+body: academic
+type: paper
+title: "Can Language Models be Instructed to Protect Personal Information?"
+authors:
+  - "Chen, Yang"
+  - "Mendes, Ethan"
+  - "Das, Sauvik"
+  - "Xu, Wei"
+  - "Ritter, Alan"
+date: "2023-10-03"
+identifiers:
+  url: "https://arxiv.org/abs/2310.02224"
+  arxiv: "2310.02224"
+content:
+  url: "https://arxiv.org/abs/2310.02224"
+  sha256: "d99dd6ebe3fcc0acb4d549f4df3459623fcb09ed186813e07843788b69d558c2"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - liu-2025-lvlm-attack-survey
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

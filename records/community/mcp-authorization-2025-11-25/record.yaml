@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: mcp-authorization-2025-11-25
+body: community
+type: spec
+title: "MCP Authorization (2025-11-25)"
+authors: []
+date: ""
+identifiers:
+  url: "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization"
+content:
+  url: "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization"
+  sha256: "dea82c40bd7a6255a2d5c8812706caa2ac6576181d26220b3665539d0eb413e3"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mcp-spec-security-best-practices
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - mcp
+status: stub
+confidence: low

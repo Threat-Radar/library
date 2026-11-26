@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: llm-prompt-injection-prevention-cheat-sheet
+body: community
+type: web
+title: "LLM Prompt Injection Prevention Cheat Sheet"
+authors: []
+date: ""
+identifiers:
+  url: "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html"
+content:
+  url: "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html"
+  sha256: "a441acaf6f2c88d0fc88dbba756238c2f50515f37e6e1e07c49feb06f3d0c9dc"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

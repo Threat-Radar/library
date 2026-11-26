@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: mcp-transports-2025-11-25
+body: community
+type: spec
+title: "MCP Transports (2025-11-25)"
+authors: []
+date: ""
+identifiers:
+  url: "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+content:
+  url: "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+  sha256: "836b1726ef530aa04114d427bf51ded436a0460f8c73cc262d689272ab9b02bc"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mcp-spec-security-best-practices
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - mcp
+status: stub
+confidence: low

@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: draft-ietf-oauth-v2-1-13
+body: ietf
+type: draft
+title: "OAuth 2.1 Authorization Framework (draft 13)"
+authors: []
+date: ""
+identifiers:
+  draft: "draft-ietf-oauth-v2-1-13"
+  url: "https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-1-13/"
+content:
+  url: "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-13"
+  sha256: "e4cc2c58b8da4d05206a16fe374031a0146c3a47ca22a94a62adcbd23da75906"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mcp-spec-security-best-practices
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

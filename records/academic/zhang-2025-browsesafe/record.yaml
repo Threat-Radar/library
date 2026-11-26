@@ -1,0 +1,33 @@
+schema: "library-record/v1"
+id: zhang-2025-browsesafe
+body: academic
+type: paper
+title: "BrowseSafe: Understanding and Preventing Prompt Injection Within AI Browser Agents"
+authors:
+  - "Zhang, Kaiyuan"
+  - "Tenenholtz, Mark"
+  - "Polley, Kyle"
+  - "Ma, Jerry"
+  - "Yarats, Denis"
+  - "Li, Ninghui"
+date: "2025-11-25"
+identifiers:
+  url: "https://arxiv.org/abs/2511.20597"
+  arxiv: "2511.20597"
+content:
+  url: "https://arxiv.org/abs/2511.20597"
+  sha256: "a4ccee7f54fd4dfa17e69ee85edd19d19acfbc59dc0b4d6361069d05a90cec2d"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

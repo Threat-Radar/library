@@ -1,0 +1,28 @@
+schema: "library-record/v1"
+id: schwartzman-2024-chatgpt-exfiltration
+body: academic
+type: paper
+title: "Exfiltration of personal information from ChatGPT via prompt injection"
+authors:
+  - "Schwartzman, Gregory"
+date: "2024-05-31"
+identifiers:
+  url: "https://arxiv.org/abs/2406.00199"
+  arxiv: "2406.00199"
+content:
+  url: "https://arxiv.org/abs/2406.00199"
+  sha256: "3feb7392125146946edc64f31edd484ec791925e2d2b9cd819ef04e78477b9aa"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - beurer-kellner-2025-design-patterns
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

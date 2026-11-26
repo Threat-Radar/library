@@ -1,0 +1,35 @@
+schema: "library-record/v1"
+id: mu-2023-simple-rules
+body: academic
+type: paper
+title: "Can LLMs Follow Simple Rules?"
+authors:
+  - "Mu, Norman"
+  - "Chen, Sarah"
+  - "Wang, Zifan"
+  - "Chen, Sizhe"
+  - "Karamardian, David"
+  - "Aljeraisy, Lulwa"
+  - "Alomair, Basel"
+  - "Hendrycks, Dan"
+  - "Wagner, David"
+date: "2023-11-06"
+identifiers:
+  url: "https://arxiv.org/abs/2311.04235"
+  arxiv: "2311.04235"
+content:
+  url: "https://arxiv.org/abs/2311.04235"
+  sha256: "56b95ed0d457dd35401cf4fa366513116b6ceac20bbe4885ff0d976b97c89fd0"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - debenedetti-2024-agentdojo
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

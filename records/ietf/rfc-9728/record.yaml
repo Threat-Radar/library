@@ -1,0 +1,27 @@
+schema: "library-record/v1"
+id: rfc-9728
+body: ietf
+type: rfc
+title: "OAuth 2.0 Protected Resource Metadata"
+authors: []
+date: ""
+identifiers:
+  rfc: 9728
+  doi: "10.17487/RFC9728"
+  url: "https://www.rfc-editor.org/rfc/rfc9728.html"
+content:
+  url: "https://www.rfc-editor.org/rfc/rfc9728.html"
+  sha256: "e395d326c517f89bd926930defb1b4bbd2ea2d5203b692ab582ae457846f700e"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mcp-spec-security-best-practices
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

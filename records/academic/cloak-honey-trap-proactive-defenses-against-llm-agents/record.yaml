@@ -1,0 +1,28 @@
+schema: "library-record/v1"
+id: cloak-honey-trap-proactive-defenses-against-llm-agents
+body: academic
+type: paper
+title: "Cloak, Honey, Trap: Proactive Defenses Against LLM Agents"
+authors:
+  - "Daniel Ayzenshteyn"
+  - "Roy Weiss"
+  - "Yisroel Mirsky"
+date: "2025"
+identifiers:
+  url: "https://www.usenix.org/conference/usenixsecurity25/presentation/ayzenshteyn"
+content:
+  url: "https://www.usenix.org/conference/usenixsecurity25/presentation/ayzenshteyn"
+  sha256: "715d563b9e57c457e078a007511b5d6ff8760ab5dd9bdfdcb89e6c7ac2db18fa"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

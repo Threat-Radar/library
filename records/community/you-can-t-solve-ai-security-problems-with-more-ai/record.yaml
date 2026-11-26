@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: you-can-t-solve-ai-security-problems-with-more-ai
+body: community
+type: web
+title: "You can’t solve AI security problems with more AI"
+authors: []
+date: ""
+identifiers:
+  url: "https://simonwillison.net/2022/Sep/17/prompt-injection-more-ai/"
+content:
+  url: "https://simonwillison.net/2022/Sep/17/prompt-injection-more-ai/"
+  sha256: "d62c96a9d74dcc55cb706266d7f73b1a9cdc4f2317ea466256ec0ea84b0acfc4"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - debenedetti-2024-agentdojo
+    - shavit-2023-openai-governing-agentic
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

@@ -1,0 +1,32 @@
+schema: "library-record/v1"
+id: wu-2023-gpt4v-system-prompt-attacks
+body: academic
+type: paper
+title: "Jailbreaking GPT-4V via Self-Adversarial Attacks with System Prompts"
+authors:
+  - "Wu, Yuanwei"
+  - "Li, Xiang"
+  - "Liu, Yixin"
+  - "Zhou, Pan"
+  - "Sun, Lichao"
+date: "2023-11-15"
+identifiers:
+  url: "https://arxiv.org/abs/2311.09127"
+  arxiv: "2311.09127"
+content:
+  url: "https://arxiv.org/abs/2311.09127"
+  sha256: "318ce954e32f0b92eb732bae9729c2b1ee1644bc096c79dc23022b9ec7a21196"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - liu-2025-lvlm-attack-survey
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: mcpoison-persistent-code-execution-via-mcp-trust-bypass
+body: vendor
+type: web
+title: "MCPoison: Persistent Code Execution via MCP Trust Bypass"
+authors: []
+date: ""
+identifiers:
+  url: "https://research.checkpoint.com/2025/cursor-vulnerability-mcpoison/"
+content:
+  url: "https://research.checkpoint.com/2025/cursor-vulnerability-mcpoison/"
+  sha256: "24223c1673ae89ffa96cb3abd36bc27bc2d81ea1328b4abd0e9a3c791061b71e"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - cursor-curxecute-mcpoison-2025
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - mcp
+status: stub
+confidence: low

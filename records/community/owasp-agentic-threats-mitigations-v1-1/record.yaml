@@ -18,6 +18,12 @@ content:
   local: false
   media_type: application/pdf
   pages: 53
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - operator-system-card
+  - feng-2025-agent-autonomy-levels
+  - title: "A Survey on Trustworthy LLM Agents: Threats and Countermeasures"
+    locator: "https://arxiv.org/abs/2503.09648"
 relations:
   supersedes: []
   superseded_by: []
@@ -37,7 +43,7 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - community
+  - prior-art
   - ai-threat-model
   - agent-security
   - ai-weakness-catalog

@@ -1,0 +1,32 @@
+schema: "library-record/v1"
+id: krakovna-2020-avoiding-side-effects
+body: academic
+type: paper
+title: "Avoiding Side Effects By Considering Future Tasks"
+authors:
+  - "Krakovna, Victoria"
+  - "Orseau, Laurent"
+  - "Ngo, Richard"
+  - "Martic, Miljan"
+  - "Legg, Shane"
+date: "2020-10-15"
+identifiers:
+  url: "https://arxiv.org/abs/2010.07877"
+  arxiv: "2010.07877"
+content:
+  url: "https://arxiv.org/abs/2010.07877"
+  sha256: "b8a74f0321d8160155d48318374fc0d3cac7e71fe6589079545a94ab27e75878"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - shavit-2023-openai-governing-agentic
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-governance
+status: stub
+confidence: low

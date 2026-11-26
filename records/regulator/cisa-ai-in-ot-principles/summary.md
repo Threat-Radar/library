@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: cisa-ai-in-ot-principles
 record: cisa-ai-in-ot-principles
 type: summary
-updated: "2026-10-21"
+updated: "2026-11-25"
 ---
 
 # Principles for the Secure Integration of Artificial Intelligence in Operational Technology
@@ -45,6 +45,18 @@ adversarial inputs and data poisoning (§4.1) and use **MITRE ATLAS** alongside 
 (§3.2). `bears_on: R-018` — human-in-the-loop decision-making and an audit trail of AI
 inputs and outputs, with the AI's identity logged separately from users and machines
 (§4.1).
+
+## RPT-0014 applicability
+
+These lane-specific ratings supplement the existing extraction; they are proposed
+ratings from the WAVE 1 bibliography pass, not a new human review.
+
+| Topic of interest | Rating | Linked ids | Why |
+|---|---|---|---|
+| Published attacks | none | — | The guidance describes risks and recommendations, not an independently measured attack incident. |
+| Existing AI threat models | adjacent | — | Sections 3.2 and 4.1 recommend AI-aware threat modeling and use of external catalogs; this is guidance rather than a new modeling method. |
+| Weakness enumerations | adjacent | MITRE ATLAS | It points to ATLAS and other security resources rather than defining its own weakness catalog. |
+| Attack → asset mapping | adjacent | — | AI components, OT data, operators and safety-critical processes provide asset context, without a worked RPT-0014 attack-path model. |
 
 ## Implementations
 

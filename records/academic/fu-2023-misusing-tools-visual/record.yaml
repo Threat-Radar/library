@@ -1,0 +1,35 @@
+schema: "library-record/v1"
+id: fu-2023-misusing-tools-visual
+body: academic
+type: paper
+title: "Misusing Tools in Large Language Models With Visual Adversarial Examples"
+authors:
+  - "Fu, Xiaohan"
+  - "Wang, Zihan"
+  - "Li, Shuheng"
+  - "Gupta, Rajesh K."
+  - "Mireshghallah, Niloofar"
+  - "Berg-Kirkpatrick, Taylor"
+  - "Fernandes, Earlence"
+date: "2023-10-04"
+identifiers:
+  url: "https://arxiv.org/abs/2310.03185"
+  arxiv: "2310.03185"
+content:
+  url: "https://arxiv.org/abs/2310.03185"
+  sha256: "ebee716a6e2f904c633e1e0a55413496601396fa000c953a87a645fc4de2413f"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - beurer-kellner-2025-design-patterns
+    - debenedetti-2024-agentdojo
+    - schulhoff-2023-hackaprompt
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

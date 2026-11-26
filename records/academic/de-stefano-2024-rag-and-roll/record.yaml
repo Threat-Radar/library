@@ -1,0 +1,30 @@
+schema: "library-record/v1"
+id: de-stefano-2024-rag-and-roll
+body: academic
+type: paper
+title: "Rag and Roll: An End-to-End Evaluation of Indirect Prompt Manipulations in LLM-based Application Frameworks"
+authors:
+  - "De Stefano, Gianluca"
+  - "Schönherr, Lea"
+  - "Pellegrino, Giancarlo"
+date: "2024-08-09"
+identifiers:
+  url: "https://arxiv.org/abs/2408.05025"
+  arxiv: "2408.05025"
+content:
+  url: "https://arxiv.org/abs/2408.05025"
+  sha256: "be654dea458680bff3dec707d566d01d7f44a22ac883a404bd25cfe51a6ef37d"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

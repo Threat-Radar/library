@@ -30,6 +30,27 @@ content:
   local: false
   media_type: application/pdf
   pages: 34
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - title: "Not What You’ve Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection"
+    locator: "https://arxiv.org/abs/2302.12173"
+  - title: "Prompt Injection attack against LLM-integrated Applications"
+    locator: "https://arxiv.org/abs/2306.05499"
+  - title: "Ignore Previous Prompt: Attack Techniques For Language Models"
+    locator: "https://arxiv.org/abs/2211.09527"
+  - title: "Image Hijacks: Adversarial Images Can Control Generative Models at Runtime"
+    locator: "https://arxiv.org/abs/2309.00236"
+  - qiu-2023-latent-jailbreak
+  - title: "Jailbroken: How Does LLM Safety Training Fail?"
+    locator: "https://arxiv.org/abs/2307.02483"
+  - title: "Universal and Transferable Adversarial Attacks on Aligned Language Models"
+    locator: "https://arxiv.org/abs/2307.15043"
+  - title: "Do Anything Now: Characterizing and Evaluating In-the-Wild Jailbreak Prompts on Large Language Models"
+    locator: "https://arxiv.org/abs/2308.03825"
+  - title: "Jailbreaker: Automated Jailbreak Across Multiple Large Language Model Chatbots"
+    locator: "https://arxiv.org/abs/2307.08715"
+  - title: "Effective Prompt Extraction from Language Models"
+    locator: "https://arxiv.org/abs/2307.06865"
 relations:
   supersedes: []
   superseded_by: []
@@ -49,7 +70,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - evidence
   - prompt-injection
   - ai-benchmark

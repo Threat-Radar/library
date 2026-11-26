@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: exploring-prompt-injection-attacks
+body: vendor
+type: web
+title: "Exploring Prompt Injection Attacks"
+authors: []
+date: ""
+identifiers:
+  url: "https://www.nccgroup.com/research/exploring-prompt-injection-attacks/"
+content:
+  url: "https://www.nccgroup.com/research/exploring-prompt-injection-attacks/"
+  sha256: "d69f62b626542ffe116061113274b1b844240cce88dc69953e6b0653f9811e84"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - schulhoff-2023-hackaprompt
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

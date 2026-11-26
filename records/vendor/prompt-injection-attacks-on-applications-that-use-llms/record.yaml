@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: prompt-injection-attacks-on-applications-that-use-llms
+body: vendor
+type: web
+title: "Prompt Injection Attacks on Applications That Use LLMs"
+authors: []
+date: ""
+identifiers:
+  url: "https://www.invicti.com/white-papers/prompt-injection-attacks-on-llm-applications-ebook"
+content:
+  url: "https://www.invicti.com/white-papers/prompt-injection-attacks-on-llm-applications-ebook"
+  sha256: "478ae2d03941ee0a48c809fe9ba8511b8fb4e75639aaac417c859da3d5e968cc"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - khodayari-2026-ipi-in-the-wild
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

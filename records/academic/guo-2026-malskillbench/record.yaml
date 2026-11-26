@@ -1,0 +1,35 @@
+schema: "library-record/v1"
+id: guo-2026-malskillbench
+body: academic
+type: paper
+title: "MalSkillBench: A Runtime-Verified Benchmark of Malicious Agent Skills"
+authors:
+  - "Guo, Wenbo"
+  - "Zeng, Wei"
+  - "Liu, Chengwei"
+  - "Jia, Xiaojun"
+  - "Xu, Yijia"
+  - "Tang, Lei"
+  - "Fang, Yong"
+  - "Liu, Yang"
+date: "2026-06-05"
+identifiers:
+  url: "https://arxiv.org/abs/2606.07131"
+  arxiv: "2606.07131"
+content:
+  url: "https://arxiv.org/abs/2606.07131"
+  sha256: "823a8afd29696c7897007f3f36d82e1bf6839ca9f5b7026209a0cc6ffd2477cb"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mecca-2026-skillsecurer
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low

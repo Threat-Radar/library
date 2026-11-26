@@ -1,0 +1,27 @@
+schema: "library-record/v1"
+id: delimiters-won-t-save-you-from-prompt-injection
+body: community
+type: web
+title: "Delimiters won’t save you from prompt injection"
+authors: []
+date: ""
+identifiers:
+  url: "https://simonwillison.net/2023/May/11/delimiters-wont-save-you/"
+content:
+  url: "https://simonwillison.net/2023/May/11/delimiters-wont-save-you/"
+  sha256: "73e675aa53de1decff27c48c53dd88c98bb7858747acc19dd45a1b11aa56405b"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - beurer-kellner-2025-design-patterns
+    - debenedetti-2024-agentdojo
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

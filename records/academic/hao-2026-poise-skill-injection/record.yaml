@@ -1,0 +1,36 @@
+schema: "library-record/v1"
+id: hao-2026-poise-skill-injection
+body: academic
+type: paper
+title: "One Skill, Two Masters: Serving Users and Attackers through Skill Injection"
+authors:
+  - "Hao, Haochang"
+  - "Min, Dehai"
+  - "Zhang, Zhifang"
+  - "Zhang, Yunbei"
+  - "Xu, Miao"
+  - "Ge, Yingqiang"
+  - "Yu, Philip S."
+  - "Cheng, Lu"
+date: "2026-06-06"
+identifiers:
+  url: "https://arxiv.org/abs/2606.07943"
+  arxiv: "2606.07943"
+content:
+  url: "https://arxiv.org/abs/2606.07943"
+  sha256: "1eabad74adbda7ed00ddcedb9499a3e3811b168417754b8e8ae6b07cbf6623cd"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by:
+    - mecca-2026-skillsecurer
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+  - ai-supply-chain
+status: stub
+confidence: low
