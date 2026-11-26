@@ -4,6 +4,7 @@ id: openai-2023-chatgpt-redis-outage
 record: openai-2023-chatgpt-redis-outage
 type: summary
 updated: "2026-11-02"
+reviewed_by: "Maimcghee"
 ---
 
 # March 20 ChatGPT outage: Here's what happened
