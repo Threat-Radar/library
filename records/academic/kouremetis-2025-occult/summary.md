@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: kouremetis-2025-occult
 record: kouremetis-2025-occult
 type: summary
-updated: "2026-11-13"
+updated: "2026-11-26"
 lane: catalogs-schema
 reviewed_by: ""
 ---
@@ -71,7 +71,7 @@ All 56 references were checked against RPT-0014's `sources.md` on 2026-11-13, by
 
 - **In `sources.md` (9):** refs. 1 (S-0923), 3 (S-0954), 4 (S-0929), 8/30 (S-0944), 17 (S-0914), 21 (S-0919), 24 (S-0254), 25 (S-0253), 29 (S-0604). Of these, only CyberSecEval 3 and Cybench are library records yet.
 - **Covered by other documents (1):** ref. 27, DARPA's AIxCC "about" page. The challenge itself is S-0725 and S-1139.
-- **Missing, added as `status: stub` with `cited_by` this record (16):** refs. 5, 6, 7, 9, 11, 12, 13, 14, 15, 18, 19, 20, 22, 23, 26 and 50. Twelve are arXiv papers pinned by digest. Project Naptime (22) and Vulnhuntr (26) are web pages; the Vulnhuntr URL the paper gives returns 404, so its stub pins the Wayback copy of 2024-11-05. SecEval (19) is a repository pinned by commit. Mirage (50) is a paywalled journal article, recorded by DOI.
+- **Missing, added as `status: stub` with forward `cites` from this record (16):** refs. 5, 6, 7, 9, 11, 12, 13, 14, 15, 18, 19, 20, 22, 23, 26 and 50. Twelve are arXiv papers pinned by digest. Project Naptime (22) and Vulnhuntr (26) are web pages; the Vulnhuntr URL the paper gives returns 404, so its stub pins the Wayback copy of 2024-11-05. SecEval (19) is a repository pinned by commit. Mirage (50) is a paywalled journal article, recorded by DOI.
 - **Missing, not stubbed (1):** ref. 10, Yang et al., NeurIPS 2023 MASec workshop. No locator could be confirmed (it is not on arXiv under that title, and OpenReview search did not find it). It is in `cites` by title.
 
 **Out of scope (28):**

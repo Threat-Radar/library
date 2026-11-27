@@ -23,8 +23,7 @@ relations:
   see_also:
     - anthropic-rsp-v2-2-2025
     - anthropic-rsp-v3-4-2026
-  cited_by:
-    - nevo-2024-securing-ai-model-weights
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

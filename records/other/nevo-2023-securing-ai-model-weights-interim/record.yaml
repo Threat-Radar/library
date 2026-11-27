@@ -28,8 +28,7 @@ relations:
   superseded_by:
     - nevo-2024-securing-ai-model-weights
   see_also: []
-  cited_by:
-    - nevo-2024-securing-ai-model-weights
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

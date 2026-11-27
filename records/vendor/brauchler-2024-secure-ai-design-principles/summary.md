@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: brauchler-2024-secure-ai-design-principles
 record: brauchler-2024-secure-ai-design-principles
 type: summary
-updated: "2026-11-15"
+updated: "2026-11-26"
 lane: catalogs-schema
 reviewed_by: ""
 ---
@@ -75,4 +75,4 @@ The post's only cited work is its predecessor, `brauchler-2024-ai-application-th
 - **Principles, not a method.** Each rule comes from one worked analogy (an intern, a comptroller and a malicious vendor), with no case data and no test of whether a design meets it.
 - **Undated.** The page shows no date. 2024 is the Wayback Machine's first listing (2024-12-11), and the post could be older.
 - **The successor wasn't checked.** Patterns promised for "later articles" may refine these rules.
-- **Read from an archive.** The 2025-07-02 copy was read. The page now redirects to `nccgroup.com/research/`.
+- **Read from an archive.** The pinned 2025-07-02 copy is retained. On 2026-11-26 the recorded `/research/analyzing-secure-ai-design-principles/` URL serves the article again; it is no longer a redirect to the general research landing page.

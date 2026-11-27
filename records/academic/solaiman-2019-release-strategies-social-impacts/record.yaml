@@ -38,8 +38,7 @@ relations:
   supersedes: []
   superseded_by: []
   see_also: []
-  cited_by:
-    - goldstein-2023-influence-operations
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

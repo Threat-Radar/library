@@ -22,10 +22,7 @@ relations:
   supersedes: []
   superseded_by: []
   see_also: []
-  cited_by:
-    - anthropic-rsp-v3-4-2026
-    - anthropic-2026-risk-report-august
-    - gdm-fsf-v3-1-2026
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

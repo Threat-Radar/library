@@ -31,8 +31,7 @@ relations:
   supersedes: []
   superseded_by: []
   see_also: []
-  cited_by:
-    - kouremetis-2025-occult
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

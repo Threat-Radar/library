@@ -24,8 +24,7 @@ relations:
   supersedes: []
   superseded_by: []
   see_also: []
-  cited_by:
-    - brauchler-2024-ai-application-threat-models
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

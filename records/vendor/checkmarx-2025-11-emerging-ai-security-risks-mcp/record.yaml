@@ -21,8 +21,7 @@ relations:
   supersedes: []
   superseded_by: []
   see_also: []
-  cited_by:
-    - cosai-risk-map
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

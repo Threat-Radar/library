@@ -22,8 +22,7 @@ relations:
   superseded_by: []
   see_also:
     - gdm-fsf-v3-2025
-  cited_by:
-    - shah-2025-gdm-agi-safety-security
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

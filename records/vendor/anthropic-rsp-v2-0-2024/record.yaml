@@ -24,8 +24,7 @@ relations:
     - anthropic-rsp-v1-0-2023
     - anthropic-rsp-v2-2-2025
     - anthropic-rsp-v3-4-2026
-  cited_by:
-    - shah-2025-gdm-agi-safety-security
+  cited_by: []
   implements_concept: []
 bears_on: []
 topic: ai-threat-model-catalogs-schema

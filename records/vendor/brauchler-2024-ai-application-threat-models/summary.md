@@ -3,7 +3,7 @@ schema: "library-summary/v1"
 id: brauchler-2024-ai-application-threat-models
 record: brauchler-2024-ai-application-threat-models
 type: summary
-updated: "2026-11-15"
+updated: "2026-11-26"
 lane: catalogs-schema
 reviewed_by: ""
 ---
@@ -70,7 +70,7 @@ Searched 2026-11-15: none. The post describes a method and names no tool. The co
 The post cites inline, with 15 links. Each was checked against `sources.md` and the library on 2026-11-15, by arXiv id and title, then by author and keyword:
 - **In `sources.md` (4):** Shokri et al., membership inference (S-0027); Tramèr et al., model stealing (S-0013); Akhtar and Mian's survey (S-0671); Rehberger's Bard exfiltration (S-0974).
 - **Covered by another source (1):** Ars Technica's 2017 report on stop-sign stickers, which reports Eykholt et al. (S-0038).
-- **Missing, added as `status: stub` with `cited_by` this record (6):**
+- **Missing, added as `status: stub` with forward `cites` from this record (6):**
   - `wang-2022-variational-model-inversion` (arXiv 2201.10787, cited for "model inversions");
   - `elsayed-2018-adversarial-reprogramming` (arXiv 1806.11146);
   - `machado-2020-adversarial-ml-image-classification-survey` (arXiv 2009.03728);
