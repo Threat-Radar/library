@@ -1,0 +1,87 @@
+# Spec: version is load-bearing. New version = new record, linked by supersedes.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0842.
+# Typed `spec` like nist-ai-100-2-e2025, so it stays `status: stub`: WAVE 1 is a summary pass and a
+# spec past stub needs FX-1. summary.md carries the WAVE 1 summary and the applicability table.
+# Digest matches RPT-0014 pdf-manifest.tsv.
+schema: "library-record/v1"
+id: nist-ai-100-4
+body: nist
+type: spec
+maturity: informational
+title: "Reducing Risks Posed by Synthetic Content: An Overview of Technical Approaches to Digital Content Transparency"
+short_title: "NIST AI 100-4"
+authors:
+  - "National Institute of Standards and Technology"
+date: "2024-11"
+publisher: "National Institute of Standards and Technology"
+version: "NIST AI 100-4 (approved by the NIST Editorial Review Board 2024-11-18)"
+identifiers:
+  doi: "10.6028/NIST.AI.100-4"
+  url: https://doi.org/10.6028/NIST.AI.100-4
+content:
+  url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf
+  sha256: "a387a4977db70d65cdbc178c8b0cb8aa5dedb85fa80d6f473c244e2767a4fd54"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 81
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - nist-ai-100-2-e2025
+    - c2pa-2-4
+  cited_by: []
+  implements_concept: []
+cites:
+  - arstechnica-2024-fake-ai-taylor-swift-images
+  - carlini-2022-confidence-adversarial-robustness-evaluations
+  - chakraborty-2023-possibilities-ai-text-detection
+  - christ-2023-undetectable-watermarks-language-models
+  - fbi-2023-public-safety-alert-sextortion
+  - ghosal-2023-possibilities-impossibilities-ai-text-detection
+  - jakesch-2022-human-heuristics-ai-language-flawed
+  - liang-2023-gpt-detectors-biased-non-native
+  - liu-2024-audiomarkbench
+  - muller-2022-open-challenges-synthetic-speech-detection
+  - nicks-2024-lm-detectors-easily-optimized-against
+  - thiel-2023-ai-image-models-trained-on-child-abuse
+  - wang-2019-cnn-generated-images-easy-to-spot
+  - wired-2023-ai-generated-child-abuse-images
+  - wu-2024-bypassing-llm-watermarks-color-aware
+  - c2pa-2-4                 # cites C2PA 1.3; the library holds 2.4
+  - fips-186-5
+  - title: "Fernandez et al., The Stable Signature (RPT-0014 S-0164)"
+  - title: "Jiang et al., Evading watermark based detection of AI-generated content (RPT-0014 S-0171)"
+  - title: "Jovanovic et al., Watermark stealing in large language models (RPT-0014 S-0276)"
+  - title: "Kirchenbauer et al., A watermark for large language models (RPT-0014 S-0175)"
+  - title: "Kirchenbauer et al., On the reliability of watermarks for large language models (RPT-0014 S-0279)"
+  - title: "Kuditipudi et al., Robust distortion-free watermarks for language models (RPT-0014 S-0280)"
+  - title: "Pang et al., No free lunch in LLM watermarking (RPT-0014 S-0300)"
+  - title: "Saberi et al., Robustness of AI-image detectors: fundamental limits and practical attacks (RPT-0014 S-0311)"
+  - title: "Sadasivan et al., Can AI-generated text be reliably detected? (RPT-0014 S-0197)"
+  - title: "Wen et al., Tree-Ring watermarks (RPT-0014 S-0208)"
+  - title: "Zhang et al., Watermarks in the sand (RPT-0014 S-0354)"
+  - title: "Zhao et al., Invisible image watermarks are provably removable using generative AI (RPT-0014 S-0356)"
+  - title: "Rando et al., Red-teaming the Stable Diffusion safety filter (RPT-0014 S-0151)"
+  - title: "NIST AI RMF 1.0 (RPT-0014 S-0783)"
+  - title: "C2PA Technical Specification (RPT-0014 S-0858)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+usefulness:
+  verdict: useful
+  reason: "The control side of deepfake and synthetic-content threats: provenance (watermarks, metadata, signatures), detection and CSAM/NCII safeguards, each with its known weaknesses; it states that watermarks can be scrubbed, paraphrased away or forged and that detectors can be evaded."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - content-provenance
+  - deepfake
+  - evasion
+  - normative
+status: stub
+confidence: medium
+owner: Maimcghee

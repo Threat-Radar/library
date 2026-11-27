@@ -1,0 +1,40 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cwe-ai-working-group, whose
+# slides link its issues for every AI-related CWE submission (label `related-to-ai`). In scope,
+# not in RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is README.md at the commit below; the submissions themselves are GitHub issues and
+# files under submissions/, which change as reviews progress. On 2026-11-20, 14 issues carried
+# `related-to-ai`; all were open except #109 (closed).
+schema: "library-record/v1"
+id: cwe-content-development-repository
+body: other
+type: repo
+title: "CWE Content Development Repository"
+short_title: "CWE CDR"
+authors:
+  - "The MITRE Corporation, CWE Program"
+date: "2023-09-11"
+publisher: "The MITRE Corporation (CWE Program)"
+identifiers:
+  url: https://github.com/CWE-CAPEC/CWE-Content-Development-Repository
+  git: https://github.com/CWE-CAPEC/CWE-Content-Development-Repository
+content:
+  url: https://raw.githubusercontent.com/CWE-CAPEC/CWE-Content-Development-Repository/ea5a2ea88febdf26d293e604ecd4b4dae183a93d/README.md
+  sha256: "cccf8a8e116d5ce7826c46004ee0bf05eee87d2e05d882a0e75cebd202e02316"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/markdown
+commit: "ea5a2ea88febdf26d293e604ecd4b4dae183a93d"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+status: stub
+confidence: medium
+owner: Maimcghee

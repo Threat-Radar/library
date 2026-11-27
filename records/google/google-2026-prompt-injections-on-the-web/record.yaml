@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-18, bytes as archived; decompressed sha256 b6a4eee2b71218b1cc5e64bc06eb0aa353226bc1d1540ece7d493fa82a8e3f7a.
+schema: "library-record/v1"
+id: google-2026-prompt-injections-on-the-web
+body: google
+type: article
+title: "AI threats in the wild: The current state of prompt injections on the web"
+authors:
+  - "Thomas Brunner"
+date: "2026-04-23"
+publisher: "Google"
+identifiers:
+  url: https://blog.google/security/prompt-injections-web/
+content:
+  url: https://web.archive.org/web/20261118013429id_/https://blog.google/security/prompt-injections-web/
+  sha256: "4ab31029956c9ab423b5c51ed9b83c1fa6e1d2b580b59c54ebaa4db1d3d2e836"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

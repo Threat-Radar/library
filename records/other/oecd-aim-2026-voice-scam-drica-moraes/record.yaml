@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-04-11, bytes as archived.
+schema: "library-record/v1"
+id: oecd-aim-2026-voice-scam-drica-moraes
+body: other
+type: web
+title: "AI-Generated Voice Used in Scam Targeting Drica Moraes' Contacts"
+date: "2026-04-06"
+publisher: "OECD AI Incidents and Hazards Monitor"
+identifiers:
+  url: https://oecd.ai/en/incidents/2026-04-06-ca7a
+content:
+  url: https://web.archive.org/web/20260411024605id_/https://oecd.ai/en/incidents/2026-04-06-ca7a
+  sha256: "e447b02bff57edcf209cd016e4b7b1770ea6985a57d016f1c04b6675a730abcc"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

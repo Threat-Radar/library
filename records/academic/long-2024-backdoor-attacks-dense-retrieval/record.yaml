@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: long-2024-backdoor-attacks-dense-retrieval
+body: academic
+type: paper
+title: "Backdoor Attacks on Dense Retrieval via Public and Unintentional Triggers"
+authors:
+  - "Quanyu Long"
+  - "Yue Deng"
+  - "LeiLei Gan"
+  - "Wenya Wang"
+  - "Sinno Jialin Pan"
+date: "2024-02-21"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.13532"
+  url: https://arxiv.org/abs/2402.13532
+content:
+  url: https://arxiv.org/pdf/2402.13532
+  sha256: "3a57f94959340692c1a7cd5ed17cadd7c8ef35f38c157fa24b13e073f80b3c48"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - rag-security
+  - backdoor
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2024-09-14, bytes as archived; decompressed sha256 b33143cef630c8b4dc399a4fe2d4e6dfc6ac86f16dbf641e1cb299896d60f9c4.
+schema: "library-record/v1"
+id: gizmodo-2017-hackers-weaponize-ai
+body: other
+type: article
+title: "Hackers Have Already Started to Weaponize Artificial Intelligence"
+authors:
+  - "George Dvorsky"
+date: "2017-09"
+publisher: "Gizmodo"
+identifiers:
+  url: https://www.gizmodo.com.au/2017/09/hackers-have-already-started-to-weaponize-artificial-intelligence/
+content:
+  url: https://web.archive.org/web/20240914130701id_/https://www.gizmodo.com.au/2017/09/hackers-have-already-started-to-weaponize-artificial-intelligence/
+  sha256: "5cbcc78e84e46f70137a974a0d3b28d6bf1118676713a9a207458e96e630f631"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

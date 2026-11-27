@@ -1,0 +1,36 @@
+# Article: a government awareness publication. Not `spec`.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cccs-itsap-00-041-generative-ai-2025
+# ("Learn more"), in scope, not in RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-19, bytes as archived; the live page fetched
+# 2026-11-15 says "December 2025" and "Date modified: 2025-12-10".
+schema: "library-record/v1"
+id: cccs-itsap-00-040-artificial-intelligence-2025
+body: regulator
+type: article
+title: "Artificial Intelligence - ITSAP.00.040"
+authors:
+  - "Canadian Centre for Cyber Security"
+date: "2025-12"
+publisher: "Canadian Centre for Cyber Security (Communications Security Establishment Canada)"
+identifiers:
+  url: https://www.cyber.gc.ca/en/guidance/artificial-intelligence-itsap00040
+content:
+  url: https://web.archive.org/web/20261019123327id_/https://www.cyber.gc.ca/en/guidance/artificial-intelligence-itsap00040
+  sha256: "10c166e46df4aa5c56b980707cb8de4da96b34e6bd3549d36a0474127b65b9c1"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cccs-itsap-00-041-generative-ai-2025
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

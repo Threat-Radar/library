@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-02, bytes as archived; decompressed sha256 22af33cb15fe0c825d2b6ae2c592164911cd197c5275363423ec2430558e0435.
+schema: "library-record/v1"
+id: rehberger-2024-chatgpt-hacking-memories
+body: other
+type: article
+title: "ChatGPT: Hacking Memories with Prompt Injection"
+authors:
+  - "Johann Rehberger"
+date: "2024-05-22"
+publisher: "Embrace The Red"
+identifiers:
+  url: https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/
+content:
+  url: https://web.archive.org/web/20261102062842id_/https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/
+  sha256: "42b88a33953d9ee4af26195c9cfc9786d75c6aa568931d20334108d2e7c8e74e"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

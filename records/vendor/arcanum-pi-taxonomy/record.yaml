@@ -1,0 +1,125 @@
+# Dataset: a prompt-injection taxonomy, published as one JSON file in a GitHub repository.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0865.
+# Pinned by commit: content is docs/data/taxonomy.json at that commit (raw.githubusercontent,
+# byte-stable). The README, CHANGELOG and LICENSE were read at the same commit. The data file
+# last changed in 65b8379 (v1.6.1); the pinned commit only reorders the web app's cards.
+# The canonical reading copies are the web app (arcanum-sec.com/pitax and the GitHub Pages
+# site); they render this same file.
+schema: "library-record/v1"
+id: arcanum-pi-taxonomy
+body: vendor
+type: dataset
+title: "Arcanum Prompt Injection Taxonomy"
+short_title: "Arcanum PI Taxonomy"
+authors:
+  - "Jason Haddix"
+date: "2026-06-29"
+publisher: "Arcanum Information Security"
+version: "v1.6.1, repository commit e02cf5b6 (2026-06-29)"
+identifiers:
+  url: https://www.arcanum-sec.com/pitax
+  git: https://github.com/Arcanum-Sec/arc_pi_taxonomy
+content:
+  url: https://raw.githubusercontent.com/Arcanum-Sec/arc_pi_taxonomy/e02cf5b6e202f195c6b6c01484e99519f797acc6/docs/data/taxonomy.json
+  sha256: "fc26b73a909faf73087dac4829cbd2118eb3f4505db6729dc048bc6fb3e1daa7"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/json
+commit: "e02cf5b6e202f195c6b6c01484e99519f797acc6"
+license: "CC-BY-4.0"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+cites:
+  - bethany-2024-mathprompt-symbolic-mathematics
+  - bisconti-2025-adversarial-poetry-as-universal
+  - chang-2025-chatinject-abusing-chat-templates
+  - chen-2025-metacipher-time-persistent-universal
+  - chen-2025-strong-but-brittle-simple
+  - cui-2025-practical-reasoning-interruption-attacks
+  - dong-2024-sata-paradigm-llm-jailbreak
+  - gao-2025-imperceptible-jailbreaking-against-large
+  - ghanim-2024-jailbreaking-llms-arabic-transliteration
+  - goel-2025-turbofuzzllm-turbocharging-mutation-based
+  - hackett-2025-bypassing-llm-guardrails-empirical
+  - huang-2024-plentiful-jailbreaks-string-compositions
+  - li-2024-structuralsleight-automated-jailbreak-attacks
+  - liu-2023-jailbreaking-chatgpt-prompt-engineering
+  - liu-2024-flipattack-jailbreak-llms-flipping
+  - liu-2025-autodan-reasoning-enhancing-strategies
+  - lv-2024-codechameleon-personalized-encryption-framework
+  - miao-2025-response-attack-exploiting-contextual
+  - nakash-2024-breaking-react-agents-foot
+  - nakka-2025-bitbypass-new-direction-jailbreaking
+  - pham-2025-parasite-conditional-system-prompt
+  - ren-2024-codeattack-revealing-safety-generalization
+  - ren-2024-llms-know-their-vulnerabilities
+  - russinovich-2025-jailbreaking-mostly-simpler-than
+  - sneh-2025-tooltweak-attack-tool-selection
+  - weng-2025-foot-door-multi-turn
+  - yang-2024-chain-attack-semantic-driven
+  - yang-2024-dark-side-trust-authority
+  - yang-2025-cost-thinking-increased-jailbreak
+  - yao-2023-fuzzllm-novel-universal-fuzzing
+  - zhang-2024-wordgame-efficient-effective-llm
+  - zhang-2025-prompt-injection-mixture-of-encodings
+  - zhang-2025-when-grammar-guides-attack
+  - zhao-2025-chain-thought-hijacking
+  - zheng-2024-improved-few-shot-jailbreaking
+  - zhou-2024-speak-out-turn-safety
+  - zou-2025-queryattack-jailbreaking-aligned-large
+  - llm-programmatic-dual-use                 # Kang et al., payload splitting (also RPT-0014 S-0173)
+  - title: "arXiv:1908.07125, Universal Adversarial Triggers for Attacking and Analyzing NLP (RPT-0014 S-0074)"
+  - title: "arXiv:2302.12173, Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection (RPT-0014 S-0166)"
+  - title: "arXiv:2307.02483, Jailbroken: How Does LLM Safety Training Fail? (RPT-0014 S-0207)"
+  - title: "arXiv:2308.06463, GPT-4 Is Too Smart To Be Safe: Stealthy Chat with LLMs via Cipher (RPT-0014 S-0214)"
+  - title: "arXiv:2309.10253, GPTFUZZER: Red Teaming Large Language Models with Auto-Generated Jailbreak Prompts (RPT-0014 S-0213)"
+  - title: "arXiv:2310.02446, Low-Resource Languages Jailbreak GPT-4 (RPT-0014 S-0211)"
+  - title: "arXiv:2310.12815, Formalizing and Benchmarking Prompt Injection Attacks and Defenses (RPT-0014 S-0291)"
+  - title: "arXiv:2311.03348, Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation (RPT-0014 S-0199)"
+  - title: "arXiv:2311.08268, A Wolf in Sheep's Clothing: Generalized Nested Jailbreak Prompts can Fool Large Language Models Easily (RPT-0014 S-0249)"
+  - title: "arXiv:2401.06373, How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs (RPT-0014 S-0343)"
+  - title: "arXiv:2402.00898, An Early Categorization of Prompt Injection Attacks on Large Language Models (RPT-0014 S-0308)"
+  - title: "arXiv:2402.07867, PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation of Large Language Models (RPT-0014 S-0493)"
+  - title: "arXiv:2402.08567, Agent Smith: A Single Image Can Jailbreak One Million Multimodal LLM Agents Exponentially Fast (RPT-0014 S-0261)"
+  - title: "arXiv:2402.11753, ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs (RPT-0014 S-0274)"
+  - title: "arXiv:2403.02817, Here Comes The AI Worm: Unleashing Zero-click Worms that Target GenAI-Powered Applications (RPT-0014 S-0242)"
+  - title: "arXiv:2404.01833, Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack (RPT-0014 S-0310)"
+  - title: "arXiv:2406.18382, Adversarial Search Engine Optimization for Large Language Models (RPT-0014 S-0446)"
+  - title: "arXiv:2407.04295, Jailbreak Attacks and Defenses Against Large Language Models: A Survey (RPT-0014 S-0699)"
+  - title: "arXiv:2407.11969, Does Refusal Training in LLMs Generalize to the Past Tense? (RPT-0014 S-0369)"
+  - title: "arXiv:2410.05295, AutoDAN-Turbo: A Lifelong Agent for Strategy Self-Exploration to Jailbreak LLMs (RPT-0014 S-0431)"
+  - title: "arXiv:2410.07283, Prompt Infection: LLM-to-LLM Prompt Injection within Multi-Agent Systems (RPT-0014 S-0283)"
+  - title: "arXiv:2412.03556, Best-of-N Jailbreaking (RPT-0014 S-0271)"
+  - title: "arXiv:2502.01386, Topic-FlipRAG: Topic-Orientated Adversarial Opinion Manipulation Attacks to Retrieval-Augmented Generation Models (RPT-0014 S-0397)"
+  - title: "arXiv:2502.12893, H-CoT: Hijacking the Chain-of-Thought Safety Reasoning Mechanism to Jailbreak Large Reasoning Models (RPT-0014 S-0419)"
+  - title: "arXiv:2503.03704, Memory Injection Attacks on LLM Agents via Query-Only Interaction (RPT-0014 S-0392)"
+  - title: "arXiv:2504.19793, Prompt Injection Attack to Tool Selection in LLM Agents (ToolHijacker; RPT-0014 S-0577, cited there by DOI)"
+  - title: "arXiv:2510.10271, MetaBreak: Jailbreaking Online LLM Services via Special Token Manipulation (RPT-0014 S-0615, cited there by DOI)"
+  - title: "arXiv:2111.00169, Boucher and Anderson, Trojan Source: Invisible Vulnerabilities (not about AI; out of RPT-0014's scope)"
+bears_on:
+  - DEC-008
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-20"
+usefulness:
+  verdict: useful
+  reason: "The finest-grained open prompt-injection enumeration: 172 nodes on four axes (intent, technique, evasion, input channel) with stable codes, examples and a direct/indirect tag, in one CC BY JSON file; few nodes carry catalog ids, and the ranking is practitioner judgement, not evidence."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+  - prompt-injection
+  - jailbreak
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee

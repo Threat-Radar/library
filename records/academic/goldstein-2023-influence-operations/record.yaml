@@ -1,0 +1,82 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0734. Metadata from the arXiv API
+# and the PDF's title page. sources.md records no PDF digest for it; this is arXiv v1, the only
+# version on 2026-11-21.
+schema: "library-record/v1"
+id: goldstein-2023-influence-operations
+body: academic
+type: paper
+title: "Generative Language Models and Automated Influence Operations: Emerging Threats and Potential Mitigations"
+short_title: "LMs and Automated Influence Operations"
+authors:
+  - "Josh A. Goldstein"
+  - "Girish Sastry"
+  - "Micah Musser"
+  - "Renée DiResta"
+  - "Matthew Gentzel"
+  - "Katerina Sedova"
+date: "2023-01-10"
+publisher: "Georgetown CSET, OpenAI and the Stanford Internet Observatory (arXiv)"
+version: "arXiv v1 (the only version on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2301.04246"
+  url: https://arxiv.org/abs/2301.04246
+content:
+  url: https://arxiv.org/pdf/2301.04246
+  sha256: "5b79c714add31173517ac63fc1f0f12c66eb16691648103c71a8545d22a526a3"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 84
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - sedova-2021-ai-disinformation-campaigns-threat-model
+  cited_by: []
+  implements_concept: []
+cites:
+  - ayyub-2018-deepfake-porn-plot
+  - bagdasaryan-2021-spinning-language-models
+  - buchanan-2021-truth-lies-automation
+  - farid-2022-creating-misusing-detecting-deep-fakes
+  - ippolito-2019-detection-generated-text-humans-fooled
+  - kurenkov-2022-gpt-4chan-controversy
+  - lohn-2020-hacking-ai
+  - lohn-2022-cyber-swords-or-shields
+  - musser-2023-cost-analysis-lms-influence-operations
+  - nightingale-2022-ai-synthesized-faces-indistinguishable
+  - npr-2022-ai-fake-faces-influence-operations
+  - npr-2022-zelenskyy-deepfake
+  - ovadya-2019-reducing-malicious-use-synthetic-media
+  - sedova-2021-ai-disinformation-campaigns-threat-model
+  - solaiman-2019-release-strategies-social-impacts
+  - wired-2021-ai-text-could-fool-government
+  - aiid-147-hong-kong-bank-voice-clone-fraud   # the $35M voice-clone fraud it cites via Screen Rant
+  - title: "Shokri et al., Membership inference attacks against machine learning models (RPT-0014 S-0027)"
+  - title: "Tramer et al., Stealing machine learning models via prediction APIs (RPT-0014 S-0013)"
+  - title: "IEEE Spectrum, Microsoft's Tay (the incident is RPT-0014 S-0864)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-21"
+usefulness:
+  verdict: useful
+  reason: "The reference analysis of AI-enabled influence operations: how language models change the actors, behaviours and content of propaganda, and a four-stage kill chain (model construction, model access, content dissemination, belief formation) to which mitigations attach."
+  assessed: "2026-11-21"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-threat-model
+  - deepfake
+  - method
+status: summarized
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,37 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: hendrycks-2023-overview-catastrophic-ai-risks
+body: academic
+type: paper
+title: "An Overview of Catastrophic AI Risks"
+authors:
+  - "Dan Hendrycks"
+  - "Mantas Mazeika"
+  - "Thomas Woodside"
+date: "2023-06-21"
+version: "arXiv v6 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2306.12001"
+  url: https://arxiv.org/abs/2306.12001
+content:
+  url: https://arxiv.org/pdf/2306.12001
+  sha256: "db87a2c26d9ccf274d7e1500e584d86c0c478dc9e04cf8c6fd24b465d82d696f"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

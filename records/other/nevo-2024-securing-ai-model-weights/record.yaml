@@ -1,0 +1,87 @@
+# Paper/PDF: a RAND research report.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0793. Digest matches RPT-0014
+# pdf-manifest.tsv. rand.org refuses scripted downloads (HTTP 403); the Wayback Machine's id_ copies
+# of the PDF URL (e.g. 20251114062649) decompress to exactly these bytes.
+schema: "library-record/v1"
+id: nevo-2024-securing-ai-model-weights
+body: other
+type: paper
+title: "Securing AI Model Weights: Preventing Theft and Misuse of Frontier Models"
+short_title: "RAND Securing AI Model Weights"
+authors:
+  - "Sella Nevo"
+  - "Dan Lahav"
+  - "Ajay Karpur"
+  - "Yogev Bar-On"
+  - "Henry Alexander Bradley"
+  - "Jeff Alstott"
+date: "2024-05-30"
+publisher: "RAND Corporation"
+version: "RR-A2849-1"
+identifiers:
+  url: https://www.rand.org/pubs/research_reports/RRA2849-1.html
+  rand: "RR-A2849-1"
+content:
+  url: https://www.rand.org/content/dam/rand/pubs/research_reports/RRA2800/RRA2849-1/RAND_RRA2849-1.pdf
+  sha256: "e728155ee84b2000d7a38f1b26e16bcfaee231412953f679ebcd64d597eaa2b6"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 128
+relations:
+  supersedes:
+    - nevo-2023-securing-ai-model-weights-interim
+  superseded_by: []
+  see_also:
+    - gdm-fsf-v3-2025
+    - anthropic-rsp-v3-4-2026
+    - eu-gpai-code-2025-safety-security
+  cited_by: []
+  implements_concept: []
+cites:
+  - anthropic-rsp-v1-0-2023
+  - harang-2023-securing-llm-systems-prompt-injection
+  - harrison-2023-deep-learning-acoustic-side-channel-keyboards
+  - mukherjee-2023-orca-progressive-learning-gpt4
+  - nevo-2023-securing-ai-model-weights-interim
+  - nvidia-2023-confidential-compute-h100
+  - openai-2023-preparedness-framework-beta
+  - tensorflow-using-tensorflow-securely
+  - venturebeat-2024-mistral-model-leak
+  - wired-2021-ai-phishing-emails
+  - pytorch-2022-torchtriton-dependency-confusion   # TechRadar and the ATLAS case study
+  - mitre-atlas
+  - thn-2023-shelltorch-pytorch-torchserve          # same vulnerability as its Oligo ShellTorch reference
+  - title: "Carlini et al., Stealing part of a production language model (RPT-0014 S-0232)"
+  - title: "Dutta et al., Spy in the GPU-box: covert and side channel attacks on multi-GPU systems (RPT-0014 S-0163)"
+  - title: "Tramer et al., Stealing machine learning models via prediction APIs (RPT-0014 S-0013)"
+  - title: "The Verge, Meta's LLaMA leaked online (RPT-0014 S-1129)"
+  - title: "Microsoft AI researchers expose 38 TB (the incident is RPT-0014 S-0977)"
+  - title: "Wired, A new attack impacts major AI chatbots (the attack is RPT-0014 S-0220)"
+  - title: "Oligo, ShadowRay (RPT-0014 S-0990)"
+  - title: "Oprea and Vassilev, NIST AI 100-2 E2023 (RPT-0014 S-0841)"
+  - title: "Naghibijouybari et al., Side channel attacks on GPUs, IEEE TDSC 2021 (no open copy; not stubbed)"
+bears_on:
+  - DEC-001
+  - DEC-003
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: core
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-20"
+usefulness:
+  verdict: useful
+  reason: "The structured threat model for one asset, frontier model weights: 38 theft vectors in 9 categories, five attacker capacity tiers (OC1-OC5) with expert feasibility scores per vector, and security levels SL1-SL5 with benchmark controls; the attacker-tier scale FSF v3 and RSP v3.4 now cite."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - model-extraction
+  - ai-infrastructure
+  - method
+status: summarized
+confidence: medium
+owner: Maimcghee

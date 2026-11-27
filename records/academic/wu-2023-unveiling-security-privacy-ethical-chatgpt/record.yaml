@@ -1,0 +1,37 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by wu-2024-new-era-llm-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: wu-2023-unveiling-security-privacy-ethical-chatgpt
+body: academic
+type: paper
+title: "Unveiling Security, Privacy, and Ethical Concerns of ChatGPT"
+authors:
+  - "Xiaodong Wu"
+  - "Ran Duan"
+  - "Jianbing Ni"
+date: "2023-07-26"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2307.14192"
+  url: https://arxiv.org/abs/2307.14192
+content:
+  url: https://arxiv.org/pdf/2307.14192
+  sha256: "b70dba2427472b3a07c31d4445cf5ff73f951b58aa8e4aeda3f82612c973d32c"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

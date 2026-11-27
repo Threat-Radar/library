@@ -1,0 +1,64 @@
+# Repo: pin the commit. An unpinned repo is not a citable source.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0888.
+# The working group's document repository: meeting minutes and slides, no code. Content is the
+# latest minutes (2026-06-12, PDF) at the pinned commit, the newest commit on main on
+# 2026-11-20. The latest slides, meeting_slides/CVE-CWE-AI-WG-260626-new-entry.pptx at the same
+# commit, have sha256 92cfd2ac6fde65f6df22ef5f366b10478cf663a0d7e96ef10a5d39cad4483d97.
+# Branch organize-slides-by-year (2026-09-08) only moves and renames slides. Nothing newer than
+# the 2026-06-26 slides is in the repository.
+schema: "library-record/v1"
+id: cwe-ai-working-group
+body: other
+type: repo
+title: "CWE AI Working Group"
+short_title: "CWE AI WG"
+authors:
+  - "CWE Program (The MITRE Corporation) and the CWE AI Working Group"
+date: "2026-06-26"
+publisher: "The MITRE Corporation (CWE Program)"
+version: "repository commit c34115ac (2026-07-07); latest minutes 2026-06-12, latest slides 2026-06-26"
+identifiers:
+  url: https://github.com/CWE-CAPEC/AI-Working-Group
+  git: https://github.com/CWE-CAPEC/AI-Working-Group
+content:
+  url: https://raw.githubusercontent.com/CWE-CAPEC/AI-Working-Group/c34115acc7c0c3697e89072cfb2ebc1e0ce40602/meeting_minutes/20260612-CWE-AI-Working-Group-Meeting-Minutes.pdf
+  sha256: "1f61c8ec00a38762329c7c7e0bdf441b952dc517eae23c58a2beee92c99815cf"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 6
+commit: "c34115acc7c0c3697e89072cfb2ebc1e0ce40602"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cwe
+  cited_by: []
+  implements_concept: []
+cites:
+  - cwe-content-development-repository   # the CDR issues for every AI submission the slides list
+  - title: "CVE Program, CVE AI Working Group charter (RPT-0014 S-0838)"
+  - title: "S. Romanosky (RAND), A Structured Approach to Identifying and Characterizing AI Vulnerabilities, draft, unpublished (shared with the WG; not found published on 2026-11-20)"
+bears_on:
+  - DEC-001
+  - DEC-008
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-20"
+usefulness:
+  verdict: useful
+  reason: "The primary record of which AI weaknesses CWE may add and why it declines others; it shows that CWE 5.0 (2026-10-28) added AI life-cycle phases but no new AI entry, so tmodel's local weakness candidates stay needed."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+  - ai-governance
+  - evidence
+status: summarized
+confidence: medium
+owner: Maimcghee

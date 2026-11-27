@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by anthropic-rsp-v3-4-2026, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# A living page: first archived 2026-02-24; it logs dated updates (2026-04-02, 2026-05-05 in this copy).
+# Content is the Wayback Machine copy of 2026-11-10, bytes as archived; decompressed sha256 3b9c747c4a8d43b5ec5334ac20f9649bb146315688ed2246913be5a9ff372648.
+schema: "library-record/v1"
+id: anthropic-2026-frontier-safety-roadmap
+body: vendor
+type: article
+title: "Frontier Safety Roadmap"
+date: "2026-02-24"
+publisher: "Anthropic"
+identifiers:
+  url: https://www.anthropic.com/responsible-scaling-policy/roadmap
+content:
+  url: https://web.archive.org/web/20261110232434id_/https://www.anthropic.com/responsible-scaling-policy/roadmap
+  sha256: "c06339bd20054de992b8e103971d56ec44d188398e1c11c0683e9beb2d1bd1b4"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

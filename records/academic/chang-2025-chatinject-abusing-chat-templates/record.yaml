@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: chang-2025-chatinject-abusing-chat-templates
+body: academic
+type: paper
+title: "ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents"
+authors:
+  - "Hwan Chang"
+  - "Yonghyun Jun"
+  - "Hwanhee Lee"
+date: "2025-09-26"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2509.22830"
+  url: https://arxiv.org/abs/2509.22830
+content:
+  url: https://arxiv.org/pdf/2509.22830
+  sha256: "5663314dea6dbc4e91f801b5bb29b0564f45cdc87b54bc2c6f7f242442e4f76a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

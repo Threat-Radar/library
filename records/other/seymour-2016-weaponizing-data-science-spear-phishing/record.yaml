@@ -1,0 +1,35 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-09-15, bytes as archived.
+schema: "library-record/v1"
+id: seymour-2016-weaponizing-data-science-spear-phishing
+body: other
+type: paper
+title: "Weaponizing data science for social engineering: Automated E2E spear phishing on Twitter"
+authors:
+  - "John Seymour"
+  - "Philip Tully"
+date: "2016-08"
+publisher: "Black Hat USA 2016"
+identifiers:
+  url: https://www.blackhat.com/docs/us-16/materials/us-16-Seymour-Tully-Weaponizing-Data-Science-For-Social-Engineering-Automated-E2E-Spear-Phishing-On-Twitter-wp.pdf
+content:
+  url: https://web.archive.org/web/20260915111918id_/https://www.blackhat.com/docs/us-16/materials/us-16-Seymour-Tully-Weaponizing-Data-Science-For-Social-Engineering-Automated-E2E-Spear-Phishing-On-Twitter-wp.pdf
+  sha256: "8d7086016d95c43e2bed5a6f6abca7152d98fb6593c4a5fee323c8cfa9086fb6"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

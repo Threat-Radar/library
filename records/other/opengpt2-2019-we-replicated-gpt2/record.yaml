@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2020-02-17, bytes as archived.
+schema: "library-record/v1"
+id: opengpt2-2019-we-replicated-gpt2
+body: other
+type: article
+title: "OpenGPT-2: We Replicated GPT-2 Because You Can Too"
+authors:
+  - "Vanya Cohen"
+date: "2019-12-11"
+publisher: "Medium (Noteworthy - The Journal Blog)"
+identifiers:
+  url: https://blog.usejournal.com/opengpt-2-we-replicated-gpt-2-because-you-can-too-45e34e6d36dc
+content:
+  url: https://web.archive.org/web/20200217133055id_/https://blog.usejournal.com/opengpt-2-we-replicated-gpt-2-because-you-can-too-45e34e6d36dc
+  sha256: "eab965360d5fe18eae0af46f6f22dc1d6098cc5e6767b09d67562c7b57256a75"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - model-extraction
+status: stub
+confidence: medium
+owner: Maimcghee

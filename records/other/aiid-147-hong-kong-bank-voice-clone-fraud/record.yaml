@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-07, bytes as archived; decompressed sha256 baeed3c5d6d09093d29808ac4c373be52dfac86602c3d7e42604eb9bc6e5513f.
+schema: "library-record/v1"
+id: aiid-147-hong-kong-bank-voice-clone-fraud
+body: other
+type: web
+title: "Reported AI-Cloned Voice Used to Deceive Hong Kong Bank Manager in Purported $35 Million Fraud Scheme"
+date: "2020-01-15"
+publisher: "AI Incident Database (Responsible AI Collaborative)"
+identifiers:
+  url: https://incidentdatabase.ai/cite/147/
+content:
+  url: https://web.archive.org/web/20261107055434id_/https://incidentdatabase.ai/cite/147/
+  sha256: "879282418a27b8f9dfcc4d625430c9f064c2c7d493679a68aaea338610e55bc5"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

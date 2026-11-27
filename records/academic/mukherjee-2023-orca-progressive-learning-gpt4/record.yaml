@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nevo-2024-securing-ai-model-weights, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: mukherjee-2023-orca-progressive-learning-gpt4
+body: academic
+type: paper
+title: "Orca: Progressive Learning from Complex Explanation Traces of GPT-4"
+authors:
+  - "Subhabrata Mukherjee"
+  - "Arindam Mitra"
+  - "Ganesh Jawahar"
+  - "Sahaj Agarwal"
+  - "Hamid Palangi"
+  - "Ahmed Awadallah"
+date: "2023-06-05"
+version: "arXiv v1 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2306.02707"
+  url: https://arxiv.org/abs/2306.02707
+content:
+  url: https://arxiv.org/pdf/2306.02707
+  sha256: "f4b50e2de151fbf5f0ad9b7b790496152739d9caf10e2dcc7be6bf033ff36ffa"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - model-extraction
+status: stub
+confidence: medium
+owner: Maimcghee

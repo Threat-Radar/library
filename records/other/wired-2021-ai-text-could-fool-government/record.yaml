@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-05-25, bytes as archived.
+schema: "library-record/v1"
+id: wired-2021-ai-text-could-fool-government
+body: other
+type: article
+title: "AI-Powered Text From This Program Could Fool the Government"
+authors:
+  - "Will Knight"
+date: "2021-01-15"
+publisher: "WIRED"
+identifiers:
+  url: https://www.wired.com/story/ai-powered-text-program-could-fool-government/
+content:
+  url: https://web.archive.org/web/20260525074339id_/https://www.wired.com/story/ai-powered-text-program-could-fool-government/
+  sha256: "c768c6524cf1ec60bc26bd08ba0acaa44e01753367d7bb4045be76c8935c3bc5"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

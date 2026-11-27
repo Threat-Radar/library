@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: li-2024-structuralsleight-automated-jailbreak-attacks
+body: academic
+type: paper
+title: "StructuralSleight: Automated Jailbreak Attacks on Large Language Models Utilizing Uncommon Text-Organization Structures"
+authors:
+  - "Bangxin Li"
+  - "Hengrui Xing"
+  - "Cong Tian"
+  - "Chao Huang"
+  - "Jin Qian"
+  - "Huangqing Xiao"
+  - "Linfeng Feng"
+date: "2024-06-13"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.08754"
+  url: https://arxiv.org/abs/2406.08754
+content:
+  url: https://arxiv.org/pdf/2406.08754
+  sha256: "e1dce8674c250aa6e4c589d15537d21d10fba935616c182d1a84b96054f0eaf7"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

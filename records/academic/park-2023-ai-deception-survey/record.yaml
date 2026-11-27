@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: park-2023-ai-deception-survey
+body: academic
+type: paper
+title: "AI Deception: A Survey of Examples, Risks, and Potential Solutions"
+authors:
+  - "Peter S. Park"
+  - "Simon Goldstein"
+  - "Aidan O'Gara"
+  - "Michael Chen"
+  - "Dan Hendrycks"
+date: "2023-08-28"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2308.14752"
+  url: https://arxiv.org/abs/2308.14752
+content:
+  url: https://arxiv.org/pdf/2308.14752
+  sha256: "f645821f33e633710c58974ef42afaa3cd9c5af39e70cdcf905d77542f8dda2b"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

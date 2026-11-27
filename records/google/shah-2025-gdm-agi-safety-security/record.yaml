@@ -1,0 +1,186 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0763. Metadata from the arXiv API.
+# Digest matches RPT-0014 pdf-manifest.tsv; it is arXiv v1 (2025-04-02), the only version on 2026-11-22.
+schema: "library-record/v1"
+id: shah-2025-gdm-agi-safety-security
+body: google
+type: paper
+title: "An Approach to Technical AGI Safety and Security"
+authors:
+  - "Rohin Shah"
+  - "Alex Irpan"
+  - "Alexander Matt Turner"
+  - "Anna Wang"
+  - "Arthur Conmy"
+  - "David Lindner"
+  - "Jonah Brown-Cohen"
+  - "Lewis Ho"
+  - "Neel Nanda"
+  - "Raluca Ada Popa"
+  - "Rishub Jain"
+  - "Rory Greig"
+  - "Samuel Albanie"
+  - "Scott Emmons"
+  - "Sebastian Farquhar"
+  - "Sébastien Krier"
+  - "Senthooran Rajamanoharan"
+  - "Sophie Bridgers"
+  - "Tobi Ijitoye"
+  - "Tom Everitt"
+  - "Victoria Krakovna"
+  - "Vikrant Varma"
+  - "Vladimir Mikulik"
+  - "Zachary Kenton"
+  - "Dave Orr"
+  - "Shane Legg"
+  - "Noah Goodman"
+  - "Allan Dafoe"
+  - "Four Flynn"
+  - "Anca Dragan"
+date: "2025-04-02"
+publisher: "Google DeepMind (arXiv)"
+version: "arXiv v1"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2504.01849"
+  url: https://arxiv.org/abs/2504.01849
+content:
+  url: https://arxiv.org/pdf/2504.01849
+  sha256: "8f6b9fb28658ae812e379ae4435193af727d7ecf0882a02b820f55ad90f16bf3"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 145
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - gdm-fsf-v3-2025
+    - nevo-2024-securing-ai-model-weights
+  cited_by: []
+  implements_concept: []
+cites:
+  - amodei-2016-concrete-problems-ai-safety
+  - anderson-2016-deepdga
+  - anderson-2018-evade-pe-malware-models-rl
+  - anthropic-rsp-v2-0-2024
+  - arditi-2024-unlearning-rmu-mostly-shallow
+  - baker-2025-monitoring-reasoning-models-obfuscation
+  - barez-2025-open-problems-machine-unlearning-safety
+  - benton-2024-sabotage-evaluations-frontier-models
+  - berglund-2023-taken-out-of-context-situational-awareness
+  - bethany-2024-mathprompt-symbolic-mathematics
+  - bhatt-2025-ctrl-z-resampling-agents
+  - brundage-2018-malicious-use-ai  # also RPT-0014 S-0726
+  - burtell-2023-artificial-influence-ai-persuasion
+  - carlsmith-2023-scheming-ais
+  - casper-2024-latent-adversarial-training
+  - cooper-2024-machine-unlearning-doesnt-do-what-you-think
+  - deeb-2024-unlearning-remove-information-weights
+  - denison-2024-sycophancy-to-subterfuge-reward-tampering
+  - dinan-2019-build-it-break-it-fix-it-dialogue-safety
+  - doumbouya-2024-h4rm3l-composable-jailbreaks
+  - gdm-2025-updating-frontier-safety-framework
+  - glazunov-2024-project-naptime
+  - google-2024-ai-overviews-satire-retrieval  # also RPT-0014 S-1091
+  - gopal-2023-releasing-weights-pandemic-agents
+  - greenblatt-2023-ai-control-intentional-subversion
+  - greenblatt-2024-alignment-faking
+  - guan-2024-deliberative-alignment
+  - hendrycks-2023-overview-catastrophic-ai-risks
+  - hsu-2024-safe-lora
+  - hu-2025-training-documents-reward-hacking
+  - jakesch-2022-human-heuristics-ai-language-flawed
+  - jones-2024-misuse-combinations-safe-models
+  - kinniment-2023-autonomous-replication-tasks
+  - krakovna-2020-specification-gaming
+  - laine-2024-situational-awareness-dataset
+  - li-2024-multi-turn-human-jailbreaks
+  - liu-2023-jailbreaking-chatgpt-prompt-engineering
+  - lynch-2024-eight-methods-robust-unlearning
+  - ma-2023-evolving-red-team-multi-agent-games
+  - marchal-2024-generative-ai-misuse-taxonomy
+  - mathew-2024-hidden-plain-text-emergence
+  - meinke-2024-in-context-scheming
+  - mouton-2023-operational-risks-ai-biological-attacks
+  - nevo-2024-securing-ai-model-weights  # also RPT-0014 S-0793
+  - openai-2023-preparedness-framework-beta
+  - openai-2024-disrupting-covert-influence-operations
+  - openai-2024-early-warning-llm-biological-threat
+  - park-2023-ai-deception-survey
+  - peppin-2024-reality-ai-biorisk
+  - phuong-2024-dangerous-capabilities
+  - sanyal-2022-data-free-model-stealing-hard-label
+  - sharma-2024-unlearning-or-concealment-diffusion
+  - shevlane-2023-model-evaluation-extreme-risks
+  - vanderweij-2024-ai-sandbagging
+  - wan-2024-cyberseceval3  # also RPT-0014 S-0929
+  - wen-2024-adaptive-deployment-untrusted-llms
+  - xu-2024-safedecoding
+  - yu-2024-refusal-feature-adversarial-training
+  - zhang-2024-llm-truly-unlearn-quantization
+  - ziegler-2022-adversarial-training-high-stakes-reliability
+  - zwetsloot-2019-risks-ai-accidents-misuse-structure
+  - title: "Explaining and Harnessing Adversarial Examples (RPT-0014 S-0006)"
+  - title: "Obfuscated Gradients Give a False Sense of Security: Circumventing Defenses to Adversarial Examples (RPT-0014 S-0032)"
+  - title: "Towards Deep Learning Models Resistant to Adversarial Attacks (RPT-0014 S-0044)"
+  - title: "Adversarial Policies: Attacking Deep Reinforcement Learning (RPT-0014 S-0086)"
+  - title: "Data-Free Model Extraction (RPT-0014 S-0132)"
+  - title: "Red Teaming Language Models with Language Models (RPT-0014 S-0148)"
+  - title: "Jailbreaking Black Box Large Language Models in Twenty Queries (RPT-0014 S-0160)"
+  - title: "Tree of Attacks: Jailbreaking Black-Box LLMs Automatically (RPT-0014 S-0186)"
+  - title: "Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation (RPT-0014 S-0199)"
+  - title: "'Do Anything Now': Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models (RPT-0014 S-0201)"
+  - title: "Jailbroken: How Does LLM Safety Training Fail? (RPT-0014 S-0207)"
+  - title: "Removing RLHF Protections in GPT-4 via Fine-Tuning (RPT-0014 S-0215)"
+  - title: "Universal and Transferable Adversarial Attacks on Aligned Language Models (RPT-0014 S-0220)"
+  - title: "Many-shot Jailbreaking (RPT-0014 S-0226)"
+  - title: "Refusal in Language Models Is Mediated by a Single Direction (RPT-0014 S-0227)"
+  - title: "Image Hijacks: Adversarial Images can Control Generative Models at Runtime (RPT-0014 S-0230)"
+  - title: "Stealing Part of a Production Language Model (RPT-0014 S-0232)"
+  - title: "MasterKey: Automated Jailbreak Across Multiple Large Language Model Chatbots (RPT-0014 S-0246)"
+  - title: "Covert Malicious Finetuning: Challenges in Safeguarding LLM Adaptation (RPT-0014 S-0263)"
+  - title: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training (RPT-0014 S-0270)"
+  - title: "Secret Collusion among AI Agents: Multi-Agent Deception via Steganography (RPT-0014 S-0296)"
+  - title: "Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To! (RPT-0014 S-0303)"
+  - title: "Visual Adversarial Examples Jailbreak Aligned Large Language Models (RPT-0014 S-0304)"
+  - title: "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts (RPT-0014 S-0312)"
+  - title: "Ring-A-Bell! How Reliable are Concept Removal Methods for Diffusion Models? (RPT-0014 S-0320)"
+  - title: "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions (RPT-0014 S-0321)"
+  - title: "IsolateGPT: An Execution Isolation Architecture for LLM-Based Agentic Systems (RPT-0014 S-0329; cited by the paper under its earlier name, SecGPT)"
+  - title: "Teams of LLM Agents can Exploit Zero-Day Vulnerabilities (RPT-0014 S-0359)"
+  - title: "Improving Alignment and Robustness with Circuit Breakers (RPT-0014 S-0360)"
+  - title: "Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs (RPT-0014 S-0370)"
+  - title: "Safety Alignment Should Be Made More Than Just a Few Tokens Deep (RPT-0014 S-0451)"
+  - title: "Constitutional Classifiers: Defending against Universal Jailbreaks across Thousands of Hours of Red Teaming (RPT-0014 S-0460)"
+  - title: "International AI Safety Report (RPT-0014 S-0751)"
+  - title: "Red Teaming Language Models to Reduce Harms: Methods, Scaling Behaviors, and Lessons Learned (RPT-0014 S-0913)"
+  - title: "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models (RPT-0014 S-0920)"
+  - title: "The WMDP Benchmark: Measuring and Reducing Malicious Use With Unlearning (RPT-0014 S-0923)"
+  - title: "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal (RPT-0014 S-0926)"
+  - title: "A StrongREJECT for Empty Jailbreaks (RPT-0014 S-0928)"
+  - title: "Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations (RPT-0014 S-0953)"
+  - title: "From Naptime to Big Sleep: Using Large Language Models To Catch Vulnerabilities In Real-World Code (RPT-0014 S-0980)"
+  - title: "Staying ahead of threat actors in the age of AI (RPT-0014 S-0988)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-22"
+usefulness:
+  verdict: useful
+  reason: "A frontier developer's threat model and defense plan: four risk areas (misuse, misalignment, mistakes, structural), access to dangerous capabilities blocked by weight security, deployment mitigations and red-teamed evaluations, and a misaligned model treated as an untrusted insider with access control, sandboxing, monitoring and logging."
+  assessed: "2026-11-22"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - agent-security
+  - ai-governance
+status: summarized
+confidence: medium
+owner: Maimcghee

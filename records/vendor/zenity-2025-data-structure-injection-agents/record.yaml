@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-07-12, bytes as archived.
+schema: "library-record/v1"
+id: zenity-2025-data-structure-injection-agents
+body: vendor
+type: article
+title: "Data-Structure Injection (DSI) in AI Agents"
+authors:
+  - "Tomer Wetzler"
+date: "2025-11-06"
+publisher: "Zenity Labs"
+identifiers:
+  url: https://labs.zenity.io/p/data-structure-injection-dsi-in-ai-agents
+content:
+  url: https://web.archive.org/web/20260712002952id_/https://labs.zenity.io/p/data-structure-injection-dsi-in-ai-agents
+  sha256: "87455bcbc57b68e57af112533bc777b15eada95186b9bc6bf2c5d74e3be48fec"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

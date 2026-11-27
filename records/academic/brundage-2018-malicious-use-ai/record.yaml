@@ -1,0 +1,103 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0726. Metadata from the arXiv API.
+# Digest matches RPT-0014 pdf-manifest.tsv; it is arXiv v2 (2024-12-01), the latest version.
+schema: "library-record/v1"
+id: brundage-2018-malicious-use-ai
+body: academic
+type: paper
+title: "The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation"
+short_title: "The Malicious Use of AI"
+authors:
+  - "Miles Brundage"
+  - "Shahar Avin"
+  - "Jack Clark"
+  - "Helen Toner"
+  - "Peter Eckersley"
+  - "Ben Garfinkel"
+  - "Allan Dafoe"
+  - "Paul Scharre"
+  - "Thomas Zeitzoff"
+  - "Bobby Filar"
+  - "Hyrum Anderson"
+  - "Heather Roff"
+  - "Gregory C. Allen"
+  - "Jacob Steinhardt"
+  - "Carrick Flynn"
+  - "Seán Ó hÉigeartaigh"
+  - "SJ Beard"
+  - "Haydn Belfield"
+  - "Sebastian Farquhar"
+  - "Clare Lyle"
+  - "Rebecca Crootof"
+  - "Owain Evans"
+  - "Michael Page"
+  - "Joanna Bryson"
+  - "Roman Yampolskiy"
+  - "Dario Amodei"
+date: "2018-02-20"
+publisher: "Future of Humanity Institute, Centre for the Study of Existential Risk, OpenAI, Center for a New American Security and others (arXiv)"
+version: "arXiv v2 (2024-12-01); v1 2018-02-20"
+venue: "arXiv preprint (report)"
+identifiers:
+  arxiv: "1802.07228"
+  url: https://arxiv.org/abs/1802.07228
+content:
+  url: https://arxiv.org/pdf/1802.07228
+  sha256: "f8876c43ae1ac11ea32b91fb1c4cf1b297f6b3fc20422b32cb228a8abfaf1b08"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 101
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - goldstein-2023-influence-operations
+  cited_by: []
+  implements_concept: []
+cites:
+  - amodei-2016-concrete-problems-ai-safety
+  - barreno-2010-security-of-machine-learning
+  - anderson-2018-evade-pe-malware-models-rl
+  - giaretta-2017-community-targeted-phishing
+  - gizmodo-2017-hackers-weaponize-ai
+  - grosse-2016-adversarial-perturbations-malware-classification
+  - hosseini-2017-google-cloud-vision-not-robust-noise
+  - microsoft-2017-neural-fuzzing
+  - mittr-2017-ai-fight-club-adversarial-competition
+  - papernot-2016-cleverhans
+  - rubinstein-2009-antidote-poisoning-anomaly-detectors
+  - seymour-2016-weaponizing-data-science-spear-phishing
+  - stevens-2017-summoning-demons-ml-bugs
+  - szegedy-2013-intriguing-properties           # also RPT-0014 S-0003
+  - title: "Abadi et al., Deep learning with differential privacy (RPT-0014 S-0007)"
+  - title: "Allen and Chan, Artificial Intelligence and National Security (RPT-0014 S-0853)"
+  - title: "Biggio, Nelson and Laskov, Poisoning attacks against support vector machines (RPT-0014 S-0001)"
+  - title: "Carlini et al., Hidden voice commands (RPT-0014 S-0008)"
+  - title: "Evtimov et al., Robust physical-world attacks on machine learning models (RPT-0014 S-0038)"
+  - title: "Katz et al., Reluplex (RPT-0014 S-0019)"
+  - title: "Papernot et al., Practical black-box attacks against machine learning (RPT-0014 S-0026)"
+  - title: "Papernot et al., Towards the science of security and privacy in machine learning (RPT-0014 S-0673)"
+  - title: "Shokri et al., Membership inference attacks against machine learning models (RPT-0014 S-0027)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: adjacent
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-21"
+usefulness:
+  verdict: useful
+  reason: "The founding malicious-use threat model: AI expands existing threats, introduces new ones and changes their character, across digital, physical and political security, with scenarios, four recommendations and research areas; its digital forecasts (automated spear-phishing, vulnerability discovery, voice impersonation) have since been realized."
+  assessed: "2026-11-21"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - ai-threat-model
+  - background
+status: summarized
+confidence: medium
+owner: Maimcghee

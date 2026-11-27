@@ -1,0 +1,65 @@
+# Article: a company framework, not a specification anyone conforms to, so not `spec` (no FX-1).
+# RPT-0014 WAVE 1 currency check (tmodel #79), 2026-11-22: the current FSF. S-0805 pins v3.0;
+# v3.1 (published 2026-04-17) supersedes it. Linked from DeepMind's FSF blog post; v3.0's PDF is
+# still served at its own URL. Server Last-Modified 2026-04-17.
+schema: "library-record/v1"
+id: gdm-fsf-v3-1-2026
+body: google
+type: article
+title: "Frontier Safety Framework, Version 3.1"
+short_title: "Google DeepMind FSF v3.1"
+authors:
+  - "Google DeepMind"
+date: "2026-04-17"
+publisher: "Google DeepMind"
+version: "3.1"
+identifiers:
+  url: https://deepmind.google/blog/strengthening-our-frontier-safety-framework/
+content:
+  url: https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf
+  sha256: "ad10d2d240e0d557ecad406dbccedcbb4a70295f8ba8eec46bfe01803cb9c301"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+  pages: 20
+relations:
+  supersedes:
+    - gdm-fsf-v3-2025
+  superseded_by: []
+  see_also:
+    - anthropic-rsp-v3-4-2026
+    - anthropic-2026-risk-report-august
+  cited_by: []
+  implements_concept: []
+cites:
+  - gdm-fsf-v3-2025                              # section 5.3, past versions
+  - shah-2025-gdm-agi-safety-security            # footnotes, sections 5 and 6 of arXiv 2504.01849
+  - phuong-2025-stealth-situational-awareness    # arXiv 2505.01420, safety cases
+  - nevo-2024-securing-ai-model-weights          # security level N aligns with RAND SL N
+  - anthropic-2025-sb53-compliance-framework     # footnote 1
+  - title: "Anthropic, RSP updates page (anthropic.com/rsp-updates, now redirecting to the RSP; RSP v3.1 was current on 2026-04-17)"
+  - title: "OpenAI, Updating our Preparedness Framework (RPT-0014 S-0814)"
+  - title: "Google, Secure AI Framework (SAIF) (RPT-0014 S-0780)"
+  - title: "Frontier Safety Framework 2.0 (2025-02-04) and the v1.0 technical report (2024-05-17), past versions"
+bears_on:
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-22"
+usefulness:
+  verdict: useful
+  reason: "The FSF in force: adds Tracked Capability Levels below the CCLs (CBRN uplift, stealth and situational awareness), merges misalignment into ML R&D, and raises misuse weight security to 'Security Level 2+' (RAND SL2 plus measures against insider threats and well-resourced non-state actors)."
+  assessed: "2026-11-22"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - ai-governance
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee

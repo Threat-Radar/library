@@ -1,0 +1,32 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-02-04, bytes as archived.
+schema: "library-record/v1"
+id: nicks-2024-lm-detectors-easily-optimized-against
+body: academic
+type: paper
+title: "Language Model Detectors are Easily Optimized Against"
+date: "2024"
+publisher: "OpenReview (ICLR 2024)"
+identifiers:
+  url: https://openreview.net/pdf?id=4eJDMjYZZG
+content:
+  url: https://web.archive.org/web/20260204162109id_/https://openreview.net/pdf?id=4eJDMjYZZG
+  sha256: "59ad202f861dca0635fda47905591480cac2ca9b1fda40d9cacbae4a89f71f8a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

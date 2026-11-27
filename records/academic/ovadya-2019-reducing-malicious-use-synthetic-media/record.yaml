@@ -1,0 +1,36 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: ovadya-2019-reducing-malicious-use-synthetic-media
+body: academic
+type: paper
+title: "Reducing malicious use of synthetic media research: Considerations and potential release practices for machine learning"
+authors:
+  - "Aviv Ovadya"
+  - "Jess Whittlestone"
+date: "2019-07-25"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1907.11274"
+  url: https://arxiv.org/abs/1907.11274
+content:
+  url: https://arxiv.org/pdf/1907.11274
+  sha256: "ee5ece640266b1cad2848e375381405118425bdc07bf52da411b6021aaee2724"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+status: stub
+confidence: medium
+owner: Maimcghee

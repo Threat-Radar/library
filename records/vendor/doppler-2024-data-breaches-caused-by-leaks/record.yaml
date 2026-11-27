@@ -1,0 +1,36 @@
+# Article: a vendor blog post, a running list of breaches linked to leaked secrets.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by owasp-nhi-top10-2025 (NHI7) for the
+# Rabbit Inc. API key leak (June 2024), the list's only AI-product entry. In scope for that entry,
+# not in RPT-0014 sources.md. Not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-10-03, bytes as archived; the page says it is updated
+# over time, so later copies may differ.
+schema: "library-record/v1"
+id: doppler-2024-data-breaches-caused-by-leaks
+body: vendor
+type: article
+title: "Updated: Data breaches caused by leaks in 2024"
+authors:
+  - "Chandler Mayo"
+date: "2024-08-12"
+publisher: "Doppler"
+identifiers:
+  url: https://www.doppler.com/blog/updated-data-breaches-caused-by-leaks-in-2024
+content:
+  url: https://web.archive.org/web/20251003024925id_/https://www.doppler.com/blog/updated-data-breaches-caused-by-leaks-in-2024
+  sha256: "0d6652408edcba0114eb44e0781eda135e126d3febe344f53bd4c45eb3db6f99"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee
