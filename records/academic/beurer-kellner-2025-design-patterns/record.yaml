@@ -65,8 +65,8 @@ cites:
     locator: "https://arxiv.org/abs/2503.18813"
   - title: "Hacking Google Bard: From Prompt Injection to Data Exfiltration"
     locator: "https://embracethered.com/blog/posts/2023/google-bard-data-exfiltration/"
-  - ascii-smuggler-tool-crafting-invisible-text-and-decoding-hidden-codes
-  - github-copilot-chat-from-prompt-injection-to-data-exfiltration-copirate
+  - ascii-smuggler-unicode-tags
+  - copirate-copilot-chat-exfiltration
   - schwartzman-2024-chatgpt-exfiltration
   - siddiqui-2024-permissive-information-flow
   - title: "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs"

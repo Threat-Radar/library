@@ -28,7 +28,7 @@ cites:
   - beurer-kellner-2026-agent-skill-threats
   - bhardwaj-2026-agentic-skills-supply-chain
   - skill-scanner-security-scanner-for-agent-skills
-  - guardfall-shell-injection-bypass-defeats-ai-coding-agent-guardrails
+  - csa-guardfall-shell-injection
   - title: "Detecting Malicious Agent Skills in the Wild Using Attention"
     locator: "https://arxiv.org/abs/2606.23416"
   - agent-trust-hub-by-gen-ai-agent-security-scanner
@@ -42,15 +42,15 @@ cites:
     locator: "https://arxiv.org/abs/2601.10338"
   - skillspector-security-scanner-for-ai-agent-skills
   - owasp-agentic-threats-mitigations-v1-1
-  - skillspector-a-pre-publication-security-control-for-agent-skills
+  - skillspector-prepublication-control
   - llm-guard-the-security-toolkit-for-llm-interactions
   - title: "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks"
     locator: "https://arxiv.org/abs/2602.20156"
   - sentry-skill-scanner
-  - agent-scan-security-scanner-for-ai-agents-mcp-servers-and-agent-skills
+  - snyk-agent-scan
   - skill-vetter
   - ai-infra-guard-ai-red-teaming-platform
-  - skilltrustbench-benchmark-for-ai-agent-skill-security-scanners
+  - tencent-skilltrustbench
 relations:
   supersedes: []
   superseded_by: []

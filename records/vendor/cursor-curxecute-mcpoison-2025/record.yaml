@@ -19,7 +19,7 @@ content:
   media_type: text/html
 # In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
 cites:
-  - when-public-prompts-turn-into-local-shells-curxecute-rce-in-cursor-via-mcp
+  - aim-curxecute-mcp-rce
   - mcpoison-persistent-code-execution-via-mcp-trust-bypass
 relations:
   supersedes: []

@@ -13,8 +13,7 @@ content:
   retrieved: ""
   local: false
 relations:
-  cited_by:
-    - beurer-kellner-2025-design-patterns
+  cited_by: []
 bears_on: []
 topic: ai-threat-model-agentic-mcp
 tags:

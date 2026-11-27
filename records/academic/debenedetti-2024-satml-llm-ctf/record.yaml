@@ -36,8 +36,7 @@ content:
   local: false
   media_type: "text/html"
 relations:
-  cited_by:
-    - debenedetti-2024-agentdojo
+  cited_by: []
 bears_on: []
 topic: ai-threat-model-agentic-mcp
 tags:

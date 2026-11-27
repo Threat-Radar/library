@@ -51,7 +51,8 @@ cites:
     locator: "https://arxiv.org/abs/2307.15043"
   - title: "Red Teaming Language Models with Language Models"
     locator: "https://arxiv.org/abs/2202.03286"
-  - liu-2023-jailbreaking-chatgpt
+  - title: "Jailbreaking ChatGPT via Prompt Engineering: An Empirical Study"
+    locator: "https://arxiv.org/abs/2305.13860"
   - rao-2023-tricking-llms
 relations:
   supersedes: []

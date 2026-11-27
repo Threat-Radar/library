@@ -15,8 +15,7 @@ content:
   media_type: "application/pdf"
   pages: 59
 relations:
-  cited_by:
-    - habler-a2a-maestro-2025
+  cited_by: []
 bears_on: []
 topic: ai-threat-model-agentic-mcp
 tags:

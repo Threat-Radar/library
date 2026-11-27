@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: ascii-smuggler-unicode-tags
+body: vendor
+type: web
+title: "ASCII Smuggler Tool: Crafting Invisible Text and Decoding Hidden Codes"
+authors: []
+date: ""
+identifiers:
+  url: "https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/"
+content:
+  url: "https://embracethered.com/blog/posts/2024/hiding-and-finding-text-with-unicode-tags/"
+  sha256: "1b27d42ed1546cea92bfd797dc89518194805202c720957edc058bd746158546"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

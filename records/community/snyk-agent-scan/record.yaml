@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: snyk-agent-scan
+body: community
+type: repo
+title: "Agent Scan: Security Scanner for AI Agents, MCP Servers, and Agent Skills"
+authors: []
+date: ""
+identifiers:
+  git: "https://github.com/snyk/agent-scan"
+content:
+  url: "https://github.com/snyk/agent-scan"
+  sha256: "5b68dd1fb0b01affc446f40968beb31f57d987f716719f0cf91c83c607f5bfc3"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - mcp
+  - ai-supply-chain
+status: stub
+confidence: low

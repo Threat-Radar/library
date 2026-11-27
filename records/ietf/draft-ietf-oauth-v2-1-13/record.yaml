@@ -15,8 +15,7 @@ content:
   local: false
   media_type: "text/html"
 relations:
-  cited_by:
-    - mcp-spec-security-best-practices
+  cited_by: []
 bears_on: []
 topic: ai-threat-model-agentic-mcp
 tags:

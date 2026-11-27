@@ -1,0 +1,16 @@
+unmerged_id,replacement_id,reason
+make-agent-defeat-agent-automatic-detection-of-taint-style-vulnerabilities-in-llm,liu-2025-make-agent-defeat-agent,Short complete identity; retain full title and source URL
+skillspector-a-pre-publication-security-control-for-agent-skills,skillspector-prepublication-control,Short complete identity; retain full title and source URL
+system-prompt-hijacking-via-permutation-triggers-in-llm-supply-chains,system-prompt-permutation-hijacking,Short complete identity; retain full title and source URL
+agent-scan-security-scanner-for-ai-agents-mcp-servers-and-agent-skills,snyk-agent-scan,Short complete identity; retain full title and source URL
+agent-can-bypass-allowed-commands-using-command-concatenation-gemini-cli-issue-210,gemini-cli-issue-2106-command-bypass,Short complete identity; retain full title and source URL
+ascii-smuggler-tool-crafting-invisible-text-and-decoding-hidden-codes,ascii-smuggler-unicode-tags,Short complete identity; retain full title and source URL
+github-copilot-chat-from-prompt-injection-to-data-exfiltration-copirate,copirate-copilot-chat-exfiltration,Short complete identity; retain full title and source URL
+guardfall-shell-injection-bypass-defeats-ai-coding-agent-guardrails,csa-guardfall-shell-injection,Short complete identity; retain full title and source URL
+ignore-all-previous-instructions-and-do-this-instead-defending-against-prompt-inje,taico-defending-prompt-injection,Short complete identity; retain full title and source URL
+indirect-prompt-injection-in-the-real-world-how-people-manipulate-neural-networks,kaspersky-indirect-prompt-injection,Short complete identity; retain full title and source URL
+promptpwnd-prompt-injection-vulnerabilities-in-github-actions-using-ai-agents,aikido-promptpwnd-github-actions,Short complete identity; retain full title and source URL
+skilltrustbench-benchmark-for-ai-agent-skill-security-scanners,tencent-skilltrustbench,Short complete identity; retain full title and source URL
+unseeable-prompt-injections-in-screenshots-more-vulnerabilities-in-comet-and-other,brave-unseeable-prompt-injections,Short complete identity; retain full title and source URL
+when-public-prompts-turn-into-local-shells-curxecute-rce-in-cursor-via-mcp,aim-curxecute-mcp-rce,Short complete identity; retain full title and source URL
+chainguard,lakera-chainguard,Disambiguate Lakera tool

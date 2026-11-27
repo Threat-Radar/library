@@ -14,9 +14,7 @@ content:
   local: false
   media_type: "text/html"
 relations:
-  cited_by:
-    - jones-2025-cua-sok
-    - owasp-agentic-threats-mitigations-v1-1
+  cited_by: []
 bears_on: []
 topic: ai-threat-model-agentic-mcp
 tags:

@@ -30,7 +30,8 @@ cites:
   - rfc-6749
   - rfc-7519
   - zero-trust-architecture
-  - owasp-agentic-threats-mitigations-v1-1
+  - title: "Multi-Agentic System Threat Modeling Guide"
+    locator: "https://genai.owasp.org/"
 relations:
   supersedes: []
   superseded_by: []

@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: aikido-promptpwnd-github-actions
+body: vendor
+type: web
+title: "PromptPwnd: Prompt Injection Vulnerabilities in GitHub Actions Using AI Agents"
+authors: []
+date: ""
+identifiers:
+  url: "https://www.aikido.dev/blog/promptpwnd-github-actions-ai-agents"
+content:
+  url: "https://www.aikido.dev/blog/promptpwnd-github-actions-ai-agents"
+  sha256: "f32e28b07f205f6ac3299db5b098840cfad44608745120a8e1fb540647ca4092"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

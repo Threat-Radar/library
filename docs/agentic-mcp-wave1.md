@@ -4,8 +4,8 @@ id: agentic-mcp-wave1
 title: "Agentic/MCP WAVE 1 bibliography completion (#78)"
 type: assessment
 status: draft
-version: "0.1.0"
-updated: "2026-11-25"
+version: "0.1.1"
+updated: "2026-11-26"
 needs_review: true
 reviewed: false
 ---
@@ -29,11 +29,13 @@ proposals awaiting review. No human review or `reviewed_by` signature is added h
   lists; the two OWASP records gain the semantic role `prior-art`. The reused
   CISA record keeps its existing topic, tags and extracted material.
 - The first-hop reference pass records 147 distinct cited works in 190 source
-  citation edges: 10 held records, 58 works already in the source corpus and
-  79 new `status: stub` records. Sources already in the corpus are retained as
-  `{title, locator}` frontier entries when the library does not hold them.
+  citation edges: nine held records, 59 works already in the source corpus,
+  77 new `status: stub` records and two works whose canonical records are
+  proposed in [library#51](https://github.com/Threat-Radar/library/pull/51).
+  Corpus and pending works remain `{title, locator}` frontier entries while
+  the library does not hold them.
 - `topics/ai-threat-model-agentic-mcp.yaml` names @paria03 and groups the 20
-  assigned sources and 79 new stubs. It stays open because the lane has later work.
+  assigned sources and 77 new stubs (97 members). It stays open because the lane has later work.
 
 The machine-readable evidence is [sources.csv](agentic-mcp-wave1/sources.csv)
 (20 assignment rows) and [references.csv](agentic-mcp-wave1/references.csv)
@@ -61,12 +63,44 @@ library records or source-corpus entries; its existing citation list is retained
 Its unrelated ICS-access, functional-safety and basic LLM-settings references
 do not create agentic/MCP stubs.
 
-`cites` records the actual document references. New stubs additionally use
-`relations.cited_by: [source_record]` exactly as WAVE 1 Step 2.5 requests.
-This is an explicit lane-local use: the draft `docs/references.md` otherwise
-reserves `cited_by` for project documents. `cites` remains the factual direction;
-no `see_also` relation is silently promoted into a citation. Review should confirm
-this compatibility choice before merging rather than changing global semantics.
+`cites` records the actual document references. Reverse library `cited_by`
+links were removed following review: `docs/references.md` reserves that field
+for project documents, and inverse citation views are derived. No `see_also`
+relation is promoted into a citation. The companion tmodel change corrects
+WAVE 1 Step 2.5's conflicting instruction.
+
+## Review corrections and cross-lane identities
+
+The [review on library#53](https://github.com/Threat-Radar/library/pull/53)
+identified an incorrect identity for Habler et al. [4]. It cites the
+[OWASP Multi-Agentic System Threat Modeling Guide v1.0](https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/),
+not *Agentic AI: Threats and Mitigations*. The guide is source-corpus S-0761,
+not a held library record. The source's generic OWASP locator is preserved;
+the citation now uses an unresolved title/locator instead of the wrong record.
+This restores 147 distinct works: nine held identities, 59 corpus works,
+77 new stubs and two pending records. The former 10-held count was wrong.
+
+Fifteen ids introduced only by this unmerged PR were corrected before becoming
+permanent: 14 overlong or truncated slugs now use short, complete identities,
+and `chainguard` becomes `lakera-chainguard` to identify the cited Lakera tool.
+The Gemini CLI id retains issue number **2106** in full. Full titles, content
+URLs, hashes and prior review evidence are unchanged. The mapping is
+[record-id-changes.csv](agentic-mcp-wave1/record-id-changes.csv).
+
+Two papers also proposed in library#51 are not added a second time here:
+
+| arXiv | Pending canonical library id | Owning PR |
+|---|---|---|
+| 2305.13860 | `liu-2023-jailbreaking-chatgpt-prompt-engineering` | library#51 |
+| 2306.08833 | `wang-2023-safeguarding-crowdsourcing-surveys-prompt-injection` | library#51 |
+
+Their original citations remain title/locator frontier entries. The CSV records
+`pending-library-pr`, `pending_library_record` and `pending_pr`; it does not
+pretend those records exist. This avoids duplicate permanent ids, dangling
+links and overlapping record edits in either merge order. The owning lane
+retains its PDF pins, metadata and review responsibility. After #51 merges,
+resolve these frontier entries to those ids in the normal bibliography pass;
+until then they are explicitly pending. No other lane's records are changed.
 
 ## Source access and identity checks
 
@@ -82,9 +116,9 @@ New stub hashes identify the exact captured target landing page (HTML) or, for
 NIST SP 800-207, the PDF returned by its DOI. They do not imply full paper reading.
 Four targets were not retrieved and deliberately have no digest:
 - `ai-agents-formal-security-guarantees`: access blocked / browser verification; identity retained from the citing document.
-- `skillspector-a-pre-publication-security-control-for-agent-skills`: access blocked / browser verification; identity retained from the citing document.
-- `when-public-prompts-turn-into-local-shells-curxecute-rce-in-cursor-via-mcp`: access blocked / browser verification; identity retained from the citing document.
-- `chainguard`: 404 at the cited URL.
+- `skillspector-prepublication-control`: access blocked / browser verification; identity retained from the citing document.
+- `aim-curxecute-mcp-rce`: access blocked / browser verification; identity retained from the citing document.
+- `lakera-chainguard`: 404 at the cited URL.
 
 Other identity decisions:
 
@@ -130,9 +164,18 @@ not **Closes #78**.
 ## Validation
 
 Baseline: 686 records (381 written, 305 scaffold, 42 fully extracted), 24 topics,
-0 errors and 99 warnings. After this pass: 765 records (381 written, 384 scaffold,
-42 fully extracted), 25 topics, 0 errors and the same 99 warnings. The 79-record
+0 errors and 99 warnings. After review corrections: 763 records (381 written, 382 scaffold,
+42 fully extracted), 25 topics, 0 errors and the same 99 warnings. The 77-record
 increase is exactly the requested bibliography stubs; it does not increase the
 written or extracted counts. Generated views remain untracked.
 
-Commands and cross-checks are recorded in the companion tmodel lane log.
+An isolated trial merge with library#51 at `8fc3878` is conflict-free. Its
+combined 1,045 records validate with zero errors and the same 99 warnings;
+the two cross-lane arXiv duplicates no longer add warnings. No peer branch
+is modified by this check.
+
+Commands and cross-checks are recorded in the companion
+[tmodel lane log, PR #271](https://github.com/Threat-Radar/tmodel/pull/271).
+The prior library head `7390bfa` had no hosted runs: GitHub paused this fork's
+Actions because of usage volume. Local validation is distinct from hosted CI;
+a maintainer must restore Actions before a fresh hosted pass can be claimed.

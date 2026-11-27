@@ -19,7 +19,7 @@ content:
 # In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
 cites:
   - safer-shell-command-execution-gemini-cli-pr-4795
-  - agent-can-bypass-allowed-commands-using-command-concatenation-gemini-cli-issue-210
+  - gemini-cli-issue-2106-command-bypass
   - fix-shell-command-injection-security-gemini-cli-pr-2680
   - weaponizing-ai-assistants-with-their-permission
 relations:

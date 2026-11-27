@@ -19,8 +19,7 @@ content:
   local: false
   media_type: "text/html"
 relations:
-  cited_by:
-    - shavit-2023-openai-governing-agentic
+  cited_by: []
 bears_on: []
 topic: ai-threat-model-agentic-mcp
 tags:

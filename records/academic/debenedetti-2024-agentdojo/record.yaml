@@ -68,7 +68,7 @@ cites:
   - title: "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal"
     locator: "https://arxiv.org/abs/2402.04249"
   - mu-2023-simple-rules
-  - chainguard
+  - lakera-chainguard
   - sandwich-defense
 relations:
   supersedes: []

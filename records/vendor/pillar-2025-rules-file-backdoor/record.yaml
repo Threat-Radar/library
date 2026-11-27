@@ -18,7 +18,7 @@ content:
   media_type: text/html
 # In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
 cites:
-  - ascii-smuggler-tool-crafting-invisible-text-and-decoding-hidden-codes
+  - ascii-smuggler-unicode-tags
 relations:
   supersedes: []
   superseded_by: []
