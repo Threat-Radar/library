@@ -4,6 +4,7 @@ id: lukas-2022-sok-watermark-robustness
 record: lukas-2022-sok-watermark-robustness
 type: summary
 updated: "2026-11-03"
+reviewed_by: "Clovier"
 ---
 
 # SoK: How Robust is Image Classification Deep Neural Network Watermarking?

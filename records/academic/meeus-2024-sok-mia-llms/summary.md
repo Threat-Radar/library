@@ -4,6 +4,7 @@ id: meeus-2024-sok-mia-llms
 record: meeus-2024-sok-mia-llms
 type: summary
 updated: "2026-11-03"
+reviewed_by: "Clovier"
 ---
 
 # SoK: Membership Inference Attacks on LLMs are Rushing Nowhere (and How to Fix It)

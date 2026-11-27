@@ -4,6 +4,7 @@ id: apruzzese-2023-real-attackers
 record: apruzzese-2023-real-attackers
 type: summary
 updated: "2026-11-02"
+reviewed_by: "Clovier"
 ---
 
 # "Real Attackers Don't Compute Gradients": Bridging the Gap Between Adversarial ML Research and Practice
