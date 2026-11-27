@@ -5,7 +5,7 @@ record: kouremetis-2025-occult
 type: summary
 updated: "2026-11-26"
 lane: catalogs-schema
-reviewed_by: ""
+reviewed_by: "paria03"
 ---
 
 # OCCULT: Evaluating Large Language Models for Offensive Cyber Operation Capabilities

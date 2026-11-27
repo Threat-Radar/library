@@ -4,7 +4,7 @@ id: catalogs-schema-review-285
 title: "Catalogs-schema review-partner source sample (#285)"
 type: assessment
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 updated: "2026-11-26"
 needs_review: true
 reviewed: false
@@ -14,8 +14,10 @@ reviewed: false
 
 Task: [tmodel#285](https://github.com/Threat-Radar/tmodel/issues/285), reviewing
 library#51 at `8fc3878`. This sample verifies source identity and the claims
-below; it is not a human signature or a review of every record or cited work.
-The five `reviewed_by` fields remain blank pending @paria03's confirmation.
+below. On 2026-11-26, @paria03 explicitly accepted the eight-summary checklist
+(three calibration summaries and these five library records) and authorized
+their `reviewed_by` signatures. The five sampled library summaries now record
+`reviewed_by: "paria03"`. This does not review every record or cited work.
 
 All five recorded source captures were fetched again on 2026-11-26 and match
 their SHA-256 values. NCC and Cyber Centre archive captures are hashed as
@@ -120,8 +122,10 @@ dangling references, forbidden third-party documents and DCO. Hosted Actions
 remain separately blocked until the repository pause is lifted.
 
 No source review is claimed for the unselected records, the 256 reference
-stubs or the unpublished score spreadsheet. No human signature is created
-by these source checks; sign only the five sampled summaries after confirmation.
+stubs or the unpublished score spreadsheet. The source checks do not themselves
+establish human approval. The five signatures record @paria03's separate,
+explicit acceptance: "Accept and sign these eight summaries". The corresponding
+three calibration signatures are recorded in tmodel#228.
 
 Local validation on the review follow-up: 967 records and bibliography entries,
 zero errors, the same 99 record warnings, 15/15 YAML-reader tests, 53 requirement

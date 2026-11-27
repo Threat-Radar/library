@@ -3,9 +3,9 @@ schema: "library-summary/v1"
 id: owasp-nhi-top10-2025
 record: owasp-nhi-top10-2025
 type: summary
-updated: "2026-11-15"
+updated: "2026-11-26"
 lane: catalogs-schema
-reviewed_by: ""
+reviewed_by: "paria03"
 ---
 
 # OWASP Top 10 Non-Human Identities Risks - 2025

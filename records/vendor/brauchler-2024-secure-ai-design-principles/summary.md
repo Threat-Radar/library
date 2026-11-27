@@ -5,7 +5,7 @@ record: brauchler-2024-secure-ai-design-principles
 type: summary
 updated: "2026-11-26"
 lane: catalogs-schema
-reviewed_by: ""
+reviewed_by: "paria03"
 ---
 
 # Analyzing Secure AI Design Principles

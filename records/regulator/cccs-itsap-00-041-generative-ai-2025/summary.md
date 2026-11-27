@@ -3,9 +3,9 @@ schema: "library-summary/v1"
 id: cccs-itsap-00-041-generative-ai-2025
 record: cccs-itsap-00-041-generative-ai-2025
 type: summary
-updated: "2026-11-15"
+updated: "2026-11-26"
 lane: catalogs-schema
-reviewed_by: ""
+reviewed_by: "paria03"
 ---
 
 # Generative artificial intelligence (AI) - ITSAP.00.041
