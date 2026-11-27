@@ -4,6 +4,7 @@ id: zhao-2024-models-are-codes-malhug
 record: zhao-2024-models-are-codes-malhug
 type: summary
 updated: "2026-11-01"
+reviewed_by: "Maimcghee"
 ---
 
 # Models Are Codes: Towards Measuring Malicious Code Poisoning Attacks on Pre-trained Model Hubs

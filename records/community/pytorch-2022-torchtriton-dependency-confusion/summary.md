@@ -4,6 +4,7 @@ id: pytorch-2022-torchtriton-dependency-confusion
 record: pytorch-2022-torchtriton-dependency-confusion
 type: summary
 updated: "2026-11-02"
+reviewed_by: "Maimcghee"
 ---
 
 # Compromised PyTorch-nightly dependency chain between December 25th and December 30th, 2022.

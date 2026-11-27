@@ -4,6 +4,7 @@ id: microsoft-2020-kubeflow-cryptomining
 record: microsoft-2020-kubeflow-cryptomining
 type: summary
 updated: "2026-11-02"
+reviewed_by: "Maimcghee"
 ---
 
 # Misconfigured Kubeflow workloads are a security risk
