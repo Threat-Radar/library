@@ -1,0 +1,119 @@
+# Dataset: a machine-readable AI risk catalog (YAML with JSON Schemas) in a GitHub repository.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0900.
+# Pinned by commit: content is risk-map/yaml/risks.yaml at that commit (raw.githubusercontent,
+# byte-stable), the newest commit on main on 2026-11-20. The other files read at the same commit:
+# controls.yaml 20bf842e…, components.yaml 76527c81…, personas.yaml 5c6b889a…, frameworks.yaml
+# a18e6863…. RPT-0014 read commit 0d8bfc9b5d76 (2026-10-02); since then a293592 (2026-10-14)
+# moved frameworks.yaml's current ATLAS edition to 2026.09.
+schema: "library-record/v1"
+id: cosai-risk-map
+body: oasis
+type: dataset
+title: "CoSAI Risk Map"
+short_title: "CoSAI-RM"
+authors:
+  - "Coalition for Secure AI (CoSAI), an OASIS Open Project"
+date: "2026-10-20"
+publisher: "OASIS Open (Coalition for Secure AI)"
+version: "repository commit 622605a1 (2026-10-20); risk data last changed a293592 (2026-10-14)"
+identifiers:
+  url: https://github.com/cosai-oasis/secure-ai-tooling
+  git: https://github.com/cosai-oasis/secure-ai-tooling
+content:
+  url: https://raw.githubusercontent.com/cosai-oasis/secure-ai-tooling/622605a13fafaa2784acbdbe3f8d23ee22da4be7/risk-map/yaml/risks.yaml
+  sha256: "e4d165972d2dce38f569366e6111aa2146e47c364524bf9168f8f6c11b9a878b"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/yaml
+commit: "622605a13fafaa2784acbdbe3f8d23ee22da4be7"
+license: "Apache-2.0"
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - mitre-atlas
+  cited_by: []
+  implements_concept: []
+cites:
+  - checkmarx-2025-11-emerging-ai-security-risks-mcp
+  - dubrovsky-2025-selective-adversarial-attacks-llm
+  - gao-2025-cache-side-channels-local-llm-inference
+  - gitguardian-2025-breaking-mcp-server-hosting
+  - hiddenlayer-2022-weaponizing-ml-models-ransomware
+  - hong-2023-peta-parameter-efficient-trojan
+  - invariantlabs-2025-whatsapp-mcp-exploited
+  - ippolito-2022-preventing-verbatim-memorization-language
+  - langford-2024-architectural-neural-backdoors-first
+  - long-2024-backdoor-attacks-dense-retrieval
+  - mathew-2024-hidden-plain-text-emergence
+  - nvd-cve-2026-24779-vllm-ssrf
+  - paloalto-2025-mcp-security-overview
+  - rehberger-2023-chatgpt-plugin-vulns-chat-with-code
+  - shapira-2022-phantom-sponges-exploiting-non
+  - thn-2023-shelltorch-pytorch-torchserve
+  - trailofbits-2021-never-a-dill-moment-pickle
+  - verge-2019-alexa-google-home-srlabs-phishing
+  - willison-2023-multimodal-prompt-injection-gpt-4v
+  - zhang-2026-similarity-vulnerability-key-collision
+  - zhou-2026-governing-dynamic-capabilities-cryptographic
+  - zhu-2024-fedmia-effective-membership-inference
+  - pytorch-2022-torchtriton-dependency-confusion   # also RPT-0014 S-1083
+  - mcp-spec-security-best-practices               # transports and elicitation pages (S-0854, S-0829)
+  - rfc-6749
+  - title: "Poisoning Web-Scale Training Datasets is Practical (RPT-0014 S-0231)"
+  - title: "Poisoning Language Models During Instruction Tuning (RPT-0014 S-0204)"
+  - title: "Meta's powerful AI language model has leaked online (The Verge, 2023; RPT-0014 S-1129)"
+  - title: "Hugging Face works with Wiz to strengthen AI cloud security (RPT-0014 S-1004)"
+  - title: "Sponge Examples: Energy-Latency Attacks on Neural Networks (RPT-0014 S-0130)"
+  - title: "Imitation Attacks and Defenses for Black-box Machine Translation Systems (RPT-0014 S-0104)"
+  - title: "Jailbroken: How Does LLM Safety Training Fail? (RPT-0014 S-0207)"
+  - title: "Not what you've signed up for: indirect prompt injection (RPT-0014 S-0166)"
+  - title: "Membership Inference Attacks against Machine Learning Models (RPT-0014 S-0027)"
+  - title: "Supabase MCP can leak your entire SQL database (RPT-0014 S-1023)"
+  - title: "Hermes Attack: Steal DNN Models with Lossless Inference Accuracy (RPT-0014 S-0136)"
+  - title: "Denial-of-Service Poisoning Attacks against Large Language Models (RPT-0014 S-0258)"
+  - title: "ThinkTrap: Denial-of-Service Attacks against Black-box LLM Services via Infinite Thinking (RPT-0014 S-0576)"
+  - title: "Deep Leakage from Gradients (RPT-0014 S-0077)"
+  - title: "LoRATK: LoRA Once, Backdoor Everywhere in the Share-and-Play Ecosystem (RPT-0014 S-0433)"
+  - title: "MCP Security Notification: Tool Poisoning Attacks (RPT-0014 S-1031)"
+  - title: "Rerouting LLM Routers (RPT-0014 S-1181)"
+  - title: "Demonstrating specification gaming in reasoning models (RPT-0014 S-0371)"
+  - title: "Remote Timing Attacks on Efficient Language Model Inference (RPT-0014 S-0233)"
+  - title: "An Empirical Study on Remote Code Execution in Machine Learning Model Hosting Ecosystems (RPT-0014 S-0603)"
+  - title: "Attractive Metadata Attack: Inducing LLM Agents to Invoke Malicious Tools (RPT-0014 S-0442)"
+  - title: "Shadow in the Cache: privacy risks of KV-cache in LLM inference (RPT-0014 S-0559)"
+  - title: "Poisoning Retrieval Corpora by Injecting Adversarial Passages (RPT-0014 S-0218)"
+  - title: "When AI Agents Go Rogue: Agent Session Smuggling Attack in A2A Systems (RPT-0014 S-1059)"
+  - title: "Samsung bans ChatGPT after sensitive code leak (Forbes, 2023; the incident is RPT-0014 S-1127, INC-027)"
+  - title: "Asana warns MCP AI feature exposed customer data to other orgs (BleepingComputer, 2025; the incident is RPT-0014 S-1138, INC-097)"
+  - title: "AI hallucinates software packages (The Register, 2024; the research is RPT-0014 S-0991)"
+  - title: "Slight street sign modifications can fool ML algorithms (IEEE Spectrum, 2017; the paper is RPT-0014 S-0038)"
+  - title: "Salesforce OAuth token breach (Valence Security, 2025; the incident is RPT-0014 S-1105)"
+bears_on:
+  - DEC-001
+  - DEC-008
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+implementations:
+  open_source:
+    - name: CoSAI Risk Map Explorer
+      url: https://github.com/cosai-oasis/secure-ai-tooling/tree/main/site
+      license: "Apache-2.0"
+      note: "the repository's own static site: pick a persona, browse its risks and controls; built from the YAML"
+  commercial: []
+  searched: "2026-11-20"
+usefulness:
+  verdict: useful
+  reason: "The most complete machine-readable AI risk catalog found: 36 risks, 37 controls, 42 components and 10 personas as linked YAML with JSON Schemas, crosswalked to ATLAS, OWASP LLM and STRIDE with version-pinned mappings; the strongest candidate for a direct import into tmodel."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-weakness-catalog
+  - ai-threat-model
+  - agent-security
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee

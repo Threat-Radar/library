@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by wu-2024-new-era-llm-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: wang-2023-safeguarding-crowdsourcing-surveys-prompt-injection
+body: academic
+type: paper
+title: "Safeguarding Crowdsourcing Surveys from ChatGPT with Prompt Injection"
+authors:
+  - "Chaofan Wang"
+  - "Samuel Kernan Freire"
+  - "Mo Zhang"
+  - "Jing Wei"
+  - "Jorge Goncalves"
+  - "Vassilis Kostakos"
+  - "Zhanna Sarsenbayeva"
+  - "Christina Schneegass"
+  - "Alessandro Bozzon"
+  - "Evangelos Niforatos"
+date: "2023-06-15"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2306.08833"
+  url: https://arxiv.org/abs/2306.08833
+content:
+  url: https://arxiv.org/pdf/2306.08833
+  sha256: "36a663dc7eff0b44bccb9a4b298dc629f36cf0afa4b22a70a4a122b206ceebe9"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

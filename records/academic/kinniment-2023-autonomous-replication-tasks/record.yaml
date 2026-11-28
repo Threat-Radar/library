@@ -1,0 +1,47 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: kinniment-2023-autonomous-replication-tasks
+body: academic
+type: paper
+title: "Evaluating Language-Model Agents on Realistic Autonomous Tasks"
+authors:
+  - "Megan Kinniment"
+  - "Lucas Jun Koba Sato"
+  - "Haoxing Du"
+  - "Brian Goodrich"
+  - "Max Hasin"
+  - "Lawrence Chan"
+  - "Luke Harold Miles"
+  - "Tao R. Lin"
+  - "Hjalmar Wijk"
+  - "Joel Burget"
+  - "Aaron Ho"
+  - "Elizabeth Barnes"
+  - "Paul Christiano"
+date: "2023-12-18"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2312.11671"
+  url: https://arxiv.org/abs/2312.11671
+content:
+  url: https://arxiv.org/pdf/2312.11671
+  sha256: "b05c74b1f633e88337489fcf23122bbf6d4c032ebc58d03161c741d2d4149be9"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

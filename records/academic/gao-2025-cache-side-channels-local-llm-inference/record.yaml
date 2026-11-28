@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: gao-2025-cache-side-channels-local-llm-inference
+body: academic
+type: paper
+title: "I Know What You Said: Unveiling Hardware Cache Side-Channels in Local Large Language Model Inference"
+authors:
+  - "Zibo Gao"
+  - "Junjie Hu"
+  - "Feng Guo"
+  - "Yixin Zhang"
+  - "Yinglong Han"
+  - "Siyuan Liu"
+  - "Haiyang Li"
+  - "Zhiqiang Lv"
+date: "2025-05-10"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2505.06738"
+  url: https://arxiv.org/abs/2505.06738
+content:
+  url: https://arxiv.org/pdf/2505.06738
+  sha256: "092d0b1d560010227901430482fbaa37d9ef821b592b1de46da39df6edb42afe"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - side-channel
+status: stub
+confidence: medium
+owner: Maimcghee

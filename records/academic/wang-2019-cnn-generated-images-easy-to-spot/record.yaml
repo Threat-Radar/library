@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: wang-2019-cnn-generated-images-easy-to-spot
+body: academic
+type: paper
+title: "CNN-generated images are surprisingly easy to spot... for now"
+authors:
+  - "Sheng-Yu Wang"
+  - "Oliver Wang"
+  - "Richard Zhang"
+  - "Andrew Owens"
+  - "Alexei A. Efros"
+date: "2019-12-23"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1912.11035"
+  url: https://arxiv.org/abs/1912.11035
+content:
+  url: https://arxiv.org/pdf/1912.11035
+  sha256: "b09820c4281dffd7b750508d2c00eeef8031279b50ba3b0fdaaa76680656e054"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -4,6 +4,7 @@ id: szegedy-2013-intriguing-properties
 record: szegedy-2013-intriguing-properties
 type: summary
 updated: "2026-11-03"
+reviewed_by: "Clovier"
 ---
 
 # Intriguing properties of neural networks

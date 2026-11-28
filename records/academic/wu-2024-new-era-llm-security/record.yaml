@@ -1,0 +1,79 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0746. Metadata from the
+# arXiv API and the PDF's title page. Digest matches RPT-0014 pdf-manifest.tsv.
+schema: "library-record/v1"
+id: wu-2024-new-era-llm-security
+body: academic
+type: paper
+title: "A New Era in LLM Security: Exploring Security Concerns in Real-World LLM-based Systems"
+short_title: "A New Era in LLM Security"
+authors:
+  - "Fangzhou Wu"
+  - "Ning Zhang"
+  - "Somesh Jha"
+  - "Patrick McDaniel"
+  - "Chaowei Xiao"
+date: "2024-02-28"
+publisher: "Authors at the University of Wisconsin-Madison and Washington University in St. Louis (arXiv)"
+version: "arXiv v1 (the only version on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.18649"
+  url: https://arxiv.org/abs/2402.18649
+content:
+  url: https://arxiv.org/pdf/2402.18649
+  sha256: "e9d02ca40e9db39b363c5b3f9f5c98d5bf400085113975c9e43d3b985ac9d792"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 17
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+cites:
+  - pedro-2023-prompt-injections-sql-injection                    # [36]
+  - salem-2023-maatphor                                           # [42]
+  - suo-2024-signed-prompt                                        # [47]
+  - wang-2023-safeguarding-crowdsourcing-surveys-prompt-injection # [51]
+  - wu-2023-unveiling-security-privacy-ethical-chatgpt            # [53]
+  - yip-2024-evaluation-framework-prompt-injection-resilience     # [56]
+  - toyer-2023-tensor-trust                                       # [49]
+  - title: "[22] Greshake et al., Not what you've signed up for (RPT-0014 S-0166)"
+  - title: "[26] Iqbal, Kohno, Roesner, LLM platform security: ChatGPT plugins (RPT-0014 S-0741)"
+  - title: "[30] Liu et al., Prompt injection attack against LLM-integrated applications (RPT-0014 S-0182)"
+  - title: "[31] Liu et al., Prompt injection attacks and defenses in LLM-integrated applications (RPT-0014 S-0291)"
+  - title: "[37] Perez and Ribeiro, Ignore previous prompt (RPT-0014 S-0149)"
+  - title: "[55] Yi et al., Benchmarking and defending against indirect prompt injection (RPT-0014 S-0210)"
+  - title: "[57] Yu et al., Assessing prompt injection risks in 200+ custom GPTs (RPT-0014 S-0212)"
+  - title: "[60] Zou et al., Universal and transferable adversarial attacks on aligned language models (RPT-0014 S-0220)"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: fzwark/Secure_LLM_System
+      url: https://github.com/fzwark/Secure_LLM_System
+      license: "Apache-2.0"
+      note: "the first author's later information-flow-control defense (f-secure, arXiv 2409.19091, RPT-0014 S-0328), not this paper's code"
+  commercial: []
+  searched: "2026-11-20"
+usefulness:
+  verdict: useful
+  reason: "A system-level way to threat-model an LLM application: objects (LLM, frontend, web tools, plugins, sandbox), the information flows between them, and the constraints on each flow, shown on ChatGPT with GPT-4 by five real cases and one end-to-end chat-history theft."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - prompt-injection
+  - jailbreak
+  - method
+  - evidence
+status: summarized
+confidence: medium
+owner: Maimcghee

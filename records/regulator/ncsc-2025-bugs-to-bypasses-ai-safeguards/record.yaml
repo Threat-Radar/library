@@ -1,0 +1,32 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-09-29, bytes as archived; decompressed sha256 30a1a989a49a4b8da0357d1de03f17a688151dd74632e7a0d8ae9f7d09d77bb3.
+schema: "library-record/v1"
+id: ncsc-2025-bugs-to-bypasses-ai-safeguards
+body: regulator
+type: article
+title: "From bugs to bypasses: adapting vulnerability disclosure for AI safeguards"
+date: "2025-09-02"
+publisher: "National Cyber Security Centre (UK)"
+identifiers:
+  url: https://www.ncsc.gov.uk/blog-post/from-bugs-to-bypasses-adapting-vulnerability-disclosure-for-ai-safeguards
+content:
+  url: https://web.archive.org/web/20260929183008id_/https://www.ncsc.gov.uk/blog-post/from-bugs-to-bypasses-adapting-vulnerability-disclosure-for-ai-safeguards
+  sha256: "9393f46758c7232dc35b4f6777a070ee8ed392090ed1818c008e7fa8d8537975"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

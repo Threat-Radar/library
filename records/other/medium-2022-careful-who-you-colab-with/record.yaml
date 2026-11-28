@@ -1,0 +1,32 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2024-01-07, bytes as archived; decompressed sha256 215c70dcbb1c10e428e8d51249eba2d807f70d13146b7b20a84361a86ad5aed0.
+schema: "library-record/v1"
+id: medium-2022-careful-who-you-colab-with
+body: other
+type: article
+title: "Careful Who You Colab With: abusing google colaboratory"
+date: "2022-07-28"
+publisher: "Medium (MLearning.ai)"
+identifiers:
+  url: https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7
+content:
+  url: https://web.archive.org/web/20240107002011id_/https://medium.com/mlearning-ai/careful-who-you-colab-with-fa8001f933e7
+  sha256: "f7e34f04807ad4cc99d03a9570c13055d960e44b4a872133ae826544a802cf1f"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-supply-chain
+status: stub
+confidence: medium
+owner: Maimcghee

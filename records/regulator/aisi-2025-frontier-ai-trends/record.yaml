@@ -1,0 +1,78 @@
+# Paper/PDF: a government research report (an evaluation synthesis).
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0796.
+# Content is the report's PDF as linked from the report page ("View the full PDF version").
+# Date: not printed in the report; the page's first Wayback capture is 2025-12-18 and the PDF's
+# metadata gives created 2025-12-15, modified 2025-12-18. The PDF's text layer is OCR (Adobe Paper
+# Capture), so the web page (same content, with the reference links) was read alongside it.
+schema: "library-record/v1"
+id: aisi-2025-frontier-ai-trends
+body: regulator
+type: paper
+title: "Frontier AI Trends Report"
+short_title: "AISI Frontier AI Trends Report"
+authors:
+  - "UK AI Security Institute"
+date: "2025-12-18"
+publisher: "UK AI Security Institute (Department for Science, Innovation and Technology)"
+version: "first edition (2025)"
+identifiers:
+  url: https://www.aisi.gov.uk/frontier-ai-trends-report
+content:
+  url: https://cdn.prod.website-files.com/663bd486c5e4c81588db7a1d/6943e6c11cb5bfd8178443f9_Frontier%20AI%20Trends%20Report%20-%20UK%20AISI%202025%20-%20compressed.pdf
+  sha256: "6ed147b66f065722f038c6a933a4b8bb39af9ab2378a72fede629e203c0ab2ae"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+  pages: 54
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - kouremetis-2025-occult
+    - zhang-2024-cybench
+  cited_by: []
+  implements_concept: []
+cites:
+  - aisi-2025-managing-risks-open-weight-ai-systems
+  - aisi-2025-white-box-control-sandbagging
+  - anthropic-2025-automated-researchers-sandbag
+  - anthropic-2025-claude-4-system-card
+  - black-2025-replibench
+  - cato-2025-nytheon-ai-uncensored-llms
+  - guan-2024-deliberative-alignment
+  - hackenburg-2025-levers-political-persuasion
+  - ncsc-2025-bugs-to-bypasses-ai-safeguards
+  - needham-2025-llms-know-when-evaluated
+  - obrien-2025-deep-ignorance-tamper-resistant-safeguards
+  - vanderweij-2024-ai-sandbagging
+  - volkov-2024-badllama-3
+  - zou-2025-security-challenges-agent-deployment-competition
+  - lin-2024-malla                       # also RPT-0014 S-0287
+  - title: "Anthropic, Constitutional Classifiers: defending against universal jailbreaks (RPT-0014 S-0460)"
+bears_on:
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source:
+    - name: UKGovernmentBEIS/inspect_cyber
+      url: https://github.com/UKGovernmentBEIS/inspect_cyber
+      license: "MIT"
+      note: "AISI's cyber-evaluation extension of the Inspect framework, linked by the report (as aisi.gov.uk/work/inspect-cyber)"
+  commercial: []
+  searched: "2026-11-20"
+usefulness:
+  verdict: useful
+  reason: "Government test results on 30+ frontier models from November 2023 to 2025: cyber tasks moved from apprentice to expert level, cyber task length doubles about every eight months, every tested system had a universal jailbreak, and open-weight safeguards remain easy to remove; the time-varying attacker capability that RPT-0014's likelihoods need."
+  assessed: "2026-11-20"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+  - jailbreak
+  - ai-benchmark
+  - evidence
+status: summarized
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,32 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-09-03, bytes as archived.
+schema: "library-record/v1"
+id: owasp-agent-memory-guard
+body: community
+type: web
+title: "OWASP Agent Memory Guard"
+date: ""
+publisher: "OWASP Foundation"
+identifiers:
+  url: https://owasp.org/www-project-agent-memory-guard/
+content:
+  url: https://web.archive.org/web/20260903084455id_/https://owasp.org/www-project-agent-memory-guard/
+  sha256: "3a35a2352da2c800bda8c41c2942ed99a966091ba20e779c8b799af42ab65271"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

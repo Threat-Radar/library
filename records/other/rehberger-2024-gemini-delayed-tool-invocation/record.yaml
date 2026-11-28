@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-06, bytes as archived; decompressed sha256 e10d769a366f18e708e3ac8df304f8637d1aa9ebcddfc3f6352afb72ca77ed57.
+schema: "library-record/v1"
+id: rehberger-2024-gemini-delayed-tool-invocation
+body: other
+type: article
+title: "Google Gemini: Planting Instructions for Delayed Automatic Tool Invocation"
+authors:
+  - "Johann Rehberger"
+date: "2024-02-22"
+publisher: "Embrace The Red"
+identifiers:
+  url: https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/
+content:
+  url: https://web.archive.org/web/20261106160923id_/https://embracethered.com/blog/posts/2024/llm-context-pollution-and-delayed-automated-tool-invocation/
+  sha256: "3fd0619efb422741ffda9f86eb76a74b3d3865a1038259f406b6c023a4075eca"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

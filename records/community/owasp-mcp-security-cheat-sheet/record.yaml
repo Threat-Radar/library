@@ -1,0 +1,32 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-16, bytes as archived; decompressed sha256 83d50bd8e60782c241cd7f4eb37fa3c32f10624a4329de4b31c8d620601a8626.
+schema: "library-record/v1"
+id: owasp-mcp-security-cheat-sheet
+body: community
+type: web
+title: "MCP Security Cheat Sheet"
+date: ""
+publisher: "OWASP Cheat Sheet Series"
+identifiers:
+  url: https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html
+content:
+  url: https://web.archive.org/web/20261116171205id_/https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html
+  sha256: "547a09652b76e00ae3364b2a853b10333bf32f7faee138c99d3af01875d0263d"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - mcp
+status: stub
+confidence: medium
+owner: Maimcghee

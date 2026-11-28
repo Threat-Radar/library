@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nist-ai-100-4, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-10-25, bytes as archived.
+schema: "library-record/v1"
+id: thiel-2023-ai-image-models-trained-on-child-abuse
+body: academic
+type: article
+title: "Investigation Finds AI Image Generation Models Trained on Child Abuse"
+authors:
+  - "David Thiel"
+date: "2023-12"
+publisher: "Stanford Cyber Policy Center"
+identifiers:
+  url: https://cyber.fsi.stanford.edu/news/investigation-finds-ai-image-generation-models-trained-child-abuse
+content:
+  url: https://web.archive.org/web/20251025143002id_/https://cyber.fsi.stanford.edu/news/investigation-finds-ai-image-generation-models-trained-child-abuse
+  sha256: "3eddbf0db33270191c0fbc66c540b7a49e02e18068191cb3e8f29162263119bd"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - data-poisoning
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

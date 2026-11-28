@@ -1,0 +1,63 @@
+# Paper/PDF: a report.
+# RPT-0014 WAVE 1 currency check (tmodel #79), 2026-11-22: Anthropic's current threat-model write-up
+# under RSP v3.4, not in RPT-0014 sources.md. Redacted public version; coverage date 2026-07-15;
+# first archived 2026-08-15 (the PDF prints no publication date).
+schema: "library-record/v1"
+id: anthropic-2026-risk-report-august
+body: vendor
+type: paper
+title: "Risk Report: August 2026"
+short_title: "Anthropic Risk Report, August 2026"
+authors:
+  - "Anthropic"
+date: "2026-08"
+publisher: "Anthropic"
+version: "redacted public version (coverage date 2026-07-15)"
+identifiers:
+  url: https://www.anthropic.com/aug-2026-risk-report
+content:
+  url: https://assets.claude.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378.pdf
+  sha256: "d76815f8c0bd284a33c7017d642d0734ba903ae63f7c1e6ca7778b35b2c40fa4"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+  pages: 186
+relations:
+  supersedes:
+    - anthropic-2026-risk-report-february
+  superseded_by: []
+  see_also:
+    - anthropic-rsp-v3-4-2026
+    - anthropic-2026-opus-4-6-sabotage-risk-report
+    - anthropic-2025-pilot-sabotage-risk-report
+  cited_by: []
+  implements_concept: []
+cites:
+  - anthropic-rsp-v3-4-2026                      # the policy it implements
+  - anthropic-2026-risk-report-february          # "our previous Risk Report"
+  - anthropic-2026-frontier-safety-roadmap
+  - anthropic-2025-sb53-compliance-framework     # separate compliance frameworks (footnote 1)
+  - greenblatt-2024-alignment-faking             # 5.2.6
+  - nevo-2024-securing-ai-model-weights          # RAND SL4
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: core
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-22"
+usefulness:
+  verdict: useful
+  reason: "A frontier developer's current threat models with dated incidents: eight misalignment pathways (sabotage, code backdoors, training-data poisoning, self-exfiltration, rogue internal deployment), CB misuse with classifier robustness and still-viable jailbreaks, weight security scoped to non-state actors with ten named controls, and real failures (vendor API-key misuse, a classifier gap over 133M exchanges, an unmonitored agent run with permissions skipped)."
+  assessed: "2026-11-22"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - ai-incident
+  - agent-security
+status: summarized
+confidence: medium
+owner: Maimcghee

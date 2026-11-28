@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nevo-2024-securing-ai-model-weights, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: wired-2021-ai-phishing-emails
+body: other
+type: article
+title: "AI Wrote Better Phishing Emails Than Humans in a Recent Test"
+authors:
+  - "Lily Hay Newman"
+date: "2021-08-07"
+publisher: "WIRED"
+identifiers:
+  url: https://www.wired.com/story/ai-phishing-emails/
+content:
+  url: https://web.archive.org/web/20261031070538id_/https://www.wired.com/story/ai-phishing-emails/
+  sha256: "fe9f9ac4ad1d4692854a9d2bf6ef12f274fa135786d0393ef9470ee78073b84e"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

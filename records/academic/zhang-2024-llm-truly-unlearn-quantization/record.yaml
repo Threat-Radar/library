@@ -1,0 +1,43 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zhang-2024-llm-truly-unlearn-quantization
+body: academic
+type: paper
+title: "Catastrophic Failure of LLM Unlearning via Quantization"
+authors:
+  - "Zhiwei Zhang"
+  - "Fali Wang"
+  - "Xiaomin Li"
+  - "Zongyu Wu"
+  - "Xianfeng Tang"
+  - "Hui Liu"
+  - "Qi He"
+  - "Wenpeng Yin"
+  - "Suhang Wang"
+date: "2024-10-21"
+version: "arXiv v3 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2410.16454"
+  url: https://arxiv.org/abs/2410.16454
+content:
+  url: https://arxiv.org/pdf/2410.16454
+  sha256: "5b5288c399c3b69f9f6209211fd608630631c9dfe7114da01fabcebd49516025"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

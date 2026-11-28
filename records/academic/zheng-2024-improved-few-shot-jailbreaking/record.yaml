@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zheng-2024-improved-few-shot-jailbreaking
+body: academic
+type: paper
+title: "Improved Few-Shot Jailbreaking Can Circumvent Aligned Language Models and Their Defenses"
+authors:
+  - "Xiaosen Zheng"
+  - "Tianyu Pang"
+  - "Chao Du"
+  - "Qian Liu"
+  - "Jing Jiang"
+  - "Min Lin"
+date: "2024-06-03"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2406.01288"
+  url: https://arxiv.org/abs/2406.01288
+content:
+  url: https://arxiv.org/pdf/2406.01288
+  sha256: "3472f778a0feedc9084de0ce997a60f4975428d542686925cab5b42250cc4708"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

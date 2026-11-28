@@ -1,0 +1,40 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: zhu-2024-fedmia-effective-membership-inference
+body: academic
+type: paper
+title: "FedMIA: An Effective Membership Inference Attack Exploiting \"All for One\" Principle in Federated Learning"
+authors:
+  - "Gongxi Zhu"
+  - "Donghao Li"
+  - "Hanlin Gu"
+  - "Yuan Yao"
+  - "Lixin Fan"
+  - "Yuxing Han"
+date: "2024-02-09"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2402.06289"
+  url: https://arxiv.org/abs/2402.06289
+content:
+  url: https://arxiv.org/pdf/2402.06289
+  sha256: "9d8aa031d1fd1dda21854860f1e31262e1b97d7192aa0b42f81179bfc228e88c"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - membership-inference
+status: stub
+confidence: medium
+owner: Maimcghee

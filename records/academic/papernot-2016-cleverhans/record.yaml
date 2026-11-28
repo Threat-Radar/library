@@ -1,0 +1,60 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brundage-2018-malicious-use-ai, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: papernot-2016-cleverhans
+body: academic
+type: paper
+title: "Technical Report on the CleverHans v2.1.0 Adversarial Examples Library"
+authors:
+  - "Nicolas Papernot"
+  - "Fartash Faghri"
+  - "Nicholas Carlini"
+  - "Ian Goodfellow"
+  - "Reuben Feinman"
+  - "Alexey Kurakin"
+  - "Cihang Xie"
+  - "Yash Sharma"
+  - "Tom Brown"
+  - "Aurko Roy"
+  - "Alexander Matyasko"
+  - "Vahid Behzadan"
+  - "Karen Hambardzumyan"
+  - "Zhishuai Zhang"
+  - "Yi-Lin Juang"
+  - "Zhi Li"
+  - "Ryan Sheatsley"
+  - "Abhibhav Garg"
+  - "Jonathan Uesato"
+  - "Willi Gierke"
+  - "Yinpeng Dong"
+  - "David Berthelot"
+  - "Paul Hendricks"
+  - "Jonas Rauber"
+  - "Rujun Long"
+  - "Patrick McDaniel"
+date: "2016-10-03"
+version: "arXiv v6 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "1610.00768"
+  url: https://arxiv.org/abs/1610.00768
+content:
+  url: https://arxiv.org/pdf/1610.00768
+  sha256: "4825f144058236987c847a4a1653be0cd3aae6a64e27bbfbf5dcba41feef3dae"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee

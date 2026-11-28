@@ -1,0 +1,61 @@
+# Article: a government awareness publication (ITSAP = IT security awareness publication). It
+# sets no requirements anyone conforms to, so it is not `spec` and FX-1 does not apply.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0846, the December 2025 revision.
+# First published July 2023 (Wayback copy of 2023-07-24, "Date modified: 2023-07-14"); this revision
+# keeps the same eight risks (see the summary's Limits).
+# Content is the Wayback Machine copy of 2026-09-08, bytes as archived; its body text matches the
+# live page fetched 2026-11-15 ("Date modified: 2025-12-10").
+schema: "library-record/v1"
+id: cccs-itsap-00-041-generative-ai-2025
+body: regulator
+type: article
+title: "Generative artificial intelligence (AI) - ITSAP.00.041"
+short_title: "Cyber Centre ITSAP.00.041"
+authors:
+  - "Canadian Centre for Cyber Security"
+date: "2025-12"
+publisher: "Canadian Centre for Cyber Security (Communications Security Establishment Canada)"
+version: "December 2025 (date modified 2025-12-10); first published July 2023"
+identifiers:
+  url: https://www.cyber.gc.ca/en/guidance/generative-artificial-intelligence-ai-itsap00041
+content:
+  url: https://web.archive.org/web/20260908055757id_/https://www.cyber.gc.ca/en/guidance/generative-artificial-intelligence-ai-itsap00041
+  sha256: "cc5530e0ce68a69d54bd655d84cf94571945f2557e25ddf00b5b654bb1d75d91"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - cccs-itsap-00-040-artificial-intelligence-2025
+  cited_by: []
+  implements_concept: []
+cites:
+  - cccs-itsap-00-040-artificial-intelligence-2025
+  - title: "Canadian Centre for Cyber Security, Secure your accounts and devices with multi-factor authentication (ITSAP.30.030)"
+  - title: "Canadian Centre for Cyber Security, Network security logging and monitoring (ITSAP.80.085)"
+  - title: "Canadian Centre for Cyber Security, How to identify misinformation, disinformation, and malinformation (ITSAP.00.300)"
+  - title: "Canadian Centre for Cyber Security, Don't take the bait: Recognize and avoid phishing attacks (ITSAP.00.101)"
+  - title: "Canadian Centre for Cyber Security, What is voice phishing (vishing)? (ITSAP.00.102)"
+bears_on: []   # informs no tmodel decision; kept as RPT-0014's TM-056 source
+applicability:
+  security: adjacent
+  cryptography: none
+  this_project: none
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-15"
+usefulness:
+  verdict: marginal
+  reason: "A one-page government awareness list of eight generative-AI risks for organizations, with general cyber-hygiene advice; TM-056's source, but it has no structure, ids or attack detail to build on."
+  assessed: "2026-11-15"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-governance
+  - ai-enabled-offense
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee

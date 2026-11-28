@@ -1,0 +1,54 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: greenblatt-2024-alignment-faking
+body: academic
+type: paper
+title: "Alignment faking in large language models"
+authors:
+  - "Ryan Greenblatt"
+  - "Carson Denison"
+  - "Benjamin Wright"
+  - "Fabien Roger"
+  - "Monte MacDiarmid"
+  - "Sam Marks"
+  - "Johannes Treutlein"
+  - "Tim Belonax"
+  - "Jack Chen"
+  - "David Duvenaud"
+  - "Akbir Khan"
+  - "Julian Michael"
+  - "Sören Mindermann"
+  - "Ethan Perez"
+  - "Linda Petrini"
+  - "Jonathan Uesato"
+  - "Jared Kaplan"
+  - "Buck Shlegeris"
+  - "Samuel R. Bowman"
+  - "Evan Hubinger"
+date: "2024-12-18"
+version: "arXiv v2 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2412.14093"
+  url: https://arxiv.org/abs/2412.14093
+content:
+  url: https://arxiv.org/pdf/2412.14093
+  sha256: "f448dfe38f2144f0fe61bd78ceab01e44a17b363df1cb6df6c6c1bbea9568abc"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+status: stub
+confidence: medium
+owner: Maimcghee

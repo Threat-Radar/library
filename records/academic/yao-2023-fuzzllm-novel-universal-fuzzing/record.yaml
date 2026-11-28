@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: yao-2023-fuzzllm-novel-universal-fuzzing
+body: academic
+type: paper
+title: "FuzzLLM: A Novel and Universal Fuzzing Framework for Proactively Discovering Jailbreak Vulnerabilities in Large Language Models"
+authors:
+  - "Dongyu Yao"
+  - "Jianshu Zhang"
+  - "Ian G. Harris"
+  - "Marcel Carlsson"
+date: "2023-09-11"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2309.05274"
+  url: https://arxiv.org/abs/2309.05274
+content:
+  url: https://arxiv.org/pdf/2309.05274
+  sha256: "f05f39986d8c3a56babbe6d012317d3c660b958d89b798ebfc9bab20ad5d323d"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

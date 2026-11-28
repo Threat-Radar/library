@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-13, bytes as archived; decompressed sha256 4d870b2be0298779b96119776873b9168beb5982e8f787ac5efd69dc0c0b8ba3.
+schema: "library-record/v1"
+id: cybersecuritynews-2025-github-copilot-jailbreak
+body: other
+type: article
+title: "GitHub Copilot Jailbreak Vulnerability Let Attackers Train Malicious Models"
+authors:
+  - "Guru Baran"
+date: "2025-01-31"
+publisher: "Cyber Security News"
+identifiers:
+  url: https://cybersecuritynews.com/github-copilot-jailbreak-vulnerability
+content:
+  url: https://web.archive.org/web/20261013091803id_/https://cybersecuritynews.com/github-copilot-jailbreak-vulnerability
+  sha256: "228f72b798a3cfc74fdbcd82f11591226d0b927a0332ded14f7e134f9f7f4c26"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

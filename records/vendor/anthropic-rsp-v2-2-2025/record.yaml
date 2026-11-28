@@ -1,0 +1,61 @@
+# Article: a company policy, not a specification anyone conforms to, so not `spec` (no FX-1).
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0798, the version
+# sources.md pins (digest matches). Superseded: see anthropic-rsp-v3-4-2026.
+# The RSP page also serves a redline PDF labelled v2.2 (sha256 3fd9544b...); this record is
+# the clean copy.
+schema: "library-record/v1"
+id: anthropic-rsp-v2-2-2025
+body: vendor
+type: article
+title: "Responsible Scaling Policy, Version 2.2"
+short_title: "Anthropic RSP v2.2"
+authors:
+  - "Anthropic"
+date: "2025-05-14"
+publisher: "Anthropic"
+version: "2.2 (effective 2025-05-14)"
+identifiers:
+  url: https://www.anthropic.com/rsp
+content:
+  url: https://assets.claude.com/872c653b2d0501d6ab44cf87f43e1dc4853e4d37.pdf
+  sha256: "4807f3970c76968a75a6dffa55d8ffe547014522b63c67e261cd02f7b6fc1e39"
+  retrieved: "2026-11-13"
+  local: false
+  media_type: application/pdf
+  pages: 23
+relations:
+  supersedes: []
+  superseded_by:
+    - anthropic-rsp-v3-4-2026
+  see_also:
+    - gdm-fsf-v3-2025
+  cited_by: []
+  implements_concept: []
+cites:
+  - mitre-attack                                # 4.2, threat modeling
+  - sp-800-218                                  # 4.2, SSDF
+  - title: "Securing AI Model Weights: Preventing Theft and Misuse of Frontier Models (RAND, 2024; RPT-0014 S-0793)"
+  - title: "Deploying AI Systems Securely (RPT-0014 S-1180)"
+bears_on:
+  - DEC-003
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-13"
+usefulness:
+  verdict: useful
+  reason: "Names which attackers a frontier lab's weight security must stop (and which it need not) at ASL-3; the source of TM-100's attacker scope, since replaced by the v3 rewrite."
+  assessed: "2026-11-13"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - ai-governance
+  - model-extraction
+  - prior-art
+status: summarized
+confidence: medium
+owner: Maimcghee

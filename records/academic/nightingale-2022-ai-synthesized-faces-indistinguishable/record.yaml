@@ -1,0 +1,35 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-08-08, bytes as archived; decompressed sha256 baee883cdbb69c78bc30b0a0fb93abab413bc3ca9d7a3d0a44508dd08c3d4ad8.
+schema: "library-record/v1"
+id: nightingale-2022-ai-synthesized-faces-indistinguishable
+body: academic
+type: paper
+title: "AI-synthesized faces are indistinguishable from real faces and more trustworthy"
+authors:
+  - "Sophie J. Nightingale"
+  - "Hany Farid"
+date: "2022-02"
+publisher: "PNAS"
+identifiers:
+  url: https://www.pnas.org/doi/10.1073/pnas.2120481119
+content:
+  url: https://web.archive.org/web/20250808141658id_/https://www.pnas.org/doi/10.1073/pnas.2120481119
+  sha256: "059deabda89d6a80a02fd55850ea6d8e4d1705a6a59d7ec56ca530dba4d3291a"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,42 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: bhatt-2025-ctrl-z-resampling-agents
+body: academic
+type: paper
+title: "Ctrl-Z: Controlling AI Agents via Resampling"
+authors:
+  - "Aryan Bhatt"
+  - "Cody Rushing"
+  - "Adam Kaufman"
+  - "Tyler Tracy"
+  - "Vasil Georgiev"
+  - "David Matolcsi"
+  - "Akbir Khan"
+  - "Buck Shlegeris"
+date: "2025-04-14"
+version: "arXiv v1 (latest on 2026-11-22)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2504.10374"
+  url: https://arxiv.org/abs/2504.10374
+content:
+  url: https://arxiv.org/pdf/2504.10374
+  sha256: "5f802d679344fe5e15d1edd50e96245f3bdc054e69d1ff0880b077d173549211"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

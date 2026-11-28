@@ -1,0 +1,33 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-09-13, bytes as archived; decompressed sha256 ad79b026d73b63efcd213117dce2011623a90d3c2d45a6a28483f75e74a8ab45.
+# Date: month of the first Wayback capture (2025-08-30); the page shows none.
+schema: "library-record/v1"
+id: aisi-2025-managing-risks-open-weight-ai-systems
+body: regulator
+type: article
+title: "Managing risks from increasingly capable open-weight AI systems"
+date: "2025-08"
+publisher: "UK AI Security Institute"
+identifiers:
+  url: https://www.aisi.gov.uk/work/managing-risks-from-increasingly-capable-open-weight-ai-systems
+content:
+  url: https://web.archive.org/web/20250913195642id_/https://www.aisi.gov.uk/work/managing-risks-from-increasingly-capable-open-weight-ai-systems
+  sha256: "bff94714ea82798cdd791d179cb4bfc94ba8d00ad90bc19992f5390ad595ab34"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

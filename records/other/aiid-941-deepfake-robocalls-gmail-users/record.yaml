@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: aiid-941-deepfake-robocalls-gmail-users
+body: other
+type: web
+title: "AI-Driven Phishing Scam Uses Deepfake Robocalls to Target Gmail Users"
+date: "2025-02-17"
+publisher: "AI Incident Database (Responsible AI Collaborative)"
+identifiers:
+  url: https://incidentdatabase.ai/cite/941/
+content:
+  url: https://web.archive.org/web/20261031013618id_/https://incidentdatabase.ai/cite/941/
+  sha256: "5f2e135a507feeaa78ad6d4f0af0b46cbb7f483d47ec350c4113cb0a95dc2c2a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

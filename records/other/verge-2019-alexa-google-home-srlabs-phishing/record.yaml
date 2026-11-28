@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-07-22, bytes as archived.
+schema: "library-record/v1"
+id: verge-2019-alexa-google-home-srlabs-phishing
+body: other
+type: article
+title: ""
+authors:
+  - "Jon Porter"
+date: "2019-10-21"
+publisher: "The Verge"
+identifiers:
+  url: https://www.theverge.com/2019/10/21/20924886/alexa-google-home-security-vulnerability-srlabs-phishing-eavesdropping
+content:
+  url: https://web.archive.org/web/20260722180905id_/https://www.theverge.com/2019/10/21/20924886/alexa-google-home-security-vulnerability-srlabs-phishing-eavesdropping
+  sha256: "85e07b286ffeaa2d77b46468e9834e29d80bbcfd7391419c128f1090699ad4e6"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - agent-security
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,33 @@
+# Web page: content drifts. The digest + retrieved date is the whole point.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: aiid-1100-lastpass-ceo-voice-deepfake
+body: other
+type: web
+title: "LastPass CEO Voice Deepfake Attempt"
+date: "2024-04-10"
+publisher: "AI Incident Database (Responsible AI Collaborative)"
+identifiers:
+  url: https://incidentdatabase.ai/cite/1100/
+content:
+  url: https://web.archive.org/web/20261031013426id_/https://incidentdatabase.ai/cite/1100/
+  sha256: "13fa8378f3b95455eb0765d3b42c5584bcac8684d3c7a7fb2507848b2f0db7f2"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-incident
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,70 @@
+# Article: a vendor research blog post.
+# RPT-0014 WAVE 1 subset-1, lane catalogs-schema (tmodel #79): S-0742, the first of its two posts
+# (the second is brauchler-2024-secure-ai-design-principles). The sources.md link,
+# nccgroup.com/us/research-blog/..., now redirects to nccgroup.com/research/...
+# Content is the Wayback Machine copy of 2025-07-02, bytes as archived: gzip, 41,896 bytes, which
+# decompress to 140,263 bytes of HTML (sha256 156ac101b64158ad82f0e146b5c0debb6144be89f54f90facffc42923cce92e4).
+schema: "library-record/v1"
+id: brauchler-2024-ai-application-threat-models
+body: vendor
+type: article
+title: "Analyzing AI Application Threat Models"
+short_title: "NCC Group, MATA"
+authors:
+  - "David Brauchler"
+date: "2024-02-07"
+publisher: "NCC Group"
+identifiers:
+  url: https://www.nccgroup.com/research/analyzing-ai-application-threat-models/
+content:
+  url: https://web.archive.org/web/20250702003120id_/https://www.nccgroup.com/us/research-blog/analyzing-ai-application-threat-models/
+  sha256: "ebe2ce14816f912060c06240227074ad0b183417a700f7d79af641e2e5499cf2"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also:
+    - brauchler-2024-secure-ai-design-principles
+  cited_by: []
+  implements_concept: []
+cites:
+  - wang-2022-variational-model-inversion
+  - elsayed-2018-adversarial-reprogramming
+  - machado-2020-adversarial-ml-image-classification-survey
+  - openai-2021-multimodal-neurons
+  - edwards-2023-glorbo-ai-news-prank
+  - ong-2023-ethnically-ambiguous-homer
+  - title: "Shokri et al., Membership Inference Attacks Against Machine Learning Models (RPT-0014 S-0027)"
+  - title: "Tramer et al., Stealing Machine Learning Models via Prediction APIs (RPT-0014 S-0013)"
+  - title: "Akhtar and Mian, Threat of Adversarial Attacks on Deep Learning in Computer Vision: A Survey (RPT-0014 S-0671)"
+  - title: "Rehberger, Hacking Google Bard: From Prompt Injection to Data Exfiltration (RPT-0014 S-0974)"
+  - title: "Ars Technica, 2017, on stickers that confuse sign classifiers (reports Eykholt et al., RPT-0014 S-0038)"
+  - title: "Tang et al., SALMONN: Towards Generic Hearing Abilities for Large Language Models, arXiv 2310.13289"
+  - title: "Computerphile, Glitch Tokens (YouTube video)"
+  - title: "TheBloke, wizard-vicuna-13B-GPTQ model card (Hugging Face)"
+  - title: "NPR, 2023-03-02, on the Microsoft Bing chatbot"
+bears_on:
+  - DEC-001
+applicability:
+  security: core
+  cryptography: none
+  this_project: adjacent
+implementations:
+  open_source: []
+  commercial: []
+  searched: "2026-11-15"
+usefulness:
+  verdict: useful
+  reason: "A practitioner threat model for LLM-integrated applications that treats the model as a potential threat actor (MATA) and names 25 threat vectors; the source of TM-027 and of report.md's trust-label proposal."
+  assessed: "2026-11-15"
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-threat-model
+  - prompt-injection
+  - agent-security
+  - method
+status: summarized
+confidence: medium
+owner: Maimcghee

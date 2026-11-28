@@ -1,0 +1,36 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-17, bytes as archived; decompressed sha256 c3cbf4ad17d5ad4698d7cec7f2d9ca2fa188fa869b09ef6ec24d49cc1d5df8ec.
+schema: "library-record/v1"
+id: mouton-2023-operational-risks-ai-biological-attacks
+body: other
+type: paper
+title: "The Operational Risks of AI in Large-Scale Biological Attacks: A Red-Team Approach"
+authors:
+  - "Christopher A. Mouton"
+  - "Caleb Lucas"
+  - "Ella Guest"
+date: "2023-10-16"
+publisher: "RAND Corporation"
+identifiers:
+  url: https://www.rand.org/pubs/research_reports/RRA2977-1.html
+content:
+  url: https://web.archive.org/web/20261117152432id_/https://www.rand.org/pubs/research_reports/RRA2977-1.html
+  sha256: "33f8ca6787f74c35552d5db5937e939c375bd7c01e23047a84445da08ed29d8d"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

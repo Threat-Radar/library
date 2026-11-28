@@ -1,0 +1,34 @@
+# Paper: a conference paper, pinned by its publisher page.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by goldstein-2023-influence-operations, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-31, bytes as archived.
+schema: "library-record/v1"
+id: farid-2022-creating-misusing-detecting-deep-fakes
+body: academic
+type: paper
+title: "Creating, Using, Misusing, and Detecting Deep Fakes"
+authors:
+  - "Hany Farid"
+date: "2022-09"
+publisher: "Journal of Online Trust and Safety"
+identifiers:
+  url: https://tsjournal.org/index.php/jots/article/view/56
+content:
+  url: https://web.archive.org/web/20261031080539id_/https://tsjournal.org/index.php/jots/article/view/56
+  sha256: "13f5a1279440f6a1f5fd0fe02d288f4bddb0244ba6b3a07e1a690e8ec33bc36f"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: needham-2025-llms-know-when-evaluated
+body: academic
+type: paper
+title: "Large Language Models Often Know When They Are Being Evaluated"
+authors:
+  - "Joe Needham"
+  - "Giles Edkins"
+  - "Govind Pimpale"
+  - "Henning Bartsch"
+  - "Marius Hobbhahn"
+date: "2025-05-28"
+version: "arXiv v3 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2505.23836"
+  url: https://arxiv.org/abs/2505.23836
+content:
+  url: https://arxiv.org/pdf/2505.23836
+  sha256: "964c793edab708ab677051f8fad19357e83d6f0034ddbe1ff8e842319e7d1d0f"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-benchmark
+status: stub
+confidence: medium
+owner: Maimcghee

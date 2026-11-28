@@ -1,0 +1,32 @@
+# Repo: a GitHub repository page, pinned by a Wayback copy.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-10-13, bytes as archived.
+schema: "library-record/v1"
+id: chatgpt-dan-jailbreak-prompts-repo
+body: other
+type: repo
+title: "ChatGPT DAN"
+date: "2023-02-15"
+publisher: "GitHub (0xk1h0)"
+identifiers:
+  url: https://github.com/0xk1h0/ChatGPT_DAN
+content:
+  url: https://web.archive.org/web/20261013193056id_/https://github.com/0xk1h0/ChatGPT_DAN
+  sha256: "0aab4d55920f1cc9b6cbb9edf7ff641dfa579881a501f55ddcce20046a91c96a"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

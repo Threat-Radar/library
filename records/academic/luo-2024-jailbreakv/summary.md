@@ -4,6 +4,7 @@ id: luo-2024-jailbreakv
 record: luo-2024-jailbreakv
 type: summary
 updated: "2026-11-03"
+reviewed_by: "Clovier"
 ---
 
 # JailBreakV: A Benchmark for Assessing the Robustness of MultiModal Large Language Models against Jailbreak Attacks

@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by cosai-risk-map, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-09-05, bytes as archived.
+schema: "library-record/v1"
+id: gitguardian-2025-breaking-mcp-server-hosting
+body: vendor
+type: article
+title: ""
+authors:
+  - "Gaetan Ferry"
+date: "2025-10-22"
+publisher: "GitGuardian"
+identifiers:
+  url: https://blog.gitguardian.com/breaking-mcp-server-hosting/
+content:
+  url: https://web.archive.org/web/20260905174148id_/https://blog.gitguardian.com/breaking-mcp-server-hosting/
+  sha256: "0a78bbc049537255bace45e2fd3b553661383ee115b4b0b2636a3b5b5bb15db2"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - mcp
+  - ai-supply-chain
+status: stub
+confidence: medium
+owner: Maimcghee

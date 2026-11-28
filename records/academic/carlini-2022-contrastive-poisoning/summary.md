@@ -4,6 +4,7 @@ id: carlini-2022-contrastive-poisoning
 record: carlini-2022-contrastive-poisoning
 type: summary
 updated: "2026-11-01"
+reviewed_by: "Maimcghee"
 ---
 
 # Poisoning and Backdooring Contrastive Learning

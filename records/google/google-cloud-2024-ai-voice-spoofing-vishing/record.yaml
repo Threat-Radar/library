@@ -1,0 +1,35 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-07-05, bytes as archived.
+schema: "library-record/v1"
+id: google-cloud-2024-ai-voice-spoofing-vishing
+body: google
+type: article
+title: "AI-powered voice spoofing: Understanding and defending against vishing attacks"
+authors:
+  - "Mandiant"
+date: "2024-07-23"
+publisher: "Google Cloud (Mandiant)"
+identifiers:
+  url: https://cloud.google.com/blog/topics/threat-intelligence/ai-powered-voice-spoofing-vishing-attacks
+content:
+  url: https://web.archive.org/web/20260705150407id_/https://cloud.google.com/blog/topics/threat-intelligence/ai-powered-voice-spoofing-vishing-attacks
+  sha256: "546467bbcfae301f80edf4f002ec50d192341bc89cf1940ee2faf0be94eaa6c6"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - deepfake
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

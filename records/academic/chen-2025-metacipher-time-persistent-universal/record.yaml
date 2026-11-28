@@ -1,0 +1,39 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: chen-2025-metacipher-time-persistent-universal
+body: academic
+type: paper
+title: "MetaCipher: A Time-Persistent and Universal Multi-Agent Framework for Cipher-Based Jailbreak Attacks for LLMs"
+authors:
+  - "Boyuan Chen"
+  - "Minghao Shao"
+  - "Abdul Basit"
+  - "Siddharth Garg"
+  - "Muhammad Shafique"
+date: "2025-06-27"
+version: "arXiv v2 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2506.22557"
+  url: https://arxiv.org/abs/2506.22557
+content:
+  url: https://arxiv.org/pdf/2506.22557
+  sha256: "9064620bf34b76af975eeabda7d802d7aad31799fcc456edbc6ff9b06922dac3"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

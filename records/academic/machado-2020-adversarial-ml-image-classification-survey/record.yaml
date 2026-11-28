@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by brauchler-2024-ai-application-threat-models, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: machado-2020-adversarial-ml-image-classification-survey
+body: academic
+type: paper
+title: "Adversarial Machine Learning in Image Classification: A Survey Towards the Defender's Perspective"
+authors:
+  - "Gabriel Resende Machado"
+  - "Eugênio Silva"
+  - "Ronaldo Ribeiro Goldschmidt"
+date: "2020-09-08"
+version: "arXiv v1 (latest on 2026-11-15)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2009.03728"
+  doi: "10.1145/3485133"
+  url: https://arxiv.org/abs/2009.03728
+content:
+  url: https://arxiv.org/pdf/2009.03728
+  sha256: "bf80b43941b565f4ce0ec0d543e938327d94b15d56ab3046076db2614ab43eb9"
+  retrieved: "2026-11-15"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - evasion
+status: stub
+confidence: medium
+owner: Maimcghee

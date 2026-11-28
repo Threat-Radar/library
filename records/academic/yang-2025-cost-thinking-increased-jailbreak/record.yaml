@@ -1,0 +1,35 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: yang-2025-cost-thinking-increased-jailbreak
+body: academic
+type: paper
+title: "The Cost of Thinking: Increased Jailbreak Risk in Large Language Models"
+authors:
+  - "Fan Yang"
+date: "2025-08-09"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2508.10032"
+  url: https://arxiv.org/abs/2508.10032
+content:
+  url: https://arxiv.org/pdf/2508.10032
+  sha256: "421a71f35a2cf8fe8a84aabff7cfdcf4df2fcd1b7560ecc991a0eb720c1f33ca"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

@@ -1,0 +1,34 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nevo-2024-securing-ai-model-weights, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-16, bytes as archived; decompressed sha256 8dbc4e4243fb6076abb57a6ec65c67132ceb6600c70500d502a8b273dea418a8.
+schema: "library-record/v1"
+id: harang-2023-securing-llm-systems-prompt-injection
+body: vendor
+type: article
+title: "Securing LLM Systems Against Prompt Injection"
+authors:
+  - "Rich Harang"
+date: "2023-08-03"
+publisher: "NVIDIA Technical Blog"
+identifiers:
+  url: https://developer.nvidia.com/blog/securing-llm-systems-against-prompt-injection/
+content:
+  url: https://web.archive.org/web/20261116010734id_/https://developer.nvidia.com/blog/securing-llm-systems-against-prompt-injection/
+  sha256: "a873979f563dd420bccda5187b57d2e8557e9b0b8b71ba7ce236d6c25a57303a"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - prompt-injection
+status: stub
+confidence: medium
+owner: Maimcghee

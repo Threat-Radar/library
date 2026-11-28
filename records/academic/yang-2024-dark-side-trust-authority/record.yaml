@@ -1,0 +1,38 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by arcanum-pi-taxonomy, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: yang-2024-dark-side-trust-authority
+body: academic
+type: paper
+title: "The Dark Side of Trust: Authority Citation-Driven Jailbreak Attacks on Large Language Models"
+authors:
+  - "Xikang Yang"
+  - "Xuehai Tang"
+  - "Jizhong Han"
+  - "Songlin Hu"
+date: "2024-11-18"
+version: "arXiv v1 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2411.11407"
+  url: https://arxiv.org/abs/2411.11407
+content:
+  url: https://arxiv.org/pdf/2411.11407
+  sha256: "886bf15cadd303261475a10a89b97ae8170f132c4e94e2d9db34ec290ba6d4d4"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

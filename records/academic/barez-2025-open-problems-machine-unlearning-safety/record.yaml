@@ -1,0 +1,53 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: barez-2025-open-problems-machine-unlearning-safety
+body: academic
+type: paper
+title: "Open Problems in Machine Unlearning for AI Safety"
+authors:
+  - "Fazl Barez"
+  - "Tingchen Fu"
+  - "Ameya Prabhu"
+  - "Stephen Casper"
+  - "Amartya Sanyal"
+  - "Adel Bibi"
+  - "Aidan O'Gara"
+  - "Robert Kirk"
+  - "Ben Bucknall"
+  - "Tim Fist"
+  - "Luke Ong"
+  - "Philip Torr"
+  - "Kwok-Yan Lam"
+  - "Robert Trager"
+  - "David Krueger"
+  - "Sören Mindermann"
+  - "José Hernandez-Orallo"
+  - "Mor Geva"
+  - "Yarin Gal"
+date: "2025-01-09"
+version: "arXiv v1 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2501.04952"
+  url: https://arxiv.org/abs/2501.04952
+content:
+  url: https://arxiv.org/pdf/2501.04952
+  sha256: "81415f9202578e2fc9fcbf7e82157e82fa90b034b841ff347a13c3f82046ddd3"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-security
+status: stub
+confidence: medium
+owner: Maimcghee

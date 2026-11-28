@@ -1,0 +1,44 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by aisi-2025-frontier-ai-trends, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: obrien-2025-deep-ignorance-tamper-resistant-safeguards
+body: academic
+type: paper
+title: "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs"
+authors:
+  - "Kyle O'Brien"
+  - "Stephen Casper"
+  - "Quentin Anthony"
+  - "Tomek Korbak"
+  - "Robert Kirk"
+  - "Xander Davies"
+  - "Ishan Mishra"
+  - "Geoffrey Irving"
+  - "Yarin Gal"
+  - "Stella Biderman"
+date: "2025-08-08"
+version: "arXiv v2 (latest on 2026-11-21)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2508.06601"
+  url: https://arxiv.org/abs/2508.06601
+content:
+  url: https://arxiv.org/pdf/2508.06601
+  sha256: "aea695965310391892733b29c74c4cbd219c41be2f452df6d47a1bc7a12afe51"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

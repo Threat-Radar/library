@@ -1,0 +1,32 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by shah-2025-gdm-agi-safety-security, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2026-11-15, bytes as archived; decompressed sha256 ece5293db1f525404e18d06d970c388780775bf78498e12967dab2aa780d10c1.
+schema: "library-record/v1"
+id: openai-2024-early-warning-llm-biological-threat
+body: vendor
+type: article
+title: "Building an early warning system for LLM-aided biological threat creation"
+date: "2024-01-31"
+publisher: "OpenAI"
+identifiers:
+  url: https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation/
+content:
+  url: https://web.archive.org/web/20261115185927id_/https://openai.com/index/building-an-early-warning-system-for-llm-aided-biological-threat-creation/
+  sha256: "154094639e38ea63671039c7669144d055c250aa567424a098934a4c2eb6de31"
+  retrieved: "2026-11-22"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-enabled-offense
+status: stub
+confidence: medium
+owner: Maimcghee

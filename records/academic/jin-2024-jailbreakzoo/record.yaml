@@ -1,0 +1,41 @@
+# Paper/PDF: cite by DOI or arXiv id where one exists.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by mitre-atlas, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5). Metadata from the arXiv API.
+schema: "library-record/v1"
+id: jin-2024-jailbreakzoo
+body: academic
+type: paper
+title: "JailbreakZoo: Survey, Landscapes, and Horizons in Jailbreaking Large Language and Vision-Language Models"
+authors:
+  - "Haibo Jin"
+  - "Leyang Hu"
+  - "Xinnuo Li"
+  - "Peiyan Zhang"
+  - "Chonghan Chen"
+  - "Jun Zhuang"
+  - "Haohan Wang"
+date: "2024-06-26"
+version: "arXiv v3 (latest on 2026-11-20)"
+venue: "arXiv preprint"
+identifiers:
+  arxiv: "2407.01599"
+  url: https://arxiv.org/abs/2407.01599
+content:
+  url: https://arxiv.org/pdf/2407.01599
+  sha256: "dd019071edbbf1eeb6d69748dcf324f3ea08f05ecaac7a45546b73d52b92e672"
+  retrieved: "2026-11-20"
+  local: false
+  media_type: application/pdf
+relations:
+  supersedes: []
+  superseded_by: []
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - jailbreak
+status: stub
+confidence: medium
+owner: Maimcghee

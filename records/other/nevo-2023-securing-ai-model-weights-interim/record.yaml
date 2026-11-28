@@ -1,0 +1,39 @@
+# Article: a blog post or news story.
+# RPT-0014 WAVE 1 reference-expansion stub (tmodel #79): cited by nevo-2024-securing-ai-model-weights, in scope, not in
+# RPT-0014 sources.md. Pinned, not summarized (LANES.md Step 2.5).
+# Content is the Wayback Machine copy of 2025-05-11, bytes as archived; decompressed sha256 598c1c41b6c59db96945e35feabbb7575a433b13bbc18414815449476450e89c.
+schema: "library-record/v1"
+id: nevo-2023-securing-ai-model-weights-interim
+body: other
+type: article
+title: "Securing Artificial Intelligence Model Weights: Interim Report"
+authors:
+  - "Sella Nevo"
+  - "Dan Lahav"
+  - "Ajay Karpur"
+  - "Jeff Alstott"
+  - "Jason Matheny"
+date: "2023-10-31"
+publisher: "RAND Corporation"
+identifiers:
+  url: https://www.rand.org/pubs/working_papers/WRA2849-1.html
+content:
+  url: https://web.archive.org/web/20250511084548id_/https://www.rand.org/pubs/working_papers/WRA2849-1.html
+  sha256: "4cd00d7c0db8add9c2e67c7a3cf61bc853ed736799952e7dd497d00c8a533883"
+  retrieved: "2026-11-21"
+  local: false
+  media_type: text/html
+relations:
+  supersedes: []
+  superseded_by:
+    - nevo-2024-securing-ai-model-weights
+  see_also: []
+  cited_by: []
+  implements_concept: []
+bears_on: []
+topic: ai-threat-model-catalogs-schema
+tags:
+  - ai-infrastructure
+status: stub
+confidence: medium
+owner: Maimcghee
