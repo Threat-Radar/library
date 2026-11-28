@@ -26,8 +26,7 @@ content:
   pages: 15
 # In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
 cites:
-  - title: "The Malicious Use of Artificial Intelligence: Forecasting, Prevention, and Mitigation"
-    locator: "https://arxiv.org/abs/1802.07228"
+  - brundage-2018-malicious-use-ai
   - title: "(Ab)using Images and Sounds for Indirect Instruction Injection in Multi-Modal LLMs"
     locator: "https://arxiv.org/abs/2307.10490"
   - title: "Image Hijacks: Adversarial Images Can Control Generative Models at Runtime"

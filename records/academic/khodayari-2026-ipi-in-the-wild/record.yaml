@@ -39,8 +39,7 @@ cites:
   - aikido-promptpwnd-github-actions
   - de-stefano-2024-rag-and-roll
   - jiang-2024-promptkeeper
-  - title: "Safeguarding Crowdsourcing Surveys from ChatGPT with Prompt Injection"
-    locator: "https://arxiv.org/abs/2306.08833"
+  - wang-2023-safeguarding-crowdsourcing-surveys-prompt-injection
   - ji-2025-prompt-injection-detection
   - zhang-2025-browsesafe
   - llm-prompt-injection-prevention-cheat-sheet

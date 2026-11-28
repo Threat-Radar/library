@@ -4,8 +4,8 @@ id: agentic-mcp-wave1
 title: "Agentic/MCP WAVE 1 bibliography completion (#78)"
 type: assessment
 status: draft
-version: "0.1.1"
-updated: "2026-11-26"
+version: "0.1.2"
+updated: "2026-11-28"
 needs_review: true
 reviewed: false
 ---
@@ -29,11 +29,11 @@ proposals awaiting review. No human review or `reviewed_by` signature is added h
   lists; the two OWASP records gain the semantic role `prior-art`. The reused
   CISA record keeps its existing topic, tags and extracted material.
 - The first-hop reference pass records 147 distinct cited works in 190 source
-  citation edges: nine held records, 59 works already in the source corpus,
-  77 new `status: stub` records and two works whose canonical records are
-  proposed in [library#51](https://github.com/Threat-Radar/library/pull/51).
-  Corpus and pending works remain `{title, locator}` frontier entries while
-  the library does not hold them.
+  citation edges: 12 held records, 58 works already in the source corpus and
+  77 new `status: stub` records. Three frontier citations now resolve to records
+  delivered in merged [library#51](https://github.com/Threat-Radar/library/pull/51).
+  Corpus works remain `{title, locator}` frontier entries while the library does
+  not hold them. No citation is waiting on another PR.
 - `topics/ai-threat-model-agentic-mcp.yaml` names @paria03 and groups the 20
   assigned sources and 77 new stubs (97 members). It stays open because the lane has later work.
 
@@ -77,8 +77,10 @@ identified an incorrect identity for Habler et al. [4]. It cites the
 not *Agentic AI: Threats and Mitigations*. The guide is source-corpus S-0761,
 not a held library record. The source's generic OWASP locator is preserved;
 the citation now uses an unresolved title/locator instead of the wrong record.
-This restores 147 distinct works: nine held identities, 59 corpus works,
-77 new stubs and two pending records. The former 10-held count was wrong.
+That review restored 147 distinct works: nine held identities, 59 corpus
+works, 77 new stubs and two pending records. The former 10-held count was wrong.
+The later merged-reference resolution below changes their dispositions, not the
+147-work or 190-edge totals.
 
 Fifteen ids introduced only by this unmerged PR were corrected before becoming
 permanent: 14 overlong or truncated slugs now use short, complete identities,
@@ -89,18 +91,23 @@ URLs, hashes and prior review evidence are unchanged. The mapping is
 
 Two papers also proposed in library#51 are not added a second time here:
 
-| arXiv | Pending canonical library id | Owning PR |
+| arXiv | Canonical library id | Owning PR |
 |---|---|---|
 | 2305.13860 | `liu-2023-jailbreaking-chatgpt-prompt-engineering` | library#51 |
 | 2306.08833 | `wang-2023-safeguarding-crowdsourcing-surveys-prompt-injection` | library#51 |
 
-Their original citations remain title/locator frontier entries. The CSV records
-`pending-library-pr`, `pending_library_record` and `pending_pr`; it does not
-pretend those records exist. This avoids duplicate permanent ids, dangling
-links and overlapping record edits in either merge order. The owning lane
-retains its PDF pins, metadata and review responsibility. After #51 merges,
-resolve these frontier entries to those ids in the normal bibliography pass;
-until then they are explicitly pending. No other lane's records are changed.
+They were deliberately retained as title/locator frontier entries until #51
+merged, avoiding duplicate permanent ids and dangling references in either
+merge order. On 2026-11-28, after #51 merged, the two citations were resolved
+to its canonical ids. The newly held Brundage report, arXiv 1802.07228
+(`brundage-2018-malicious-use-ai`, source-corpus S-0726), also resolves from
+Liu's survey to the merged record. Each identity matches the cited arXiv id.
+
+The CSV now classifies all three as `held`, preserves the original cited title,
+URL, source-side locator and any corpus id, and clears the two pending fields.
+Current totals are 12 held works, 58 corpus works and 77 new stubs, with no
+pending PR references. No canonical target record, PDF pin, source metadata or
+review is edited. These are citation links, not evidence of reading the targets.
 
 ## Source access and identity checks
 
@@ -148,7 +155,9 @@ Calibration was delivered in merged [tmodel#117](https://github.com/Threat-Radar
 The existing independent five-record check by @kriishnaa-18 is recorded on
 [library#22](https://github.com/Threat-Radar/library/pull/22#issuecomment-6355715327).
 It covers that earlier change, not this new bibliography pass. No prior review is
-copied into a fresh approval or signature. Request review of these new changes.
+copied into a fresh approval or signature. @Clovier approved the bibliography
+changes at `4dc474e` on library#53.
+The later merged-reference cleanup requires review on its new head.
 
 **Every new scaffold is owned by @paria03 in tmodel#78.** Its next source-reading
 and applicability pass is explicit future work; full extraction belongs to #73
@@ -163,19 +172,46 @@ not **Closes #78**.
 
 ## Validation
 
-Baseline: 686 records (381 written, 305 scaffold, 42 fully extracted), 24 topics,
-0 errors and 99 warnings. After review corrections: 763 records (381 written, 382 scaffold,
-42 fully extracted), 25 topics, 0 errors and the same 99 warnings. The 77-record
-increase is exactly the requested bibliography stubs; it does not increase the
-written or extracted counts. Generated views remain untracked.
+The original pass started from 686 records; the reviewed `4dc474e` head held
+763 records. After merging library `main` at `c4cab52` for this follow-up, the
+combined tree holds 1,045 records (404 written, 641 scaffold, 42 fully extracted),
+25 topics, zero errors and the same 99 warnings. The PR still adds exactly
+77 unread stubs relative to current `main`; the other increase comes from merged
+work in other lanes. The 20 assigned sources and all 190 citation edges reconcile.
 
-An isolated trial merge with library#51 at `8fc3878` is conflict-free. Its
-combined 1,045 records validate with zero errors and the same 99 warnings;
-the two cross-lane arXiv duplicates no longer add warnings. No peer branch
-is modified by this check.
+Local CI steps passed: 15 YAML reader tests, 53 requirements files,
+181 artifact files (zero errors; 38 existing warnings), export/reindex,
+1,045 bibliography entries, the extraction gate and the third-party-document
+check. All 20 source assignments, summary sections, applicability ratings,
+controlled tags, 190 forward citations, 77 owned stubs and 97 topic members
+reconcile. Source metadata, digests and reviews remain unchanged. The companion
+tmodel#271 passes its architecture check (29 documents, zero errors). Generated
+views remain untracked.
 
-Commands and cross-checks are recorded in the companion
-[tmodel lane log, PR #271](https://github.com/Threat-Radar/tmodel/pull/271).
-The prior library head `7390bfa` had no hosted runs: GitHub paused this fork's
-Actions because of usage volume. Local validation is distinct from hosted CI;
-a maintainer must restore Actions before a fresh hosted pass can be claimed.
+GitHub Actions were restored on 2026-11-27 in
+[tmodel#283](https://github.com/Threat-Radar/tmodel/issues/283); library#55 passed
+both `validate` and `dco`. At the start of this follow-up, the old library#53
+head `4dc474e` had no hosted results. Check the latest exact-head results on
+[library#53](https://github.com/Threat-Radar/library/pull/53) and
+[tmodel#271](https://github.com/Threat-Radar/tmodel/pull/271); do not inherit CI
+success from an earlier commit. Both require fresh passing checks before merge;
+tmodel#271 follows the library merge.
+
+## Completion boundaries
+
+| Work | Status / next owner |
+|---|---|
+| Three calibration sources | Merged in tmodel#117 |
+| 20 assigned bibliography records | Original summaries merged in library#22; tag/applicability/reference cleanup in library#53 |
+| Controlled tags, applicability, citation stubs and lane note | Implemented; library#53 and companion tmodel#271; merge after current-head checks/review |
+| Pending-reference resolution | Implemented: three links, zero pending records |
+| Five-source human signatures | @kriishnaa-18, [tmodel#284](https://github.com/Threat-Radar/tmodel/issues/284); the earlier fixes are present, but no `reviewed_by` signature exists yet |
+| Review-partner duty for catalogs/schema | @paria03 completed [tmodel#285](https://github.com/Threat-Radar/tmodel/issues/285) |
+| Comparable calibration / extraction gate | @nymble, tmodel#84; still open |
+| WAVE 2 extraction and news sweep | Deferred until the #84 gate; not claimed complete |
+
+Merge library#53, then tmodel#271 after fresh checks and review. Check the last
+WAVE 1 bibliography criterion on #78 only after merge, linking the evidence.
+Keep #78 open for its sponsor gate and remaining review requirements. Another
+reviewer's signature must come from that reviewer; approval of a PR does not
+replace the five-source sign-off.
