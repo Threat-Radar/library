@@ -28,6 +28,31 @@ content:
   local: false
   media_type: application/pdf
   pages: 33
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - title: "Not What You’ve Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection"
+    locator: "https://arxiv.org/abs/2302.12173"
+  - fu-2023-misusing-tools-visual
+  - llm-programmatic-dual-use
+  - title: "Prompt Injection attack against LLM-integrated Applications"
+    locator: "https://arxiv.org/abs/2306.05499"
+  - title: "Ignore Previous Prompt: Attack Techniques For Language Models"
+    locator: "https://arxiv.org/abs/2211.09527"
+  - title: "The dual LLM pattern for building AI assistants that can resist prompt injection"
+    locator: "https://simonwillison.net/2023/Apr/25/dual-llm-pattern/"
+  - title: "(Ab)using Images and Sounds for Indirect Instruction Injection in Multi-Modal LLMs"
+    locator: "https://arxiv.org/abs/2307.10490"
+  - title: "Visual Adversarial Examples Jailbreak Aligned Large Language Models"
+    locator: "https://arxiv.org/abs/2306.13213"
+  - exploring-prompt-injection-attacks
+  - title: "Jailbroken: How Does LLM Safety Training Fail?"
+    locator: "https://arxiv.org/abs/2307.02483"
+  - title: "Universal and Transferable Adversarial Attacks on Aligned Language Models"
+    locator: "https://arxiv.org/abs/2307.15043"
+  - title: "Red Teaming Language Models with Language Models"
+    locator: "https://arxiv.org/abs/2202.03286"
+  - liu-2023-jailbreaking-chatgpt-prompt-engineering
+  - rao-2023-tricking-llms
 relations:
   supersedes: []
   superseded_by: []
@@ -47,7 +72,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - evidence
   - prompt-injection
   - jailbreak

@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: skillspector-security-scanner-for-ai-agent-skills
+body: community
+type: repo
+title: "SkillSpector: Security Scanner for AI Agent Skills"
+authors: []
+date: ""
+identifiers:
+  git: "https://github.com/NVIDIA/SkillSpector"
+content:
+  url: "https://github.com/NVIDIA/SkillSpector"
+  sha256: "57f9519926729b9eca715729a2ac1747c019cd18ad62e0c95e31732fa6842ef4"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low

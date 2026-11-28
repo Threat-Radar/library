@@ -36,7 +36,7 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - community
+  - prior-art
   - ai-weakness-catalog
   - mcp
   - agent-security

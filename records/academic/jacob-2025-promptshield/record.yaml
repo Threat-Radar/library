@@ -1,0 +1,31 @@
+schema: "library-record/v1"
+id: jacob-2025-promptshield
+body: academic
+type: paper
+title: "PromptShield: Deployable Detection for Prompt Injection Attacks"
+authors:
+  - "Jacob, Dennis"
+  - "Alzahrani, Hend"
+  - "Hu, Zhanhao"
+  - "Alomair, Basel"
+  - "Wagner, David"
+date: "2025-01-25"
+identifiers:
+  url: "https://arxiv.org/abs/2501.15145"
+  arxiv: "2501.15145"
+content:
+  url: "https://arxiv.org/abs/2501.15145"
+  sha256: "0dce87e2c7e0d734061ae4d15ddd517b4b4de4096fb85efd8c02901e19490212"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

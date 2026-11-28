@@ -1,0 +1,30 @@
+schema: "library-record/v1"
+id: rao-2023-tricking-llms
+body: academic
+type: paper
+title: "Tricking LLMs into Disobedience: Formalizing, Analyzing, and Detecting Jailbreaks"
+authors:
+  - "Rao, Abhinav"
+  - "Vashistha, Sachin"
+  - "Naik, Atharva"
+  - "Aditya, Somak"
+  - "Choudhury, Monojit"
+date: "2023-05-24"
+identifiers:
+  url: "https://arxiv.org/abs/2305.14965"
+  arxiv: "2305.14965"
+content:
+  url: "https://arxiv.org/abs/2305.14965"
+  sha256: "6f755f3dc0d8c1d7217810a6e4ff57e39f080ff0d4bb3ef4ee9d16161ed845c6"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

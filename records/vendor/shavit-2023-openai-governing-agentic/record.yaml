@@ -31,6 +31,20 @@ content:
   local: false
   media_type: application/pdf
   pages: 23
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - title: "Not What You’ve Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection"
+    locator: "https://arxiv.org/abs/2302.12173"
+  - you-can-t-solve-ai-security-problems-with-more-ai
+  - chan-2023-agentic-harms
+  - cobbe-2023-algorithmic-accountability
+  - title: "Toward Comprehensive Risk Assessments and Assurance of AI-Based Systems"
+    locator: "https://raw.githubusercontent.com/trailofbits/publications/master/papers/trailofbits-20230307-ai-risk-assessments-whitepaper.pdf"
+  - krakovna-2020-avoiding-side-effects
+  - title: "Visual Adversarial Examples Jailbreak Aligned Large Language Models"
+    locator: "https://arxiv.org/abs/2306.13213"
+  - title: "Universal and Transferable Adversarial Attacks on Aligned Language Models"
+    locator: "https://arxiv.org/abs/2307.15043"
 relations:
   supersedes: []
   superseded_by: []
@@ -50,7 +64,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - vendor
   - method
   - agent-security
   - ai-governance

@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: operator-system-card
+body: vendor
+type: web
+title: "Operator System Card"
+authors: []
+date: ""
+identifiers:
+  url: "https://openai.com/index/operator-system-card/"
+content:
+  url: "https://openai.com/index/operator-system-card/"
+  sha256: "d350865c16f3a512c8733aefd8d0ef92c45433b3ee50c519185ce6d633ac81b4"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

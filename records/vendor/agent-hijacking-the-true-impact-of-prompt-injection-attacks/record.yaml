@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: agent-hijacking-the-true-impact-of-prompt-injection-attacks
+body: vendor
+type: web
+title: "Agent Hijacking: The True Impact of Prompt Injection Attacks"
+authors: []
+date: ""
+identifiers:
+  url: "https://labs.snyk.io/resources/agent-hijacking/"
+content:
+  url: "https://labs.snyk.io/resources/agent-hijacking/"
+  sha256: "632e0a390fdf358e928b9320aac2ea6fdafe678a5e0e9661c8308b35e388e5f8"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

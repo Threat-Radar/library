@@ -1,0 +1,35 @@
+schema: "library-record/v1"
+id: siddiqui-2024-permissive-information-flow
+body: academic
+type: paper
+title: "Permissive Information-Flow Analysis for Large Language Models"
+authors:
+  - "Siddiqui, Shoaib Ahmed"
+  - "Gaonkar, Radhika"
+  - "Köpf, Boris"
+  - "Krueger, David"
+  - "Paverd, Andrew"
+  - "Salem, Ahmed"
+  - "Tople, Shruti"
+  - "Wutschitz, Lukas"
+  - "Xia, Menglin"
+  - "Zanella-Béguelin, Santiago"
+date: "2024-10-04"
+identifiers:
+  url: "https://arxiv.org/abs/2410.03055"
+  arxiv: "2410.03055"
+content:
+  url: "https://arxiv.org/abs/2410.03055"
+  sha256: "e4f55102d8a1795425f1564572efba3fa89a415ca4f0d300f66b2fe5684ec78f"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

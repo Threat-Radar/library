@@ -1,0 +1,36 @@
+schema: "library-record/v1"
+id: liu-2025-make-agent-defeat-agent
+body: academic
+type: paper
+title: "Make Agent Defeat Agent: Automatic Detection of Taint-Style Vulnerabilities in LLM-based Agents"
+authors:
+  - "Fengyu Liu"
+  - "Yuan Zhang"
+  - "Jiaqi Luo"
+  - "Jiarun Dai"
+  - "Tian Chen"
+  - "Letian Yuan"
+  - "Zhengmin Yu"
+  - "Youkun Shi"
+  - "Ke Li"
+  - "Chengyuan Zhou"
+  - "Hao Chen"
+  - "Min Yang"
+date: "2025"
+identifiers:
+  url: "https://www.usenix.org/conference/usenixsecurity25/presentation/liu-fengyu"
+content:
+  url: "https://www.usenix.org/conference/usenixsecurity25/presentation/liu-fengyu"
+  sha256: "3eb2ebe161fb8d4c976e56ec5f0327f59b47740e43256333eed51d9d25fad9f6"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

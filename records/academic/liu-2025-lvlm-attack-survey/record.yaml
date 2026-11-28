@@ -24,6 +24,24 @@ content:
   local: false
   media_type: application/pdf
   pages: 15
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - brundage-2018-malicious-use-ai
+  - title: "(Ab)using Images and Sounds for Indirect Instruction Injection in Multi-Modal LLMs"
+    locator: "https://arxiv.org/abs/2307.10490"
+  - title: "Image Hijacks: Adversarial Images Can Control Generative Models at Runtime"
+    locator: "https://arxiv.org/abs/2309.00236"
+  - chen-2023-personal-information-instructions
+  - title: "FigStep: Jailbreaking Large Vision-Language Models via Typographic Visual Prompts"
+    locator: "https://arxiv.org/abs/2311.05608"
+  - liu-2024-mm-safetybench
+  - title: "Visual Adversarial Examples Jailbreak Aligned Large Language Models"
+    locator: "https://arxiv.org/abs/2306.13213"
+  - qraitem-2024-self-generated-typographic
+  - title: "Jailbreak in Pieces: Compositional Adversarial Attacks on Multi-Modal Language Models"
+    locator: "https://arxiv.org/abs/2307.14539"
+  - wu-2023-gpt4v-system-prompt-attacks
+  - tan-2024-wolf-within
 relations:
   supersedes: []
   superseded_by: []
@@ -42,7 +60,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - academic
   - background
   - prompt-injection
   - jailbreak

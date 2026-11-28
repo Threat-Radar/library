@@ -1,0 +1,31 @@
+schema: "library-record/v1"
+id: cui-2025-vortexpia
+body: academic
+type: paper
+title: "VortexPIA: Indirect Prompt Injection Attack against LLMs for Efficient Extraction of User Privacy"
+authors:
+  - "Cui, Yu"
+  - "Pan, Sicheng"
+  - "Liu, Yifei"
+  - "Zhang, Haibin"
+  - "Zuo, Cong"
+date: "2025-10-05"
+identifiers:
+  url: "https://arxiv.org/abs/2510.04261"
+  arxiv: "2510.04261"
+content:
+  url: "https://arxiv.org/abs/2510.04261"
+  sha256: "f4ba5eeefc4680d4fbe2aa966c5e930170a4c612cbe74541404af96cc29a50ca"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: aim-curxecute-mcp-rce
+body: vendor
+type: web
+title: "When Public Prompts Turn Into Local Shells: CurXecute RCE in Cursor via MCP"
+authors: []
+date: ""
+identifiers:
+  url: "https://www.aim.security/lp/aim-labs-curxecute-blogpost"
+content:
+  url: "https://www.aim.security/lp/aim-labs-curxecute-blogpost"
+  sha256: ""
+  retrieved: ""
+  local: false
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - mcp
+  - prompt-injection
+status: stub
+confidence: low

@@ -17,6 +17,16 @@ content:
   retrieved: "2026-10-21"
   local: false
   media_type: text/html
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - rfc-9700
+  - rfc-9728
+  - mcp-authorization-2025-11-25
+  - server-side-request-forgery-prevention-cheat-sheet
+  - smokescreen-http-connect-proxy
+  - draft-ietf-oauth-v2-1-13
+  - owasp-a10-2021-server-side-request-forgery
+  - mcp-transports-2025-11-25
 relations:
   supersedes: []
   superseded_by: []
@@ -35,7 +45,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - community
   - normative
   - mcp
   - agent-security

@@ -1,0 +1,29 @@
+schema: "library-record/v1"
+id: feng-2025-agent-autonomy-levels
+body: academic
+type: paper
+title: "Levels of Autonomy for AI Agents"
+authors:
+  - "Feng, K. J. Kevin"
+  - "McDonald, David W."
+  - "Zhang, Amy X."
+date: "2025-06-14"
+identifiers:
+  url: "https://arxiv.org/abs/2506.12469"
+  arxiv: "2506.12469"
+content:
+  url: "https://arxiv.org/abs/2506.12469"
+  sha256: "e980a2bc50705576c390af0f60e21a34768230da3ce5ce08b148f81db6843051"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-governance
+status: stub
+confidence: low

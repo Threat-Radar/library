@@ -1,0 +1,32 @@
+schema: "library-record/v1"
+id: beurer-kellner-2026-agent-skill-threats
+body: academic
+type: paper
+title: "Technical Report: Exploring the Emerging Threats of the Agent Skill Ecosystem"
+authors:
+  - "Beurer-Kellner, Luca"
+  - "Kudrinskii, Aleksei"
+  - "Milanta, Marco"
+  - "Nielsen, Kristian Bonde"
+  - "Sarkar, Hemang"
+  - "Tal, Liran"
+date: "2026-05-27"
+identifiers:
+  url: "https://arxiv.org/abs/2605.28588"
+  arxiv: "2605.28588"
+content:
+  url: "https://arxiv.org/abs/2605.28588"
+  sha256: "4301922b8c9fc6ee794976b88f6750413df19a2f2d5096a541accbd5b6c94b9b"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low

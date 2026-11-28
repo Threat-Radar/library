@@ -1,6 +1,6 @@
 schema: "library-tags/v1"
-version: "0.2.0"
-updated: "2026-10-01"
+version: "0.3.0"
+updated: "2026-11-25"
 description: >
   Controlled tag sets. Free tags are allowed, but prefer a controlled term when
   one fits — free tags that recur three times should be promoted here by PR.
@@ -25,6 +25,21 @@ subject:
   - trust-management
   - bibliography-method
   - regulation
+  # AI subjects used by the RPT-0014 agentic/MCP bibliography (tmodel#78).
+  - agent-security
+  - ai-benchmark
+  - ai-governance
+  - ai-incident
+  - ai-supply-chain
+  - ai-threat-model
+  - ai-weakness-catalog
+  - backdoor
+  - data-poisoning
+  - evasion
+  - jailbreak
+  - mcp
+  - prompt-injection
+  - rag-security
 
 # WHO PUBLISHED IT — deliberately NOT here.
 #

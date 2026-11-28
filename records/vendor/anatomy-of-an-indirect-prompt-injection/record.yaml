@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: anatomy-of-an-indirect-prompt-injection
+body: vendor
+type: web
+title: "Anatomy of an Indirect Prompt Injection"
+authors: []
+date: ""
+identifiers:
+  url: "https://www.pillar.security/blog/anatomy-of-an-indirect-prompt-injection"
+content:
+  url: "https://www.pillar.security/blog/anatomy-of-an-indirect-prompt-injection"
+  sha256: "4274b56f10d5aad537c4e9d5675d997ebfdef4ca3ebe80bd21433eed83e3d3f1"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

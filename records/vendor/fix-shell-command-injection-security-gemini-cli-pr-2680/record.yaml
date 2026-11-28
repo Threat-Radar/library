@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: fix-shell-command-injection-security-gemini-cli-pr-2680
+body: vendor
+type: web
+title: "Fix Shell Command Injection Security (Gemini CLI PR 2680)"
+authors: []
+date: ""
+identifiers:
+  url: "https://github.com/google-gemini/gemini-cli/pull/2680"
+content:
+  url: "https://github.com/google-gemini/gemini-cli/pull/2680"
+  sha256: "afc2d563f0a7056dd91b39fbeee72ad0ca9cbc1b67e489f3024ba24e419a1088"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

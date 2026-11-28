@@ -1,0 +1,29 @@
+schema: "library-record/v1"
+id: ji-2025-prompt-injection-detection
+body: academic
+type: paper
+title: "Detection Method for Prompt Injection by Integrating Pre-trained Model and Heuristic Feature Engineering"
+authors:
+  - "Ji, Yi"
+  - "Li, Runzhi"
+  - "Mao, Baolei"
+date: "2025-06-05"
+identifiers:
+  url: "https://arxiv.org/abs/2506.06384"
+  arxiv: "2506.06384"
+content:
+  url: "https://arxiv.org/abs/2506.06384"
+  sha256: "02ee4541ab3182769c6b80f53d4c95dcf3b92e379017c5deb2fb272d6384c207"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

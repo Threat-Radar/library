@@ -1,0 +1,31 @@
+schema: "library-record/v1"
+id: qraitem-2024-self-generated-typographic
+body: academic
+type: paper
+title: "Vision-LLMs Can Fool Themselves with Self-Generated Typographic Attacks"
+authors:
+  - "Qraitem, Maan"
+  - "Tasnim, Nazia"
+  - "Teterwak, Piotr"
+  - "Saenko, Kate"
+  - "Plummer, Bryan A."
+date: "2024-02-01"
+identifiers:
+  url: "https://arxiv.org/abs/2402.00626"
+  arxiv: "2402.00626"
+content:
+  url: "https://arxiv.org/abs/2402.00626"
+  sha256: "de9ee6acd904e9e3783334d9e1b4761075a4a32ba0680ab4bce531c4a7ff0557"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

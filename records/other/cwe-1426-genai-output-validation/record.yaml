@@ -19,6 +19,9 @@ content:
   retrieved: "2026-10-13"
   local: false
   media_type: text/html
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - dong-2024-building-guardrails
 relations:
   supersedes: []
   superseded_by: []

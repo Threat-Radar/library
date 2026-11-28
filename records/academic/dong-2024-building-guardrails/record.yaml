@@ -1,0 +1,35 @@
+schema: "library-record/v1"
+id: dong-2024-building-guardrails
+body: academic
+type: paper
+title: "Building Guardrails for Large Language Models"
+authors:
+  - "Dong, Yi"
+  - "Mu, Ronghui"
+  - "Jin, Gaojie"
+  - "Qi, Yi"
+  - "Hu, Jinwei"
+  - "Zhao, Xingyu"
+  - "Meng, Jie"
+  - "Ruan, Wenjie"
+  - "Huang, Xiaowei"
+date: "2024-02-02"
+identifiers:
+  url: "https://arxiv.org/abs/2402.01822"
+  arxiv: "2402.01822"
+content:
+  url: "https://arxiv.org/abs/2402.01822"
+  sha256: "f55087187387b66b6ebfca5771fdd6c072e77a14b94bd1516477aac438954ab5"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+status: stub
+confidence: low

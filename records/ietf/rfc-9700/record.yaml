@@ -1,0 +1,26 @@
+schema: "library-record/v1"
+id: rfc-9700
+body: ietf
+type: rfc
+title: "Best Current Practice for OAuth 2.0 Security"
+authors: []
+date: ""
+identifiers:
+  rfc: 9700
+  doi: "10.17487/RFC9700"
+  url: "https://www.rfc-editor.org/rfc/rfc9700.html"
+content:
+  url: "https://www.rfc-editor.org/rfc/rfc9700.html"
+  sha256: "c00e2234fcd79581bc29669c60d693afaa42f67d9205bddee848f757ae975419"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

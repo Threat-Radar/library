@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: sentry-skill-scanner
+body: vendor
+type: web
+title: "Sentry Skill Scanner"
+authors: []
+date: ""
+identifiers:
+  url: "https://github.com/getsentry/skills/blob/main/skills/skill-scanner/SKILL.md"
+content:
+  url: "https://github.com/getsentry/skills/blob/main/skills/skill-scanner/SKILL.md"
+  sha256: "7cf93467dc504bb196cc6c7f5b08678533800c24c256174445bd52dc98c3c67b"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low

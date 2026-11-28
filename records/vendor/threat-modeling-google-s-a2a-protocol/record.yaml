@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: threat-modeling-google-s-a2a-protocol
+body: vendor
+type: web
+title: "Threat Modeling Google’s A2A Protocol"
+authors: []
+date: ""
+identifiers:
+  url: "https://kenhuangus.substack.com/p/threat-modeling-googles-a2a-protocol"
+content:
+  url: "https://kenhuangus.substack.com/p/threat-modeling-googles-a2a-protocol"
+  sha256: "0bc8794492667d9fe64f0eace620348e261cb32492146b38c1b542c4066270e5"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

@@ -1,0 +1,46 @@
+schema: "library-record/v1"
+id: debenedetti-2024-satml-llm-ctf
+body: academic
+type: paper
+title: "Dataset and Lessons Learned from the 2024 SaTML LLM Capture-the-Flag Competition"
+authors:
+  - "Debenedetti, Edoardo"
+  - "Rando, Javier"
+  - "Paleka, Daniel"
+  - "Florin, Silaghi Fineas"
+  - "Albastroiu, Dragos"
+  - "Cohen, Niv"
+  - "Lemberg, Yuval"
+  - "Ghosh, Reshmi"
+  - "Wen, Rui"
+  - "Salem, Ahmed"
+  - "Cherubin, Giovanni"
+  - "Zanella-Beguelin, Santiago"
+  - "Schmid, Robin"
+  - "Klemm, Victor"
+  - "Miki, Takahiro"
+  - "Li, Chenhao"
+  - "Kraft, Stefan"
+  - "Fritz, Mario"
+  - "Tramèr, Florian"
+  - "Abdelnabi, Sahar"
+  - "Schönherr, Lea"
+date: "2024-06-12"
+identifiers:
+  url: "https://arxiv.org/abs/2406.07954"
+  arxiv: "2406.07954"
+content:
+  url: "https://arxiv.org/abs/2406.07954"
+  sha256: "a8e930299c9a306093ec990d2dd759412a410dd1138b4a7e49422ed7ea1508e8"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

@@ -1,0 +1,31 @@
+schema: "library-record/v1"
+id: cobbe-2023-algorithmic-accountability
+body: academic
+type: paper
+title: "Understanding accountability in algorithmic supply chains"
+authors:
+  - "Cobbe, Jennifer"
+  - "Veale, Michael"
+  - "Singh, Jatinder"
+date: "2023-04-28"
+identifiers:
+  url: "https://arxiv.org/abs/2304.14749"
+  arxiv: "2304.14749"
+  doi: "10.1145/3593013.3594073"
+content:
+  url: "https://arxiv.org/abs/2304.14749"
+  sha256: "40f2b6b4bfc582ee14560a524e573b945f9d20041ab844af8cbb4a9161016500"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+  - ai-governance
+status: stub
+confidence: low

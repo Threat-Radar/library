@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: skill-vetter
+body: vendor
+type: web
+title: "Skill Vetter"
+authors: []
+date: ""
+identifiers:
+  url: "https://clawhub.ai/spclaudehome/skills/skill-vetter"
+content:
+  url: "https://clawhub.ai/spclaudehome/skills/skill-vetter"
+  sha256: "aa17f849ae07c1f4d61f4ba6063c826c4f86c6d127343d96d9337af6ccfc3e20"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low

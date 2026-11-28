@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: weaponizing-ai-assistants-with-their-permission
+body: community
+type: web
+title: "Weaponizing AI Assistants: With Their Permission"
+authors: []
+date: ""
+identifiers:
+  url: "https://www.cryptologie.net/posts/weaponizing-ai-assistants-with-their-permission/"
+content:
+  url: "https://www.cryptologie.net/posts/weaponizing-ai-assistants-with-their-permission/"
+  sha256: "e6912cb9e2e01d0c28508da527027f89279a8acb6dcded349595d600cc589f4f"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

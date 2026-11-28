@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: llm-guard-the-security-toolkit-for-llm-interactions
+body: community
+type: repo
+title: "LLM Guard: The Security Toolkit for LLM Interactions"
+authors: []
+date: ""
+identifiers:
+  git: "https://github.com/protectai/llm-guard"
+content:
+  url: "https://github.com/protectai/llm-guard"
+  sha256: "d60ee0f2b928d28a500eb72b1216fd4c44e113f9437c9de4946dab920532847d"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

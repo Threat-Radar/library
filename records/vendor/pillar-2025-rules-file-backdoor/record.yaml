@@ -16,6 +16,9 @@ content:
   retrieved: "2026-10-13"
   local: false
   media_type: text/html
+# In-scope citations checked in the #78 WAVE 1 reference pass; see docs/agentic-mcp-wave1.md.
+cites:
+  - ascii-smuggler-unicode-tags
 relations:
   supersedes: []
   superseded_by: []
@@ -35,7 +38,6 @@ usefulness:
   assessed: "2026-10-13"
 topic: ai-threat-model-agentic-mcp
 tags:
-  - vendor
   - evidence
   - prompt-injection
   - ai-supply-chain

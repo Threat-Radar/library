@@ -1,0 +1,25 @@
+schema: "library-record/v1"
+id: skill-scanner-security-scanner-for-agent-skills
+body: community
+type: repo
+title: "Skill Scanner: Security Scanner for Agent Skills"
+authors: []
+date: ""
+identifiers:
+  git: "https://github.com/cisco-ai-defense/skill-scanner"
+content:
+  url: "https://github.com/cisco-ai-defense/skill-scanner"
+  sha256: "b765f6d092841a923c8d7588b3b13ac1f8ec95a6f96421f14eae51542a068eb2"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low

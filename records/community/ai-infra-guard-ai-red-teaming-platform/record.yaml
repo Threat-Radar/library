@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: ai-infra-guard-ai-red-teaming-platform
+body: community
+type: repo
+title: "AI-Infra-Guard: AI Red Teaming Platform"
+authors: []
+date: ""
+identifiers:
+  git: "https://github.com/Tencent/AI-Infra-Guard"
+content:
+  url: "https://github.com/Tencent/AI-Infra-Guard"
+  sha256: "8bcdb607a071f4ebbb03126f159288916484f939183d7bf03494a63d42f9daa2"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

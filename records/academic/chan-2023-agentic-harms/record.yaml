@@ -1,0 +1,49 @@
+schema: "library-record/v1"
+id: chan-2023-agentic-harms
+body: academic
+type: paper
+title: "Harms from Increasingly Agentic Algorithmic Systems"
+authors:
+  - "Chan, Alan"
+  - "Salganik, Rebecca"
+  - "Markelius, Alva"
+  - "Pang, Chris"
+  - "Rajkumar, Nitarshan"
+  - "Krasheninnikov, Dmitrii"
+  - "Langosco, Lauro"
+  - "He, Zhonghao"
+  - "Duan, Yawen"
+  - "Carroll, Micah"
+  - "Lin, Michelle"
+  - "Mayhew, Alex"
+  - "Collins, Katherine"
+  - "Molamohammadi, Maryam"
+  - "Burden, John"
+  - "Zhao, Wanru"
+  - "Rismani, Shalaleh"
+  - "Voudouris, Konstantinos"
+  - "Bhatt, Umang"
+  - "Weller, Adrian"
+  - "Krueger, David"
+  - "Maharaj, Tegan"
+date: "2023-02-20"
+identifiers:
+  url: "https://arxiv.org/abs/2302.10329"
+  arxiv: "2302.10329"
+  doi: "10.1145/3593013.3594033"
+content:
+  url: "https://arxiv.org/abs/2302.10329"
+  sha256: "a8ca92ff1fea05170a7a3ec7349358fc653516edb9eb4b1ec293b0fcad1c3740"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-governance
+status: stub
+confidence: low

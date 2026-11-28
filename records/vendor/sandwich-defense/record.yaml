@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: sandwich-defense
+body: vendor
+type: web
+title: "Sandwich Defense"
+authors: []
+date: ""
+identifiers:
+  url: "https://learnprompting.org/docs/prompt_hacking/defensive_measures/sandwich_defense"
+content:
+  url: "https://learnprompting.org/docs/prompt_hacking/defensive_measures/sandwich_defense"
+  sha256: "7442ee0c02ab75ca86e3f1dafa68c9bd8cead57dfc6786c5e57f36b4d626e913"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

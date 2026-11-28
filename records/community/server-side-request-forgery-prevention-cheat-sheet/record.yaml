@@ -1,0 +1,24 @@
+schema: "library-record/v1"
+id: server-side-request-forgery-prevention-cheat-sheet
+body: community
+type: web
+title: "Server Side Request Forgery Prevention Cheat Sheet"
+authors: []
+date: ""
+identifiers:
+  url: "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html"
+content:
+  url: "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html"
+  sha256: "8a3a92045c52e648dcdde88b15fbbbf85d950200ac5b35433e6f310145940ed5"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+status: stub
+confidence: low

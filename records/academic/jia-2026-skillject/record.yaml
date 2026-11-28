@@ -1,0 +1,35 @@
+schema: "library-record/v1"
+id: jia-2026-skillject
+body: academic
+type: paper
+title: "SkillJect: Effectively Automating Skill-Based Prompt Injection for Skill-Enabled Agents"
+authors:
+  - "Jia, Xiaojun"
+  - "Liao, Jie"
+  - "Qin, Simeng"
+  - "Gu, Jindong"
+  - "Ren, Wenqi"
+  - "Cao, Xiaochun"
+  - "Liu, Yang"
+  - "Torr, Philip"
+date: "2026-02-15"
+identifiers:
+  url: "https://arxiv.org/abs/2602.14211"
+  arxiv: "2602.14211"
+content:
+  url: "https://arxiv.org/abs/2602.14211"
+  sha256: "d85d15a9cf259f55423817fa746f2882b0f7f35b2609d142b23647bfa5ac673f"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - prompt-injection
+  - ai-supply-chain
+status: stub
+confidence: low

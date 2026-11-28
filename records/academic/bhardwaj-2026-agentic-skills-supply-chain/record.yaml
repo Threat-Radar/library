@@ -1,0 +1,28 @@
+schema: "library-record/v1"
+id: bhardwaj-2026-agentic-skills-supply-chain
+body: academic
+type: paper
+title: "Formal Analysis and Supply Chain Security for Agentic AI Skills"
+authors:
+  - "Bhardwaj, Varun Pratap"
+date: "2026-02-27"
+identifiers:
+  url: "https://arxiv.org/abs/2603.00195"
+  arxiv: "2603.00195"
+  doi: "10.5281/zenodo.18787662"
+content:
+  url: "https://arxiv.org/abs/2603.00195"
+  sha256: "7562419a74a5ff34d005a69728d9532c62565af6d5cfbfeb29850d7256fc9506"
+  retrieved: "2026-11-25"
+  local: false
+  media_type: "text/html"
+relations:
+  cited_by: []
+bears_on: []
+topic: ai-threat-model-agentic-mcp
+tags:
+  - prior-art
+  - agent-security
+  - ai-supply-chain
+status: stub
+confidence: low
